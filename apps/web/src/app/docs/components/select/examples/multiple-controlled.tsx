@@ -7,7 +7,7 @@ export const SelectMultipleControlled = () => {
   const [value, setValue] = useState<string[]>(["option1", "option2"]);
   return (
     <Select
-      className="max-w-md"
+      className="max-w-md w-full"
       isMultiple
       value={value}
       onValueChange={setValue}

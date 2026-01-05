@@ -2,7 +2,7 @@ import { Label, Select } from "@jamsrui/react";
 
 export const SelectMultiple = () => {
   return (
-    <Select className="max-w-md" placeholder="Select Label" isMultiple>
+    <Select className="max-w-md w-full" placeholder="Select Label" isMultiple>
       <Label>Fruit</Label>
       <Select.Trigger />
       <Select.Popover>

@@ -23,5 +23,6 @@ export const Select = (props: Select.Props) => {
 };
 
 export namespace Select {
+  export type Value = any;
   export interface Props extends useSelect.Props {}
 }

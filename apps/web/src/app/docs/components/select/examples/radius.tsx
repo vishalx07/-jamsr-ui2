@@ -15,7 +15,7 @@ export const SelectRadius = () => {
   return (
     <div className="flex flex-col gap-4 w-full items-center">
       {radii.map((radius) => (
-        <Select className="max-w-xs" radius={radius} key={radius}>
+        <Select className="max-w-xs w-full" radius={radius} key={radius}>
           <Label>Select Label</Label>
           <Select.Trigger />
           <Select.Popover>

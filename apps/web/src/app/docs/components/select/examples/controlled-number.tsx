@@ -1,31 +1,41 @@
 "use client";
 
 import { Label, Select } from "@jamsrui/react";
+import { useState } from "react";
 
-export const SelectCustomRenderValue = () => {
+enum Fruits {
+  APPLE = 1,
+  BLUEBERRY = 2,
+  WATERMELON = 3,
+  BANANA = 4,
+  ORANGE = 5,
+}
+
+export const SelectControlledNumber = () => {
+  const [value, setValue] = useState<Fruits>();
   return (
-    <Select className="max-w-xs w-full" placeholder="Choose Fruit">
+    <Select className="max-w-xs w-full" value={value} onValueChange={setValue}>
       <Label>Fruit</Label>
       <Select.Trigger />
       <Select.Popover>
         <Select.Content>
-          <Select.Item value="apple" textValue="Apple">
+          <Select.Item value={Fruits.APPLE} textValue="Apple">
             Apple
             <Select.ItemIndicator />
           </Select.Item>
-          <Select.Item value="blueberry" textValue="Blueberry">
+          <Select.Item value={Fruits.BLUEBERRY} textValue="Blueberry">
             Blueberry
             <Select.ItemIndicator />
           </Select.Item>
-          <Select.Item value="watermelon" textValue="Watermelon">
+          <Select.Item value={Fruits.WATERMELON} textValue="Watermelon">
             Watermelon
             <Select.ItemIndicator />
           </Select.Item>
-          <Select.Item value="banana" textValue="Banana">
+          <Select.Item value={Fruits.BANANA} textValue="Banana">
             Banana
             <Select.ItemIndicator />
           </Select.Item>
-          <Select.Item value="orange" textValue="Orange">
+          <Select.Item value={Fruits.ORANGE} textValue="Orange">
             Orange
             <Select.ItemIndicator />
           </Select.Item>

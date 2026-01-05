@@ -2,7 +2,7 @@ import { Label, Select } from "@jamsrui/react";
 
 export const SelectDisabledItems = () => {
   return (
-    <Select className="max-w-xs" placeholder="Select Label">
+    <Select className="max-w-xs w-full" placeholder="Select Label">
       <Label>Fruit</Label>
       <Select.Trigger />
       <Select.Popover>

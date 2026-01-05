@@ -4,9 +4,9 @@ import { Label, Select } from "@jamsrui/react";
 import { useState } from "react";
 
 export const SelectControlled = () => {
-  const [value, setValue] = useState<string[]>(["apple"]);
+  const [value, setValue] = useState<string>("apple");
   return (
-    <Select className="max-w-xs" value={value} onValueChange={setValue}>
+    <Select className="max-w-xs w-full" value={value} onValueChange={setValue}>
       <Label>Fruit</Label>
       <Select.Trigger />
       <Select.Popover>

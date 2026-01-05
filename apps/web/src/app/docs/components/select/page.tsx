@@ -16,6 +16,7 @@ import { SelectUsage } from "./examples/usage";
 import { SelectWithDescription } from "./examples/with-description";
 import { SelectWithErrorMessage } from "./examples/with-error-message";
 import { SelectWithIcons } from "./examples/with-icons";
+import { SelectControlledNumber } from "./examples/controlled-number";
 
 const title = "Select";
 const description =
@@ -42,6 +43,13 @@ const Select = () => {
         url={resolvePath("controlled.tsx")}
       >
         <SelectControlled />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Controlled Number"
+        url={resolvePath("controlled-number.tsx")}
+      >
+        <SelectControlledNumber />
       </CodeExample>
       <CodeExample
         isCentered
@@ -116,20 +124,6 @@ const Select = () => {
       >
         <SelectMultipleControlled />
       </CodeExample>
-      {/* <CodeExample
-        isCentered
-        title="Custom Render Complex"
-        url={resolvePath("custom-render-complex.tsx")}
-      >
-        <SelectCustomRenderComplex />
-      </CodeExample> */}
-      {/* <CodeExample
-        isCentered
-        title="Custom Render Multiple"
-        url={resolvePath("custom-render-multiple.tsx")}
-      >
-        <SelectCustomRenderMultiple />
-      </CodeExample> */}
     </DocsPage>
   );
 };

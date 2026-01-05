@@ -28,7 +28,9 @@ export const SelectItem = (props: SelectItem.Props) => {
   });
 
   const isActive = activeIndex === index;
-  const isSelected = selectValue.includes(value);
+  const isSelected = Array.isArray(selectValue)
+    ? selectValue.includes(value)
+    : value === selectValue;
 
   const handleClick = useCallback(() => {
     onSelectValue(value);
@@ -78,7 +80,7 @@ export const SelectItem = (props: SelectItem.Props) => {
 export namespace SelectItem {
   export interface Props extends UIProps<"div"> {
     textValue: string;
-    value: string;
+    value: string | number;
     disabled?: boolean;
   }
 }

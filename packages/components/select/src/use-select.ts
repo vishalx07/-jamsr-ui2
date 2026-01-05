@@ -41,6 +41,7 @@ import type {
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
+import type { Select } from "./select";
 import type { SelectContent } from "./select-content";
 import type { SelectIndicator } from "./select-indicator";
 import type { SelectItem } from "./select-item";
@@ -51,7 +52,7 @@ import type { SelectValue } from "./select-value";
 import type { SelectVariantProps } from "./styles";
 
 type SelectItemData = {
-  value: string;
+  value: string | number;
   textValue: string;
 };
 
@@ -95,7 +96,7 @@ export const useSelect = (props: useSelect.Props) => {
     prop: isOpenProp,
   });
 
-  const [value = [], setValue] = useControlledState({
+  const [value, setValue] = useControlledState({
     defaultProp: defaultValue,
     onChange: onValueChange,
     prop: propValue,
@@ -171,7 +172,7 @@ export const useSelect = (props: useSelect.Props) => {
   );
 
   const onSelectValue = useCallback(
-    (option: string) => {
+    (option: string | number) => {
       if (isMultiple) {
         const valueSet = new Set(value);
         if (valueSet.has(option)) {
@@ -181,12 +182,12 @@ export const useSelect = (props: useSelect.Props) => {
         }
         setValue(Array.from(valueSet));
       } else {
-        setValue([option]);
+        setValue(option);
       }
     },
     [isMultiple, setValue, value]
   );
-  const hasValue = value.length > 0;
+  const hasValue = Array.isArray(value) ? value.length > 0 : !!value;
 
   const getRootProps: PropGetter<useSelect.Props> = useCallback(
     () => ({
@@ -330,13 +331,17 @@ export const useSelect = (props: useSelect.Props) => {
 
   const selectedLabels = useMemo(() => {
     const items = selectItems
-      .filter((item) => item && value.includes(item.value))
+      .filter((item) =>
+        item && Array.isArray(value)
+          ? value.includes(item.value)
+          : value === item.value
+      )
       .map((item) => item?.textValue);
     return Array.from(new Set(items));
   }, [selectItems, value]);
 
   const getRenderValue = useMemo(() => {
-    if (!value.length) return placeholder;
+    if (Array.isArray(value) ? value.length === 0 : !value) return placeholder;
     if (renderValue) return renderValue(value);
     return selectedLabels.join(",");
   }, [placeholder, renderValue, selectedLabels, value]);
@@ -394,9 +399,9 @@ export namespace useSelect {
     placement?: Placement;
     placeholder?: string;
     disabled?: boolean;
-    value?: string[];
-    defaultValue?: string[];
-    onValueChange?: (value: string[]) => void;
+    value?: Select.Value;
+    defaultValue?: Select.Value;
+    onValueChange?: (value: Select.Value) => void;
     isOpen?: boolean;
     defaultOpen?: boolean;
     onOpenChange?: (value: boolean) => void;

@@ -2,7 +2,7 @@ import { FieldError, Label, Select } from "@jamsrui/react";
 
 export const SelectWithErrorMessage = () => {
   return (
-    <Select className="max-w-xs" isInvalid>
+    <Select className="max-w-xs w-full" isInvalid>
       <Label>Fruit</Label>
       <Select.Trigger />
       <Select.Popover>

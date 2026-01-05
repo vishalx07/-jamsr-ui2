@@ -27,6 +27,7 @@ type FormValues = {
   gender: "male" | "female";
   otp: string;
   country: string;
+  hobbies: string[];
 };
 
 const schema = object({
@@ -42,6 +43,7 @@ const schema = object({
   gender: z.enum(["male", "female"]),
   otp: string().length(6, "OTP is required"),
   country: string().min(1, "Country is required"),
+  hobbies: z.array(z.string()).min(1, "Hobbies are required"),
 });
 
 const Page = () => {
@@ -54,6 +56,7 @@ const Page = () => {
     gender: "" as FormValues["gender"],
     otp: "",
     country: "",
+    hobbies: [],
   };
   const form = useForm<FormValues>({
     defaultValues,
@@ -172,8 +175,32 @@ const Page = () => {
                   </Select.Item>
                 </Select.Content>
               </Select.Popover>
+              <RHFField.FieldError />
             </RHFField.Select>
-            <RHFField.FieldError />
+          </RHFField>
+          {/* Hobbies */}
+          <RHFField<FormValues> name="hobbies">
+            <RHFField.Select isMultiple>
+              <Label>Hobbies</Label>
+              <Select.Trigger />
+              <Select.Popover>
+                <Select.Content>
+                  <Select.Item value="sports" textValue="Sports">
+                    Sports
+                    <Select.ItemIndicator />
+                  </Select.Item>
+                  <Select.Item value="music" textValue="Music">
+                    Music
+                    <Select.ItemIndicator />
+                  </Select.Item>
+                  <Select.Item value="movies" textValue="Movies">
+                    Movies
+                    <Select.ItemIndicator />
+                  </Select.Item>
+                </Select.Content>
+              </Select.Popover>
+              <RHFField.FieldError />
+            </RHFField.Select>
           </RHFField>
           <Button type="submit" color="primary">
             Submit
