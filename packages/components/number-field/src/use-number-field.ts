@@ -2,10 +2,11 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { useControlledState } from "@jamsrui/hooks";
 import { dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import { NumberParser } from "./parser";
-import { NumberFieldVariants, numberFieldVariants } from "./styles";
+import { numberFieldVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -14,6 +15,7 @@ import type { NumberFieldDecrement } from "./number-field-decrement";
 import type { NumberFieldGroup } from "./number-field-group";
 import type { NumberFieldIncrement } from "./number-field-increment";
 import type { NumberFieldInput } from "./number-field-input";
+import type { NumberFieldVariants } from "./styles";
 
 export const useNumberField = (props: useNumberField.Props) => {
   const {
@@ -28,7 +30,13 @@ export const useNumberField = (props: useNumberField.Props) => {
     defaultValue,
     ...restProps
   } = props;
-  const [value, setValue] = useState<string>("");
+  const [inputValue, setInputValue] = useControlledState({
+    onChange: onValueChange,
+    defaultProp: defaultValue,
+    prop: valueProp,
+  });
+  const [value, setValue] = useState("");
+
   const styles = numberFieldVariants();
   const inputRef = useRef<HTMLInputElement>(null);
   const parser = useMemo(
@@ -40,19 +48,32 @@ export const useNumberField = (props: useNumberField.Props) => {
     [locale, formatOptions]
   );
 
+  const handleValueChange = useCallback(
+    (value: string) => {
+      setValue(value);
+      const parsedValue = parser.parse(value);
+      if (!isNaN(parsedValue)) {
+        setInputValue(parsedValue);
+      } else {
+        setInputValue(0);
+      }
+    },
+    [parser, setInputValue]
+  );
+
   const handleInputOnChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const value = event.target.value;
       if (value) {
         const parsedValue = parser.parse(value);
         if (!isNaN(parsedValue)) {
-          setValue(value);
+          handleValueChange(value);
         }
       } else {
-        setValue("");
+        handleValueChange("");
       }
     },
-    [parser]
+    [parser, handleValueChange]
   );
 
   const handleInputOnBlur = useCallback(
@@ -60,29 +81,29 @@ export const useNumberField = (props: useNumberField.Props) => {
       const value = event.target.value;
       const parsedValue = parser.parse(value);
       if (!isNaN(parsedValue)) {
-        setValue(formatter.format(parsedValue));
+        handleValueChange(formatter.format(parsedValue));
       }
     },
-    [formatter, parser]
+    [formatter, handleValueChange, parser]
   );
 
   const handleIncrement = useCallback(() => {
     const parsedValue = parser.parse(value);
     if (isNaN(parsedValue)) {
-      setValue(formatter.format(1));
+      handleValueChange(formatter.format(1));
     } else {
-      setValue(formatter.format(parsedValue + 1));
+      handleValueChange(formatter.format(parsedValue + 1));
     }
-  }, [formatter, parser, value]);
+  }, [formatter, handleValueChange, parser, value]);
 
   const handleDecrement = useCallback(() => {
     const parsedValue = parser.parse(value);
     if (isNaN(parsedValue)) {
-      setValue(formatter.format(-1));
+      handleValueChange(formatter.format(-1));
     } else {
-      setValue(formatter.format(parsedValue - 1));
+      handleValueChange(formatter.format(parsedValue - 1));
     }
-  }, [formatter, parser, value]);
+  }, [formatter, handleValueChange, parser, value]);
 
   const handleInputKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -133,7 +154,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         className: props.className,
       }),
     }),
-    [restProps, styles]
+    [props.className, restProps, styles]
   );
 
   const getInputProps: PropGetter<NumberFieldInput.Props> = useCallback(

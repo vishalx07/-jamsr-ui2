@@ -2,9 +2,10 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { NumberFieldControlled } from "./examples/controlled";
 import { NumberFieldWithFormatting } from "./examples/test-usage";
-import { NumberFieldUsage } from "./examples/usage";
 import { WithFormatOptions } from "./examples/test2-usage";
+import { NumberFieldUsage } from "./examples/usage";
 
 const title = "NumberField";
 const description =
@@ -21,6 +22,9 @@ const NumberInput = () => {
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <NumberFieldUsage />
+      </CodeExample>
+      <CodeExample title="Controlled" url={resolvePath("controlled.tsx")}>
+        <NumberFieldControlled />
       </CodeExample>
       <CodeExample
         title="With Format Options"
