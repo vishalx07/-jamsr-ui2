@@ -1,5 +1,17 @@
 # @jamsrui/rhf
 
+## 0.0.6
+
+### Patch Changes
+
+- fix: label, rhf, alert,select, radio
+- Updated dependencies
+  - @jamsrui/number-field@0.0.20
+  - @jamsrui/radio@0.0.21
+  - @jamsrui/select@0.0.20
+  - @jamsrui/input@0.0.21
+  - @jamsrui/textarea@0.0.21
+
 ## 0.0.5
 
 ### Patch Changes

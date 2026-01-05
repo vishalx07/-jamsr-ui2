@@ -1,5 +1,12 @@
 # @jamsrui/input
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/label@0.0.12
+
 ## 0.0.7
 
 ### Patch Changes

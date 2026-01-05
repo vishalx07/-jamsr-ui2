@@ -1,5 +1,25 @@
 # @jamsrui/react
 
+## 0.0.31
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/alert@0.0.19
+  - @jamsrui/collapsible@0.0.19
+  - @jamsrui/label@0.0.12
+  - @jamsrui/number-field@0.0.20
+  - @jamsrui/radio@0.0.21
+  - @jamsrui/rhf@0.0.6
+  - @jamsrui/select@0.0.20
+  - @jamsrui/data-grid@0.0.25
+  - @jamsrui/input-group@0.0.8
+  - @jamsrui/input@0.0.21
+  - @jamsrui/textarea@0.0.21
+  - @jamsrui/autocomplete@0.0.21
+  - @jamsrui/date-field@0.0.21
+  - @jamsrui/time-field@0.0.21
+
 ## 0.0.30
 
 ### Patch Changes

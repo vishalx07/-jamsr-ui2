@@ -1,5 +1,14 @@
 # @jamsrui/data-grid
 
+## 0.0.25
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/label@0.0.12
+  - @jamsrui/select@0.0.20
+  - @jamsrui/input@0.0.21
+
 ## 0.0.24
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @jamsrui/textarea
 
+## 0.0.21
+
+### Patch Changes
+
+- @jamsrui/input-group@0.0.8
+
 ## 0.0.20
 
 ### Patch Changes

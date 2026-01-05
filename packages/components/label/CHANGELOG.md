@@ -1,5 +1,11 @@
 # @jamsrui/label
 
+## 0.0.12
+
+### Patch Changes
+
+- fix: label, rhf, alert,select, radio
+
 ## 0.0.11
 
 ### Patch Changes
