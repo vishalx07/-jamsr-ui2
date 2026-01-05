@@ -1,6 +1,7 @@
 "use client";
 
 import { cloneElement } from "react";
+
 import { useCollapsibleContext } from "./collapsible-context";
 
 export const CollapsibleTrigger = (props: CollapsibleTrigger.Props) => {

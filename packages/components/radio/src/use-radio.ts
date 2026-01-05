@@ -2,6 +2,7 @@
 
 import { useCallback } from "react";
 
+import { useFieldA11yContext } from "@jamsrui/context";
 import { useFocusVisible, useMergeRefs, usePress } from "@jamsrui/hooks";
 import {
   dataAttr,
@@ -15,7 +16,6 @@ import { radioVariant } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import { useFieldA11yContext } from "@jamsrui/context";
 import type { RadioContent } from "./radio-content";
 import type { RadioControl } from "./radio-control";
 import type { RadioIndicator } from "./radio-indicator";
@@ -29,19 +29,23 @@ export const useRadio = (props: useRadio.Props) => {
     radioVariant.variantKeys
   );
 
-  const styles = radioVariant(variantProps);
   const {
     name: inputName,
     handleInputChange,
     value,
     isDisabled: isGroupDisabled,
+    color,
+    size,
+    inputProps: groupInputProps,
   } = useRadioGroupContext();
+  const styles = radioVariant({ size, color, ...variantProps });
   const fieldA11yCtx = useFieldA11yContext();
 
   const {
     disabled: isDisabled = isGroupDisabled,
     readonly: isReadonly = false,
-    children: description,
+    value: $value,
+    inputProps,
     ...elementProps
   } = $props;
 
@@ -50,11 +54,11 @@ export const useRadio = (props: useRadio.Props) => {
   });
   const { isPressed, ref: pressRef } = usePress({ isDisabled });
   const inputRefs = useMergeRefs([focusVisibleRef, pressRef]);
-  const isChecked = value === props.value;
+  const isChecked = value === $value;
 
-  const getRootProps: PropGetter<RadioRoot.Props> = useCallback(
-    (props) => ({
-      ...props,
+  const getRootProps = useCallback(
+    (): RadioRoot.Props => ({
+      ...elementProps,
       className: styles.root({
         className: props.className,
       }),
@@ -65,14 +69,15 @@ export const useRadio = (props: useRadio.Props) => {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
     }),
-    [isChecked, isDisabled, isFocusVisible, isPressed, styles]
+    [elementProps, isChecked, isDisabled, isFocusVisible, isPressed, styles]
   );
   const getInputProps: PropGetter<RadioInput.Props> = useCallback(
     (props) => ({
       ...fieldA11yCtx?.getInputProps(),
-      ...mergeProps(elementProps, props, {
-        onChange: handleInputChange,
+      ...mergeProps(groupInputProps, inputProps, props, {
+        onChange: (e) => handleInputChange(e, $value),
       }),
+      value: $value,
       "data-slot": dataAttrDev("input"),
       type: "radio",
       ref: inputRefs,
@@ -84,13 +89,16 @@ export const useRadio = (props: useRadio.Props) => {
       name: inputName,
     }),
     [
-      elementProps,
-      handleInputChange,
+      fieldA11yCtx,
+      groupInputProps,
+      inputProps,
+      $value,
       inputRefs,
+      styles,
       isDisabled,
       isReadonly,
-      styles,
       inputName,
+      handleInputChange,
     ]
   );
   const getControlProps: PropGetter<RadioControl.Props> = useCallback(
@@ -127,7 +135,6 @@ export const useRadio = (props: useRadio.Props) => {
 
   return {
     isChecked,
-    description,
     getRootProps,
     getInputProps,
     getControlProps,
@@ -137,8 +144,10 @@ export const useRadio = (props: useRadio.Props) => {
 };
 
 export namespace useRadio {
-  export interface Props extends RadioVariantProps, UIProps<"input"> {
+  export interface Props extends RadioVariantProps, UIProps<"div"> {
     disabled?: boolean;
     readonly?: boolean;
+    value: string | number;
+    inputProps?: RadioInput.Props;
   }
 }

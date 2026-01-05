@@ -84,7 +84,7 @@ export const radioVariant = tv({
     },
   },
   defaultVariants: {
-    color: "default",
+    color: "primary",
     size: "md",
   },
 });

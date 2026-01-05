@@ -33,7 +33,7 @@ export const useAlert = (props: useAlert.Props) => {
       ...rootProps,
       ...props,
       className: styles.root({
-        className: cn(props.className),
+        className: cn(rootProps.className, props.className),
       }),
     }),
     [rootProps, styles]

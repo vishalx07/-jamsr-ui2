@@ -1,6 +1,7 @@
 "use client";
 
 import { FieldA11yContext, useFieldA11y } from "@jamsrui/context";
+
 import { RadioContext } from "./radio-context";
 import { RadioRoot } from "./radio-root";
 import { useRadio } from "./use-radio";
@@ -9,7 +10,7 @@ const RadioInner = (props: Radio.Props) => {
   const ctx = useRadio(props);
   return (
     <RadioContext value={ctx}>
-      <RadioRoot {...props} />
+      <RadioRoot />
     </RadioContext>
   );
 };
@@ -24,5 +25,6 @@ export const Radio = (props: Radio.Props) => {
 };
 
 export namespace Radio {
+  export type Value = any;
   export interface Props extends useRadio.Props {}
 }

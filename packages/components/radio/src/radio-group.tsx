@@ -8,7 +8,7 @@ export const RadioGroup = (props: RadioGroup.Props) => {
   const ctx = useRadioGroup(props);
   return (
     <RadioGroupContext value={ctx}>
-      <RadioGroupRoot {...props} />
+      <RadioGroupRoot />
     </RadioGroupContext>
   );
 };

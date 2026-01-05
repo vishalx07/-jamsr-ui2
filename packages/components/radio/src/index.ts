@@ -6,9 +6,11 @@ import { RadioGroup as RadioGroupRoot } from "./radio-group";
 import { RadioGroupConfig, useRadioGroupConfig } from "./radio-group-config";
 import { RadioGroupContext, useRadioGroupContext } from "./radio-group-context";
 import { RadioIndicator } from "./radio-indicator";
-import { RadioSlots, RadioVariants, radioVariant } from "./styles";
+import { radioVariant } from "./styles";
 import { useRadio } from "./use-radio";
 import { useRadioGroup } from "./use-radio-group";
+
+import type { RadioSlots, RadioVariants } from "./styles";
 
 export {
   RadioContent,

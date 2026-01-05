@@ -1,8 +1,10 @@
 "use client";
 
-import { AnimatePresence, HTMLMotionProps, motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 import { useCollapsibleContext } from "./collapsible-context";
+
+import type { HTMLMotionProps } from "motion/react";
 
 export const CollapsibleContent = (props: CollapsibleContent.Props) => {
   const { children, ...restProps } = props;

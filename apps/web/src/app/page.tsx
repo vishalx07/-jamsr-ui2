@@ -1,16 +1,9 @@
-import { Button, ButtonConfig } from "@jamsrui/react";
 import Link from "next/link";
-import { CustomLoading } from "./page-custom";
 
 const Page = () => {
   return (
-    <div className="">
+    <div className="flex justify-center items-center h-svh">
       <Link href="/docs/components/accordion">Go to docs</Link>
-      <ButtonConfig slots={{ loading: CustomLoading }}>
-        <Button color="primary" isLoading>
-          <Button.Loading>Saving...</Button.Loading>
-        </Button>
-      </ButtonConfig>
     </div>
   );
 };

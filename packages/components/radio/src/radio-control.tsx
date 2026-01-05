@@ -3,10 +3,10 @@
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useRadioContext } from "./radio-context";
-
-import type { UIProps } from "@jamsrui/utils";
 import { RadioIndicator } from "./radio-indicator";
 import { RadioInput } from "./radio-input";
+
+import type { UIProps } from "@jamsrui/utils";
 
 export const RadioControl = (props: RadioControl.Props) => {
   const { children = <RadioIndicator />, ...restProps } = props;

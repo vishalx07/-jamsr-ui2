@@ -6,10 +6,10 @@ import { useRadioContext } from "./radio-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const RadioRoot = (props: RadioRoot.Props) => {
+export const RadioRoot = () => {
   const { getRootProps } = useRadioContext();
   const renderElement = useRenderElement("div", {
-    props: [getRootProps(props)],
+    props: [getRootProps()],
   });
   return renderElement;
 };
