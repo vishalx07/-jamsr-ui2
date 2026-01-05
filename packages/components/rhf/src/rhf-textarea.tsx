@@ -1,6 +1,7 @@
 "use client";
 import { Textarea } from "@jamsrui/textarea";
 
+import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
 
 export const RHFTextarea = (props: RHFTextarea.Props) => {
@@ -10,7 +11,7 @@ export const RHFTextarea = (props: RHFTextarea.Props) => {
   return (
     <Textarea
       ref={ref}
-      data-invalid={invalid}
+      data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}

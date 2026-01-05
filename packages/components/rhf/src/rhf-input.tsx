@@ -1,6 +1,7 @@
 "use client";
 import { Input } from "@jamsrui/input";
 
+import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
 
 export const RHFInput = (props: RHFInput.Props) => {
@@ -10,7 +11,7 @@ export const RHFInput = (props: RHFInput.Props) => {
   return (
     <Input
       ref={ref}
-      data-invalid={invalid}
+      data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}

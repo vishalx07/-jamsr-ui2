@@ -1,6 +1,7 @@
 "use client";
 import { Select } from "@jamsrui/select";
 
+import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
 
 export const RHFSelect = (props: RHFSelect.Props) => {
@@ -10,7 +11,7 @@ export const RHFSelect = (props: RHFSelect.Props) => {
   return (
     <Select
       ref={ref}
-      data-invalid={invalid}
+      data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}

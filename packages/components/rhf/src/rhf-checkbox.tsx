@@ -1,6 +1,7 @@
 "use client";
 import { Checkbox } from "@jamsrui/checkbox";
 
+import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
 
 export const RHFCheckbox = (props: RHFCheckbox.Props) => {
@@ -11,7 +12,7 @@ export const RHFCheckbox = (props: RHFCheckbox.Props) => {
     <Checkbox
       ref={ref}
       checked={value}
-      data-invalid={invalid}
+      data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}

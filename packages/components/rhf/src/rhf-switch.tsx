@@ -1,6 +1,7 @@
 "use client";
 import { Switch } from "@jamsrui/switch";
 
+import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
 
 export const RHFSwitch = (props: RHFSwitch.Props) => {
@@ -11,7 +12,7 @@ export const RHFSwitch = (props: RHFSwitch.Props) => {
     <Switch
       ref={ref}
       checked={value}
-      data-invalid={invalid}
+      data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}

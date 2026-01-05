@@ -1,6 +1,7 @@
 "use client";
 import { NumberField } from "@jamsrui/number-field";
 
+import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
 
 export const RHFNumberField = (props: RHFNumberField.Props) => {
@@ -10,7 +11,7 @@ export const RHFNumberField = (props: RHFNumberField.Props) => {
   return (
     <NumberField
       ref={ref}
-      data-invalid={invalid}
+      data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}
