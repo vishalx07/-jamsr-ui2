@@ -1,5 +1,11 @@
 # storybook-2
 
+## 0.0.31
+
+### Patch Changes
+
+- @jamsrui/react@0.0.32
+
 ## 0.0.30
 
 ### Patch Changes

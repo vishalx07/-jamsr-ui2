@@ -8,15 +8,15 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@jamsrui/icons";
+import { Label } from "@jamsrui/label";
 import { Select } from "@jamsrui/select";
 
-import { Label } from "@jamsrui/label";
 import { useDataGridContext } from "./data-grid-context";
 
 export const DataGridPagination = () => {
   const take = 10;
   const { table, isEmpty } = useDataGridContext();
-  const [value, setValue] = useState<string[]>([take.toString()]);
+  const [value, setValue] = useState<number>(take);
 
   const onNext = () => {
     table.nextPage();
@@ -36,9 +36,10 @@ export const DataGridPagination = () => {
     ? table.getState().pagination.pageIndex + 1
     : 0;
 
-  const onValueChange = (value: string[]) => {
-    table.setPageSize(Number(Array.from(value)[0] ?? [10]));
-    setValue(value);
+  const onValueChange = (value: string) => {
+    const valueAsNumber = Number(value);
+    table.setPageSize(valueAsNumber);
+    setValue(valueAsNumber);
   };
   if (isEmpty) return null;
 
@@ -48,11 +49,11 @@ export const DataGridPagination = () => {
       data-slot="pagination"
     >
       <Select
+        className="flex flex-row items-center gap-2"
         onValueChange={onValueChange}
         returnFocus={false}
         size="sm"
         value={value}
-        className="flex flex-row items-center gap-2"
       >
         <Label>Rows Per Page:</Label>
         <Select.Trigger />
@@ -61,8 +62,8 @@ export const DataGridPagination = () => {
             {[10, 20, 50, 100, 500].map((pageSize) => (
               <Select.Item
                 key={pageSize.toString()}
-                value={pageSize.toString()}
                 textValue={pageSize.toString()}
+                value={pageSize}
               >
                 {pageSize.toString()}
               </Select.Item>

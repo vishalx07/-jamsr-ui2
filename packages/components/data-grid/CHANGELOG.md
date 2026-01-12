@@ -1,5 +1,11 @@
 # @jamsrui/data-grid
 
+## 0.0.26
+
+### Patch Changes
+
+- fix: data grid
+
 ## 0.0.25
 
 ### Patch Changes

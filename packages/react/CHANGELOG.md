@@ -1,5 +1,12 @@
 # @jamsrui/react
 
+## 0.0.32
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/data-grid@0.0.26
+
 ## 0.0.31
 
 ### Patch Changes

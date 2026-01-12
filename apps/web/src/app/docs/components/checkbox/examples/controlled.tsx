@@ -6,7 +6,7 @@ import { useState } from "react";
 export const CheckboxControlled = () => {
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <Checkbox isChecked={isChecked} onCheckedChange={setIsChecked}>
+    <Checkbox checked={isChecked} onCheckedChange={setIsChecked}>
       <Checkbox.Control />
       <Checkbox.Content>
         <Label>

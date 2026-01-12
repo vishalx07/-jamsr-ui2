@@ -1,5 +1,12 @@
 # web
 
+## 0.1.31
+
+### Patch Changes
+
+- fix: data grid
+  - @jamsrui/react@0.0.32
+
 ## 0.1.30
 
 ### Patch Changes
