@@ -1,6 +1,19 @@
-import { DataGrid } from "@jamsrui/react";
+"use client";
+
+import {
+  DataGrid,
+  DataGridPagination,
+  DataGridTable,
+  useDataGridTable,
+} from "@jamsrui/react";
 import { COLUMNS, USERS } from "./columns";
 
 export const DataGridStickyHeader = () => {
-  return <DataGrid columns={COLUMNS} data={USERS} isHeaderSticky />;
+  const table = useDataGridTable({ columns: COLUMNS, data: USERS });
+  return (
+    <DataGrid table={table}>
+      <DataGridTable isHeaderSticky />
+      <DataGridPagination />
+    </DataGrid>
+  );
 };

@@ -1,6 +1,20 @@
-import { DataGrid } from "@jamsrui/react";
+"use client";
+
+import { DataGrid, useDataGridTable } from "@jamsrui/react";
 import { COLUMNS, USERS } from "./columns";
 
 export const DataGridUsage = () => {
-  return <DataGrid columns={COLUMNS} data={USERS} />;
+  const table = useDataGridTable({
+    columns: COLUMNS,
+    data: USERS,
+  });
+  return (
+    <DataGrid table={table}>
+      <div className="flex justify-end mb-2">
+        <DataGrid.ColumnVisibility />
+      </div>
+      <DataGrid.Table />
+      <DataGrid.Pagination />
+    </DataGrid>
+  );
 };

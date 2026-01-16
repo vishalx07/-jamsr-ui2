@@ -1,5 +1,12 @@
 # @jamsrui/alert
 
+## 0.0.21
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/icons@0.0.16
+
 ## 0.0.20
 
 ### Patch Changes

@@ -1,46 +1,24 @@
 "use client";
-import { useRenderElement } from "@jamsrui/hooks";
-import { mergeConfigProps } from "@jamsrui/utils";
 
-import { DataGridBody } from "./data-grid-body";
-import { DataGridColumnVisibility } from "./data-grid-column-visibility";
-import { useDataGridConfig } from "./data-grid-config";
+import { RowData } from "@tanstack/react-table";
+import { ReactNode } from "react";
 import { DataGridContext } from "./data-grid-context";
-import { DataGridHeader } from "./data-grid-header";
-import { DataGridLoading } from "./data-grid-loading";
-import { DataGridPagination } from "./data-grid-pagination";
-import { DataGridTable } from "./data-grid-table";
 import { useDataGrid } from "./use-data-grid";
 
-export const DataGrid = (props: DataGrid.Props) => {
-  const config = useDataGridConfig();
-  const mergedProps = mergeConfigProps({} as DataGrid.Props, config, props);
-  const ctx = useDataGrid(mergedProps);
+declare module "@tanstack/react-table" {
+  interface ColumnMeta<TData extends RowData, TValue> {
+    headerTitle?: string;
+    headerClassName?: string;
+    cellClassName?: string;
+    expandedContent?: (row: TData) => ReactNode;
+  }
+}
 
-  const composedChildren = (
-    <>
-      <DataGridColumnVisibility />
-      {!!ctx.isLoading && <DataGridLoading />}
-      <DataGridTable>
-        <DataGridHeader />
-        <DataGridBody />
-      </DataGridTable>
-      <DataGridPagination />
-    </>
-  );
-  const renderElement = useRenderElement("div", {
-    props: [
-      {
-        "data-component": "data-grid",
-        "data-slot": "root",
-        className: "relative flex flex-col gap-2",
-      },
-      { children: composedChildren },
-    ],
-  });
-  return <DataGridContext value={ctx}>{renderElement}</DataGridContext>;
+export const DataGrid = (props: DataGrid.Props) => {
+  const ctx = useDataGrid(props);
+  return <DataGridContext value={ctx}>{props.children}</DataGridContext>;
 };
 
 export namespace DataGrid {
-  export interface Props extends useDataGrid.Props<any> {}
+  export interface Props extends useDataGrid.Props {}
 }

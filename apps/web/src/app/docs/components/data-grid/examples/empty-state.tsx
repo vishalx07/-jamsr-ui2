@@ -1,6 +1,15 @@
-import { DataGrid } from "@jamsrui/react";
+"use client";
+
+import { DataGrid, useDataGridTable } from "@jamsrui/react";
+import { useMemo } from "react";
 import { COLUMNS } from "./columns";
 
 export const DataGridEmptyState = () => {
-  return <DataGrid columns={COLUMNS} data={[]} />;
+  const emptyData = useMemo(() => [], []);
+  const table = useDataGridTable({ columns: COLUMNS, data: emptyData });
+  return (
+    <DataGrid table={table}>
+      <DataGrid.Table />
+    </DataGrid>
+  );
 };

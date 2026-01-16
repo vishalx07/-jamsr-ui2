@@ -1,5 +1,14 @@
 # web
 
+## 0.1.33
+
+### Patch Changes
+
+- fix: data-grid
+- Updated dependencies
+  - @jamsrui/icons@0.0.16
+  - @jamsrui/react@0.0.34
+
 ## 0.1.32
 
 ### Patch Changes

@@ -121,13 +121,13 @@ export const ChevronDoubleRightIcon = (
 export const ChevronDownIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
-    height={20}
+    width={16}
+    height={16}
     stroke="currentColor"
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth={2}
     viewBox="0 0 24 24"
-    width={20}
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
@@ -139,13 +139,13 @@ export const ChevronsUpDownIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       fill="none"
-      height={24}
+      height={16}
+      width={16}
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2}
       viewBox="0 0 24 24"
-      width={24}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -159,13 +159,13 @@ export const ArrowDownIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       fill="none"
-      height={20}
+      height={16}
+      width={16}
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2}
       viewBox="0 0 24 24"
-      width={20}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -179,13 +179,13 @@ export const ArrowUpIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       fill="none"
-      height={20}
+      height={16}
+      width={16}
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
       viewBox="0 0 24 24"
-      width={20}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -198,13 +198,13 @@ export const ArrowUpIcon = (props: React.SVGProps<SVGSVGElement>) => {
 export const ChevronLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
-    height={20}
+    height={16}
+    width={16}
     stroke="currentColor"
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth={2}
     viewBox="0 0 24 24"
-    width={20}
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
@@ -215,13 +215,13 @@ export const ChevronLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export const ChevronUpIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     fill="none"
-    height={20}
+    height={16}
+    width={16}
     stroke="currentColor"
     strokeLinecap="round"
     strokeLinejoin="round"
     strokeWidth={2}
     viewBox="0 0 24 24"
-    width={20}
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >

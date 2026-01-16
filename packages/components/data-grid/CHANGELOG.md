@@ -1,5 +1,16 @@
 # @jamsrui/data-grid
 
+## 0.0.28
+
+### Patch Changes
+
+- fix: data-grid
+- Updated dependencies
+  - @jamsrui/select@0.0.22
+  - @jamsrui/table@0.0.20
+  - @jamsrui/icons@0.0.16
+  - @jamsrui/menu@0.0.22
+
 ## 0.0.27
 
 ### Patch Changes

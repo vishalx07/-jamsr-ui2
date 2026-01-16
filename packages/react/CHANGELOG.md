@@ -1,5 +1,24 @@
 # @jamsrui/react
 
+## 0.0.34
+
+### Patch Changes
+
+- fix: data-grid
+- Updated dependencies
+  - @jamsrui/data-grid@0.0.28
+  - @jamsrui/select@0.0.22
+  - @jamsrui/table@0.0.20
+  - @jamsrui/icons@0.0.16
+  - @jamsrui/rhf@0.0.8
+  - @jamsrui/alert@0.0.21
+  - @jamsrui/avatar@0.0.20
+  - @jamsrui/chip@0.0.20
+  - @jamsrui/clipboard@0.0.20
+  - @jamsrui/dialog@0.0.20
+  - @jamsrui/drawer@0.0.20
+  - @jamsrui/menu@0.0.22
+
 ## 0.0.33
 
 ### Patch Changes

@@ -43,15 +43,15 @@ export const selectVariants = tv({
     size: {
       sm: {
         label: "text-xs",
-        trigger: "h-9 min-h-9 px-2.5",
+        trigger: "h-8.5 min-h-8.5 px-2.5",
         value: "text-sm",
       },
       md: {
-        trigger: "h-10 min-h-10",
+        trigger: "h-9.5 min-h-9.5 px-2.5",
         value: "text-sm",
       },
       lg: {
-        trigger: "h-12 min-h-12",
+        trigger: "h-10.5 min-h-10.5 px-2.5",
         value: "text-base",
         placeholder: "text-base",
       },

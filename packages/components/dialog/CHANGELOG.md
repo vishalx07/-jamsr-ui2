@@ -1,5 +1,12 @@
 # @jamsrui/dialog
 
+## 0.0.20
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/icons@0.0.16
+
 ## 0.0.19
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @jamsrui/rhf
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/select@0.0.22
+
 ## 0.0.7
 
 ### Patch Changes

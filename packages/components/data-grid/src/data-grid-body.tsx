@@ -9,10 +9,10 @@ import { getPinningStyles } from "./utils";
 import type { Row } from "@tanstack/react-table";
 
 export const DataGridBody = () => {
-  const { table, isEmpty: isEmtpy } = useDataGridContext();
+  const { table, isEmpty } = useDataGridContext();
   return (
     <TableBody>
-      {!!isEmtpy && <DataGridEmpty />}
+      {isEmpty && <DataGridEmpty />}
       {table.getRowModel().rows.map((row) => {
         return (
           <TableRow key={row.id}>

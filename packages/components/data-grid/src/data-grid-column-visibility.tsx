@@ -1,19 +1,14 @@
 "use client";
 import { Button } from "@jamsrui/button";
-import { useRenderElement } from "@jamsrui/hooks";
 import { Settings2Icon } from "@jamsrui/icons";
-import { AnimatedTickIcon } from "@jamsrui/icons/animated";
-import { Menu, MenuItem } from "@jamsrui/menu";
+import { Menu } from "@jamsrui/menu";
 
+import { AnimatedTickIcon } from "@jamsrui/icons/animated";
 import { useDataGridContext } from "./data-grid-context";
 
-import type { UIProps } from "@jamsrui/utils";
-
-export const DataGridColumnVisibility = (
-  props: DataGridColumnVisibility.Props
-) => {
+export const DataGridColumnVisibility = () => {
   const { table } = useDataGridContext();
-  const composedChildren = (
+  return (
     <Menu>
       <Menu.Trigger>
         <Button size="sm" variant="flat">
@@ -22,36 +17,33 @@ export const DataGridColumnVisibility = (
         </Button>
       </Menu.Trigger>
       <Menu.Content>
-        {table.getAllLeafColumns().map((column) => {
-          const header = column.columnDef.header;
-          // @ts-expect-error todo
-          const text = typeof header === "function" ? header({}) : header;
-          return (
-            <MenuItem
-              key={column.id}
-              preventCloseOnClick
-              disabled={!column.getCanHide()}
-              onClick={column.getToggleVisibilityHandler()}
-              textValue={text}
-            >
-              <AnimatedTickIcon
-                className="text-primary"
-                isSelected={column.getIsVisible()}
-              />
-              {text}
-            </MenuItem>
-          );
-        })}
+        {table
+          .getAllLeafColumns()
+          .filter((col) => col.getCanHide())
+          .map((column) => {
+            const headerTitle = column.columnDef.meta?.headerTitle ?? column.id;
+            return (
+              <Menu.Item
+                key={column.id}
+                preventCloseOnClick
+                disabled={!column.getCanHide()}
+                onClick={column.getToggleVisibilityHandler()}
+                textValue={headerTitle}
+                className="capitalize"
+              >
+                <AnimatedTickIcon
+                  className="text-primary"
+                  isSelected={column.getIsVisible()}
+                />
+                {headerTitle}
+              </Menu.Item>
+            );
+          })}
       </Menu.Content>
     </Menu>
   );
-
-  const renderElement = useRenderElement("div", {
-    props: [props, { children: composedChildren }],
-  });
-  return renderElement;
 };
 
 export namespace DataGridColumnVisibility {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props {}
 }

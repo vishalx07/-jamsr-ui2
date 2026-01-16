@@ -4,6 +4,7 @@ import { faker } from "@faker-js/faker";
 import {
   Avatar,
   Chip,
+  DataGrid,
   DataGridRowSelect,
   DataGridRowSelectAll,
   Text,
@@ -67,20 +68,18 @@ export async function fetchData(options: {
 
 export const COLUMNS = [
   {
-    accessorKey: "id",
+    id: "select",
+    header: () => <DataGridRowSelectAll />,
+    cell: ({ row }) => <DataGridRowSelect row={row} />,
     enableSorting: false,
     enableHiding: false,
-    size: 100,
-    header: () => {
-      return <DataGridRowSelectAll />;
-    },
-    cell({ row }) {
-      return <DataGridRowSelect row={row} />;
-    },
+    maxSize: 50,
   },
   {
     accessorKey: "userId",
-    header: "Name",
+    header: ({ header }) => (
+      <DataGrid.HeaderColumn header={header}>Name</DataGrid.HeaderColumn>
+    ),
     cell({ row: { original } }) {
       const { status } = original;
       return (
@@ -103,7 +102,7 @@ export const COLUMNS = [
             </Avatar.Indicator>
           </Avatar>
           <div className="flex flex-col gap-1">
-            <Text>{original.fullName}</Text>
+            <Text>{original.fullName.slice(0, 40)}</Text>
             <Text variant="caption" className="text-foreground-secondary">
               {original.username}
             </Text>
@@ -115,7 +114,9 @@ export const COLUMNS = [
   },
   {
     accessorKey: "country",
-    header: "Country",
+    header: ({ header }) => (
+      <DataGrid.HeaderColumn header={header}>Country</DataGrid.HeaderColumn>
+    ),
     cell: ({ row: { original } }) => {
       const { city, country } = original;
       return (
@@ -130,12 +131,18 @@ export const COLUMNS = [
   },
   {
     accessorKey: "balance",
-    header: "Balance",
+    header: ({ header }) => (
+      <DataGrid.HeaderColumn header={header}>Balance</DataGrid.HeaderColumn>
+    ),
     accessorFn: ({ balance }) => `$${balance}`,
   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ header }) => (
+      <DataGrid.HeaderColumn header={header} hideDropdown>
+        Status
+      </DataGrid.HeaderColumn>
+    ),
     cell({ row: { original } }) {
       const { status } = original;
       return (
@@ -158,7 +165,14 @@ export const COLUMNS = [
   },
   {
     accessorKey: "registeredAt",
-    header: "Registered At",
+    header: ({ header }) => (
+      <DataGrid.HeaderColumn header={header}>
+        Registered At
+      </DataGrid.HeaderColumn>
+    ),
+    meta: {
+      headerTitle: "Registered At",
+    },
     accessorFn: (row) =>
       row.registeredAt.toLocaleDateString("en-In", {
         year: "numeric",

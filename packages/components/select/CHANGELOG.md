@@ -1,5 +1,13 @@
 # @jamsrui/select
 
+## 0.0.22
+
+### Patch Changes
+
+- fix: data-grid
+- Updated dependencies
+  - @jamsrui/icons@0.0.16
+
 ## 0.0.21
 
 ### Patch Changes
