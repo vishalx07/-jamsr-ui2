@@ -15,8 +15,8 @@ export const chipVariants = tv({
       bordered: {
         root: "chip--bordered border",
       },
-      flat: {
-        root: "chip--flat",
+      soft: {
+        root: "chip--soft",
       },
       dot: {
         dot: "chip--dot outline-2",
@@ -54,7 +54,7 @@ export const chipVariants = tv({
     radius: radiusVariant("root", "chip"),
   },
   compoundVariants: [
-    ...(["solid", "bordered", "flat"] as const).flatMap((variant) =>
+    ...(["solid", "bordered", "soft"] as const).flatMap((variant) =>
       allColors.map((color) => ({
         variant,
         color,
@@ -142,7 +142,7 @@ export const chipVariants = tv({
     {
       isBordered: true,
       color: "default",
-      className: { root: "border-divider" },
+      className: { root: "border-border" },
     },
   ],
   defaultVariants: {

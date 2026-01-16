@@ -3,22 +3,22 @@ import { Chip } from "@jamsrui/react";
 export const ChipVariantFlat = () => {
   return (
     <div className="flex flex-wrap gap-4">
-      <Chip color="default" variant="flat">
+      <Chip color="default" variant="soft">
         default
       </Chip>
-      <Chip color="primary" variant="flat">
+      <Chip color="primary" variant="soft">
         primary
       </Chip>
-      <Chip color="secondary" variant="flat">
+      <Chip color="secondary" variant="soft">
         secondary
       </Chip>
-      <Chip color="success" variant="flat">
+      <Chip color="success" variant="soft">
         success
       </Chip>
-      <Chip color="warning" variant="flat">
+      <Chip color="warning" variant="soft">
         warning
       </Chip>
-      <Chip color="danger" variant="flat">
+      <Chip color="danger" variant="soft">
         danger
       </Chip>
     </div>

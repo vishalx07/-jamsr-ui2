@@ -1,0 +1,84 @@
+:root,
+html,
+body {
+  @apply bg-background text-foreground;
+}
+
+@layer base {
+  :root {
+    --white: oklch(100% 0 0);
+    --black: oklch(0% 0 0);
+
+    --cursor-interactive: default;
+    --cursor-disabled: not-allowed;
+  }
+}
+
+@layer base {
+  :root,
+  .light,
+  [data-theme="light"] {
+    --background: oklch(0.9702 0 0);
+    --foreground: oklch(0.1611 0 0);
+
+    --surface: oklch(1 0 0);
+    --surface-foreground: oklch(0.1611 0 0);
+
+    --default: oklch(0.8235 0 0);
+    --default-foreground: oklch(0.1611 0 0);
+
+    --primary: oklch(0.5461 0.2153 262.944);
+    --primary-foreground: oklch(0.9702 0 0);
+
+    --secondary: oklch(0.5412 0.247 293.008);
+    --secondary-foreground: oklch(0.9702 0 0);
+
+    --success: oklch(0.6275 0.1701 149.248);
+    --success-foreground: oklch(0.9702 0 0);
+
+    --warning: oklch(0.7953 0.162 86.016);
+    --warning-foreground: oklch(0.1611 0 0);
+
+    --danger: oklch(0.5765 0.2153 27.328);
+    --danger-foreground: oklch(0.9702 0 0);
+
+    --border: oklch(0.8235 0 0);
+    --separator: oklch(0.8235 0 0);
+    --focus: oklch(0.5461 0.2153 262.944);
+    --link: oklch(0.5461 0.2153 262.944);
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    --background: oklch(12% 0.005 285.823);
+    --foreground: oklch(0.9702 0 0);
+    --snow: oklch(0.9911 0 0);
+    --eclipse: oklch(0.2103 0.0059 285.89);
+
+    --surface: oklch(0.2103 0.0059 285.89);
+    --surface-foreground: var(--foreground);
+
+    --default: oklch(27.4% 0.006 286.033);
+    --default-foreground: var(--snow);
+
+    --primary: oklch(0.6204 0.195 253.83);
+    --primary-foreground: var(--snow);
+
+    --secondary: oklch(0.7015 0.247 293.008);
+    --secondary-foreground: var(--snow);
+
+    --success: oklch(0.7329 0.1935 150.81);
+    --success-foreground: var(--eclipse);
+
+    --warning: oklch(0.8203 0.1388 76.34);
+    --warning-foreground: var(--eclipse);
+
+    --danger: oklch(0.594 0.1967 24.63);
+    --danger-foreground: var(--snow);
+
+    --border: oklch(30% 0 0);
+    --separator: oklch(22% 0.006 286.033);
+    --focus: var(--primary);
+    --link: var(--foreground);
+  }
+}

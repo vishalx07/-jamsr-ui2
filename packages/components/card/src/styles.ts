@@ -20,7 +20,7 @@ export const cardVariants = tv({
         root: "bg-surface",
       },
     },
-    isBordered: { true: "border border-divider-dark" },
+    isBordered: { true: "border border-border-dark" },
     isElevated: { true: "shadow-sm" },
     radius: radiusVariant("root", "card"),
   },

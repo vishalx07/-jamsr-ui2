@@ -21,18 +21,17 @@ const Page = () => {
             <Text variant="h6">{heading}</Text>
             <div className="grid grid-cols-4 gap-4">
               {items.map((item) => {
-                const { className, color, name } = item;
+                const { className, name } = item;
                 return (
                   <div
                     key={name}
                     className={cn(
-                      "rounded-md p-1 flex aspect-square border border-divider-dark",
+                      "rounded-md p-1 flex aspect-square border border-border-dark",
                       className
                     )}
                   >
                     <div className="bg-surface w-full mt-auto rounded-md py-2 px-4">
                       <Text>{name}</Text>
-                      <Text variant="caption">{color}</Text>
                     </div>
                   </div>
                 );

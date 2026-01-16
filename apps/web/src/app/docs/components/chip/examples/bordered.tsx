@@ -12,7 +12,7 @@ export const ChipBordered = () => {
   return (
     <div className="flex flex-wrap gap-4">
       {colors.map((color) => (
-        <Chip isBordered variant="flat" color={color} key={color}>
+        <Chip isBordered variant="soft" color={color} key={color}>
           {color}
         </Chip>
       ))}

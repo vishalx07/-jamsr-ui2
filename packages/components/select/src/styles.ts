@@ -10,8 +10,8 @@ export const selectVariants = tv({
       "font-normal overflow-hidden text-ellipsis grow text-start",
     ],
     trigger: [
-      "select__trigger relative flex w-full flex-row items-center gap-3 border border-divider px-3 py-2 outline-none",
-      "focus:border-primary data-hover:border-divider-dark data-open:border-primary",
+      "select__trigger relative flex w-full flex-row items-center gap-3 border border-border px-3 py-2 outline-none",
+      "focus:border-primary data-hover:border-border-dark data-open:border-primary",
       "data-disabled:cursor-not-allowed data-disabled:opacity-disabled",
     ],
     indicator:

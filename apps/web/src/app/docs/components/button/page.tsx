@@ -30,6 +30,9 @@ const Button = () => {
       <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <ButtonUsage />
       </CodeExample>
+      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
+        <ButtonColors />
+      </CodeExample>
       <CodeExample
         isCentered
         title="Variants"
@@ -52,9 +55,6 @@ const Button = () => {
         url={resolvePath("disabled.tsx")}
       >
         <ButtonDisabled />
-      </CodeExample>
-      <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
-        <ButtonColors />
       </CodeExample>
       <CodeExample
         isCentered

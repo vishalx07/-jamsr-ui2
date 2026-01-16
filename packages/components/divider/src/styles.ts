@@ -18,9 +18,9 @@ export const dividerVariants = tv({
       },
     },
     variant: {
-      light: { divider: "bg-divider-light" },
-      dark: { divider: "bg-divider-dark" },
-      default: { divider: "bg-divider" },
+      light: { divider: "bg-border-light" },
+      dark: { divider: "bg-border-dark" },
+      default: { divider: "bg-border" },
       gradient: {
         divider: "from-transparent via-[#989AA6]/50 to-transparent",
       },

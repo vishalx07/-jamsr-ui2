@@ -1,0 +1,157 @@
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Foreground Colors */
+  --color-foreground-secondary: color-mix(in oklab, var(--color-foreground) 70%, var(--background) 30%);
+  --color-foreground-tertiary: color-mix(in oklab, var(--color-foreground) 60%, var(--background) 40%);
+  --color-foreground-quaternary: color-mix(in oklab, var(--color-foreground) 50%, var(--background) 50%);
+
+  /* Surface Colors */
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-surface-hover: color-mix(in oklab, var(--color-surface) 90%, var(--color-surface-foreground) 10%);
+  --color-surface-secondary: color-mix(in oklab, var(--surface) 94%, var(--surface-foreground) 6%);
+  --color-surface-tertiary: color-mix(in oklab, var(--surface) 88%, var(--surface-foreground) 12%);
+  --color-surface-quaternary: color-mix(in oklab, var(--surface) 82%, var(--surface-foreground) 18%);
+
+  /* Default Colors */
+  --color-default: var(--default);
+  --color-default-foreground: var(--default-foreground);
+  --color-default-hover: color-mix(in oklab, var(--color-default) 90%, var(--color-default-foreground) 10%);
+  --color-default-active: color-mix(in oklab, var(--color-default) 80%, var(--color-default-foreground) 20%);
+  --color-default-border: color-mix(in oklab, var(--color-default) 70%, var(--color-default-foreground) 30%);
+
+  /* Primary Colors */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: color-mix(in oklab, var(--color-primary) 90%, var(--color-primary-foreground) 10%);
+  --color-primary-active: color-mix(in oklab, var(--color-primary) 80%, var(--color-primary-foreground) 20%);
+  --color-primary-border: color-mix(in oklab, var(--color-primary) 70%, var(--color-primary-foreground) 30%);
+
+  /* Secondary Colors */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: color-mix(in oklab, var(--color-secondary) 90%, var(--color-secondary-foreground) 10%);
+  --color-secondary-active: color-mix(in oklab, var(--color-secondary) 80%, var(--color-secondary-foreground) 20%);
+  --color-secondary-border: color-mix(in oklab, var(--color-secondary) 70%, var(--color-secondary-foreground) 30%);
+
+  /* Success Colors */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-hover: color-mix(in oklab, var(--color-success) 90%, var(--color-success-foreground) 10%);
+  --color-success-active: color-mix(in oklab, var(--color-success) 80%, var(--color-success-foreground) 20%);
+  --color-success-border: color-mix(in oklab, var(--color-success) 70%, var(--color-success-foreground) 30%);
+
+  /* Warning Colors */
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-hover: color-mix(in oklab, var(--color-warning) 90%, var(--color-warning-foreground) 10%);
+  --color-warning-active: color-mix(in oklab, var(--color-warning) 80%, var(--color-warning-foreground) 20%);
+  --color-warning-border: color-mix(in oklab, var(--color-warning) 70%, var(--color-warning-foreground) 30%);
+
+  /* Danger Colors */
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-danger-hover: color-mix(in oklab, var(--color-danger) 90%, var(--color-danger-foreground) 10%);
+  --color-danger-active: color-mix(in oklab, var(--color-danger) 80%, var(--color-danger-foreground) 20%);
+  --color-danger-border: color-mix(in oklab, var(--color-danger) 70%, var(--color-danger-foreground) 30%);
+
+  /* Default Soft Colors */
+  --color-default-soft: color-mix(in oklab, var(--color-default) 15%, transparent);
+  --color-default-soft-foreground: var(--color-account);
+  --color-default-soft-hover: color-mix(in oklab, var(--color-default) 20%, transparent);
+  --color-default-soft-active: color-mix(in oklab, var(--color-default) 25%, transparent);
+  --color-default-soft-border: color-mix(in oklab, var(--color-default) 30%, transparent);
+
+  /* Primary Soft Colors */
+  --color-primary-soft: color-mix(in oklab, var(--color-primary) 15%, transparent);
+  --color-primary-soft-foreground: var(--color-account);
+  --color-primary-soft-hover: color-mix(in oklab, var(--color-primary) 20%, transparent);
+  --color-primary-soft-active: color-mix(in oklab, var(--color-primary) 25%, transparent);
+  --color-primary-soft-border: color-mix(in oklab, var(--color-primary) 30%, transparent);
+
+  /* Secondary Soft Colors */
+  --color-secondary-soft: color-mix(in oklab, var(--color-secondary) 15%, transparent);
+  --color-secondary-soft-foreground: var(--color-account);
+  --color-secondary-soft-hover: color-mix(in oklab, var(--color-secondary) 20%, transparent);
+  --color-secondary-soft-active: color-mix(in oklab, var(--color-secondary) 25%, transparent);
+  --color-secondary-soft-border: color-mix(in oklab, var(--color-secondary) 30%, transparent);
+
+  /* Success Soft Colors */
+  --color-success-soft: color-mix(in oklab, var(--color-success) 15%, transparent);
+  --color-success-soft-foreground: var(--color-account);
+  --color-success-soft-hover: color-mix(in oklab, var(--color-success) 20%, transparent);
+  --color-success-soft-active: color-mix(in oklab, var(--color-success) 25%, transparent);
+  --color-success-soft-border: color-mix(in oklab, var(--color-success) 30%, transparent);
+
+  /* Warning Soft Colors */
+  --color-warning-soft: color-mix(in oklab, var(--color-warning) 15%, transparent);
+  --color-warning-soft-foreground: var(--color-account);
+  --color-warning-soft-hover: color-mix(in oklab, var(--color-warning) 20%, transparent);
+  --color-warning-soft-active: color-mix(in oklab, var(--color-warning) 25%, transparent);
+  --color-warning-soft-border: color-mix(in oklab, var(--color-warning) 30%, transparent);
+
+  /* Danger Soft Colors */
+  --color-danger-soft: color-mix(in oklab, var(--color-danger) 15%, transparent);
+  --color-danger-soft-foreground: var(--color-account);
+  --color-danger-soft-hover: color-mix(in oklab, var(--color-danger) 20%, transparent);
+  --color-danger-soft-active: color-mix(in oklab, var(--color-danger) 25%, transparent);
+  --color-danger-soft-border: color-mix(in oklab, var(--color-danger) 30%, transparent);
+
+  /* Border Colors */
+  --color-border: var(--border);
+  --color-border-light: color-mix(in oklab, var(--color-border) 90%, var(--color-border) 10%);
+  --color-border-dark: color-mix(in oklab, var(--color-border) 10%, var(--color-border) 90%);
+
+  /* Separator Colors */
+  --color-separator: var(--separator);
+
+  /* Focus Colors */
+  --color-focus: var(--focus);
+
+  /* Link Colors */
+  --color-link: var(--link);
+
+  /* Background Shades */
+  --color-background-secondary: color-mix(in oklab, var(--color-background) 90%, var(--color-foreground) 10%);
+  --color-background-tertiary: color-mix(in oklab, var(--color-background) 80%, var(--color-foreground) 20%);
+  --color-background-quaternary: color-mix(in oklab, var(--color-background) 70%, var(--color-foreground) 30%);
+
+  /* Animations */
+  --animation-ripple: ripple 1s linear;
+  --animation-progress: progress 1s infinite linear;
+  --animation-caret-blink: caret-blink 1.2s ease-out infinite;
+
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  @keyframes progress {
+    0% {
+      left: -40%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes caret-blink {
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
+}

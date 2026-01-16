@@ -7,7 +7,7 @@ export const SidebarUsage = () => {
     <Sidebar.Wrapper>
       <AppSidebar />
       <Sidebar.Inset>
-        <header className="border-b border-divider px-4 py-3 sticky top-0 bg-background">
+        <header className="border-b border-border px-4 py-3 sticky top-0 bg-background">
           <Sidebar.Toggle>
             <Icon
               icon="cuida:sidebar-collapse-outline"

@@ -7,7 +7,7 @@ export const numberFieldVariants = tv({
     decrement: "number-field__decrement h-full w-12 border-r",
     input: "number-field__input outline-0 px-2 py-1 grow",
     group: [
-      "number-field__group border border-divider flex items-center rounded-md h-9 w-full",
+      "number-field__group border border-border flex items-center rounded-md h-9 w-full",
       "overflow-hidden focus-within:outline-none focus-within:border-focus",
     ],
   },

@@ -28,7 +28,7 @@ export const buttonVariant = tv({
       bordered: "button--bordered border",
       light: "button--light",
       text: "button--text",
-      flat: "button--flat",
+      soft: "button--soft",
     },
     isFullWidth: {
       true: "w-full",

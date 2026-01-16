@@ -63,7 +63,7 @@ export const tabsVariant = tv({
           "bottom-0 h-[2px] w-4/5 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
       },
       bordered: {
-        list: "border border-divider bg-transparent shadow-sm",
+        list: "border border-border bg-transparent shadow-sm",
         indicator: "inset-0",
       },
     },

@@ -33,8 +33,8 @@ export const dialogVariants = tv({
     },
     isBordered: {
       true: {
-        header: "border-b border-divider",
-        footer: "border-t border-divider",
+        header: "border-b border-border",
+        footer: "border-t border-border",
       },
     },
     scrollBehavior: {

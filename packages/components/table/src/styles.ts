@@ -28,8 +28,8 @@ export const tableVariants = tv({
         root: "rounded-2xl bg-surface p-4",
       },
       bordered: {
-        th: "border-b border-b-divider-dark bg-surface-secondary text-foreground-secondary font-normal text-xs",
-        td: "border-b border-divider",
+        th: "border-b border-b-border-dark bg-surface-secondary text-foreground-secondary font-normal text-xs",
+        td: "border-b border-border",
         root: "bg-surface",
       },
     },

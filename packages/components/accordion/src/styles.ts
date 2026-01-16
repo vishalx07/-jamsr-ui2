@@ -5,11 +5,12 @@ import type { VariantProps } from "@jamsrui/utils";
 export const accordionVariants = tv({
   slots: {
     root: "flex flex-col",
-    item: "bg-surface ui-disabled:opacity-disabled ui-disabled:cursor-not-allowed",
+    item: "bg-surface",
     heading: "flex items-center gap-2",
     trigger: [
       "flex w-full items-center relative gap-3 py-4 px-4",
       "focus-visible:outline-2 focus-visible:outline-primary focus-visible:z-10",
+      "disabled:opacity-disabled disabled:cursor-not-allowed ui-disabled:opacity-disabled ui-disabled:cursor-not-allowed",
     ],
     content: "py-2 text-base px-4",
     panel: "overflow-hidden",

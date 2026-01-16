@@ -46,7 +46,7 @@ export const iconButtonVariants = tv({
       bordered: "border bg-transparent",
       light: "",
       text: "",
-      flat: "",
+      soft: "",
     },
     size: {
       sm: "size-6 rounded",

@@ -7,7 +7,7 @@ export const IconButtonVariants = () => {
     "light",
     "bordered",
     "text",
-    "flat",
+    "soft",
   ];
   return (
     <div className="flex flex-wrap gap-4">

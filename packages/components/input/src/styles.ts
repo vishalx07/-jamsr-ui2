@@ -9,7 +9,7 @@ export const inputVariants = tv({
   variants: {
     variant: {
       bordered:
-        "border border-divider enabled:hover:border-divider-light enabled:focus:border-focus",
+        "border border-border enabled:hover:border-border-light enabled:focus:border-focus",
       solid: "bg-surface hover:bg-surface/90",
     },
     size: {

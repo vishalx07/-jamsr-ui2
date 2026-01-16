@@ -25,7 +25,7 @@ export const ContextMenuPlacement = () => {
       {placements.map((placement) => (
         <ContextMenu key={placement} placement={placement}>
           <ContextMenuTrigger>
-            <div className="border-divider text-center p-12 border-dashed border w-full">
+            <div className="border-border text-center p-12 border-dashed border w-full">
               Placement:{placement}
             </div>
           </ContextMenuTrigger>

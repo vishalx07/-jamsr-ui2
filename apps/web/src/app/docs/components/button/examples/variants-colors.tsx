@@ -6,7 +6,7 @@ export const ButtonVariantsColors = () => {
     "light",
     "bordered",
     "text",
-    "flat",
+    "soft",
   ];
   const colors: Button.Props["color"][] = [
     "default",

@@ -11,7 +11,7 @@ export const DataGridColumnVisibility = () => {
   return (
     <Menu>
       <Menu.Trigger>
-        <Button size="sm" variant="flat">
+        <Button size="sm" variant="soft">
           <Settings2Icon />
           Column Visibility
         </Button>

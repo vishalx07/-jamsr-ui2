@@ -5,7 +5,7 @@ type Color =
   | "success"
   | "warning"
   | "danger";
-type Variant = "solid" | "bordered" | "text" | "light" | "flat";
+type Variant = "solid" | "bordered" | "text" | "light" | "soft";
 
 const solidClasses = {
   default:
@@ -24,17 +24,17 @@ const solidClasses = {
 
 const borderedClasses = {
   default:
-    "bg-transparent border-default text-foreground data-hover:bg-default-flat data-pressed:bg-default-flat-active",
+    "bg-transparent border-default text-foreground data-hover:bg-default-soft data-pressed:bg-default-soft-active",
   primary:
-    "bg-transparent border-primary text-primary data-hover:bg-primary-flat data-pressed:bg-primary-flat-active",
+    "bg-transparent border-primary text-primary data-hover:bg-primary-soft data-pressed:bg-primary-soft-active",
   secondary:
-    "bg-transparent border-secondary text-secondary data-hover:bg-secondary-flat data-pressed:bg-secondary-flat-active",
+    "bg-transparent border-secondary text-secondary data-hover:bg-secondary-soft data-pressed:bg-secondary-soft-active",
   success:
-    "bg-transparent border-success text-success data-hover:bg-success-flat data-pressed:bg-success-flat-active",
+    "bg-transparent border-success text-success data-hover:bg-success-soft data-pressed:bg-success-soft-active",
   warning:
-    "bg-transparent border-warning text-warning data-hover:bg-warning-flat data-pressed:bg-warning-flat-active",
+    "bg-transparent border-warning text-warning data-hover:bg-warning-soft data-pressed:bg-warning-soft-active",
   danger:
-    "bg-transparent border-danger text-danger data-hover:bg-danger-flat data-pressed:bg-danger-flat-active",
+    "bg-transparent border-danger text-danger data-hover:bg-danger-soft data-pressed:bg-danger-soft-active",
 } satisfies Record<Color, string>;
 
 const textClasses = {
@@ -48,32 +48,32 @@ const textClasses = {
 
 const lightClasses = {
   default:
-    "bg-transparent text-foreground data-hover:bg-default-flat-hover data-pressed:bg-foreground-flat-active",
+    "bg-transparent text-foreground data-hover:bg-default-soft-hover data-pressed:bg-foreground-soft-active",
   primary:
-    "bg-transparent text-primary data-hover:bg-primary-flat-hover data-pressed:bg-primary-flat-active",
+    "bg-transparent text-primary data-hover:bg-primary-soft-hover data-pressed:bg-primary-soft-active",
   secondary:
-    "bg-transparent text-secondary data-hover:bg-secondary-flat-hover data-pressed:bg-secondary-flat-active",
+    "bg-transparent text-secondary data-hover:bg-secondary-soft-hover data-pressed:bg-secondary-soft-active",
   success:
-    "bg-transparent text-success data-hover:bg-success-flat-hover data-pressed:bg-success-flat-active",
+    "bg-transparent text-success data-hover:bg-success-soft-hover data-pressed:bg-success-soft-active",
   warning:
-    "bg-transparent text-warning data-hover:bg-warning-flat-hover data-pressed:bg-warning-flat-active",
+    "bg-transparent text-warning data-hover:bg-warning-soft-hover data-pressed:bg-warning-soft-active",
   danger:
-    "bg-transparent text-danger data-hover:bg-danger-flat-hover data-pressed:bg-danger-flat-active",
+    "bg-transparent text-danger data-hover:bg-danger-soft-hover data-pressed:bg-danger-soft-active",
 } satisfies Record<Color, string>;
 
 const flatClasses = {
   default:
-    "bg-default-flat-hover text-foreground data-hover:bg-default-flat data-pressed:bg-default-flat-active",
+    "bg-default-soft-hover text-foreground data-hover:bg-default-soft data-pressed:bg-default-soft-active",
   primary:
-    "bg-primary-flat-hover text-primary data-hover:bg-primary-flat data-pressed:bg-primary-flat-active",
+    "bg-primary-soft-hover text-primary data-hover:bg-primary-soft data-pressed:bg-primary-soft-active",
   secondary:
-    "bg-secondary-flat-hover text-secondary data-hover:bg-secondary-flat data-pressed:bg-secondary-flat-active",
+    "bg-secondary-soft-hover text-secondary data-hover:bg-secondary-soft data-pressed:bg-secondary-soft-active",
   success:
-    "bg-success-flat-hover text-success data-hover:bg-success-flat data-pressed:bg-success-flat-active",
+    "bg-success-soft-hover text-success data-hover:bg-success-soft data-pressed:bg-success-soft-active",
   warning:
-    "bg-warning-flat-hover text-warning data-hover:bg-warning-flat data-pressed:bg-warning-flat-active",
+    "bg-warning-soft-hover text-warning data-hover:bg-warning-soft data-pressed:bg-warning-soft-active",
   danger:
-    "bg-danger-flat-hover text-danger data-hover:bg-danger-flat data-pressed:bg-danger-flat-active",
+    "bg-danger-soft-hover text-danger data-hover:bg-danger-soft data-pressed:bg-danger-soft-active",
 } satisfies Record<Color, string>;
 
 export const colorVariants = {
@@ -81,7 +81,7 @@ export const colorVariants = {
   bordered: borderedClasses,
   text: textClasses,
   light: lightClasses,
-  flat: flatClasses,
+  soft: flatClasses,
 } satisfies Record<Variant, Record<Color, string>>;
 
 export const allColors: Color[] = [
@@ -97,7 +97,7 @@ export const allVariants: Variant[] = [
   "bordered",
   "text",
   "light",
-  "flat",
+  "soft",
 ];
 
 /**

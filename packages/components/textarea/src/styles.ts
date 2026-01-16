@@ -9,7 +9,7 @@ export const textareaVariants = tv({
   variants: {
     variant: {
       bordered:
-        "border border-divider enabled:hover:border-divider-light enabled:focus:border-focus",
+        "border border-border enabled:hover:border-border-light enabled:focus:border-focus",
       solid: "bg-surface hover:bg-surface/90",
     },
     size: {
@@ -33,7 +33,7 @@ export const textareaGroupVariants = tv({
   base: "textarea-group__textarea w-full px-3 py-2 text-sm placeholder:text-sm focus:outline-none",
   variants: {
     variant: {
-      bordered: "border border-divider focus:border-focus",
+      bordered: "border border-border focus:border-focus",
       solid: "bg-surface hover:bg-surface/90",
     },
   },

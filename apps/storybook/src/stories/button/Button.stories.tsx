@@ -55,7 +55,7 @@ export const Variants: Story = {
       "text",
       "bordered",
       "solid",
-      "flat",
+      "soft",
     ];
     const colors: Button.Props["color"][] = [
       "default",

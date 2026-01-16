@@ -8,7 +8,7 @@ export const inputGroupVariants = tv({
       "input-group flex items-center group overflow-hidden",
       "uig-disabled:cursor-not-allowed uig-disabled:opacity-disabled",
       "not-uig-invalid:uig-focus:border-primary uig-focus:ring-primary",
-      "not-uig-invalid:uig-hover:border-divider-dark",
+      "not-uig-invalid:uig-hover:border-border-dark",
     ],
     prefix: "input__prefix pl-3 text-sm text-foreground-secondary select-none",
     suffix: "input__suffix pr-3 text-sm text-foreground-secondary select-none",
@@ -17,7 +17,7 @@ export const inputGroupVariants = tv({
     variant: {
       bordered: {
         root: [
-          "border border-divider focus-within:not-group-data-invalid:border-focus",
+          "border border-border focus-within:not-group-data-invalid:border-focus",
           "group-data-invalid:border-danger",
         ],
       },

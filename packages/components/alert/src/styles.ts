@@ -18,8 +18,8 @@ export const alertStyles = tv({
       solid: {
         root: "alert--solid font-medium",
       },
-      flat: {
-        root: "alert--flat",
+      soft: {
+        root: "alert--soft",
       },
     },
     status: {
@@ -81,37 +81,37 @@ export const alertStyles = tv({
     // flat
     {
       status: "success",
-      variant: "flat",
+      variant: "soft",
       className: {
-        root: "bg-success-flat text-success",
+        root: "bg-success-soft text-success",
       },
     },
     {
       status: "info",
-      variant: "flat",
+      variant: "soft",
       className: {
-        root: "bg-primary-flat text-primary",
+        root: "bg-primary-soft text-primary",
       },
     },
     {
       status: "warning",
-      variant: "flat",
+      variant: "soft",
       className: {
-        root: "bg-warning-flat text-warning",
+        root: "bg-warning-soft text-warning",
       },
     },
     {
       status: "danger",
-      variant: "flat",
+      variant: "soft",
       className: {
-        root: "bg-danger-flat text-danger",
+        root: "bg-danger-soft text-danger",
       },
     },
     {
       status: "default",
-      variant: "flat",
+      variant: "soft",
       className: {
-        root: "bg-default-flat text-foreground",
+        root: "bg-default-soft text-foreground",
       },
     },
     // bordered
@@ -153,7 +153,7 @@ export const alertStyles = tv({
   ],
   defaultVariants: {
     status: "success",
-    variant: "flat",
+    variant: "soft",
     radius: "md",
   },
 });

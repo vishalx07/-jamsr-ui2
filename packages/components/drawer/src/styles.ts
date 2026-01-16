@@ -2,7 +2,6 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const drawerVariants = tv({
   slots: {
     backdrop: "z-backdrop !overflow-hidden",
@@ -63,7 +62,7 @@ export const drawerVariants = tv({
     },
     isBordered: {
       true: {
-        header: "border-b border-divider",
+        header: "border-b border-border",
         footer: "border-t border-storke-primary",
       },
     },

@@ -148,7 +148,7 @@ export const COLUMNS = [
       return (
         <Chip
           size="sm"
-          variant="flat"
+          variant="soft"
           isBordered
           color={
             (status === UserStatus.Active && "success") ||

@@ -9,7 +9,7 @@ export const ContextMenuOffset = () => {
   return (
     <ContextMenu offset={100}>
       <ContextMenuTrigger>
-        <div className="border-divider text-center p-12 border-dashed border w-full">
+        <div className="border-border text-center p-12 border-dashed border w-full">
           Right Click Here
         </div>
       </ContextMenuTrigger>
