@@ -23,7 +23,7 @@ const DataGrid = () => {
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
         <DataGridUsage />
       </CodeExample>
-      <CodeExample title="Server Side" url={resolvePath("server.tsx")}>
+      {/* <CodeExample title="Server Side" url={resolvePath("server.tsx")}>
         <DataGridServerSide />
       </CodeExample>
       <CodeExample title="Empty State" url={resolvePath("empty-state.tsx")}>
@@ -31,7 +31,7 @@ const DataGrid = () => {
       </CodeExample>
       <CodeExample title="Sticky Header" url={resolvePath("sticky-header.tsx")}>
         <DataGridStickyHeader />
-      </CodeExample>
+      </CodeExample> */}
     </DocsPage>
   );
 };
