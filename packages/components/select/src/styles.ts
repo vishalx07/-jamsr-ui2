@@ -12,7 +12,7 @@ export const selectVariants = tv({
     trigger: [
       "select__trigger relative flex w-full flex-row items-center gap-3 border border-divider px-3 py-2 outline-none",
       "focus:border-primary data-hover:border-divider-dark data-open:border-primary",
-      "data-disabled:cursor-not-allowed data-disabled:opacity-60",
+      "data-disabled:cursor-not-allowed data-disabled:opacity-disabled",
     ],
     indicator:
       "select__indicator shrink-0 transition-transform duration-300 group-data-open:rotate-180",
@@ -27,7 +27,7 @@ export const selectVariants = tv({
       "data-hover:bg-surface-secondary",
       "data-active:bg-surface-secondary",
       "data-selected:bg-surface-secondary/50",
-      "data-disabled:cursor-not-allowed data-disabled:opacity-60",
+      "data-disabled:cursor-not-allowed data-disabled:opacity-disabled",
     ],
   },
   variants: {

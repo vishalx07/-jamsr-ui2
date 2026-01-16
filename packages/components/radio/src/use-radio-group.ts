@@ -3,7 +3,7 @@
 import { useCallback, useId } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import { dataAttr, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
 import { radioGroupVariant } from "./styles";
 
@@ -44,12 +44,13 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
     (): RadioGroupRoot.Props => ({
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("radio-group"),
+      "data-disabled": dataAttr(isDisabled),
       ...restProps,
       className: styles.root({
         className: props.className,
       }),
     }),
-    [restProps, styles, props.className]
+    [restProps, styles, isDisabled, props.className]
   );
 
   const handleInputChange = useCallback(
@@ -77,9 +78,7 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
 
 export namespace useRadioGroup {
   export interface Props
-    extends RadioGroupVariants,
-      RadioVariants,
-      RadioGroupRoot.Props {
+    extends RadioGroupVariants, RadioVariants, RadioGroupRoot.Props {
     value?: Radio.Value;
     onValueChange?: (value: Radio.Value) => void;
     defaultValue?: Radio.Value;

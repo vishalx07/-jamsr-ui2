@@ -8,7 +8,7 @@ export const switchVariants = tv({
     track: [
       ...groupDataFocusVisibleClasses,
       "flex relative cursor-default shrink-0 items-center rounded-full bg-surface-secondary p-1",
-      "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
+      "uig-disabled:cursor-not-allowed uig-disabled:opacity-disabled",
       "ui-interactive:hover:opacity-95",
       "justify-start uig-checked:justify-end",
     ],

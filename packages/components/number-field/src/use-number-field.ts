@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import { NumberParser } from "./parser";
 import { numberFieldVariants } from "./styles";
@@ -28,6 +28,7 @@ export const useNumberField = (props: useNumberField.Props) => {
     onValueChange,
     value: valueProp,
     defaultValue,
+    disabled: isDisabled = false,
     ...restProps
   } = props;
   const [inputValue, setInputValue] = useControlledState({
@@ -37,7 +38,7 @@ export const useNumberField = (props: useNumberField.Props) => {
   });
   const [value, setValue] = useState("");
 
-  const styles = numberFieldVariants();
+  const styles = numberFieldVariants({ isInvalid });
   const inputRef = useRef<HTMLInputElement>(null);
   const parser = useMemo(
     () => new NumberParser(locale, formatOptions),
@@ -150,11 +151,13 @@ export const useNumberField = (props: useNumberField.Props) => {
     () => ({
       ...restProps,
       "data-slot": dataAttrDev("root"),
+      "data-disabled": dataAttr(isDisabled),
+      "aria-disabled": dataAttr(isDisabled),
       className: styles.root({
         className: props.className,
       }),
     }),
-    [props.className, restProps, styles]
+    [isDisabled, props.className, restProps, styles]
   );
 
   const getInputProps: PropGetter<NumberFieldInput.Props> = useCallback(
@@ -167,11 +170,21 @@ export const useNumberField = (props: useNumberField.Props) => {
       ref: inputRef,
       value,
       "data-slot": dataAttrDev("input"),
+      disabled: isDisabled,
+      "data-disabled": dataAttr(isDisabled),
+      "aria-disabled": dataAttr(isDisabled),
       className: styles.input({
         className: props.className,
       }),
     }),
-    [handleInputKeyDown, handleInputOnBlur, handleInputOnChange, styles, value]
+    [
+      handleInputKeyDown,
+      handleInputOnBlur,
+      handleInputOnChange,
+      isDisabled,
+      styles,
+      value,
+    ]
   );
 
   const getIncrementProps: PropGetter<NumberFieldIncrement.Props> = useCallback(

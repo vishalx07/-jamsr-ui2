@@ -295,6 +295,10 @@ body {
   @apply bg-background text-foreground;
 }
 
+@utility opacity-disabled {
+  opacity: 0.5;
+}
+
 /*  utility */
 @utility z-backdrop {
   z-index: 98;

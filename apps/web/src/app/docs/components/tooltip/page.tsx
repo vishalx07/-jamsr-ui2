@@ -4,6 +4,7 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { TooltipControlled } from "./examples/controlled";
 import { TooltipOffset } from "./examples/offset";
+import { TooltipPlacement } from "./examples/placement";
 import { TooltipRadius } from "./examples/radius";
 import { TooltipUsage } from "./examples/usage";
 import { TooltipWithArrow } from "./examples/with-arrow";
@@ -37,6 +38,9 @@ const Tooltip = () => {
       </CodeExample>
       <CodeExample isCentered title="Offset" url={resolvePath("offset.tsx")}>
         <TooltipOffset />
+      </CodeExample>
+      <CodeExample isCentered title="Placement" url={resolvePath("placement.tsx")}>
+        <TooltipPlacement />
       </CodeExample>
       <CodeExample
         isCentered

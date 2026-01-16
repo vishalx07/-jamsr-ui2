@@ -6,7 +6,7 @@ export const inputGroupVariants = tv({
   slots: {
     root: [
       "input-group flex items-center group overflow-hidden",
-      "uig-disabled:cursor-not-allowed uig-disabled:opacity-60",
+      "uig-disabled:cursor-not-allowed uig-disabled:opacity-disabled",
       "not-uig-invalid:uig-focus:border-primary uig-focus:ring-primary",
       "not-uig-invalid:uig-hover:border-divider-dark",
     ],
@@ -16,22 +16,18 @@ export const inputGroupVariants = tv({
   variants: {
     variant: {
       bordered: {
-        root: "border border-divider focus-within:border-focus",
+        root: [
+          "border border-divider focus-within:not-group-data-invalid:border-focus",
+          "group-data-invalid:border-danger",
+        ],
       },
       solid: {
         root: "bg-surface hover:bg-surface/90",
       },
     },
-    isInvalid: {
-      true: {
-        root: "input--invalid",
-        input: "border-danger",
-      },
-    },
     radius: radiusVariant("root"),
   },
   defaultVariants: {
-    isInvalid: false,
     radius: "md",
     variant: "bordered",
   },

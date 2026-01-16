@@ -2,9 +2,12 @@
 
 import { DocsPage } from "@/components/docs-page";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { EyeClosedIcon, EyeOpenIcon } from "@jamsrui/icons";
 import {
   Button,
   Checkbox,
+  IconButton,
+  InputGroup,
   Label,
   NumberField,
   OtpInput,
@@ -12,14 +15,15 @@ import {
   RHFField,
   Select,
   Switch,
-  TextField,
   toast,
 } from "@jamsrui/react";
+import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import z, { boolean, number, object, string } from "zod";
 
 type FormValues = {
   username: string;
+  password: string;
   bio: string;
   age: number;
   acceptedTerms: boolean;
@@ -32,6 +36,7 @@ type FormValues = {
 
 const schema = object({
   username: string().min(1, "Username is required"),
+  password: string().min(1, "Password is required"),
   bio: string().min(1, "Bio is required"),
   age: number().min(1, "Age is required"),
   acceptedTerms: boolean().refine((val) => val === true, {
@@ -49,6 +54,7 @@ const schema = object({
 const Page = () => {
   const defaultValues: FormValues = {
     username: "",
+    password: "",
     bio: "",
     age: 0,
     acceptedTerms: false,
@@ -65,28 +71,56 @@ const Page = () => {
 
   const onSubmit = form.handleSubmit((values) => {
     console.log(values);
-    toast.success(JSON.stringify(values));
+    toast.success(<pre>{JSON.stringify(values, null, 2)}</pre>);
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <DocsPage title="React Hook Form" description="">
       <FormProvider {...form}>
-        <form onSubmit={onSubmit} className="flex flex-col gap-4 max-w-md">
+        <form onSubmit={onSubmit} className="flex flex-col gap-8 max-w-md">
           {/* Username */}
           <RHFField<FormValues> name="username">
-            <TextField>
+            <RHFField.TextField>
               <Label>Username</Label>
               <RHFField.Input />
               <RHFField.FieldError />
-            </TextField>
+            </RHFField.TextField>
+          </RHFField>
+          {/* Password */}
+          <RHFField<FormValues> name="password">
+            <RHFField.TextField>
+              <Label>Password</Label>
+              <InputGroup>
+                <RHFField.Input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your name"
+                />
+                <InputGroup.Suffix>
+                  <IconButton
+                    size="sm"
+                    radius="full"
+                    label="Toggle password"
+                    variant="light"
+                    onClick={handleTogglePassword}
+                  >
+                    {showPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
+                  </IconButton>
+                </InputGroup.Suffix>
+              </InputGroup>
+            </RHFField.TextField>
           </RHFField>
           {/* Bio */}
           <RHFField<FormValues> name="bio">
-            <TextField>
+            <RHFField.TextField>
               <Label>Bio</Label>
               <RHFField.Textarea />
               <RHFField.FieldError />
-            </TextField>
+            </RHFField.TextField>
           </RHFField>
           {/* Age */}
           <RHFField<FormValues> name="age">
@@ -95,8 +129,8 @@ const Page = () => {
               <NumberField.Group>
                 <NumberField.Input />
               </NumberField.Group>
+              <RHFField.FieldError />
             </RHFField.NumberField>
-            <RHFField.FieldError />
           </RHFField>
           {/* Accepted Terms */}
           <RHFField<FormValues> name="acceptedTerms">
@@ -106,17 +140,15 @@ const Page = () => {
                 <Label>Accept Terms and Conditions</Label>
               </Checkbox.Content>
             </RHFField.Checkbox>
-            <RHFField.FieldError />
           </RHFField>
           {/* Dark Mode */}
           <RHFField<FormValues> name="darkMode">
             <RHFField.Switch>
-              <Switch.Track />
               <Switch.Content>
                 <Label>Dark Mode</Label>
               </Switch.Content>
+              <Switch.Track />
             </RHFField.Switch>
-            <RHFField.FieldError />
           </RHFField>
           {/* Gender */}
           <RHFField<FormValues> name="gender">
@@ -134,25 +166,27 @@ const Page = () => {
                   <Label>Female</Label>
                 </Radio.Content>
               </Radio>
+              <RHFField.FieldError />
             </RHFField.RadioGroup>
-            <RHFField.FieldError />
           </RHFField>
           {/* OTP */}
           <RHFField<FormValues> name="otp">
-            <RHFField.OtpInput maxLength={6}>
-              <OtpInput.Group>
-                <OtpInput.Slot index={0} />
-                <OtpInput.Slot index={1} />
-                <OtpInput.Slot index={2} />
-              </OtpInput.Group>
-              <OtpInput.Separator />
-              <OtpInput.Group>
-                <OtpInput.Slot index={3} />
-                <OtpInput.Slot index={4} />
-                <OtpInput.Slot index={5} />
-              </OtpInput.Group>
-            </RHFField.OtpInput>
-            <RHFField.FieldError />
+            <div>
+              <RHFField.OtpInput maxLength={6}>
+                <OtpInput.Group>
+                  <OtpInput.Slot index={0} />
+                  <OtpInput.Slot index={1} />
+                  <OtpInput.Slot index={2} />
+                </OtpInput.Group>
+                <OtpInput.Separator />
+                <OtpInput.Group>
+                  <OtpInput.Slot index={3} />
+                  <OtpInput.Slot index={4} />
+                  <OtpInput.Slot index={5} />
+                </OtpInput.Group>
+              </RHFField.OtpInput>
+              <RHFField.FieldError />
+            </div>
           </RHFField>
           {/* Country */}
           <RHFField<FormValues> name="country">

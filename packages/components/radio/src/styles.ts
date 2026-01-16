@@ -6,7 +6,7 @@ export const radioVariant = tv({
   slots: {
     root: [
       "group relative inline-flex gap-2 cursor-default items-center justify-start tap-highlight-transparent",
-      "ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
+      "ui-disabled:cursor-not-allowed ui-disabled:opacity-disabled",
     ],
     control: [
       "relative",
@@ -91,7 +91,7 @@ export const radioVariant = tv({
 
 export const radioGroupVariant = tv({
   slots: {
-    root: "relative flex flex-col gap-2",
+    root: "group relative flex flex-col gap-2",
     label: "text-sm font-normal text-foreground",
     content: "flex flex-col flex-wrap gap-2",
     description: "text-xs text-foreground-secondary",

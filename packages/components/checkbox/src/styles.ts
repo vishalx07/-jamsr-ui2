@@ -10,7 +10,7 @@ export const checkboxVariants = tv({
   slots: {
     root: [
       "checkbox group flex gap-2 items-start",
-      "data-disabled:opacity-60 data-disabled:cursor-not-allowed",
+      "data-disabled:opacity-disabled data-disabled:cursor-not-allowed",
     ],
     control: [
       "checkbox__control flex justify-center items-center",

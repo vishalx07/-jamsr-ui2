@@ -29,7 +29,7 @@ export const iconButtonVariants = tv({
     "tap-highlight-transparent",
     "transition-transform duration-300",
     "focus-visible:ring-2 focus-visible:ring-primary",
-    "data-disabled:cursor-not-allowed data-disabled:opacity-60",
+    "data-disabled:cursor-not-allowed data-disabled:opacity-disabled",
     "text-transform-inherit",
   ],
   variants: {

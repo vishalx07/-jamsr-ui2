@@ -194,6 +194,7 @@ export const useSelect = (props: useSelect.Props) => {
       ...elementProps,
       "data-component": dataAttrDev("select"),
       "data-slot": dataAttrDev("root"),
+      "data-disabled": dataAttr(isDisabled),
       className: styles.root({
         className: cn(elementProps.className),
       }),

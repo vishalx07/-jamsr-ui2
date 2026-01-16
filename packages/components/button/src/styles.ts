@@ -11,7 +11,7 @@ import type { VariantProps } from "@jamsrui/utils";
 export const buttonVariant = tv({
   base: [
     "button cursor-default relative inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
-    "disabled:cursor-not-allowed disabled:opacity-70",
+    "disabled:cursor-not-allowed disabled:opacity-disabled",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
   ],
   variants: {
@@ -24,7 +24,7 @@ export const buttonVariant = tv({
       danger: "button--danger",
     },
     variant: {
-      solid: "button--solid ring-1 ring-inset",
+      solid: "button--solid",
       bordered: "button--bordered border",
       light: "button--light",
       text: "button--text",

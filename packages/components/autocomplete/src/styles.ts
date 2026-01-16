@@ -2,7 +2,6 @@ import { radiusVariant, tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const autocompleteVariants = tv({
   slots: {
     root: ["group relative flex w-full flex-col text-sm"],
@@ -15,7 +14,7 @@ export const autocompleteVariants = tv({
       "ui-hover:bg-surface-secondary",
       "ui-active:bg-surface-secondary",
       "ui-selected:bg-surface-secondary/50",
-      "ui-disabled:cursor-not-allowed ui-disabled:opacity-60",
+      "ui-disabled:cursor-not-allowed ui-disabled:opacity-disabled",
     ],
   },
   variants: {

@@ -7,7 +7,7 @@ export const dialogVariants = tv({
     backdrop: "z-backdrop grid place-items-center",
     header: "p-4 text-base font-bold",
     body: "w-full p-4",
-    container: "z-dialog max-w-md w-full",
+    container: "z-dialog max-w-md w-full focus-visible:outline-none",
     content:
       "relative flex size-full flex-col overflow-y-auto bg-surface shadow-lg",
     footer: "flex w-full items-center justify-end gap-2 p-4",

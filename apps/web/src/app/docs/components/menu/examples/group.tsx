@@ -1,5 +1,5 @@
 "use client";
-import { Button, Divider, Menu } from "@jamsrui/react";
+import { Button, Menu } from "@jamsrui/react";
 import { useState } from "react";
 
 export const MenuGroupExample = () => {
@@ -31,7 +31,7 @@ export const MenuGroupExample = () => {
             </Menu.RadioItem>
           </Menu.RadioGroup>
         </Menu.Group>
-        <Divider />
+        <Menu.Separator />
         <Menu.Group>
           <Menu.GroupLabel>Workspace</Menu.GroupLabel>
           <Menu.CheckboxItem

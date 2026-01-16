@@ -4,6 +4,7 @@ import { useRenderElement } from "@jamsrui/hooks";
 
 import { useTooltipContext } from "./tooltip-context";
 
+import { FloatingPortal } from "@floating-ui/react";
 import type { PropsWithChildren } from "react";
 
 export const TooltipContent = (props: TooltipContent.Props) => {
@@ -12,7 +13,7 @@ export const TooltipContent = (props: TooltipContent.Props) => {
     props: [getContentProps(props)],
   });
   if (!isOpen) return null;
-  return renderElement;
+  return <FloatingPortal>{renderElement}</FloatingPortal>;
 };
 
 export namespace TooltipContent {

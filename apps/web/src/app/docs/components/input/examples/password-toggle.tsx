@@ -25,7 +25,7 @@ export const InputPasswordToggle = () => {
         />
         <InputGroup.Suffix>
           <IconButton
-            size="xs"
+            size="sm"
             radius="full"
             label="Toggle password"
             variant="light"
