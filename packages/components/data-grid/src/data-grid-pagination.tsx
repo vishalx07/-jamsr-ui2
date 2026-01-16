@@ -11,13 +11,60 @@ import {
 import { Label } from "@jamsrui/label";
 import { Select } from "@jamsrui/select";
 
+import { useRenderElement } from "@jamsrui/hooks";
+import { cn, UIProps } from "@jamsrui/utils";
 import { useDataGridContext } from "./data-grid-context";
 
-export const DataGridPagination = () => {
-  const take = 10;
-  const { table, isEmpty } = useDataGridContext();
-  const [value, setValue] = useState<number>(take);
+export const DataGridPaginationSelector = (
+  props: DataGridPaginationSelector.Props
+) => {
+  const { className, ...restProps } = props;
+  const { table } = useDataGridContext();
+  const [value, setValue] = useState<number>(10);
 
+  const onValueChange = (value: string) => {
+    const valueAsNumber = Number(value);
+    table.setPageSize(valueAsNumber);
+    setValue(valueAsNumber);
+  };
+  return (
+    <Select
+      className={cn("flex flex-row items-center gap-2", className)}
+      onValueChange={onValueChange}
+      returnFocus={false}
+      size="sm"
+      value={value}
+      data-slot="pagination-selector"
+      {...restProps}
+    >
+      <Label>Rows Per Page:</Label>
+      <Select.Trigger className="px-1" />
+      <Select.Popover>
+        <Select.Content>
+          {[10, 20, 50, 100, 500].map((pageSize) => (
+            <Select.Item
+              key={pageSize.toString()}
+              textValue={pageSize.toString()}
+              value={pageSize}
+            >
+              {pageSize.toString()}
+            </Select.Item>
+          ))}
+        </Select.Content>
+      </Select.Popover>
+    </Select>
+  );
+};
+
+export namespace DataGridPaginationSelector {
+  export interface Props extends Select.Props {}
+}
+
+export const DataGridPaginationControls = (
+  props: DataGridPaginationControls.Props
+) => {
+  const { className, ...restProps } = props;
+  const { table } = useDataGridContext();
   const onNext = () => {
     table.nextPage();
   };
@@ -36,96 +83,93 @@ export const DataGridPagination = () => {
     ? table.getState().pagination.pageIndex + 1
     : 0;
 
-  const onValueChange = (value: string) => {
-    const valueAsNumber = Number(value);
-    table.setPageSize(valueAsNumber);
-    setValue(valueAsNumber);
-  };
-  if (isEmpty) return null;
-
   return (
     <div
-      className="flex flex-col w-full justify-between gap-4 md:flex-row md:items-center"
-      data-slot="pagination"
+      data-slot="pagination-controls"
+      className={cn("flex gap-1 md:gap-4", className)}
+      {...restProps}
     >
-      <Select
-        className="flex flex-row items-center gap-2"
-        onValueChange={onValueChange}
-        returnFocus={false}
-        size="sm"
-        value={value}
-      >
-        <Label>Rows Per Page:</Label>
-        <Select.Trigger />
-        <Select.Popover>
-          <Select.Content>
-            {[10, 20, 50, 100, 500].map((pageSize) => (
-              <Select.Item
-                key={pageSize.toString()}
-                textValue={pageSize.toString()}
-                value={pageSize}
-              >
-                {pageSize.toString()}
-              </Select.Item>
-            ))}
-          </Select.Content>
-        </Select.Popover>
-      </Select>
-      <div className="flex gap-1 md:gap-4">
-        <div className="flex items-center justify-center text-sm font-medium">
-          Page {currentPageIndex} of {totalPageCount}
-        </div>
-        <div className="flex items-center">
-          <IconButton
-            disabled={!table.getCanPreviousPage()}
-            label="First Page"
-            onClick={onFirstPage}
-            radius="full"
-            size="sm"
-            variant="light"
-          >
-            <span className="sr-only">Go to first page</span>
-            <ChevronDoubleLeftIcon height={20} width={20} />
-          </IconButton>
-          <IconButton
-            disabled={!table.getCanPreviousPage()}
-            label="Previous Page"
-            onClick={onPrevious}
-            radius="full"
-            size="sm"
-            variant="light"
-          >
-            <span className="sr-only">Go to previous page</span>
-            <ChevronLeftIcon height={20} width={20} />
-          </IconButton>
-          <IconButton
-            disabled={!table.getCanNextPage()}
-            label="Next Page"
-            onClick={onNext}
-            radius="full"
-            size="sm"
-            variant="light"
-          >
-            <span className="sr-only">Go to next page</span>
-            <ChevronRightIcon height={20} width={20} />
-          </IconButton>
-          <IconButton
-            disabled={!table.getCanNextPage()}
-            label="Last Page"
-            onClick={onEnd}
-            radius="full"
-            size="sm"
-            variant="light"
-          >
-            <span className="sr-only">Go to last page</span>
-            <ChevronDoubleRightIcon height={20} width={20} />
-          </IconButton>
-        </div>
+      <div className="flex items-center justify-center text-sm font-medium">
+        Page {currentPageIndex} of {totalPageCount}
+      </div>
+      <div className="flex items-center">
+        <IconButton
+          disabled={!table.getCanPreviousPage()}
+          label="Go to first page"
+          onClick={onFirstPage}
+          radius="full"
+          size="sm"
+          variant="light"
+        >
+          <ChevronDoubleLeftIcon height={20} width={20} />
+        </IconButton>
+        <IconButton
+          disabled={!table.getCanPreviousPage()}
+          label="Go to previous page"
+          onClick={onPrevious}
+          radius="full"
+          size="sm"
+          variant="light"
+        >
+          <ChevronLeftIcon height={20} width={20} />
+        </IconButton>
+        <IconButton
+          disabled={!table.getCanNextPage()}
+          label="Go to next page"
+          onClick={onNext}
+          radius="full"
+          size="sm"
+          variant="light"
+        >
+          <ChevronRightIcon height={20} width={20} />
+        </IconButton>
+        <IconButton
+          disabled={!table.getCanNextPage()}
+          label="Go to last page"
+          onClick={onEnd}
+          radius="full"
+          size="sm"
+          variant="light"
+        >
+          <ChevronDoubleRightIcon height={20} width={20} />
+        </IconButton>
       </div>
     </div>
   );
 };
 
+export namespace DataGridPaginationControls {
+  export interface Props extends UIProps<"div"> {}
+}
+
+export const DataGridPagination = (props: DataGridPagination.Props) => {
+  const { isEmpty } = useDataGridContext();
+  if (isEmpty) return null;
+
+  const {
+    children = (
+      <>
+        <DataGridPaginationSelector />
+        <DataGridPaginationControls />
+      </>
+    ),
+    ...restProps
+  } = props;
+
+  const renderElement = useRenderElement("div", {
+    props: [
+      {
+        className:
+          "flex flex-col w-full justify-between gap-4 md:flex-row md:items-center mt-2",
+        "data-slot": "pagination",
+        children,
+      },
+      restProps,
+    ],
+  });
+  return <>{renderElement}</>;
+};
+
 export namespace DataGridPagination {
-  export interface Props<T> {}
+  export interface Props extends UIProps<"div"> {}
 }

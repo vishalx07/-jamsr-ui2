@@ -21,7 +21,7 @@ export { Clipboard, ClipboardConfig, useClipboardConfig } from '@jamsrui/clipboa
 export { CollapsibleConfig, CollapsibleContent, CollapsibleTrigger, useCollapsibleConfig, Collapsible } from '@jamsrui/collapsible';
 export { Composite, CompositeItem, useComposite, useCompositeItem } from '@jamsrui/composite';
 export { ContextMenuConfig, ContextMenuContent, ContextMenuItem, ContextMenuTrigger, useContextMenuConfig, ContextMenu } from '@jamsrui/context-menu';
-export { DataGrid, DataGridConfig, useDataGridConfig, DataGridRowSelect, DataGridRowSelectAll, useDataGridTable, DataGridColumnVisibility } from '@jamsrui/data-grid';
+export { DataGridBody, DataGridColumnVisibility, DataGridConfig, DataGridHeader, DataGridHeaderColumn, DataGridPagination, DataGridPaginationSelector, DataGridRowSelect, DataGridRowSelectAll, DataGridTable, useDataGridTable, DataGrid } from '@jamsrui/data-grid';
 export { DateFieldRoot, DateFieldConfig, DateFieldSeparator, DateInput, DateSegment, dateFieldVariants, useDateField, useDateFieldConfig, useDateSegment, DateField } from '@jamsrui/date-field';
 export type { DateFieldSlots, DateFieldVariants } from '@jamsrui/date-field';
 export { DatePickerConfig, useDatePickerConfig, DatePicker } from '@jamsrui/date-picker';

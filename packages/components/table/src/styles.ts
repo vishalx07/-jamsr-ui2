@@ -7,10 +7,11 @@ export const tableVariants = tv({
     root: "relative flex flex-col gap-2 overflow-hidden",
     wrapper: "grid w-full gap-2 overflow-x-auto",
     table: "group/table w-full min-w-full",
-    thead: "h-10",
+    thead: "h-10 group/thead",
     th: [
       "h-10 grow items-center px-3 text-left text-sm font-normal",
       "data-pinned:bg-background/90 data-pinned:backdrop-blur-xl",
+      "group/th",
     ],
     tbody: "",
     tr: "group/tr",

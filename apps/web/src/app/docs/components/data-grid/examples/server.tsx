@@ -1,6 +1,11 @@
 "use client";
 
-import { DataGrid } from "@jamsrui/react";
+import {
+  DataGrid,
+  DataGridPagination,
+  DataGridTable,
+  useDataGridTable,
+} from "@jamsrui/react";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { PaginationState } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
@@ -19,15 +24,19 @@ export const DataGridServerSide = () => {
   });
   const defaultData = useMemo(() => [], []);
 
+  const table = useDataGridTable({
+    columns: COLUMNS,
+    data: dataQuery.data?.rows ?? defaultData,
+    manualPagination: true,
+    rowCount: dataQuery.data?.rowCount ?? 0,
+    state: { pagination },
+    onPaginationChange: setPagination,
+  });
+
   return (
-    <DataGrid
-      columns={COLUMNS}
-      data={dataQuery.data?.rows ?? defaultData}
-      manualPagination
-      rowCount={dataQuery.data?.rowCount ?? 0}
-      state={{ pagination }}
-      onPaginationChange={setPagination}
-      isLoading={dataQuery.isFetching}
-    />
+    <DataGrid table={table}>
+      <DataGridTable />
+      <DataGridPagination />
+    </DataGrid>
   );
 };
