@@ -1,5 +1,11 @@
 # @jamsrui/charts
 
+## 0.0.16
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+
 ## 0.0.15
 
 ### Patch Changes

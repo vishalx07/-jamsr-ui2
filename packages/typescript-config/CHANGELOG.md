@@ -1,5 +1,11 @@
 # @jamsrui/typescript-config
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+
 ## 0.0.9
 
 ### Patch Changes

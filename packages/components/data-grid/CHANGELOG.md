@@ -1,5 +1,26 @@
 # @jamsrui/data-grid
 
+## 0.0.27
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+- Updated dependencies
+  - @jamsrui/button@0.0.21
+  - @jamsrui/checkbox@0.0.20
+  - @jamsrui/divider@0.0.19
+  - @jamsrui/icon-button@0.0.19
+  - @jamsrui/input@0.0.22
+  - @jamsrui/label@0.0.13
+  - @jamsrui/linear-progress@0.0.19
+  - @jamsrui/menu@0.0.21
+  - @jamsrui/select@0.0.21
+  - @jamsrui/table@0.0.19
+  - @jamsrui/core@0.0.15
+  - @jamsrui/hooks@0.0.19
+  - @jamsrui/icons@0.0.15
+  - @jamsrui/utils@0.0.19
+
 ## 0.0.26
 
 ### Patch Changes

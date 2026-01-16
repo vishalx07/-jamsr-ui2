@@ -1,5 +1,11 @@
 # @jamsrui/theme
 
+## 0.0.17
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+
 ## 0.0.16
 
 ### Patch Changes

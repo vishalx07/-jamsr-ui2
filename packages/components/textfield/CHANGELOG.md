@@ -1,5 +1,16 @@
 # @jamsrui/textfield
 
+## 0.0.8
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+- Updated dependencies
+  - @jamsrui/context@0.0.8
+  - @jamsrui/core@0.0.15
+  - @jamsrui/hooks@0.0.19
+  - @jamsrui/utils@0.0.19
+
 ## 0.0.7
 
 ### Patch Changes

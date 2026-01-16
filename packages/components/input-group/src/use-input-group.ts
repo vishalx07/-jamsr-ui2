@@ -27,7 +27,6 @@ export const useInputGroup = (props: useInputGroup.Props) => {
   const { ref, className, ...elementProps } = $props;
 
   const styles = inputGroupVariants(variantProps);
-  const isInvalid = variantProps.isInvalid;
   const isDisabled = false;
 
   const { isFocused, ref: focusRef } = useFocus<HTMLInputElement>({
@@ -68,14 +67,13 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       "data-hovered": dataAttr(isHovered),
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
-      "data-invalid": dataAttr(isInvalid),
       onMouseDown: handleOnMouseDown,
       ...elementProps,
       className: styles.root({
         className: cn(props.className),
       }),
     }),
-    [isDisabled, isFocusVisible, isFocused, isHovered, isInvalid, styles]
+    [isDisabled, isFocusVisible, isFocused, isHovered, styles]
   );
 
   const getPrefixProps: PropGetter<InputGroupPrefix.Props> = useCallback(

@@ -1,5 +1,25 @@
 # @jamsrui/rhf
 
+## 0.0.7
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+- Updated dependencies
+  - @jamsrui/checkbox@0.0.20
+  - @jamsrui/field-error@0.0.12
+  - @jamsrui/input@0.0.22
+  - @jamsrui/number-field@0.0.21
+  - @jamsrui/otp-input@0.0.20
+  - @jamsrui/radio@0.0.22
+  - @jamsrui/select@0.0.21
+  - @jamsrui/switch@0.0.20
+  - @jamsrui/textarea@0.0.22
+  - @jamsrui/textfield@0.0.8
+  - @jamsrui/core@0.0.15
+  - @jamsrui/hooks@0.0.19
+  - @jamsrui/utils@0.0.19
+
 ## 0.0.6
 
 ### Patch Changes

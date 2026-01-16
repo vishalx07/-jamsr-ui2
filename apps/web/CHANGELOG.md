@@ -1,5 +1,17 @@
 # web
 
+## 0.1.32
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+- Updated dependencies
+  - @jamsrui/hooks@0.0.19
+  - @jamsrui/icons@0.0.15
+  - @jamsrui/react@0.0.33
+  - @jamsrui/theme@0.0.17
+  - @jamsrui/utils@0.0.19
+
 ## 0.1.31
 
 ### Patch Changes

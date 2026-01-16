@@ -1,5 +1,15 @@
 # @jamsrui/button
 
+## 0.0.21
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+- Updated dependencies
+  - @jamsrui/core@0.0.15
+  - @jamsrui/hooks@0.0.19
+  - @jamsrui/utils@0.0.19
+
 ## 0.0.20
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @jamsrui/switch
 
+## 0.0.20
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+- Updated dependencies
+  - @jamsrui/slot@0.0.16
+  - @jamsrui/context@0.0.8
+  - @jamsrui/core@0.0.15
+  - @jamsrui/hooks@0.0.19
+  - @jamsrui/utils@0.0.19
+
 ## 0.0.19
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @jamsrui/input
 
+## 0.0.9
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+- Updated dependencies
+  - @jamsrui/description@0.0.12
+  - @jamsrui/field-error@0.0.12
+  - @jamsrui/label@0.0.13
+  - @jamsrui/core@0.0.15
+  - @jamsrui/hooks@0.0.19
+  - @jamsrui/utils@0.0.19
+
 ## 0.0.8
 
 ### Patch Changes

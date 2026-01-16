@@ -1,5 +1,17 @@
 # storybook-2
 
+## 0.0.32
+
+### Patch Changes
+
+- fix: rhf, input-group, label
+- Updated dependencies
+  - @jamsrui/accordion@0.0.19
+  - @jamsrui/button@0.0.21
+  - @jamsrui/text@0.0.19
+  - @jamsrui/react@0.0.33
+  - @jamsrui/theme@0.0.17
+
 ## 0.0.31
 
 ### Patch Changes
