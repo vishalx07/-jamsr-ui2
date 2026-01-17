@@ -10,7 +10,7 @@ export const otpInputVariants = tv({
       "otp-input__slot border-border relative flex items-center justify-center",
       "border-y border-r first:border-l first:rounded-l-md last:rounded-r-md outline-solid outline-0 outline-border/20",
       "transition-all duration-300 ease-in-out",
-      "group-data-hover:border-border-dark data-active:border-transparent data-active:outline-focus data-active:outline-1",
+      "group-data-hover:border-border-dark data-active:border-transparent data-active:outline-focus data-active:outline-2",
       "group-data-invalid:border-danger group-data-invalid:data-active:outline-danger"
     ],
     separator: "otp-input__separator w-4 h-1 bg-divider",
@@ -20,7 +20,7 @@ export const otpInputVariants = tv({
       "disabled:cursor-not-allowed",
     ],
     caret:
-      "otp-input__caret absolute pointer-events-none flex w-[1.5px] bg-border animate-caret-blink z-1",
+      "otp-input__caret absolute pointer-events-none flex w-[1.5px] bg-foreground animate-caret-blink z-1",
   },
   variants: {
     radius: radiusVariant(["group", "separator"], "otp-input"),
