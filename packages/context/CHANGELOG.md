@@ -1,5 +1,13 @@
 # @jamsrui/context
 
+## 0.0.9
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.8
 
 ### Patch Changes

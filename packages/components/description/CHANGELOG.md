@@ -1,5 +1,16 @@
 # @jamsrui/label
 
+## 0.0.13
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/context@0.0.9
+  - @jamsrui/core@0.0.16
+  - @jamsrui/hooks@0.0.20
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.12
 
 ### Patch Changes

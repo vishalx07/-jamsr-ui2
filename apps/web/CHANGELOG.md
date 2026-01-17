@@ -1,5 +1,17 @@
 # web
 
+## 0.1.34
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/hooks@0.0.20
+  - @jamsrui/icons@0.0.17
+  - @jamsrui/react@0.0.35
+  - @jamsrui/theme@0.0.18
+  - @jamsrui/utils@0.0.20
+
 ## 0.1.33
 
 ### Patch Changes

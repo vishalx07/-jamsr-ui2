@@ -24,6 +24,9 @@ export const slider = tv({
         indicator: "w-full bottom-0",
       },
     },
+    isDisabled: {
+      true: {},
+    },
   },
   defaultVariants: {
     orientation: "horizontal",

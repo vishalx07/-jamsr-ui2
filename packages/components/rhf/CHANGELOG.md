@@ -1,5 +1,25 @@
 # @jamsrui/rhf
 
+## 0.0.9
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/checkbox@0.0.21
+  - @jamsrui/field-error@0.0.13
+  - @jamsrui/input@0.0.23
+  - @jamsrui/number-field@0.0.22
+  - @jamsrui/otp-input@0.0.21
+  - @jamsrui/radio@0.0.23
+  - @jamsrui/select@0.0.23
+  - @jamsrui/switch@0.0.21
+  - @jamsrui/textarea@0.0.23
+  - @jamsrui/textfield@0.0.9
+  - @jamsrui/core@0.0.16
+  - @jamsrui/hooks@0.0.20
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.8
 
 ### Patch Changes

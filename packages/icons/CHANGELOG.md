@@ -1,5 +1,11 @@
 # @jamsrui/icons
 
+## 0.0.17
+
+### Patch Changes
+
+- fix: theme
+
 ## 0.0.16
 
 ### Patch Changes

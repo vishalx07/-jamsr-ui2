@@ -1,5 +1,15 @@
 # @jamsrui/collapsible
 
+## 0.0.21
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/core@0.0.16
+  - @jamsrui/hooks@0.0.20
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.20
 
 ### Patch Changes

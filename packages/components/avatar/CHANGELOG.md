@@ -1,5 +1,17 @@
 # @jamsrui/avatar
 
+## 0.0.21
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/slot@0.0.17
+  - @jamsrui/core@0.0.16
+  - @jamsrui/hooks@0.0.20
+  - @jamsrui/icons@0.0.17
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.20
 
 ### Patch Changes

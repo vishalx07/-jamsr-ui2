@@ -1,5 +1,11 @@
 # @jamsrui/utils
 
+## 0.0.20
+
+### Patch Changes
+
+- fix: theme
+
 ## 0.0.19
 
 ### Patch Changes

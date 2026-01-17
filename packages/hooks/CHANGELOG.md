@@ -1,5 +1,13 @@
 # @jamsrui/hooks
 
+## 0.0.20
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.19
 
 ### Patch Changes

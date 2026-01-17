@@ -1,5 +1,13 @@
 # @jamsrui/composite
 
+## 0.0.13
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.12
 
 ### Patch Changes

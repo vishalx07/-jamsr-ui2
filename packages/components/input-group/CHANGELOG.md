@@ -1,5 +1,18 @@
 # @jamsrui/input
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/description@0.0.13
+  - @jamsrui/field-error@0.0.13
+  - @jamsrui/label@0.0.14
+  - @jamsrui/core@0.0.16
+  - @jamsrui/hooks@0.0.20
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.9
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @jamsrui/input
 
+## 0.0.23
+
+### Patch Changes
+
+- fix: theme
+- Updated dependencies
+  - @jamsrui/input-group@0.0.10
+  - @jamsrui/textfield@0.0.9
+  - @jamsrui/context@0.0.9
+  - @jamsrui/core@0.0.16
+  - @jamsrui/hooks@0.0.20
+  - @jamsrui/utils@0.0.20
+
 ## 0.0.22
 
 ### Patch Changes

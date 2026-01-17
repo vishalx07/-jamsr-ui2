@@ -1,5 +1,11 @@
 # @jamsrui/template
 
+## 0.0.10
+
+### Patch Changes
+
+- fix: theme
+
 ## 0.0.9
 
 ### Patch Changes
