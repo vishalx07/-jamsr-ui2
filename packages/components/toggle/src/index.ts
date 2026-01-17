@@ -1,4 +1,3 @@
-
 import { Toggle as ToggleRoot } from "./toggle";
 import { ToggleConfig, useToggleConfig } from "./toggle-config";
 

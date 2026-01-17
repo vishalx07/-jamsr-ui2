@@ -10,7 +10,7 @@ export const Input = (props: Input.Props) => {
   const mergedProps = mergeConfigProps(
     inputVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const { getInputProps } = useInput(mergedProps);
   return <input {...getInputProps({})} />;

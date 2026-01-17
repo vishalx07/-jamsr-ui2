@@ -171,7 +171,7 @@ export const CustomDateInput = React.forwardRef(
       const currentDate = parse(
         `${parts.year}-${parts.month.padStart(2, "0")}-${parts.day.padStart(2, "0")}`,
         "yyyy-MM-dd",
-        new Date()
+        new Date(),
       );
       if (!isValid(currentDate)) return;
       let newDate = currentDate;
@@ -189,7 +189,7 @@ export const CustomDateInput = React.forwardRef(
       const currentDate = parse(
         `${parts.year}-${parts.month.padStart(2, "0")}-${parts.day.padStart(2, "0")}`,
         "yyyy-MM-dd",
-        new Date()
+        new Date(),
       );
       if (!isValid(currentDate)) return;
       let newDate = currentDate;
@@ -333,7 +333,7 @@ export const CustomDateInput = React.forwardRef(
         />
       </div>
     );
-  }
+  },
 );
 
 CustomDateInput.displayName = "CustomDateInput";

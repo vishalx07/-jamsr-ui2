@@ -4,14 +4,14 @@ import { createContext, use } from "react";
 import { useInputGroup } from "./use-input-group";
 
 export const InputGroupContext = createContext<InputGroupContext.Props | null>(
-  null
+  null,
 );
 
 export const useInputGroupContext = () => {
   const ctx = use(InputGroupContext);
   if (!ctx)
     throw new Error(
-      "useInputGroupContext must be used within InputGroupContextProvider"
+      "useInputGroupContext must be used within InputGroupContextProvider",
     );
   return ctx;
 };

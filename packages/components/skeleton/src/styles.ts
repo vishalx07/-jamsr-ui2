@@ -2,7 +2,6 @@ import { tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const skeletonVariants = tv({
   slots: {
     root: [

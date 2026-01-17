@@ -16,7 +16,7 @@ import { cn, UIProps } from "@jamsrui/utils";
 import { useDataGridContext } from "./data-grid-context";
 
 export const DataGridPaginationSelector = (
-  props: DataGridPaginationSelector.Props
+  props: DataGridPaginationSelector.Props,
 ) => {
   const { className, ...restProps } = props;
   const { table } = useDataGridContext();
@@ -61,7 +61,7 @@ export namespace DataGridPaginationSelector {
 }
 
 export const DataGridPaginationControls = (
-  props: DataGridPaginationControls.Props
+  props: DataGridPaginationControls.Props,
 ) => {
   const { className, ...restProps } = props;
   const { table } = useDataGridContext();

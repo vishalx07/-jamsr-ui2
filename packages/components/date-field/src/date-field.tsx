@@ -11,7 +11,7 @@ export const DateField = (props: DateField.Props) => {
   const mergedProps = mergeConfigProps(
     dateFieldVariants.defaultVariants,
     config,
-    props
+    props,
   ); // config might need updating too
   const ctx = useDateField(mergedProps);
   const { Component: Root, getRootProps, children } = ctx;

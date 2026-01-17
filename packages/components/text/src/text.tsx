@@ -14,11 +14,11 @@ export const Text = (props: Text.Props) => {
   const mergedProps = mergeConfigProps(
     textVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const [elementProps, variantProps] = mapPropsVariants(
     mergedProps,
-    textVariants.variantKeys
+    textVariants.variantKeys,
   );
   const className = textVariants(variantProps);
   const renderElement = useRenderElement("p", {

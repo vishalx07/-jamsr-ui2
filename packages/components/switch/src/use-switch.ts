@@ -29,7 +29,7 @@ import type { SwitchTrack } from "./switch-track";
 export const useSwitch = (props: useSwitch.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    switchVariants.variantKeys
+    switchVariants.variantKeys,
   );
   const styles = switchVariants(variantProps);
   const {
@@ -63,7 +63,7 @@ export const useSwitch = (props: useSwitch.Props) => {
         setIsChecked(event.target.checked);
       }
     },
-    [isDisabled, setIsChecked]
+    [isDisabled, setIsChecked],
   );
 
   const getRootProps = useCallback(
@@ -79,7 +79,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       "data-pressed": dataAttr(isPressed),
       "data-disabled": dataAttr(isDisabled),
     }),
-    [elementProps, isChecked, isDisabled, isFocusVisible, isPressed, styles]
+    [elementProps, isChecked, isDisabled, isFocusVisible, isPressed, styles],
   );
 
   const getInputProps: PropGetter<SwitchInput.Props> = useCallback(
@@ -95,7 +95,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       }),
       disabled: isDisabled,
     }),
-    [handleInputChange, inputProps, inputRefs, isDisabled, styles]
+    [handleInputChange, inputProps, inputRefs, isDisabled, styles],
   );
 
   const getTrackProps: PropGetter<SwitchTrack.Props> = useCallback(
@@ -106,7 +106,7 @@ export const useSwitch = (props: useSwitch.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getThumbProps: PropGetter<SwitchThumb.Props> = useCallback(
@@ -118,7 +118,7 @@ export const useSwitch = (props: useSwitch.Props) => {
         className: props.className,
       }),
     }),
-    [layoutId, styles]
+    [layoutId, styles],
   );
 
   const getContentProps: PropGetter<SwitchContent.Props> = useCallback(
@@ -129,7 +129,7 @@ export const useSwitch = (props: useSwitch.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -148,7 +148,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       getContentProps,
       getTrackProps,
       getInputProps,
-    ]
+    ],
   );
 };
 

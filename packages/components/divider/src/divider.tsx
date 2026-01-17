@@ -11,7 +11,7 @@ export const Divider = (props: Divider.Props) => {
   const mergedProps = mergeConfigProps(
     dividerVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useDivider(mergedProps);
   const { getRootProps, getDividerProps } = ctx;

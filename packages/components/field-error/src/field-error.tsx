@@ -11,7 +11,7 @@ export const FieldError = (props: FieldError.Props) => {
   const mergedProps = mergeConfigProps(
     fieldErrorVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const descProps = useFieldError(mergedProps);
   const renderElement = useRenderElement("span", {

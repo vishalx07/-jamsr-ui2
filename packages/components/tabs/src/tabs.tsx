@@ -13,7 +13,7 @@ export const Tabs = (props: Tabs.Props) => {
   const mergedProps = mergeConfigProps(
     tabsVariant.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useTabs(mergedProps);
   const { getRootProps } = ctx;

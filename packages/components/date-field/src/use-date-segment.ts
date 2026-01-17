@@ -8,7 +8,7 @@ import type { ComponentProps } from "react";
 import type { DateSegment } from "./date-segment";
 
 export const useDateSegment = (
-  props: useDateSegment.Props
+  props: useDateSegment.Props,
 ): useDateSegment.ReturnType => {
   const { segment } = props;
   const { activeSegment, setActiveSegment } = useDateFieldContext();
@@ -54,7 +54,7 @@ export const useDateSegment = (
         return;
       }
     },
-    []
+    [],
   );
 
   const handleOnFocus = useCallback(() => {

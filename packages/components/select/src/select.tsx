@@ -12,7 +12,7 @@ export const Select = (props: Select.Props) => {
   const mergedProps = mergeConfigProps(
     selectVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useSelect(mergedProps);
   const { getRootProps } = ctx;

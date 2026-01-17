@@ -15,7 +15,7 @@ import type { TextareaVariantProps } from "./styles";
 export const useTextarea = (props: useTextarea.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    textareaVariants.variantKeys
+    textareaVariants.variantKeys,
   );
   const inputGroupCtx = useInputGroupContextOpt();
   const fieldA11yCtx = useFieldA11yContext();
@@ -44,7 +44,7 @@ export const useTextarea = (props: useTextarea.Props) => {
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setValue(e.target.value);
     },
-    [setValue]
+    [setValue],
   );
 
   const getTextareaProps: PropGetter<UIProps<"textarea">> = useCallback(
@@ -56,14 +56,21 @@ export const useTextarea = (props: useTextarea.Props) => {
       value,
       onChange: handleTextareaChange,
     }),
-    [fieldA11yCtx, elementProps, styles, className, value, handleTextareaChange]
+    [
+      fieldA11yCtx,
+      elementProps,
+      styles,
+      className,
+      value,
+      handleTextareaChange,
+    ],
   );
 
   return useMemo(
     () => ({
       getTextareaProps,
     }),
-    [getTextareaProps]
+    [getTextareaProps],
   );
 };
 

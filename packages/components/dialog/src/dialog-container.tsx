@@ -39,7 +39,7 @@ export namespace DialogContainer {
 }
 
 export const DialogContainerWithContent = (
-  props: DialogContainerWithContent.Props
+  props: DialogContainerWithContent.Props,
 ) => {
   return (
     <DialogContainer>

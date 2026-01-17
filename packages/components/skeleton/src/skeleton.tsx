@@ -13,7 +13,7 @@ export const Skeleton = (props: Skeleton.Props) => {
   const mergedProps = mergeConfigProps(
     skeletonVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useSkeleton(mergedProps);
   const { getRootProps } = ctx;

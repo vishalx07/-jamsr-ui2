@@ -10,7 +10,7 @@ export const CircularProgress = (props: CircularProgress.Props) => {
   const mergedProps = mergeConfigProps(
     circularProgressVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useCircularProgress(mergedProps);
   const {

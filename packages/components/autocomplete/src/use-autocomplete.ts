@@ -35,7 +35,7 @@ import type { AutocompleteSlots, AutocompleteVariantProps } from "./styles";
 export const useAutocomplete = (props: useAutocomplete.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    autocompleteVariants.variantKeys
+    autocompleteVariants.variantKeys,
   );
   const {
     classNames,
@@ -106,7 +106,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
   });
   const role = useRole(context, { role: "listbox" });
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
-    [listNav, dismiss, role]
+    [listNav, dismiss, role],
   );
 
   const handleToggleOpen = useCallback(() => {
@@ -124,7 +124,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
         className: cn(classNames?.root, elementProps.className),
       }),
     }),
-    [classNames?.root, elementProps, styles]
+    [classNames?.root, elementProps, styles],
   );
 
   const getAutocompleteItemProps: PropGetter<AutocompleteItem.Props> =
@@ -136,7 +136,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
           className: cn(classNames?.item, props.className),
         }),
       }),
-      [classNames?.item, styles]
+      [classNames?.item, styles],
     );
 
   const getPopoverProps: PropGetter<AutocompletePopover.Props> = useCallback(
@@ -150,7 +150,13 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
       ...getFloatingProps({}),
       ref: setFloating,
     }),
-    [classNames?.popover, floatingStyles, getFloatingProps, setFloating, styles]
+    [
+      classNames?.popover,
+      floatingStyles,
+      getFloatingProps,
+      setFloating,
+      styles,
+    ],
   );
 
   const getContentProps: PropGetter<AutocompleteContent.Props> = useCallback(
@@ -161,7 +167,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
         className: cn(classNames?.content, props.className),
       }),
     }),
-    [classNames?.content, styles]
+    [classNames?.content, styles],
   );
 
   const getFocusManagerProps = useCallback(
@@ -172,14 +178,14 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
       modal: true,
       restoreFocus: true,
     }),
-    [context]
+    [context],
   );
 
   const getFloatingListProps = useCallback(
     (): Omit<ComponentProps<typeof FloatingList>, "children"> => ({
       elementsRef,
     }),
-    []
+    [],
   );
 
   const getInputProps: PropGetter<Input.Props> = useCallback(
@@ -193,7 +199,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
         },
       },
     }),
-    [getReferenceProps, handleToggleOpen, setReference]
+    [getReferenceProps, handleToggleOpen, setReference],
   );
 
   return useMemo(
@@ -220,7 +226,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
       getRootProps,
       isOpen,
       value,
-    ]
+    ],
   );
 };
 export namespace useAutocomplete {
@@ -237,7 +243,8 @@ export namespace useAutocomplete {
   }
 
   export interface Props
-    extends Omit<Input.Props, keyof InnerProps>,
+    extends
+      Omit<Input.Props, keyof InnerProps>,
       AutocompleteVariantProps,
       InnerProps {}
 }

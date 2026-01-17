@@ -47,7 +47,7 @@ export function useControlled<T = unknown>({
               "element for the lifetime of the component.",
             "The nature of the state is determined during the first render. It's considered controlled if the value is not `undefined`.",
             "More info: https://fb.me/react-controlled-components",
-          ].join("\n")
+          ].join("\n"),
         );
       }
     }, [state, name, controlled]);
@@ -62,7 +62,7 @@ export function useControlled<T = unknown>({
           [
             `Base UI: A component is changing the default ${state} state of an uncontrolled ${name} after being initialized. ` +
               `To suppress this warning opt to use a controlled ${name}.`,
-          ].join("\n")
+          ].join("\n"),
         );
       }
     }, [JSON.stringify(defaultProp)]);
@@ -74,7 +74,7 @@ export function useControlled<T = unknown>({
         setValue(newValue as T);
       }
     },
-    []
+    [],
   );
 
   return [value as T, setValueIfUncontrolled];

@@ -26,7 +26,7 @@ import type { RadioVariantProps } from "./styles";
 export const useRadio = (props: useRadio.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    radioVariant.variantKeys
+    radioVariant.variantKeys,
   );
 
   const {
@@ -69,7 +69,7 @@ export const useRadio = (props: useRadio.Props) => {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
     }),
-    [elementProps, isChecked, isDisabled, isFocusVisible, isPressed, styles]
+    [elementProps, isChecked, isDisabled, isFocusVisible, isPressed, styles],
   );
   const getInputProps: PropGetter<RadioInput.Props> = useCallback(
     (props) => ({
@@ -99,7 +99,7 @@ export const useRadio = (props: useRadio.Props) => {
       isReadonly,
       inputName,
       handleInputChange,
-    ]
+    ],
   );
   const getControlProps: PropGetter<RadioControl.Props> = useCallback(
     (props) => ({
@@ -109,7 +109,7 @@ export const useRadio = (props: useRadio.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
   const getIndicatorProps: PropGetter<RadioIndicator.Props> = useCallback(
     (props) => ({
@@ -120,7 +120,7 @@ export const useRadio = (props: useRadio.Props) => {
       }),
     }),
 
-    [styles]
+    [styles],
   );
   const getContentProps: PropGetter<RadioContent.Props> = useCallback(
     (props) => ({
@@ -130,7 +130,7 @@ export const useRadio = (props: useRadio.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return {

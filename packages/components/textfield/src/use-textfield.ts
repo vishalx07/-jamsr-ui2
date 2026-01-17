@@ -26,7 +26,7 @@ export const useTextField = (props: useTextField.Props) => {
       "aria-invalid": dataAttr(isInvalid),
       ...restProps,
     }),
-    [styles, isDisabled, isInvalid, restProps]
+    [styles, isDisabled, isInvalid, restProps],
   );
 
   return useMemo(() => {

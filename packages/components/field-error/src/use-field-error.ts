@@ -5,7 +5,7 @@ import { type UIProps } from "@jamsrui/utils";
 import { fieldErrorVariants } from "./styles";
 
 export const useFieldError = (
-  props: useFieldError.Props
+  props: useFieldError.Props,
 ): useFieldError.ReturnType => {
   const { className, ref, ...restProps } = props;
   const fieldAllyCtx = useFieldA11yContext();

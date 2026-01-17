@@ -13,7 +13,7 @@ import type { ButtonRoot } from "./button";
 export const useButton = (props: useButton.Props) => {
   const [elementProps, variantKeys] = mapPropsVariants(
     props,
-    buttonVariant.variantKeys
+    buttonVariant.variantKeys,
   );
   const {
     disabled = false,
@@ -53,7 +53,7 @@ export const useButton = (props: useButton.Props) => {
       mergedRefs,
       restProps,
       styles,
-    ]
+    ],
   );
 
   return useMemo(
@@ -61,7 +61,7 @@ export const useButton = (props: useButton.Props) => {
       getButtonProps,
       isLoading,
     }),
-    [getButtonProps, isLoading]
+    [getButtonProps, isLoading],
   );
 };
 

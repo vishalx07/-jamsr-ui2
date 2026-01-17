@@ -11,7 +11,7 @@ export const TimeField = (props: TimeField.Props) => {
   const mergedProps = mergeConfigProps(
     timeFieldVariants.defaultVariants,
     config,
-    props
+    props,
   ); // config might need updating too
   const ctx = useTimeField(mergedProps);
   const { Component: Root, getRootProps, children } = ctx;

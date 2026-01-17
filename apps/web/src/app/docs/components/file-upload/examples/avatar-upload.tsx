@@ -25,7 +25,7 @@ export const FileUploadAvatarUpload = () => {
         {...getRootProps({})}
         className={cn(
           "w-full border size-28 focus-within:outline-1 focus-within:outline-focus rounded-full border-border border-dashed flex flex-col justify-center items-center",
-          isDragging ? "border-primary" : "hover:border-border-light"
+          isDragging ? "border-primary" : "hover:border-border-light",
         )}
         onClick={openFileDialog}
       >

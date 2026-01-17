@@ -115,7 +115,7 @@ export const ScrollBar: React.FC<{
             : 0;
         setThumbPosition(thumbPos);
         setIsVerticalScrollable(
-          container.scrollHeight > container.clientHeight
+          container.scrollHeight > container.clientHeight,
         );
       } else {
         const scrollRatio = container.clientWidth / container.scrollWidth;
@@ -129,7 +129,7 @@ export const ScrollBar: React.FC<{
             : 0;
         setThumbPosition(thumbPos);
         setIsHorizontalScrollable(
-          container.scrollWidth > container.clientWidth
+          container.scrollWidth > container.clientWidth,
         );
       }
     };
@@ -168,7 +168,7 @@ export const ScrollBar: React.FC<{
             : container.clientWidth) - thumbSize;
         const clampedThumbPosition = Math.min(
           maxThumbPosition,
-          Math.max(0, newThumbPosition)
+          Math.max(0, newThumbPosition),
         );
         const scrollRatio = clampedThumbPosition / maxThumbPosition;
         if (orientation === "vertical") {

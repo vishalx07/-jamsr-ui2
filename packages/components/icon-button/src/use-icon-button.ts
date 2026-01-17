@@ -15,7 +15,7 @@ import type { IconButtonVariantProps } from "./styles";
 export const useIconButton = (props: useIconButton.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    iconButtonVariants.variantKeys
+    iconButtonVariants.variantKeys,
   );
 
   const {
@@ -67,7 +67,7 @@ export const useIconButton = (props: useIconButton.Props) => {
       restProps,
       styles,
       type,
-    ]
+    ],
   );
 
   const getLabelProps: PropGetter<ComponentProps<"span">> = useCallback(() => {
@@ -87,7 +87,7 @@ export const useIconButton = (props: useIconButton.Props) => {
       label,
       loadingIcon,
     }),
-    [getButtonProps, getLabelProps, isDisabled, isLoading, label, loadingIcon]
+    [getButtonProps, getLabelProps, isDisabled, isLoading, label, loadingIcon],
   );
 };
 export namespace useIconButton {

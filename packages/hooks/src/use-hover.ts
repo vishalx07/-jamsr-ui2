@@ -15,7 +15,7 @@ export const useHover = <T extends HTMLElement>(options?: UseHoverOptions) => {
     const node = ref.current;
     if (!node || isDisabled) {
       setIsHovered(false);
-      return () => { };
+      return () => {};
     }
 
     let enterTimeout: NodeJS.Timeout | null = null;

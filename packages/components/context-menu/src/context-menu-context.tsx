@@ -10,7 +10,7 @@ export const useContextMenuContext = () => {
   const context = use(ContextMenuContext);
   if (!context) {
     throw new Error(
-      "useContextMenuContext must be used within a ContextMenuContext"
+      "useContextMenuContext must be used within a ContextMenuContext",
     );
   }
   return context;

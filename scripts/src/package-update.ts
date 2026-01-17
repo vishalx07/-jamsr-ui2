@@ -10,7 +10,7 @@ type PackageInfo = {
 
 const cleanPackageContent = readFileSync(
   "./clean-package.config.json",
-  "utf-8"
+  "utf-8",
 );
 const readmeContent = readFileSync("./README.md", "utf-8");
 const tsupContent = readFileSync("./tsup.config.ts", "utf-8");
@@ -36,7 +36,7 @@ function createPackageClean(pkg: PackageInfo) {
             }
           : distValue,
       ];
-    })
+    }),
   );
   const cleanPackageContentObj = JSON.parse(cleanPackageContent);
   if (packageExports) {
@@ -57,7 +57,7 @@ function createPackageClean(pkg: PackageInfo) {
   writeFileSync(
     cleanPackagePath,
     JSON.stringify(cleanPackageContentObj, null, 2),
-    "utf-8"
+    "utf-8",
   );
   // writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2), "utf-8");
 }

@@ -16,6 +16,7 @@ export const TabIndicator = (props: TabIndicator.Props) => {
 
 export namespace TabIndicator {
   export interface Props
-    extends MotionProps,
+    extends
+      MotionProps,
       Omit<React.HTMLAttributes<HTMLDivElement>, keyof MotionProps> {}
 }

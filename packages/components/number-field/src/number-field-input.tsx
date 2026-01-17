@@ -6,7 +6,6 @@ import { useNumberFieldContext } from "./number-field-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-
 export const NumberFieldInput = (props: NumberFieldInput.Props) => {
   const { getInputProps } = useNumberFieldContext();
   const renderElement = useRenderElement("input", {

@@ -4,7 +4,7 @@ import { createContext, use } from "react";
 import type { useSkeleton } from "./use-skeleton";
 
 export const SkeletonContext = createContext<SkeletonContext.Props | null>(
-  null
+  null,
 );
 export const useSkeletonContext = () => {
   const ctx = use(SkeletonContext);

@@ -33,7 +33,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
       "data-expanded": isOpen,
       "data-slot": dataAttrDev("root"),
     }),
-    [isOpen]
+    [isOpen],
   );
 
   const getContentProps: PropGetter<CollapsibleContent.Props> = useCallback(
@@ -45,7 +45,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
       "aria-labelledby": triggerId,
       hidden: !isOpen,
     }),
-    [contentId, isOpen, triggerId]
+    [contentId, isOpen, triggerId],
   );
 
   const getTriggerProps = useCallback(
@@ -54,7 +54,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
         {},
         {
           onClick: handleToggle,
-        }
+        },
       ),
       id: triggerId,
       "data-slot": dataAttrDev("trigger"),
@@ -64,7 +64,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
       disabled: isDisabled,
       "aria-disabled": isDisabled,
     }),
-    [contentId, handleToggle, isDisabled, isOpen, triggerId]
+    [contentId, handleToggle, isDisabled, isOpen, triggerId],
   );
 
   return useMemo(
@@ -74,7 +74,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
       getContentProps,
       getRootProps,
     }),
-    [getContentProps, getRootProps, getTriggerProps, isOpen]
+    [getContentProps, getRootProps, getTriggerProps, isOpen],
   );
 };
 

@@ -13,7 +13,7 @@ export const Card = (props: Card.Props) => {
   const mergedProps = mergeConfigProps(
     cardVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useCard(mergedProps);
 

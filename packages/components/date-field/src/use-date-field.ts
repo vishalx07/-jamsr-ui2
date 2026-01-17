@@ -17,7 +17,7 @@ import { DateFieldRoot } from "./date-field-root";
 export const useDateField = (props: useDateField.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    dateFieldVariants.variantKeys
+    dateFieldVariants.variantKeys,
   );
 
   const [segments, setSegments] = useState<Segments>({
@@ -39,7 +39,7 @@ export const useDateField = (props: useDateField.Props) => {
       className: styles.root({ className: props.className }),
       "data-slot": dataAttrDev("root"),
     }),
-    [styles]
+    [styles],
   );
 
   const getInputProps: PropGetter<DateFieldRoot.Props> = useCallback(
@@ -52,7 +52,7 @@ export const useDateField = (props: useDateField.Props) => {
       inputMode: "numeric",
       spellCheck: false,
     }),
-    [styles]
+    [styles],
   );
 
   const getSeparatorProps: PropGetter<DateFieldSeparator.Props> = useCallback(
@@ -61,7 +61,7 @@ export const useDateField = (props: useDateField.Props) => {
       className: styles.separator({ className: props.className }),
       "data-slot": dataAttrDev("separator"),
     }),
-    [styles]
+    [styles],
   );
 
   return {

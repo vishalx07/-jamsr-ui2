@@ -11,7 +11,7 @@ const OUTPUT_INDEX_FILE = path.join(
   "packages",
   "react",
   "src",
-  "index.ts"
+  "index.ts",
 );
 const OUTPUT_CONFIG_FILE = path.join(
   ROOT,
@@ -19,12 +19,12 @@ const OUTPUT_CONFIG_FILE = path.join(
   "packages",
   "react",
   "src",
-  "config.tsx"
+  "config.tsx",
 );
 
 const pkg = JSON.parse(fs.readFileSync(PKG_FILE, "utf-8"));
 const deps = Object.keys(pkg.dependencies).filter((name) =>
-  name.startsWith("@jamsrui/")
+  name.startsWith("@jamsrui/"),
 );
 
 const getNamedExports = (filePath: string) => {

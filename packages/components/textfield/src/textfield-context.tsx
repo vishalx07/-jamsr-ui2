@@ -4,7 +4,7 @@ import { createContext, use } from "react";
 import { useTextField } from "./use-textfield";
 
 export const TextFieldContext = createContext<TextFieldContext.Props | null>(
-  null
+  null,
 );
 
 export const useTextFieldContext = () => {

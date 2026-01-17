@@ -3,7 +3,7 @@ import { Button, Dialog, Text } from "@jamsrui/react";
 const DialogItem = (
   props: Partial<Dialog.Props> & {
     buttonText?: string;
-  }
+  },
 ) => {
   const { buttonText, ...restProps } = props;
   return (

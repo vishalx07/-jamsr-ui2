@@ -13,7 +13,7 @@ import type { LinkVariants } from "./styles";
 export const useLink = (props: useLink.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    linkVariants.variantKeys
+    linkVariants.variantKeys,
   );
   const styles = linkVariants(variantProps);
 
@@ -23,14 +23,14 @@ export const useLink = (props: useLink.Props) => {
       "data-component": dataAttrDev("link"),
       className: cn(styles, $props.className),
     }),
-    [$props, styles]
+    [$props, styles],
   );
 
   return useMemo(
     () => ({
       getRootProps,
     }),
-    [getRootProps]
+    [getRootProps],
   );
 };
 export namespace useLink {

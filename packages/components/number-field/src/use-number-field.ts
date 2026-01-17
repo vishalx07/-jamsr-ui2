@@ -42,11 +42,11 @@ export const useNumberField = (props: useNumberField.Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const parser = useMemo(
     () => new NumberParser(locale, formatOptions),
-    [locale, formatOptions]
+    [locale, formatOptions],
   );
   const formatter = useMemo(
     () => new Intl.NumberFormat(locale, formatOptions),
-    [locale, formatOptions]
+    [locale, formatOptions],
   );
 
   const handleValueChange = useCallback(
@@ -59,7 +59,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         setInputValue(0);
       }
     },
-    [parser, setInputValue]
+    [parser, setInputValue],
   );
 
   const handleInputOnChange = useCallback(
@@ -74,7 +74,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         handleValueChange("");
       }
     },
-    [parser, handleValueChange]
+    [parser, handleValueChange],
   );
 
   const handleInputOnBlur = useCallback(
@@ -85,7 +85,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         handleValueChange(formatter.format(parsedValue));
       }
     },
-    [formatter, handleValueChange, parser]
+    [formatter, handleValueChange, parser],
   );
 
   const handleIncrement = useCallback(() => {
@@ -116,7 +116,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         event.preventDefault();
       }
     },
-    [handleDecrement, handleIncrement]
+    [handleDecrement, handleIncrement],
   );
 
   useEffect(() => {
@@ -157,7 +157,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         className: props.className,
       }),
     }),
-    [isDisabled, props.className, restProps, styles]
+    [isDisabled, props.className, restProps, styles],
   );
 
   const getInputProps: PropGetter<NumberFieldInput.Props> = useCallback(
@@ -184,7 +184,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       isDisabled,
       styles,
       value,
-    ]
+    ],
   );
 
   const getIncrementProps: PropGetter<NumberFieldIncrement.Props> = useCallback(
@@ -200,7 +200,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         className: props.className,
       }),
     }),
-    [handleIncrement, styles]
+    [handleIncrement, styles],
   );
 
   const getDecrementProps: PropGetter<NumberFieldDecrement.Props> = useCallback(
@@ -216,7 +216,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         className: props.className,
       }),
     }),
-    [handleDecrement, styles]
+    [handleDecrement, styles],
   );
 
   const getGroupProps: PropGetter<NumberFieldGroup.Props> = useCallback(
@@ -227,7 +227,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -244,7 +244,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       getIncrementProps,
       getDecrementProps,
       getGroupProps,
-    ]
+    ],
   );
 };
 

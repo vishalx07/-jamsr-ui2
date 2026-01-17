@@ -43,7 +43,7 @@ export const DataGridHeader = () => {
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext()
+                        header.getContext(),
                       )}
                 </TableColumn>
               );
@@ -176,7 +176,7 @@ const DataGridHeaderResizer = ({
         "invisible group-hover/table:visible",
         {
           "isResizing cursor-ew-resize": header.column.getIsResizing(),
-        }
+        },
       )}
     />
   );
@@ -202,7 +202,7 @@ export const DataGridHeaderColumn = (props: {
           "flex w-full cursor-default select-none gap-1 overflow-hidden pr-1 text-transform-inherit",
           {
             "": header.column.getCanSort(),
-          }
+          },
         )}
       >
         <span className="flex w-full  grow items-center overflow-hidden font-medium">

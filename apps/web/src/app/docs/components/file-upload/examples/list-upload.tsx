@@ -32,7 +32,7 @@ export const FileUploadListUpload = () => {
         {...getRootProps({})}
         className={cn(
           "w-full border border-border border-dashed rounded-md flex flex-col justify-center items-center gap-2 px-4 py-8",
-          isDragging ? "border-primary" : "hover:border-border-light"
+          isDragging ? "border-primary" : "hover:border-border-light",
         )}
         onClick={openFileDialog}
       >

@@ -52,7 +52,7 @@ export const buttonVariant = tv({
         variant,
         color,
         className: colorVariants[variant][color],
-      }))
+      })),
     ),
   ],
   defaultVariants: {

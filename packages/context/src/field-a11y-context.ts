@@ -4,7 +4,7 @@ import { createContext, use } from "react";
 import type { useFieldA11y } from "./use-field-a11y";
 
 export const FieldA11yContext = createContext<FieldA11yContext.Props | null>(
-  null
+  null,
 );
 
 export const useFieldA11yContext = () => {

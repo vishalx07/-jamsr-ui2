@@ -67,7 +67,7 @@ export const useRipple = (props: useRipple.Props) => {
 
       addRipple(x, y, size);
     },
-    [addRipple, isCentered]
+    [addRipple, isCentered],
   );
 
   return useMemo(
@@ -76,7 +76,7 @@ export const useRipple = (props: useRipple.Props) => {
       handleRipple,
       isDisabled,
     }),
-    [handleRipple, isDisabled, ripples]
+    [handleRipple, isDisabled, ripples],
   );
 };
 

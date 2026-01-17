@@ -22,7 +22,7 @@ export const useRenderElement = <
   TagName extends keyof React.JSX.IntrinsicElements,
 >(
   element: TagName,
-  params: useRenderElement.Parameters<TagName>
+  params: useRenderElement.Parameters<TagName>,
 ): React.ReactElement => {
   const { props: _props } = params;
 

@@ -5,7 +5,7 @@ import { useRenderElement } from "@jamsrui/hooks";
 import { useScrollAreaContext } from "./scroll-area-context";
 import { scrollAreaVariants } from "./styles";
 
-import type {UIProps} from "@jamsrui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const ScrollAreaViewport = (props: ScrollAreaViewport.Props) => {
   const { render, children, className, ...restProps } = props;

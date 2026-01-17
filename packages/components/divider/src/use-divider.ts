@@ -13,7 +13,7 @@ import type { DividerSlots, DividerVariants } from "./styles";
 export const useDivider = (props: useDivider.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    dividerVariants.variantKeys
+    dividerVariants.variantKeys,
   );
   const styles = dividerVariants(variantProps);
   const { classNames, slotProps, ...elementProps } = $props;
@@ -27,7 +27,7 @@ export const useDivider = (props: useDivider.Props) => {
         className: cn(classNames?.root, elementProps.className),
       }),
     }),
-    [classNames?.root, elementProps, styles]
+    [classNames?.root, elementProps, styles],
   );
 
   const getDividerProps: PropGetter<Divider.Props> = useCallback(
@@ -38,11 +38,11 @@ export const useDivider = (props: useDivider.Props) => {
         className: cn(
           slotProps?.divider?.className,
           classNames?.divider,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.divider, slotProps?.divider, styles]
+    [classNames?.divider, slotProps?.divider, styles],
   );
 
   return useMemo(
@@ -50,7 +50,7 @@ export const useDivider = (props: useDivider.Props) => {
       getRootProps,
       getDividerProps,
     }),
-    [getRootProps, getDividerProps]
+    [getRootProps, getDividerProps],
   );
 };
 export namespace useDivider {

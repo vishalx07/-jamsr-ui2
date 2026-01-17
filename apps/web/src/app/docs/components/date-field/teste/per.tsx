@@ -85,7 +85,7 @@ const Segment = React.forwardRef<HTMLDivElement, SegmentProps>(function Segment(
     disabled,
     readOnly,
   },
-  ref
+  ref,
 ) {
   const divRef = useRef<HTMLDivElement>(null);
   React.useImperativeHandle(ref, () => divRef.current as HTMLDivElement);
@@ -281,7 +281,7 @@ export function SegmentedDateInput({
         onChange("");
       }
     },
-    [onChange, min, max]
+    [onChange, min, max],
   );
 
   const setAndEmit = (next: Segments) => {
@@ -391,8 +391,8 @@ export function SegmentedDateInput({
       new Date(
         parseInt(y, 10),
         (seg.month ? parseInt(seg.month, 10) : 1) - 1,
-        1
-      )
+        1,
+      ),
     );
     const d = seg.day ? pad2(clamp(parseInt(seg.day, 10), 1, mdays)) : seg.day;
     setAndEmit({ ...seg, year: y, day: d ?? "" });
@@ -415,7 +415,7 @@ export function SegmentedDateInput({
     const cur = seg.year ? parseInt(seg.year, 10) : 1;
     const y = clamp(cur + delta, 1, 9999);
     const mdays = getDaysInMonth(
-      new Date(y, (seg.month ? parseInt(seg.month, 10) : 1) - 1, 1)
+      new Date(y, (seg.month ? parseInt(seg.month, 10) : 1) - 1, 1),
     );
     const d = seg.day ? pad2(clamp(parseInt(seg.day, 10), 1, mdays)) : seg.day;
     setAndEmit({ ...seg, year: padYear(y), day: d ?? "" });

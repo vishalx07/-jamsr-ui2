@@ -15,7 +15,7 @@ export const mergeProps = <T extends Record<string, any>>(
   if (classNamesObjects.length > 0) {
     mergedProps.classNames = {};
     const allKeys = new Set(
-      classNamesObjects.flatMap((obj) => Object.keys(obj))
+      classNamesObjects.flatMap((obj) => Object.keys(obj)),
     );
     allKeys.forEach((key) => {
       const classes = classNamesObjects.map((obj) => obj[key]).filter(Boolean);
@@ -32,7 +32,7 @@ export const mergeProps = <T extends Record<string, any>>(
         ...acc,
         ...prop.slots,
       }),
-      {}
+      {},
     );
   }
 
@@ -82,12 +82,12 @@ export const mergeConfigProps = <
 >(
   defaultValues: P,
   globalConfig: Partial<T>,
-  props: P
+  props: P,
 ): P => {
   const { props: configProps, omitProps, slots, ...restProps } = globalConfig;
   const actualProps = omitProps?.length
     ? Object.fromEntries(
-        Object.entries(props).filter(([key]) => !omitProps.includes(key))
+        Object.entries(props).filter(([key]) => !omitProps.includes(key)),
       )
     : props;
 

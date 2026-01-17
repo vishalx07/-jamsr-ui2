@@ -3,12 +3,12 @@
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { ScrollAreaProvider } from "./scroll-area-context";
-import { scrollAreaVariants  } from "./styles";
+import { scrollAreaVariants } from "./styles";
 import { useScrollArea } from "./use-scroll-area";
 
-import type {UIProps} from "@jamsrui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
-import type {ScrollAreaVariants} from "./styles";
+import type { ScrollAreaVariants } from "./styles";
 
 const Root = (props: ScrollArea.Props) => {
   const { render, children, className, type, scrollHideDelay, ...restProps } =

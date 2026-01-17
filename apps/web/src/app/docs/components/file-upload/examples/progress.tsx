@@ -22,7 +22,7 @@ const uploadFile = (
   file: File,
   onProgress: (progress: number) => void,
   onComplete: () => void,
-  onError: () => void
+  onError: () => void,
 ) => {
   const formData = new FormData();
   formData.append("file", file);
@@ -68,8 +68,8 @@ export const FileUploadUsage = () => {
             (progress) => {
               setUploadProgress((prev) =>
                 prev.map((item) =>
-                  item.fileId === file.id ? { ...item, progress } : item
-                )
+                  item.fileId === file.id ? { ...item, progress } : item,
+                ),
               );
             },
             () => {
@@ -77,8 +77,8 @@ export const FileUploadUsage = () => {
                 prev.map((item) =>
                   item.fileId === file.id
                     ? { ...item, progress: 100, completed: true }
-                    : item
-                )
+                    : item,
+                ),
               );
             },
             () => {
@@ -86,10 +86,10 @@ export const FileUploadUsage = () => {
                 prev.map((item) =>
                   item.fileId === file.id
                     ? { ...item, progress: 0, completed: true }
-                    : item
-                )
+                    : item,
+                ),
               );
-            }
+            },
           );
         }
 
@@ -110,7 +110,7 @@ export const FileUploadUsage = () => {
         {...getRootProps({})}
         className={cn(
           "w-full border border-border border-dashed rounded-md flex flex-col justify-center items-center gap-2 px-4 py-8",
-          isDragging ? "border-primary" : "hover:border-border-light"
+          isDragging ? "border-primary" : "hover:border-border-light",
         )}
       >
         <input multiple {...getInputProps({})} />
@@ -133,7 +133,7 @@ export const FileUploadUsage = () => {
         <ul className="flex gap-4 flex-wrap py-4">
           {files.map((file) => {
             const progress = uploadProgress.find(
-              (progress) => progress.fileId === file.id
+              (progress) => progress.fileId === file.id,
             );
             return (
               <li key={file.id} className="flex flex-col gap-4 group relative">

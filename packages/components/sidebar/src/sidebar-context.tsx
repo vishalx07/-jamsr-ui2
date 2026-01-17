@@ -10,7 +10,7 @@ export const useSidebarContext = () => {
   const ctx = use(SidebarContext);
   if (!ctx)
     throw new Error(
-      "useSidebarContext must be used within SidebarContextProvider"
+      "useSidebarContext must be used within SidebarContextProvider",
     );
   return ctx;
 };

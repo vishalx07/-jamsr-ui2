@@ -74,7 +74,7 @@ export function getTransformOrigin(placement: Placement): string {
 export const usePopover = (props: usePopover.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    popoverVariants.variantKeys
+    popoverVariants.variantKeys,
   );
   const {
     defaultOpen,
@@ -106,7 +106,7 @@ export const usePopover = (props: usePopover.Props) => {
       }
       setIsOpen(open);
     },
-    [setIsOpen]
+    [setIsOpen],
   );
 
   const { refs, floatingStyles, context } = useFloating({
@@ -127,7 +127,7 @@ export const usePopover = (props: usePopover.Props) => {
           const transformOrigin = getTransformOrigin(placement);
           elements.floating.style.setProperty(
             "--transform-origin",
-            transformOrigin
+            transformOrigin,
           );
         },
       }),
@@ -165,7 +165,7 @@ export const usePopover = (props: usePopover.Props) => {
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("popover"),
     }),
-    [floatingStyles, getFloatingProps, refs.setFloating, styles]
+    [floatingStyles, getFloatingProps, refs.setFloating, styles],
   );
 
   const getDialogProps: PropGetter<PopoverDialog.Props> = useCallback(
@@ -180,7 +180,7 @@ export const usePopover = (props: usePopover.Props) => {
         className: cn(props.className),
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getArrowProps = useCallback(
@@ -193,7 +193,7 @@ export const usePopover = (props: usePopover.Props) => {
         className: props.className,
       }),
     }),
-    [context, styles]
+    [context, styles],
   );
 
   const getTriggerProps = useCallback(
@@ -212,7 +212,7 @@ export const usePopover = (props: usePopover.Props) => {
       isOpen,
       refs.setReference,
       variantProps.backdrop,
-    ]
+    ],
   );
 
   const getFloatingFocusManagerProps = useCallback(
@@ -222,7 +222,7 @@ export const usePopover = (props: usePopover.Props) => {
       returnFocus: triggerOn === "click",
       initialFocus: 0,
     }),
-    [context, isModal, triggerOn]
+    [context, isModal, triggerOn],
   );
 
   const getOverlayProps = useCallback(
@@ -230,7 +230,7 @@ export const usePopover = (props: usePopover.Props) => {
       lockScroll,
       className: styles.backdrop(),
     }),
-    [lockScroll, styles]
+    [lockScroll, styles],
   );
 
   const getAnimatePresenceProps = useCallback(
@@ -239,7 +239,7 @@ export const usePopover = (props: usePopover.Props) => {
         setIsAnimating(false);
       },
     }),
-    []
+    [],
   );
 
   return useMemo(
@@ -268,7 +268,7 @@ export const usePopover = (props: usePopover.Props) => {
       getAnimatePresenceProps,
       getDialogProps,
       isDisabled,
-    ]
+    ],
   );
 };
 

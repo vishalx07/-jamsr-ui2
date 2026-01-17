@@ -12,7 +12,7 @@ export const AlertDialog = (props: AlertDialog.Props) => {
   const mergedProps = mergeConfigProps(
     alertDialogVariant.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useAlertDialog(mergedProps);
   return <AlertDialogContext value={ctx}>{props.children}</AlertDialogContext>;

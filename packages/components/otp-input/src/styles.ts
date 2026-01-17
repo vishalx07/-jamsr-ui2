@@ -11,7 +11,7 @@ export const otpInputVariants = tv({
       "border-y border-r first:border-l first:rounded-l-md last:rounded-r-md outline-solid outline-0 outline-border/20",
       "transition-all duration-300 ease-in-out",
       "group-data-hover:border-border-dark data-active:border-transparent data-active:outline-focus data-active:outline-2",
-      "group-data-invalid:border-danger group-data-invalid:data-active:outline-danger"
+      "group-data-invalid:border-danger group-data-invalid:data-active:outline-danger",
     ],
     separator: "otp-input__separator w-4 h-1 bg-divider",
     input: [

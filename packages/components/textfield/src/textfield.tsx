@@ -13,7 +13,7 @@ export const TextField = (props: TextField.Props) => {
   const mergedProps = mergeConfigProps(
     textFieldVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useTextField(mergedProps);
   const { children } = props;

@@ -49,7 +49,7 @@ export const CloseFilledIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const DragDropHorizontalIcon = (
-  props: React.SVGProps<SVGSVGElement>
+  props: React.SVGProps<SVGSVGElement>,
 ) => (
   <svg
     color="currentColor"

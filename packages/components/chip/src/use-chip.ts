@@ -15,7 +15,7 @@ import type { ChipVariantsProps } from "./styles";
 export const useChip = (props: useChip.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    chipVariants.variantKeys
+    chipVariants.variantKeys,
   );
 
   const { ...elementProps } = $props;
@@ -30,7 +30,7 @@ export const useChip = (props: useChip.Props) => {
         className: elementProps.className,
       }),
     }),
-    [elementProps, styles]
+    [elementProps, styles],
   );
 
   const getDotProps: PropGetter<ChipDot.Props> = useCallback(
@@ -41,7 +41,7 @@ export const useChip = (props: useChip.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -49,7 +49,7 @@ export const useChip = (props: useChip.Props) => {
       getRootProps,
       getDotProps,
     }),
-    [getDotProps, getRootProps]
+    [getDotProps, getRootProps],
   );
 };
 export namespace useChip {

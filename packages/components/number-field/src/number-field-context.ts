@@ -10,7 +10,7 @@ export const useNumberFieldContext = () => {
   const context = use(NumberFieldContext);
   if (!context) {
     throw new Error(
-      "useNumberFieldContext must be used within a NumberFieldContext"
+      "useNumberFieldContext must be used within a NumberFieldContext",
     );
   }
   return context;

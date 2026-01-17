@@ -4,7 +4,7 @@ import { useCallback, useMemo, useRef } from "react";
  * Merges an array of refs into a single memoized callback ref or `null`.
  */
 export function useMergeRefs<Instance>(
-  refs: Array<React.Ref<Instance> | undefined>
+  refs: Array<React.Ref<Instance> | undefined>,
 ): null | React.RefCallback<Instance> {
   const cleanupRef = useRef<void | (() => void)>(undefined);
 

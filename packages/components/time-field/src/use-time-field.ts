@@ -17,7 +17,7 @@ import { TimeFieldRoot } from "./time-field-root";
 export const useTimeField = (props: useTimeField.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    timeFieldVariants.variantKeys
+    timeFieldVariants.variantKeys,
   );
 
   const [segments, setSegments] = useState<Segments>({
@@ -40,7 +40,7 @@ export const useTimeField = (props: useTimeField.Props) => {
       className: styles.root({ className: props.className }),
       "data-slot": dataAttrDev("root"),
     }),
-    [styles]
+    [styles],
   );
 
   const getInputProps: PropGetter<TimeFieldRoot.Props> = useCallback(
@@ -53,7 +53,7 @@ export const useTimeField = (props: useTimeField.Props) => {
       inputMode: "numeric",
       spellCheck: false,
     }),
-    [styles]
+    [styles],
   );
 
   const getSeparatorProps: PropGetter<TimeFieldSeparator.Props> = useCallback(
@@ -62,7 +62,7 @@ export const useTimeField = (props: useTimeField.Props) => {
       className: styles.separator({ className: props.className }),
       "data-slot": dataAttrDev("separator"),
     }),
-    [styles]
+    [styles],
   );
 
   return {

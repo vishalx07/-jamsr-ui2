@@ -11,7 +11,7 @@ export const Label = (props: Label.Props) => {
   const mergedProps = mergeConfigProps(
     labelVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const labelProps = useLabel(mergedProps);
   const renderElement = useRenderElement("label", {

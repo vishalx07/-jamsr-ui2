@@ -14,7 +14,7 @@ export default defineConfig({
         if (this.format === "esm") {
           const code = chunk.code.replace(
             /from(['"])(\.{1,2}\/[^"'./]+)\1/g,
-            (_, quote, path) => `from${quote}${path}.mjs${quote}`
+            (_, quote, path) => `from${quote}${path}.mjs${quote}`,
           );
           return { code };
         }

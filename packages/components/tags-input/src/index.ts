@@ -1,4 +1,3 @@
-
 import { TagsInput as TagsInputRoot } from "./tags-input";
 import { TagsInputConfig, useTagsInputConfig } from "./tags-input-config";
 

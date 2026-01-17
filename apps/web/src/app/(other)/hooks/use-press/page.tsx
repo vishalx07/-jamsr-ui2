@@ -2,15 +2,14 @@
 
 import { usePress } from "@jamsrui/hooks";
 
-
 const UsePress = () => {
   const { isPressed, pressProps } = usePress({
     isDisabled: false,
   });
   return (
     <button
-      onClick={e => {
-        console.log("clicked")
+      onClick={(e) => {
+        console.log("clicked");
       }}
       {...pressProps}
       style={{ backgroundColor: isPressed ? "lightblue" : "white" }}
@@ -19,6 +18,6 @@ const UsePress = () => {
       Press Me
     </button>
   );
-}
+};
 
-export default UsePress
+export default UsePress;

@@ -59,7 +59,7 @@ export const useSlider = (props: UseSliderProps) => {
     (index: number, ref: React.RefObject<HTMLDivElement>) => {
       thumbRefs.current[index] = ref;
     },
-    []
+    [],
   );
 
   const getValueFromPointer = useCallback(
@@ -97,7 +97,7 @@ export const useSlider = (props: UseSliderProps) => {
       const steppedValue = Math.round((rawValue - min) / step) * step + min;
       return clamp(steppedValue, min, max);
     },
-    [min, max, step, orientation]
+    [min, max, step, orientation],
   );
 
   const updateValue = useCallback(
@@ -111,7 +111,7 @@ export const useSlider = (props: UseSliderProps) => {
         return next;
       });
     },
-    [setValues]
+    [setValues],
   );
 
   const [activeThumbIndex, setActiveThumbIndex] = useState<number | null>(null);
@@ -146,7 +146,7 @@ export const useSlider = (props: UseSliderProps) => {
       window.addEventListener("pointermove", handlePointerMove);
       window.addEventListener("pointerup", handlePointerUp);
     },
-    [isDisabled, getValueFromPointer, updateValue]
+    [isDisabled, getValueFromPointer, updateValue],
   );
 
   const onTrackPointerDown = useCallback(
@@ -186,14 +186,14 @@ export const useSlider = (props: UseSliderProps) => {
       window.addEventListener("pointermove", handlePointerMove);
       window.addEventListener("pointerup", handlePointerUp);
     },
-    [isDisabled, getValueFromPointer, values, updateValue]
+    [isDisabled, getValueFromPointer, values, updateValue],
   );
 
   const getPercentageForValue = useCallback(
     (val: number) => {
       return ((val - min) / (max - min)) * 100;
     },
-    [min, max]
+    [min, max],
   );
 
   return {

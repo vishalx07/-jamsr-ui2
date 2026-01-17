@@ -113,7 +113,7 @@ export const useTooltip = (props: useTooltip.Props) => {
       ref: refs.setFloating,
       ...getFloatingProps(),
     }),
-    [floatingStyles, getFloatingProps, refs.setFloating, styles]
+    [floatingStyles, getFloatingProps, refs.setFloating, styles],
   );
 
   const getArrowProps = useCallback(
@@ -126,7 +126,7 @@ export const useTooltip = (props: useTooltip.Props) => {
         className: props.className,
       }),
     }),
-    [context, styles]
+    [context, styles],
   );
 
   const getTriggerProps = useCallback(
@@ -135,7 +135,7 @@ export const useTooltip = (props: useTooltip.Props) => {
         ref: refs.setReference,
       }),
     }),
-    [getReferenceProps, refs.setReference]
+    [getReferenceProps, refs.setReference],
   );
 
   return useMemo(
@@ -154,7 +154,7 @@ export const useTooltip = (props: useTooltip.Props) => {
       showArrow,
       getTriggerProps,
       isDisabled,
-    ]
+    ],
   );
 };
 

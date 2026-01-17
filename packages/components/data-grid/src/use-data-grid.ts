@@ -12,7 +12,7 @@ export const useDataGrid = (props: useDataGrid.Props) => {
       table,
       isEmpty,
     }),
-    [isEmpty, table]
+    [isEmpty, table],
   );
 };
 

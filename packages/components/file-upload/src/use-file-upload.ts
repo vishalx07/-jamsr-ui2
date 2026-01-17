@@ -44,7 +44,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
       }
       return file.url;
     },
-    []
+    [],
   );
 
   const generateUniqueId = useCallback((file: File | FileMetadata): string => {
@@ -88,7 +88,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
           const isDuplicate = files.some(
             (existingFile) =>
               existingFile.file.name === file.name &&
-              existingFile.file.size === file.size
+              existingFile.file.size === file.size,
           );
           if (isDuplicate) {
             continue;
@@ -132,7 +132,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
       multiple,
       onFilesAdded,
       onFilesChange,
-    ]
+    ],
   );
 
   const handleOnChange = useCallback(
@@ -142,7 +142,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
         if (files) addFiles(files);
       }
     },
-    [addFiles]
+    [addFiles],
   );
 
   const removeFile = useCallback(
@@ -160,7 +160,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
       onFilesChange?.(newFiles);
       setFiles(newFiles);
     },
-    [files, onFilesChange]
+    [files, onFilesChange],
   );
 
   const handleDragEnter = useCallback((e: React.DragEvent<HTMLElement>) => {
@@ -193,7 +193,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
       if (files) addFiles(files);
       setIsDragging(false);
     },
-    [addFiles]
+    [addFiles],
   );
 
   const getInputProps: PropGetter<UIProps<"input">> = useCallback(
@@ -206,7 +206,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
         onChange: handleOnChange,
       }),
     }),
-    [handleOnChange, multiple]
+    [handleOnChange, multiple],
   );
 
   const getRootProps: PropGetter<UIProps<"div">> = useCallback(
@@ -218,7 +218,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
         onDragOver: handleDragOver,
       }),
     }),
-    [handleDragEnter, handleDragLeave, handleDrop, handleDragOver]
+    [handleDragEnter, handleDragLeave, handleDrop, handleDragOver],
   );
 
   const openFileDialog = useCallback(() => {
@@ -247,7 +247,7 @@ export const useFileUpload = (props: useFileUpload.Props) => {
       getRootProps,
       openFileDialog,
       clearFiles,
-    ]
+    ],
   );
 };
 

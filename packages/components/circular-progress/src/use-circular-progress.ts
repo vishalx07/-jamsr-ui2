@@ -13,7 +13,7 @@ import type { CircularProgressSlots, CircularProgressVariants } from "./styles";
 export const useCircularProgress = (props: useCircularProgress.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    circularProgressVariants.variantKeys
+    circularProgressVariants.variantKeys,
   );
 
   const {
@@ -47,7 +47,7 @@ export const useCircularProgress = (props: useCircularProgress.Props) => {
         className: cn(classNames?.root, elementProps.className),
       }),
     }),
-    [classNames?.root, elementProps, size, styles]
+    [classNames?.root, elementProps, size, styles],
   );
 
   const getTrackProps: PropGetter<useCircularProgress.TrackProps> = useCallback(
@@ -64,11 +64,11 @@ export const useCircularProgress = (props: useCircularProgress.Props) => {
         className: cn(
           slotProps?.track?.className,
           classNames?.track,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.track, radius, size, slotProps?.track, trackWidth, styles]
+    [classNames?.track, radius, size, slotProps?.track, trackWidth, styles],
   );
 
   const getProgressProps: PropGetter<useCircularProgress.ProgressProps> =
@@ -90,7 +90,7 @@ export const useCircularProgress = (props: useCircularProgress.Props) => {
           className: cn(
             slotProps?.progress?.className,
             classNames?.progress,
-            props.className
+            props.className,
           ),
         }),
       }),
@@ -103,7 +103,7 @@ export const useCircularProgress = (props: useCircularProgress.Props) => {
         size,
         slotProps?.progress,
         styles,
-      ]
+      ],
     );
 
   const getLabelProps: PropGetter<useCircularProgress.LabelProps> = useCallback(
@@ -119,11 +119,11 @@ export const useCircularProgress = (props: useCircularProgress.Props) => {
         className: cn(
           slotProps?.label?.className,
           classNames?.label,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.label, slotProps?.label, styles]
+    [classNames?.label, slotProps?.label, styles],
   );
 
   const label = labelFormatter ? labelFormatter(value) : value;
@@ -144,7 +144,7 @@ export const useCircularProgress = (props: useCircularProgress.Props) => {
       getTrackProps,
       label,
       showLabel,
-    ]
+    ],
   );
 };
 
@@ -154,7 +154,8 @@ export namespace useCircularProgress {
   export interface LabelProps extends React.SVGProps<SVGTextElement> {}
 
   export interface Props
-    extends Omit<React.SVGProps<SVGSVGElement>, "color">,
+    extends
+      Omit<React.SVGProps<SVGSVGElement>, "color">,
       CircularProgressVariants {
     value?: number; // Progress value (0 - 100)
     size?: number; // Diameter of the circle

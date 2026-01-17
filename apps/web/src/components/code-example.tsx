@@ -58,7 +58,7 @@ export const CodeExample = async (props: CodeExampleProps) => {
           <div
             className={cn(
               "border min-h-[200px]  border-border rounded-lg p-4",
-              isCentered && "flex items-center justify-center"
+              isCentered && "flex items-center justify-center",
             )}
           >
             {children}

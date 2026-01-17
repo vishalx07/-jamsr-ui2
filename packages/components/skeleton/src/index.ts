@@ -1,4 +1,3 @@
-
 import { Skeleton as SkeletonRoot } from "./skeleton";
 import { SkeletonConfig, useSkeletonConfig } from "./skeleton-config";
 import {

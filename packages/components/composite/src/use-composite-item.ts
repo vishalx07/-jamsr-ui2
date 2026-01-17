@@ -41,7 +41,7 @@ export const useCompositeItem = (props: useCompositeItem.Props) => {
       const el = ctx.items.current[idx]?.ref;
       if (!ctx.virtual) el?.focus();
     },
-    [ctx.items, ctx.virtual]
+    [ctx.items, ctx.virtual],
   );
 
   const onKeyDown = useCallback(
@@ -84,7 +84,7 @@ export const useCompositeItem = (props: useCompositeItem.Props) => {
         focusItem(next);
       }
     },
-    [ctx, focusItem, index]
+    [ctx, focusItem, index],
   );
 
   const onFocus = useCallback(() => {
@@ -103,7 +103,7 @@ export const useCompositeItem = (props: useCompositeItem.Props) => {
             onKeyDown,
             onFocus,
           },
-    [ctx.virtual, isActive, onFocus, onKeyDown]
+    [ctx.virtual, isActive, onFocus, onKeyDown],
   );
 
   const ref = useCallback((node: HTMLElement | null) => {

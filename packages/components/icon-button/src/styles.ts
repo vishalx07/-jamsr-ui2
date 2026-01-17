@@ -65,7 +65,7 @@ export const iconButtonVariants = tv({
         variant,
         color,
         className: colorVariants[variant][color],
-      }))
+      })),
     ),
   ],
   defaultVariants: {

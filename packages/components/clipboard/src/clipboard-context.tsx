@@ -4,7 +4,7 @@ import { createContext, use } from "react";
 import type { useClipboard } from "./use-clipboard";
 
 export const ClipboardContext = createContext<ClipboardContext.Props | null>(
-  null
+  null,
 );
 
 export const useClipboardContext = () => {

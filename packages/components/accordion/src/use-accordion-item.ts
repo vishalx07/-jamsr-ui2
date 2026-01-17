@@ -40,7 +40,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
       "aria-disabled": dataAttr(isDisabled),
       "data-disabled": dataAttr(isDisabled),
     }),
-    [elementProps, isDisabled, styles]
+    [elementProps, isDisabled, styles],
   );
 
   const getPanelProps: PropGetter<AccordionPanel.Props> = useCallback(
@@ -54,7 +54,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
       "aria-labelledby": triggerId,
       id: contentId,
     }),
-    [styles, triggerId, contentId]
+    [styles, triggerId, contentId],
   );
 
   const getContentProps: PropGetter<AccordionContent.Props> = useCallback(
@@ -65,7 +65,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getTriggerProps: PropGetter<AccordionTrigger.Props> = useCallback(
@@ -94,7 +94,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
       contentId,
       handleAccordionOpen,
       itemValue,
-    ]
+    ],
   );
 
   const getIndicatorProps: PropGetter<AccordionIndicator.Props> = useCallback(
@@ -106,7 +106,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
         className: props.className,
       }),
     }),
-    [isOpen, styles]
+    [isOpen, styles],
   );
 
   const getHeadingProps: PropGetter<AccordionHeading.Props> = useCallback(
@@ -117,7 +117,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -140,7 +140,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
       isOpen,
       isDisabled,
       getPanelProps,
-    ]
+    ],
   );
 };
 

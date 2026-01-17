@@ -7,7 +7,7 @@ export const Slot = (props: Slot.Props) => {
     return cloneElement(
       slot,
       slotProps,
-      slot.props?.children ?? children?.props?.children
+      slot.props?.children ?? children?.props?.children,
     );
   }
   return <>{children}</>;

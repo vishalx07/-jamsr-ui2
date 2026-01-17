@@ -61,7 +61,7 @@ export function useControlledState<T>({
           setUncontrolledProp(nextValue);
         }
       },
-      [isControlled, prop, setUncontrolledProp, handleChange]
+      [isControlled, prop, setUncontrolledProp, handleChange],
     );
 
   return [

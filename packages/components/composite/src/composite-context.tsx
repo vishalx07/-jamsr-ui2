@@ -4,7 +4,7 @@ import { createContext, use } from "react";
 import type { useComposite } from "./use-composite";
 
 export const CompositeContext = createContext<CompositeContext.Props | null>(
-  null
+  null,
 );
 
 export namespace CompositeContext {

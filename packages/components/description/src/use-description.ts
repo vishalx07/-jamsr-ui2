@@ -6,7 +6,7 @@ import type { UIProps } from "@jamsrui/utils";
 import { descriptionVariants } from "./styles";
 
 export const useDescription = (
-  props: useDescription.Props
+  props: useDescription.Props,
 ): useDescription.ReturnType => {
   const { className, ref, ...restProps } = props;
   const fieldAllyCtx = useFieldA11yContext();

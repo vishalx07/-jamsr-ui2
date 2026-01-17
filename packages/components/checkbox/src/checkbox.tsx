@@ -13,7 +13,7 @@ export const Checkbox = (props: Checkbox.Props) => {
   const mergedProps = mergeConfigProps(
     checkboxVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useCheckbox(mergedProps);
   const fieldAllyCtx = useFieldA11y();

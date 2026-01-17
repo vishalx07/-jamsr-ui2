@@ -44,7 +44,7 @@ export function usePress(props: { isDisabled?: boolean } = {}) {
         setIsPressing(false);
       }
     },
-    [isPressing]
+    [isPressing],
   );
 
   // --- Global pointer up (to end press anywhere) ---

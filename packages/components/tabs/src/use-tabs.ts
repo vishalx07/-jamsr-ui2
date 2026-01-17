@@ -18,7 +18,7 @@ import type { Tabs } from "./tabs";
 export const useTabs = (props: useTabs.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    tabsVariant.variantKeys
+    tabsVariant.variantKeys,
   );
 
   const {
@@ -46,7 +46,7 @@ export const useTabs = (props: useTabs.Props) => {
       }),
       children,
     }),
-    [elementProps, styles]
+    [elementProps, styles],
   );
 
   const getTabListProps: PropGetter<TabList.Props> = useCallback(
@@ -57,7 +57,7 @@ export const useTabs = (props: useTabs.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getTabProps: PropGetter<Tab.Props> = useCallback(
@@ -68,7 +68,7 @@ export const useTabs = (props: useTabs.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getIndicatorProps: PropGetter<TabIndicator.Props> = useCallback(
@@ -80,7 +80,7 @@ export const useTabs = (props: useTabs.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getPanelProps: PropGetter<TabPanel.Props> = useCallback(
@@ -91,7 +91,7 @@ export const useTabs = (props: useTabs.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -112,7 +112,7 @@ export const useTabs = (props: useTabs.Props) => {
       getTabProps,
       setValue,
       value,
-    ]
+    ],
   );
 };
 

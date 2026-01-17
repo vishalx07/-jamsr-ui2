@@ -11,7 +11,7 @@ export const Link = (props: Link.Props) => {
   const mergedProps = mergeConfigProps(
     linkVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useLink(mergedProps);
   const { getRootProps } = ctx;

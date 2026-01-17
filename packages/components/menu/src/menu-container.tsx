@@ -51,7 +51,7 @@ export namespace MenuContainer {
 }
 
 export const MenuContainerWithContent = (
-  props: MenuContainerWithContent.Props
+  props: MenuContainerWithContent.Props,
 ) => {
   return (
     <MenuContainer>

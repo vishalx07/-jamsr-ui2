@@ -6,7 +6,7 @@ import { useScrollAreaContext } from "./scroll-area-context";
 import { useScrollAreaScrollbarContext } from "./scroll-area-scrollbar";
 import { scrollAreaVariants } from "./styles";
 
-import type {UIProps} from "@jamsrui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const ScrollAreaThumb = (props: ScrollAreaThumb.Props) => {
   const { render, className, ...restProps } = props;

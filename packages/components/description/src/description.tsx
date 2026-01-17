@@ -11,7 +11,7 @@ export const Description = (props: Description.Props) => {
   const mergedProps = mergeConfigProps(
     descriptionVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const descProps = useDescription(mergedProps);
   const renderElement = useRenderElement("p", {

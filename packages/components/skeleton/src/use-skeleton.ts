@@ -26,7 +26,7 @@ export const useSkeleton = (props: useSkeleton.Props) => {
         className: cn(classNames?.root, elementProps.className),
       }),
     }),
-    [classNames?.root, elementProps, isLoading, styles]
+    [classNames?.root, elementProps, isLoading, styles],
   );
 
   const getContentProps: PropGetter<SkeletonContent.Props> = useCallback(
@@ -37,11 +37,11 @@ export const useSkeleton = (props: useSkeleton.Props) => {
         className: cn(
           slots?.content?.className,
           classNames?.content,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.content, slots?.content, styles]
+    [classNames?.content, slots?.content, styles],
   );
 
   return useMemo(
@@ -49,7 +49,7 @@ export const useSkeleton = (props: useSkeleton.Props) => {
       getRootProps,
       getContentProps,
     }),
-    [getContentProps, getRootProps]
+    [getContentProps, getRootProps],
   );
 };
 export namespace useSkeleton {

@@ -2,11 +2,10 @@
 
 import { useHover } from "@jamsrui/hooks";
 
-
 const UsePress = () => {
   const { isHovered, ref } = useHover<HTMLButtonElement>({
     isDisabled: false,
-    enterDelay: 100
+    enterDelay: 100,
   });
   return (
     <div>
@@ -15,7 +14,7 @@ const UsePress = () => {
         style={{ backgroundColor: isHovered ? "lightblue" : "white" }}
         className="select-none focus:outline-primary focus:outline-2 focus:outline-offset-2"
         onClick={() => {
-          console.log('clicked')
+          console.log("clicked");
         }}
       >
         Press Me
@@ -23,6 +22,6 @@ const UsePress = () => {
       {isHovered ? "Hovered" : "Not hovered"}
     </div>
   );
-}
+};
 
-export default UsePress
+export default UsePress;

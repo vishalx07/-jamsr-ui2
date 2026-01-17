@@ -13,7 +13,7 @@ const Accordion = (props: Accordion.Props) => {
   const mergedProps = mergeConfigProps(
     accordionVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useAccordion(mergedProps);
   const { getRootProps } = ctx;

@@ -14,7 +14,7 @@ import type { AccordionVariants } from "./styles";
 export const useAccordion = (props: useAccordion.Props) => {
   const [elementProps, variantProps] = mapPropsVariants(
     props,
-    accordionVariants.variantKeys
+    accordionVariants.variantKeys,
   );
   const {
     value: valueProp,
@@ -50,7 +50,7 @@ export const useAccordion = (props: useAccordion.Props) => {
         onValueChange?.(isOpen ? [] : [idx]);
       }
     },
-    [isMultiple, onValueChange, setValue, value]
+    [isMultiple, onValueChange, setValue, value],
   );
 
   const getRootProps: PropGetter<Accordion.Props> = useCallback(
@@ -62,7 +62,7 @@ export const useAccordion = (props: useAccordion.Props) => {
         className: cn(restProps.className, props.className),
       }),
     }),
-    [restProps, styles]
+    [restProps, styles],
   );
 
   return useMemo(
@@ -83,7 +83,7 @@ export const useAccordion = (props: useAccordion.Props) => {
       styles,
       value,
       elementRefs,
-    ]
+    ],
   );
 };
 

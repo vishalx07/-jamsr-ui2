@@ -12,7 +12,7 @@ export const Popover = (props: Popover.Props) => {
   const mergedProps = mergeConfigProps(
     popoverVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const { children } = props;
   const ctx = usePopover(mergedProps);

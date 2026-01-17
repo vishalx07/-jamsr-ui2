@@ -33,7 +33,7 @@ import type { AlertDialogVariants } from "./styles";
 export const useAlertDialog = (props: useAlertDialog.Props) => {
   const [_props, variantProps] = mapPropsVariants(
     props,
-    alertDialogVariant.variantKeys
+    alertDialogVariant.variantKeys,
   );
   const {
     defaultOpen,
@@ -82,7 +82,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       ref: setFloating,
       ...getFloatingProps(),
     }),
-    [getFloatingProps, setFloating, styles]
+    [getFloatingProps, setFloating, styles],
   );
 
   const getContentProps: PropGetter<AlertDialogContent.Props> = useCallback(
@@ -93,7 +93,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getBodyProps: PropGetter<AlertDialogBody.Props> = useCallback(
@@ -104,7 +104,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getFooterProps: PropGetter<AlertDialogFooter.Props> = useCallback(
@@ -115,7 +115,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getTitleProps: PropGetter<AlertDialogTitle.Props> = useCallback(
@@ -127,7 +127,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       }),
       ...props,
     }),
-    [styles]
+    [styles],
   );
 
   const getDescriptionProps: PropGetter<Text.Props> = useCallback(
@@ -139,7 +139,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       }),
       ...props,
     }),
-    [styles]
+    [styles],
   );
 
   const getTriggerProps = useCallback(
@@ -152,7 +152,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
         ref: setReference,
       }),
     }),
-    [getReferenceProps, setReference, styles]
+    [getReferenceProps, setReference, styles],
   );
 
   const getCancelProps: PropGetter<AlertDialogCancel.Props> = useCallback(
@@ -165,7 +165,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles, handleTriggerClose]
+    [styles, handleTriggerClose],
   );
 
   const getActionProps: PropGetter<AlertDialogAction.Props> = useCallback(
@@ -177,7 +177,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getOverlayProps = useCallback(
@@ -185,7 +185,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       className: styles.backdrop(),
       lockScroll: true,
     }),
-    [styles]
+    [styles],
   );
 
   const getFocusManagerProps = useCallback(
@@ -193,7 +193,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       context,
       modal: true,
     }),
-    [context]
+    [context],
   );
 
   return useMemo(
@@ -224,7 +224,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       getCancelProps,
       getActionProps,
       isOpen,
-    ]
+    ],
   );
 };
 

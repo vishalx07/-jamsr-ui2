@@ -10,7 +10,7 @@ import type {
 } from "react-hook-form";
 
 export const RHFContext = createContext<RHFContext.Props<any, any> | null>(
-  null
+  null,
 );
 
 export const useRHFContext = () => {

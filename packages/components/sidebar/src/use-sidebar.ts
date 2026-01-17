@@ -39,7 +39,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: elementProps.className,
       }),
     }),
-    [styles, width, elementProps]
+    [styles, width, elementProps],
   );
 
   const getSidebarProps: PropGetter<Sidebar.Props> = useCallback(
@@ -48,7 +48,7 @@ export const useSidebar = (props: useSidebar.Props) => {
       "data-slot": dataAttrDev("root"),
       className: styles.sidebar({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   const getHeaderProps: PropGetter<SidebarHeader.Props> = useCallback(
@@ -59,7 +59,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getContentProps: PropGetter<SidebarContent.Props> = useCallback(
@@ -70,7 +70,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getBodyProps: PropGetter<SidebarContent.Props> = useCallback(
@@ -81,7 +81,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getGroupProps: PropGetter<SidebarGroup.Props> = useCallback(
@@ -92,7 +92,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getGroupLabelProps: PropGetter<SidebarGroupLabel.Props> = useCallback(
@@ -103,7 +103,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getMenuProps: PropGetter<SidebarMenu.Props> = useCallback(
@@ -114,7 +114,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getMenuItemProps: PropGetter<SidebarMenuItem.Props> = useCallback(
@@ -125,7 +125,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getFooterProps: PropGetter<SidebarFooter.Props> = useCallback(
@@ -136,7 +136,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getMenuItemButtonProps: PropGetter<SidebarMenuItemButton.Props> =
@@ -148,7 +148,7 @@ export const useSidebar = (props: useSidebar.Props) => {
           className: props.className,
         }),
       }),
-      [styles]
+      [styles],
     );
 
   const getBackdropProps: PropGetter<SidebarBackdrop.Props> = useCallback(
@@ -160,7 +160,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles, toggleSidebar]
+    [styles, toggleSidebar],
   );
 
   const getInsetProps: PropGetter<SidebarInset.Props> = useCallback(
@@ -171,7 +171,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getContainerProps: PropGetter<SidebarContainer.Props> = useCallback(
@@ -182,7 +182,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -217,7 +217,7 @@ export const useSidebar = (props: useSidebar.Props) => {
       getInsetProps,
       getWrapperProps,
       getContainerProps,
-    ]
+    ],
   );
 };
 

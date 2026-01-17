@@ -2,12 +2,11 @@
 
 **A comprehensive React UI component library designed for developers, with Tailwind CSS integration for seamless styling.**
 
-
 ## 📖 **Overview**
 
 [JamsrUI](https://jamsr-ui.jamsrworld.com) is designed to help developers build modern, fast and visually appealing web applications with ease.
 
-## 🚀 Getting Started 
+## 🚀 Getting Started
 
 Boost & Build your websites using [JamsrUI](https://jamsr-ui.jamsrworld.com).
 
@@ -37,4 +36,3 @@ We welcome contributions from developers of all skill levels!
 ## ⭐ Support the Project
 
 If you find **JamsrUI** helpful, consider giving it a ⭐ on [GitHub](https://github.com/jamsrworld/jamsr-ui).
-

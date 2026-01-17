@@ -15,7 +15,7 @@ export const useAlertDialogContext = () => {
   const context = use(AlertDialogContext);
   if (!context) {
     throw new Error(
-      "useAlertDialogContext must be used within a AlertDialogContext.Provider"
+      "useAlertDialogContext must be used within a AlertDialogContext.Provider",
     );
   }
   return context;

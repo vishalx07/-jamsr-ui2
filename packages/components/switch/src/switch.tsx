@@ -14,7 +14,7 @@ export const Switch = (props: Switch.Props) => {
   const mergedProps = mergeConfigProps(
     switchVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useSwitch(mergedProps);
   const fieldA11yCtx = useFieldA11y();

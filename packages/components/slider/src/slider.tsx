@@ -63,7 +63,8 @@ export const Slider = Root;
 
 export namespace Slider {
   export interface Props
-    extends Omit<UIProps<"div">, "onChange" | "defaultValue">,
+    extends
+      Omit<UIProps<"div">, "onChange" | "defaultValue">,
       SliderVariants,
       UseSliderProps {}
 }

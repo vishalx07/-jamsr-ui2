@@ -7,7 +7,7 @@ export type UseFocusVisibleOptions = {
 
 // Custom hook to track focus visibility with keyboard interaction
 export const useFocusVisible = <T extends HTMLElement>(
-  options: UseFocusVisibleOptions = {}
+  options: UseFocusVisibleOptions = {},
 ) => {
   const { isDisabled = false } = options;
   const [isFocusVisible, setIsFocusVisible] = useState(false);

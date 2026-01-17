@@ -22,7 +22,7 @@ import type { InputGroupVariantProps } from "./styles";
 export const useInputGroup = (props: useInputGroup.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    inputGroupVariants.variantKeys
+    inputGroupVariants.variantKeys,
   );
   const { ref, className, ...elementProps } = $props;
 
@@ -73,7 +73,7 @@ export const useInputGroup = (props: useInputGroup.Props) => {
         className: cn(props.className),
       }),
     }),
-    [isDisabled, isFocusVisible, isFocused, isHovered, styles]
+    [isDisabled, isFocusVisible, isFocused, isHovered, styles],
   );
 
   const getPrefixProps: PropGetter<InputGroupPrefix.Props> = useCallback(
@@ -84,7 +84,7 @@ export const useInputGroup = (props: useInputGroup.Props) => {
         className: cn(props.className),
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getSuffixProps: PropGetter<InputGroupSuffix.Props> = useCallback(
@@ -95,7 +95,7 @@ export const useInputGroup = (props: useInputGroup.Props) => {
         className: cn(props.className),
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -105,7 +105,7 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       getSuffixProps,
       variantProps,
     }),
-    [getRootProps, getPrefixProps, getSuffixProps, variantProps]
+    [getRootProps, getPrefixProps, getSuffixProps, variantProps],
   );
 };
 

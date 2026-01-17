@@ -19,7 +19,7 @@ const SidebarWrapperInner = (props: SidebarWrapper.Props) => {
   const mergedProps = mergeConfigProps(
     sidebarVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useSidebar(mergedProps);
   const { getWrapperProps } = ctx;

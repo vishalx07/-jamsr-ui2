@@ -26,7 +26,7 @@ export const useLabel = (props: useLabel.Props): useLabel.ReturnType => {
         event.preventDefault();
       }
     },
-    [onMouseDown]
+    [onMouseDown],
   );
 
   return {

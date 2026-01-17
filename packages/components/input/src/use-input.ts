@@ -15,7 +15,7 @@ import type { InputVariantProps } from "./styles";
 export const useInput = (props: useInput.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    inputVariants.variantKeys
+    inputVariants.variantKeys,
   );
   const inputGroupCtx = useInputGroupContextOpt();
   const fieldA11yCtx = useFieldA11yContext();
@@ -44,7 +44,7 @@ export const useInput = (props: useInput.Props) => {
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setValue(e.target.value);
     },
-    [setValue]
+    [setValue],
   );
 
   const getInputProps: PropGetter<UIProps<"input">> = useCallback(
@@ -56,14 +56,14 @@ export const useInput = (props: useInput.Props) => {
       value,
       onChange: handleInputChange,
     }),
-    [fieldA11yCtx, elementProps, styles, className, value, handleInputChange]
+    [fieldA11yCtx, elementProps, styles, className, value, handleInputChange],
   );
 
   return useMemo(
     () => ({
       getInputProps,
     }),
-    [getInputProps]
+    [getInputProps],
   );
 };
 

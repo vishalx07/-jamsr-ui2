@@ -99,7 +99,7 @@ export const ChevronDoubleLeftIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const ChevronDoubleRightIcon = (
-  props: React.SVGProps<SVGSVGElement>
+  props: React.SVGProps<SVGSVGElement>,
 ) => (
   <svg
     fill="none"

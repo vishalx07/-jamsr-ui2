@@ -8,7 +8,6 @@ import { useSelectItemContext } from "./select-item-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-
 export const SelectItemIndicator = (props: SelectItemIndicator.Props) => {
   const { isSelected } = useSelectItemContext();
   const { children = isSelected ? <CheckIcon /> : null, ...restProps } = props;

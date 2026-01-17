@@ -4,14 +4,14 @@ import { createContext, use } from "react";
 import { useIconButton } from "./use-icon-button";
 
 export const IconButtonContext = createContext<IconButtonContext.Props | null>(
-  null
+  null,
 );
 
 export const useIconButtonContext = () => {
   const ctx = use(IconButtonContext);
   if (!ctx) {
     throw new Error(
-      "useIconButtonContext must be used within a IconButtonContext"
+      "useIconButtonContext must be used within a IconButtonContext",
     );
   }
   return ctx;

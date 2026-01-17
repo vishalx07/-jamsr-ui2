@@ -14,7 +14,7 @@ import type { LinearProgressSlots, LinearProgressVariantProps } from "./styles";
 export const useLinearProgress = (props: useLinearProgress.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    linearProgressVariants.variantKeys
+    linearProgressVariants.variantKeys,
   );
   const styles = linearProgressVariants(variantProps);
   const { progress: progressProp = 0, classNames, ...elementProps } = $props;
@@ -32,7 +32,7 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
         className: cn(classNames?.track, elementProps.className),
       }),
     }),
-    [classNames?.track, elementProps, styles]
+    [classNames?.track, elementProps, styles],
   );
 
   const getBarProps: PropGetter<LinearProgressBar.Props> = useCallback(
@@ -48,7 +48,7 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
         width: `${progress}%`,
       },
     }),
-    [classNames?.bar, elementProps.className, isIntermediate, progress, styles]
+    [classNames?.bar, elementProps.className, isIntermediate, progress, styles],
   );
 
   return useMemo(
@@ -56,7 +56,7 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
       getRootProps,
       getBarProps,
     }),
-    [getBarProps, getRootProps]
+    [getBarProps, getRootProps],
   );
 };
 

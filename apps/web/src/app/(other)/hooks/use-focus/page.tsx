@@ -2,7 +2,6 @@
 
 import { useFocus } from "@jamsrui/hooks";
 
-
 const UsePress = () => {
   const { isFocused, ref } = useFocus<HTMLButtonElement>({
     isDisabled: false,
@@ -19,6 +18,6 @@ const UsePress = () => {
       {isFocused ? "Focused" : "Not Focused"}
     </div>
   );
-}
+};
 
-export default UsePress
+export default UsePress;

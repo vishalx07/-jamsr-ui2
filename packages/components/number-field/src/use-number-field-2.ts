@@ -93,7 +93,7 @@ export const useNumberField = (props: useNumberField.Props) => {
 
       return parsed;
     },
-    [formatOptions, groupSeparator, decimalSeparator]
+    [formatOptions, groupSeparator, decimalSeparator],
   );
 
   // Clamp value within min/max bounds
@@ -101,7 +101,7 @@ export const useNumberField = (props: useNumberField.Props) => {
     (value: number): number => {
       return Math.min(Math.max(value, minValue), maxValue);
     },
-    [minValue, maxValue]
+    [minValue, maxValue],
   );
 
   // Update formatted display value when number changes
@@ -114,7 +114,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       const value = event.target.value;
       setInputValue(value);
     },
-    []
+    [],
   );
 
   const handleInputOnBlur = useCallback(() => {
@@ -156,7 +156,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         handleDecrement();
       }
     },
-    [handleIncrement, handleDecrement]
+    [handleIncrement, handleDecrement],
   );
 
   // Mouse wheel support with proper preventDefault
@@ -192,7 +192,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       ...props,
       "data-slot": dataAttrDev("root"),
     }),
-    []
+    [],
   );
 
   const getInputProps: PropGetter<NumberFieldInput.Props> = useCallback(
@@ -214,7 +214,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       value: inputValue,
       "data-slot": dataAttrDev("input"),
     }),
-    [handleInputOnChange, handleInputOnBlur, handleKeyDown, inputValue]
+    [handleInputOnChange, handleInputOnBlur, handleKeyDown, inputValue],
   );
 
   const getIncrementProps: PropGetter<NumberFieldIncrement.Props> = useCallback(
@@ -225,7 +225,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       disabled: numberValue >= maxValue,
       "data-slot": dataAttrDev("increment"),
     }),
-    [handleIncrement, numberValue, maxValue]
+    [handleIncrement, numberValue, maxValue],
   );
 
   const getDecrementProps: PropGetter<NumberFieldDecrement.Props> = useCallback(
@@ -236,7 +236,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       disabled: numberValue <= minValue,
       "data-slot": dataAttrDev("decrement"),
     }),
-    [handleDecrement, numberValue, minValue]
+    [handleDecrement, numberValue, minValue],
   );
 
   const getGroupProps: PropGetter<NumberFieldGroup.Props> = useCallback(
@@ -244,7 +244,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       ...props,
       "data-slot": dataAttrDev("group"),
     }),
-    []
+    [],
   );
 
   return useMemo(
@@ -263,7 +263,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       getDecrementProps,
       getGroupProps,
       numberValue,
-    ]
+    ],
   );
 };
 

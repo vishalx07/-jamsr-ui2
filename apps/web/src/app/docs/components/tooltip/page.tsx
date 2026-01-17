@@ -39,7 +39,11 @@ const Tooltip = () => {
       <CodeExample isCentered title="Offset" url={resolvePath("offset.tsx")}>
         <TooltipOffset />
       </CodeExample>
-      <CodeExample isCentered title="Placement" url={resolvePath("placement.tsx")}>
+      <CodeExample
+        isCentered
+        title="Placement"
+        url={resolvePath("placement.tsx")}
+      >
         <TooltipPlacement />
       </CodeExample>
       <CodeExample

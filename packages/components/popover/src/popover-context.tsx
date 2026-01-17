@@ -10,7 +10,7 @@ export const usePopoverContext = () => {
   const context = use(PopoverContext);
   if (!context) {
     throw new Error(
-      "usePopoverContext must be used within a PopoverContextProvider"
+      "usePopoverContext must be used within a PopoverContextProvider",
     );
   }
   return context;

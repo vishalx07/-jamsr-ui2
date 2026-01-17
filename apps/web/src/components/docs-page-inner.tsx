@@ -19,7 +19,7 @@ export const DocsPageInner = (props: Props) => {
       <div
         className={cn(
           "py-12 w-full px-4 md:px-12  mx-auto",
-          size === "lg" ? "max-w-screen-lg" : "max-w-screen-md"
+          size === "lg" ? "max-w-screen-lg" : "max-w-screen-md",
         )}
       >
         <SidebarToggle className="md:hidden" />

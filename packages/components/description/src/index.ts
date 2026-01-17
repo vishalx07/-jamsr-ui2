@@ -1,2 +1,1 @@
-
 export { Description } from "./description";

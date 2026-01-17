@@ -9,7 +9,7 @@ export const useMenuRadioGroupContext = () => {
   const ctx = use(MenuRadioGroupContext);
   if (!ctx) {
     throw new Error(
-      "useMenuRadioGroupContext must be used within a MenuRadioGroup"
+      "useMenuRadioGroupContext must be used within a MenuRadioGroup",
     );
   }
   return ctx;

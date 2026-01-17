@@ -12,7 +12,7 @@ import { useAutocomplete } from "./use-autocomplete";
 export const Autocomplete = (props: Autocomplete.Props) => {
   const { children } = props;
   const config = useAutocompleteConfig();
-  const mergedProps = mergeConfigProps(config,config, props);
+  const mergedProps = mergeConfigProps(config, config, props);
   const ctx = useAutocomplete(mergedProps);
   const { getRootProps, getInputProps } = ctx;
 

@@ -12,7 +12,7 @@ export const InputGroup = (props: InputGroup.Props) => {
   const mergedProps = mergeConfigProps(
     inputGroupVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const value = useInputGroup(mergedProps);
   return (

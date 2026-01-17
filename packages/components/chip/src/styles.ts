@@ -61,7 +61,7 @@ export const chipVariants = tv({
         className: {
           root: colorVariants[variant][color],
         },
-      }))
+      })),
     ),
     // dot
     ...allColors.map((color) => ({

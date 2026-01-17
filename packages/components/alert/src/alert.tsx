@@ -15,7 +15,7 @@ export const Alert = (props: Alert.Props) => {
   const mergedProps = mergeConfigProps(
     alertStyles.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useAlert(mergedProps);
   const { getRootProps } = ctx;

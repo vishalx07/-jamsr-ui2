@@ -16,7 +16,7 @@ export const createConfigContext = <T extends Record<string, any>>({
     props: Omit<Partial<T>, "children"> & {
       merge?: boolean;
       children: React.ReactNode;
-    }
+    },
   ) => {
     const { merge = true, ...elementProps } = props;
     const innerConfig = useConfig();

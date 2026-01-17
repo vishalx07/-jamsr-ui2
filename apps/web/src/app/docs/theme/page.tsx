@@ -27,7 +27,7 @@ const Page = () => {
                     key={name}
                     className={cn(
                       "rounded-md p-1 flex aspect-square border border-border-dark",
-                      className
+                      className,
                     )}
                   >
                     <div className="bg-surface w-full mt-auto rounded-md py-2 px-4">

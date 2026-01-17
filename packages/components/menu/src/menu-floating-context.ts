@@ -15,7 +15,7 @@ export namespace MenuFloatingContext {
     setHasFocusInside: React.Dispatch<React.SetStateAction<boolean>>;
     activeIndex: number | null;
     getItemProps: (
-      props?: React.HTMLProps<HTMLElement>
+      props?: React.HTMLProps<HTMLElement>,
     ) => React.HTMLProps<HTMLElement>;
   }
 }

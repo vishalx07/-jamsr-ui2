@@ -19,7 +19,7 @@ type SidebarStateContextProps = {
   toggleSidebar: () => void;
 };
 const SidebarStateContext = createContext<SidebarStateContextProps | null>(
-  null
+  null,
 );
 export const useSidebarState = () => {
   const ctx = use(SidebarStateContext);
@@ -68,7 +68,7 @@ export const SidebarStateProvider = (props: SidebarStateProvider.Props) => {
       state,
       toggleSidebar,
     }),
-    [isMobile, isOpen, state, toggleSidebar]
+    [isMobile, isOpen, state, toggleSidebar],
   );
 
   return <SidebarStateContext value={value}>{children}</SidebarStateContext>;

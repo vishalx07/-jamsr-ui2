@@ -29,7 +29,7 @@ import type { CheckboxVariantProps } from "./styles";
 export const useCheckbox = (props: useCheckbox.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    checkboxVariants.variantKeys
+    checkboxVariants.variantKeys,
   );
   const { isInvalid } = variantProps;
   const styles = checkboxVariants(variantProps);
@@ -66,7 +66,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setIsChecked(event.target.checked);
     },
-    [setIsChecked]
+    [setIsChecked],
   );
 
   const getRootProps = useCallback(
@@ -95,7 +95,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       isPressed,
       isInvalid,
       styles,
-    ]
+    ],
   );
 
   const getInputProps: PropGetter<CheckboxInput.Props> = useCallback(
@@ -113,7 +113,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
         className: props.className,
       }),
     }),
-    [handleInputOnChange, isDisabled, inputRef, styles]
+    [handleInputOnChange, isDisabled, inputRef, styles],
   );
 
   const getContentProps: PropGetter<CheckboxContent.Props> = useCallback(
@@ -124,7 +124,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getControlProps: PropGetter<CheckboxControl.Props> = useCallback(
@@ -135,7 +135,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getIndicatorProps: PropGetter<CheckboxIndicator.Props> = useCallback(
@@ -146,7 +146,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -171,7 +171,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       isChecked,
       isIntermediate,
       onCheckedChange,
-    ]
+    ],
   );
 };
 

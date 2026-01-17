@@ -23,7 +23,8 @@ export class NumberParser {
     const decimal = parts.find((part) => part.type === "decimal")?.value!;
 
     const others = parts.filter(
-      (part) => !["group", "decimal", "integer", "fraction"].includes(part.type)
+      (part) =>
+        !["group", "decimal", "integer", "fraction"].includes(part.type),
     );
 
     // 2. Extract minus sign (locale specific)
@@ -32,7 +33,7 @@ export class NumberParser {
     // 3. Build numeral map
     const numerals = [
       ...new Intl.NumberFormat(this.locale, { useGrouping: false }).format(
-        9876543210
+        9876543210,
       ),
     ].reverse();
     const numeralsMap = new Map(numerals.map((n, i) => [n, i.toString()]));
@@ -43,7 +44,7 @@ export class NumberParser {
     if (this.formatOptions.currencySign === "accounting") {
       // 4. Check if this locale actually uses parentheses for accounting format
       const usesParentheses = parts.find(
-        (p) => p.type === "literal" && (p.value === "(" || p.value === ")")
+        (p) => p.type === "literal" && (p.value === "(" || p.value === ")"),
       );
       // Check if accounting format is being used (parentheses for negative)
       if (usesParentheses) {

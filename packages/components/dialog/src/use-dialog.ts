@@ -31,7 +31,7 @@ import type { DialogVariants } from "./styles";
 export const useDialog = (props: useDialog.Props) => {
   const [newProps, variantProps] = mapPropsVariants(
     props,
-    dialogVariants.variantKeys
+    dialogVariants.variantKeys,
   );
   const {
     defaultOpen,
@@ -82,7 +82,7 @@ export const useDialog = (props: useDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getBodyProps: PropGetter<DialogBody.Props> = useCallback(
@@ -93,7 +93,7 @@ export const useDialog = (props: useDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getContainerProps: PropGetter<DialogContainer.Props> = useCallback(
@@ -106,7 +106,7 @@ export const useDialog = (props: useDialog.Props) => {
       ref: setFloating,
       ...getFloatingProps(),
     }),
-    [getFloatingProps, setFloating, styles]
+    [getFloatingProps, setFloating, styles],
   );
 
   const getContentProps: PropGetter<DialogContent.Props> = useCallback(
@@ -121,7 +121,7 @@ export const useDialog = (props: useDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getFooterProps: PropGetter<DialogFooter.Props> = useCallback(
@@ -132,7 +132,7 @@ export const useDialog = (props: useDialog.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getCloseButtonProps: PropGetter<DialogCloseButton.Props> = useCallback(
@@ -146,7 +146,7 @@ export const useDialog = (props: useDialog.Props) => {
       size: "sm",
       onClick: handleTriggerClose,
     }),
-    [handleTriggerClose, styles]
+    [handleTriggerClose, styles],
   );
 
   const getCloseTriggerProps: PropGetter<ComponentProps<"button">> =
@@ -155,7 +155,7 @@ export const useDialog = (props: useDialog.Props) => {
         mergeProps<ComponentProps<"button">>(props, {
           onClick: handleTriggerClose,
         }),
-      [handleTriggerClose]
+      [handleTriggerClose],
     );
 
   const getTriggerProps = useCallback(
@@ -164,7 +164,7 @@ export const useDialog = (props: useDialog.Props) => {
         ref: setReference,
       }),
     }),
-    [getReferenceProps, setReference]
+    [getReferenceProps, setReference],
   );
 
   const getOverlayProps = useCallback(
@@ -172,7 +172,7 @@ export const useDialog = (props: useDialog.Props) => {
       className: styles.backdrop(),
       lockScroll: true,
     }),
-    [styles]
+    [styles],
   );
 
   const getFocusManagerProps = useCallback(
@@ -180,7 +180,7 @@ export const useDialog = (props: useDialog.Props) => {
       context,
       modal: true,
     }),
-    [context]
+    [context],
   );
 
   return useMemo(
@@ -213,7 +213,7 @@ export const useDialog = (props: useDialog.Props) => {
       hideCloseButton,
       getContainerProps,
       getCloseButtonProps,
-    ]
+    ],
   );
 };
 

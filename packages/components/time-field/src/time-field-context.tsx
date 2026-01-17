@@ -4,7 +4,7 @@ import { createContext, use } from "react";
 import type { useTimeField } from "./use-time-field";
 
 export const TimeFieldContext = createContext<TimeFieldContext.Props | null>(
-  null
+  null,
 );
 
 export const useTimeFieldContext = () => {

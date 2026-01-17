@@ -8,7 +8,7 @@ const AccordionItemContext =
   createContext<AccordionItemContextProvider.Type | null>(null);
 
 export const AccordionItemContextProvider = (
-  props: AccordionItemContextProvider.Props
+  props: AccordionItemContextProvider.Props,
 ) => {
   const { children, ctx } = props;
   return <AccordionItemContext value={ctx}>{children}</AccordionItemContext>;
@@ -18,7 +18,7 @@ export const useAccordionItemContext = () => {
   const ctx = use(AccordionItemContext);
   if (!ctx)
     throw new Error(
-      "useAccordionItemContext must be used within AccordionItemContextProvider"
+      "useAccordionItemContext must be used within AccordionItemContextProvider",
     );
   return ctx;
 };

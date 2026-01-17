@@ -44,7 +44,7 @@ export const SelectItem = (props: SelectItem.Props) => {
         handleClick();
       }
     },
-    [handleClick]
+    [handleClick],
   );
 
   const renderElement = useRenderElement("div", {

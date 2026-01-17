@@ -7,7 +7,7 @@ import { useAlertDialogContext } from "./alert-dialog-context";
 import type { HTMLMotionProps } from "motion/react";
 
 export const AlertDialogContentInner = (
-  props: AlertDialogContentInner.Props
+  props: AlertDialogContentInner.Props,
 ) => {
   const { getContentProps } = useAlertDialogContext();
   return (

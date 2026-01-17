@@ -4,7 +4,7 @@ import { createContext, use } from "react";
 import type { useDateField } from "./use-date-field";
 
 export const DateFieldContext = createContext<DateFieldContext.Props | null>(
-  null
+  null,
 );
 
 export const useDateFieldContext = () => {

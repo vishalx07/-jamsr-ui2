@@ -18,7 +18,7 @@ import type { AlertVariants } from "./styles";
 export const useAlert = (props: useAlert.Props) => {
   const [newProps, variantKeys] = mapPropsVariants(
     props,
-    alertStyles.variantKeys
+    alertStyles.variantKeys,
   );
   const { ...rootProps } = newProps;
 
@@ -36,7 +36,7 @@ export const useAlert = (props: useAlert.Props) => {
         className: cn(rootProps.className, props.className),
       }),
     }),
-    [rootProps, styles]
+    [rootProps, styles],
   );
 
   const getTitleProps: PropGetter<AlertTitle.Props> = useCallback(
@@ -48,7 +48,7 @@ export const useAlert = (props: useAlert.Props) => {
       }),
       variant: "h6",
     }),
-    [styles]
+    [styles],
   );
 
   const getDescriptionProps: PropGetter<AlertDescription.Props> = useCallback(
@@ -59,7 +59,7 @@ export const useAlert = (props: useAlert.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getContentProps: PropGetter<AlertContent.Props> = useCallback(
@@ -70,7 +70,7 @@ export const useAlert = (props: useAlert.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getIconProps: PropGetter<AlertIcon.Props> = useCallback(
@@ -81,7 +81,7 @@ export const useAlert = (props: useAlert.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -100,7 +100,7 @@ export const useAlert = (props: useAlert.Props) => {
       getTitleProps,
       icon,
       getIconProps,
-    ]
+    ],
   );
 };
 

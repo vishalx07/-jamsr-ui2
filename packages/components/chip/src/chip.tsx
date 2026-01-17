@@ -13,7 +13,7 @@ export const Chip = (props: Chip.Props) => {
   const mergedProps = mergeConfigProps(
     chipVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useChip(mergedProps);
 

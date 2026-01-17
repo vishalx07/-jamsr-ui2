@@ -30,7 +30,7 @@ import type { DrawerSlots, DrawerVariants } from "./styles";
 export const useDrawer = (props: useDrawer.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    drawerVariants.variantKeys
+    drawerVariants.variantKeys,
   );
   const {
     classNames,
@@ -82,11 +82,11 @@ export const useDrawer = (props: useDrawer.Props) => {
         className: cn(
           slotProps?.header?.className,
           classNames?.header,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.header, slotProps?.header, styles]
+    [classNames?.header, slotProps?.header, styles],
   );
 
   const getFooterProps: PropGetter<DrawerFooter.Props> = useCallback(
@@ -97,11 +97,11 @@ export const useDrawer = (props: useDrawer.Props) => {
         className: cn(
           slotProps?.footer?.className,
           classNames?.footer,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.footer, slotProps?.footer, styles]
+    [classNames?.footer, slotProps?.footer, styles],
   );
 
   const getBodyProps: PropGetter<DrawerBody.Props> = useCallback(
@@ -112,11 +112,11 @@ export const useDrawer = (props: useDrawer.Props) => {
         className: cn(
           slotProps?.body?.className,
           classNames?.body,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.body, slotProps?.body, styles]
+    [classNames?.body, slotProps?.body, styles],
   );
 
   const getPopoverProps: PropGetter<DrawerPopover.Props> = useCallback(
@@ -127,7 +127,7 @@ export const useDrawer = (props: useDrawer.Props) => {
         className: cn(
           slotProps?.popover?.className,
           classNames?.popover,
-          props.className
+          props.className,
         ),
       }),
       ref: setFloating,
@@ -139,7 +139,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       setFloating,
       slotProps?.popover,
       styles,
-    ]
+    ],
   );
 
   const getContentProps: PropGetter<DrawerContent.Props> = useCallback(
@@ -150,7 +150,7 @@ export const useDrawer = (props: useDrawer.Props) => {
         className: cn(
           slotProps?.content?.className,
           classNames?.content,
-          props.className
+          props.className,
         ),
       }),
       initial: {
@@ -184,7 +184,7 @@ export const useDrawer = (props: useDrawer.Props) => {
         },
       },
     }),
-    [classNames?.content, slotProps?.content, styles]
+    [classNames?.content, slotProps?.content, styles],
   );
 
   const getCloseButtonProps: PropGetter<DrawerCloseButton.Props> = useCallback(
@@ -195,7 +195,7 @@ export const useDrawer = (props: useDrawer.Props) => {
         className: cn(
           slotProps?.closeButton?.className,
           classNames?.closeButton,
-          props.className
+          props.className,
         ),
       }),
       radius: "full",
@@ -207,7 +207,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       handleTriggerClose,
       slotProps?.closeButton,
       styles,
-    ]
+    ],
   );
 
   const getBackdropProps = useCallback(
@@ -218,7 +218,7 @@ export const useDrawer = (props: useDrawer.Props) => {
         className: cn(classNames?.backdrop),
       }),
     }),
-    [classNames?.backdrop, styles]
+    [classNames?.backdrop, styles],
   );
 
   const getFocusManagerProps = useCallback(
@@ -226,7 +226,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       context,
       modal: true,
     }),
-    [context]
+    [context],
   );
 
   const getTriggerProps = useCallback(
@@ -235,14 +235,14 @@ export const useDrawer = (props: useDrawer.Props) => {
         ref: setReference,
       }),
     }),
-    [getReferenceProps, setReference]
+    [getReferenceProps, setReference],
   );
 
   const getTriggerCloseProps = useCallback(
     () => ({
       onClick: handleTriggerClose,
     }),
-    [handleTriggerClose]
+    [handleTriggerClose],
   );
 
   return useMemo(
@@ -273,7 +273,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       isOpen,
       getPopoverProps,
       hideCloseButton,
-    ]
+    ],
   );
 };
 

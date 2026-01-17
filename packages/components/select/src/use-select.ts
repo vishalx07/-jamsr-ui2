@@ -59,7 +59,7 @@ type SelectItemData = {
 export const useSelect = (props: useSelect.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    selectVariants.variantKeys
+    selectVariants.variantKeys,
   );
   const {
     onValueChange,
@@ -136,7 +136,7 @@ export const useSelect = (props: useSelect.Props) => {
       if (index === null) return;
       if (!isMultiple) setIsOpen(false);
     },
-    [isMultiple, setIsOpen, setSelectedIndex]
+    [isMultiple, setIsOpen, setSelectedIndex],
   );
 
   function handleTypeaheadMatch(index: number | null) {
@@ -168,7 +168,7 @@ export const useSelect = (props: useSelect.Props) => {
   });
   const role = useRole(context, { role: "listbox" });
   const { getReferenceProps, getFloatingProps, getItemProps } = useInteractions(
-    [listNav, typeahead, click, dismiss, role]
+    [listNav, typeahead, click, dismiss, role],
   );
 
   const onSelectValue = useCallback(
@@ -185,7 +185,7 @@ export const useSelect = (props: useSelect.Props) => {
         setValue(option);
       }
     },
-    [isMultiple, setValue, value]
+    [isMultiple, setValue, value],
   );
   const hasValue = Array.isArray(value) ? value.length > 0 : !!value;
 
@@ -200,7 +200,7 @@ export const useSelect = (props: useSelect.Props) => {
       }),
       "data-open": dataAttr(isOpen),
     }),
-    [elementProps, isOpen, styles]
+    [elementProps, isOpen, styles],
   );
 
   const getValueProps: PropGetter<SelectValue.Props> = useCallback(
@@ -211,7 +211,7 @@ export const useSelect = (props: useSelect.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getTriggerProps: PropGetter<SelectTrigger.Props> = useCallback(
@@ -230,7 +230,7 @@ export const useSelect = (props: useSelect.Props) => {
         ref: setReference,
       }),
     }),
-    [getReferenceProps, isDisabled, labelId, setReference, styles]
+    [getReferenceProps, isDisabled, labelId, setReference, styles],
   );
 
   const getIndicatorProps: PropGetter<SelectIndicator.Props> = useCallback(
@@ -241,7 +241,7 @@ export const useSelect = (props: useSelect.Props) => {
         className: cn(props.className),
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getContentProps: PropGetter<SelectContent.Props> = useCallback(
@@ -255,7 +255,7 @@ export const useSelect = (props: useSelect.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getPopoverProps: PropGetter<SelectPopover.Props> = useCallback(
@@ -269,7 +269,7 @@ export const useSelect = (props: useSelect.Props) => {
       style: floatingStyles,
       ...getFloatingProps(),
     }),
-    [floatingStyles, getFloatingProps, setFloating, styles]
+    [floatingStyles, getFloatingProps, setFloating, styles],
   );
 
   const getSelectItemProps: PropGetter<Partial<SelectItem.Props>> = useCallback(
@@ -280,7 +280,7 @@ export const useSelect = (props: useSelect.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getItemIndicatorProps: PropGetter<SelectItemIndicator.Props> =
@@ -292,7 +292,7 @@ export const useSelect = (props: useSelect.Props) => {
           className: props.className,
         }),
       }),
-      [styles]
+      [styles],
     );
 
   const getFocusManagerProps = useCallback(
@@ -302,7 +302,7 @@ export const useSelect = (props: useSelect.Props) => {
       returnFocus,
       initialFocus: 0,
     }),
-    [context, returnFocus]
+    [context, returnFocus],
   );
 
   const getFloatingListProps = useCallback(
@@ -310,7 +310,7 @@ export const useSelect = (props: useSelect.Props) => {
       elementsRef,
       labelsRef,
     }),
-    []
+    [],
   );
 
   const updateSelectItems = useCallback(
@@ -327,7 +327,7 @@ export const useSelect = (props: useSelect.Props) => {
       });
       setSelectItems(items);
     },
-    [setSelectItems]
+    [setSelectItems],
   );
 
   const selectedLabels = useMemo(() => {
@@ -335,7 +335,7 @@ export const useSelect = (props: useSelect.Props) => {
       .filter((item) =>
         item && Array.isArray(value)
           ? value.includes(item.value)
-          : value === item.value
+          : value === item.value,
       )
       .map((item) => item?.textValue);
     return Array.from(new Set(items));
@@ -391,7 +391,7 @@ export const useSelect = (props: useSelect.Props) => {
       onSelectValue,
       placeholder,
       value,
-    ]
+    ],
   );
 };
 

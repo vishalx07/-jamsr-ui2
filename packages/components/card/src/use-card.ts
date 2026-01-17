@@ -18,7 +18,7 @@ import type { CardVariants } from "./styles";
 export const useCard = (props: useCard.Props) => {
   const [newProps, variantKeys] = mapPropsVariants(
     props,
-    cardVariants.variantKeys
+    cardVariants.variantKeys,
   );
   const styles = cardVariants(variantKeys);
   const { ...baseProps } = newProps;
@@ -31,7 +31,7 @@ export const useCard = (props: useCard.Props) => {
         className: cn(baseProps.className),
       }),
     }),
-    [baseProps, styles]
+    [baseProps, styles],
   );
 
   const getHeaderProps: PropGetter<CardHeader.Props> = useCallback(
@@ -40,7 +40,7 @@ export const useCard = (props: useCard.Props) => {
       ...props,
       className: styles.header({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   const getTitleProps: PropGetter<CardTitle.Props> = useCallback(
@@ -50,7 +50,7 @@ export const useCard = (props: useCard.Props) => {
       className: styles.title({ className: props.className }),
       variant: "h5",
     }),
-    [styles]
+    [styles],
   );
 
   const getDescriptionProps: PropGetter<CardDescription.Props> = useCallback(
@@ -60,7 +60,7 @@ export const useCard = (props: useCard.Props) => {
       ...props,
       className: styles.description({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   const getContentProps: PropGetter<CardContent.Props> = useCallback(
@@ -69,7 +69,7 @@ export const useCard = (props: useCard.Props) => {
       ...props,
       className: styles.content({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   const getFooterProps: PropGetter<CardFooter.Props> = useCallback(
@@ -78,7 +78,7 @@ export const useCard = (props: useCard.Props) => {
       ...props,
       className: styles.footer({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -97,7 +97,7 @@ export const useCard = (props: useCard.Props) => {
       getHeaderProps,
       getRootProps,
       getTitleProps,
-    ]
+    ],
   );
 };
 

@@ -27,7 +27,7 @@ export const MenuRadioGroup = (props: MenuRadioGroup.Props) => {
       value,
       setValue,
     }),
-    [isDisabled, setValue, value]
+    [isDisabled, setValue, value],
   );
   return (
     <MenuRadioGroupContext value={ctxValue}>{children}</MenuRadioGroupContext>

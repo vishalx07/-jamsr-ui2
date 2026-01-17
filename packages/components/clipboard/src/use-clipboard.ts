@@ -47,7 +47,7 @@ export const useClipboard = (props: useClipboard.Props) => {
         className: cn(classNames?.root, props.classNames),
       }),
     }),
-    [classNames?.root, elementProps, onCopy, props.classNames, styles]
+    [classNames?.root, elementProps, onCopy, props.classNames, styles],
   );
 
   const getButtonProps: PropGetter<ClipboardButton.Props> = useCallback(
@@ -58,11 +58,11 @@ export const useClipboard = (props: useClipboard.Props) => {
         className: cn(
           slotProps?.button?.className,
           classNames?.button,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.button, slotProps?.button, styles]
+    [classNames?.button, slotProps?.button, styles],
   );
 
   const getIconProps: PropGetter<UIProps<"svg">> = useCallback(
@@ -73,11 +73,11 @@ export const useClipboard = (props: useClipboard.Props) => {
         className: cn(
           slotProps?.icon?.className,
           classNames?.icon,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.icon, slotProps?.icon, styles]
+    [classNames?.icon, slotProps?.icon, styles],
   );
 
   return useMemo(
@@ -88,7 +88,7 @@ export const useClipboard = (props: useClipboard.Props) => {
       hideCopyButton,
       isCopied,
     }),
-    [getButtonProps, getIconProps, getRootProps, hideCopyButton, isCopied]
+    [getButtonProps, getIconProps, getRootProps, hideCopyButton, isCopied],
   );
 };
 

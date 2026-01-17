@@ -32,7 +32,7 @@ export const FileUpload = (props: FileUpload.Props) => {
       <input
         className={cn(
           "w-full h-24 border",
-          isDragging && "border-dashed border-primary"
+          isDragging && "border-dashed border-primary",
         )}
         multiple
         {...getInputProps({})}
@@ -41,7 +41,7 @@ export const FileUpload = (props: FileUpload.Props) => {
         <ul className="flex gap-4 py-4">
           {files.map((file) => {
             const progress = uploadProgress.find(
-              (progress) => progress.fileId === file.id
+              (progress) => progress.fileId === file.id,
             );
             return (
               <li key={file.id} className="flex flex-col gap-4">

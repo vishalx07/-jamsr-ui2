@@ -20,7 +20,7 @@ export const useScrollAreaScrollbarContext = () => {
   const context = useContext(ScrollAreaScrollbarContext);
   if (!context) {
     throw new Error(
-      "useScrollAreaScrollbarContext must be used within a ScrollAreaScrollbar"
+      "useScrollAreaScrollbarContext must be used within a ScrollAreaScrollbar",
     );
   }
   return context;

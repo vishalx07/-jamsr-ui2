@@ -4,15 +4,13 @@ import { createContext, use } from "react";
 import type { useDataGrid } from "./use-data-grid";
 
 export const DataGridContext = createContext<DataGridContext.Props | null>(
-  null
+  null,
 );
 
 export const useDataGridContext = () => {
   const ctx = use(DataGridContext);
   if (!ctx) {
-    throw new Error(
-      "useDataGridContext must be used within a DataGridContext"
-    );
+    throw new Error("useDataGridContext must be used within a DataGridContext");
   }
   return ctx;
 };

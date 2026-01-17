@@ -43,13 +43,13 @@ export const useComposite = (props: useComposite.Props) => {
     const i = items.current.findIndex((item) => item.id === id);
     if (i >= 0) items.current.splice(i, 1);
     setActiveIndex((idx) =>
-      Math.max(0, Math.min(items.current.length - 1, idx))
+      Math.max(0, Math.min(items.current.length - 1, idx)),
     );
   }, []);
 
   const getIndex = useCallback(
     (id: string) => items.current.findIndex((item) => item.id === id),
-    []
+    [],
   );
 
   const nextEnabled = useCallback(
@@ -66,24 +66,24 @@ export const useComposite = (props: useComposite.Props) => {
       }
       return from;
     },
-    [loop]
+    [loop],
   );
 
   const movePrev = useCallback(
     (from: number) => nextEnabled(from, -1),
-    [nextEnabled]
+    [nextEnabled],
   );
 
   const moveNext = useCallback(
     (from: number) => nextEnabled(from, 1),
-    [nextEnabled]
+    [nextEnabled],
   );
 
   const moveFirst = useCallback(() => nextEnabled(-1, 1), [nextEnabled]);
 
   const moveLast = useCallback(
     () => nextEnabled(items.current.length, -1),
-    [nextEnabled]
+    [nextEnabled],
   );
 
   // In virtual mode, root handles keydown and keeps focus, exposing aria-activedescendant
@@ -154,7 +154,7 @@ export const useComposite = (props: useComposite.Props) => {
       dir,
       loop,
       virtual,
-    ]
+    ],
   );
 };
 

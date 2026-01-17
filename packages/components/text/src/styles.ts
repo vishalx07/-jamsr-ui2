@@ -2,7 +2,6 @@ import { tv } from "@jamsrui/utils";
 
 import type { VariantProps } from "@jamsrui/utils";
 
-
 export const textVariants = tv({
   base: "transition-colors cursor-default",
   variants: {

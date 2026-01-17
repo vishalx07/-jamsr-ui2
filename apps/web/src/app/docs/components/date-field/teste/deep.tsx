@@ -84,7 +84,7 @@ const DateInput = ({ value, onChange, min, max, ...props }) => {
           // Adjust day if it exceeds max days in new month
           const maxDayInMonth = getMaxDay(
             numValue,
-            parseInt(segments[2].value, 10)
+            parseInt(segments[2].value, 10),
           );
           const currentDay = parseInt(segments[0].value, 10);
           if (currentDay > maxDayInMonth) {
@@ -97,7 +97,7 @@ const DateInput = ({ value, onChange, min, max, ...props }) => {
           // Adjust day if it exceeds max days in February for leap years
           const maxDayInYear = getMaxDay(
             parseInt(segments[1].value, 10),
-            numValue
+            numValue,
           );
           const currentDayInYear = parseInt(segments[0].value, 10);
           if (currentDayInYear > maxDayInYear) {
@@ -153,7 +153,7 @@ const DateInput = ({ value, onChange, min, max, ...props }) => {
         if (segment.type === "day") {
           maxValue = getMaxDay(
             parseInt(segments[1].value, 10),
-            parseInt(segments[2].value, 10)
+            parseInt(segments[2].value, 10),
           );
         }
         handleSegmentChange(segmentIndex, maxValue.toString());
@@ -273,7 +273,7 @@ const DateInput = ({ value, onChange, min, max, ...props }) => {
               segment.type === "day"
                 ? getMaxDay(
                     parseInt(segments[1].value, 10),
-                    parseInt(segments[2].value, 10)
+                    parseInt(segments[2].value, 10),
                   )
                 : segment.max
             }

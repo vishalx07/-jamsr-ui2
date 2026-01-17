@@ -32,7 +32,7 @@ export const useCopyToClipboard = (props: useCopyToClipboard.Props) => {
         setIsCopied(false);
       }, timeout);
     } catch (err: unknown) {
-      console.log(" err:->", err)
+      console.log(" err:->", err);
       onError?.(context);
     }
   };

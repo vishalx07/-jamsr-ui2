@@ -2,7 +2,7 @@
 
 import { createConfigContext } from "@jamsrui/utils";
 
-import  { WithGlobalConfig } from "@jamsrui/core";
+import { WithGlobalConfig } from "@jamsrui/core";
 
 import type { Accordion } from "./accordion";
 

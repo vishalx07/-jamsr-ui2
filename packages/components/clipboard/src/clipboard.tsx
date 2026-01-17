@@ -13,7 +13,7 @@ export const Clipboard = (props: Clipboard.Props) => {
   const mergedProps = mergeConfigProps(
     copyToClipboardVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useClipboard(mergedProps as Clipboard.Props);
   const { getRootProps } = ctx;

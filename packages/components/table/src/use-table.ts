@@ -21,7 +21,7 @@ import type { TableWrapper } from "./table-wrapper";
 export const useTable = (props: useTable.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    tableVariants.variantKeys
+    tableVariants.variantKeys,
   );
   const { classNames, ...elementProps } = $props;
   const styles = tableVariants(variantProps);
@@ -35,7 +35,7 @@ export const useTable = (props: useTable.Props) => {
         className: cn(classNames?.root, props.className),
       }),
     }),
-    [classNames?.root, styles]
+    [classNames?.root, styles],
   );
 
   const getWrapperProps: PropGetter<TableWrapper.Props> = useCallback(
@@ -46,7 +46,7 @@ export const useTable = (props: useTable.Props) => {
         className: cn(classNames?.wrapper, props.className),
       }),
     }),
-    [classNames?.wrapper, styles]
+    [classNames?.wrapper, styles],
   );
 
   const getTableProps: PropGetter<Table.Props> = useCallback(
@@ -57,11 +57,11 @@ export const useTable = (props: useTable.Props) => {
         className: cn(
           elementProps.className,
           classNames?.table,
-          props.className
+          props.className,
         ),
       }),
     }),
-    [classNames?.table, elementProps, styles]
+    [classNames?.table, elementProps, styles],
   );
 
   const getHeaderProps: PropGetter<TableHeader.Props> = useCallback(
@@ -72,7 +72,7 @@ export const useTable = (props: useTable.Props) => {
         className: cn(classNames?.thead, props.className),
       }),
     }),
-    [classNames?.thead, styles]
+    [classNames?.thead, styles],
   );
 
   const getColumnProps: PropGetter<TableColumn.Props> = useCallback(
@@ -83,7 +83,7 @@ export const useTable = (props: useTable.Props) => {
         className: cn(classNames?.th, props.className),
       }),
     }),
-    [classNames?.th, styles]
+    [classNames?.th, styles],
   );
 
   const getBodyProps: PropGetter<TableBody.Props> = useCallback(
@@ -94,7 +94,7 @@ export const useTable = (props: useTable.Props) => {
         className: cn(classNames?.tbody, props.className),
       }),
     }),
-    [classNames?.tbody, styles]
+    [classNames?.tbody, styles],
   );
 
   const getRowProps: PropGetter<TableRow.Props> = useCallback(
@@ -105,7 +105,7 @@ export const useTable = (props: useTable.Props) => {
         className: cn(classNames?.tr, props.className),
       }),
     }),
-    [classNames?.tr, styles]
+    [classNames?.tr, styles],
   );
 
   const getCellProps: PropGetter<TableCell.Props> = useCallback(
@@ -116,7 +116,7 @@ export const useTable = (props: useTable.Props) => {
         className: cn(classNames?.td, props.className),
       }),
     }),
-    [classNames?.td, styles]
+    [classNames?.td, styles],
   );
 
   const getFooterProps: PropGetter<TableFooter.Props> = useCallback(
@@ -127,7 +127,7 @@ export const useTable = (props: useTable.Props) => {
         className: cn(classNames?.tfoot, props.className),
       }),
     }),
-    [classNames?.tfoot, styles]
+    [classNames?.tfoot, styles],
   );
 
   return useMemo(
@@ -152,7 +152,7 @@ export const useTable = (props: useTable.Props) => {
       getRowProps,
       getTableProps,
       getWrapperProps,
-    ]
+    ],
   );
 };
 

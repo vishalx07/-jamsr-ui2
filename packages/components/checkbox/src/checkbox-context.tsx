@@ -4,7 +4,7 @@ import { createContext, use } from "react";
 import type { useCheckbox } from "./use-checkbox";
 
 export const CheckboxContext = createContext<CheckboxContext.Props | null>(
-  null
+  null,
 );
 
 export const useCheckboxContext = () => {

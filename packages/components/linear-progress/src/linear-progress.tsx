@@ -13,7 +13,7 @@ export const LinearProgress = (props: LinearProgress.Props) => {
   const mergedProps = mergeConfigProps(
     linearProgressVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useLinearProgress(mergedProps);
   const { getRootProps } = ctx;

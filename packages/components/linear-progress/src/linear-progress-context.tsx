@@ -10,7 +10,7 @@ export const useLinearProgressContext = () => {
   const context = use(LinearProgressContext);
   if (!context) {
     throw new Error(
-      "useLinearProgressContext must be used within a LinearProgress"
+      "useLinearProgressContext must be used within a LinearProgress",
     );
   }
   return context;

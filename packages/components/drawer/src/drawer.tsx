@@ -12,7 +12,7 @@ export const Drawer = (props: Drawer.Props) => {
   const mergedProps = mergeConfigProps(
     drawerVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useDrawer(mergedProps);
   return <DrawerContext value={ctx}>{children}</DrawerContext>;

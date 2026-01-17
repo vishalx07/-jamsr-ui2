@@ -17,7 +17,7 @@ type ImageLoadingStatus = "idle" | "loading" | "loaded" | "error";
 export const useAvatar = (props: useAvatar.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    avatarVariants.variantKeys
+    avatarVariants.variantKeys,
   );
   const { ...elementProps } = $props;
   const [status, setStatus] = useState<ImageLoadingStatus>("idle");
@@ -47,7 +47,7 @@ export const useAvatar = (props: useAvatar.Props) => {
         className: props.className,
       }),
     }),
-    [elementProps, props.className, status, styles]
+    [elementProps, props.className, status, styles],
   );
 
   useLayoutEffect(() => {
@@ -74,7 +74,7 @@ export const useAvatar = (props: useAvatar.Props) => {
         className: props.className,
       }),
     }),
-    [handleOnError, handleOnLoad, styles]
+    [handleOnError, handleOnLoad, styles],
   );
 
   const getFallbackProps: PropGetter<AvatarFallback.Props> = useCallback(
@@ -85,7 +85,7 @@ export const useAvatar = (props: useAvatar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   const getIndicatorProps: PropGetter<AvatarFallback.Props> = useCallback(
@@ -96,7 +96,7 @@ export const useAvatar = (props: useAvatar.Props) => {
         className: props.className,
       }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -107,7 +107,7 @@ export const useAvatar = (props: useAvatar.Props) => {
       getIndicatorProps,
       status,
     }),
-    [getFallbackProps, getImgProps, getIndicatorProps, getRootProps, status]
+    [getFallbackProps, getImgProps, getIndicatorProps, getRootProps, status],
   );
 };
 export namespace useAvatar {

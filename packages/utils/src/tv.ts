@@ -5,7 +5,7 @@ export const mapPropsVariants = <
   R extends readonly (keyof T)[],
 >(
   props: T,
-  variantKeys: R
+  variantKeys: R,
 ): [Omit<T, R[number]>, Pick<T, R[number]>] => {
   const propsWithKeysRemoved = removeAttrsFromObject(props, [...variantKeys]);
 
@@ -38,7 +38,7 @@ export const radiusVariant = (name: string | string[], group?: string) => {
         ...acc,
         [key]: group ? `${group}--radius-${radius} ${className}` : className,
       }),
-      {}
+      {},
     );
 
   return {

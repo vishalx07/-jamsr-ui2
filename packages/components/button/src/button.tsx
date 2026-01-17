@@ -15,7 +15,7 @@ export const ButtonRoot = (props: ButtonRoot.Props) => {
   const mergedProps = mergeConfigProps(
     buttonVariant.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useButton(mergedProps);
   const { getButtonProps } = ctx;

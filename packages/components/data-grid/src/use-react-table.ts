@@ -23,7 +23,7 @@ import type {
 
 export const useDataGridTable = <TData>(
   props: Pick<TableOptions<TData>, "data" | "columns"> &
-    Partial<Omit<TableOptions<TData>, "data" | "columns">>
+    Partial<Omit<TableOptions<TData>, "data" | "columns">>,
 ) => {
   const { data, columns, state, ...tableProps } = props;
   const [sorting, setSorting] = useState<SortingState>([]);

@@ -48,7 +48,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
 
   const [$props, variantProps] = mapPropsVariants(
     props,
-    contextMenuVariants.variantKeys
+    contextMenuVariants.variantKeys,
   );
 
   const {
@@ -124,7 +124,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
   });
 
   const { getFloatingProps, getItemProps, getReferenceProps } = useInteractions(
-    [role, hover, dismiss, listNavigation, typeahead]
+    [role, hover, dismiss, listNavigation, typeahead],
   );
 
   useEffect(() => {
@@ -182,7 +182,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
         allowMouseUpCloseRef.current = true;
       }, 300);
     },
-    [refs, setIsOpen]
+    [refs, setIsOpen],
   );
 
   const itemRef = useMergeRefs([refs.setReference, item.ref]);
@@ -218,7 +218,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       item.index,
       itemRef,
       parentCtx,
-    ]
+    ],
   );
 
   const getOverlayProps = useCallback(
@@ -229,7 +229,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
         className: classNames?.backdrop,
       }),
     }),
-    [classNames?.backdrop, lockScroll, styles]
+    [classNames?.backdrop, lockScroll, styles],
   );
 
   const getFocusManagerProps = useCallback(
@@ -240,7 +240,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       returnFocus: !isNested,
       disabled: false,
     }),
-    [context, isNested]
+    [context, isNested],
   );
 
   const getRootProps = useCallback(
@@ -260,7 +260,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       getFloatingProps,
       refs.setFloating,
       styles,
-    ]
+    ],
   );
 
   const getContentProps: PropGetter<ContextMenuContent.Props> = useCallback(
@@ -269,14 +269,14 @@ export const useContextMenu = (props: useContextMenu.Props) => {
         className: cn(classNames?.content),
       }),
     }),
-    [classNames?.content, styles]
+    [classNames?.content, styles],
   );
 
   const getNodeProps = useCallback(
     (): FloatingNodeProps => ({
       id: nodeId,
     }),
-    [nodeId]
+    [nodeId],
   );
 
   const getFloatingListProps = useCallback(
@@ -284,7 +284,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       elementsRef,
       labelsRef,
     }),
-    []
+    [],
   );
 
   const floatingCtx: ContextMenuFloatingContext.Props = useMemo(
@@ -293,7 +293,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       getItemProps,
       setHasFocusInside,
     }),
-    [activeIndex, getItemProps]
+    [activeIndex, getItemProps],
   );
 
   const getMenuItemProps: PropGetter<ContextMenuItem.Props> = useCallback(
@@ -306,7 +306,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       }),
       role: "menuitem",
     }),
-    [classNames?.menuItem, styles]
+    [classNames?.menuItem, styles],
   );
 
   const getMenuItemInnerProps: PropGetter<ContextMenuItemInner.Props> =
@@ -318,7 +318,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
           className: cn(classNames?.menuItemInner, props.className),
         }),
       }),
-      [classNames?.menuItemInner, styles]
+      [classNames?.menuItemInner, styles],
     );
 
   return useMemo(
@@ -349,7 +349,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       getTriggerProps,
       isNested,
       isOpen,
-    ]
+    ],
   );
 };
 export namespace useContextMenu {

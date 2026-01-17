@@ -16,7 +16,7 @@ export const Table = (props: Table.Props) => {
   const mergedProps = mergeConfigProps(
     tableVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const ctx = useTable(mergedProps);
   return (

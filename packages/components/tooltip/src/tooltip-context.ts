@@ -10,7 +10,7 @@ export const useTooltipContext = () => {
   const ctx = use(TooltipContext);
   if (!ctx) {
     throw new Error(
-      "useTooltipContext must be used within a TooltipContext.Provider"
+      "useTooltipContext must be used within a TooltipContext.Provider",
     );
   }
   return ctx;

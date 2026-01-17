@@ -10,7 +10,7 @@ export const Textarea = (props: Textarea.Props) => {
   const mergedProps = mergeConfigProps(
     textareaVariants.defaultVariants,
     config,
-    props
+    props,
   );
   const { getTextareaProps } = useTextarea(mergedProps);
   return <textarea {...getTextareaProps({})} />;

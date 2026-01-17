@@ -5,7 +5,6 @@ import { useChipContext } from "./chip-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-
 export const ChipRoot = (props: ChipRoot.Props) => {
   const { getRootProps } = useChipContext();
   const renderElement = useRenderElement("div", {
