@@ -8,7 +8,7 @@ export const slider = tv({
       "relative h-5 w-full grow overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800",
     indicator: "absolute h-full bg-primary",
     thumb:
-      "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-disabled",
+      "block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:status-disabled",
     value: "text-sm",
   },
   variants: {
@@ -22,11 +22,6 @@ export const slider = tv({
         root: "h-full flex-col",
         track: "h-full w-5",
         indicator: "w-full bottom-0",
-      },
-    },
-    isDisabled: {
-      true: {
-        root: "opacity-50 cursor-not-allowed",
       },
     },
   },

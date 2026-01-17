@@ -11,8 +11,9 @@ import type { VariantProps } from "@jamsrui/utils";
 export const buttonVariant = tv({
   base: [
     "button cursor-default relative inline-flex py-2 px-4 rounded-full justify-center items-center gap-2 shrink-0",
-    "disabled:cursor-not-allowed disabled:opacity-disabled",
+    "disabled:status-disabled",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
+    "font-medium",
   ],
   variants: {
     color: {

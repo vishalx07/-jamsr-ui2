@@ -29,7 +29,7 @@ export const tableVariants = tv({
       },
       bordered: {
         th: "border-b border-b-border-dark bg-surface-secondary text-foreground-secondary font-normal text-xs",
-        td: "border-b border-border",
+        td: "border-b border-border-light",
         root: "bg-surface",
       },
     },

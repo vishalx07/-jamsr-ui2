@@ -2177,6 +2177,10 @@ importers:
         version: 19.2.3(react@19.2.3)
 
   packages/theme:
+    dependencies:
+      tailwindcss:
+        specifier: 'catalog:'
+        version: 4.1.18
     devDependencies:
       clean-package:
         specifier: ^2.2.0

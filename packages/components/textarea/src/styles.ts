@@ -4,7 +4,7 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const textareaVariants = tv({
   base: [
-    "textarea focus:outline-none disabled:cursor-not-allowed disabled:opacity-disabled placeholder:text-foreground-secondary bg-transparent font-normal",
+    "textarea focus:outline-none disabled:status-disabled placeholder:text-foreground-secondary bg-transparent font-normal",
   ],
   variants: {
     variant: {

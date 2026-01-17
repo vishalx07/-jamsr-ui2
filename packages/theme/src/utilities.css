@@ -1,5 +1,5 @@
 @utility opacity-disabled {
-  opacity: 0.5;
+  opacity: var(--opacity-disabled);
 }
 
 /*  utility */
@@ -20,6 +20,12 @@
 }
 
 /*  variants */
+
+@utility status-disabled {
+  opacity: var(--opacity-disabled);
+  cursor: var(--cursor-disabled);
+  pointer-events: not-allowed;
+}
 
 @utility rounded-inherit {
   border-radius: inherit;

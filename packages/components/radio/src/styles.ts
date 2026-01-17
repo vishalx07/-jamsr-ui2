@@ -6,7 +6,7 @@ export const radioVariant = tv({
   slots: {
     root: [
       "group relative inline-flex gap-2 cursor-default items-center justify-start tap-highlight-transparent",
-      "ui-disabled:cursor-not-allowed ui-disabled:opacity-disabled",
+      "ui-disabled:status-disabled",
     ],
     control: [
       "relative",
@@ -25,6 +25,7 @@ export const radioVariant = tv({
       "uig-pressed:scale-95",
       // focus ring
       ...groupDataFocusVisibleClasses,
+      "group-data-invalid:border-danger",
     ],
     indicator: "absolute rounded-full",
     input: "inset-0 absolute opacity-[0.0001]",
@@ -97,13 +98,7 @@ export const radioGroupVariant = tv({
     description: "text-xs text-foreground-secondary",
     errorMessage: "text-xs text-danger",
   },
-  variants: {
-    isInvalid: {
-      true: {
-        root: "border-danger",
-      },
-    },
-  },
+  variants: {},
 });
 
 export type RadioVariantProps = VariantProps<typeof radioVariant>;

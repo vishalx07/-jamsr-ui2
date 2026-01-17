@@ -10,14 +10,14 @@ export const checkboxVariants = tv({
   slots: {
     root: [
       "checkbox group flex gap-2 items-start",
-      "data-disabled:opacity-disabled data-disabled:cursor-not-allowed",
+      "data-disabled:status-disabled",
     ],
     control: [
       "checkbox__control flex justify-center items-center",
       ...groupDataFocusVisibleClasses,
       "shrink-0 border-default uig-hover:border-default-hover",
-      "relative appearance-none border uig-checked:border-primary uig-checked:bg-primary",
-      "uig-disabled:cursor-not-allowed uig-pressed:scale-90 transition-all duration-300",
+      "relative appearance-none border uig-checked:border-primary uig-checked:bg-primary uig-checked:text-primary-foreground",
+      "uig-disabled:status-disabled uig-pressed:scale-90 transition-all duration-300",
     ],
     input:
       "checkbox__input absolute opacity-[0.0001] cursor-default disabled:cursor-not-allowed inset-0 z-1",

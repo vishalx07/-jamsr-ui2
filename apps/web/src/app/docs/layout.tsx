@@ -1,4 +1,5 @@
 import { Sidebar } from "@jamsrui/react";
+import { AppHeader } from "./header";
 import { AppSidebar } from "./sidebar";
 
 type Props = {
@@ -10,7 +11,10 @@ const Layout = (props: Props) => {
   return (
     <Sidebar.Wrapper>
       <AppSidebar />
-      <Sidebar.Inset>{children}</Sidebar.Inset>
+      <Sidebar.Inset>
+        <AppHeader />
+        {children}
+      </Sidebar.Inset>
     </Sidebar.Wrapper>
   );
 };

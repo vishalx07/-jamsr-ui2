@@ -13,7 +13,9 @@ export const MenuUsage = () => {
         <Menu.Item textValue="Redo">Redo</Menu.Item>
         <Menu.Item textValue="Cut">Cut</Menu.Item>
         <Menu.Item textValue="Edit">Edit</Menu.Item>
-        <Menu.Item textValue="Delete">Delete</Menu.Item>
+        <Menu.Item disabled textValue="Delete">
+          Delete
+        </Menu.Item>
       </Menu.Content>
     </Menu>
   );

@@ -33,8 +33,8 @@ export const linearProgressVariants = tv({
     },
     size: {
       sm: {
-        track: "h-[3px]",
-        bar: "h-[3px]",
+        track: "h-0.75",
+        bar: "h-0.75",
       },
       md: {
         track: "h-1.5",

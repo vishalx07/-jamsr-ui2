@@ -15,5 +15,8 @@
   "clean-package": "./clean-package.config.json",
   "devDependencies": {
     "clean-package": "^2.2.0"
+  },
+  "dependencies": {
+    "tailwindcss": "catalog:"
   }
 }

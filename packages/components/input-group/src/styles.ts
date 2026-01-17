@@ -6,7 +6,7 @@ export const inputGroupVariants = tv({
   slots: {
     root: [
       "input-group flex items-center group overflow-hidden",
-      "uig-disabled:cursor-not-allowed uig-disabled:opacity-disabled",
+      "uig-disabled:status-disabled",
       "not-uig-invalid:uig-focus:border-primary uig-focus:ring-primary",
       "not-uig-invalid:uig-hover:border-border-dark",
     ],

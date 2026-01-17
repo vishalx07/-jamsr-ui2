@@ -32,8 +32,7 @@ export const tabsVariant = tv({
       "cursor-default",
       "transition-opacity",
       "tap-highlight-transparent",
-      "disabled:cursor-not-allowed",
-      "disabled:opacity-disabled",
+      "disabled:status-disabled",
       "data-selected:text-foreground",
       // focus ring
       ...focusVisibleClasses,

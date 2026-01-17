@@ -27,7 +27,7 @@ export const sidebarVariants = tv({
     footer: "sidebar__footer py-2 px-4",
     menuItemButton: [
       "sidebar__menu-item-button flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm ui-hover:bg-surface-secondary",
-      "disabled:cursor-not-allowed disabled:opacity-disabled",
+      "disabled:status-disabled",
     ],
     inset: "sidebar__inset relative w-full flex-1 flex-col",
     backdrop: [

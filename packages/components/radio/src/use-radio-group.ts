@@ -15,7 +15,7 @@ import type { RadioGroupVariants, RadioVariants } from "./styles";
 export const useRadioGroup = (props: useRadioGroup.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
-    radioGroupVariant.variantKeys
+    radioGroupVariant.variantKeys,
   );
 
   const {
@@ -27,6 +27,7 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
     color,
     size,
     inputProps,
+    isInvalid = false,
     ...restProps
   } = $props;
 
@@ -45,12 +46,13 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("radio-group"),
       "data-disabled": dataAttr(isDisabled),
+      "data-invalid": dataAttr(isInvalid),
       ...restProps,
       className: styles.root({
         className: props.className,
       }),
     }),
-    [restProps, styles, isDisabled, props.className]
+    [isDisabled, isInvalid, restProps, styles, props.className],
   );
 
   const handleInputChange = useCallback(
@@ -61,7 +63,7 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
         : event.target.value;
       setValue(value);
     },
-    [setValue]
+    [setValue],
   );
 
   return {
@@ -86,5 +88,6 @@ export namespace useRadioGroup {
     name?: string;
     disabled?: boolean;
     inputProps?: RadioInput.Props;
+    isInvalid?: boolean;
   }
 }

@@ -4,12 +4,12 @@ import type { VariantProps } from "@jamsrui/utils";
 
 export const inputVariants = tv({
   base: [
-    "input focus:outline-none disabled:cursor-not-allowed disabled:opacity-disabled placeholder:text-foreground-secondary bg-transparent font-normal",
+    "input focus:outline-none disabled:status-disabled placeholder:text-foreground-secondary bg-transparent font-normal",
   ],
   variants: {
     variant: {
       bordered:
-        "border border-border enabled:hover:border-border-light enabled:focus:border-focus",
+        "border border-border enabled:hover:border-border-dark enabled:focus:border-focus",
       solid: "bg-surface hover:bg-surface/90",
     },
     size: {

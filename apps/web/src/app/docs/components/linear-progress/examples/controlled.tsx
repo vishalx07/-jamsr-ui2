@@ -14,7 +14,7 @@ export const LinearProgressControlled = () => {
     <div className="flex w-full items-center gap-4">
       <IconButton
         label="Decrease"
-        isDisabled={!CanDecrease}
+        disabled={!CanDecrease}
         onClick={OnDecrease}
       >
         <MinusIcon />
@@ -22,7 +22,7 @@ export const LinearProgressControlled = () => {
       <LinearProgress isIntermediate={false} progress={value} />
       <IconButton
         label="Increase"
-        isDisabled={!CanIncrease}
+        disabled={!CanIncrease}
         onClick={OnIncrease}
       >
         <PlusIcon />

@@ -29,7 +29,7 @@ import type { OtpInputVariants } from "./styles";
 export const useOtpInput = (props: useOtpInput.Props) => {
   const [$props, variantKeys] = mapPropsVariants(
     props,
-    otpInputVariants.variantKeys
+    otpInputVariants.variantKeys,
   );
   const styles = otpInputVariants(variantKeys);
   const {
@@ -42,6 +42,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     placeholder,
     pattern,
     ref,
+    isInvalid = false,
     ...restProps
   } = $props;
   const [value = "", setValue] = useControlledState({
@@ -63,7 +64,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
   ]);
   const regexp = useMemo(
     () => (pattern ? new RegExp(pattern) : null),
-    [pattern]
+    [pattern],
   );
   const [selectionStart, setSelectionStart] = useState<number | null>(null);
   const [selectionEnd, setSelectionEnd] = useState<number | null>(null);
@@ -83,7 +84,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
         setSelectionEnd(end);
       }
     },
-    [maxLength]
+    [maxLength],
   );
 
   const handleOnChange = useCallback(
@@ -99,7 +100,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
         onComplete?.(newValue);
       }
     },
-    [maxLength, onComplete, regexp, setValue]
+    [maxLength, onComplete, regexp, setValue],
   );
 
   useEffect(() => {
@@ -178,7 +179,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
         onDocumentSelectionChange,
         {
           capture: true,
-        }
+        },
       );
     };
   }, [maxLength, value]);
@@ -199,7 +200,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
           isActive,
         };
       }),
-    [placeholder, selectionEnd, selectionStart, value]
+    [placeholder, selectionEnd, selectionStart, value],
   );
 
   const getRootProps: PropGetter<OtpInputRoot.Props> = useCallback(
@@ -209,10 +210,11 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       "aria-disabled": dataAttr(isDisabled),
       "data-hover": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),
+      "data-invalid": dataAttr(isInvalid),
       ...props,
       className: styles.root({ className: props.className }),
     }),
-    [isFocused, isHovered, styles, isDisabled]
+    [isDisabled, isHovered, isFocused, isInvalid, styles],
   );
 
   const getGroupProps: PropGetter<OtpInputGroup.Props> = useCallback(
@@ -221,7 +223,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       ...props,
       className: styles.group({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   const getSlotProps: PropGetter<OtpInputSlot.Props> = useCallback(
@@ -230,7 +232,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       ...props,
       className: styles.slot({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   const getSeparatorProps: PropGetter<OtpInputSeparator.Props> = useCallback(
@@ -239,7 +241,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       ...props,
       className: styles.separator({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   const getInputProps = useCallback(
@@ -269,7 +271,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       props.className,
       isDisabled,
       regexp?.source,
-    ]
+    ],
   );
 
   const getCaretProps: PropGetter<OtpInputCaret.Props> = useCallback(
@@ -278,7 +280,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       ...props,
       className: styles.caret({ className: props.className }),
     }),
-    [styles]
+    [styles],
   );
 
   return useMemo(
@@ -299,14 +301,15 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       getInputProps,
       getCaretProps,
       slots,
-    ]
+    ],
   );
 };
 
 type OverrideProps<T, R> = Omit<T, keyof R> & R;
 export namespace useOtpInput {
   export interface Props
-    extends OtpInputVariants,
+    extends
+      OtpInputVariants,
       OverrideProps<
         OtpInputInput.Props,
         {
@@ -315,6 +318,7 @@ export namespace useOtpInput {
           defaultValue?: string;
           maxLength: number;
           onComplete?: (value: string) => void;
+          isInvalid?: boolean;
         }
       > {}
 }

@@ -18,44 +18,44 @@
   /* Default Colors */
   --color-default: var(--default);
   --color-default-foreground: var(--default-foreground);
-  --color-default-hover: color-mix(in oklab, var(--color-default) 90%, var(--color-default-foreground) 10%);
-  --color-default-active: color-mix(in oklab, var(--color-default) 80%, var(--color-default-foreground) 20%);
-  --color-default-border: color-mix(in oklab, var(--color-default) 70%, var(--color-default-foreground) 30%);
+  --color-default-hover: color-mix(in oklab, var(--color-default) 90%, var(--foreground) 10%);
+  --color-default-active: color-mix(in oklab, var(--color-default) 85%, var(--foreground) 20%);
+  --color-default-border: color-mix(in oklab, var(--color-default) 80%, var(--foreground) 20%);
 
   /* Primary Colors */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-primary-hover: color-mix(in oklab, var(--color-primary) 90%, var(--color-primary-foreground) 10%);
-  --color-primary-active: color-mix(in oklab, var(--color-primary) 80%, var(--color-primary-foreground) 20%);
-  --color-primary-border: color-mix(in oklab, var(--color-primary) 70%, var(--color-primary-foreground) 30%);
+  --color-primary-hover: color-mix(in oklab, var(--color-primary) 90%, var(--foreground) 10%);
+  --color-primary-active: color-mix(in oklab, var(--color-primary) 85%, var(--foreground) 20%);
+  --color-primary-border: color-mix(in oklab, var(--color-primary) 80%, var(--foreground) 20%);
 
   /* Secondary Colors */
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary-hover: color-mix(in oklab, var(--color-secondary) 90%, var(--color-secondary-foreground) 10%);
-  --color-secondary-active: color-mix(in oklab, var(--color-secondary) 80%, var(--color-secondary-foreground) 20%);
-  --color-secondary-border: color-mix(in oklab, var(--color-secondary) 70%, var(--color-secondary-foreground) 30%);
+  --color-secondary-hover: color-mix(in oklab, var(--color-secondary) 90%, var(--foreground) 10%);
+  --color-secondary-active: color-mix(in oklab, var(--color-secondary) 85%, var(--foreground) 20%);
+  --color-secondary-border: color-mix(in oklab, var(--color-secondary) 80%, var(--foreground) 20%);
 
   /* Success Colors */
   --color-success: var(--success);
   --color-success-foreground: var(--success-foreground);
-  --color-success-hover: color-mix(in oklab, var(--color-success) 90%, var(--color-success-foreground) 10%);
-  --color-success-active: color-mix(in oklab, var(--color-success) 80%, var(--color-success-foreground) 20%);
-  --color-success-border: color-mix(in oklab, var(--color-success) 70%, var(--color-success-foreground) 30%);
+  --color-success-hover: color-mix(in oklab, var(--color-success) 90%, var(--foreground) 10%);
+  --color-success-active: color-mix(in oklab, var(--color-success) 85%, var(--foreground) 20%);
+  --color-success-border: color-mix(in oklab, var(--color-success) 80%, var(--foreground) 20%);
 
   /* Warning Colors */
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
-  --color-warning-hover: color-mix(in oklab, var(--color-warning) 90%, var(--color-warning-foreground) 10%);
-  --color-warning-active: color-mix(in oklab, var(--color-warning) 80%, var(--color-warning-foreground) 20%);
-  --color-warning-border: color-mix(in oklab, var(--color-warning) 70%, var(--color-warning-foreground) 30%);
+  --color-warning-hover: color-mix(in oklab, var(--color-warning) 90%, var(--foreground) 10%);
+  --color-warning-active: color-mix(in oklab, var(--color-warning) 85%, var(--foreground) 15%);
+  --color-warning-border: color-mix(in oklab, var(--color-warning) 80%, var(--foreground) 20%);
 
   /* Danger Colors */
   --color-danger: var(--danger);
   --color-danger-foreground: var(--danger-foreground);
-  --color-danger-hover: color-mix(in oklab, var(--color-danger) 90%, var(--color-danger-foreground) 10%);
-  --color-danger-active: color-mix(in oklab, var(--color-danger) 80%, var(--color-danger-foreground) 20%);
-  --color-danger-border: color-mix(in oklab, var(--color-danger) 70%, var(--color-danger-foreground) 30%);
+  --color-danger-hover: color-mix(in oklab, var(--color-danger) 90%, var(--foreground) 10%);
+  --color-danger-active: color-mix(in oklab, var(--color-danger) 85%, var(--foreground) 15%);
+  --color-danger-border: color-mix(in oklab, var(--color-danger) 80%, var(--foreground) 20%);
 
   /* Default Soft Colors */
   --color-default-soft: color-mix(in oklab, var(--color-default) 15%, transparent);
@@ -101,8 +101,8 @@
 
   /* Border Colors */
   --color-border: var(--border);
-  --color-border-light: color-mix(in oklab, var(--color-border) 90%, var(--color-border) 10%);
-  --color-border-dark: color-mix(in oklab, var(--color-border) 10%, var(--color-border) 90%);
+  --color-border-light: color-mix(in oklab, var(--color-border) 20%, transparent 80%);
+  --color-border-dark: color-mix(in oklab, var(--color-border) 80%, transparent 20%);
 
   /* Separator Colors */
   --color-separator: var(--separator);
@@ -112,6 +112,7 @@
 
   /* Link Colors */
   --color-link: var(--link);
+  --color-foreground-link: var(--link);
 
   /* Background Shades */
   --color-background-secondary: color-mix(in oklab, var(--color-background) 90%, var(--color-foreground) 10%);
@@ -119,9 +120,22 @@
   --color-background-quaternary: color-mix(in oklab, var(--color-background) 70%, var(--color-foreground) 30%);
 
   /* Animations */
-  --animation-ripple: ripple 1s linear;
-  --animation-progress: progress 1s infinite linear;
-  --animation-caret-blink: caret-blink 1.2s ease-out infinite;
+  --animate-ripple: ripple 1s linear;
+  --animate-progress: progress 1s infinite linear;
+  --animate-caret-blink: caret-blink 1.2s ease-out infinite;
+
+  /* Text */
+  --text-2xs: var(--fs-2xs);
+  --text-xs: var(--fs-xs);
+  --text-sm: var(--fs-sm);
+  --text-base: var(--fs-base);
+  --text-md: var(--fs-md);
+  --text-lg: var(--fs-lg);
+  --text-xl: var(--fs-xl);
+  --text-2xl: var(--fs-2xl);
+  --text-3xl: var(--fs-3xl);
+  --text-4xl: var(--fs-4xl);
+  --text-5xl: var(--fs-5xl);
 
   @keyframes ripple {
     0% {
@@ -152,6 +166,12 @@
     20%,
     50% {
       opacity: 0;
+    }
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
     }
   }
 }

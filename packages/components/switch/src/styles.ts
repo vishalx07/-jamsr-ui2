@@ -8,12 +8,12 @@ export const switchVariants = tv({
     track: [
       ...groupDataFocusVisibleClasses,
       "flex relative cursor-default shrink-0 items-center rounded-full bg-surface-secondary p-1",
-      "uig-disabled:cursor-not-allowed uig-disabled:opacity-disabled",
+      "uig-disabled:status-disabled",
       "ui-interactive:hover:opacity-95",
       "justify-start uig-checked:justify-end",
+      "border-[0.5px] border-border-light",
     ],
-    thumb:
-      "size-8 rounded-full bg-white shadow-md flex justify-center items-center",
+    thumb: "size-8 rounded-full bg-white flex justify-center items-center",
     content: "grid grow gap-1",
     input:
       "opacity-[0.0001] absolute inset-0 cursor-default disabled:cursor-not-allowed z-1",

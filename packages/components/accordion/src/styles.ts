@@ -10,7 +10,7 @@ export const accordionVariants = tv({
     trigger: [
       "flex w-full items-center relative gap-3 py-4 px-4",
       "focus-visible:outline-2 focus-visible:outline-primary focus-visible:z-10",
-      "disabled:opacity-disabled disabled:cursor-not-allowed ui-disabled:opacity-disabled ui-disabled:cursor-not-allowed",
+      "disabled:status-disabled",
     ],
     content: "py-2 text-base px-4",
     panel: "overflow-hidden",

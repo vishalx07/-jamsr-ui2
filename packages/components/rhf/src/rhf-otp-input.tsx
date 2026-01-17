@@ -1,7 +1,6 @@
 "use client";
 import { OtpInput } from "@jamsrui/otp-input";
 
-import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
 
 export const RHFOtpInput = (props: RHFOtpInput.Props) => {
@@ -11,7 +10,6 @@ export const RHFOtpInput = (props: RHFOtpInput.Props) => {
   return (
     <OtpInput
       ref={ref}
-      data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}

@@ -19,10 +19,9 @@ export const skeletonVariants = tv({
       "before:animate-[shimmer_2s_infinite]",
       "before:border-t",
       "before:border-background-quaternary/30",
-      "before:bg-gradient-to-r",
+      "before:bg-linear-to-r",
       "before:from-transparent",
       "before:via-background-quaternary",
-      "dark:before:via-background-secondary/10",
       "before:to-transparent",
       // after
       "after:opacity-100",
@@ -30,11 +29,10 @@ export const skeletonVariants = tv({
       "after:inset-0",
       "after:-z-10",
       "after:bg-surface-secondary",
-      "dark:after:bg-surface",
       // state
       "data-[loaded=true]:pointer-events-auto",
       "data-[loaded=true]:overflow-visible",
-      "data-[loaded=true]:!bg-transparent",
+      "data-[loaded=true]:bg-transparent!",
       "data-[loaded=true]:before:-z-10 data-[loaded=true]:before:animate-none data-[loaded=true]:before:opacity-0",
       "data-[loaded=true]:after:opacity-0",
     ],
@@ -47,9 +45,9 @@ export const skeletonVariants = tv({
         content: "transition-none",
       },
       false: {
-        root: "transition-[background] !duration-300",
+        root: "transition-[background] duration-300!",
         content:
-          "transition-opacity !duration-300 motion-reduce:transition-none",
+          "transition-opacity duration-300! motion-reduce:transition-none",
       },
     },
   },

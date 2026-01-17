@@ -1,8 +1,11 @@
 "use client";
 
 import { useRenderElement } from "@jamsrui/hooks";
-import { UIProps } from "@jamsrui/utils";
+
 import { useNumberFieldContext } from "./number-field-context";
+
+import type { UIProps } from "@jamsrui/utils";
+
 
 export const NumberFieldInput = (props: NumberFieldInput.Props) => {
   const { getInputProps } = useNumberFieldContext();

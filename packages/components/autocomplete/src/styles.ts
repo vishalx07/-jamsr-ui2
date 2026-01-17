@@ -14,7 +14,7 @@ export const autocompleteVariants = tv({
       "ui-hover:bg-surface-secondary",
       "ui-active:bg-surface-secondary",
       "ui-selected:bg-surface-secondary/50",
-      "ui-disabled:cursor-not-allowed ui-disabled:opacity-disabled",
+      "ui-disabled:status-disabled",
     ],
   },
   variants: {
