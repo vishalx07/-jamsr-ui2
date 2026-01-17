@@ -1,5 +1,12 @@
 # @jamsrui/react
 
+## 0.0.36
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/theme@0.0.19
+
 ## 0.0.35
 
 ### Patch Changes

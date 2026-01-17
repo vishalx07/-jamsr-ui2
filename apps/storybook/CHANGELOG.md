@@ -1,5 +1,13 @@
 # storybook-2
 
+## 0.0.35
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/theme@0.0.19
+  - @jamsrui/react@0.0.36
+
 ## 0.0.34
 
 ### Patch Changes
