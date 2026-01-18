@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Children,
   isValidElement,
@@ -51,11 +52,6 @@ import type { SelectTrigger } from "./select-trigger";
 import type { SelectValue } from "./select-value";
 import type { SelectVariantProps } from "./styles";
 
-type SelectItemData = {
-  value: string | number;
-  textValue: string;
-};
-
 export const useSelect = (props: useSelect.Props) => {
   const [$props, variantProps] = mapPropsVariants(
     props,
@@ -88,7 +84,42 @@ export const useSelect = (props: useSelect.Props) => {
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
   const labelsRef = useRef<(string | null)[]>([]);
 
-  const [selectItems, setSelectItems] = useState<SelectItemData[]>([]);
+  // Ref for dynamically registered labels (for items that appear after initial render)
+  const selectLabelsRef = useRef<Map<string | number, string>>(new Map());
+  // Counter to trigger re-render when dynamic items register
+  const [, setLabelUpdateTrigger] = useState(0);
+
+  // Synchronous children parsing: extract labels during render (no effects needed)
+  // This is the only way to have labels available on the very first render
+  const initialLabels = useMemo(() => {
+    const labels = new Map<string | number, string>();
+
+    // Recursive function to find all SelectItem components in children tree
+    const extractLabels = (node: React.ReactNode): void => {
+      Children.forEach(node, (child) => {
+        if (!isValidElement(child)) return;
+
+        // Check if this is a SelectItem by looking for value and textValue props
+        const props = child.props as Record<string, unknown>;
+        if (
+          "value" in props &&
+          "textValue" in props &&
+          props.value != null &&
+          typeof props.textValue === "string"
+        ) {
+          labels.set(props.value as string | number, props.textValue as string);
+        }
+
+        // Recursively check children
+        if (props.children) {
+          extractLabels(props.children as React.ReactNode);
+        }
+      });
+    };
+
+    extractLabels($props.children);
+    return labels;
+  }, [$props.children]);
 
   const [isOpen = false, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -313,33 +344,32 @@ export const useSelect = (props: useSelect.Props) => {
     [],
   );
 
-  const updateSelectItems = useCallback(
-    (children: React.ReactNode) => {
-      const childrenArray = Children.toArray(children);
-      const items: SelectItemData[] = [];
-      childrenArray.forEach((item) => {
-        if (isValidElement<SelectItem.Props>(item)) {
-          items.push({
-            value: item.props.value,
-            textValue: item.props.textValue,
-          });
-        }
-      });
-      setSelectItems(items);
+  const registerItem = useCallback(
+    (itemValue: string | number, textValue: string) => {
+      // Store in ref for dynamic items (items added after initial render)
+      selectLabelsRef.current.set(itemValue, textValue);
+      // Trigger re-render to update label if this is a selected item
+      setLabelUpdateTrigger((c) => c + 1);
     },
-    [setSelectItems],
+    [],
   );
 
+  const unregisterItem = useCallback((itemValue: string | number) => {
+    selectLabelsRef.current.delete(itemValue);
+  }, []);
+
   const selectedLabels = useMemo(() => {
-    const items = selectItems
-      .filter((item) =>
-        item && Array.isArray(value)
-          ? value.includes(item.value)
-          : value === item.value,
-      )
-      .map((item) => item?.textValue);
-    return Array.from(new Set(items));
-  }, [selectItems, value]);
+    const values = Array.isArray(value) ? value : value != null ? [value] : [];
+    return values
+      .map((v) => {
+        // First check synchronously parsed labels from children
+        const initialLabel = initialLabels.get(v);
+        if (initialLabel) return initialLabel;
+        // Fall back to dynamically registered labels
+        return selectLabelsRef.current.get(v);
+      })
+      .filter((label): label is string => label != null);
+  }, [value, initialLabels]);
 
   const getRenderValue = useMemo(() => {
     if (Array.isArray(value) ? value.length === 0 : !value) return placeholder;
@@ -368,12 +398,14 @@ export const useSelect = (props: useSelect.Props) => {
       placeholder,
       getRenderValue,
       getItemIndicatorProps,
-      updateSelectItems,
+      registerItem,
+      unregisterItem,
     }),
     [
       activeIndex,
       getItemIndicatorProps,
-      updateSelectItems,
+      registerItem,
+      unregisterItem,
       getContentProps,
       getFloatingListProps,
       getFocusManagerProps,

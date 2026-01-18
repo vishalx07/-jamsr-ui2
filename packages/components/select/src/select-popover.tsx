@@ -12,13 +12,18 @@ export const SelectPopover = (props: SelectPopover.Props) => {
   const renderElement = useRenderElement("div", {
     props: [getPopoverProps(props)],
   });
-  return isOpen ? (
+
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
     <FloatingPortal>
       <FloatingFocusManager {...getFocusManagerProps()}>
         {renderElement}
       </FloatingFocusManager>
     </FloatingPortal>
-  ) : null;
+  );
 };
 
 export namespace SelectPopover {

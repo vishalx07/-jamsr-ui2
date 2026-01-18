@@ -3,7 +3,7 @@ import { Label, Select, SelectItem } from "@jamsrui/react";
 export const SelectUsage = () => {
   return (
     <Select
-      defaultValue={["apple"]}
+      defaultValue="apple"
       className="max-w-xs w-full"
       placeholder="Select one fruit"
     >

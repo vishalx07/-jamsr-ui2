@@ -17,6 +17,7 @@ import { SelectWithDescription } from "./examples/with-description";
 import { SelectWithErrorMessage } from "./examples/with-error-message";
 import { SelectWithIcons } from "./examples/with-icons";
 import { SelectControlledNumber } from "./examples/controlled-number";
+import { SelectDemo } from "./examples/usage-2";
 
 const title = "Select";
 const description =
@@ -33,6 +34,9 @@ const Select = () => {
     <DocsPage title={title} description={description}>
       <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
         <SelectUsage />
+      </CodeExample>
+      <CodeExample isCentered title="Usage 2" url={resolvePath("usage-2.tsx")}>
+        <SelectDemo />
       </CodeExample>
       <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <SelectRadius />

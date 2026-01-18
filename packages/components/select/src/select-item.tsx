@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect, useLayoutEffect } from "react";
 
 import { useListItem } from "@floating-ui/react";
 import { useRenderElement } from "@jamsrui/hooks";
@@ -20,8 +20,18 @@ export const SelectItem = (props: SelectItem.Props) => {
     getItemProps,
     handleSelect,
     onSelectValue,
+    registerItem,
+    unregisterItem,
   } = useSelectContext();
   const isDisabled = disabled;
+
+  // Register item on mount
+  useLayoutEffect(() => {
+    if (textValue) {
+      registerItem(value, textValue);
+      return () => unregisterItem(value);
+    }
+  }, [value, textValue, registerItem, unregisterItem]);
 
   const { ref, index } = useListItem({
     label: isDisabled ? null : textValue,

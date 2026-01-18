@@ -1,7 +1,5 @@
 "use client";
 
-import { useLayoutEffect } from "react";
-
 import { FloatingList } from "@floating-ui/react";
 import { motion } from "motion/react";
 
@@ -11,12 +9,7 @@ import type { HTMLMotionProps } from "motion/react";
 
 export const SelectContent = (props: SelectContent.Props) => {
   const { children } = props;
-  const { getContentProps, getFloatingListProps, updateSelectItems } =
-    useSelectContext();
-
-  useLayoutEffect(() => {
-    updateSelectItems(children);
-  }, [children, updateSelectItems]);
+  const { getContentProps, getFloatingListProps } = useSelectContext();
 
   return (
     <motion.div {...getContentProps(props)}>
