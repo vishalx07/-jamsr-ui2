@@ -8,7 +8,7 @@ import {
   IconButton,
   Text,
   useFileUpload,
-} from "@jamsrui/react";
+} from "jamsrui";
 import { cn } from "@jamsrui/utils";
 
 export const FileUploadListUpload = () => {

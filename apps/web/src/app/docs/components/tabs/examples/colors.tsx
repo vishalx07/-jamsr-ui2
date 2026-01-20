@@ -1,4 +1,4 @@
-import { Tabs } from "@jamsrui/react";
+import { Tabs } from "jamsrui";
 
 export const TabColors = () => {
   const colors = [

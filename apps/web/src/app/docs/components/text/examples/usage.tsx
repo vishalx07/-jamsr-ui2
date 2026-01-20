@@ -1,4 +1,4 @@
-import { Text } from "@jamsrui/react";
+import { Text } from "jamsrui";
 
 export const TextUsage = () => {
   return (

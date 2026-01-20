@@ -1,4 +1,4 @@
-import { Avatar } from "@jamsrui/react";
+import { Avatar } from "jamsrui";
 import { useId } from "react";
 
 export const AvatarRadius = () => {

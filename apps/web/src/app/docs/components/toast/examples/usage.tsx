@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, toast } from "@jamsrui/react";
+import { Button, toast } from "jamsrui";
 
 const ToastUsage = () => {
   return <Button onClick={() => toast("Hello, world!")}>Press Me</Button>;

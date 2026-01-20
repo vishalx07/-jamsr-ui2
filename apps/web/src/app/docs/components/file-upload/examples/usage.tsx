@@ -1,13 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import {
-  Avatar,
-  formatBytes,
-  IconButton,
-  Text,
-  useFileUpload,
-} from "@jamsrui/react";
+import { Avatar, formatBytes, IconButton, Text, useFileUpload } from "jamsrui";
 import { cn } from "@jamsrui/utils";
 
 export const FileUploadUsage = () => {

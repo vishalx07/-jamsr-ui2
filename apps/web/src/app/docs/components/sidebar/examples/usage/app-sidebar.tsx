@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Sidebar } from "@jamsrui/react";
+import { Sidebar } from "jamsrui";
 import { SidebarHeader } from "./sidebar-header";
 
 const data = [

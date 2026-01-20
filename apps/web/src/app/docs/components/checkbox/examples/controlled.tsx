@@ -1,6 +1,6 @@
 "use client";
 
-import { Checkbox, Label } from "@jamsrui/react";
+import { Checkbox, Label } from "jamsrui";
 import { useState } from "react";
 
 export const CheckboxControlled = () => {

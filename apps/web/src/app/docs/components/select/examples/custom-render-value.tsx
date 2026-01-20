@@ -1,6 +1,6 @@
 "use client";
 
-import { Label, Select } from "@jamsrui/react";
+import { Label, Select } from "jamsrui";
 
 export const SelectCustomRenderValue = () => {
   return (

@@ -1,4 +1,4 @@
-import { CircularProgress } from "@jamsrui/react";
+import { CircularProgress } from "jamsrui";
 
 export const CircularProgressColors = () => {
   const colors: CircularProgress.Props["color"][] = [

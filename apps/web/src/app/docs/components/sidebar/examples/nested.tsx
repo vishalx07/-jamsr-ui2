@@ -15,7 +15,7 @@ import {
   SidebarMenuItem,
   SidebarMenuItemButton,
   SidebarStateProvider,
-} from "@jamsrui/react";
+} from "jamsrui";
 import Link from "next/link";
 
 type NavItem = {

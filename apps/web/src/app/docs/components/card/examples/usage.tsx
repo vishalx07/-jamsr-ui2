@@ -1,4 +1,4 @@
-import { Card } from "@jamsrui/react";
+import { Card } from "jamsrui";
 
 export const CardUsage = () => {
   return (

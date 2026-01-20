@@ -1,4 +1,4 @@
-import { Chip } from "@jamsrui/react";
+import { Chip } from "jamsrui";
 
 export const ChipColors = () => {
   const colors: Chip.Props["color"][] = [

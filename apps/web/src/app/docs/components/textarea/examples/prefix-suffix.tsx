@@ -1,4 +1,4 @@
-import { Textarea, InputGroup, Label, TextField } from "@jamsrui/react";
+import { Textarea, InputGroup, Label, TextField } from "jamsrui";
 
 export const TextareaPrefixSuffix = () => {
   return (

@@ -1,4 +1,4 @@
-import { Input, InputGroup, Label, TextField } from "@jamsrui/react";
+import { Input, InputGroup, Label, TextField } from "jamsrui";
 
 export const InputPrefixSuffix = () => {
   return (

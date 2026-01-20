@@ -1,5 +1,5 @@
 import { CheckboxProps } from "@jamsrui/checkbox";
-import { Checkbox, Label } from "@jamsrui/react";
+import { Checkbox, Label } from "jamsrui";
 
 export const CheckboxRadius = () => {
   const radiusExamples = [

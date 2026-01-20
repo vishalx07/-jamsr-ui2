@@ -5,7 +5,7 @@ import {
   DataGridPagination,
   DataGridTable,
   useDataGridTable,
-} from "@jamsrui/react";
+} from "jamsrui";
 import { COLUMNS, USERS } from "./columns";
 
 export const DataGridStickyHeader = () => {

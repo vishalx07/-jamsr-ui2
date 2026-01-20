@@ -1,5 +1,5 @@
 import { InfoIcon } from "@jamsrui/icons";
-import { IconButton, Popover, Text } from "@jamsrui/react";
+import { IconButton, Popover, Text } from "jamsrui";
 
 export const PopoverWithArrow = () => {
   return (

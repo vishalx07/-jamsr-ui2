@@ -1,4 +1,4 @@
-import { Label, NumberField } from "@jamsrui/react";
+import { Label, NumberField } from "jamsrui";
 
 export const NumberFieldUsage = () => {
   return (

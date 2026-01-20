@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Description,
-  FieldError,
-  Input,
-  Label,
-  TextField,
-} from "@jamsrui/react";
+import { Description, FieldError, Input, Label, TextField } from "jamsrui";
 import { useState } from "react";
 
 export const InputErrorState = () => {

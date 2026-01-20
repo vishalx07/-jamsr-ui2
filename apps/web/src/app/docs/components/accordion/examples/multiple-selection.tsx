@@ -1,4 +1,4 @@
-import { Accordion } from "@jamsrui/react";
+import { Accordion } from "jamsrui";
 
 export const AccordionMultipleSelection = () => {
   return (

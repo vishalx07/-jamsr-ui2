@@ -1,5 +1,5 @@
 import { SuccessIcon } from "@jamsrui/icons";
-import { Description, Label, Switch } from "@jamsrui/react";
+import { Description, Label, Switch } from "jamsrui";
 
 export const SwitchCustomization = () => {
   return (

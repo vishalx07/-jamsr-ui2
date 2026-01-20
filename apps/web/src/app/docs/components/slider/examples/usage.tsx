@@ -1,10 +1,10 @@
 "use client";
 
-import { Slider } from "@jamsrui/react";
+import { Slider } from "jamsrui";
 // Importing from package directly to test package exports, checking if it works in monorepo setup?
-// Usually standard is import { Slider } from "@jamsrui/react" or similar if integrated.
+// Usually standard is import { Slider } from "jamsrui" or similar if integrated.
 // But user requested usage in specific file.
-// Let's use @jamsrui/slider for now since I haven't updated @jamsrui/react export yet.
+// Let's use @jamsrui/slider for now since I haven't updated jamsrui export yet.
 // Wait, one of the tasks was "Update src/index.ts" which I did for slider package.
 // But I haven't updated the main `packages/react/src/index.ts` to export Slider yet.
 // So I should stick to local import or package import.
@@ -12,7 +12,7 @@ import { Slider } from "@jamsrui/react";
 // OR import from `"@jamsrui/slider"`.
 // User example showed `import { Slider } from '@base-ui-components/react/slider';`
 // So I will assume direct package import is fine for this example relative to the monorepo structure if tsconfig paths are set.
-// But mostly `apps/web` consumes `@jamsrui/react`.
+// But mostly `apps/web` consumes `jamsrui`.
 // Let's check `apps/web/package.json` to see dependencies.
 
 export default function SliderUsage() {

@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@jamsrui/react";
-import { Tooltip } from "@jamsrui/react";
+import { Button } from "jamsrui";
+import { Tooltip } from "jamsrui";
 import { useState } from "react";
 
 export const TooltipControlled = () => {

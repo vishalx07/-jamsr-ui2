@@ -1,4 +1,4 @@
-import { Link } from "@jamsrui/react";
+import { Link } from "jamsrui";
 
 export const LinkUnderline = () => {
   const underlines: Link.Props["underline"][] = ["always", "hover", "never"];

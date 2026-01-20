@@ -1,4 +1,4 @@
-import { Input, Label, TextField } from "@jamsrui/react";
+import { Input, Label, TextField } from "jamsrui";
 
 export const InputWithLabel = () => {
   return (

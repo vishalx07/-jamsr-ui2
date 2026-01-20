@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
   Text,
-} from "@jamsrui/react";
+} from "jamsrui";
 
 const CustomTableEmptyState = () => {
   return (

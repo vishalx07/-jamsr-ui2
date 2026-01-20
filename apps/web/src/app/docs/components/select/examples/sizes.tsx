@@ -1,4 +1,4 @@
-import { Label, Select } from "@jamsrui/react";
+import { Label, Select } from "jamsrui";
 
 const SelectUsage = (props: { size: Select.Props["size"] }) => {
   const { size } = props;

@@ -1,4 +1,4 @@
-import { AlertDialog, Button, Divider } from "@jamsrui/react";
+import { AlertDialog, Button, Divider } from "jamsrui";
 
 export const AlertDialogCustomized = () => {
   return (

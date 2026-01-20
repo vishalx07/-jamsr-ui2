@@ -1,7 +1,7 @@
 "use client";
 
 import { CloseIcon } from "@jamsrui/icons";
-import { IconButton } from "@jamsrui/react";
+import { IconButton } from "jamsrui";
 import { Alert, Button } from "jamsrui";
 import { useState } from "react";
 

@@ -1,4 +1,4 @@
-import { Button, Popover, Text } from "@jamsrui/react";
+import { Button, Popover, Text } from "jamsrui";
 
 export const PopoverBackdrop = () => {
   const backdrops: Popover.Props["backdrop"][] = [

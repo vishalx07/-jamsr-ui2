@@ -1,5 +1,5 @@
 import { CheckIcon, EmailIcon } from "@jamsrui/icons";
-import { Chip } from "@jamsrui/react";
+import { Chip } from "jamsrui";
 
 export const ChipWithIcons = () => {
   return (

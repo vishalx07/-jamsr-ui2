@@ -3,7 +3,7 @@ import {
   OtpInput,
   REGEXP_ONLY_CHARS,
   REGEXP_ONLY_DIGITS,
-} from "@jamsrui/react";
+} from "jamsrui";
 
 export const OtpInputWithPatterns = () => {
   return (

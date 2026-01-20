@@ -1,4 +1,4 @@
-import { Description, Label, Switch } from "@jamsrui/react";
+import { Description, Label, Switch } from "jamsrui";
 
 export const SwitchDescription = () => {
   return (

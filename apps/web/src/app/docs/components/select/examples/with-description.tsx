@@ -1,4 +1,4 @@
-import { Description, Label, Select } from "@jamsrui/react";
+import { Description, Label, Select } from "jamsrui";
 
 export const SelectWithDescription = () => {
   return (

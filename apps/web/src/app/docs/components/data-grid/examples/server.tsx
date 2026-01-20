@@ -5,7 +5,7 @@ import {
   DataGridPagination,
   DataGridTable,
   useDataGridTable,
-} from "@jamsrui/react";
+} from "jamsrui";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { PaginationState } from "@tanstack/react-table";
 import { useMemo, useState } from "react";

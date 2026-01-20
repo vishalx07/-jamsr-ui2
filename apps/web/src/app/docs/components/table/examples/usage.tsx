@@ -1,4 +1,4 @@
-import { Button, Table } from "@jamsrui/react";
+import { Button, Table } from "jamsrui";
 export const TableUsage = () => {
   return (
     <Table aria-label="Example static collection table" variant="solid">

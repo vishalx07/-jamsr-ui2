@@ -1,24 +1,19 @@
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
-} from "@jamsrui/react";
+import { ContextMenu } from "jamsrui";
 
 export const ContextMenuUsage = () => {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>
+      <ContextMenu.Trigger>
         <div className="border-border text-center p-12 border-dashed border w-full">
           Right Click Here
         </div>
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem>Edit</ContextMenuItem>
-        <ContextMenuItem>Delete</ContextMenuItem>
-        <ContextMenuItem>Rename</ContextMenuItem>
-        <ContextMenuItem>Others</ContextMenuItem>
-      </ContextMenuContent>
+      </ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item>Edit</ContextMenu.Item>
+        <ContextMenu.Item>Delete</ContextMenu.Item>
+        <ContextMenu.Item>Rename</ContextMenu.Item>
+        <ContextMenu.Item>Others</ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   );
 };

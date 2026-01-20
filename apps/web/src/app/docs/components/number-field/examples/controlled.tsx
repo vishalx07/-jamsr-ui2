@@ -1,6 +1,6 @@
 "use client";
 
-import { Description, Label, NumberField } from "@jamsrui/react";
+import { Description, Label, NumberField } from "jamsrui";
 import { useState } from "react";
 
 export const NumberFieldControlled = () => {

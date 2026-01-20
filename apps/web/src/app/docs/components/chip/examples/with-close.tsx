@@ -1,6 +1,6 @@
 "use client";
 
-import { Chip } from "@jamsrui/react";
+import { Chip } from "jamsrui";
 
 export const ChipWithClose = () => {
   const handleClick = () => {

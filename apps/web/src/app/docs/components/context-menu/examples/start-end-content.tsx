@@ -1,22 +1,16 @@
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
-  Kbd,
-} from "@jamsrui/react";
 import { InfoIcon, SearchIcon, TrashIcon } from "@jamsrui/icons";
+import { ContextMenu, Kbd } from "jamsrui";
 
 export const ContextMenuStartEndContent = () => {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>
+      <ContextMenu.Trigger>
         <div className="border-border text-center p-12 border-dashed border w-full">
           Right Click Here
         </div>
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem
+      </ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item
           startContent={
             <SearchIcon
               width={20}
@@ -27,8 +21,8 @@ export const ContextMenuStartEndContent = () => {
           endContent={<Kbd keys={["command"]}>U</Kbd>}
         >
           Undo
-        </ContextMenuItem>
-        <ContextMenuItem
+        </ContextMenu.Item>
+        <ContextMenu.Item
           startContent={
             <InfoIcon
               width={20}
@@ -39,8 +33,8 @@ export const ContextMenuStartEndContent = () => {
           endContent={<Kbd keys={["command"]}>I</Kbd>}
         >
           Info
-        </ContextMenuItem>
-        <ContextMenuItem
+        </ContextMenu.Item>
+        <ContextMenu.Item
           startContent={
             <SearchIcon
               width={20}
@@ -51,8 +45,8 @@ export const ContextMenuStartEndContent = () => {
           endContent={<Kbd keys={["command"]}>K</Kbd>}
         >
           Search
-        </ContextMenuItem>
-        <ContextMenuItem
+        </ContextMenu.Item>
+        <ContextMenu.Item
           startContent={
             <SearchIcon
               width={20}
@@ -63,8 +57,8 @@ export const ContextMenuStartEndContent = () => {
           endContent={<Kbd keys={["command"]}>C</Kbd>}
         >
           Cut
-        </ContextMenuItem>
-        <ContextMenuItem
+        </ContextMenu.Item>
+        <ContextMenu.Item
           className="hover:bg-danger"
           endContent={<Kbd keys={["command"]}>D</Kbd>}
           startContent={
@@ -76,8 +70,8 @@ export const ContextMenuStartEndContent = () => {
           }
         >
           Delete
-        </ContextMenuItem>
-      </ContextMenuContent>
+        </ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   );
 };

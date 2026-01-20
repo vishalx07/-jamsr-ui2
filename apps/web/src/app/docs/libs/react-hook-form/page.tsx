@@ -16,7 +16,7 @@ import {
   Select,
   Switch,
   toast,
-} from "@jamsrui/react";
+} from "jamsrui";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import z, { boolean, number, object, string } from "zod";

@@ -1,4 +1,4 @@
-import { Clipboard } from "@jamsrui/react";
+import { Clipboard } from "jamsrui";
 
 export const ClipboardWithoutButton = () => {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Dialog, Text } from "@jamsrui/react";
+import { Button, Dialog, Text } from "jamsrui";
 
 const DialogItem = (
   props: Partial<Dialog.Props> & {

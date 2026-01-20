@@ -1,4 +1,4 @@
-import { Label, NumberField, Description } from "@jamsrui/react";
+import { Label, NumberField, Description } from "jamsrui";
 
 export const NumberFieldWithFormatting = () => {
   return (

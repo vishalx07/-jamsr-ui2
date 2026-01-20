@@ -1,4 +1,4 @@
-import { Avatar, Chip } from "@jamsrui/react";
+import { Avatar, Chip } from "jamsrui";
 
 const BadgeIcon = () => {
   return (

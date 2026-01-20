@@ -1,4 +1,4 @@
-import { Button, Popover } from "@jamsrui/react";
+import { Button, Popover } from "jamsrui";
 
 export const PopoverUsage = () => {
   return (

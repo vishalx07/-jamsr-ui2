@@ -1,6 +1,6 @@
 "use client";
 
-import { Description, Label, Switch } from "@jamsrui/react";
+import { Description, Label, Switch } from "jamsrui";
 import { useState } from "react";
 
 export const SwitchControlled = () => {

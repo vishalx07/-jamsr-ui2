@@ -1,7 +1,7 @@
 "use client";
 
 import { InfoIcon } from "@jamsrui/icons";
-import { IconButton } from "@jamsrui/react";
+import { IconButton } from "jamsrui";
 import React from "react";
 
 export const AppHeader = () => {

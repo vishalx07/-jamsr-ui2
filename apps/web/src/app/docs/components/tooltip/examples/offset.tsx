@@ -1,5 +1,5 @@
 import { InfoIcon } from "@jamsrui/icons";
-import { IconButton, Tooltip } from "@jamsrui/react";
+import { IconButton, Tooltip } from "jamsrui";
 
 export const TooltipOffset = () => {
   return (

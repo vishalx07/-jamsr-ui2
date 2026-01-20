@@ -1,6 +1,6 @@
 "use client";
 
-import { OtpInput, toast } from "@jamsrui/react";
+import { OtpInput, toast } from "jamsrui";
 
 export const OtpInputOnComplete = () => {
   return (

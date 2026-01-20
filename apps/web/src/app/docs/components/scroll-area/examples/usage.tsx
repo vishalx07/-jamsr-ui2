@@ -1,4 +1,4 @@
-import { ScrollArea } from "@jamsrui/react";
+import { ScrollArea } from "jamsrui";
 
 export default function ScrollbarUsage() {
   return (

@@ -1,4 +1,4 @@
-import { FieldError, Label, Select } from "@jamsrui/react";
+import { FieldError, Label, Select } from "jamsrui";
 
 export const SelectWithErrorMessage = () => {
   return (

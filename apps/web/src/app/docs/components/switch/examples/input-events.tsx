@@ -1,6 +1,6 @@
 "use client";
 
-import { Label, Switch } from "@jamsrui/react";
+import { Label, Switch } from "jamsrui";
 import { useState } from "react";
 
 export const SwitchInputEvents = () => {

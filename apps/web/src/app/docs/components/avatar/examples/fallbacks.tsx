@@ -1,5 +1,5 @@
 import { AvatarIcon } from "@jamsrui/icons";
-import { Avatar } from "@jamsrui/react";
+import { Avatar } from "jamsrui";
 
 export const AvatarFallbacks = () => {
   return (

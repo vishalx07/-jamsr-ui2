@@ -1,4 +1,4 @@
-import { Button, Menu } from "@jamsrui/react";
+import { Button, Menu } from "jamsrui";
 
 export const MenuNested = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { AppLogo } from "@/components/app-logo";
-import { Chip, Sidebar, Text } from "@jamsrui/react";
+import { Chip, Sidebar, Text } from "jamsrui";
 import { Route } from "next";
 import Link from "next/link";
 

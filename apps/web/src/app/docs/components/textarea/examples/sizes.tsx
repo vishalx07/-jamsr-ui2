@@ -1,4 +1,4 @@
-import { Textarea, Label, TextField } from "@jamsrui/react";
+import { Textarea, Label, TextField } from "jamsrui";
 
 export const TextareaSizes = () => {
   return (

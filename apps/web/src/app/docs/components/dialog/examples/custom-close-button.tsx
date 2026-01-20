@@ -1,4 +1,4 @@
-import { Button, Dialog, Text } from "@jamsrui/react";
+import { Button, Dialog, Text } from "jamsrui";
 
 export const DialogCustomCloseButton = () => {
   return (

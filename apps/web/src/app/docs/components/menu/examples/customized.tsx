@@ -1,10 +1,4 @@
-import {
-  Avatar,
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuTrigger,
-} from "@jamsrui/react";
+import { Avatar, Menu, MenuContent, MenuItem, MenuTrigger } from "jamsrui";
 import { type Variants } from "motion/react";
 
 const motionVariants: Variants = {

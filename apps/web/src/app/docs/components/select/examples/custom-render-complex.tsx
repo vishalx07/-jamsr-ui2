@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Select, SelectItem } from "@jamsrui/react";
+import { Avatar, Select } from "jamsrui";
 
 const users = [
   {
@@ -236,7 +236,7 @@ export const SelectCustomRenderComplex = () => {
     >
       {users.map((user) => {
         return (
-          <SelectItem key={user.id} value={user.email}>
+          <Select.Item key={user.id} value={user.email}>
             <div className="flex items-center gap-2">
               <Avatar
                 alt={user.name}
@@ -253,7 +253,7 @@ export const SelectCustomRenderComplex = () => {
                 </span>
               </div>
             </div>
-          </SelectItem>
+          </Select.Item>
         );
       })}
     </Select>

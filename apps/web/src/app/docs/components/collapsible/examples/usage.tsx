@@ -1,4 +1,4 @@
-import { Card, Collapsible } from "@jamsrui/react";
+import { Card, Collapsible } from "jamsrui";
 
 export const CollapsibleUsage = () => {
   return (

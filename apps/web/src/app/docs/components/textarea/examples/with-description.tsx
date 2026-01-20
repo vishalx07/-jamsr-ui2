@@ -1,4 +1,4 @@
-import { Description, Textarea, Label, TextField } from "@jamsrui/react";
+import { Description, Textarea, Label, TextField } from "jamsrui";
 
 export const TextareaWithDescription = () => {
   return (

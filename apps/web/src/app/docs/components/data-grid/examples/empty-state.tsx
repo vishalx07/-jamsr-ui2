@@ -1,6 +1,6 @@
 "use client";
 
-import { DataGrid, useDataGridTable } from "@jamsrui/react";
+import { DataGrid, useDataGridTable } from "jamsrui";
 import { useMemo } from "react";
 import { COLUMNS } from "./columns";
 

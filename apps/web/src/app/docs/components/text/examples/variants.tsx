@@ -1,6 +1,6 @@
 "use client";
 
-import { Text, textVariants } from "@jamsrui/react";
+import { Text, textVariants } from "jamsrui";
 
 export const TextVariants = () => {
   return (

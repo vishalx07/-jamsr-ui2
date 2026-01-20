@@ -1,4 +1,4 @@
-import { Card, CardContent, Tabs } from "@jamsrui/react";
+import { Card, CardContent, Tabs } from "jamsrui";
 
 export const TabsUsage = () => {
   return (

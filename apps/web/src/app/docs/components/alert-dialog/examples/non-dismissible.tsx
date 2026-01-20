@@ -1,4 +1,4 @@
-import { AlertDialog, Button } from "@jamsrui/react";
+import { AlertDialog, Button } from "jamsrui";
 
 export const AlertDialogNonDismissible = () => {
   return (

@@ -1,4 +1,4 @@
-import { LinearProgress } from "@jamsrui/react";
+import { LinearProgress } from "jamsrui";
 
 export const LinearProgressColors = () => {
   const colors: LinearProgress.Props["color"][] = [

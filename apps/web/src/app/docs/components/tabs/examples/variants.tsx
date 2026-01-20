@@ -1,4 +1,4 @@
-import { Tabs } from "@jamsrui/react";
+import { Tabs } from "jamsrui";
 
 export const TabVariants = () => {
   const variants = ["underlined", "bordered", "solid", "light"] as const;

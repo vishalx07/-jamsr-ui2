@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Sidebar } from "@jamsrui/react";
+import { Sidebar } from "jamsrui";
 import { AppSidebar } from "./app-sidebar";
 
 export const SidebarUsage = () => {

@@ -1,4 +1,4 @@
-import { Label, Select } from "@jamsrui/react";
+import { Label, Select } from "jamsrui";
 
 export const SelectDisabled = () => {
   return (

@@ -8,7 +8,7 @@ import {
   DataGridRowSelect,
   DataGridRowSelectAll,
   Text,
-} from "@jamsrui/react";
+} from "jamsrui";
 import type { ColumnDef } from "@tanstack/react-table";
 
 type User = {

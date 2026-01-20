@@ -1,6 +1,6 @@
 "use client";
 
-import { Clipboard } from "@jamsrui/react";
+import { Clipboard } from "jamsrui";
 
 export const ClipboardEvents = () => {
   const onSuccess = () => {

@@ -1,7 +1,7 @@
 "use client";
 
 import { EmailIcon } from "@jamsrui/icons";
-import { Button, CircularProgress, IconButton } from "@jamsrui/react";
+import { Button, CircularProgress, IconButton } from "jamsrui";
 import { useState } from "react";
 
 export const IconButtonLoading = () => {

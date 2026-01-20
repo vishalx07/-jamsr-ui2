@@ -1,4 +1,4 @@
-import { Avatar } from "@jamsrui/react";
+import { Avatar } from "jamsrui";
 
 export const AvatarColors = () => {
   const colors: Avatar.Props["color"][] = [

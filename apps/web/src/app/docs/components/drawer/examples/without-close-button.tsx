@@ -8,7 +8,7 @@ import {
   DrawerHeader,
   DrawerTrigger,
   Text,
-} from "@jamsrui/react";
+} from "jamsrui";
 
 export const DrawerWithoutCloseButton = () => {
   return (

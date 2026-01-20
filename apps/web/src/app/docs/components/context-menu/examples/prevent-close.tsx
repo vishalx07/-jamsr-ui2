@@ -1,29 +1,24 @@
 "use client";
 
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
-} from "@jamsrui/react";
+import { ContextMenu } from "jamsrui";
 
 export const ContextMenuPreventClose = () => {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>
+      <ContextMenu.Trigger>
         <div className="border-border text-center p-12 border-dashed border w-full">
           Right Click Here
         </div>
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem preventCloseOnClick>Click me here!</ContextMenuItem>
-        <ContextMenuItem>Info</ContextMenuItem>
-        <ContextMenuItem>Search</ContextMenuItem>
-        <ContextMenuItem isDisabled>Redo</ContextMenuItem>
-        <ContextMenuItem>Cut</ContextMenuItem>
-        <ContextMenuItem isDisabled>Edit</ContextMenuItem>
-        <ContextMenuItem color="danger">Delete</ContextMenuItem>
-      </ContextMenuContent>
+      </ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item preventCloseOnClick>Click me here!</ContextMenu.Item>
+        <ContextMenu.Item>Info</ContextMenu.Item>
+        <ContextMenu.Item>Search</ContextMenu.Item>
+        <ContextMenu.Item isDisabled>Redo</ContextMenu.Item>
+        <ContextMenu.Item>Cut</ContextMenu.Item>
+        <ContextMenu.Item isDisabled>Edit</ContextMenu.Item>
+        <ContextMenu.Item color="danger">Delete</ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   );
 };

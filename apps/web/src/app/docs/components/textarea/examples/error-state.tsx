@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Description,
-  FieldError,
-  Textarea,
-  Label,
-  TextField,
-} from "@jamsrui/react";
+import { Description, FieldError, Textarea, Label, TextField } from "jamsrui";
 import { useState } from "react";
 
 export const TextareaErrorState = () => {

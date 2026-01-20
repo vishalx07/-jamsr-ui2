@@ -8,7 +8,7 @@ import {
   InputGroup,
   Label,
   TextField,
-} from "@jamsrui/react";
+} from "jamsrui";
 import { useState } from "react";
 
 export const TextareaControlled = () => {

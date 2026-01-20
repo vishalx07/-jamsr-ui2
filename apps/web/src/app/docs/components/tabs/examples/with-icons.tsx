@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import { Tabs } from "@jamsrui/react";
+import { Tabs } from "jamsrui";
 
 export const TabWithIcons = () => {
   return (

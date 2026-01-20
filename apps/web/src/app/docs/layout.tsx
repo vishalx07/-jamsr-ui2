@@ -1,4 +1,4 @@
-import { Sidebar } from "@jamsrui/react";
+import { Sidebar } from "jamsrui";
 import { AppHeader } from "./header";
 import { AppSidebar } from "./sidebar";
 

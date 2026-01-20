@@ -1,4 +1,4 @@
-import { DateInput } from "@jamsrui/react";
+import { DateInput } from "jamsrui";
 
 export const DateInputUsage = () => {
   return <DateInput />;

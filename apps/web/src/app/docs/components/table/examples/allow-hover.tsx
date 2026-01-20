@@ -1,4 +1,4 @@
-import { Table } from "@jamsrui/react";
+import { Table } from "jamsrui";
 
 export const TableAllowHover = () => {
   return (

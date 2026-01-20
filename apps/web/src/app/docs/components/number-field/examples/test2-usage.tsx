@@ -1,4 +1,4 @@
-import { Description, Label, NumberField } from "@jamsrui/react";
+import { Description, Label, NumberField } from "jamsrui";
 
 export function WithFormatOptions() {
   return (

@@ -1,4 +1,4 @@
-import { Switch } from "@jamsrui/react";
+import { Switch } from "jamsrui";
 
 export const SwitchUsage = () => {
   return (

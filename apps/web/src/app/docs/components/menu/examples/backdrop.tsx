@@ -1,5 +1,5 @@
 import { ChevronUpIcon } from "@jamsrui/icons";
-import { Button, Menu } from "@jamsrui/react";
+import { Button, Menu } from "jamsrui";
 
 const MenuUsage = (props: Pick<Menu.Props, "backdrop">) => {
   const { backdrop } = props;

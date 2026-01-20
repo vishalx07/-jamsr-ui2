@@ -1,4 +1,4 @@
-import { Checkbox, Label } from "@jamsrui/react";
+import { Checkbox, Label } from "jamsrui";
 
 export const CheckboxCustomization = () => {
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Chip, Select, SelectItem } from "@jamsrui/react";
+import { Avatar, Chip, Select, SelectItem } from "jamsrui";
 
 const users = [
   {

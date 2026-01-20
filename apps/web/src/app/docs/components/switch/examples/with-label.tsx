@@ -1,4 +1,4 @@
-import { Label, Switch } from "@jamsrui/react";
+import { Label, Switch } from "jamsrui";
 
 export const SwitchWithLabel = () => {
   return (

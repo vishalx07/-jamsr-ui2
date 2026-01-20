@@ -1,5 +1,5 @@
 "use client";
-import { Button, Menu } from "@jamsrui/react";
+import { Button, Menu } from "jamsrui";
 
 export const MenuCheckboxItemsExample = () => {
   return (
