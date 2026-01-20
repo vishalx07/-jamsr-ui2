@@ -1,5 +1,11 @@
 # @jamsrui/select
 
+## 0.0.24
+
+### Patch Changes
+
+- fix: select
+
 ## 0.0.23
 
 ### Patch Changes

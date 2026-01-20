@@ -1,5 +1,12 @@
 # @jamsrui/data-grid
 
+## 0.0.30
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/select@0.0.24
+
 ## 0.0.29
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @jamsrui/react
 
+## 0.0.37
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/select@0.0.24
+  - @jamsrui/data-grid@0.0.30
+  - @jamsrui/rhf@0.0.10
+
 ## 0.0.36
 
 ### Patch Changes
