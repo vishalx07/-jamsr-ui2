@@ -1,8 +1,6 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const alertDialogVariant = tv({
+export const alertDialogStyles = tv({
   slots: {
     header: "alert-dialog__header p-4 text-base font-bold",
     container: "alert-dialog alert-dialog__container z-dialog max-w-md w-full",
@@ -19,7 +17,32 @@ export const alertDialogVariant = tv({
     action: "alert-dialog__action",
   },
   variants: {
-    radius: radiusVariant("content", "alert-dialog"),
+    radius: {
+      none: {
+        content: "rounded-none",
+      },
+      sm: {
+        content: "rounded-sm",
+      },
+      md: {
+        content: "rounded-md",
+      },
+      lg: {
+        content: "rounded-lg",
+      },
+      xl: {
+        content: "rounded-xl",
+      },
+      "2xl": {
+        content: "rounded-2xl",
+      },
+      "3xl": {
+        content: "rounded-3xl",
+      },
+      full: {
+        content: "rounded-full",
+      },
+    },
     backdrop: {
       transparent: {
         backdrop: "alert-dialog--backdrop-transparent",
@@ -34,11 +57,7 @@ export const alertDialogVariant = tv({
     },
   },
   defaultVariants: {
-    scrollBehavior: "inside",
     backdrop: "opaque",
     radius: "md",
   },
 });
-
-export type AlertDialogVariants = VariantProps<typeof alertDialogVariant>;
-export type AlertDialogSlots = keyof ReturnType<typeof alertDialogVariant>;

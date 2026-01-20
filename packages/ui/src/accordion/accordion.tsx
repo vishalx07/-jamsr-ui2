@@ -1,5 +1,3 @@
-"use client";
-
 import { Accordion as AccordionUI } from "@jamsrui/react";
 import { cn, VariantProps } from "tailwind-variants";
 import { accordionStyles } from "./styles";

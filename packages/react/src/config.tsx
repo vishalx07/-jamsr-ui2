@@ -1,4 +1,3 @@
-import { AlertDialogConfig } from '@jamsrui/alert-dialog';
 import { AutocompleteConfig } from '@jamsrui/autocomplete';
 import { AvatarConfig } from '@jamsrui/avatar';
 import { BreadcrumbConfig } from '@jamsrui/breadcrumb';
@@ -47,7 +46,6 @@ import { TooltipConfig } from '@jamsrui/tooltip';
 
 type Props = {
   children: React.ReactNode;
-  alertDialog?: AlertDialogConfig.Props;
   autocomplete?: AutocompleteConfig.Props;
   avatar?: AvatarConfig.Props;
   breadcrumb?: BreadcrumbConfig.Props;
@@ -98,7 +96,6 @@ type Props = {
 export const JamsrUIConfig = (props: Props) => {
   const { children } = props;
   return (
-  <AlertDialogConfig {...props.alertDialog}>
   <AutocompleteConfig {...props.autocomplete}>
   <AvatarConfig {...props.avatar}>
   <BreadcrumbConfig {...props.breadcrumb}>
@@ -190,6 +187,5 @@ export const JamsrUIConfig = (props: Props) => {
   </BreadcrumbConfig>
   </AvatarConfig>
   </AutocompleteConfig>
-  </AlertDialogConfig>
   );
 };

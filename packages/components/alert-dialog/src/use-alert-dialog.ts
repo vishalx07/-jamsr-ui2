@@ -9,9 +9,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
-
-import { alertDialogVariant } from "./styles";
+import { dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import type {
   FloatingFocusManagerProps,
@@ -28,21 +26,16 @@ import type { AlertDialogContainer } from "./alert-dialog-container";
 import type { AlertDialogContent } from "./alert-dialog-content";
 import type { AlertDialogFooter } from "./alert-dialog-footer";
 import type { AlertDialogTitle } from "./alert-dialog-title";
-import type { AlertDialogVariants } from "./styles";
 
 export const useAlertDialog = (props: useAlertDialog.Props) => {
-  const [_props, variantProps] = mapPropsVariants(
-    props,
-    alertDialogVariant.variantKeys,
-  );
   const {
     defaultOpen,
     isDismissible = false,
     isKeyboardDismissible = true,
     isOpen: isOpenProp,
     onOpenChange,
-  } = _props;
-  const styles = alertDialogVariant(variantProps);
+    ...restProps
+  } = props;
 
   const [isOpen, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -76,83 +69,62 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("container"),
-      className: styles.container({
-        className: props.className,
-      }),
       ref: setFloating,
       ...getFloatingProps(),
     }),
-    [getFloatingProps, setFloating, styles],
+    [getFloatingProps, setFloating],
   );
 
   const getContentProps: PropGetter<AlertDialogContent.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getBodyProps: PropGetter<AlertDialogBody.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("body"),
-      className: styles.body({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getFooterProps: PropGetter<AlertDialogFooter.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("footer"),
-      className: styles.footer({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getTitleProps: PropGetter<AlertDialogTitle.Props> = useCallback(
     (props) => ({
       variant: "h6",
       "data-slot": dataAttrDev("title"),
-      className: styles.title({
-        className: props.className,
-      }),
       ...props,
     }),
-    [styles],
+    [],
   );
 
   const getDescriptionProps: PropGetter<Text.Props> = useCallback(
     (props) => ({
       variant: "paragraph2",
       "data-slot": dataAttrDev("description"),
-      className: styles.description({
-        className: props.className,
-      }),
       ...props,
     }),
-    [styles],
+    [],
   );
 
   const getTriggerProps = useCallback(
     (props: Partial<ComponentProps<"button">>): ComponentProps<"button"> => ({
       ...props,
-      className: styles.trigger({
-        className: props.className,
-      }),
       ...getReferenceProps({
         ref: setReference,
       }),
     }),
-    [getReferenceProps, setReference, styles],
+    [getReferenceProps, setReference],
   );
 
   const getCancelProps: PropGetter<AlertDialogCancel.Props> = useCallback(
@@ -161,11 +133,8 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       ...mergeProps(props, {
         onClick: handleTriggerClose,
       }),
-      className: styles.cancel({
-        className: props.className,
-      }),
     }),
-    [styles, handleTriggerClose],
+    [handleTriggerClose],
   );
 
   const getActionProps: PropGetter<AlertDialogAction.Props> = useCallback(
@@ -173,19 +142,15 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       color: "danger",
       variant: "solid",
       ...props,
-      className: styles.action({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getOverlayProps = useCallback(
     (): ComponentProps<typeof FloatingOverlay> => ({
-      className: styles.backdrop(),
       lockScroll: true,
     }),
-    [styles],
+    [],
   );
 
   const getFocusManagerProps = useCallback(
@@ -229,7 +194,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
 };
 
 export namespace useAlertDialog {
-  export interface Props extends AlertDialogVariants {
+  export interface Props {
     defaultOpen?: boolean;
     isOpen?: boolean;
     onOpenChange?: (open: boolean) => void;

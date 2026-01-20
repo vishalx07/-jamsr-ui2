@@ -1,7 +1,6 @@
 export { AccordionContent, AccordionHeading, AccordionIndicator, AccordionItem, AccordionPanel, AccordionTrigger, useAccordionItemState, Accordion } from '@jamsrui/accordion';
 export { AlertContent, AlertContextProvider, AlertDescription, AlertIcon, AlertTitle, useAlert, useAlertContext, Alert } from '@jamsrui/alert';
-export { AlertDialogAction, AlertDialogBody, AlertDialogCancel, AlertDialogConfig, AlertDialogContainer, AlertDialogContent, AlertDialogContentInner, AlertDialogContext, AlertDialogDescription, AlertDialogFooter, AlertDialogTitle, AlertDialogTrigger, alertDialogVariant, useAlertDialog, useAlertDialogConfig, useAlertDialogContext, AlertDialog } from '@jamsrui/alert-dialog';
-export type { AlertDialogSlots, AlertDialogVariants } from '@jamsrui/alert-dialog';
+export { AlertDialogAction, AlertDialogBody, AlertDialogCancel, AlertDialogContainer, AlertDialogContent, AlertDialogContentInner, AlertDialogContext, AlertDialogDescription, AlertDialogFooter, AlertDialogTitle, AlertDialogTrigger, useAlertDialog, useAlertDialogContext, AlertDialog } from '@jamsrui/alert-dialog';
 export { AutocompleteConfig, AutocompleteItem, autocompleteVariants, useAutocomplete, useAutocompleteConfig, Autocomplete } from '@jamsrui/autocomplete';
 export type { AutocompleteSlots, AutocompleteVariantProps } from '@jamsrui/autocomplete';
 export { AvatarConfig, AvatarContext, AvatarFallback, AvatarImage, AvatarIndicator, avatarVariants, useAvatar, useAvatarConfig, useAvatarContext, Avatar } from '@jamsrui/avatar';
