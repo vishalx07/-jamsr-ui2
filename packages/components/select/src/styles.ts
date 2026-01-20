@@ -17,7 +17,7 @@ export const selectVariants = tv({
     indicator:
       "select__indicator shrink-0 transition-transform duration-300 group-data-open:rotate-180",
     itemIndicator: "select__item-indicator ml-auto",
-    popover: "select__popover z-popover outline-none",
+    popover: "select__popover z-popover outline-none overflow-hidden",
     content: [
       "select__content z-popover flex h-full flex-col gap-px overflow-y-auto overflow-x-hidden bg-surface shadow-md backdrop-blur-3xl p-2",
       "origin-[top_center]",
