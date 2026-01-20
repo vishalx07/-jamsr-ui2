@@ -207,6 +207,9 @@ importers:
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
+      jamsrui:
+        specifier: workspace:^
+        version: link:../../packages/ui
       motion:
         specifier: 'catalog:'
         version: 12.26.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -2190,6 +2193,31 @@ importers:
         version: 2.2.0
 
   packages/typescript-config: {}
+
+  packages/ui:
+    dependencies:
+      '@jamsrui/react':
+        specifier: workspace:^
+        version: link:../react
+      tailwind-variants:
+        specifier: ^3.2.2
+        version: 3.2.2(tailwind-merge@3.4.0)(tailwindcss@4.1.18)
+    devDependencies:
+      '@jamsrui/typescript-config':
+        specifier: workspace:^
+        version: link:../typescript-config
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.2.8
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.1.1(@types/react@19.2.8)
+      react:
+        specifier: 'catalog:'
+        version: 19.2.3
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.2.3(react@19.2.3)
 
   packages/utils:
     dependencies:

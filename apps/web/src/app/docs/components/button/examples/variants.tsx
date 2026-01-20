@@ -1,4 +1,4 @@
-import { Button } from "@/ui/button";
+import { Button } from "jamsrui";
 
 export const ButtonVariants = () => {
   const variants: Button.Props["variant"][] = [

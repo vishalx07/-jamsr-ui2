@@ -1,9 +1,8 @@
 "use client";
 
-import { Alert } from "@/ui/alert";
-import { Button } from "@/ui/button";
 import { CloseIcon } from "@jamsrui/icons";
 import { IconButton } from "@jamsrui/react";
+import { Alert, Button } from "jamsrui";
 import { useState } from "react";
 
 export const AlertWithAction = () => {

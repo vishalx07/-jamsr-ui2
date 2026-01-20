@@ -1,6 +1,6 @@
 import { Button as ButtonUI, CircularProgress } from "@jamsrui/react";
 import { tv, VariantProps } from "tailwind-variants";
-import { variantStyles } from "./utils/variant";
+import { variantStyles } from "./utils/variants";
 
 const buttonVariant = tv({
   extend: variantStyles,

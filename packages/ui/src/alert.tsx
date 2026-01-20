@@ -1,7 +1,5 @@
 import { Alert as AlertUI } from "@jamsrui/react";
-import type { VariantProps } from "@jamsrui/utils";
-import { tv } from "@jamsrui/utils";
-import { cn } from "tailwind-variants";
+import { cn, tv, VariantProps } from "tailwind-variants";
 
 const alertStyles = tv({
   base: "relative flex gap-2 px-4 py-1.5 text-sm ring-1 ring-inset rounded-lg",

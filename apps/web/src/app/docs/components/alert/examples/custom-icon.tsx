@@ -1,4 +1,4 @@
-import { Alert } from "@/ui/alert";
+import { Alert } from "jamsrui";
 import { EmailIcon } from "@jamsrui/icons";
 
 export const AlertCustomIcon = () => {
