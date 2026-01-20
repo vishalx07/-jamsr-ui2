@@ -8,7 +8,7 @@ export { Breadcrumb, BreadcrumbConfig, useBreadcrumbConfig } from '@jamsrui/brea
 export { ButtonContext, ButtonLoading, useButtonContext, Button } from '@jamsrui/button';
 export { CardContent, CardContextProvider, CardDescription, CardFooter, CardHeader, CardTitle, useCardContext, Card } from '@jamsrui/card';
 export { Charts, ChartsConfig, useChartsConfig } from '@jamsrui/charts';
-export { CheckboxConfig, CheckboxContent, CheckboxControl, CheckboxIndicator, useCheckbox, useCheckboxConfig, Checkbox } from '@jamsrui/checkbox';
+export { CheckboxContent, CheckboxControl, CheckboxIndicator, useCheckbox, Checkbox } from '@jamsrui/checkbox';
 export { ChipConfig, useChipConfig, Chip } from '@jamsrui/chip';
 export { CircularProgress, CircularProgressConfig, useCircularProgressConfig } from '@jamsrui/circular-progress';
 export { Clipboard, ClipboardConfig, useClipboardConfig } from '@jamsrui/clipboard';

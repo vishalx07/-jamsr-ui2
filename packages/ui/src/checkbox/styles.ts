@@ -1,12 +1,6 @@
-import {
-  groupDataFocusVisibleClasses,
-  radiusVariant,
-  tv,
-} from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const checkboxVariants = tv({
+export const checkboxStyles = tv({
   slots: {
     root: [
       "checkbox group flex gap-2 items-start",
@@ -14,10 +8,10 @@ export const checkboxVariants = tv({
     ],
     control: [
       "checkbox__control flex justify-center items-center",
-      ...groupDataFocusVisibleClasses,
       "shrink-0 border-default uig-hover:border-default-hover",
       "relative appearance-none border uig-checked:border-primary uig-checked:bg-primary uig-checked:text-primary-foreground",
       "uig-disabled:status-disabled uig-pressed:scale-90 transition-all duration-300",
+      "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
     ],
     input:
       "checkbox__input absolute opacity-[0.0001] cursor-default disabled:cursor-not-allowed inset-0 z-1",
@@ -44,13 +38,19 @@ export const checkboxVariants = tv({
         control: "border-danger! uig-checked:bg-danger",
       },
     },
-    radius: radiusVariant("control"),
+    radius: {
+      none: { control: "rounded-none" },
+      sm: { control: "rounded-sm" },
+      md: { control: "rounded-md" },
+      lg: { control: "rounded-lg" },
+      xl: { control: "rounded-xl" },
+      "2xl": { control: "rounded-2xl" },
+      "3xl": { control: "rounded-3xl" },
+      full: { control: "rounded-full" },
+    },
   },
   defaultVariants: {
     radius: "md",
     size: "md",
   },
 });
-
-export type CheckboxVariantProps = VariantProps<typeof checkboxVariants>;
-export type CheckboxSlots = keyof ReturnType<typeof checkboxVariants>;

@@ -8,14 +8,7 @@ import {
   useMergeRefs,
   usePress,
 } from "@jamsrui/hooks";
-import {
-  dataAttr,
-  dataAttrDev,
-  mapPropsVariants,
-  mergeProps,
-} from "@jamsrui/utils";
-
-import { checkboxVariants } from "./styles";
+import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -24,25 +17,19 @@ import type { CheckboxControl } from "./checkbox-control";
 import { CheckboxIndicator } from "./checkbox-indicator";
 import type { CheckboxInput } from "./checkbox-input";
 import type { CheckboxRoot } from "./checkbox-root";
-import type { CheckboxVariantProps } from "./styles";
 
 export const useCheckbox = (props: useCheckbox.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    checkboxVariants.variantKeys,
-  );
-  const { isInvalid } = variantProps;
-  const styles = checkboxVariants(variantProps);
-
   const {
     checked: isCheckedProp,
     onCheckedChange,
     defaultChecked,
     isIntermediate,
     disabled = false,
+    isInvalid,
     inputProps,
+    className,
     ...elementProps
-  } = $props;
+  } = props;
 
   const isDisabled = disabled;
   const [isChecked = false, setIsChecked] = useControlledState({
@@ -72,9 +59,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
   const getRootProps = useCallback(
     (): CheckboxRoot.Props => ({
       ...elementProps,
-      className: styles.root({
-        className: elementProps.className,
-      }),
+      className,
       "data-slot": dataAttrDev("root"),
       "data-component": dataAttrDev("checkbox"),
       "data-checked": dataAttr(isChecked || isIntermediate),
@@ -87,6 +72,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     }),
     [
       elementProps,
+      className,
       isChecked,
       isDisabled,
       isFocusVisible,
@@ -94,7 +80,6 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       isIntermediate,
       isPressed,
       isInvalid,
-      styles,
     ],
   );
 
@@ -109,44 +94,32 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       ref: inputRef,
       type: "checkbox",
       "data-slot": dataAttrDev("input"),
-      className: styles.input({
-        className: props.className,
-      }),
     }),
-    [handleInputOnChange, isDisabled, inputRef, styles],
+    [handleInputOnChange, isDisabled, inputRef, inputProps],
   );
 
   const getContentProps: PropGetter<CheckboxContent.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getControlProps: PropGetter<CheckboxControl.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("control"),
-      className: styles.control({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getIndicatorProps: PropGetter<CheckboxIndicator.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("indicator"),
-      className: styles.indicator({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   return useMemo(
@@ -176,12 +149,13 @@ export const useCheckbox = (props: useCheckbox.Props) => {
 };
 
 export namespace useCheckbox {
-  export interface Props extends CheckboxRoot.Props, CheckboxVariantProps {
+  export interface Props extends CheckboxRoot.Props {
     defaultChecked?: boolean;
     checked?: boolean;
     onCheckedChange?: (checked: boolean) => void;
     isIntermediate?: boolean;
     disabled?: boolean;
+    isInvalid?: boolean;
     inputProps?: UIProps<"input">;
     name?: string;
     form?: string;
