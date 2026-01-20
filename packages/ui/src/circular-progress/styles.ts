@@ -1,8 +1,6 @@
-import { tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const circularProgressVariants = tv({
+export const circularProgressStyles = tv({
   slots: {
     root: "size-5",
     track: "stroke-background-secondary",
@@ -44,10 +42,3 @@ export const circularProgressVariants = tv({
     isIntermediate: true,
   },
 });
-
-export type CircularProgressVariants = VariantProps<
-  typeof circularProgressVariants
->;
-export type CircularProgressSlots = keyof ReturnType<
-  typeof circularProgressVariants
->;

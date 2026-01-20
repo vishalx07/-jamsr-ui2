@@ -10,7 +10,7 @@ export { CardContent, CardContextProvider, CardDescription, CardFooter, CardHead
 export { Charts, ChartsConfig, useChartsConfig } from '@jamsrui/charts';
 export { CheckboxContent, CheckboxControl, CheckboxIndicator, useCheckbox, Checkbox } from '@jamsrui/checkbox';
 export { Chip } from '@jamsrui/chip';
-export { CircularProgress, CircularProgressConfig, useCircularProgressConfig } from '@jamsrui/circular-progress';
+export { CircularProgress } from '@jamsrui/circular-progress';
 export { Clipboard, ClipboardConfig, useClipboardConfig } from '@jamsrui/clipboard';
 export { CollapsibleConfig, CollapsibleContent, CollapsibleTrigger, useCollapsibleConfig, Collapsible } from '@jamsrui/collapsible';
 export { Composite, CompositeItem, useComposite, useCompositeItem } from '@jamsrui/composite';
