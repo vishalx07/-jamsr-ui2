@@ -1,6 +1,5 @@
 import { AutocompleteConfig } from '@jamsrui/autocomplete';
 import { BreadcrumbConfig } from '@jamsrui/breadcrumb';
-import { CardConfig } from '@jamsrui/card';
 import { ChartsConfig } from '@jamsrui/charts';
 import { CheckboxConfig } from '@jamsrui/checkbox';
 import { ChipConfig } from '@jamsrui/chip';
@@ -47,7 +46,6 @@ type Props = {
   children: React.ReactNode;
   autocomplete?: AutocompleteConfig.Props;
   breadcrumb?: BreadcrumbConfig.Props;
-  card?: CardConfig.Props;
   charts?: ChartsConfig.Props;
   checkbox?: CheckboxConfig.Props;
   chip?: ChipConfig.Props;
@@ -96,7 +94,6 @@ export const JamsrUIConfig = (props: Props) => {
   return (
   <AutocompleteConfig {...props.autocomplete}>
   <BreadcrumbConfig {...props.breadcrumb}>
-  <CardConfig {...props.card}>
   <ChartsConfig {...props.charts}>
   <CheckboxConfig {...props.checkbox}>
   <ChipConfig {...props.chip}>
@@ -180,7 +177,6 @@ export const JamsrUIConfig = (props: Props) => {
   </ChipConfig>
   </CheckboxConfig>
   </ChartsConfig>
-  </CardConfig>
   </BreadcrumbConfig>
   </AutocompleteConfig>
   );
