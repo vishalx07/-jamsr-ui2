@@ -9,7 +9,7 @@ export { ButtonContext, ButtonLoading, useButtonContext, Button } from '@jamsrui
 export { CardContent, CardContextProvider, CardDescription, CardFooter, CardHeader, CardTitle, useCardContext, Card } from '@jamsrui/card';
 export { Charts, ChartsConfig, useChartsConfig } from '@jamsrui/charts';
 export { CheckboxContent, CheckboxControl, CheckboxIndicator, useCheckbox, Checkbox } from '@jamsrui/checkbox';
-export { ChipConfig, useChipConfig, Chip } from '@jamsrui/chip';
+export { Chip } from '@jamsrui/chip';
 export { CircularProgress, CircularProgressConfig, useCircularProgressConfig } from '@jamsrui/circular-progress';
 export { Clipboard, ClipboardConfig, useClipboardConfig } from '@jamsrui/clipboard';
 export { CollapsibleConfig, CollapsibleContent, CollapsibleTrigger, useCollapsibleConfig, Collapsible } from '@jamsrui/collapsible';

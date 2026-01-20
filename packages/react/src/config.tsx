@@ -1,7 +1,6 @@
 import { AutocompleteConfig } from '@jamsrui/autocomplete';
 import { BreadcrumbConfig } from '@jamsrui/breadcrumb';
 import { ChartsConfig } from '@jamsrui/charts';
-import { ChipConfig } from '@jamsrui/chip';
 import { CircularProgressConfig } from '@jamsrui/circular-progress';
 import { ClipboardConfig } from '@jamsrui/clipboard';
 import { CollapsibleConfig } from '@jamsrui/collapsible';
@@ -46,7 +45,6 @@ type Props = {
   autocomplete?: AutocompleteConfig.Props;
   breadcrumb?: BreadcrumbConfig.Props;
   charts?: ChartsConfig.Props;
-  chip?: ChipConfig.Props;
   circularProgress?: CircularProgressConfig.Props;
   clipboard?: ClipboardConfig.Props;
   collapsible?: CollapsibleConfig.Props;
@@ -93,7 +91,6 @@ export const JamsrUIConfig = (props: Props) => {
   <AutocompleteConfig {...props.autocomplete}>
   <BreadcrumbConfig {...props.breadcrumb}>
   <ChartsConfig {...props.charts}>
-  <ChipConfig {...props.chip}>
   <CircularProgressConfig {...props.circularProgress}>
   <ClipboardConfig {...props.clipboard}>
   <CollapsibleConfig {...props.collapsible}>
@@ -171,7 +168,6 @@ export const JamsrUIConfig = (props: Props) => {
   </CollapsibleConfig>
   </ClipboardConfig>
   </CircularProgressConfig>
-  </ChipConfig>
   </ChartsConfig>
   </BreadcrumbConfig>
   </AutocompleteConfig>

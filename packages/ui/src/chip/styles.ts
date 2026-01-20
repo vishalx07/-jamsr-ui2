@@ -1,8 +1,42 @@
-import { allColors, colorVariants, radiusVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
+const allColors = [
+  "default",
+  "primary",
+  "secondary",
+  "success",
+  "warning",
+  "danger",
+] as const;
 
-export const chipVariants = tv({
+const colorVariants = {
+  solid: {
+    default: "bg-default text-default-foreground",
+    primary: "bg-primary text-primary-foreground",
+    secondary: "bg-secondary text-secondary-foreground",
+    success: "bg-success text-success-foreground",
+    warning: "bg-warning text-warning-foreground",
+    danger: "bg-danger text-danger-foreground",
+  },
+  bordered: {
+    default: "border-default text-default-foreground",
+    primary: "border-primary text-primary",
+    secondary: "border-secondary text-secondary",
+    success: "border-success text-success",
+    warning: "border-warning text-warning",
+    danger: "border-danger text-danger",
+  },
+  soft: {
+    default: "bg-default-soft text-default-foreground",
+    primary: "bg-primary-soft text-primary",
+    secondary: "bg-secondary-soft text-secondary",
+    success: "bg-success-soft text-success",
+    warning: "bg-warning-soft text-warning",
+    danger: "bg-danger-soft text-danger",
+  },
+};
+
+export const chipStyles = tv({
   slots: {
     root: "chip chip__root relative box-border inline-flex min-w-min max-w-fit shrink-0 items-center justify-between whitespace-nowrap rounded-full gap-2",
     dot: "chip__dot size-1.5 rounded-full",
@@ -51,7 +85,16 @@ export const chipVariants = tv({
         root: "chip--bordered border",
       },
     },
-    radius: radiusVariant("root", "chip"),
+    radius: {
+      none: { root: "rounded-none" },
+      sm: { root: "rounded-sm" },
+      md: { root: "rounded-md" },
+      lg: { root: "rounded-lg" },
+      xl: { root: "rounded-xl" },
+      "2xl": { root: "rounded-2xl" },
+      "3xl": { root: "rounded-3xl" },
+      full: { root: "rounded-full" },
+    },
   },
   compoundVariants: [
     ...(["solid", "bordered", "soft"] as const).flatMap((variant) =>
@@ -152,5 +195,3 @@ export const chipVariants = tv({
     variant: "solid",
   },
 });
-export type ChipVariantsProps = VariantProps<typeof chipVariants>;
-export type ChipSlots = keyof ReturnType<typeof chipVariants>;

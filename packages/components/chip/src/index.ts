@@ -1,8 +1,6 @@
 import { Chip as ChipRoot } from "./chip";
 import { ChipDot } from "./chip-dot";
 
-export { ChipConfig, useChipConfig } from "./chip-config";
-
 export const Chip = Object.assign(ChipRoot, {
   Root: ChipRoot,
   Dot: ChipDot,
