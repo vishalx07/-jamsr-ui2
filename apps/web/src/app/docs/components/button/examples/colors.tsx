@@ -1,26 +1,14 @@
-import { Button } from "@jamsrui/react";
+import { Button } from "@/ui/button";
 
 export const ButtonColors = () => {
   return (
     <div className="flex gap-4">
-      <Button color="default" radius="full">
-        Default
-      </Button>
-      <Button color="primary" radius="full">
-        Primary
-      </Button>
-      <Button color="secondary" radius="full">
-        Secondary
-      </Button>
-      <Button color="success" radius="full">
-        Success
-      </Button>
-      <Button color="warning" radius="full">
-        Warning
-      </Button>
-      <Button color="danger" radius="full">
-        Danger
-      </Button>
+      <Button color="default">Default</Button>
+      <Button color="primary">Primary</Button>
+      <Button color="secondary">Secondary</Button>
+      <Button color="success">Success</Button>
+      <Button color="warning">Warning</Button>
+      <Button color="danger">Danger</Button>
     </div>
   );
 };

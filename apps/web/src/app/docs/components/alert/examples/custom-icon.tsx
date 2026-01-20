@@ -1,5 +1,5 @@
+import { Alert } from "@/ui/alert";
 import { EmailIcon } from "@jamsrui/icons";
-import { Alert } from "@jamsrui/react";
 
 export const AlertCustomIcon = () => {
   return (

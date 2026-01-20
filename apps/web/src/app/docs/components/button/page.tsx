@@ -3,11 +3,8 @@ import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { ButtonColors } from "./examples/colors";
-import { ButtonCustomized } from "./examples/customized";
 import { ButtonDisabled } from "./examples/disabled";
-import { ButtonGlobalConfig } from "./examples/global-config";
 import { ButtonLoading } from "./examples/loading";
-import { ButtonRadius } from "./examples/radius";
 import { ButtonSizes } from "./examples/sizes";
 import { ButtonUsage } from "./examples/usage";
 import { ButtonVariants } from "./examples/variants";
@@ -43,9 +40,6 @@ const Button = () => {
       <CodeExample isCentered title="Sizes" url={resolvePath("sizes.tsx")}>
         <ButtonSizes />
       </CodeExample>
-      <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
-        <ButtonRadius />
-      </CodeExample>
       <CodeExample isCentered title="Loading" url={resolvePath("loading.tsx")}>
         <ButtonLoading />
       </CodeExample>
@@ -69,20 +63,6 @@ const Button = () => {
         url={resolvePath("variants-colors.tsx")}
       >
         <ButtonVariantsColors />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Customized"
-        url={resolvePath("customized.tsx")}
-      >
-        <ButtonCustomized />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Global Config"
-        url={resolvePath("global-config.tsx")}
-      >
-        <ButtonGlobalConfig />
       </CodeExample>
     </DocsPage>
   );

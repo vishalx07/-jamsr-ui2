@@ -1,4 +1,4 @@
-import { Alert } from "@jamsrui/react";
+import { Alert } from "@/ui/alert";
 
 export const AlertUsage = () => {
   return (

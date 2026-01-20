@@ -1,7 +1,9 @@
 "use client";
 
+import { Alert } from "@/ui/alert";
+import { Button } from "@/ui/button";
 import { CloseIcon } from "@jamsrui/icons";
-import { Alert, Button, IconButton } from "@jamsrui/react";
+import { IconButton } from "@jamsrui/react";
 import { useState } from "react";
 
 export const AlertWithAction = () => {
@@ -24,7 +26,7 @@ export const AlertWithAction = () => {
         </Button>
       </Alert>
       {isOpen && (
-        <Alert status="danger">
+        <Alert status="error">
           <Alert.Icon />
           <Alert.Content>Your Pro plan has expired.</Alert.Content>
           <IconButton

@@ -1,5 +1,5 @@
 import { CloseIcon, EmailIcon, ImageAddIcon, TrashIcon } from "@jamsrui/icons";
-import { Button } from "@jamsrui/react";
+import { Button } from "@/ui/button";
 
 export const ButtonWithIcons = () => {
   return (

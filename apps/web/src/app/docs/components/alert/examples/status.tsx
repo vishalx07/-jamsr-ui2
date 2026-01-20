@@ -1,4 +1,4 @@
-import { Alert } from "@jamsrui/react";
+import { Alert } from "@/ui/alert";
 
 export const AlertStatus = () => {
   return (
@@ -15,13 +15,13 @@ export const AlertStatus = () => {
         <Alert.Icon />
         <Alert.Content>This is a success message.</Alert.Content>
       </Alert>
-      <Alert status="danger">
+      <Alert status="error">
         <Alert.Icon />
-        <Alert.Content>This is a danger message.</Alert.Content>
+        <Alert.Content>This is a error message.</Alert.Content>
       </Alert>
-      <Alert status="default">
+      <Alert status="neutral">
         <Alert.Icon />
-        <Alert.Content>This is a default message.</Alert.Content>
+        <Alert.Content>This is a neutral message.</Alert.Content>
       </Alert>
     </div>
   );

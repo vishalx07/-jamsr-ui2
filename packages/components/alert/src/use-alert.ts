@@ -1,10 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
-
-import { iconMappingDefault } from "./icons";
-import { alertStyles } from "./styles";
+import { dataAttrDev } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -13,17 +10,10 @@ import type { AlertContent } from "./alert-content";
 import type { AlertDescription } from "./alert-description";
 import type { AlertIcon } from "./alert-icon";
 import type { AlertTitle } from "./alert-title";
-import type { AlertVariants } from "./styles";
+import { iconMappingDefault } from "./icons";
 
 export const useAlert = (props: useAlert.Props) => {
-  const [newProps, variantKeys] = mapPropsVariants(
-    props,
-    alertStyles.variantKeys,
-  );
-  const { ...rootProps } = newProps;
-
-  const styles = alertStyles(variantKeys);
-  const { status = "default" } = variantKeys;
+  const { status = "neutral", ...rootProps } = props;
   const icon = iconMappingDefault[status];
 
   const getRootProps: PropGetter<Alert.Props> = useCallback(
@@ -32,56 +22,41 @@ export const useAlert = (props: useAlert.Props) => {
       role: "alert",
       ...rootProps,
       ...props,
-      className: styles.root({
-        className: cn(rootProps.className, props.className),
-      }),
     }),
-    [rootProps, styles],
+    [rootProps],
   );
 
   const getTitleProps: PropGetter<AlertTitle.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("title"),
-      className: styles.title({
-        className: props.className,
-      }),
       variant: "h6",
     }),
-    [styles],
+    [],
   );
 
   const getDescriptionProps: PropGetter<AlertDescription.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("description"),
-      className: styles.description({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getContentProps: PropGetter<AlertContent.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getIconProps: PropGetter<AlertIcon.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("icon"),
-      className: styles.icon({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   return useMemo(
@@ -105,5 +80,7 @@ export const useAlert = (props: useAlert.Props) => {
 };
 
 export namespace useAlert {
-  export interface Props extends UIProps<"div">, AlertVariants {}
+  export interface Props extends UIProps<"div"> {
+    status?: Alert.Status;
+  }
 }
