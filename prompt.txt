@@ -1,0 +1,7 @@
+Now go with avatar
+
+- implement [component-name] in ui package like others alert, accordion, button etc....
+- create [component-name] folder and [component-name].tsx styles.ts index.ts like others
+- you have to move styles from their base package like @jamsrui/* to here in ui package
+- this means remove styles classNames from their base package and also remove their style|s.ts file
+- also remove [component-name]Config and its usage from its base package

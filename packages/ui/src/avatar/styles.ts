@@ -1,8 +1,6 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const avatarVariants = tv({
+export const avatarStyles = tv({
   slots: {
     root: "relative cursor-default group shrink-0 rounded-full bg-surface object-cover [&>img]:size-full [&>img]:object-cover",
     img: "select-none group-data-[status=idle]:hidden group-data-[status=loading]:hidden rounded-inherit",
@@ -32,15 +30,21 @@ export const avatarVariants = tv({
       true: { root: "ring-2" },
       false: { root: "border-transparent" },
     },
-    radius: radiusVariant("root"),
+    radius: {
+      none: { root: "rounded-none" },
+      sm: { root: "rounded-sm" },
+      md: { root: "rounded-md" },
+      lg: { root: "rounded-lg" },
+      xl: { root: "rounded-xl" },
+      "2xl": { root: "rounded-2xl" },
+      "3xl": { root: "rounded-3xl" },
+      full: { root: "rounded-full" },
+    },
   },
   defaultVariants: {
-    bordered: false,
+    isBordered: false,
     size: "md",
     color: "default",
     radius: "full",
   },
 });
-
-export type AvatarVariants = VariantProps<typeof avatarVariants>;
-export type AvatarSlots = keyof ReturnType<typeof avatarVariants>;

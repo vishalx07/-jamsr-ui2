@@ -1,5 +1,4 @@
 import { AutocompleteConfig } from '@jamsrui/autocomplete';
-import { AvatarConfig } from '@jamsrui/avatar';
 import { BreadcrumbConfig } from '@jamsrui/breadcrumb';
 import { CardConfig } from '@jamsrui/card';
 import { ChartsConfig } from '@jamsrui/charts';
@@ -47,7 +46,6 @@ import { TooltipConfig } from '@jamsrui/tooltip';
 type Props = {
   children: React.ReactNode;
   autocomplete?: AutocompleteConfig.Props;
-  avatar?: AvatarConfig.Props;
   breadcrumb?: BreadcrumbConfig.Props;
   card?: CardConfig.Props;
   charts?: ChartsConfig.Props;
@@ -97,7 +95,6 @@ export const JamsrUIConfig = (props: Props) => {
   const { children } = props;
   return (
   <AutocompleteConfig {...props.autocomplete}>
-  <AvatarConfig {...props.avatar}>
   <BreadcrumbConfig {...props.breadcrumb}>
   <CardConfig {...props.card}>
   <ChartsConfig {...props.charts}>
@@ -185,7 +182,6 @@ export const JamsrUIConfig = (props: Props) => {
   </ChartsConfig>
   </CardConfig>
   </BreadcrumbConfig>
-  </AvatarConfig>
   </AutocompleteConfig>
   );
 };
