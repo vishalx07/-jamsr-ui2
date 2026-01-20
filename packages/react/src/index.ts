@@ -1,5 +1,4 @@
-export { AccordionConfig, AccordionContent, AccordionHeading, AccordionIndicator, AccordionItem, AccordionPanel, AccordionTrigger, accordionVariants, useAccordionConfig, useAccordionItemState, Accordion } from '@jamsrui/accordion';
-export type { AccordionSlots, AccordionVariants } from '@jamsrui/accordion';
+export { AccordionContent, AccordionHeading, AccordionIndicator, AccordionItem, AccordionPanel, AccordionTrigger, useAccordionItemState, Accordion } from '@jamsrui/accordion';
 export { AlertContent, AlertContextProvider, AlertDescription, AlertIcon, AlertTitle, useAlert, useAlertContext, Alert } from '@jamsrui/alert';
 export { AlertDialogAction, AlertDialogBody, AlertDialogCancel, AlertDialogConfig, AlertDialogContainer, AlertDialogContent, AlertDialogContentInner, AlertDialogContext, AlertDialogDescription, AlertDialogFooter, AlertDialogTitle, AlertDialogTrigger, alertDialogVariant, useAlertDialog, useAlertDialogConfig, useAlertDialogContext, AlertDialog } from '@jamsrui/alert-dialog';
 export type { AlertDialogSlots, AlertDialogVariants } from '@jamsrui/alert-dialog';

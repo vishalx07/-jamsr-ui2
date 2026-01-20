@@ -2,22 +2,14 @@
 import { useCallback, useId, useMemo } from "react";
 
 import { useHover, useMergeRefs, usePress } from "@jamsrui/hooks";
-import { cn, dataAttr, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
-
-import { iconButtonVariants } from "./styles";
+import { cn, dataAttr, dataAttrDev } from "@jamsrui/utils";
 
 import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import { IconButtonRoot } from "./icon-button-root";
-import type { IconButtonVariantProps } from "./styles";
 
 export const useIconButton = (props: useIconButton.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    iconButtonVariants.variantKeys,
-  );
-
   const {
     type = "button",
     label,
@@ -27,9 +19,8 @@ export const useIconButton = (props: useIconButton.Props) => {
     ref,
     loadingIcon,
     ...restProps
-  } = $props;
+  } = props;
 
-  const styles = iconButtonVariants(variantProps);
   const id = useId();
   const isDisabled = isLoading || disabled;
 
@@ -46,7 +37,7 @@ export const useIconButton = (props: useIconButton.Props) => {
       ...restProps,
       ref: mergedRefs,
       "data-component": dataAttrDev("icon-button"),
-      className: cn(styles, className),
+      className: cn(className),
       "aria-labelledby": id,
       type,
       disabled: isDisabled,
@@ -65,7 +56,6 @@ export const useIconButton = (props: useIconButton.Props) => {
       isPressed,
       mergedRefs,
       restProps,
-      styles,
       type,
     ],
   );
@@ -91,7 +81,7 @@ export const useIconButton = (props: useIconButton.Props) => {
   );
 };
 export namespace useIconButton {
-  export interface Props extends IconButtonVariantProps, IconButtonRoot.Props {
+  export interface Props extends IconButtonRoot.Props {
     label: string;
     isLoading?: boolean;
     loadingIcon?: React.ReactElement;

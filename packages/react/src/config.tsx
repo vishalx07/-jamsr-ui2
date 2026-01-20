@@ -1,4 +1,3 @@
-import { AccordionConfig } from '@jamsrui/accordion';
 import { AlertDialogConfig } from '@jamsrui/alert-dialog';
 import { AutocompleteConfig } from '@jamsrui/autocomplete';
 import { AvatarConfig } from '@jamsrui/avatar';
@@ -48,7 +47,6 @@ import { TooltipConfig } from '@jamsrui/tooltip';
 
 type Props = {
   children: React.ReactNode;
-  accordion?: AccordionConfig.Props;
   alertDialog?: AlertDialogConfig.Props;
   autocomplete?: AutocompleteConfig.Props;
   avatar?: AvatarConfig.Props;
@@ -100,7 +98,6 @@ type Props = {
 export const JamsrUIConfig = (props: Props) => {
   const { children } = props;
   return (
-  <AccordionConfig {...props.accordion}>
   <AlertDialogConfig {...props.alertDialog}>
   <AutocompleteConfig {...props.autocomplete}>
   <AvatarConfig {...props.avatar}>
@@ -194,6 +191,5 @@ export const JamsrUIConfig = (props: Props) => {
   </AvatarConfig>
   </AutocompleteConfig>
   </AlertDialogConfig>
-  </AccordionConfig>
   );
 };

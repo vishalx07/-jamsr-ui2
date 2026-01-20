@@ -1,0 +1,62 @@
+import { tv } from "tailwind-variants";
+
+export const accordionStyles = tv({
+  slots: {
+    root: "flex flex-col",
+    item: "bg-surface",
+    heading: "flex items-center gap-2",
+    trigger: [
+      "flex w-full items-center relative gap-3 py-4 px-4",
+      "focus-visible:outline-2 focus-visible:outline-primary focus-visible:z-10",
+      "disabled:status-disabled",
+    ],
+    content: "py-2 text-base px-4",
+    panel: "overflow-hidden",
+    indicator:
+      "rotate-0 transition-transform duration-500 data-open:-rotate-180 ml-auto",
+  },
+  variants: {
+    variant: {
+      light: {},
+      splitted: {
+        root: "flex flex-col gap-4",
+      },
+    },
+    radius: {
+      none: {
+        item: "rounded-none",
+        trigger: "rounded-none",
+        content: "rounded-none",
+      },
+      sm: {
+        item: "rounded-sm",
+        trigger: "rounded-sm",
+        content: "rounded-sm",
+      },
+      md: {
+        item: "rounded-md",
+        trigger: "rounded-md",
+        content: "rounded-md",
+      },
+      lg: {
+        item: "rounded-lg",
+        trigger: "rounded-lg",
+        content: "rounded-lg",
+      },
+      xl: {
+        item: "rounded-xl",
+        trigger: "rounded-xl",
+        content: "rounded-xl",
+      },
+      full: {
+        item: "rounded-full",
+        trigger: "rounded-full",
+        content: "rounded-full",
+      },
+    },
+  },
+  defaultVariants: {
+    variant: "light",
+    radius: "md",
+  },
+});
