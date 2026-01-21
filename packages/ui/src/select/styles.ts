@@ -1,8 +1,6 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const selectVariants = tv({
+export const selectStyles = tv({
   slots: {
     root: ["select select__root group relative flex flex-col gap-1 text-sm"],
     value: [
@@ -39,10 +37,58 @@ export const selectVariants = tv({
       warning: {},
       danger: {},
     },
-    radius: radiusVariant(["trigger", "content", "selectItem", "popover"]),
+    radius: {
+      none: {
+        trigger: "rounded-none",
+        content: "rounded-none",
+        selectItem: "rounded-none",
+        popover: "rounded-none",
+      },
+      sm: {
+        trigger: "rounded-sm",
+        content: "rounded-sm",
+        selectItem: "rounded-sm",
+        popover: "rounded-sm",
+      },
+      md: {
+        trigger: "rounded-md",
+        content: "rounded-md",
+        selectItem: "rounded-md",
+        popover: "rounded-md",
+      },
+      lg: {
+        trigger: "rounded-lg",
+        content: "rounded-lg",
+        selectItem: "rounded-lg",
+        popover: "rounded-lg",
+      },
+      xl: {
+        trigger: "rounded-xl",
+        content: "rounded-xl",
+        selectItem: "rounded-xl",
+        popover: "rounded-xl",
+      },
+      "2xl": {
+        trigger: "rounded-2xl",
+        content: "rounded-2xl",
+        selectItem: "rounded-2xl",
+        popover: "rounded-2xl",
+      },
+      "3xl": {
+        trigger: "rounded-3xl",
+        content: "rounded-3xl",
+        selectItem: "rounded-3xl",
+        popover: "rounded-3xl",
+      },
+      full: {
+        trigger: "rounded-full",
+        content: "rounded-full",
+        selectItem: "rounded-full",
+        popover: "rounded-full",
+      },
+    },
     size: {
       sm: {
-        label: "text-xs",
         trigger: "h-8.5 min-h-8.5 px-2.5",
         value: "text-sm",
       },
@@ -53,12 +99,10 @@ export const selectVariants = tv({
       lg: {
         trigger: "h-10.5 min-h-10.5 px-2.5",
         value: "text-base",
-        placeholder: "text-base",
       },
     },
     isInvalid: {
       true: {
-        label: "text-danger",
         trigger: "border-danger!",
       },
     },
@@ -68,6 +112,3 @@ export const selectVariants = tv({
     radius: "md",
   },
 });
-
-export type SelectVariantProps = VariantProps<typeof selectVariants>;
-export type SelectSlots = keyof ReturnType<typeof selectVariants>;

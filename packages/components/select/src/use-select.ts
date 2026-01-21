@@ -24,15 +24,7 @@ import {
   useTypeahead,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import {
-  cn,
-  dataAttr,
-  dataAttrDev,
-  mapPropsVariants,
-  mergeProps,
-} from "@jamsrui/utils";
-
-import { selectVariants } from "./styles";
+import { cn, dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import type {
   FloatingFocusManagerProps,
@@ -50,13 +42,8 @@ import type { SelectItemIndicator } from "./select-item-indicator";
 import type { SelectPopover } from "./select-popover";
 import type { SelectTrigger } from "./select-trigger";
 import type { SelectValue } from "./select-value";
-import type { SelectVariantProps } from "./styles";
 
 export const useSelect = (props: useSelect.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    selectVariants.variantKeys,
-  );
   const {
     onValueChange,
     defaultValue,
@@ -73,10 +60,10 @@ export const useSelect = (props: useSelect.Props) => {
     disableTypeahead = false,
     name,
     form,
+    className,
     ...elementProps
-  } = $props;
+  } = props;
 
-  const styles = selectVariants(variantProps);
   const labelId = useId();
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -117,9 +104,9 @@ export const useSelect = (props: useSelect.Props) => {
       });
     };
 
-    extractLabels($props.children);
+    extractLabels(props.children);
     return labels;
-  }, [$props.children]);
+  }, [props.children]);
 
   const [isOpen = false, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -228,23 +215,18 @@ export const useSelect = (props: useSelect.Props) => {
       "data-component": dataAttrDev("select"),
       "data-slot": dataAttrDev("root"),
       "data-disabled": dataAttr(isDisabled),
-      className: styles.root({
-        className: cn(elementProps.className),
-      }),
+      className: cn(className, elementProps.className),
       "data-open": dataAttr(isOpen),
     }),
-    [elementProps, isOpen, styles],
+    [elementProps, isDisabled, className, isOpen],
   );
 
   const getValueProps: PropGetter<SelectValue.Props> = useCallback(
     (props) => ({
       ...mergeProps(props),
       "data-slot": dataAttrDev("value"),
-      className: styles.value({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getTriggerProps: PropGetter<SelectTrigger.Props> = useCallback(
@@ -253,9 +235,6 @@ export const useSelect = (props: useSelect.Props) => {
       id: labelId,
       ...mergeProps(props),
       "data-slot": dataAttrDev("trigger"),
-      className: styles.trigger({
-        className: props.className,
-      }),
       disabled: isDisabled,
       "aria-disabled": dataAttr(isDisabled),
       "data-disabled": dataAttr(isDisabled),
@@ -263,18 +242,15 @@ export const useSelect = (props: useSelect.Props) => {
         ref: setReference,
       }),
     }),
-    [getReferenceProps, isDisabled, labelId, setReference, styles],
+    [getReferenceProps, isDisabled, labelId, setReference],
   );
 
   const getIndicatorProps: PropGetter<SelectIndicator.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("indicator"),
-      className: styles.indicator({
-        className: cn(props.className),
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getContentProps: PropGetter<SelectContent.Props> = useCallback(
@@ -284,36 +260,27 @@ export const useSelect = (props: useSelect.Props) => {
       transition: { type: "spring", stiffness: 300, damping: 25 },
       "data-slot": dataAttrDev("content"),
       ...props,
-      className: styles.content({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getPopoverProps: PropGetter<SelectPopover.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("popover"),
-      className: styles.popover({
-        className: props.className,
-      }),
       ref: setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
     }),
-    [floatingStyles, getFloatingProps, setFloating, styles],
+    [floatingStyles, getFloatingProps, setFloating],
   );
 
   const getSelectItemProps: PropGetter<Partial<SelectItem.Props>> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("selectItem"),
-      className: styles.selectItem({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getItemIndicatorProps: PropGetter<SelectItemIndicator.Props> =
@@ -321,11 +288,8 @@ export const useSelect = (props: useSelect.Props) => {
       (props) => ({
         ...props,
         "data-slot": dataAttrDev("itemIndicator"),
-        className: styles.itemIndicator({
-          className: props.className,
-        }),
       }),
-      [styles],
+      [],
     );
 
   const getFocusManagerProps = useCallback(
@@ -374,8 +338,10 @@ export const useSelect = (props: useSelect.Props) => {
   }, [value, initialLabels]);
 
   const getRenderValue = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (Array.isArray(value) ? value.length === 0 : !value) return placeholder;
-    if (renderValue) return renderValue(value);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if (renderValue) return renderValue(value as any);
     return selectedLabels.join(",");
   }, [placeholder, renderValue, selectedLabels, value]);
 
@@ -430,7 +396,7 @@ export const useSelect = (props: useSelect.Props) => {
 };
 
 export namespace useSelect {
-  export interface Props extends UIProps<"div">, SelectVariantProps {
+  export interface Props extends UIProps<"div"> {
     placement?: Placement;
     placeholder?: string;
     disabled?: boolean;
@@ -441,7 +407,8 @@ export namespace useSelect {
     defaultOpen?: boolean;
     onOpenChange?: (value: boolean) => void;
     isMultiple?: boolean;
-    renderValue?: (value: string[]) => React.ReactElement;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    renderValue?: (value: any) => React.ReactElement;
     returnFocus?: boolean;
     disableTypeahead?: boolean;
     name?: string;

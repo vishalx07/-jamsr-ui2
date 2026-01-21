@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar, Chip, Select, SelectItem } from "jamsrui";
+import { Avatar, Chip, Select } from "jamsrui";
 
 const users = [
   {
@@ -58,10 +58,10 @@ const users = [
     name: "Brian Kim",
     role: "P. Manager",
     team: "Management",
+    status: "Active",
     age: "29",
     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/3.png",
     email: "brian.kim@example.com",
-    status: "Active",
   },
   {
     id: 7,
@@ -245,26 +245,37 @@ export const SelectCustomRenderMultiple = () => {
         );
       }}
     >
-      {users.map((user) => {
-        return (
-          <SelectItem key={user.id} value={user.email} textValue={user.name}>
-            <div className="flex items-center gap-2">
-              <Avatar
-                alt={user.name}
-                className="shrink-0"
-                size="sm"
-                src={user.avatar}
-                width={100}
-                height={100}
-              />
-              <div className="flex flex-col">
-                <span className="text-left text-sm">{user.name}</span>
-                <span className="text-xs text-default-400">{user.email}</span>
-              </div>
-            </div>
-          </SelectItem>
-        );
-      })}
+      <Select.Trigger />
+      <Select.Popover>
+        <Select.Content>
+          {users.map((user) => {
+            return (
+              <Select.Item
+                key={user.id}
+                value={user.email}
+                textValue={user.name}
+              >
+                <div className="flex items-center gap-2">
+                  <Avatar
+                    alt={user.name}
+                    className="shrink-0"
+                    size="sm"
+                    src={user.avatar}
+                    width={100}
+                    height={100}
+                  />
+                  <div className="flex flex-col">
+                    <span className="text-left text-sm">{user.name}</span>
+                    <span className="text-xs text-default-400">
+                      {user.email}
+                    </span>
+                  </div>
+                </div>
+              </Select.Item>
+            );
+          })}
+        </Select.Content>
+      </Select.Popover>
     </Select>
   );
 };

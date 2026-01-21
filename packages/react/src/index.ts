@@ -49,7 +49,7 @@ export { RHFField } from '@jamsrui/rhf';
 export { Ripple, RippleConfig, useRippleConfig } from '@jamsrui/ripple';
 export { ScrollAreaContent, ScrollAreaCorner, ScrollAreaScrollbar, ScrollAreaThumb, scrollAreaVariants, ScrollAreaViewport, useScrollAreaContext, ScrollArea } from '@jamsrui/scroll-area';
 export type { ScrollAreaSlots, ScrollAreaVariants } from '@jamsrui/scroll-area';
-export { SelectConfig, SelectContent, SelectIndicator, SelectItem, SelectItemIndicator, SelectPopover, SelectTrigger, SelectValue, useSelectConfig, Select } from '@jamsrui/select';
+export { SelectContent, SelectIndicator, SelectItem, SelectItemIndicator, SelectPopover, SelectTrigger, SelectValue, Select } from '@jamsrui/select';
 export { SidebarBackdrop, SidebarBody, SidebarConfig, SidebarContainer, SidebarContent, SidebarContext, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarInset, SidebarMenu, SidebarMenuItem, SidebarMenuItemButton, SidebarStateProvider, SidebarToggle, SidebarWrapper, useSidebarConfig, useSidebarContext, useSidebarState, Sidebar } from '@jamsrui/sidebar';
 export { SkeletonConfig, skeletonVariants, useSkeleton, useSkeletonConfig, Skeleton } from '@jamsrui/skeleton';
 export type { SkeletonSlots, SkeletonVariantProps } from '@jamsrui/skeleton';

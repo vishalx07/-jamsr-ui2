@@ -1,4 +1,4 @@
-Now go with link
+Now go with select
 
 - implement [component-name] in ui package like others alert, accordion, button etc....
 - create [component-name] folder and [component-name].tsx styles.ts index.ts like others

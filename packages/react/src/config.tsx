@@ -21,7 +21,6 @@ import { PopoverConfig } from '@jamsrui/popover';
 import { RadioGroupConfig } from '@jamsrui/radio';
 import { RatingConfig } from '@jamsrui/rating';
 import { RippleConfig } from '@jamsrui/ripple';
-import { SelectConfig } from '@jamsrui/select';
 import { SidebarConfig } from '@jamsrui/sidebar';
 import { SkeletonConfig } from '@jamsrui/skeleton';
 import { SliderConfig } from '@jamsrui/slider';
@@ -60,7 +59,6 @@ type Props = {
   radioGroup?: RadioGroupConfig.Props;
   rating?: RatingConfig.Props;
   ripple?: RippleConfig.Props;
-  select?: SelectConfig.Props;
   sidebar?: SidebarConfig.Props;
   skeleton?: SkeletonConfig.Props;
   slider?: SliderConfig.Props;
@@ -101,7 +99,6 @@ export const JamsrUIConfig = (props: Props) => {
   <RadioGroupConfig {...props.radioGroup}>
   <RatingConfig {...props.rating}>
   <RippleConfig {...props.ripple}>
-  <SelectConfig {...props.select}>
   <SidebarConfig {...props.sidebar}>
   <SkeletonConfig {...props.skeleton}>
   <SliderConfig {...props.slider}>
@@ -127,7 +124,6 @@ export const JamsrUIConfig = (props: Props) => {
   </SliderConfig>
   </SkeletonConfig>
   </SidebarConfig>
-  </SelectConfig>
   </RippleConfig>
   </RatingConfig>
   </RadioGroupConfig>
