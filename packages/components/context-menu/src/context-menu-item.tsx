@@ -4,11 +4,8 @@ import { useMergeRefs, useRenderElement } from "@jamsrui/hooks";
 
 import { useContextMenuContext } from "./context-menu-context";
 import { useContextMenuFloatingContext } from "./context-menu-floating-context";
-import { ContextMenuItemInner } from "./context-menu-item-inner";
 
 import type { UIProps } from "@jamsrui/utils";
-
-import type { ContextMenu } from "./context-menu";
 
 export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const { getMenuItemProps } = useContextMenuContext();
@@ -16,9 +13,7 @@ export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const {
     textValue,
     children,
-    isDisabled,
-    startContent,
-    endContent,
+    disabled: isDisabled,
     preventCloseOnClick,
     ...elementProps
   } = props;
@@ -30,18 +25,11 @@ export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const isActive = item.index === parentCtx.activeIndex;
   const refs = useMergeRefs([item.ref]);
 
-  const composedChildren = (
-    <>
-      {startContent}
-      <ContextMenuItemInner>{children}</ContextMenuItemInner>
-      {endContent}
-    </>
-  );
   const renderElement = useRenderElement("button", {
     props: [
       getMenuItemProps(elementProps),
       {
-        children: composedChildren,
+        children,
         disabled: isDisabled,
         "data-disabled": isDisabled,
         "data-active": isActive,
@@ -66,10 +54,7 @@ export const ContextMenuItem = (props: ContextMenuItem.Props) => {
 export namespace ContextMenuItem {
   export interface Props extends UIProps<"button"> {
     textValue?: string;
-    isDisabled?: boolean;
-    color?: ContextMenu.Props["color"];
-    startContent?: React.ReactNode;
-    endContent?: React.ReactNode;
+    disabled?: boolean;
     preventCloseOnClick?: boolean;
   }
 }

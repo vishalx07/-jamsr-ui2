@@ -28,9 +28,9 @@ export const ContextMenuPlacement = () => {
             <ContextMenu.Item>Undo</ContextMenu.Item>
             <ContextMenu.Item>Info</ContextMenu.Item>
             <ContextMenu.Item>Search</ContextMenu.Item>
-            <ContextMenu.Item isDisabled>Redo</ContextMenu.Item>
+            <ContextMenu.Item disabled>Redo</ContextMenu.Item>
             <ContextMenu.Item>Cut</ContextMenu.Item>
-            <ContextMenu.Item isDisabled>Edit</ContextMenu.Item>
+            <ContextMenu.Item disabled>Edit</ContextMenu.Item>
             <ContextMenu.Item color="danger">Delete</ContextMenu.Item>
           </ContextMenu.Content>
         </ContextMenu>

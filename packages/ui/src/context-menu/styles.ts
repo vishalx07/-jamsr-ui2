@@ -4,7 +4,7 @@ export const contextMenuStyles = tv({
   slots: {
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
-    root: "min-w-[150px] z-popover",
+    container: "min-w-37.5 z-popover outline-none",
     content:
       "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
     menuItem: [

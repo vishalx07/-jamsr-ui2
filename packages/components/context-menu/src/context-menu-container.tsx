@@ -5,13 +5,13 @@ import { useContextMenuContext } from "./context-menu-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const ContextMenuContent = (props: ContextMenuContent.Props) => {
-  const { getContentProps } = useContextMenuContext();
+export const ContextMenuContainer = (props: ContextMenuContainer.Props) => {
+  const { getContainerProps } = useContextMenuContext();
   const renderElement = useRenderElement("div", {
-    props: [getContentProps(props)],
+    props: [getContainerProps(props)],
   });
   return renderElement;
 };
-export namespace ContextMenuContent {
+export namespace ContextMenuContainer {
   export interface Props extends UIProps<"div"> {}
 }

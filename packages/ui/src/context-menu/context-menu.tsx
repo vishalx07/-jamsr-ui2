@@ -20,10 +20,14 @@ export const ContextMenuTrigger = (props: ContextMenuUI.Trigger) => {
 export const ContextMenuContent = (props: ContextMenuUI.Content) => {
   const styles = contextMenuStyles();
   return (
-    <ContextMenuUI.Content
-      {...props}
-      className={cn(styles.content(), props.className)}
-    />
+    <ContextMenuUI.Portal>
+      <ContextMenuUI.Container className={styles.container()}>
+        <ContextMenuUI.Content
+          {...props}
+          className={styles.content({ className: props.className })}
+        />
+      </ContextMenuUI.Container>
+    </ContextMenuUI.Portal>
   );
 };
 
@@ -32,7 +36,7 @@ export const ContextMenuItem = (props: ContextMenuUI.Item) => {
   return (
     <ContextMenuUI.Item
       {...props}
-      className={cn(styles.menuItem(), props.className)}
+      className={styles.menuItem({ className: props.className })}
     />
   );
 };
