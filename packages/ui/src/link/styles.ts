@@ -1,4 +1,4 @@
-import { tv, VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 import { textStyles } from "../text/styles";
 
 export const linkStyles = tv({
@@ -16,5 +16,3 @@ export const linkStyles = tv({
     underline: "hover",
   },
 });
-
-export type LinkVariantProps = VariantProps<typeof linkStyles>;

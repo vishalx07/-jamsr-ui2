@@ -258,9 +258,10 @@ export const useMenu = (props: useMenu.Props) => {
   );
 
   const getOverlayProps = useCallback(
-    (): FloatingOverlayProps & UIProps<"div"> => ({
+    (props: FloatingOverlayProps): FloatingOverlayProps & UIProps<"div"> => ({
       lockScroll,
       "data-slot": dataAttrDev("overlay"),
+      ...props,
     }),
     [lockScroll],
   );

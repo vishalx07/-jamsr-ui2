@@ -1,11 +1,12 @@
 import { Link as LinkUI } from "@jamsrui/react";
-import { linkStyles, LinkVariantProps } from "./styles";
+import { VariantProps } from "tailwind-variants";
+import { linkStyles } from "./styles";
+
+type LinkVariantProps = VariantProps<typeof linkStyles>;
 
 export const Link = (props: Link.Props) => {
-  const { className, underline, color, variant, ...restProps } = props;
-  // linkStyles({ ... }) returns a string classname
-  const styles = linkStyles({ underline, color, variant, className });
-
+  const { className, underline, variant, ...restProps } = props;
+  const styles = linkStyles({ underline, variant, className });
   return <LinkUI {...restProps} className={styles} />;
 };
 

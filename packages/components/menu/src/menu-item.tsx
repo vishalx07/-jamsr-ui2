@@ -8,8 +8,6 @@ import { useMenuFloatingContext } from "./menu-floating-context";
 
 import { dataAttr, type UIProps } from "@jamsrui/utils";
 
-import type { Menu } from "./menu";
-
 export const MenuItem = (props: MenuItem.Props) => {
   const { getMenuItemProps } = useMenuContext();
   const tree = useFloatingTree();
@@ -58,7 +56,6 @@ export namespace MenuItem {
   export interface Props extends UIProps<"button"> {
     textValue: string;
     disabled?: boolean;
-    color?: Menu.Props["color"];
     preventCloseOnClick?: boolean;
   }
 }

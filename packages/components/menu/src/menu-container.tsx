@@ -1,65 +1,24 @@
 "use client";
 
-import {
-  FloatingFocusManager,
-  FloatingList,
-  FloatingOverlay,
-  FloatingPortal,
-} from "@floating-ui/react";
 import { useRenderElement } from "@jamsrui/hooks";
-import { AnimatePresence } from "motion/react";
 
-import { MenuContent } from "./menu-content";
 import { useMenuContext } from "./menu-context";
-import { MenuFloatingContext } from "./menu-floating-context";
 
+import { FloatingFocusManager } from "@floating-ui/react";
 import type { UIProps } from "@jamsrui/utils";
 
 export const MenuContainer = (props: MenuContainer.Props) => {
-  const {
-    getFloatingListProps,
-    isOpen,
-    getFocusManagerProps,
-    getOverlayProps,
-    floatingCtx,
-    isNested,
-    getContainerProps,
-  } = useMenuContext();
+  const { getContainerProps, getFocusManagerProps } = useMenuContext();
   const renderElement = useRenderElement("div", {
     props: [getContainerProps(props)],
   });
   return (
-    <MenuFloatingContext value={floatingCtx}>
-      <FloatingList {...getFloatingListProps()}>
-        <AnimatePresence>
-          {isOpen ? (
-            <FloatingPortal>
-              {isNested ? null : <FloatingOverlay {...getOverlayProps()} />}
-              <FloatingFocusManager {...getFocusManagerProps()}>
-                {renderElement}
-              </FloatingFocusManager>
-            </FloatingPortal>
-          ) : null}
-        </AnimatePresence>
-      </FloatingList>
-    </MenuFloatingContext>
+    <FloatingFocusManager {...getFocusManagerProps()}>
+      {renderElement}
+    </FloatingFocusManager>
   );
 };
 
 export namespace MenuContainer {
   export interface Props extends UIProps<"div"> {}
-}
-
-export const MenuContainerWithContent = (
-  props: MenuContainerWithContent.Props,
-) => {
-  return (
-    <MenuContainer>
-      <MenuContent {...props} />
-    </MenuContainer>
-  );
-};
-
-export namespace MenuContainerWithContent {
-  export interface Props extends MenuContent.Props {}
 }

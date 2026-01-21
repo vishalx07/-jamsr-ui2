@@ -1,12 +1,32 @@
+"use client";
+
 import { Menu as MenuUI } from "@jamsrui/react";
 import { cn, VariantProps } from "tailwind-variants";
 import { menuStyles } from "./styles";
+import { createContext, use } from "react";
 
 type MenuVariants = VariantProps<typeof menuStyles>;
 
+const MenuContext = createContext<{
+  styles: ReturnType<typeof menuStyles>;
+} | null>(null);
+
+const useMenuContext = () => {
+  const ctx = use(MenuContext);
+  if (!ctx) {
+    throw new Error("useMenuContext must be used within a MenuContext");
+  }
+  return ctx;
+};
+
 export const Menu = (props: Menu.Props) => {
   const { radius, backdrop, color, ...restProps } = props;
-  return <MenuUI {...restProps} />;
+  const styles = menuStyles({ radius, backdrop, color });
+  return (
+    <MenuContext.Provider value={{ styles }}>
+      <MenuUI {...restProps} />
+    </MenuContext.Provider>
+  );
 };
 
 export namespace Menu {
@@ -18,41 +38,52 @@ export const MenuTrigger = (props: MenuUI.Trigger) => {
 };
 
 export const MenuContent = (props: MenuUI.Content) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
-    <MenuUI.Content
-      {...props}
-      className={cn(styles.content(), props.className)}
-    />
+    <MenuUI.Portal>
+      <MenuUI.Backdrop className={styles.backdrop()} />
+      <MenuUI.Container className={styles.container()}>
+        <MenuUI.Content
+          {...props}
+          className={styles.content({ className: props.className })}
+        />
+      </MenuUI.Container>
+    </MenuUI.Portal>
   );
 };
 
-export const MenuItem = (props: MenuUI.Item) => {
-  const styles = menuStyles();
+export const MenuItem = (props: MenuItem.Props) => {
+  const { styles } = useMenuContext();
+  const { className, color, ...restProps } = props;
   return (
     <MenuUI.Item
-      {...props}
-      className={cn(styles.menuItem(), props.className)}
+      {...restProps}
+      className={styles.menuItem({ className, color })}
     />
   );
 };
+export namespace MenuItem {
+  export interface Props extends MenuUI.Item {
+    color?: MenuVariants["color"];
+  }
+}
 
 export const MenuGroup = (props: MenuUI.Group) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
     <MenuUI.Group
       {...props}
-      className={cn(styles.menuGroup(), props.className)}
+      className={styles.menuGroup({ className: props.className })}
     />
   );
 };
 
 export const MenuGroupLabel = (props: MenuUI.GroupLabel) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
     <MenuUI.GroupLabel
       {...props}
-      className={cn(styles.menuGroupLabel(), props.className)}
+      className={styles.menuGroupLabel({ className: props.className })}
     />
   );
 };
@@ -62,11 +93,11 @@ export const MenuSeparator = (props: MenuUI.Separator) => {
 };
 
 export const MenuCheckboxItem = (props: MenuUI.CheckboxItem) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
     <MenuUI.CheckboxItem
       {...props}
-      className={cn(styles.menuItem(), props.className)}
+      className={styles.menuItem({ className: props.className })}
     />
   );
 };
@@ -76,48 +107,51 @@ export const MenuRadioGroup = (props: MenuUI.RadioGroup) => {
 };
 
 export const MenuRadioItem = (props: MenuUI.RadioItem) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
     <MenuUI.RadioItem
       {...props}
-      className={cn(styles.menuItem(), props.className)}
+      className={styles.menuItem({ className: props.className })}
     />
   );
 };
 
 export const MenuItemIndicator = (props: MenuUI.ItemIndicator) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
     <MenuUI.ItemIndicator
       {...props}
-      className={cn(styles.menuItemIndicator(), props.className)}
+      className={styles.menuItemIndicator({ className: props.className })}
     />
   );
 };
 
 export const MenuSubmenuIndicator = (props: React.ComponentProps<"span">) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
     <MenuUI.SubmenuIndicator
       {...props}
-      className={cn(styles.submenuIndicator(), props.className)}
+      className={styles.submenuIndicator({ className: props.className })}
     />
   );
 };
 
 export const MenuArrow = (props: MenuUI.Arrow) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
-    <MenuUI.Arrow {...props} className={cn(styles.arrow(), props.className)} />
+    <MenuUI.Arrow
+      {...props}
+      className={styles.arrow({ className: props.className })}
+    />
   );
 };
 
 export const MenuContainer = (props: React.ComponentProps<"div">) => {
-  const styles = menuStyles();
+  const { styles } = useMenuContext();
   return (
     <MenuUI.Container
       {...props}
-      className={cn(styles.container(), props.className)}
+      className={styles.container({ className: props.className })}
     />
   );
 };
