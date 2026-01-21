@@ -4,9 +4,7 @@ import { SliderTrack } from "./slider-track";
 import { SliderIndicator } from "./slider-indicator";
 import { SliderThumb } from "./slider-thumb";
 import { SliderValue } from "./slider-value";
-import { slider, type SliderSlots, type SliderVariants } from "./styles";
 import { useSliderContext } from "./slider-context";
-import { SliderConfig, useSliderConfig } from "./slider-config";
 
 export {
   SliderControl,
@@ -14,12 +12,7 @@ export {
   SliderIndicator,
   SliderThumb,
   SliderValue,
-  slider,
   useSliderContext,
-  type SliderSlots,
-  type SliderVariants,
-  SliderConfig,
-  useSliderConfig,
 };
 
 export const Slider = Object.assign(SliderRoot, {

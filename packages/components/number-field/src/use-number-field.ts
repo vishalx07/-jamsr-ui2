@@ -6,7 +6,6 @@ import { useControlledState } from "@jamsrui/hooks";
 import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
 
 import { NumberParser } from "./parser";
-import { numberFieldVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -15,7 +14,6 @@ import type { NumberFieldDecrement } from "./number-field-decrement";
 import type { NumberFieldGroup } from "./number-field-group";
 import type { NumberFieldIncrement } from "./number-field-increment";
 import type { NumberFieldInput } from "./number-field-input";
-import type { NumberFieldVariants } from "./styles";
 
 export const useNumberField = (props: useNumberField.Props) => {
   const {
@@ -38,7 +36,6 @@ export const useNumberField = (props: useNumberField.Props) => {
   });
   const [value, setValue] = useState("");
 
-  const styles = numberFieldVariants({ isInvalid });
   const inputRef = useRef<HTMLInputElement>(null);
   const parser = useMemo(
     () => new NumberParser(locale, formatOptions),
@@ -153,11 +150,8 @@ export const useNumberField = (props: useNumberField.Props) => {
       "data-slot": dataAttrDev("root"),
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
-      className: styles.root({
-        className: props.className,
-      }),
     }),
-    [isDisabled, props.className, restProps, styles],
+    [isDisabled, restProps],
   );
 
   const getInputProps: PropGetter<NumberFieldInput.Props> = useCallback(
@@ -173,16 +167,12 @@ export const useNumberField = (props: useNumberField.Props) => {
       disabled: isDisabled,
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
-      className: styles.input({
-        className: props.className,
-      }),
     }),
     [
       handleInputKeyDown,
       handleInputOnBlur,
       handleInputOnChange,
       isDisabled,
-      styles,
       value,
     ],
   );
@@ -196,11 +186,8 @@ export const useNumberField = (props: useNumberField.Props) => {
       ...mergeProps(props, {
         onClick: handleIncrement,
       }),
-      className: styles.increment({
-        className: props.className,
-      }),
     }),
-    [handleIncrement, styles],
+    [handleIncrement],
   );
 
   const getDecrementProps: PropGetter<NumberFieldDecrement.Props> = useCallback(
@@ -212,22 +199,16 @@ export const useNumberField = (props: useNumberField.Props) => {
       ...mergeProps(props, {
         onClick: handleDecrement,
       }),
-      className: styles.decrement({
-        className: props.className,
-      }),
     }),
-    [handleDecrement, styles],
+    [handleDecrement],
   );
 
   const getGroupProps: PropGetter<NumberFieldGroup.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("group"),
-      className: styles.group({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   return useMemo(
@@ -249,7 +230,7 @@ export const useNumberField = (props: useNumberField.Props) => {
 };
 
 export namespace useNumberField {
-  export interface Props extends UIProps<"div">, NumberFieldVariants {
+  export interface Props extends UIProps<"div"> {
     formatOptions?: Intl.NumberFormatOptions;
     locale?: string;
     minValue?: number;
@@ -261,5 +242,6 @@ export namespace useNumberField {
     name?: string;
     form?: string;
     disabled?: boolean;
+    isInvalid?: boolean;
   }
 }

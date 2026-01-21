@@ -4,9 +4,8 @@ import { useCallback, useMemo } from "react";
 import { dataAttrDev } from "@jamsrui/utils";
 
 import { useSidebarState } from "./sidebar-state-provider";
-import { sidebarVariants } from "./styles";
 
-import type { PropGetter } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Sidebar } from "./sidebar";
 import type { SidebarBackdrop } from "./sidebar-backdrop";
@@ -24,7 +23,6 @@ import { SidebarContainer } from "./sidebar-container";
 
 export const useSidebar = (props: useSidebar.Props) => {
   const { width = 250, ...elementProps } = props;
-  const styles = sidebarVariants();
   const { toggleSidebar } = useSidebarState();
 
   const getWrapperProps = useCallback(
@@ -35,108 +33,80 @@ export const useSidebar = (props: useSidebar.Props) => {
         "--width": `${width}px`,
       } as React.CSSProperties,
       "data-slot": dataAttrDev("wrapper"),
-      className: styles.wrapper({
-        className: elementProps.className,
-      }),
     }),
-    [styles, width, elementProps],
+    [width, elementProps],
   );
 
   const getSidebarProps: PropGetter<Sidebar.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("root"),
-      className: styles.sidebar({ className: props.className }),
     }),
-    [styles],
+    [],
   );
 
   const getHeaderProps: PropGetter<SidebarHeader.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("header"),
-      className: styles.header({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getContentProps: PropGetter<SidebarContent.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getBodyProps: PropGetter<SidebarContent.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("body"),
-      className: styles.body({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getGroupProps: PropGetter<SidebarGroup.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("group"),
-      className: styles.group({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getGroupLabelProps: PropGetter<SidebarGroupLabel.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("group-label"),
-      className: styles.groupLabel({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getMenuProps: PropGetter<SidebarMenu.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("menu"),
-      className: styles.menu({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getMenuItemProps: PropGetter<SidebarMenuItem.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("menu-item"),
-      className: styles.menuItem({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getFooterProps: PropGetter<SidebarFooter.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("footer"),
-      className: styles.footer({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getMenuItemButtonProps: PropGetter<SidebarMenuItemButton.Props> =
@@ -144,11 +114,8 @@ export const useSidebar = (props: useSidebar.Props) => {
       (props) => ({
         ...props,
         "data-slot": dataAttrDev("menu-item-button"),
-        className: styles.menuItemButton({
-          className: props.className,
-        }),
       }),
-      [styles],
+      [],
     );
 
   const getBackdropProps: PropGetter<SidebarBackdrop.Props> = useCallback(
@@ -156,33 +123,24 @@ export const useSidebar = (props: useSidebar.Props) => {
       ...props,
       onClick: () => toggleSidebar(),
       "data-slot": dataAttrDev("backdrop"),
-      className: styles.backdrop({
-        className: props.className,
-      }),
     }),
-    [styles, toggleSidebar],
+    [toggleSidebar],
   );
 
   const getInsetProps: PropGetter<SidebarInset.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("inset"),
-      className: styles.inset({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getContainerProps: PropGetter<SidebarContainer.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("container"),
-      className: styles.container({
-        className: props.className,
-      }),
     }),
-    [styles],
+    [],
   );
 
   return useMemo(
@@ -222,7 +180,7 @@ export const useSidebar = (props: useSidebar.Props) => {
 };
 
 export namespace useSidebar {
-  export interface Props extends SidebarWrapper.Props {
+  export interface Props extends UIProps<"div"> {
     width?: number;
   }
 }

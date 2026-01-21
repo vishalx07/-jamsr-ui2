@@ -1,7 +1,6 @@
 import { Sidebar as SidebarRoot } from "./sidebar";
 import { SidebarBackdrop } from "./sidebar-backdrop";
 import { SidebarBody } from "./sidebar-body";
-import { SidebarConfig, useSidebarConfig } from "./sidebar-config";
 import { SidebarContainer } from "./sidebar-container";
 import { SidebarContent } from "./sidebar-content";
 import { SidebarContext, useSidebarContext } from "./sidebar-context";
@@ -23,7 +22,6 @@ import { SidebarWrapper } from "./sidebar-wrapper";
 export {
   SidebarBackdrop,
   SidebarBody,
-  SidebarConfig,
   SidebarContainer,
   SidebarContent,
   SidebarContext,
@@ -38,7 +36,6 @@ export {
   SidebarStateProvider,
   SidebarToggle,
   SidebarWrapper,
-  useSidebarConfig,
   useSidebarContext,
   useSidebarState,
 };
@@ -63,7 +60,6 @@ export const Sidebar = Object.assign(SidebarRoot, {
 
 export namespace Sidebar {
   export interface Props extends SidebarRoot.Props {}
-  export interface Config extends SidebarConfig.Props {}
   export interface Backdrop extends SidebarBackdrop.Props {}
   export interface Body extends SidebarBody.Props {}
   export interface Container extends SidebarContainer.Props {}

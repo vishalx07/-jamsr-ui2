@@ -5,7 +5,6 @@ import { type UIProps } from "@jamsrui/utils";
 import React from "react";
 import { SliderContext } from "./slider-context";
 import { useSlider, UseSliderProps } from "./use-slider";
-import { slider, SliderVariants } from "./styles";
 
 const Root = (props: Slider.Props) => {
   const {
@@ -38,14 +37,11 @@ const Root = (props: Slider.Props) => {
     name,
   });
 
-  const { root } = slider({ orientation, isDisabled });
-  const styles = root({ className });
-
   const renderElement = useRenderElement("div", {
     props: {
       ...restProps,
       children,
-      className: styles,
+      className,
       "data-orientation": context.orientation,
       "data-disabled": context.isDisabled ? "" : undefined,
       render,
@@ -63,8 +59,5 @@ export const Slider = Root;
 
 export namespace Slider {
   export interface Props
-    extends
-      Omit<UIProps<"div">, "onChange" | "defaultValue">,
-      SliderVariants,
-      UseSliderProps {}
+    extends Omit<UIProps<"div">, "onChange" | "defaultValue">, UseSliderProps {}
 }

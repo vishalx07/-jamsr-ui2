@@ -1,1 +1,2 @@
-export { Charts } from "@jamsrui/react";
+// Charts are complex visualization components, re-export from base
+export * from "@jamsrui/react";

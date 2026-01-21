@@ -8,25 +8,17 @@ import {
   useHover,
   useMergeRefs,
 } from "@jamsrui/hooks";
-import { cn, dataAttr, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
-
-import { inputGroupVariants } from "./styles";
+import { dataAttr, dataAttrDev } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import { InputGroupPrefix } from "./input-group-prefix";
 import { InputGroupRoot } from "./input-group-root";
 import type { InputGroupSuffix } from "./input-group-suffix";
-import type { InputGroupVariantProps } from "./styles";
 
 export const useInputGroup = (props: useInputGroup.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    inputGroupVariants.variantKeys,
-  );
-  const { ref, className, ...elementProps } = $props;
+  const { ref, className, ...elementProps } = props;
 
-  const styles = inputGroupVariants(variantProps);
   const isDisabled = false;
 
   const { isFocused, ref: focusRef } = useFocus<HTMLInputElement>({
@@ -69,33 +61,24 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       "aria-disabled": dataAttr(isDisabled),
       onMouseDown: handleOnMouseDown,
       ...elementProps,
-      className: styles.root({
-        className: cn(props.className),
-      }),
     }),
-    [isDisabled, isFocusVisible, isFocused, isHovered, styles],
+    [isDisabled, isFocusVisible, isFocused, isHovered],
   );
 
   const getPrefixProps: PropGetter<InputGroupPrefix.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("prefix"),
       ...props,
-      className: styles.prefix({
-        className: cn(props.className),
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getSuffixProps: PropGetter<InputGroupSuffix.Props> = useCallback(
     (props) => ({
       "data-slot": dataAttrDev("suffix"),
       ...props,
-      className: styles.suffix({
-        className: cn(props.className),
-      }),
     }),
-    [styles],
+    [],
   );
 
   return useMemo(
@@ -103,12 +86,11 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       getRootProps,
       getPrefixProps,
       getSuffixProps,
-      variantProps,
     }),
-    [getRootProps, getPrefixProps, getSuffixProps, variantProps],
+    [getRootProps, getPrefixProps, getSuffixProps],
   );
 };
 
 export namespace useInputGroup {
-  export interface Props extends UIProps<"div">, InputGroupVariantProps {}
+  export interface Props extends UIProps<"div"> {}
 }

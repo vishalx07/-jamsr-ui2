@@ -5,20 +5,14 @@ import { ScrollAreaCorner } from "./scroll-area-corner";
 import { ScrollAreaScrollbar } from "./scroll-area-scrollbar";
 import { ScrollAreaThumb } from "./scroll-area-thumb";
 import { ScrollAreaViewport } from "./scroll-area-viewport";
-import { scrollAreaVariants } from "./styles";
-
-import type { ScrollAreaSlots, ScrollAreaVariants } from "./styles";
 
 export {
   ScrollAreaContent,
   ScrollAreaCorner,
   ScrollAreaScrollbar,
   ScrollAreaThumb,
-  scrollAreaVariants,
   ScrollAreaViewport,
   useScrollAreaContext,
-  type ScrollAreaSlots,
-  type ScrollAreaVariants,
 };
 
 export const ScrollArea = Object.assign(ScrollAreaRoot, {

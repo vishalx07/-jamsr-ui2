@@ -13,9 +13,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
-
-import { autocompleteVariants } from "./styles";
+import { dataAttrDev } from "@jamsrui/utils";
 
 import type {
   FloatingFocusManagerProps,
@@ -23,20 +21,15 @@ import type {
   Placement,
 } from "@floating-ui/react";
 import type { Input } from "@jamsrui/input";
-import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
+import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { Autocomplete } from "./autocomplete";
 import type { AutocompleteContent } from "./autocomplete-content";
 import type { AutocompleteItem } from "./autocomplete-item";
 import type { AutocompletePopover } from "./autocomplete-popover";
-import type { AutocompleteSlots, AutocompleteVariantProps } from "./styles";
 
 export const useAutocomplete = (props: useAutocomplete.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    autocompleteVariants.variantKeys,
-  );
   const {
     isOpen: isOpenProp,
     defaultOpen,
@@ -47,7 +40,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     placement = "bottom-start",
     isMultiple,
     ...elementProps
-  } = $props;
+  } = props;
 
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -216,8 +209,5 @@ export namespace useAutocomplete {
   }
 
   export interface Props
-    extends
-      Omit<Input.Props, keyof InnerProps>,
-      AutocompleteVariantProps,
-      InnerProps {}
+    extends Omit<Input.Props, keyof InnerProps>, InnerProps {}
 }

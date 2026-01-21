@@ -1,7 +1,16 @@
-export {
-  Collapsible,
+import {
+  Collapsible as CollapsibleRoot,
   CollapsibleContent,
   CollapsibleTrigger,
-  CollapsibleConfig,
-  useCollapsibleConfig,
-} from "@jamsrui/react";
+} from "./collapsible";
+
+export const Collapsible = Object.assign(CollapsibleRoot, {
+  Trigger: CollapsibleTrigger,
+  Content: CollapsibleContent,
+});
+
+export namespace Collapsible {
+  export interface Props extends CollapsibleRoot.Props {}
+}
+
+export { CollapsibleContent, CollapsibleTrigger };

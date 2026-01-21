@@ -1,14 +1,6 @@
+// DataGrid is a complex table component, re-export from base
 export {
   DataGrid,
-  DataGridBody,
-  DataGridColumnVisibility,
-  DataGridConfig,
-  DataGridHeader,
-  DataGridHeaderColumn,
-  DataGridPagination,
-  DataGridPaginationSelector,
-  DataGridRowSelect,
-  DataGridRowSelectAll,
-  DataGridTable,
-  useDataGridTable,
+  type DataGridColumn,
+  type DataGridProps,
 } from "@jamsrui/react";

@@ -1,107 +1,27 @@
-import { AutocompleteConfig } from '@jamsrui/autocomplete';
-import { BreadcrumbConfig } from '@jamsrui/breadcrumb';
-import { ChartsConfig } from '@jamsrui/charts';
-import { ClipboardConfig } from '@jamsrui/clipboard';
-import { CollapsibleConfig } from '@jamsrui/collapsible';
 import { DataGridConfig } from '@jamsrui/data-grid';
-import { DateFieldConfig } from '@jamsrui/date-field';
-import { DatePickerConfig } from '@jamsrui/date-picker';
 import { EditorConfig } from '@jamsrui/editor';
-import { FileUploadConfig } from '@jamsrui/file-upload';
-import { HeaderConfig } from '@jamsrui/header';
 import { IconButtonConfig } from '@jamsrui/icon-button';
-import { KbdConfig } from '@jamsrui/kbd';
-import { NumberFieldConfig } from '@jamsrui/number-field';
-import { OtpInputConfig } from '@jamsrui/otp-input';
-import { PaginationConfig } from '@jamsrui/pagination';
-import { RatingConfig } from '@jamsrui/rating';
 import { RippleConfig } from '@jamsrui/ripple';
-import { SidebarConfig } from '@jamsrui/sidebar';
-import { SliderConfig } from '@jamsrui/slider';
-import { TagsInputConfig } from '@jamsrui/tags-input';
-import { TimeFieldConfig } from '@jamsrui/time-field';
-import { ToastConfig } from '@jamsrui/toast';
-import { ToggleConfig } from '@jamsrui/toggle';
 
 type Props = {
   children: React.ReactNode;
-  autocomplete?: AutocompleteConfig.Props;
-  breadcrumb?: BreadcrumbConfig.Props;
-  charts?: ChartsConfig.Props;
-  clipboard?: ClipboardConfig.Props;
-  collapsible?: CollapsibleConfig.Props;
   dataGrid?: DataGridConfig.Props;
-  dateField?: DateFieldConfig.Props;
-  datePicker?: DatePickerConfig.Props;
   editor?: EditorConfig.Props;
-  fileUpload?: FileUploadConfig.Props;
-  header?: HeaderConfig.Props;
   iconButton?: IconButtonConfig.Props;
-  kbd?: KbdConfig.Props;
-  numberField?: NumberFieldConfig.Props;
-  otpInput?: OtpInputConfig.Props;
-  pagination?: PaginationConfig.Props;
-  rating?: RatingConfig.Props;
   ripple?: RippleConfig.Props;
-  sidebar?: SidebarConfig.Props;
-  slider?: SliderConfig.Props;
-  tagsInput?: TagsInputConfig.Props;
-  timeField?: TimeFieldConfig.Props;
-  toast?: ToastConfig.Props;
-  toggle?: ToggleConfig.Props;
 };
 
 export const JamsrUIConfig = (props: Props) => {
   const { children } = props;
   return (
-  <AutocompleteConfig {...props.autocomplete}>
-  <BreadcrumbConfig {...props.breadcrumb}>
-  <ChartsConfig {...props.charts}>
-  <ClipboardConfig {...props.clipboard}>
-  <CollapsibleConfig {...props.collapsible}>
   <DataGridConfig {...props.dataGrid}>
-  <DateFieldConfig {...props.dateField}>
-  <DatePickerConfig {...props.datePicker}>
   <EditorConfig {...props.editor}>
-  <FileUploadConfig {...props.fileUpload}>
-  <HeaderConfig {...props.header}>
   <IconButtonConfig {...props.iconButton}>
-  <KbdConfig {...props.kbd}>
-  <NumberFieldConfig {...props.numberField}>
-  <OtpInputConfig {...props.otpInput}>
-  <PaginationConfig {...props.pagination}>
-  <RatingConfig {...props.rating}>
   <RippleConfig {...props.ripple}>
-  <SidebarConfig {...props.sidebar}>
-  <SliderConfig {...props.slider}>
-  <TagsInputConfig {...props.tagsInput}>
-  <TimeFieldConfig {...props.timeField}>
-  <ToastConfig {...props.toast}>
-  <ToggleConfig {...props.toggle}>
     {children}
-  </ToggleConfig>
-  </ToastConfig>
-  </TimeFieldConfig>
-  </TagsInputConfig>
-  </SliderConfig>
-  </SidebarConfig>
   </RippleConfig>
-  </RatingConfig>
-  </PaginationConfig>
-  </OtpInputConfig>
-  </NumberFieldConfig>
-  </KbdConfig>
   </IconButtonConfig>
-  </HeaderConfig>
-  </FileUploadConfig>
   </EditorConfig>
-  </DatePickerConfig>
-  </DateFieldConfig>
   </DataGridConfig>
-  </CollapsibleConfig>
-  </ClipboardConfig>
-  </ChartsConfig>
-  </BreadcrumbConfig>
-  </AutocompleteConfig>
   );
 };
