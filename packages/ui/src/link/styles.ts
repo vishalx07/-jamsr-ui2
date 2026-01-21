@@ -1,14 +1,9 @@
 import { textVariants } from "@jamsrui/text";
-import { focusVisibleClasses, tv } from "@jamsrui/utils";
+import { tv, VariantProps } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const linkVariants = tv({
+export const linkStyles = tv({
   extend: textVariants,
-  base: [
-    "cursor-default text-foreground-link hover:text-foreground-link/80",
-    focusVisibleClasses,
-  ],
+  base: ["cursor-pointer text-foreground-link hover:text-foreground-link/80"],
   variants: {
     underline: {
       hover: "hover:underline hover:underline-offset-4",
@@ -22,4 +17,4 @@ export const linkVariants = tv({
   },
 });
 
-export type LinkVariants = VariantProps<typeof linkVariants>;
+export type LinkVariantProps = VariantProps<typeof linkStyles>;

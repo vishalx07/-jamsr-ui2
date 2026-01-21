@@ -10,6 +10,7 @@
   "packageManager": "pnpm@10.6.2",
   "dependencies": {
     "@jamsrui/react": "workspace:^",
+    "@jamsrui/text": "workspace:^",
     "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {

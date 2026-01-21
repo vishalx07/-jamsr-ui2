@@ -2199,6 +2199,9 @@ importers:
       '@jamsrui/react':
         specifier: workspace:^
         version: link:../react
+      '@jamsrui/text':
+        specifier: workspace:^
+        version: link:../components/text
       tailwind-variants:
         specifier: ^3.2.2
         version: 3.2.2(tailwind-merge@3.4.0)(tailwindcss@4.1.18)
