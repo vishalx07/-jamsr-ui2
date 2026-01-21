@@ -16,7 +16,6 @@ import { LinearProgressConfig } from '@jamsrui/linear-progress';
 import { NumberFieldConfig } from '@jamsrui/number-field';
 import { OtpInputConfig } from '@jamsrui/otp-input';
 import { PaginationConfig } from '@jamsrui/pagination';
-import { RadioGroupConfig } from '@jamsrui/radio';
 import { RatingConfig } from '@jamsrui/rating';
 import { RippleConfig } from '@jamsrui/ripple';
 import { SidebarConfig } from '@jamsrui/sidebar';
@@ -52,7 +51,6 @@ type Props = {
   numberField?: NumberFieldConfig.Props;
   otpInput?: OtpInputConfig.Props;
   pagination?: PaginationConfig.Props;
-  radioGroup?: RadioGroupConfig.Props;
   rating?: RatingConfig.Props;
   ripple?: RippleConfig.Props;
   sidebar?: SidebarConfig.Props;
@@ -90,7 +88,6 @@ export const JamsrUIConfig = (props: Props) => {
   <NumberFieldConfig {...props.numberField}>
   <OtpInputConfig {...props.otpInput}>
   <PaginationConfig {...props.pagination}>
-  <RadioGroupConfig {...props.radioGroup}>
   <RatingConfig {...props.rating}>
   <RippleConfig {...props.ripple}>
   <SidebarConfig {...props.sidebar}>
@@ -120,7 +117,6 @@ export const JamsrUIConfig = (props: Props) => {
   </SidebarConfig>
   </RippleConfig>
   </RatingConfig>
-  </RadioGroupConfig>
   </PaginationConfig>
   </OtpInputConfig>
   </NumberFieldConfig>

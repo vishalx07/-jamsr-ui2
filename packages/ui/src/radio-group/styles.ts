@@ -1,8 +1,7 @@
-import { groupDataFocusVisibleClasses, tv } from "@jamsrui/utils";
+import { groupDataFocusVisibleClasses } from "@jamsrui/utils";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const radioVariant = tv({
+export const radioStyles = tv({
   slots: {
     root: [
       "group relative inline-flex gap-2 cursor-default items-center justify-start tap-highlight-transparent",
@@ -23,7 +22,6 @@ export const radioVariant = tv({
       "transition-all duration-300",
       "uig-hover:border-default-hover",
       "uig-pressed:scale-95",
-      // focus ring
       ...groupDataFocusVisibleClasses,
       "group-data-invalid:border-danger",
     ],
@@ -90,7 +88,7 @@ export const radioVariant = tv({
   },
 });
 
-export const radioGroupVariant = tv({
+export const radioGroupStyles = tv({
   slots: {
     root: "group relative flex flex-col gap-2",
     label: "text-sm font-normal text-foreground",
@@ -101,8 +99,7 @@ export const radioGroupVariant = tv({
   variants: {},
 });
 
-export type RadioVariantProps = VariantProps<typeof radioVariant>;
-export type RadioVariants = VariantProps<typeof radioVariant>;
-export type RadioSlots = keyof ReturnType<typeof radioVariant>;
-export type RadioGroupSlots = keyof ReturnType<typeof radioGroupVariant>;
-export type RadioGroupVariants = VariantProps<typeof radioGroupVariant>;
+export type RadioVariants = VariantProps<typeof radioStyles>;
+export type RadioSlots = keyof ReturnType<typeof radioStyles>;
+export type RadioGroupVariants = VariantProps<typeof radioGroupStyles>;
+export type RadioGroupSlots = keyof ReturnType<typeof radioGroupStyles>;

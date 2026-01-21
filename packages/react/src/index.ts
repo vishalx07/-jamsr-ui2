@@ -41,8 +41,7 @@ export { OtpInputConfig, OtpInputGroup, OtpInputSeparator, OtpInputSlot, otpInpu
 export type { OtpInputSlots, OtpInputVariants } from '@jamsrui/otp-input';
 export { Pagination, PaginationConfig, usePaginationConfig } from '@jamsrui/pagination';
 export { PopoverArrow, PopoverContent, PopoverContentWithDialog, PopoverContext, PopoverDialog, PopoverTrigger, usePopover, usePopoverContext, Popover } from '@jamsrui/popover';
-export { RadioContent, RadioContext, RadioControl, RadioGroupConfig, RadioGroupContext, RadioIndicator, radioVariant, useRadio, useRadioContext, useRadioGroup, useRadioGroupConfig, useRadioGroupContext, RadioGroup, Radio } from '@jamsrui/radio';
-export type { RadioSlots, RadioVariants } from '@jamsrui/radio';
+export { RadioContent, RadioContext, RadioControl, RadioGroupContext, RadioIndicator, useRadio, useRadioContext, useRadioGroup, useRadioGroupContext, RadioGroup, Radio } from '@jamsrui/radio';
 export { Rating, RatingConfig, useRatingConfig } from '@jamsrui/rating';
 export { RHFField } from '@jamsrui/rhf';
 export { Ripple, RippleConfig, useRippleConfig } from '@jamsrui/ripple';
