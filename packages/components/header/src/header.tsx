@@ -5,12 +5,12 @@ import type { UIProps } from "@jamsrui/utils";
 
 export const Header = (props: Header.Props) => {
   const { render, ...elementProps } = props;
-  const renderElement = useRenderElement("div", {
+  const renderElement = useRenderElement("header", {
     props: elementProps,
   });
   return renderElement;
 };
 
 export namespace Header {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends UIProps<"header"> {}
 }

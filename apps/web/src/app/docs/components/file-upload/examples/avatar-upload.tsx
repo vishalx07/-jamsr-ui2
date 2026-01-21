@@ -38,7 +38,7 @@ export const FileUploadAvatarUpload = () => {
             <Avatar.Image src={avatar.preview} alt={avatar.file.name} />
             <IconButton
               label="Remove"
-              size="xs"
+              size="sm"
               radius="full"
               className="absolute top-1 right-1 hidden group-hover:flex"
               onClick={(e) => {
