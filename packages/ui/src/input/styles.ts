@@ -1,8 +1,6 @@
-import { radiusBaseVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const inputVariants = tv({
+export const inputStyles = tv({
   base: [
     "input focus:outline-none disabled:status-disabled placeholder:text-foreground-secondary bg-transparent font-normal",
   ],
@@ -17,7 +15,16 @@ export const inputVariants = tv({
       md: "input--md px-3 py-2 text-sm placeholder:text-sm",
       lg: "input--lg px-3 py-2 text-base placeholder:text-base",
     },
-    radius: radiusBaseVariant,
+    radius: {
+      none: "rounded-none",
+      sm: "rounded-sm",
+      md: "rounded-md",
+      lg: "rounded-lg",
+      xl: "rounded-xl",
+      "2xl": "rounded-2xl",
+      "3xl": "rounded-3xl",
+      full: "rounded-full",
+    },
     isInvalid: {
       true: "border-danger!",
     },
@@ -29,7 +36,7 @@ export const inputVariants = tv({
   },
 });
 
-export const inputGroupVariants = tv({
+export const inputGroupStyles = tv({
   base: "input-group__input w-full px-3 py-2 text-sm placeholder:text-sm focus:outline-none",
   variants: {
     variant: {
@@ -38,5 +45,3 @@ export const inputGroupVariants = tv({
     },
   },
 });
-
-export type InputVariantProps = VariantProps<typeof inputVariants>;

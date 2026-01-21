@@ -1,4 +1,4 @@
-Now go with drawer
+Now go with input
 
 - implement [component-name] in ui package like others alert, accordion, button etc....
 - create [component-name] folder and [component-name].tsx styles.ts index.ts like others
@@ -6,3 +6,4 @@ Now go with drawer
 - this means remove styles classNames from their base package and also remove their style|s.ts file
 - also remove [component-name]Config and its usage from its base package
 - also if there are slots classNames props in base use-[component-name].ts file remove them also
+- also check in the docs examples should be in dot pattern if not update them
