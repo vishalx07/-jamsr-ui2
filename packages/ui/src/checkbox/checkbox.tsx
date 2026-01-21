@@ -1,13 +1,32 @@
+"use client";
+
 import { Checkbox as CheckboxUI } from "@jamsrui/react";
+import { createContext, use, useMemo } from "react";
 import { cn, VariantProps } from "tailwind-variants";
 import { checkboxStyles } from "./styles";
 
 type CheckboxVariants = VariantProps<typeof checkboxStyles>;
 
+const CheckboxContext = createContext<{
+  styles: ReturnType<typeof checkboxStyles>;
+} | null>(null);
+const useCheckboxContext = () => {
+  const ctx = use(CheckboxContext);
+  if (!ctx) {
+    throw new Error("useCheckboxContext must be used within a CheckboxContext");
+  }
+  return ctx;
+};
+
 export const Checkbox = (props: Checkbox.Props) => {
   const { size, radius, isInvalid, className, ...restProps } = props;
   const styles = checkboxStyles({ size, radius, isInvalid });
-  return <CheckboxUI {...restProps} className={cn(styles.root(), className)} />;
+  const value = useMemo(() => ({ styles }), [styles]);
+  return (
+    <CheckboxContext.Provider value={value}>
+      <CheckboxUI {...restProps} className={cn(styles.root(), className)} />
+    </CheckboxContext.Provider>
+  );
 };
 
 export namespace Checkbox {
@@ -15,17 +34,25 @@ export namespace Checkbox {
 }
 
 export const CheckboxControl = (props: CheckboxUI.Control) => {
-  const styles = checkboxStyles();
+  const { styles } = useCheckboxContext();
+  const {
+    className,
+    children = <CheckboxUI.Indicator className={styles.indicator()} />,
+    ...restProps
+  } = props;
   return (
     <CheckboxUI.Control
-      {...props}
-      className={cn(styles.control(), props.className)}
-    />
+      {...restProps}
+      className={cn(styles.control(), className)}
+    >
+      <CheckboxUI.Input className={styles.input()} />
+      {children}
+    </CheckboxUI.Control>
   );
 };
 
 export const CheckboxIndicator = (props: CheckboxUI.Indicator) => {
-  const styles = checkboxStyles();
+  const { styles } = useCheckboxContext();
   return (
     <CheckboxUI.Indicator
       {...props}
@@ -35,7 +62,7 @@ export const CheckboxIndicator = (props: CheckboxUI.Indicator) => {
 };
 
 export const CheckboxContent = (props: CheckboxUI.Content) => {
-  const styles = checkboxStyles();
+  const { styles } = useCheckboxContext();
   return (
     <CheckboxUI.Content
       {...props}

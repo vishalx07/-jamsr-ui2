@@ -6,6 +6,7 @@ import {
 } from "./checkbox";
 
 export const Checkbox = Object.assign(CheckboxRoot, {
+  Root: CheckboxRoot,
   Control: CheckboxControl,
   Indicator: CheckboxIndicator,
   Content: CheckboxContent,

@@ -7,10 +7,10 @@ import type { UIProps } from "@jamsrui/utils";
 
 export const CheckboxIndicator = (props: CheckboxIndicator.Props) => {
   const { getIndicatorProps, isChecked } = useCheckboxContext();
-  const { children = <CheckboxIcon /> } = props;
+  const { children = <CheckboxIcon />, ...restProps } = props;
   const indicator =
     typeof children === "function" ? children({ isChecked }) : children;
-  return <div {...getIndicatorProps({})}>{indicator}</div>;
+  return <div {...getIndicatorProps(restProps)}>{indicator}</div>;
 };
 
 export namespace CheckboxIndicator {
