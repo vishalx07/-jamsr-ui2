@@ -1,4 +1,5 @@
-import { AlertDialog, Button } from "jamsrui";
+import { AlertDialog } from "jamsrui/alert-dialog";
+import { Button } from "jamsrui/button";
 
 export const AlertDialogUsage = () => {
   return (

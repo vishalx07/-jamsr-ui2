@@ -1,4 +1,4 @@
-import { Card } from "jamsrui";
+import { Card } from "jamsrui/card";
 
 export const CardUsage = () => {
   return (

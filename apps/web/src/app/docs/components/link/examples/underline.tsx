@@ -1,4 +1,4 @@
-import { Link } from "jamsrui";
+import { Link } from "jamsrui/link";
 
 export const LinkUnderline = () => {
   const underlines: Link.Props["underline"][] = ["always", "hover", "never"];

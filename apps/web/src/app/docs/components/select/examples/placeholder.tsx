@@ -1,4 +1,5 @@
-import { Label, Select } from "jamsrui";
+import { Label } from "jamsrui/label";
+import { Select } from "jamsrui/select";
 
 export const SelectPlaceholder = () => {
   return (

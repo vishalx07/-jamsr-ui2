@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from "jamsrui";
-import { Composite, CompositeItem } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Composite } from "jamsrui/composite";
+import { CompositeItem } from "jamsrui/composite";
 
 const CompositeButton = (props) => {
   // const { index } = useCompositeItem({});

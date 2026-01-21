@@ -1,4 +1,4 @@
-import { Accordion } from "jamsrui";
+import { Accordion } from "jamsrui/accordion";
 
 export const AccordionUsage = () => {
   return (

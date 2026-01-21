@@ -1,6 +1,6 @@
 "use client";
 
-import { Text } from "jamsrui";
+import { Text } from "jamsrui/text";
 
 export const TextVariants = () => {
   const textVariants = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;

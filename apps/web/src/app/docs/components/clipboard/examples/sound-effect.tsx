@@ -1,6 +1,6 @@
 "use client";
 
-import { Clipboard } from "jamsrui";
+import { Clipboard } from "jamsrui/clipboard";
 
 export const ClipboardSoundEffect = () => {
   const onSuccess = () => {

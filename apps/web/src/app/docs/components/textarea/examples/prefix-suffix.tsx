@@ -1,4 +1,7 @@
-import { Textarea, InputGroup, Label, TextField } from "jamsrui";
+import { InputGroup } from "jamsrui/input-group";
+import { Label } from "jamsrui/label";
+import { Textarea } from "jamsrui/textarea";
+import { TextField } from "jamsrui/textfield";
 
 export const TextareaPrefixSuffix = () => {
   return (

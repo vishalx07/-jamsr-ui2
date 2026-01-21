@@ -1,4 +1,5 @@
-import { Button, Drawer } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Drawer } from "jamsrui/drawer";
 
 const DrawerItem = (props: Partial<Drawer.Props> & { btnText: string }) => {
   const { btnText, ...restProps } = props;

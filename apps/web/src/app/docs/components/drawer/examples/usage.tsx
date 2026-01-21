@@ -1,4 +1,5 @@
-import { Button, Drawer } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Drawer } from "jamsrui/drawer";
 
 export const DrawerUsage = () => {
   return (

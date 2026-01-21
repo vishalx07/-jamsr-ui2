@@ -1,4 +1,4 @@
-import { ContextMenu } from "jamsrui";
+import { ContextMenu } from "jamsrui/context-menu";
 
 export const ContextMenuRadius = () => {
   const radii: ContextMenu.Props["radius"][] = [

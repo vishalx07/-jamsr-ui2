@@ -1,4 +1,4 @@
-import { Avatar } from "jamsrui";
+import { Avatar } from "jamsrui/avatar";
 
 export const AvatarColors = () => {
   const colors: Avatar.Props["color"][] = [

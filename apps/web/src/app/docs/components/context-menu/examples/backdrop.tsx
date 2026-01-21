@@ -1,4 +1,4 @@
-import { ContextMenu } from "jamsrui";
+import { ContextMenu } from "jamsrui/context-menu";
 
 const ContextMenuUsage = (props: Pick<ContextMenu.Props, "backdrop">) => {
   const { backdrop } = props;

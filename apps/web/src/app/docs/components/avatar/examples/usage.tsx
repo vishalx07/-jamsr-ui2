@@ -1,6 +1,6 @@
 "use client";
 
-import { Avatar } from "jamsrui";
+import { Avatar } from "jamsrui/avatar";
 import { useId } from "react";
 
 export const AvatarUsage = () => {

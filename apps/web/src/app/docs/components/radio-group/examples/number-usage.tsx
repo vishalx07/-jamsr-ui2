@@ -1,6 +1,7 @@
 "use client";
 
-import { Label, Radio, RadioGroup } from "jamsrui";
+import { Label } from "jamsrui/label";
+import { Radio, RadioGroup } from "jamsrui/radio-group";
 import { useState } from "react";
 
 enum Gender {

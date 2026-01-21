@@ -1,4 +1,4 @@
-import { Button } from "jamsrui";
+import { Button } from "jamsrui/button";
 
 export const ButtonUsage = () => {
   return <Button>Button</Button>;

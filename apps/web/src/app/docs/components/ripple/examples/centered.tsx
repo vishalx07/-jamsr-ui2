@@ -1,4 +1,4 @@
-import { Ripple } from "jamsrui";
+import { Ripple } from "jamsrui/ripple";
 
 export const RippleAtCenter = () => {
   return (

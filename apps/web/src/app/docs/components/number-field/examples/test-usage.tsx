@@ -1,4 +1,6 @@
-import { Label, NumberField, Description } from "jamsrui";
+import { Description } from "jamsrui/description";
+import { Label } from "jamsrui/label";
+import { NumberField } from "jamsrui/number-field";
 
 export const NumberFieldWithFormatting = () => {
   return (

@@ -1,4 +1,5 @@
-import { Avatar, Chip } from "jamsrui";
+import { Avatar } from "jamsrui/avatar";
+import { Chip } from "jamsrui/chip";
 
 const BadgeIcon = () => {
   return (

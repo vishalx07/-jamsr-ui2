@@ -1,4 +1,4 @@
-import { Sidebar } from "jamsrui";
+import { Sidebar } from "jamsrui/sidebar";
 import { AppHeader } from "./header";
 import { AppSidebar } from "./sidebar";
 

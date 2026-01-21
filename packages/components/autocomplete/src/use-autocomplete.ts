@@ -38,7 +38,6 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     autocompleteVariants.variantKeys,
   );
   const {
-    classNames,
     isOpen: isOpenProp,
     defaultOpen,
     onOpenChange,
@@ -114,17 +113,13 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     setIsOpen((open) => !open);
   }, [setIsOpen]);
 
-  const styles = autocompleteVariants(variantProps);
   const getRootProps: PropGetter<Autocomplete.Props> = useCallback(
     () => ({
       ...elementProps,
       "data-component": dataAttrDev("autocomplete"),
       "data-slot": dataAttrDev("root"),
-      className: styles.root({
-        className: cn(classNames?.root, elementProps.className),
-      }),
     }),
-    [classNames?.root, elementProps, styles],
+    [elementProps],
   );
 
   const getAutocompleteItemProps: PropGetter<AutocompleteItem.Props> =
@@ -132,42 +127,27 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
       (props) => ({
         ...props,
         "data-slot": dataAttrDev("item"),
-        className: styles.item({
-          className: cn(classNames?.item, props.className),
-        }),
       }),
-      [classNames?.item, styles],
+      [],
     );
 
   const getPopoverProps: PropGetter<AutocompletePopover.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("popover"),
-      className: styles.popover({
-        className: cn(classNames?.popover, props.className),
-      }),
       style: floatingStyles,
       ...getFloatingProps({}),
       ref: setFloating,
     }),
-    [
-      classNames?.popover,
-      floatingStyles,
-      getFloatingProps,
-      setFloating,
-      styles,
-    ],
+    [floatingStyles, getFloatingProps, setFloating],
   );
 
   const getContentProps: PropGetter<AutocompleteContent.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: cn(classNames?.content, props.className),
-      }),
     }),
-    [classNames?.content, styles],
+    [],
   );
 
   const getFocusManagerProps = useCallback(
@@ -192,12 +172,6 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     (props) => ({
       ...props,
       ...getReferenceProps({}),
-      slotProps: {
-        contentWrapper: {
-          ref: setReference,
-          onClick: handleToggleOpen,
-        },
-      },
     }),
     [getReferenceProps, handleToggleOpen, setReference],
   );
@@ -231,7 +205,6 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
 };
 export namespace useAutocomplete {
   interface InnerProps {
-    classNames?: SlotsToClassNames<AutocompleteSlots>;
     value?: string[];
     defaultValue?: string[];
     onValueChange?: (value: string[]) => void;

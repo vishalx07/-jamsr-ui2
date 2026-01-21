@@ -1,6 +1,6 @@
 "use client";
 
-import { ContextMenu } from "jamsrui";
+import { ContextMenu } from "jamsrui/context-menu";
 
 export const ContextMenuPreventClose = () => {
   return (

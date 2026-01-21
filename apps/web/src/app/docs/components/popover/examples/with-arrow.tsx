@@ -1,5 +1,7 @@
 import { InfoIcon } from "@jamsrui/icons";
-import { IconButton, Popover, Text } from "jamsrui";
+import { IconButton } from "jamsrui/icon-button";
+import { Popover } from "jamsrui/popover";
+import { Text } from "jamsrui/text";
 
 export const PopoverWithArrow = () => {
   return (

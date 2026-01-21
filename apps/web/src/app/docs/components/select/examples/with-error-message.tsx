@@ -1,4 +1,6 @@
-import { FieldError, Label, Select } from "jamsrui";
+import { FieldError } from "jamsrui/field-error";
+import { Label } from "jamsrui/label";
+import { Select } from "jamsrui/select";
 
 export const SelectWithErrorMessage = () => {
   return (

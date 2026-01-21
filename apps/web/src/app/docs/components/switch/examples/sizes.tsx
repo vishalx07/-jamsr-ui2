@@ -1,4 +1,5 @@
-import { Label, Switch } from "jamsrui";
+import { Label } from "jamsrui/label";
+import { Switch } from "jamsrui/switch";
 import { SwitchProps } from "@jamsrui/switch";
 
 export const SwitchSizes = () => {

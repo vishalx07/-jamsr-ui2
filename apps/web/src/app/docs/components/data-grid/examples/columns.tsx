@@ -1,14 +1,11 @@
 "use client";
 
 import { faker } from "@faker-js/faker";
-import {
-  Avatar,
-  Chip,
-  DataGrid,
-  DataGridRowSelect,
-  DataGridRowSelectAll,
-  Text,
-} from "jamsrui";
+import { Avatar } from "jamsrui/avatar";
+import { Chip } from "jamsrui/chip";
+import { DataGrid } from "jamsrui/data-grid";
+import { Text } from "jamsrui/text";
+import { DataGridRowSelect, DataGridRowSelectAll } from "jamsrui/data-grid";
 import type { ColumnDef } from "@tanstack/react-table";
 
 type User = {

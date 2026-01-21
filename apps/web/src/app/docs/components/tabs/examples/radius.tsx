@@ -1,4 +1,4 @@
-import { Tabs } from "jamsrui";
+import { Tabs } from "jamsrui/tabs";
 
 export const TabRadius = () => {
   const radii = ["none", "sm", "md", "lg", "xl", "full"] as const;

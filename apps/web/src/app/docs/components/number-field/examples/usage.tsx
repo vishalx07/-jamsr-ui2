@@ -1,4 +1,5 @@
-import { Label, NumberField } from "jamsrui";
+import { Label } from "jamsrui/label";
+import { NumberField } from "jamsrui/number-field";
 
 export const NumberFieldUsage = () => {
   return (

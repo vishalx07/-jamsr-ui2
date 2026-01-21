@@ -1,5 +1,6 @@
 "use client";
-import { Button, Menu } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Menu } from "jamsrui/menu";
 import { useState } from "react";
 
 export const MenuRadioItemsExample = () => {

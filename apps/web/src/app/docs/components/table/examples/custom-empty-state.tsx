@@ -1,14 +1,7 @@
 import { FileIcon, RefreshIcon } from "@jamsrui/icons";
-import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-  Text,
-} from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "jamsrui/table";
+import { Text } from "jamsrui/text";
 
 const CustomTableEmptyState = () => {
   return (

@@ -1,5 +1,6 @@
 import { EmailIcon } from "@jamsrui/icons";
-import { Label, Select } from "jamsrui";
+import { Label } from "jamsrui/label";
+import { Select } from "jamsrui/select";
 
 export const SelectWithIcons = () => {
   return (

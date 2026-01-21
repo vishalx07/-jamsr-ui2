@@ -1,4 +1,4 @@
-import { Tabs } from "jamsrui";
+import { Tabs } from "jamsrui/tabs";
 
 export const TabSizes = () => {
   const sizes = ["sm", "md", "lg"] as const;

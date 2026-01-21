@@ -1,4 +1,4 @@
-import { Chip } from "jamsrui";
+import { Chip } from "jamsrui/chip";
 
 export const ChipCustomized = () => {
   return <Chip>Default</Chip>;

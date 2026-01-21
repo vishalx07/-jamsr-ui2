@@ -1,4 +1,6 @@
-import { Button, Popover, Text } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Popover } from "jamsrui/popover";
+import { Text } from "jamsrui/text";
 
 export const PopoverRadius = () => {
   const radii: Popover.Props["radius"][] = [

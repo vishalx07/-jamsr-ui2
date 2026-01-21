@@ -1,4 +1,6 @@
-import { Checkbox, Description, Label } from "jamsrui";
+import { Checkbox } from "jamsrui/checkbox";
+import { Description } from "jamsrui/description";
+import { Label } from "jamsrui/label";
 
 export const CheckboxSizes = () => {
   const checkboxExamples = [

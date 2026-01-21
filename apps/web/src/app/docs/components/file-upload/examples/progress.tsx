@@ -1,14 +1,11 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import {
-  Avatar,
-  CircularProgress,
-  formatBytes,
-  IconButton,
-  Text,
-  useFileUpload,
-} from "jamsrui";
+import { Avatar } from "jamsrui/avatar";
+import { CircularProgress } from "jamsrui/circular-progress";
+import { IconButton } from "jamsrui/icon-button";
+import { Text } from "jamsrui/text";
+import { formatBytes, useFileUpload } from "jamsrui/file-upload";
 import { cn } from "@jamsrui/utils";
 import { useState } from "react";
 

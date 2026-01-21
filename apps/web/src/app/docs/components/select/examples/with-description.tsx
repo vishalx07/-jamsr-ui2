@@ -1,4 +1,6 @@
-import { Description, Label, Select } from "jamsrui";
+import { Description } from "jamsrui/description";
+import { Label } from "jamsrui/label";
+import { Select } from "jamsrui/select";
 
 export const SelectWithDescription = () => {
   return (

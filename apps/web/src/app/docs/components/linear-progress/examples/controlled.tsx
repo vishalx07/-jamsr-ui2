@@ -1,6 +1,7 @@
 "use client";
 
-import { IconButton, LinearProgress } from "jamsrui";
+import { IconButton } from "jamsrui/icon-button";
+import { LinearProgress } from "jamsrui/linear-progress";
 import { MinusIcon, PlusIcon } from "@jamsrui/icons";
 import { useState } from "react";
 

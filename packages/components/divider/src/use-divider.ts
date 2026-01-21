@@ -5,10 +5,10 @@ import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
 import { dividerVariants } from "./styles";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Divider } from "./divider";
-import type { DividerSlots, DividerVariants } from "./styles";
+import type { DividerVariants } from "./styles";
 
 export const useDivider = (props: useDivider.Props) => {
   const [$props, variantProps] = mapPropsVariants(
@@ -16,33 +16,23 @@ export const useDivider = (props: useDivider.Props) => {
     dividerVariants.variantKeys,
   );
   const styles = dividerVariants(variantProps);
-  const { classNames, slotProps, ...elementProps } = $props;
+  const { ...elementProps } = $props;
 
   const getRootProps: PropGetter<Divider.Props> = useCallback(
     () => ({
       ...elementProps,
       "data-component": dataAttrDev("divider"),
       "data-slot": "root",
-      className: styles.root({
-        className: cn(classNames?.root, elementProps.className),
-      }),
     }),
-    [classNames?.root, elementProps, styles],
+    [elementProps],
   );
 
   const getDividerProps: PropGetter<Divider.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.divider, props),
+      ...props,
       "data-slot": "divider",
-      className: styles.divider({
-        className: cn(
-          slotProps?.divider?.className,
-          classNames?.divider,
-          props.className,
-        ),
-      }),
     }),
-    [classNames?.divider, slotProps?.divider, styles],
+    [],
   );
 
   return useMemo(
@@ -54,10 +44,5 @@ export const useDivider = (props: useDivider.Props) => {
   );
 };
 export namespace useDivider {
-  export interface Props extends UIProps<"div">, DividerVariants {
-    classNames?: SlotsToClassNames<DividerSlots>;
-    slotProps?: {
-      divider?: UIProps<"div">;
-    };
-  }
+  export interface Props extends UIProps<"div">, DividerVariants {}
 }

@@ -1,4 +1,5 @@
-import { Button, Table } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Table } from "jamsrui/table";
 export const TableUsage = () => {
   return (
     <Table aria-label="Example static collection table" variant="solid">

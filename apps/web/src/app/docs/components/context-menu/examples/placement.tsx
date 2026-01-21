@@ -1,4 +1,4 @@
-import { ContextMenu } from "jamsrui";
+import { ContextMenu } from "jamsrui/context-menu";
 
 export const ContextMenuPlacement = () => {
   const placements: ContextMenu.Props["placement"][] = [

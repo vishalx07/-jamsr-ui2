@@ -1,5 +1,6 @@
 import { ChevronUpIcon } from "@jamsrui/icons";
-import { Button, Menu } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Menu } from "jamsrui/menu";
 
 export const MenuPlacement = () => {
   const placements: Menu.Props["placement"][] = [

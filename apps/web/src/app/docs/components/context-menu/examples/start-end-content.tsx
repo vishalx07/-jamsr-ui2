@@ -1,5 +1,6 @@
 import { InfoIcon, SearchIcon, TrashIcon } from "@jamsrui/icons";
-import { ContextMenu, Kbd } from "jamsrui";
+import { ContextMenu } from "jamsrui/context-menu";
+import { Kbd } from "jamsrui/kbd";
 
 export const ContextMenuStartEndContent = () => {
   return (

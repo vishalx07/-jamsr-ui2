@@ -1,4 +1,4 @@
-import { Alert } from "jamsrui";
+import { Alert } from "jamsrui/alert";
 import { EmailIcon } from "@jamsrui/icons";
 
 export const AlertCustomIcon = () => {

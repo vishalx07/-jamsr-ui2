@@ -1,7 +1,7 @@
 import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "jamsrui";
+import { Text } from "jamsrui/text";
 import { Metadata } from "next";
 import ScrollbarUsage from "./examples/usage";
 

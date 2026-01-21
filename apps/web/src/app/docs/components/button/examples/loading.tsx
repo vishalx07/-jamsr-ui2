@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "jamsrui";
+import { Button } from "jamsrui/button";
 import { useState } from "react";
 
 export const ButtonLoading = () => {

@@ -1,4 +1,4 @@
-import { Autocomplete } from "jamsrui";
+import { Autocomplete } from "jamsrui/autocomplete";
 
 const animals = [
   {

@@ -1,4 +1,6 @@
-import { Input, Label, TextField } from "jamsrui";
+import { Input } from "jamsrui/input";
+import { Label } from "jamsrui/label";
+import { TextField } from "jamsrui/textfield";
 
 export const InputDisabled = () => {
   return (

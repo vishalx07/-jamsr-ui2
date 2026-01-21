@@ -1,6 +1,8 @@
 "use client";
 
-import { Label, Radio, RadioGroup, Tabs } from "jamsrui";
+import { Label } from "jamsrui/label";
+import { Radio, RadioGroup } from "jamsrui/radio-group";
+import { Tabs } from "jamsrui/tabs";
 import { useState } from "react";
 
 type Color = NonNullable<Radio.Props["color"]>;

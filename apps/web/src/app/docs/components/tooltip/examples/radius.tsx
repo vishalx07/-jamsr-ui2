@@ -1,6 +1,6 @@
-import { IconButton } from "jamsrui";
+import { IconButton } from "jamsrui/icon-button";
 import { InfoIcon } from "@jamsrui/icons";
-import { Tooltip } from "jamsrui";
+import { Tooltip } from "jamsrui/tooltip";
 
 export const TooltipRadius = () => {
   const radii: Tooltip.Props["radius"][] = [

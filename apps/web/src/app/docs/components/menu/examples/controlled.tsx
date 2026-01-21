@@ -2,7 +2,8 @@
 
 import { useDisclosure } from "@jamsrui/hooks";
 import { ChevronUpIcon } from "@jamsrui/icons";
-import { Button, Menu } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Menu } from "jamsrui/menu";
 
 export const MenuControlled = () => {
   const { isOpen, onToggle, setIsOpen } = useDisclosure();

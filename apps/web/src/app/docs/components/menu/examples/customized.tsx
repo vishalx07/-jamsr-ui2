@@ -1,4 +1,5 @@
-import { Avatar, Menu } from "jamsrui";
+import { Avatar } from "jamsrui/avatar";
+import { Menu } from "jamsrui/menu";
 import { type Variants } from "motion/react";
 
 const motionVariants: Variants = {

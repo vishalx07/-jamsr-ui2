@@ -1,7 +1,8 @@
 "use client";
 
 import { PlusIcon } from "@jamsrui/icons";
-import { Checkbox, Label } from "jamsrui";
+import { Checkbox } from "jamsrui/checkbox";
+import { Label } from "jamsrui/label";
 
 export const CheckboxCustomIndicator = () => {
   return (

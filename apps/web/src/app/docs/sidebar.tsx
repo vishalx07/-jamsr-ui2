@@ -1,7 +1,9 @@
 "use client";
 
 import { AppLogo } from "@/components/app-logo";
-import { Chip, Sidebar, Text } from "jamsrui";
+import { Chip } from "jamsrui/chip";
+import { Sidebar } from "jamsrui/sidebar";
+import { Text } from "jamsrui/text";
 import { Route } from "next";
 import Link from "next/link";
 

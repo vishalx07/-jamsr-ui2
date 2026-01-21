@@ -1,4 +1,4 @@
-import { ScrollArea } from "jamsrui";
+import { ScrollArea } from "jamsrui/scroll-area";
 
 export default function ScrollbarUsage() {
   return (

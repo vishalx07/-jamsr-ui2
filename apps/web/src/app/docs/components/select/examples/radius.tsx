@@ -1,6 +1,7 @@
 "use client";
 
-import { Label, Select } from "jamsrui";
+import { Label } from "jamsrui/label";
+import { Select } from "jamsrui/select";
 
 export const SelectRadius = () => {
   const radii: Select.Props["radius"][] = [

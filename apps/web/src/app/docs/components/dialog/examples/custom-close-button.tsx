@@ -1,4 +1,6 @@
-import { Button, Dialog, Text } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Dialog } from "jamsrui/dialog";
+import { Text } from "jamsrui/text";
 
 export const DialogCustomCloseButton = () => {
   return (

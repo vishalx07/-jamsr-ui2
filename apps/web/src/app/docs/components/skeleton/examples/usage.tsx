@@ -1,4 +1,4 @@
-import { Skeleton } from "jamsrui";
+import { Skeleton } from "jamsrui/skeleton";
 
 export const SkeletonUsage = () => {
   return (

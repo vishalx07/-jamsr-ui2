@@ -1,4 +1,5 @@
-import { Button, Popover } from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Popover } from "jamsrui/popover";
 
 export const PopoverUsage = () => {
   return (

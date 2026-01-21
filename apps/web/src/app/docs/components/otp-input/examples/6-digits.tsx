@@ -1,4 +1,4 @@
-import { OtpInput } from "jamsrui";
+import { OtpInput } from "jamsrui/otp-input";
 
 export const OtpInput6Digits = () => {
   return (

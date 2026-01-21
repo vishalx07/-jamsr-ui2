@@ -1,4 +1,6 @@
-import { Description, Label, Switch } from "jamsrui";
+import { Description } from "jamsrui/description";
+import { Label } from "jamsrui/label";
+import { Switch } from "jamsrui/switch";
 
 export const SwitchDescription = () => {
   return (

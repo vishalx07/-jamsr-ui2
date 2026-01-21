@@ -1,5 +1,8 @@
 import { Icon } from "@iconify/react";
-import { Avatar, IconButton, Menu, Text } from "jamsrui";
+import { Avatar } from "jamsrui/avatar";
+import { IconButton } from "jamsrui/icon-button";
+import { Menu } from "jamsrui/menu";
+import { Text } from "jamsrui/text";
 
 const WorkspaceSwitcher = () => {
   return (

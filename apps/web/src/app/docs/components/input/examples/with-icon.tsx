@@ -1,5 +1,8 @@
 import { EmailIcon } from "@jamsrui/icons";
-import { Input, InputGroup, Label, TextField } from "jamsrui";
+import { Input } from "jamsrui/input";
+import { InputGroup } from "jamsrui/input-group";
+import { Label } from "jamsrui/label";
+import { TextField } from "jamsrui/textfield";
 
 export const InputWithIcon = () => {
   return (

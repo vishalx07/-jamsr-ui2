@@ -1,4 +1,4 @@
-import { LinearProgress } from "jamsrui";
+import { LinearProgress } from "jamsrui/linear-progress";
 
 export const LinearProgressUsage = () => {
   return (

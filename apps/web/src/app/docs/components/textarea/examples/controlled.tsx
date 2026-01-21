@@ -1,14 +1,12 @@
 "use client";
 
 import { CloseIcon } from "@jamsrui/icons";
-import {
-  Description,
-  IconButton,
-  Textarea,
-  InputGroup,
-  Label,
-  TextField,
-} from "jamsrui";
+import { Description } from "jamsrui/description";
+import { IconButton } from "jamsrui/icon-button";
+import { InputGroup } from "jamsrui/input-group";
+import { Label } from "jamsrui/label";
+import { Textarea } from "jamsrui/textarea";
+import { TextField } from "jamsrui/textfield";
 import { useState } from "react";
 
 export const TextareaControlled = () => {

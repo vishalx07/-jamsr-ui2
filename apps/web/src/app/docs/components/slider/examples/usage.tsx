@@ -1,8 +1,8 @@
 "use client";
 
-import { Slider } from "jamsrui";
+import { Slider } from "jamsrui/slider";
 // Importing from package directly to test package exports, checking if it works in monorepo setup?
-// Usually standard is import { Slider } from "jamsrui" or similar if integrated.
+// Usually standard is import { Slider } from "jamsrui/slider"; or similar if integrated.
 // But user requested usage in specific file.
 // Let's use @jamsrui/slider for now since I haven't updated jamsrui export yet.
 // Wait, one of the tasks was "Update src/index.ts" which I did for slider package.

@@ -1,6 +1,7 @@
 "use client";
 
-import { DateField, DateInput, DateSegment } from "jamsrui";
+import { DateField } from "jamsrui/date-field";
+import { DateInput, DateSegment } from "jamsrui/date-field";
 
 export const DateInputUsage = () => {
   return (
