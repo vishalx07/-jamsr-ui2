@@ -1,8 +1,7 @@
-import { groupDataFocusVisibleClasses, tv } from "@jamsrui/utils";
+import { groupDataFocusVisibleClasses } from "@jamsrui/utils";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const switchVariants = tv({
+export const switchStyles = tv({
   slots: {
     root: "group flex gap-2",
     track: [
@@ -67,5 +66,5 @@ export const switchVariants = tv({
   },
 });
 
-export type SwitchVariants = VariantProps<typeof switchVariants>;
-export type SwitchSlots = keyof ReturnType<typeof switchVariants>;
+export type SwitchVariants = VariantProps<typeof switchStyles>;
+export type SwitchSlots = keyof ReturnType<typeof switchStyles>;

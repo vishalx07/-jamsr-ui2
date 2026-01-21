@@ -21,7 +21,6 @@ import { RippleConfig } from '@jamsrui/ripple';
 import { SidebarConfig } from '@jamsrui/sidebar';
 import { SkeletonConfig } from '@jamsrui/skeleton';
 import { SliderConfig } from '@jamsrui/slider';
-import { SwitchConfig } from '@jamsrui/switch';
 import { TableConfig } from '@jamsrui/table';
 import { TabsConfig } from '@jamsrui/tabs';
 import { TagsInputConfig } from '@jamsrui/tags-input';
@@ -56,7 +55,6 @@ type Props = {
   sidebar?: SidebarConfig.Props;
   skeleton?: SkeletonConfig.Props;
   slider?: SliderConfig.Props;
-  switch?: SwitchConfig.Props;
   table?: TableConfig.Props;
   tabs?: TabsConfig.Props;
   tagsInput?: TagsInputConfig.Props;
@@ -93,7 +91,6 @@ export const JamsrUIConfig = (props: Props) => {
   <SidebarConfig {...props.sidebar}>
   <SkeletonConfig {...props.skeleton}>
   <SliderConfig {...props.slider}>
-  <SwitchConfig {...props.switch}>
   <TableConfig {...props.table}>
   <TabsConfig {...props.tabs}>
   <TagsInputConfig {...props.tagsInput}>
@@ -111,7 +108,6 @@ export const JamsrUIConfig = (props: Props) => {
   </TagsInputConfig>
   </TabsConfig>
   </TableConfig>
-  </SwitchConfig>
   </SliderConfig>
   </SkeletonConfig>
   </SidebarConfig>

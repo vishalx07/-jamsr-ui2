@@ -53,8 +53,7 @@ export { SkeletonConfig, skeletonVariants, useSkeleton, useSkeletonConfig, Skele
 export type { SkeletonSlots, SkeletonVariantProps } from '@jamsrui/skeleton';
 export { SliderControl, SliderTrack, SliderIndicator, SliderThumb, SliderValue, slider, useSliderContext, SliderConfig, useSliderConfig, Slider } from '@jamsrui/slider';
 export type { SliderSlots, SliderVariants } from '@jamsrui/slider';
-export { SwitchConfig, SwitchContent, SwitchContext, SwitchThumb, SwitchTrack, switchVariants, useSwitch, useSwitchConfig, useSwitchContext, Switch } from '@jamsrui/switch';
-export type { SwitchSlots, SwitchVariants } from '@jamsrui/switch';
+export { SwitchContent, SwitchContext, SwitchThumb, SwitchTrack, useSwitch, useSwitchContext, Switch } from '@jamsrui/switch';
 export { TableBody, TableCell, TableColumn, TableConfig, TableContext, TableFooter, TableHeader, TableRow, TableTable, TableWrapper, tableVariants, useTableConfig, useTableContext, Table } from '@jamsrui/table';
 export type { TableSlots, TableVariantProps } from '@jamsrui/table';
 export { Tab, TabIndicator, TabList, TabPanel, TabsConfig, TabsContext, tabsVariant, useTabsConfig, useTabsContext, Tabs } from '@jamsrui/tabs';
