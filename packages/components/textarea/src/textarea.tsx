@@ -4,7 +4,7 @@ import { useTextarea } from "./use-textarea";
 
 export const Textarea = (props: Textarea.Props) => {
   const { getTextareaProps } = useTextarea(props);
-  return <textarea {...getTextareaProps({})} />;
+  return <textarea {...getTextareaProps()} />;
 };
 
 export namespace Textarea {

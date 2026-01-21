@@ -1,18 +1,14 @@
 import {
-  Table as TableRoot,
   TableBody,
   TableCell,
   TableColumn,
   TableFooter,
   TableHeader,
+  Table as TableRoot,
   TableRow,
-  TableTable,
-  TableWrapper,
 } from "./table";
 
 export const Table = Object.assign(TableRoot, {
-  Wrapper: TableWrapper,
-  Table: TableTable,
   Header: TableHeader,
   Column: TableColumn,
   Body: TableBody,
@@ -28,6 +24,4 @@ export {
   TableFooter,
   TableHeader,
   TableRow,
-  TableTable,
-  TableWrapper,
 };

@@ -12,8 +12,8 @@ import { dataAttr, dataAttrDev } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import { InputGroupPrefix } from "./input-group-prefix";
-import { InputGroupRoot } from "./input-group-root";
+import type { InputGroupPrefix } from "./input-group-prefix";
+import type { InputGroupRoot } from "./input-group-root";
 import type { InputGroupSuffix } from "./input-group-suffix";
 
 export const useInputGroup = (props: useInputGroup.Props) => {
@@ -49,8 +49,8 @@ export const useInputGroup = (props: useInputGroup.Props) => {
     }
   };
 
-  const getRootProps: PropGetter<InputGroupRoot.Props> = useCallback(
-    (props) => ({
+  const getRootProps = useCallback(
+    (): InputGroupRoot.Props => ({
       "data-component": dataAttrDev("input-group"),
       "data-slot": dataAttrDev("root"),
       "data-focused": dataAttr(isFocused),
@@ -61,7 +61,7 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       onMouseDown: handleOnMouseDown,
       ...elementProps,
     }),
-    [isDisabled, isFocusVisible, isFocused, isHovered],
+    [elementProps, isDisabled, isFocusVisible, isFocused, isHovered],
   );
 
   const getPrefixProps: PropGetter<InputGroupPrefix.Props> = useCallback(

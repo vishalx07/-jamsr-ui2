@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
     typedEnv: true,
     optimizePackageImports: ["@jamsrui/react"],
   },
-  reactStrictMode: false,
 };
 
 export default nextConfig;

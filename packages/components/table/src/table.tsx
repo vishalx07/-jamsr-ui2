@@ -1,9 +1,7 @@
 "use client";
 
 import { TableContext } from "./table-context";
-import { TableRoot } from "./table-root";
 import { TableTable } from "./table-table";
-import { TableWrapper } from "./table-wrapper";
 import { useTable } from "./use-table";
 
 export const Table = (props: Table.Props) => {
@@ -11,11 +9,7 @@ export const Table = (props: Table.Props) => {
   const ctx = useTable(props);
   return (
     <TableContext value={ctx}>
-      <TableRoot>
-        <TableWrapper>
-          <TableTable>{children}</TableTable>
-        </TableWrapper>
-      </TableRoot>
+      <TableTable>{children}</TableTable>
     </TableContext>
   );
 };

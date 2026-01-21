@@ -1,16 +1,20 @@
 "use client";
 
 import { Table as TableUI } from "@jamsrui/react";
-import { createContext, useContext } from "react";
-import { tableStyles } from "./styles";
+import { createContext, use } from "react";
 import type { TableVariants } from "./styles";
+import { tableStyles } from "./styles";
 
-const TableStyleContext = createContext<{
+const TableContext = createContext<{
   styles: ReturnType<typeof tableStyles>;
 } | null>(null);
 
-const useTableStyleContext = () => {
-  return useContext(TableStyleContext) || { styles: tableStyles() };
+const useTableContext = () => {
+  const ctx = use(TableContext);
+  if (!ctx) {
+    throw new Error("useTableContext must be used within a TableContext");
+  }
+  return ctx;
 };
 
 export const Table = (props: Table.Props) => {
@@ -34,9 +38,9 @@ export const Table = (props: Table.Props) => {
   });
 
   return (
-    <TableStyleContext.Provider value={{ styles }}>
+    <TableContext value={{ styles }}>
       <TableUI {...restProps} className={styles.root({ className })} />
-    </TableStyleContext.Provider>
+    </TableContext>
   );
 };
 
@@ -44,28 +48,8 @@ export namespace Table {
   export interface Props extends TableUI.Props, TableVariants {}
 }
 
-export const TableWrapper = (props: TableUI.Wrapper) => {
-  const { styles } = useTableStyleContext();
-  return (
-    <TableUI.Wrapper
-      {...props}
-      className={styles.wrapper({ className: props.className })}
-    />
-  );
-};
-
-export const TableTable = (props: TableUI.Table) => {
-  const { styles } = useTableStyleContext();
-  return (
-    <TableUI.Table
-      {...props}
-      className={styles.table({ className: props.className })}
-    />
-  );
-};
-
 export const TableHeader = (props: TableUI.Header) => {
-  const { styles } = useTableStyleContext();
+  const { styles } = useTableContext();
   return (
     <TableUI.Header
       {...props}
@@ -75,7 +59,7 @@ export const TableHeader = (props: TableUI.Header) => {
 };
 
 export const TableColumn = (props: TableUI.Column) => {
-  const { styles } = useTableStyleContext();
+  const { styles } = useTableContext();
   return (
     <TableUI.Column
       {...props}
@@ -85,7 +69,7 @@ export const TableColumn = (props: TableUI.Column) => {
 };
 
 export const TableBody = (props: TableUI.Body) => {
-  const { styles } = useTableStyleContext();
+  const { styles } = useTableContext();
   return (
     <TableUI.Body
       {...props}
@@ -95,7 +79,7 @@ export const TableBody = (props: TableUI.Body) => {
 };
 
 export const TableRow = (props: TableUI.Row) => {
-  const { styles } = useTableStyleContext();
+  const { styles } = useTableContext();
   return (
     <TableUI.Row
       {...props}
@@ -105,7 +89,7 @@ export const TableRow = (props: TableUI.Row) => {
 };
 
 export const TableCell = (props: TableUI.Cell) => {
-  const { styles } = useTableStyleContext();
+  const { styles } = useTableContext();
   return (
     <TableUI.Cell
       {...props}
@@ -115,7 +99,7 @@ export const TableCell = (props: TableUI.Cell) => {
 };
 
 export const TableFooter = (props: TableUI.Footer) => {
-  const { styles } = useTableStyleContext();
+  const { styles } = useTableContext();
   return (
     <TableUI.Footer
       {...props}

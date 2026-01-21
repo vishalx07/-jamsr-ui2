@@ -5,7 +5,6 @@ import { Description } from "jamsrui/description";
 import { IconButton } from "jamsrui/icon-button";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
-import { Textarea } from "jamsrui/textarea";
 import { TextField } from "jamsrui/textfield";
 import { useState } from "react";
 
@@ -13,23 +12,22 @@ export const TextareaControlled = () => {
   const [value, setValue] = useState("");
   const onClear = () => setValue("");
   const hasValue = value.length > 0;
+  console.log("🚀 ~ value:->", value);
   return (
     <TextField className="max-w-62 w-full">
       <Label>Name</Label>
       <InputGroup>
-        <Textarea value={value} onValueChange={setValue} />
+        <InputGroup.Textarea value={value} onValueChange={setValue} />
         {hasValue && (
-          <InputGroup.Suffix>
-            <IconButton
-              variant="light"
-              radius="full"
-              size="sm"
-              label="Clear"
-              onClick={onClear}
-            >
-              <CloseIcon className="size-4 text-foreground-secondary" />
-            </IconButton>
-          </InputGroup.Suffix>
+          <IconButton
+            variant="light"
+            radius="full"
+            size="sm"
+            label="Clear"
+            onClick={onClear}
+          >
+            <CloseIcon className="size-4 text-foreground-secondary" />
+          </IconButton>
         )}
       </InputGroup>
       <Description>Your name is: {value}</Description>

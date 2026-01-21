@@ -1,7 +1,8 @@
 "use client";
 
 import { createContext, use } from "react";
-import { useInputGroup } from "./use-input-group";
+
+import type { useInputGroup } from "./use-input-group";
 
 export const InputGroupContext = createContext<InputGroupContext.Props | null>(
   null,

@@ -3,9 +3,7 @@ import { tv, type VariantProps } from "tailwind-variants";
 
 export const tableStyles = tv({
   slots: {
-    root: "relative flex flex-col gap-2 overflow-hidden",
-    wrapper: "grid w-full gap-2 overflow-x-auto",
-    table: "group/table w-full min-w-full",
+    root: "group/table w-full min-w-full rounded-2xl overflow-hidden",
     thead: "h-10 group/thead",
     th: [
       "h-10 grow items-center px-3 text-left text-sm font-normal",
@@ -24,7 +22,7 @@ export const tableStyles = tv({
     variant: {
       solid: {
         th: "bg-surface-secondary first:rounded-l-lg last:rounded-r-lg",
-        root: "rounded-2xl bg-surface p-4",
+        root: "bg-surface p-4",
       },
       bordered: {
         th: "border-b border-b-border-dark bg-surface-secondary text-foreground-secondary font-normal text-xs",
@@ -47,7 +45,7 @@ export const tableStyles = tv({
     isHeaderSticky: {
       true: {
         thead: "sticky top-0 z-10 [&>tr]:shadow-sm",
-        wrapper: "flex max-h-[400px] flex-col overflow-auto",
+        wrapper: "flex max-h-100 flex-col overflow-auto",
         th: " bg-surface-secondary/90 backdrop-blur-xl",
       },
     },

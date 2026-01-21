@@ -1,12 +1,11 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { useControlledState } from "@jamsrui/hooks";
-import { cn } from "@jamsrui/utils";
-
-import type { PropGetter, UIProps } from "@jamsrui/utils";
-
 import { useFieldA11yContext } from "@jamsrui/context";
+import { useControlledState } from "@jamsrui/hooks";
+import { mergeProps } from "@jamsrui/utils";
+
+import type { UIProps } from "@jamsrui/utils";
 
 export const useTextarea = (props: useTextarea.Props) => {
   const fieldA11yCtx = useFieldA11yContext();
@@ -15,7 +14,6 @@ export const useTextarea = (props: useTextarea.Props) => {
     value: valueProp,
     defaultValue,
     onValueChange,
-    className,
     ...elementProps
   } = props;
 
@@ -32,16 +30,14 @@ export const useTextarea = (props: useTextarea.Props) => {
     [setValue],
   );
 
-  const getTextareaProps: PropGetter<UIProps<"textarea">> = useCallback(
-    (props) => ({
+  const getTextareaProps = useCallback(
+    (): UIProps<"textarea"> => ({
       ...fieldA11yCtx?.getInputProps(),
       ...elementProps,
-      ...props,
-      className: cn(className, props?.className),
+      ...mergeProps(elementProps, { onChange: handleTextareaChange }),
       value,
-      onChange: handleTextareaChange,
     }),
-    [fieldA11yCtx, elementProps, className, value, handleTextareaChange],
+    [fieldA11yCtx, elementProps, value, handleTextareaChange],
   );
 
   return useMemo(
