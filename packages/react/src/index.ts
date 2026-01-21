@@ -40,8 +40,7 @@ export type { NumberFieldSlots, NumberFieldVariants } from '@jamsrui/number-fiel
 export { OtpInputConfig, OtpInputGroup, OtpInputSeparator, OtpInputSlot, otpInputVariants, useOtpInput, useOtpInputConfig, REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS, OtpInput } from '@jamsrui/otp-input';
 export type { OtpInputSlots, OtpInputVariants } from '@jamsrui/otp-input';
 export { Pagination, PaginationConfig, usePaginationConfig } from '@jamsrui/pagination';
-export { PopoverArrow, PopoverConfig, PopoverContent, PopoverContentWithDialog, PopoverContext, PopoverDialog, PopoverTrigger, popoverVariants, usePopover, usePopoverConfig, usePopoverContext, Popover } from '@jamsrui/popover';
-export type { PopoverSlots, PopoverVariants } from '@jamsrui/popover';
+export { PopoverArrow, PopoverContent, PopoverContentWithDialog, PopoverContext, PopoverDialog, PopoverTrigger, usePopover, usePopoverContext, Popover } from '@jamsrui/popover';
 export { RadioContent, RadioContext, RadioControl, RadioGroupConfig, RadioGroupContext, RadioIndicator, radioVariant, useRadio, useRadioContext, useRadioGroup, useRadioGroupConfig, useRadioGroupContext, RadioGroup, Radio } from '@jamsrui/radio';
 export type { RadioSlots, RadioVariants } from '@jamsrui/radio';
 export { Rating, RatingConfig, useRatingConfig } from '@jamsrui/rating';

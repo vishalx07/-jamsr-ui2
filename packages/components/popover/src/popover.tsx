@@ -1,21 +1,11 @@
 "use client";
 
-import { mergeConfigProps } from "@jamsrui/utils";
-
-import { usePopoverConfig } from "./popover-config";
 import { PopoverContext } from "./popover-context";
-import { popoverVariants } from "./styles";
 import { usePopover } from "./use-popover";
 
 export const Popover = (props: Popover.Props) => {
-  const config = usePopoverConfig();
-  const mergedProps = mergeConfigProps(
-    popoverVariants.defaultVariants,
-    config,
-    props,
-  );
-  const { children } = props;
-  const ctx = usePopover(mergedProps);
+  const { children, ...restProps } = props;
+  const ctx = usePopover(restProps);
   return <PopoverContext value={ctx}>{children}</PopoverContext>;
 };
 
