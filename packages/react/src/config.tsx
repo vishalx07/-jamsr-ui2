@@ -7,7 +7,6 @@ import { DataGridConfig } from '@jamsrui/data-grid';
 import { DateFieldConfig } from '@jamsrui/date-field';
 import { DatePickerConfig } from '@jamsrui/date-picker';
 import { DividerConfig } from '@jamsrui/divider';
-import { DrawerConfig } from '@jamsrui/drawer';
 import { EditorConfig } from '@jamsrui/editor';
 import { FileUploadConfig } from '@jamsrui/file-upload';
 import { HeaderConfig } from '@jamsrui/header';
@@ -48,7 +47,6 @@ type Props = {
   dateField?: DateFieldConfig.Props;
   datePicker?: DatePickerConfig.Props;
   divider?: DividerConfig.Props;
-  drawer?: DrawerConfig.Props;
   editor?: EditorConfig.Props;
   fileUpload?: FileUploadConfig.Props;
   header?: HeaderConfig.Props;
@@ -91,7 +89,6 @@ export const JamsrUIConfig = (props: Props) => {
   <DateFieldConfig {...props.dateField}>
   <DatePickerConfig {...props.datePicker}>
   <DividerConfig {...props.divider}>
-  <DrawerConfig {...props.drawer}>
   <EditorConfig {...props.editor}>
   <FileUploadConfig {...props.fileUpload}>
   <HeaderConfig {...props.header}>
@@ -149,7 +146,6 @@ export const JamsrUIConfig = (props: Props) => {
   </HeaderConfig>
   </FileUploadConfig>
   </EditorConfig>
-  </DrawerConfig>
   </DividerConfig>
   </DatePickerConfig>
   </DateFieldConfig>

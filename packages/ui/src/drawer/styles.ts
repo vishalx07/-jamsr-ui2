@@ -1,8 +1,6 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const drawerVariants = tv({
+export const drawerStyles = tv({
   slots: {
     backdrop: "z-backdrop !overflow-hidden",
     popover: "z-dialog",
@@ -83,7 +81,16 @@ export const drawerVariants = tv({
         backdrop: "bg-black/30 backdrop-blur-md backdrop-saturate-150",
       },
     },
-    radius: radiusVariant("content"),
+    radius: {
+      none: { content: "rounded-none" },
+      sm: { content: "rounded-sm" },
+      md: { content: "rounded-md" },
+      lg: { content: "rounded-lg" },
+      xl: { content: "rounded-xl" },
+      "2xl": { content: "rounded-2xl" },
+      "3xl": { content: "rounded-3xl" },
+      full: { content: "rounded-full" },
+    },
   },
   compoundVariants: [
     {
@@ -102,6 +109,3 @@ export const drawerVariants = tv({
     radius: "none",
   },
 });
-
-export type DrawerVariants = VariantProps<typeof drawerVariants>;
-export type DrawerSlots = keyof ReturnType<typeof drawerVariants>;

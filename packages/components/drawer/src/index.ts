@@ -2,7 +2,6 @@ import { Drawer as DrawerRoot } from "./drawer";
 import { DrawerBody } from "./drawer-body";
 import { DrawerCloseButton } from "./drawer-close-button";
 import { DrawerCloseTrigger } from "./drawer-close-trigger";
-import { DrawerConfig, useDrawerConfig } from "./drawer-config";
 import { DrawerContext, useDrawerContext } from "./drawer-context";
 import { DrawerContent } from "./drawer-content";
 import { DrawerFooter } from "./drawer-footer";
@@ -13,13 +12,11 @@ export {
   DrawerBody,
   DrawerCloseButton,
   DrawerCloseTrigger,
-  DrawerConfig,
   DrawerContext,
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
   DrawerTrigger,
-  useDrawerConfig,
   useDrawerContext,
 };
 
@@ -35,7 +32,6 @@ export const Drawer = Object.assign(DrawerRoot, {
 
 export namespace Drawer {
   export interface Props extends DrawerRoot.Props {}
-  export interface Config extends DrawerConfig.Props {}
   export interface Body extends DrawerBody.Props {}
   export interface CloseButton extends DrawerCloseButton.Props {}
   export interface CloseTrigger extends DrawerCloseTrigger.Props {}

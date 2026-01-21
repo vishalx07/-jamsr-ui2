@@ -22,7 +22,7 @@ export { DatePickerConfig, useDatePickerConfig, DatePicker } from '@jamsrui/date
 export { Description } from '@jamsrui/description';
 export { DialogBody, DialogCloseButton, DialogCloseTrigger, DialogContainer, DialogContainerWithContent, DialogContent, DialogContext, DialogFooter, DialogHeader, DialogTrigger, useDialogContext, Dialog } from '@jamsrui/dialog';
 export { Divider, DividerConfig, useDividerConfig } from '@jamsrui/divider';
-export { DrawerBody, DrawerCloseButton, DrawerCloseTrigger, DrawerConfig, DrawerContext, DrawerContent, DrawerFooter, DrawerHeader, DrawerTrigger, useDrawerConfig, useDrawerContext, Drawer } from '@jamsrui/drawer';
+export { DrawerBody, DrawerCloseButton, DrawerCloseTrigger, DrawerContext, DrawerContent, DrawerFooter, DrawerHeader, DrawerTrigger, useDrawerContext, Drawer } from '@jamsrui/drawer';
 export { Editor, EditorConfig, useEditorConfig } from '@jamsrui/editor';
 export { FieldError } from '@jamsrui/field-error';
 export { FileUploadConfig, useFileUploadConfig, useFileUpload, formatBytes, FileUpload } from '@jamsrui/file-upload';

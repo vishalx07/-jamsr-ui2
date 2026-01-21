@@ -1,39 +1,30 @@
-import { Button } from "jamsrui";
-import {
-  Drawer,
-  DrawerBody,
-  DrawerCloseTrigger,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTrigger,
-} from "jamsrui";
+import { Button, Drawer } from "jamsrui";
 
 export const DrawerUsage = () => {
   return (
     <Drawer>
-      <DrawerTrigger>
+      <Drawer.Trigger>
         <Button>Press Me!</Button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>Product Filter</DrawerHeader>
-        <DrawerBody>
+      </Drawer.Trigger>
+      <Drawer.Content>
+        <Drawer.Header>Product Filter</Drawer.Header>
+        <Drawer.Body>
           <p className="mb-4">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque
             laborum optio quo reiciendis odio facilis quos adipisci unde eum
             vero perspiciatis, minima iste doloribus voluptatibus officia dicta,
             maxime, placeat qui.
           </p>
-        </DrawerBody>
-        <DrawerFooter>
-          <DrawerCloseTrigger>
+        </Drawer.Body>
+        <Drawer.Footer>
+          <Drawer.CloseTrigger>
             <Button variant="light">Cancel</Button>
-          </DrawerCloseTrigger>
-          <DrawerCloseTrigger>
+          </Drawer.CloseTrigger>
+          <Drawer.CloseTrigger>
             <Button color="success">Apply</Button>
-          </DrawerCloseTrigger>
-        </DrawerFooter>
-      </DrawerContent>
+          </Drawer.CloseTrigger>
+        </Drawer.Footer>
+      </Drawer.Content>
     </Drawer>
   );
 };
