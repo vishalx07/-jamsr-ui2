@@ -5,14 +5,9 @@ import { type UIProps } from "@jamsrui/utils";
 import { useSliderContext } from "./slider-context";
 
 export const SliderIndicator = (props: SliderIndicator.Props) => {
-  const { render, children, className, ...restProps } = props;
+  const { render, children, ...restProps } = props;
   const { orientation, isDisabled, values, getPercentageForValue, min, max } =
     useSliderContext();
-
-  // Calculate style based on values
-  // If 1 value: 0% to value%
-  // If 2 values: value[0]% to value[1]%
-  // We assume sorted values in hook.
 
   let left = 0;
   let width = 0;

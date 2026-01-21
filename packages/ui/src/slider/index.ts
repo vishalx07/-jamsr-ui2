@@ -8,6 +8,7 @@ import {
 } from "./slider";
 
 export const Slider = Object.assign(SliderRoot, {
+  Root: SliderRoot,
   Control: SliderControl,
   Track: SliderTrack,
   Indicator: SliderIndicator,

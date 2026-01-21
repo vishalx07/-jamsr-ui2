@@ -10,7 +10,6 @@ const Root = (props: Slider.Props) => {
   const {
     render,
     children,
-    className,
     defaultValue,
     value,
     onChange,
@@ -41,7 +40,6 @@ const Root = (props: Slider.Props) => {
     props: {
       ...restProps,
       children,
-      className,
       "data-orientation": context.orientation,
       "data-disabled": context.isDisabled ? "" : undefined,
       render,

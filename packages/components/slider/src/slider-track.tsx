@@ -5,7 +5,7 @@ import { type UIProps } from "@jamsrui/utils";
 import { useSliderContext } from "./slider-context";
 
 export const SliderTrack = (props: SliderTrack.Props) => {
-  const { render, children, className, ...restProps } = props;
+  const { render, children, ...restProps } = props;
   const { orientation, isDisabled, onTrackPointerDown, trackRef } =
     useSliderContext();
 
@@ -13,7 +13,6 @@ export const SliderTrack = (props: SliderTrack.Props) => {
     props: {
       ...restProps,
       children,
-      className,
       onPointerDown: onTrackPointerDown,
       ref: trackRef,
       render,

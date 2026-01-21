@@ -6,7 +6,7 @@ import React, { useRef, useLayoutEffect } from "react";
 import { useSliderContext } from "./slider-context";
 
 export const SliderThumb = (props: SliderThumb.Props) => {
-  const { render, children, className, index = 0, ...restProps } = props;
+  const { render, children, index = 0, ...restProps } = props;
   const {
     orientation,
     isDisabled,
