@@ -31,7 +31,7 @@
     "@jamsrui/date-picker": "workspace:^",
     "@jamsrui/description": "workspace:^",
     "@jamsrui/dialog": "workspace:^",
-    "@jamsrui/divider": "workspace:^",
+    "@jamsrui/separator": "workspace:^",
     "@jamsrui/drawer": "workspace:^",
     "@jamsrui/editor": "workspace:^",
     "@jamsrui/field-error": "workspace:^",

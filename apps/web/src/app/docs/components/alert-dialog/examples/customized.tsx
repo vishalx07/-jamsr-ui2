@@ -1,6 +1,6 @@
 import { AlertDialog } from "jamsrui/alert-dialog";
 import { Button } from "jamsrui/button";
-import { Divider } from "jamsrui/divider";
+import { Separator } from "jamsrui/separator";
 
 export const AlertDialogCustomized = () => {
   return (
@@ -16,7 +16,7 @@ export const AlertDialogCustomized = () => {
             this!
           </AlertDialog.Description>
         </AlertDialog.Body>
-        <Divider />
+        <Separator />
         <AlertDialog.Footer className="p-0 gap-0 items-stretch">
           <AlertDialog.Cancel
             radius="none"
@@ -25,7 +25,7 @@ export const AlertDialogCustomized = () => {
           >
             Cancel
           </AlertDialog.Cancel>
-          <Divider orientation="vertical" />
+          <Separator orientation="vertical" />
           <AlertDialog.Action
             radius="none"
             className="w-full font-bold shrink focus-visible:-outline-offset-2 rounded-br-md"

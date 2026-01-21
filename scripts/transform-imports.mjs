@@ -31,7 +31,7 @@ const componentToSubpath = {
   DatePicker: "date-picker",
   Description: "description",
   Dialog: "dialog",
-  Divider: "divider",
+  Separator: "divider",
   Drawer: "drawer",
   Editor: "editor",
   FieldError: "field-error",

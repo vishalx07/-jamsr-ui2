@@ -24,7 +24,7 @@
     "./date-picker": "./src/date-picker/index.ts",
     "./description": "./src/description/index.ts",
     "./dialog": "./src/dialog/index.ts",
-    "./divider": "./src/divider/index.ts",
+    "./separator": "./src/separator/index.ts",
     "./drawer": "./src/drawer/index.ts",
     "./editor": "./src/editor/index.ts",
     "./field-error": "./src/field-error/index.ts",
@@ -69,6 +69,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.6.2",
   "dependencies": {
+    "@jamsrui/hooks": "workspace:^",
     "@jamsrui/icons": "workspace:^",
     "@jamsrui/react": "workspace:^",
     "@jamsrui/text": "workspace:^",

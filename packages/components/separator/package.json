@@ -1,5 +1,5 @@
 {
-  "name": "@jamsrui/divider",
+  "name": "@jamsrui/separator",
   "version": "0.0.20",
   "main": "./src/index.ts",
   "scripts": {

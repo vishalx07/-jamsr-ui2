@@ -27,7 +27,7 @@
     "@jamsrui/button": "workspace:^",
     "@jamsrui/checkbox": "workspace:^",
     "@jamsrui/core": "workspace:^",
-    "@jamsrui/divider": "workspace:^",
+    "@jamsrui/separator": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/icon-button": "workspace:^",
     "@jamsrui/icons": "workspace:^",
