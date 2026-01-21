@@ -30,9 +30,8 @@ import type {
 import type { PropGetter } from "@jamsrui/utils";
 import type { AnimatePresenceProps } from "motion/react";
 import type { ComponentProps } from "react";
-
-import type { PopoverContent } from "./popover-content";
-import { PopoverDialog } from "./popover-dialog";
+import { PopoverContainer } from "./popover-container";
+import { PopoverContent } from "./popover-content";
 
 export function getTransformOrigin(placement: Placement): string {
   const [side, align] = placement.split("-") as [Side, Alignment | undefined];
@@ -79,7 +78,6 @@ export const usePopover = (props: usePopover.Props) => {
     onOpenChange,
     placement = "top",
     triggerOn = "click",
-    overlayClassName,
   } = props;
 
   const [isOpen, setIsOpen] = useControlledState({
@@ -146,7 +144,7 @@ export const usePopover = (props: usePopover.Props) => {
     hover,
   ]);
 
-  const getContentProps: PropGetter<PopoverContent.Props> = useCallback(
+  const getContainerProps: PropGetter<PopoverContainer.Props> = useCallback(
     (props) => ({
       ...props,
       ref: refs.setFloating,
@@ -158,7 +156,7 @@ export const usePopover = (props: usePopover.Props) => {
     [floatingStyles, getFloatingProps, refs.setFloating],
   );
 
-  const getDialogProps: PropGetter<PopoverDialog.Props> = useCallback(
+  const getContentProps: PropGetter<PopoverContent.Props> = useCallback(
     (props) => ({
       initial: { opacity: 0, scale: 0.8 },
       animate: { opacity: 1, scale: 1, x: 0, y: 0 },
@@ -200,11 +198,13 @@ export const usePopover = (props: usePopover.Props) => {
   );
 
   const getOverlayProps = useCallback(
-    (): ComponentProps<typeof FloatingOverlay> => ({
+    (
+      props: ComponentProps<typeof FloatingOverlay>,
+    ): ComponentProps<typeof FloatingOverlay> => ({
       lockScroll,
-      className: overlayClassName,
+      ...props,
     }),
-    [lockScroll, overlayClassName],
+    [lockScroll],
   );
 
   const getAnimatePresenceProps = useCallback(
@@ -218,7 +218,6 @@ export const usePopover = (props: usePopover.Props) => {
 
   return useMemo(
     () => ({
-      getRootProps: getContentProps,
       getArrowProps,
       isOpen,
       getTriggerProps,
@@ -227,7 +226,7 @@ export const usePopover = (props: usePopover.Props) => {
       getContentProps,
       getOverlayProps,
       getAnimatePresenceProps,
-      getDialogProps,
+      getContainerProps,
       isDisabled,
       isAnimating,
     }),
@@ -238,10 +237,9 @@ export const usePopover = (props: usePopover.Props) => {
       getTriggerProps,
       getFloatingFocusManagerProps,
       showArrow,
-      getContentProps,
       getOverlayProps,
       getAnimatePresenceProps,
-      getDialogProps,
+      getContainerProps,
       isDisabled,
       isAnimating,
     ],
@@ -259,6 +257,5 @@ export namespace usePopover {
     triggerOn?: "click" | "hover";
     offset?: number;
     lockScroll?: boolean;
-    overlayClassName?: string;
   }
 }

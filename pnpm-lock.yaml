@@ -6,39 +6,9 @@ settings:
 
 catalogs:
   default:
-    '@floating-ui/react':
-      specifier: '>=0.27'
-      version: 0.27.16
-    '@tanstack/react-table':
-      specifier: '>=8'
-      version: 8.21.3
     '@types/node':
       specifier: 25.0.9
       version: 25.0.9
-    '@types/react':
-      specifier: '>=19'
-      version: 19.2.8
-    '@types/react-dom':
-      specifier: '>=19'
-      version: 19.1.1
-    motion:
-      specifier: '>=12'
-      version: 12.26.2
-    next:
-      specifier: '>=16'
-      version: 16.1.2
-    react:
-      specifier: '>=19'
-      version: 19.2.3
-    react-dom:
-      specifier: '>=19'
-      version: 19.2.3
-    tailwindcss:
-      specifier: ^4.1.4
-      version: 4.1.18
-    typescript:
-      specifier: 5.9.3
-      version: 5.9.3
 
 importers:
 
@@ -2243,6 +2213,211 @@ importers:
       react:
         specifier: 'catalog:'
         version: 19.2.3
+
+  scripts:
+    dependencies:
+      '@jamsrui/accordion':
+        specifier: workspace:^
+        version: link:../packages/components/accordion
+      '@jamsrui/alert':
+        specifier: workspace:^
+        version: link:../packages/components/alert
+      '@jamsrui/alert-dialog':
+        specifier: workspace:^
+        version: link:../packages/components/alert-dialog
+      '@jamsrui/autocomplete':
+        specifier: workspace:^
+        version: link:../packages/components/autocomplete
+      '@jamsrui/avatar':
+        specifier: workspace:^
+        version: link:../packages/components/avatar
+      '@jamsrui/breadcrumb':
+        specifier: workspace:^
+        version: link:../packages/components/breadcrumb
+      '@jamsrui/button':
+        specifier: workspace:^
+        version: link:../packages/components/button
+      '@jamsrui/card':
+        specifier: workspace:^
+        version: link:../packages/components/card
+      '@jamsrui/charts':
+        specifier: workspace:^
+        version: link:../packages/components/charts
+      '@jamsrui/checkbox':
+        specifier: workspace:^
+        version: link:../packages/components/checkbox
+      '@jamsrui/chip':
+        specifier: workspace:^
+        version: link:../packages/components/chip
+      '@jamsrui/circular-progress':
+        specifier: workspace:^
+        version: link:../packages/components/circular-progress
+      '@jamsrui/clipboard':
+        specifier: workspace:^
+        version: link:../packages/components/clipboard
+      '@jamsrui/collapsible':
+        specifier: workspace:^
+        version: link:../packages/components/collapsible
+      '@jamsrui/composite':
+        specifier: workspace:^
+        version: link:../packages/components/composite
+      '@jamsrui/context-menu':
+        specifier: workspace:^
+        version: link:../packages/components/context-menu
+      '@jamsrui/data-grid':
+        specifier: workspace:^
+        version: link:../packages/components/data-grid
+      '@jamsrui/date-field':
+        specifier: workspace:^
+        version: link:../packages/components/date-field
+      '@jamsrui/date-picker':
+        specifier: workspace:^
+        version: link:../packages/components/date-picker
+      '@jamsrui/description':
+        specifier: workspace:^
+        version: link:../packages/components/description
+      '@jamsrui/dialog':
+        specifier: workspace:^
+        version: link:../packages/components/dialog
+      '@jamsrui/drawer':
+        specifier: workspace:^
+        version: link:../packages/components/drawer
+      '@jamsrui/editor':
+        specifier: workspace:^
+        version: link:../packages/components/editor
+      '@jamsrui/field-error':
+        specifier: workspace:^
+        version: link:../packages/components/field-error
+      '@jamsrui/file-upload':
+        specifier: workspace:^
+        version: link:../packages/components/file-upload
+      '@jamsrui/header':
+        specifier: workspace:^
+        version: link:../packages/components/header
+      '@jamsrui/hooks':
+        specifier: workspace:^
+        version: link:../packages/hooks
+      '@jamsrui/icon-button':
+        specifier: workspace:^
+        version: link:../packages/components/icon-button
+      '@jamsrui/icons':
+        specifier: workspace:^
+        version: link:../packages/icons
+      '@jamsrui/input':
+        specifier: workspace:^
+        version: link:../packages/components/input
+      '@jamsrui/input-group':
+        specifier: workspace:^
+        version: link:../packages/components/input-group
+      '@jamsrui/kbd':
+        specifier: workspace:^
+        version: link:../packages/components/kbd
+      '@jamsrui/label':
+        specifier: workspace:^
+        version: link:../packages/components/label
+      '@jamsrui/linear-progress':
+        specifier: workspace:^
+        version: link:../packages/components/linear-progress
+      '@jamsrui/link':
+        specifier: workspace:^
+        version: link:../packages/components/link
+      '@jamsrui/menu':
+        specifier: workspace:^
+        version: link:../packages/components/menu
+      '@jamsrui/number-field':
+        specifier: workspace:^
+        version: link:../packages/components/number-field
+      '@jamsrui/otp-input':
+        specifier: workspace:^
+        version: link:../packages/components/otp-input
+      '@jamsrui/pagination':
+        specifier: workspace:^
+        version: link:../packages/components/pagination
+      '@jamsrui/popover':
+        specifier: workspace:^
+        version: link:../packages/components/popover
+      '@jamsrui/radio':
+        specifier: workspace:^
+        version: link:../packages/components/radio
+      '@jamsrui/rating':
+        specifier: workspace:^
+        version: link:../packages/components/rating
+      '@jamsrui/rhf':
+        specifier: workspace:^
+        version: link:../packages/components/rhf
+      '@jamsrui/ripple':
+        specifier: workspace:^
+        version: link:../packages/components/ripple
+      '@jamsrui/scroll-area':
+        specifier: workspace:^
+        version: link:../packages/components/scroll-area
+      '@jamsrui/select':
+        specifier: workspace:^
+        version: link:../packages/components/select
+      '@jamsrui/separator':
+        specifier: workspace:^
+        version: link:../packages/components/separator
+      '@jamsrui/sidebar':
+        specifier: workspace:^
+        version: link:../packages/components/sidebar
+      '@jamsrui/skeleton':
+        specifier: workspace:^
+        version: link:../packages/components/skeleton
+      '@jamsrui/slider':
+        specifier: workspace:^
+        version: link:../packages/components/slider
+      '@jamsrui/switch':
+        specifier: workspace:^
+        version: link:../packages/components/switch
+      '@jamsrui/table':
+        specifier: workspace:^
+        version: link:../packages/components/table
+      '@jamsrui/tabs':
+        specifier: workspace:^
+        version: link:../packages/components/tabs
+      '@jamsrui/tags-input':
+        specifier: workspace:^
+        version: link:../packages/components/tags-input
+      '@jamsrui/text':
+        specifier: workspace:^
+        version: link:../packages/components/text
+      '@jamsrui/textarea':
+        specifier: workspace:^
+        version: link:../packages/components/textarea
+      '@jamsrui/textfield':
+        specifier: workspace:^
+        version: link:../packages/components/textfield
+      '@jamsrui/theme':
+        specifier: workspace:^
+        version: link:../packages/theme
+      '@jamsrui/time-field':
+        specifier: workspace:^
+        version: link:../packages/components/time-field
+      '@jamsrui/toast':
+        specifier: workspace:^
+        version: link:../packages/components/toast
+      '@jamsrui/toggle':
+        specifier: workspace:^
+        version: link:../packages/components/toggle
+      '@jamsrui/tooltip':
+        specifier: workspace:^
+        version: link:../packages/components/tooltip
+      '@jamsrui/utils':
+        specifier: workspace:^
+        version: link:../packages/utils
+    devDependencies:
+      '@babel/parser':
+        specifier: ^7.28.6
+        version: 7.28.6
+      '@babel/traverse':
+        specifier: ^7.27.4
+        version: 7.28.6
+      '@types/babel__traverse':
+        specifier: ^7.20.7
+        version: 7.28.0
+      '@types/node':
+        specifier: 'catalog:'
+        version: 25.0.9
 
 packages:
 

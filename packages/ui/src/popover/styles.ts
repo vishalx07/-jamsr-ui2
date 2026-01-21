@@ -3,14 +3,14 @@ import { tv, type VariantProps } from "tailwind-variants";
 
 export const popoverStyles = tv({
   slots: {
-    content: "popover popover__content z-popover",
-    dialog:
+    container: "popover popover__content z-popover",
+    content:
       "popover__dialog bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-(--transform-origin)",
     arrow: "popover__arrow fill-background-secondary",
     backdrop: "popover__backdrop z-backdrop",
   },
   variants: {
-    radius: radiusVariant("dialog", "popover"),
+    radius: radiusVariant("content", "popover"),
     backdrop: {
       transparent: {
         backdrop: "popover--backdrop-transparent",

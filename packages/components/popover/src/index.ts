@@ -1,35 +1,26 @@
 import { Popover as PopoverRoot } from "./popover";
 import { PopoverArrow } from "./popover-arrow";
-import { PopoverContent, PopoverContentWithDialog } from "./popover-content";
-import { PopoverContext, usePopoverContext } from "./popover-context";
-import { PopoverDialog } from "./popover-dialog";
+import { PopoverBackdrop } from "./popover-backdrop";
+import { PopoverContainer } from "./popover-container";
+import { PopoverContent } from "./popover-content";
+import { PopoverPortal } from "./popover-portal";
 import { PopoverTrigger } from "./popover-trigger";
-import { usePopover } from "./use-popover";
-
-export {
-  PopoverArrow,
-  PopoverContent,
-  PopoverContentWithDialog,
-  PopoverContext,
-  PopoverDialog,
-  PopoverTrigger,
-  usePopover,
-  usePopoverContext,
-};
 
 export const Popover = Object.assign(PopoverRoot, {
-  Content: PopoverContentWithDialog,
-  ContentRoot: PopoverContent,
+  Content: PopoverContent,
   Trigger: PopoverTrigger,
-  Dialog: PopoverDialog,
   Arrow: PopoverArrow,
+  Portal: PopoverPortal,
+  Backdrop: PopoverBackdrop,
+  Container: PopoverContainer,
 });
 
 export namespace Popover {
   export interface Props extends PopoverRoot.Props {}
-  export interface Content extends PopoverContentWithDialog.Props {}
-  export interface ContentRoot extends PopoverContent.Props {}
+  export interface Content extends PopoverContent.Props {}
   export interface Trigger extends PopoverTrigger.Props {}
-  export interface Dialog extends PopoverDialog.Props {}
   export interface Arrow extends PopoverArrow.Props {}
+  export interface Portal extends PopoverPortal.Props {}
+  export interface Backdrop extends PopoverBackdrop.Props {}
+  export interface Container extends PopoverContainer.Props {}
 }
