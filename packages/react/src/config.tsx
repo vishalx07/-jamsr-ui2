@@ -3,7 +3,6 @@ import { BreadcrumbConfig } from '@jamsrui/breadcrumb';
 import { ChartsConfig } from '@jamsrui/charts';
 import { ClipboardConfig } from '@jamsrui/clipboard';
 import { CollapsibleConfig } from '@jamsrui/collapsible';
-import { ContextMenuConfig } from '@jamsrui/context-menu';
 import { DataGridConfig } from '@jamsrui/data-grid';
 import { DateFieldConfig } from '@jamsrui/date-field';
 import { DatePickerConfig } from '@jamsrui/date-picker';
@@ -46,7 +45,6 @@ type Props = {
   charts?: ChartsConfig.Props;
   clipboard?: ClipboardConfig.Props;
   collapsible?: CollapsibleConfig.Props;
-  contextMenu?: ContextMenuConfig.Props;
   dataGrid?: DataGridConfig.Props;
   dateField?: DateFieldConfig.Props;
   datePicker?: DatePickerConfig.Props;
@@ -91,7 +89,6 @@ export const JamsrUIConfig = (props: Props) => {
   <ChartsConfig {...props.charts}>
   <ClipboardConfig {...props.clipboard}>
   <CollapsibleConfig {...props.collapsible}>
-  <ContextMenuConfig {...props.contextMenu}>
   <DataGridConfig {...props.dataGrid}>
   <DateFieldConfig {...props.dateField}>
   <DatePickerConfig {...props.datePicker}>
@@ -161,7 +158,6 @@ export const JamsrUIConfig = (props: Props) => {
   </DatePickerConfig>
   </DateFieldConfig>
   </DataGridConfig>
-  </ContextMenuConfig>
   </CollapsibleConfig>
   </ClipboardConfig>
   </ChartsConfig>

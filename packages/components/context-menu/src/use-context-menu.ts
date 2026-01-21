@@ -21,10 +21,9 @@ import {
   useTypeahead,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import { dataAttrDev } from "@jamsrui/utils";
 
 import { useContextMenuFloatingContext } from "./context-menu-floating-context";
-import { contextMenuVariants } from "./styles";
 
 import type {
   FloatingFocusManagerProps,
@@ -37,19 +36,21 @@ import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { ContextMenuContent } from "./context-menu-content";
-import type { ContextMenuFloatingContext } from "./context-menu-floating-context";
 import type { ContextMenuItem } from "./context-menu-item";
 import type { ContextMenuItemInner } from "./context-menu-item-inner";
-import type { ContextMenuSlots, ContextMenuVariantProps } from "./styles";
+import type { ContextMenuFloatingContext } from "./context-menu-floating-context";
+
+type ContextMenuSlots =
+  | "arrow"
+  | "backdrop"
+  | "root"
+  | "content"
+  | "menuItem"
+  | "menuItemInner";
 
 export const useContextMenu = (props: useContextMenu.Props) => {
   const parentId = useFloatingParentNodeId();
   const isNested = parentId !== null;
-
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    contextMenuVariants.variantKeys,
-  );
 
   const {
     isOpen: isOpenProp,
@@ -63,7 +64,9 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     offset: offsetProp = 4,
     openDelay = 75,
     placement = "right-start",
-  } = $props;
+    className,
+    ...restProps
+  } = props;
 
   const tree = useFloatingTree();
   const nodeId = useFloatingNodeId();
@@ -152,7 +155,6 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     }
   }, [tree, isOpen, nodeId, parentId]);
 
-  const styles = contextMenuVariants(variantProps);
   const isActive = isOpen && hasFocusInside && isNested;
   const parentCtx = useContextMenuFloatingContext();
   const allowMouseUpCloseRef = useRef(false);
@@ -225,11 +227,9 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     (): FloatingOverlayProps & UIProps<"div"> => ({
       lockScroll,
       "data-slot": dataAttrDev("overlay"),
-      className: styles.backdrop({
-        className: classNames?.backdrop,
-      }),
+      className: classNames?.backdrop,
     }),
-    [classNames?.backdrop, lockScroll, styles],
+    [classNames?.backdrop, lockScroll],
   );
 
   const getFocusManagerProps = useCallback(
@@ -247,29 +247,19 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     () => ({
       "data-component": dataAttrDev("menu"),
       "data-slot": dataAttrDev("root"),
-      className: styles.root({
-        className: classNames?.root,
-      }),
+      className: classNames?.root,
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
     }),
-    [
-      classNames?.root,
-      floatingStyles,
-      getFloatingProps,
-      refs.setFloating,
-      styles,
-    ],
+    [classNames?.root, floatingStyles, getFloatingProps, refs.setFloating],
   );
 
   const getContentProps: PropGetter<ContextMenuContent.Props> = useCallback(
     () => ({
-      className: styles.content({
-        className: cn(classNames?.content),
-      }),
+      className: classNames?.content,
     }),
-    [classNames?.content, styles],
+    [classNames?.content],
   );
 
   const getNodeProps = useCallback(
@@ -300,13 +290,9 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("menu-item"),
-      className: styles.menuItem({
-        className: cn(classNames?.menuItem, props.className),
-        color: props.color,
-      }),
       role: "menuitem",
     }),
-    [classNames?.menuItem, styles],
+    [],
   );
 
   const getMenuItemInnerProps: PropGetter<ContextMenuItemInner.Props> =
@@ -314,11 +300,8 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       (props) => ({
         ...props,
         "data-slot": dataAttrDev("menu-item-inner"),
-        className: styles.menuItemInner({
-          className: cn(classNames?.menuItemInner, props.className),
-        }),
       }),
-      [classNames?.menuItemInner, styles],
+      [],
     );
 
   return useMemo(
@@ -353,7 +336,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
   );
 };
 export namespace useContextMenu {
-  export interface Props extends ContextMenuVariantProps {
+  export interface Props {
     classNames?: SlotsToClassNames<ContextMenuSlots>;
     isOpen?: boolean;
     defaultOpen?: boolean;
@@ -365,5 +348,6 @@ export namespace useContextMenu {
     lockScroll?: boolean;
     placement?: Placement;
     offset?: number;
+    className?: string;
   }
 }

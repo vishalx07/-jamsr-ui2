@@ -1,14 +1,12 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const contextMenuVariants = tv({
+export const contextMenuStyles = tv({
   slots: {
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
     root: "min-w-[150px] z-popover",
     content:
-      "relative z-popover box-border inline-flex  w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
+      "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
     menuItem: [
       "relative box-border flex size-full cursor-default select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:status-disabled",
       "ui-active:bg-surface-secondary",
@@ -16,7 +14,16 @@ export const contextMenuVariants = tv({
     menuItemInner: "grow",
   },
   variants: {
-    radius: radiusVariant(["content", "menuItem"]),
+    radius: {
+      none: { content: "rounded-none", menuItem: "rounded-none" },
+      sm: { content: "rounded-sm", menuItem: "rounded-sm" },
+      md: { content: "rounded-md", menuItem: "rounded-md" },
+      lg: { content: "rounded-lg", menuItem: "rounded-lg" },
+      xl: { content: "rounded-xl", menuItem: "rounded-xl" },
+      "2xl": { content: "rounded-2xl", menuItem: "rounded-2xl" },
+      "3xl": { content: "rounded-3xl", menuItem: "rounded-3xl" },
+      full: { content: "rounded-full", menuItem: "rounded-full" },
+    },
     backdrop: {
       transparent: {
         backdrop: "",
@@ -55,6 +62,3 @@ export const contextMenuVariants = tv({
     color: "default",
   },
 });
-
-export type ContextMenuVariantProps = VariantProps<typeof contextMenuVariants>;
-export type ContextMenuSlots = keyof ReturnType<typeof contextMenuVariants>;
