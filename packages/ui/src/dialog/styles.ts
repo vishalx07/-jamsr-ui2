@@ -1,8 +1,6 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const dialogVariants = tv({
+export const dialogStyles = tv({
   slots: {
     backdrop: "z-backdrop grid place-items-center",
     header: "p-4 text-base font-bold",
@@ -14,7 +12,16 @@ export const dialogVariants = tv({
     closeButton: "absolute right-2 top-2 z-10",
   },
   variants: {
-    radius: radiusVariant("content"),
+    radius: {
+      none: { content: "rounded-none" },
+      sm: { content: "rounded-sm" },
+      md: { content: "rounded-md" },
+      lg: { content: "rounded-lg" },
+      xl: { content: "rounded-xl" },
+      "2xl": { content: "rounded-2xl" },
+      "3xl": { content: "rounded-3xl" },
+      full: { content: "rounded-full" },
+    },
     fullWidth: {
       true: {
         container: "m-0 h-dvh max-w-full rounded-none! sm:m-0",
@@ -51,6 +58,3 @@ export const dialogVariants = tv({
     radius: "md",
   },
 });
-
-export type DialogVariants = VariantProps<typeof dialogVariants>;
-export type DialogSlots = keyof ReturnType<typeof dialogVariants>;

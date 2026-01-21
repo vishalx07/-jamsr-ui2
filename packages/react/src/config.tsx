@@ -6,7 +6,6 @@ import { CollapsibleConfig } from '@jamsrui/collapsible';
 import { DataGridConfig } from '@jamsrui/data-grid';
 import { DateFieldConfig } from '@jamsrui/date-field';
 import { DatePickerConfig } from '@jamsrui/date-picker';
-import { DialogConfig } from '@jamsrui/dialog';
 import { DividerConfig } from '@jamsrui/divider';
 import { DrawerConfig } from '@jamsrui/drawer';
 import { EditorConfig } from '@jamsrui/editor';
@@ -48,7 +47,6 @@ type Props = {
   dataGrid?: DataGridConfig.Props;
   dateField?: DateFieldConfig.Props;
   datePicker?: DatePickerConfig.Props;
-  dialog?: DialogConfig.Props;
   divider?: DividerConfig.Props;
   drawer?: DrawerConfig.Props;
   editor?: EditorConfig.Props;
@@ -92,7 +90,6 @@ export const JamsrUIConfig = (props: Props) => {
   <DataGridConfig {...props.dataGrid}>
   <DateFieldConfig {...props.dateField}>
   <DatePickerConfig {...props.datePicker}>
-  <DialogConfig {...props.dialog}>
   <DividerConfig {...props.divider}>
   <DrawerConfig {...props.drawer}>
   <EditorConfig {...props.editor}>
@@ -154,7 +151,6 @@ export const JamsrUIConfig = (props: Props) => {
   </EditorConfig>
   </DrawerConfig>
   </DividerConfig>
-  </DialogConfig>
   </DatePickerConfig>
   </DateFieldConfig>
   </DataGridConfig>

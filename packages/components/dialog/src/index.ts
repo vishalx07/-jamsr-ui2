@@ -2,7 +2,6 @@ import { Dialog as DialogRoot } from "./dialog";
 import { DialogBody } from "./dialog-body";
 import { DialogCloseButton } from "./dialog-close-button";
 import { DialogCloseTrigger } from "./dialog-close-trigger";
-import { DialogConfig, useDialogConfig } from "./dialog-config";
 import {
   DialogContainer,
   DialogContainerWithContent,
@@ -17,7 +16,6 @@ export {
   DialogBody,
   DialogCloseButton,
   DialogCloseTrigger,
-  DialogConfig,
   DialogContainer,
   DialogContainerWithContent,
   DialogContent,
@@ -25,7 +23,6 @@ export {
   DialogFooter,
   DialogHeader,
   DialogTrigger,
-  useDialogConfig,
   useDialogContext,
 };
 
@@ -50,5 +47,4 @@ export namespace Dialog {
   export interface CloseTrigger extends DialogCloseTrigger.Props {}
   export interface Container extends DialogContainer.Props {}
   export interface Content extends DialogContainerWithContent.Props {}
-  export interface Config extends DialogConfig.Props {}
 }

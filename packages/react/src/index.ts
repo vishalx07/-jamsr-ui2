@@ -20,7 +20,7 @@ export { DateFieldRoot, DateFieldConfig, DateFieldSeparator, DateInput, DateSegm
 export type { DateFieldSlots, DateFieldVariants } from '@jamsrui/date-field';
 export { DatePickerConfig, useDatePickerConfig, DatePicker } from '@jamsrui/date-picker';
 export { Description } from '@jamsrui/description';
-export { DialogBody, DialogCloseButton, DialogCloseTrigger, DialogConfig, DialogContainer, DialogContainerWithContent, DialogContent, DialogContext, DialogFooter, DialogHeader, DialogTrigger, useDialogConfig, useDialogContext, Dialog } from '@jamsrui/dialog';
+export { DialogBody, DialogCloseButton, DialogCloseTrigger, DialogContainer, DialogContainerWithContent, DialogContent, DialogContext, DialogFooter, DialogHeader, DialogTrigger, useDialogContext, Dialog } from '@jamsrui/dialog';
 export { Divider, DividerConfig, useDividerConfig } from '@jamsrui/divider';
 export { DrawerBody, DrawerCloseButton, DrawerCloseTrigger, DrawerConfig, DrawerContext, DrawerContent, DrawerFooter, DrawerHeader, DrawerTrigger, useDrawerConfig, useDrawerContext, Drawer } from '@jamsrui/drawer';
 export { Editor, EditorConfig, useEditorConfig } from '@jamsrui/editor';
