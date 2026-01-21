@@ -2,7 +2,7 @@
 
 import { Checkbox as CheckboxUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { cn, VariantProps } from "tailwind-variants";
+import { VariantProps } from "tailwind-variants";
 import { checkboxStyles } from "./styles";
 
 type CheckboxVariants = VariantProps<typeof checkboxStyles>;
@@ -10,6 +10,7 @@ type CheckboxVariants = VariantProps<typeof checkboxStyles>;
 const CheckboxContext = createContext<{
   styles: ReturnType<typeof checkboxStyles>;
 } | null>(null);
+
 const useCheckboxContext = () => {
   const ctx = use(CheckboxContext);
   if (!ctx) {
@@ -23,9 +24,9 @@ export const Checkbox = (props: Checkbox.Props) => {
   const styles = checkboxStyles({ size, radius, isInvalid });
   const value = useMemo(() => ({ styles }), [styles]);
   return (
-    <CheckboxContext.Provider value={value}>
-      <CheckboxUI {...restProps} className={cn(styles.root(), className)} />
-    </CheckboxContext.Provider>
+    <CheckboxContext value={value}>
+      <CheckboxUI {...restProps} className={styles.root({ className })} />
+    </CheckboxContext>
   );
 };
 
@@ -43,7 +44,7 @@ export const CheckboxControl = (props: CheckboxUI.Control) => {
   return (
     <CheckboxUI.Control
       {...restProps}
-      className={cn(styles.control(), className)}
+      className={styles.control({ className })}
     >
       <CheckboxUI.Input className={styles.input()} />
       {children}
@@ -56,7 +57,7 @@ export const CheckboxIndicator = (props: CheckboxUI.Indicator) => {
   return (
     <CheckboxUI.Indicator
       {...props}
-      className={cn(styles.indicator(), props.className)}
+      className={styles.indicator({ className: props.className })}
     />
   );
 };
@@ -66,7 +67,7 @@ export const CheckboxContent = (props: CheckboxUI.Content) => {
   return (
     <CheckboxUI.Content
       {...props}
-      className={cn(styles.content(), props.className)}
+      className={styles.content({ className: props.className })}
     />
   );
 };

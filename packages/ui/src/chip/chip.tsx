@@ -1,8 +1,23 @@
+"use client";
+
 import { Chip as ChipUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { createContext, use, useMemo } from "react";
+import { VariantProps } from "tailwind-variants";
 import { chipStyles } from "./styles";
 
 type ChipVariants = VariantProps<typeof chipStyles>;
+
+const ChipContext = createContext<{
+  styles: ReturnType<typeof chipStyles>;
+} | null>(null);
+
+const useChipContext = () => {
+  const ctx = use(ChipContext);
+  if (!ctx) {
+    throw new Error("useChipContext must be used within a ChipContext");
+  }
+  return ctx;
+};
 
 export const Chip = (props: Chip.Props) => {
   const {
@@ -23,7 +38,12 @@ export const Chip = (props: Chip.Props) => {
     isBordered,
     radius,
   });
-  return <ChipUI {...restProps} className={cn(styles.root(), className)} />;
+  const value = useMemo(() => ({ styles }), [styles]);
+  return (
+    <ChipContext value={value}>
+      <ChipUI {...restProps} className={styles.root({ className })} />
+    </ChipContext>
+  );
 };
 
 export namespace Chip {
@@ -31,8 +51,11 @@ export namespace Chip {
 }
 
 export const ChipDot = (props: ChipUI.Dot) => {
-  const styles = chipStyles();
+  const { styles } = useChipContext();
   return (
-    <ChipUI.Dot {...props} className={cn(styles.dot(), props.className)} />
+    <ChipUI.Dot
+      {...props}
+      className={styles.dot({ className: props.className })}
+    />
   );
 };
