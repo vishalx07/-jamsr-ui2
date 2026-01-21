@@ -3,26 +3,13 @@
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useSwitchContext } from "./switch-context";
-import { SwitchInput } from "./switch-input";
-import { SwitchThumb } from "./switch-thumb";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const SwitchTrack = (props: SwitchTrack.Props) => {
-  const { children = <SwitchThumb />, ...restProps } = props;
   const { getTrackProps } = useSwitchContext();
   const renderElement = useRenderElement("div", {
-    props: [
-      getTrackProps(restProps),
-      {
-        children: (
-          <>
-            {children}
-            <SwitchInput />
-          </>
-        ),
-      },
-    ],
+    props: [getTrackProps(props)],
   });
   return renderElement;
 };

@@ -1,26 +1,29 @@
 "use client";
 
 import { Switch as SwitchUI } from "@jamsrui/react";
-import { createContext, useContext } from "react";
-import { switchStyles } from "./styles";
+import { createContext, use } from "react";
 import type { SwitchVariants } from "./styles";
+import { switchStyles } from "./styles";
 
-const SwitchStyleContext = createContext<{
+const SwitchContext = createContext<{
   styles: ReturnType<typeof switchStyles>;
 } | null>(null);
 
-const useSwitchStyleContext = () => {
-  return useContext(SwitchStyleContext) || { styles: switchStyles() };
+const useSwitchContext = () => {
+  const ctx = use(SwitchContext);
+  if (!ctx) {
+    throw new Error("useSwitchContext must be used within a SwitchContext");
+  }
+  return ctx;
 };
 
 export const Switch = (props: Switch.Props) => {
   const { color, size, isInvalid, className, ...restProps } = props;
   const styles = switchStyles({ color, size, isInvalid });
-
   return (
-    <SwitchStyleContext.Provider value={{ styles }}>
+    <SwitchContext value={{ styles }}>
       <SwitchUI {...restProps} className={styles.root({ className })} />
-    </SwitchStyleContext.Provider>
+    </SwitchContext>
   );
 };
 
@@ -29,17 +32,18 @@ export namespace Switch {
 }
 
 export const SwitchTrack = (props: SwitchUI.Track) => {
-  const { styles } = useSwitchStyleContext();
+  const { styles } = useSwitchContext();
+  const { className, children = <SwitchThumb />, ...restProps } = props;
   return (
-    <SwitchUI.Track
-      {...props}
-      className={styles.track({ className: props.className })}
-    />
+    <SwitchUI.Track {...restProps} className={styles.track({ className })}>
+      <SwitchUI.Input className={styles.input()} />
+      {children}
+    </SwitchUI.Track>
   );
 };
 
 export const SwitchThumb = (props: SwitchUI.Thumb) => {
-  const { styles } = useSwitchStyleContext();
+  const { styles } = useSwitchContext();
   return (
     <SwitchUI.Thumb
       {...props}
@@ -49,7 +53,7 @@ export const SwitchThumb = (props: SwitchUI.Thumb) => {
 };
 
 export const SwitchContent = (props: SwitchUI.Content) => {
-  const { styles } = useSwitchStyleContext();
+  const { styles } = useSwitchContext();
   return (
     <SwitchUI.Content
       {...props}

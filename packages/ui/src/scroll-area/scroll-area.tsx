@@ -1,11 +1,10 @@
 import {
-  ScrollArea as ScrollAreaUI,
-  ScrollAreaViewport as ScrollAreaViewportUI,
+  ScrollAreaCorner as ScrollAreaCornerUI,
   ScrollAreaScrollbar as ScrollAreaScrollbarUI,
   ScrollAreaThumb as ScrollAreaThumbUI,
-  ScrollAreaCorner as ScrollAreaCornerUI,
+  ScrollArea as ScrollAreaUI,
+  ScrollAreaViewport as ScrollAreaViewportUI,
 } from "@jamsrui/react";
-import { cn } from "tailwind-variants";
 import { scrollAreaStyles } from "./styles";
 
 const styles = scrollAreaStyles();
@@ -15,7 +14,7 @@ export const ScrollAreaViewport = (props: ScrollAreaViewportUI.Props) => {
   return (
     <ScrollAreaViewportUI
       {...rest}
-      className={cn(styles.viewport(), className)}
+      className={styles.viewport({ className })}
     />
   );
 };
@@ -26,7 +25,7 @@ export const ScrollAreaScrollbar = (props: ScrollAreaScrollbarUI.Props) => {
     <ScrollAreaScrollbarUI
       {...rest}
       orientation={orientation}
-      className={cn(scrollAreaStyles({ orientation }).scrollbar(), className)}
+      className={styles.scrollbar({ className })}
     />
   );
 };
@@ -34,20 +33,20 @@ export const ScrollAreaScrollbar = (props: ScrollAreaScrollbarUI.Props) => {
 export const ScrollAreaThumb = (props: ScrollAreaThumbUI.Props) => {
   const { className, ...rest } = props;
   return (
-    <ScrollAreaThumbUI {...rest} className={cn(styles.thumb(), className)} />
+    <ScrollAreaThumbUI {...rest} className={styles.thumb({ className })} />
   );
 };
 
 export const ScrollAreaCorner = (props: ScrollAreaCornerUI.Props) => {
   const { className, ...rest } = props;
   return (
-    <ScrollAreaCornerUI {...rest} className={cn(styles.corner(), className)} />
+    <ScrollAreaCornerUI {...rest} className={styles.corner({ className })} />
   );
 };
 
 export const ScrollArea = (props: ScrollArea.Props) => {
   const { className, ...rest } = props;
-  return <ScrollAreaUI {...rest} className={cn(styles.root(), className)} />;
+  return <ScrollAreaUI {...rest} className={styles.root({ className })} />;
 };
 
 export namespace ScrollArea {

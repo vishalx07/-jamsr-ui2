@@ -1,23 +1,14 @@
 import { Switch as SwitchRoot } from "./switch";
 import { SwitchContent } from "./switch-content";
-import { SwitchContext, useSwitchContext } from "./switch-context";
+import { SwitchInput } from "./switch-input";
 import { SwitchThumb } from "./switch-thumb";
 import { SwitchTrack } from "./switch-track";
-import { useSwitch } from "./use-switch";
-
-export {
-  SwitchContent,
-  SwitchContext,
-  SwitchThumb,
-  SwitchTrack,
-  useSwitch,
-  useSwitchContext,
-};
 
 export const Switch = Object.assign(SwitchRoot, {
   Content: SwitchContent,
   Track: SwitchTrack,
   Thumb: SwitchThumb,
+  Input: SwitchInput,
 });
 
 export namespace Switch {
