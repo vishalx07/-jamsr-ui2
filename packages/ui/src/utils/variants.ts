@@ -114,7 +114,7 @@ export const variantStyles = tv({
     },
     variant: {
       solid: "",
-      bordered: "",
+      bordered: "border",
       light: "",
       text: "",
       soft: "",

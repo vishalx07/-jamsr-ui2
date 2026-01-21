@@ -1,4 +1,3 @@
-import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
 import { TextField } from "jamsrui/textfield";
@@ -10,13 +9,13 @@ export const InputPrefixSuffix = () => {
         <Label>Amount</Label>
         <InputGroup variant="solid">
           <InputGroup.Prefix>$</InputGroup.Prefix>
-          <Input />
+          <InputGroup.Input />
         </InputGroup>
       </TextField>
       <TextField>
         <Label>Discount</Label>
         <InputGroup variant="solid">
-          <Input />
+          <InputGroup.Input />
           <InputGroup.Suffix>%</InputGroup.Suffix>
         </InputGroup>
       </TextField>
@@ -24,7 +23,7 @@ export const InputPrefixSuffix = () => {
         <Label>Website</Label>
         <InputGroup variant="solid">
           <InputGroup.Prefix>https://</InputGroup.Prefix>
-          <Input />
+          <InputGroup.Input />
           <InputGroup.Suffix>.com</InputGroup.Suffix>
         </InputGroup>
       </TextField>

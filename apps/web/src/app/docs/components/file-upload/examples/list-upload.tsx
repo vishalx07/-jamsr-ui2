@@ -84,7 +84,7 @@ export const FileUploadListUpload = () => {
                 </div>
                 <IconButton
                   label="Remove"
-                  size="xs"
+                  size="sm"
                   radius="full"
                   onClick={() => removeFile(file.id)}
                   className="ml-auto"

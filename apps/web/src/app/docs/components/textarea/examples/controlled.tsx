@@ -23,7 +23,7 @@ export const TextareaControlled = () => {
             <IconButton
               variant="light"
               radius="full"
-              size="xs"
+              size="sm"
               label="Clear"
               onClick={onClear}
             >

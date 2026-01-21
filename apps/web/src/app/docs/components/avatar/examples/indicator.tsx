@@ -65,7 +65,7 @@ export const AvatarIndicatorExample = () => {
         />
         <Avatar.Fallback />
         <Avatar.Indicator>
-          <Avatar size="xs" isBordered color="warning">
+          <Avatar size="sm" isBordered color="warning">
             <Avatar.Image
               alt="John"
               src={`https://avatar.iran.liara.run/public/girl?username=Jamsr`}

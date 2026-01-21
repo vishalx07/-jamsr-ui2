@@ -1,22 +1,41 @@
-import { tv, type VariantProps } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 export const inputGroupStyles = tv({
   slots: {
-    root: "flex items-stretch",
-    addon: [
-      "flex items-center justify-center",
-      "px-3",
-      "bg-surface-secondary border border-border",
-      "text-sm text-foreground-secondary",
-      "first:rounded-l-md first:border-r-0",
-      "last:rounded-r-md last:border-l-0",
+    root: [
+      "input-group flex items-center group overflow-hidden",
+      "rounded-md uig-disabled:status-disabled",
+      "not-uig-invalid:uig-focus:border-primary uig-focus:ring-primary",
+      "not-uig-invalid:uig-hover:border-border-dark",
     ],
-    input: [
-      "flex-1",
-      "[&:not(:first-child):not(:last-child)]:rounded-none",
-      "first:rounded-l-md last:rounded-r-md",
-    ],
+    prefix: "input__prefix pl-3 text-sm text-foreground-secondary select-none",
+    suffix: "input__suffix pr-3 text-sm text-foreground-secondary select-none",
+  },
+  variants: {
+    variant: {
+      bordered: {
+        root: [
+          "border border-border focus-within:not-group-data-invalid:border-focus",
+          "group-data-invalid:border-danger",
+        ],
+      },
+      solid: {
+        root: "bg-surface hover:bg-surface/90",
+      },
+    },
+  },
+  defaultVariants: {
+    radius: "md",
+    variant: "bordered",
   },
 });
 
-export type InputGroupVariants = VariantProps<typeof inputGroupStyles>;
+export const inputGroupInputStyles = tv({
+  base: "input-group__input w-full px-3 py-2 text-sm placeholder:text-sm focus:outline-none",
+  variants: {
+    variant: {
+      bordered: "",
+      solid: "bg-surface hover:bg-surface/90",
+    },
+  },
+});

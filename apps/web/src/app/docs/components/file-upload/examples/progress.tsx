@@ -145,7 +145,7 @@ export const FileUploadUsage = () => {
                 </div>
                 <IconButton
                   label="Remove"
-                  size="xs"
+                  size="sm"
                   radius="full"
                   className="absolute -top-2 -right-2 hidden group-hover:flex"
                   onClick={() => removeFile(file.id)}

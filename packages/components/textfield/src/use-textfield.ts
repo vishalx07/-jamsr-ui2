@@ -7,12 +7,7 @@ import { dataAttr, type PropGetter } from "@jamsrui/utils";
 import type { TextfieldRoot } from "./textfield-root";
 
 export const useTextField = (props: useTextField.Props) => {
-  const {
-    className,
-    disabled: isDisabled = false,
-    isInvalid,
-    ...restProps
-  } = props;
+  const { disabled: isDisabled = false, isInvalid, ...restProps } = props;
 
   const getRootProps: PropGetter<TextfieldRoot.Props> = useCallback(
     () => ({
@@ -21,6 +16,7 @@ export const useTextField = (props: useTextField.Props) => {
       "aria-disabled": dataAttr(isDisabled),
       "data-invalid": dataAttr(isInvalid),
       "aria-invalid": dataAttr(isInvalid),
+      "data-slot": "textfield",
       ...restProps,
     }),
     [isDisabled, isInvalid, restProps],

@@ -17,8 +17,7 @@ import { InputGroupRoot } from "./input-group-root";
 import type { InputGroupSuffix } from "./input-group-suffix";
 
 export const useInputGroup = (props: useInputGroup.Props) => {
-  const { ref, className, ...elementProps } = props;
-
+  const { ref, ...elementProps } = props;
   const isDisabled = false;
 
   const { isFocused, ref: focusRef } = useFocus<HTMLInputElement>({
