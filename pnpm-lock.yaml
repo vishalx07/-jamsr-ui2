@@ -416,9 +416,6 @@ importers:
       '@jamsrui/icons':
         specifier: workspace:^
         version: link:../../icons
-      '@jamsrui/slot':
-        specifier: workspace:^
-        version: link:../slot
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -538,9 +535,6 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
-      '@jamsrui/slot':
-        specifier: workspace:^
-        version: link:../slot
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -1603,9 +1597,6 @@ importers:
       '@jamsrui/hooks':
         specifier: workspace:^
         version: link:../../hooks
-      '@jamsrui/slot':
-        specifier: workspace:^
-        version: link:../slot
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -2205,6 +2196,9 @@ importers:
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../utils
+      motion:
+        specifier: 'catalog:'
+        version: 12.26.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       tailwind-variants:
         specifier: ^3.2.2
         version: 3.2.2(tailwind-merge@3.4.0)(tailwindcss@4.1.18)

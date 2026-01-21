@@ -3,7 +3,6 @@ import { useFieldA11yContext } from "@jamsrui/context";
 import { useMergeRefs } from "@jamsrui/hooks";
 
 import type { UIProps } from "@jamsrui/utils";
-import { descriptionVariants } from "./styles";
 
 export const useDescription = (
   props: useDescription.Props,
@@ -14,7 +13,7 @@ export const useDescription = (
 
   return {
     ref: mergedRef,
-    className: descriptionVariants({ className }),
+    className,
     ...fieldAllyCtx?.getDescriptionProps(),
     ...restProps,
   };

@@ -1,1 +1,1 @@
-export { FieldError } from "@jamsrui/react";
+export { FieldError } from "./field-error";

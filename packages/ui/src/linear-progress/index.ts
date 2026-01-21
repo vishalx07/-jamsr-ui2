@@ -1,1 +1,1 @@
-export { LinearProgress } from "@jamsrui/react";
+export { LinearProgress } from "./linear-progress";

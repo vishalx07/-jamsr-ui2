@@ -1,1 +1,1 @@
-export { Skeleton } from "@jamsrui/react";
+export { Skeleton } from "./skeleton";

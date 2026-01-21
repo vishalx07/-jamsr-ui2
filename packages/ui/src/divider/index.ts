@@ -1,1 +1,1 @@
-export { Divider } from "@jamsrui/react";
+export { Divider } from "./divider";

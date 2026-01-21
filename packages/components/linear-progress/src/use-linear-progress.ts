@@ -1,24 +1,19 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
+import { dataAttrDev } from "@jamsrui/utils";
 
-import { linearProgressVariants } from "./styles";
-
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { LinearProgress } from "./linear-progress";
 import type { LinearProgressBar } from "./linear-progress-bar";
-import type { LinearProgressSlots, LinearProgressVariantProps } from "./styles";
 
 export const useLinearProgress = (props: useLinearProgress.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    linearProgressVariants.variantKeys,
-  );
-  const styles = linearProgressVariants(variantProps);
-  const { progress: progressProp = 0, classNames, ...elementProps } = $props;
-  const isIntermediate = variantProps.isIntermediate ?? true;
+  const {
+    progress: progressProp = 0,
+    isIntermediate = true,
+    ...elementProps
+  } = props;
 
   const progress = isIntermediate
     ? progressProp || 50
@@ -28,19 +23,13 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
     () => ({
       "data-slot": dataAttrDev("root"),
       ...elementProps,
-      className: styles.track({
-        className: cn(classNames?.track, elementProps.className),
-      }),
     }),
-    [classNames?.track, elementProps, styles],
+    [elementProps],
   );
 
   const getBarProps: PropGetter<LinearProgressBar.Props> = useCallback(
     () => ({
       "data-slot": dataAttrDev("bar"),
-      className: styles.bar({
-        className: cn(classNames?.bar, elementProps.className),
-      }),
       initial: {
         width: isIntermediate ? `${progress}%` : 0,
       },
@@ -48,7 +37,7 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
         width: `${progress}%`,
       },
     }),
-    [classNames?.bar, elementProps.className, isIntermediate, progress, styles],
+    [isIntermediate, progress],
   );
 
   return useMemo(
@@ -61,8 +50,7 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
 };
 
 export namespace useLinearProgress {
-  export interface Props extends UIProps<"div">, LinearProgressVariantProps {
-    classNames?: SlotsToClassNames<LinearProgressSlots>;
+  export interface Props extends UIProps<"div"> {
     progress?: number;
     isIntermediate?: boolean;
   }

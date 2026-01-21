@@ -72,6 +72,7 @@
     "@jamsrui/react": "workspace:^",
     "@jamsrui/text": "workspace:^",
     "@jamsrui/utils": "workspace:^",
+    "motion": "catalog:",
     "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {

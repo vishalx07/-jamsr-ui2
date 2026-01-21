@@ -1,8 +1,8 @@
-import { tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
+import type { VariantProps } from "tailwind-variants";
 
-export const skeletonVariants = tv({
+export const skeletonStyles = tv({
   slots: {
     root: [
       "group",
@@ -50,8 +50,9 @@ export const skeletonVariants = tv({
       },
     },
   },
-  defaultVariants: {},
+  defaultVariants: {
+    disableAnimation: false,
+  },
 });
 
-export type SkeletonVariantProps = VariantProps<typeof skeletonVariants>;
-export type SkeletonSlots = keyof ReturnType<typeof skeletonVariants>;
+export type SkeletonVariants = VariantProps<typeof skeletonStyles>;

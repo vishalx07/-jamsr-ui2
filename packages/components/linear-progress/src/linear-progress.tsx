@@ -1,21 +1,12 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeConfigProps } from "@jamsrui/utils";
 
 import { LinearProgressBar } from "./linear-progress-bar";
-import { useLinearProgressConfig } from "./linear-progress-config";
 import { LinearProgressContext } from "./linear-progress-context";
-import { linearProgressVariants } from "./styles";
 import { useLinearProgress } from "./use-linear-progress";
 
 export const LinearProgress = (props: LinearProgress.Props) => {
-  const config = useLinearProgressConfig();
-  const mergedProps = mergeConfigProps(
-    linearProgressVariants.defaultVariants,
-    config,
-    props,
-  );
-  const ctx = useLinearProgress(mergedProps);
+  const ctx = useLinearProgress(props);
   const { getRootProps } = ctx;
   const composedChildren = (
     <>

@@ -1,1 +1,1 @@
-export { Description } from "@jamsrui/react";
+export { Description } from "./description";

@@ -1,1 +1,1 @@
-export { Label } from "@jamsrui/react";
+export { Label } from "./label";

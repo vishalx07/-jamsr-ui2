@@ -1,8 +1,8 @@
-import { tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
+import type { VariantProps } from "tailwind-variants";
 
-export const linearProgressVariants = tv({
+export const linearProgressStyles = tv({
   slots: {
     track: "w-full relative overflow-hidden rounded-full",
     bar: "rounded-full absolute",
@@ -37,11 +37,11 @@ export const linearProgressVariants = tv({
       },
       md: {
         track: "h-1.5",
-        bar: "h-1.5 ",
+        bar: "h-1.5",
       },
       lg: {
         track: "h-2",
-        bar: "h-2 ",
+        bar: "h-2",
       },
     },
     isIntermediate: {
@@ -57,9 +57,4 @@ export const linearProgressVariants = tv({
   },
 });
 
-export type LinearProgressVariantProps = VariantProps<
-  typeof linearProgressVariants
->;
-export type LinearProgressSlots = keyof ReturnType<
-  typeof linearProgressVariants
->;
+export type LinearProgressVariants = VariantProps<typeof linearProgressStyles>;

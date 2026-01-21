@@ -1,8 +1,8 @@
-import { tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
+import type { VariantProps } from "tailwind-variants";
 
-export const dividerVariants = tv({
+export const dividerStyles = tv({
   slots: {
     root: "flex items-center gap-2",
     divider: "",
@@ -45,9 +45,7 @@ export const dividerVariants = tv({
   defaultVariants: {
     variant: "default",
     orientation: "horizontal",
-    color: "default",
   },
 });
 
-export type DividerVariants = VariantProps<typeof dividerVariants>;
-export type DividerSlots = keyof ReturnType<typeof dividerVariants>;
+export type DividerVariants = VariantProps<typeof dividerStyles>;

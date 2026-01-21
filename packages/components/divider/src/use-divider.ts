@@ -1,22 +1,14 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
-
-import { dividerVariants } from "./styles";
+import { dataAttrDev } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Divider } from "./divider";
-import type { DividerVariants } from "./styles";
 
 export const useDivider = (props: useDivider.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    dividerVariants.variantKeys,
-  );
-  const styles = dividerVariants(variantProps);
-  const { ...elementProps } = $props;
+  const { ...elementProps } = props;
 
   const getRootProps: PropGetter<Divider.Props> = useCallback(
     () => ({
@@ -44,5 +36,5 @@ export const useDivider = (props: useDivider.Props) => {
   );
 };
 export namespace useDivider {
-  export interface Props extends UIProps<"div">, DividerVariants {}
+  export interface Props extends UIProps<"div"> {}
 }
