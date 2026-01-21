@@ -1,6 +1,7 @@
 import { TooltipGroup, Tooltip as TooltipRoot } from "./tooltip";
 import { TooltipArrow } from "./tooltip-arrow";
 import { TooltipContent } from "./tooltip-content";
+import { TooltipPortal } from "./tooltip-portal";
 import { TooltipTrigger } from "./tooltip-trigger";
 
 export { TooltipArrow, TooltipContent, TooltipGroup, TooltipTrigger };
@@ -9,6 +10,7 @@ export const Tooltip = Object.assign(TooltipRoot, {
   Trigger: TooltipTrigger,
   Content: TooltipContent,
   Arrow: TooltipArrow,
+  Portal: TooltipPortal,
 });
 
 export namespace Tooltip {

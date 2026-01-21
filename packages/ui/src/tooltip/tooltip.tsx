@@ -1,9 +1,9 @@
 "use client";
 
 import { Tooltip as TooltipUI } from "@jamsrui/react";
-import { createContext, useContext } from "react";
-import { tooltipStyles } from "./styles";
+import { createContext, useContext, useMemo } from "react";
 import type { TooltipVariants } from "./styles";
+import { tooltipStyles } from "./styles";
 
 const TooltipStyleContext = createContext<{
   styles: ReturnType<typeof tooltipStyles>;
@@ -14,11 +14,11 @@ const useTooltipStyleContext = () => {
 };
 
 export const Tooltip = (props: Tooltip.Props) => {
-  const { radius, className, ...restProps } = props;
+  const { radius, ...restProps } = props;
   const styles = tooltipStyles({ radius });
-
+  const value = useMemo(() => ({ styles }), [styles]);
   return (
-    <TooltipStyleContext.Provider value={{ styles }}>
+    <TooltipStyleContext.Provider value={value}>
       <TooltipUI {...restProps} />
     </TooltipStyleContext.Provider>
   );
@@ -35,10 +35,12 @@ export const TooltipTrigger = (props: TooltipUI.Trigger) => {
 export const TooltipContent = (props: TooltipUI.Content) => {
   const { styles } = useTooltipStyleContext();
   return (
-    <TooltipUI.Content
-      {...props}
-      className={styles.content({ className: props.className })}
-    />
+    <TooltipUI.Portal>
+      <TooltipUI.Content
+        {...props}
+        className={styles.content({ className: props.className })}
+      />
+    </TooltipUI.Portal>
   );
 };
 

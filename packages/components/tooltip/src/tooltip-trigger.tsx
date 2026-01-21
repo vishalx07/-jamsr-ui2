@@ -8,7 +8,10 @@ export const TooltipTrigger = (props: TooltipTrigger.Props) => {
   const { children } = props;
   const { getTriggerProps, isDisabled } = useTooltipContext();
   if (isDisabled) return children;
-  const triggerChildren = cloneElement(children, getTriggerProps());
+  const triggerChildren = cloneElement(
+    children,
+    getTriggerProps(children.props as any),
+  );
   return <>{triggerChildren}</>;
 };
 

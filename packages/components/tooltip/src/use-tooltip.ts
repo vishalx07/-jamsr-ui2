@@ -20,7 +20,7 @@ import { useControlledState } from "@jamsrui/hooks";
 
 import type { Delay, FloatingArrowProps, Placement } from "@floating-ui/react";
 import type { PropGetter } from "@jamsrui/utils";
-import type { PropsWithChildren } from "react";
+import type { ComponentProps, PropsWithChildren } from "react";
 
 import type { TooltipContent } from "./tooltip-content";
 
@@ -118,7 +118,8 @@ export const useTooltip = (props: useTooltip.Props) => {
   );
 
   const getTriggerProps = useCallback(
-    () => ({
+    (props: ComponentProps<"button">) => ({
+      ...props,
       ...getReferenceProps({
         ref: refs.setReference,
       }),

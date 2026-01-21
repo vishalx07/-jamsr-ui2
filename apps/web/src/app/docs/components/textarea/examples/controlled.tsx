@@ -12,7 +12,6 @@ export const TextareaControlled = () => {
   const [value, setValue] = useState("");
   const onClear = () => setValue("");
   const hasValue = value.length > 0;
-  console.log("🚀 ~ value:->", value);
   return (
     <TextField className="max-w-62 w-full">
       <Label>Name</Label>
