@@ -34,7 +34,7 @@ export { Kbd, KbdConfig, useKbdConfig } from '@jamsrui/kbd';
 export { Label } from '@jamsrui/label';
 export { LinearProgress, LinearProgressConfig, useLinearProgressConfig } from '@jamsrui/linear-progress';
 export { Link, LinkConfig, useLinkConfig } from '@jamsrui/link';
-export { MenuArrow, MenuCheckboxItem, MenuConfig, MenuContainer, MenuContainerWithContent, MenuContent, MenuGroup, MenuGroupLabel, MenuItem, MenuItemIndicator, MenuRadioGroup, MenuRadioItem, MenuSeparator, MenuTrigger, SubmenuIndicator, useMenuConfig, Menu } from '@jamsrui/menu';
+export { MenuArrow, MenuCheckboxItem, MenuContainer, MenuContainerWithContent, MenuContent, MenuGroup, MenuGroupLabel, MenuItem, MenuItemIndicator, MenuRadioGroup, MenuRadioItem, MenuSeparator, MenuTrigger, SubmenuIndicator, Menu } from '@jamsrui/menu';
 export { NumberFieldConfig, NumberFieldDecrement, NumberFieldGroup, NumberFieldIncrement, NumberFieldInput, numberFieldVariants, useNumberField, useNumberFieldConfig, NumberField } from '@jamsrui/number-field';
 export type { NumberFieldSlots, NumberFieldVariants } from '@jamsrui/number-field';
 export { OtpInputConfig, OtpInputGroup, OtpInputSeparator, OtpInputSlot, otpInputVariants, useOtpInput, useOtpInputConfig, REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS, OtpInput } from '@jamsrui/otp-input';

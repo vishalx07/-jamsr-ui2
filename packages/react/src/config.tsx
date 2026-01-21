@@ -14,7 +14,6 @@ import { IconButtonConfig } from '@jamsrui/icon-button';
 import { KbdConfig } from '@jamsrui/kbd';
 import { LinearProgressConfig } from '@jamsrui/linear-progress';
 import { LinkConfig } from '@jamsrui/link';
-import { MenuConfig } from '@jamsrui/menu';
 import { NumberFieldConfig } from '@jamsrui/number-field';
 import { OtpInputConfig } from '@jamsrui/otp-input';
 import { PaginationConfig } from '@jamsrui/pagination';
@@ -54,7 +53,6 @@ type Props = {
   kbd?: KbdConfig.Props;
   linearProgress?: LinearProgressConfig.Props;
   link?: LinkConfig.Props;
-  menu?: MenuConfig.Props;
   numberField?: NumberFieldConfig.Props;
   otpInput?: OtpInputConfig.Props;
   pagination?: PaginationConfig.Props;
@@ -96,7 +94,6 @@ export const JamsrUIConfig = (props: Props) => {
   <KbdConfig {...props.kbd}>
   <LinearProgressConfig {...props.linearProgress}>
   <LinkConfig {...props.link}>
-  <MenuConfig {...props.menu}>
   <NumberFieldConfig {...props.numberField}>
   <OtpInputConfig {...props.otpInput}>
   <PaginationConfig {...props.pagination}>
@@ -138,7 +135,6 @@ export const JamsrUIConfig = (props: Props) => {
   </PaginationConfig>
   </OtpInputConfig>
   </NumberFieldConfig>
-  </MenuConfig>
   </LinkConfig>
   </LinearProgressConfig>
   </KbdConfig>

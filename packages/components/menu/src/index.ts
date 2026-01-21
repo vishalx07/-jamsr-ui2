@@ -1,7 +1,6 @@
 import { Menu as MenuRoot } from "./menu";
 import { MenuArrow } from "./menu-arrow";
 import { MenuCheckboxItem } from "./menu-checkbox-item";
-import { MenuConfig, useMenuConfig } from "./menu-config";
 import { MenuContainer, MenuContainerWithContent } from "./menu-container";
 import { MenuContent } from "./menu-content";
 import { MenuGroup } from "./menu-group";
@@ -17,7 +16,6 @@ import { MenuTrigger } from "./menu-trigger";
 export {
   MenuArrow,
   MenuCheckboxItem,
-  MenuConfig,
   MenuContainer,
   MenuContainerWithContent,
   MenuContent,
@@ -30,7 +28,6 @@ export {
   MenuSeparator,
   MenuTrigger,
   SubmenuIndicator,
-  useMenuConfig,
 };
 
 export const Menu = Object.assign(MenuRoot, {
@@ -52,7 +49,6 @@ export const Menu = Object.assign(MenuRoot, {
 
 export namespace Menu {
   export interface Props extends MenuRoot.Props {}
-  export interface Config extends MenuConfig.Props {}
   export interface CheckboxItem extends MenuCheckboxItem.Props {}
   export interface RadioItem extends MenuRadioItem.Props {}
   export interface RadioGroup extends MenuRadioGroup.Props {}

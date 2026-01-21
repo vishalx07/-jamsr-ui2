@@ -1,8 +1,6 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
+import { tv } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const menuVariants = tv({
+export const menuStyles = tv({
   slots: {
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
@@ -21,7 +19,16 @@ export const menuVariants = tv({
     menuItemIndicator: "size-4",
   },
   variants: {
-    radius: radiusVariant(["content", "menuItem"]),
+    radius: {
+      none: { content: "rounded-none", menuItem: "rounded-none" },
+      sm: { content: "rounded-sm", menuItem: "rounded-sm" },
+      md: { content: "rounded-md", menuItem: "rounded-md" },
+      lg: { content: "rounded-lg", menuItem: "rounded-lg" },
+      xl: { content: "rounded-xl", menuItem: "rounded-xl" },
+      "2xl": { content: "rounded-2xl", menuItem: "rounded-2xl" },
+      "3xl": { content: "rounded-3xl", menuItem: "rounded-3xl" },
+      full: { content: "rounded-full", menuItem: "rounded-full" },
+    },
     backdrop: {
       transparent: {
         backdrop: "",
@@ -60,6 +67,3 @@ export const menuVariants = tv({
     color: "default",
   },
 });
-
-export type MenuVariantProps = VariantProps<typeof menuVariants>;
-export type MenuSlots = keyof ReturnType<typeof menuVariants>;

@@ -1,4 +1,4 @@
-Now go with input
+Now go with link
 
 - implement [component-name] in ui package like others alert, accordion, button etc....
 - create [component-name] folder and [component-name].tsx styles.ts index.ts like others
