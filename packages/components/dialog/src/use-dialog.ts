@@ -142,8 +142,11 @@ export const useDialog = (props: useDialog.Props) => {
   );
 
   const getOverlayProps = useCallback(
-    (): ComponentProps<typeof FloatingOverlay> => ({
+    (
+      props: ComponentProps<typeof FloatingOverlay>,
+    ): ComponentProps<typeof FloatingOverlay> => ({
       lockScroll: true,
+      ...props,
     }),
     [],
   );

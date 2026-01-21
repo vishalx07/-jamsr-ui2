@@ -7,7 +7,7 @@ type CardVariants = VariantProps<typeof cardStyles>;
 export const Card = (props: Card.Props) => {
   const { bg, isBordered, isElevated, radius, className, ...restProps } = props;
   const styles = cardStyles({ bg, isBordered, isElevated, radius });
-  return <CardUI {...restProps} className={cn(styles.root(), className)} />;
+  return <CardUI {...restProps} className={styles.root({ className })} />;
 };
 
 export namespace Card {
@@ -19,7 +19,7 @@ export const CardHeader = (props: CardUI.Header) => {
   return (
     <CardUI.Header
       {...props}
-      className={cn(styles.header(), props.className)}
+      className={styles.header({ className: props.className })}
     />
   );
 };
@@ -27,7 +27,10 @@ export const CardHeader = (props: CardUI.Header) => {
 export const CardTitle = (props: CardUI.Title) => {
   const styles = cardStyles();
   return (
-    <CardUI.Title {...props} className={cn(styles.title(), props.className)} />
+    <CardUI.Title
+      {...props}
+      className={styles.title({ className: props.className })}
+    />
   );
 };
 
@@ -36,7 +39,7 @@ export const CardDescription = (props: CardUI.Description) => {
   return (
     <CardUI.Description
       {...props}
-      className={cn(styles.description(), props.className)}
+      className={styles.description({ className: props.className })}
     />
   );
 };
@@ -46,7 +49,7 @@ export const CardContent = (props: CardUI.Content) => {
   return (
     <CardUI.Content
       {...props}
-      className={cn(styles.content(), props.className)}
+      className={styles.content({ className: props.className })}
     />
   );
 };
@@ -56,7 +59,7 @@ export const CardFooter = (props: CardUI.Footer) => {
   return (
     <CardUI.Footer
       {...props}
-      className={cn(styles.footer(), props.className)}
+      className={styles.footer({ className: props.className })}
     />
   );
 };
