@@ -3,14 +3,10 @@
 import { useRenderElement } from "@jamsrui/hooks";
 import { type UIProps } from "@jamsrui/utils";
 import { useSliderContext } from "./slider-context";
-import { slider } from "./styles";
 
 export const SliderValue = (props: SliderValue.Props) => {
   const { render, children, className, ...restProps } = props;
   const { values, orientation, isDisabled } = useSliderContext();
-  const { value } = slider({ orientation, isDisabled });
-  const styles = value({ className });
-
   // What to display?
   // Usually usage is `<Slider.Value>{(vals) => vals.join(' - ')}</Slider.Value>`?
   // OR just defaults to displaying values?
@@ -38,7 +34,6 @@ export const SliderValue = (props: SliderValue.Props) => {
     props: {
       ...restProps,
       children: content,
-      className: styles,
       render,
     },
   });

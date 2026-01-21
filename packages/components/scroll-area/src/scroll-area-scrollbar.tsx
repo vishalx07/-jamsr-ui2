@@ -5,7 +5,6 @@ import { createContext, useContext } from "react";
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useScrollAreaContext } from "./scroll-area-context";
-import { scrollAreaVariants } from "./styles";
 
 import type { UIProps } from "@jamsrui/utils";
 
@@ -37,9 +36,6 @@ export const ScrollAreaScrollbar = (props: ScrollAreaScrollbar.Props) => {
   const { scrollbarXRef, scrollbarYRef, hasScrollX, hasScrollY } =
     useScrollAreaContext();
 
-  const { scrollbar } = scrollAreaVariants();
-  const styles = scrollbar({ className, orientation });
-
   const ref = orientation === "vertical" ? scrollbarYRef : scrollbarXRef;
 
   const renderElement = useRenderElement("div", {
@@ -47,7 +43,6 @@ export const ScrollAreaScrollbar = (props: ScrollAreaScrollbar.Props) => {
       "data-orientation": orientation,
       ...restProps,
       children,
-      className: styles,
       ref,
       render,
     },

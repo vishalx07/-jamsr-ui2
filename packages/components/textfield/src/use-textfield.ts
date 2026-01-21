@@ -4,7 +4,6 @@ import { useCallback, useMemo } from "react";
 
 import { dataAttr, type PropGetter } from "@jamsrui/utils";
 
-import { textFieldVariants } from "./styles";
 import type { TextfieldRoot } from "./textfield-root";
 
 export const useTextField = (props: useTextField.Props) => {
@@ -14,11 +13,9 @@ export const useTextField = (props: useTextField.Props) => {
     isInvalid,
     ...restProps
   } = props;
-  const styles = textFieldVariants({ className });
 
   const getRootProps: PropGetter<TextfieldRoot.Props> = useCallback(
     () => ({
-      className: styles,
       disabled: isDisabled,
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
@@ -26,7 +23,7 @@ export const useTextField = (props: useTextField.Props) => {
       "aria-invalid": dataAttr(isInvalid),
       ...restProps,
     }),
-    [styles, isDisabled, isInvalid, restProps],
+    [isDisabled, isInvalid, restProps],
   );
 
   return useMemo(() => {
