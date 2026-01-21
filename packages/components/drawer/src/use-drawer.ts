@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useMemo } from "react";
+import { ComponentProps, useCallback, useMemo } from "react";
 
 import {
   useClick,
@@ -9,16 +9,16 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { dataAttrDev } from "@jamsrui/utils";
 
 import type {
   FloatingFocusManagerProps,
+  FloatingOverlay,
   FloatingOverlayProps,
 } from "@floating-ui/react";
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { DrawerBody } from "./drawer-body";
-import type { DrawerCloseButton } from "./drawer-close-button";
 import type { DrawerContent } from "./drawer-content";
 import type { DrawerFooter } from "./drawer-footer";
 import type { DrawerHeader } from "./drawer-header";
@@ -122,7 +122,7 @@ export const useDrawer = (props: useDrawer.Props) => {
           type: "spring",
           stiffness: 120,
           damping: 20,
-          mass: 0.8,
+          mass: 0.2,
         },
       },
       exit: {
@@ -139,21 +139,13 @@ export const useDrawer = (props: useDrawer.Props) => {
     [],
   );
 
-  const getCloseButtonProps: PropGetter<DrawerCloseButton.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": dataAttrDev("closeButton"),
-      radius: "full",
-      size: "sm",
-      onClick: handleTriggerClose,
-    }),
-    [handleTriggerClose],
-  );
-
   const getBackdropProps = useCallback(
-    (): FloatingOverlayProps & UIProps<"div"> => ({
+    (
+      props: ComponentProps<typeof FloatingOverlay>,
+    ): FloatingOverlayProps & UIProps<"div"> => ({
       lockScroll: true,
       "data-slot": dataAttrDev("backdrop"),
+      ...props,
     }),
     [],
   );
@@ -188,7 +180,6 @@ export const useDrawer = (props: useDrawer.Props) => {
       getFooterProps,
       getBodyProps,
       getContentProps,
-      getCloseButtonProps,
       getBackdropProps,
       getFocusManagerProps,
       getTriggerProps,
@@ -203,7 +194,6 @@ export const useDrawer = (props: useDrawer.Props) => {
       getFooterProps,
       getBodyProps,
       getContentProps,
-      getCloseButtonProps,
       getBackdropProps,
       getFocusManagerProps,
       getTriggerProps,

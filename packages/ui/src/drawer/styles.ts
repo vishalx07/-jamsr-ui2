@@ -2,7 +2,7 @@ import { tv } from "tailwind-variants";
 
 export const drawerStyles = tv({
   slots: {
-    backdrop: "z-backdrop !overflow-hidden",
+    backdrop: "z-backdrop overflow-hidden!",
     popover: "z-dialog",
     content:
       "absolute flex w-full flex-col overflow-y-auto bg-surface shadow-sm",
@@ -55,13 +55,13 @@ export const drawerStyles = tv({
         content: "max-w-5xl",
       },
       full: {
-        content: "m-0 h-dvh max-w-full !rounded-none sm:m-0",
+        content: "m-0 h-dvh max-w-full rounded-none! sm:m-0",
       },
     },
     isBordered: {
       true: {
         header: "border-b border-border",
-        footer: "border-t border-storke-primary",
+        footer: "border-t border-border",
       },
     },
     scrollBehavior: {
@@ -96,7 +96,7 @@ export const drawerStyles = tv({
     {
       anchor: ["top", "bottom"],
       className: {
-        content: "w-full !max-w-full",
+        content: "w-full max-w-full!",
       },
     },
   ],

@@ -1,8 +1,25 @@
+"use client";
+
+import { CloseIcon } from "@jamsrui/icons";
 import { Drawer as DrawerUI } from "@jamsrui/react";
+import { createContext, use, useMemo } from "react";
 import { cn, VariantProps } from "tailwind-variants";
+import { IconButton } from "../icon-button";
 import { drawerStyles } from "./styles";
 
 type DrawerVariants = VariantProps<typeof drawerStyles>;
+
+const DrawerContext = createContext<{
+  styles: ReturnType<typeof drawerStyles>;
+} | null>(null);
+
+const useDrawerContext = () => {
+  const ctx = use(DrawerContext);
+  if (!ctx) {
+    throw new Error("useDrawerContext must be used within a DrawerContext");
+  }
+  return ctx;
+};
 
 export const Drawer = (props: Drawer.Props) => {
   const {
@@ -14,7 +31,20 @@ export const Drawer = (props: Drawer.Props) => {
     radius,
     ...restProps
   } = props;
-  return <DrawerUI {...restProps} anchor={anchor} />;
+  const styles = drawerStyles({
+    anchor,
+    size,
+    isBordered,
+    scrollBehavior,
+    backdrop,
+    radius,
+  });
+  const value = useMemo(() => ({ styles }), [styles]);
+  return (
+    <DrawerContext value={value}>
+      <DrawerUI {...restProps} anchor={anchor} />
+    </DrawerContext>
+  );
 };
 
 export namespace Drawer {
@@ -26,17 +56,23 @@ export const DrawerTrigger = (props: DrawerUI.Trigger) => {
 };
 
 export const DrawerContent = (props: DrawerUI.Content) => {
-  const styles = drawerStyles();
+  const { styles } = useDrawerContext();
   return (
-    <DrawerUI.Content
-      {...props}
-      className={cn(styles.content(), props.className)}
-    />
+    <DrawerUI.Portal>
+      <DrawerUI.Backdrop className={styles.backdrop()}>
+        <DrawerUI.Popover className={styles.popover()}>
+          <DrawerUI.Content
+            {...props}
+            className={cn(styles.content({ className: props.className }))}
+          />
+        </DrawerUI.Popover>
+      </DrawerUI.Backdrop>
+    </DrawerUI.Portal>
   );
 };
 
 export const DrawerHeader = (props: DrawerUI.Header) => {
-  const styles = drawerStyles();
+  const { styles } = useDrawerContext();
   return (
     <DrawerUI.Header
       {...props}
@@ -46,14 +82,14 @@ export const DrawerHeader = (props: DrawerUI.Header) => {
 };
 
 export const DrawerBody = (props: DrawerUI.Body) => {
-  const styles = drawerStyles();
+  const { styles } = useDrawerContext();
   return (
     <DrawerUI.Body {...props} className={cn(styles.body(), props.className)} />
   );
 };
 
 export const DrawerFooter = (props: DrawerUI.Footer) => {
-  const styles = drawerStyles();
+  const { styles } = useDrawerContext();
   return (
     <DrawerUI.Footer
       {...props}
@@ -62,13 +98,17 @@ export const DrawerFooter = (props: DrawerUI.Footer) => {
   );
 };
 
-export const DrawerCloseButton = (props: DrawerUI.CloseButton) => {
-  const styles = drawerStyles();
+export const DrawerCloseButton = (props: IconButton.Props) => {
+  const { styles } = useDrawerContext();
   return (
-    <DrawerUI.CloseButton
-      {...props}
-      className={cn(styles.closeButton(), props.className)}
-    />
+    <DrawerUI.CloseTrigger>
+      <IconButton
+        {...props}
+        className={cn(styles.closeButton(), props.className)}
+      >
+        <CloseIcon />
+      </IconButton>
+    </DrawerUI.CloseTrigger>
   );
 };
 

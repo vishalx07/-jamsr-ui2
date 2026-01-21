@@ -19,7 +19,6 @@ import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { DialogBody } from "./dialog-body";
-import type { DialogCloseButton } from "./dialog-close-button";
 import type { DialogContainer } from "./dialog-container";
 import type { DialogContent } from "./dialog-content";
 import type { DialogFooter } from "./dialog-footer";
@@ -112,12 +111,10 @@ export const useDialog = (props: useDialog.Props) => {
     [],
   );
 
-  const getCloseButtonProps: PropGetter<DialogCloseButton.Props> = useCallback(
+  const getCloseButtonProps: PropGetter<ComponentProps<"button">> = useCallback(
     (props) => ({
       ...props,
       "data-slot": dataAttrDev("close-button"),
-      radius: "full",
-      size: "sm",
       onClick: handleTriggerClose,
     }),
     [handleTriggerClose],

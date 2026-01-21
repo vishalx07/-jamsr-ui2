@@ -1,18 +1,21 @@
 "use client";
 
-import { IconButton } from "@jamsrui/icon-button";
-import { CloseIcon } from "@jamsrui/icons";
-
+import { ComponentProps, cloneElement, isValidElement } from "react";
 import { useDialogContext } from "./dialog-context";
 
 export const DialogCloseButton = (props: DialogCloseButton.Props) => {
+  const { children } = props;
   const { getCloseButtonProps } = useDialogContext();
-  return (
-    <IconButton label="Close Dialog" {...getCloseButtonProps(props)}>
-      <CloseIcon className="size-4" />
-    </IconButton>
-  );
+
+  if (isValidElement<ComponentProps<"button">>(children)) {
+    return cloneElement(children, getCloseButtonProps(children.props));
+  }
+
+  console.warn("Invalid children passed to DialogCloseTrigger");
+  return null;
 };
 export namespace DialogCloseButton {
-  export interface Props extends Partial<IconButton.Props> {}
+  export interface Props {
+    children: React.ReactElement;
+  }
 }

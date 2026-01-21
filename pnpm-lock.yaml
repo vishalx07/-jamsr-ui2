@@ -2187,6 +2187,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@jamsrui/icons':
+        specifier: workspace:^
+        version: link:../icons
       '@jamsrui/react':
         specifier: workspace:^
         version: link:../react
