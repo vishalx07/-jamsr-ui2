@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./time-field": "./src/time-field/index.ts"
+  },
   "scripts": {},
   "keywords": [],
   "author": "",
@@ -11,6 +15,7 @@
   "dependencies": {
     "@jamsrui/react": "workspace:^",
     "@jamsrui/text": "workspace:^",
+    "@jamsrui/utils": "workspace:^",
     "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {

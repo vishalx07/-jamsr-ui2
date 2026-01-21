@@ -2,12 +2,10 @@ import {
   colorVariants,
   dataFocusVisibleClasses,
   focusVisibleClasses,
-  tv,
 } from "@jamsrui/utils";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const tabsVariant = tv({
+export const tabsStyles = tv({
   slots: {
     root: "",
     list: [
@@ -34,17 +32,10 @@ export const tabsVariant = tv({
       "tap-highlight-transparent",
       "disabled:status-disabled",
       "data-selected:text-foreground",
-      // focus ring
       ...focusVisibleClasses,
     ],
     indicator: ["absolute", "-z-1", "bg-white"],
-    panel: [
-      "py-3",
-      "px-1",
-      "outline-none",
-      // focus ring
-      ...dataFocusVisibleClasses,
-    ],
+    panel: ["py-3", "px-1", "outline-none", ...dataFocusVisibleClasses],
   },
   variants: {
     variant: {
@@ -137,10 +128,6 @@ export const tabsVariant = tv({
     },
   },
   compoundVariants: [
-    /**
-     * Variants & Colors
-     */
-    // solid + bordered + light && color
     {
       variant: ["solid", "bordered", "light"],
       color: "default",
@@ -189,7 +176,6 @@ export const tabsVariant = tv({
         tabContent: "uig-selected:text-danger-foreground",
       },
     },
-    // underlined && color
     {
       variant: "underlined",
       color: "default",
@@ -247,5 +233,5 @@ export const tabsVariant = tv({
   },
 });
 
-export type TabsVariants = VariantProps<typeof tabsVariant>;
-export type TabsSlots = keyof ReturnType<typeof tabsVariant>;
+export type TabsVariants = VariantProps<typeof tabsStyles>;
+export type TabsSlots = keyof ReturnType<typeof tabsStyles>;

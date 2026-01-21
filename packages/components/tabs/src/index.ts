@@ -3,23 +3,9 @@ import { TabIndicator } from "./tab-indicator";
 import { TabList } from "./tab-list";
 import { TabPanel } from "./tab-panel";
 import { Tabs as TabsRoot } from "./tabs";
-import { TabsConfig, useTabsConfig } from "./tabs-config";
 import { TabsContext, useTabsContext } from "./tabs-context";
-import { TabsSlots, TabsVariants, tabsVariant } from "./styles";
 
-export {
-  Tab,
-  TabIndicator,
-  TabList,
-  TabPanel,
-  TabsConfig,
-  TabsContext,
-  tabsVariant,
-  useTabsConfig,
-  useTabsContext,
-  type TabsSlots,
-  type TabsVariants,
-};
+export { Tab, TabIndicator, TabList, TabPanel, TabsContext, useTabsContext };
 
 export const Tabs = Object.assign(TabsRoot, {
   List: TabList,
@@ -30,7 +16,6 @@ export const Tabs = Object.assign(TabsRoot, {
 
 export namespace Tabs {
   export interface Props extends TabsRoot.Props {}
-  export interface Config extends TabsConfig.Props {}
   export interface List extends TabList.Props {}
   export interface Tab extends Tab.Props {}
   export interface Panel extends TabPanel.Props {}

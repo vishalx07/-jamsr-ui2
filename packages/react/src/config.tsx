@@ -21,14 +21,10 @@ import { RippleConfig } from '@jamsrui/ripple';
 import { SidebarConfig } from '@jamsrui/sidebar';
 import { SkeletonConfig } from '@jamsrui/skeleton';
 import { SliderConfig } from '@jamsrui/slider';
-import { TableConfig } from '@jamsrui/table';
-import { TabsConfig } from '@jamsrui/tabs';
 import { TagsInputConfig } from '@jamsrui/tags-input';
-import { TextConfig } from '@jamsrui/text';
 import { TimeFieldConfig } from '@jamsrui/time-field';
 import { ToastConfig } from '@jamsrui/toast';
 import { ToggleConfig } from '@jamsrui/toggle';
-import { TooltipConfig } from '@jamsrui/tooltip';
 
 type Props = {
   children: React.ReactNode;
@@ -55,14 +51,10 @@ type Props = {
   sidebar?: SidebarConfig.Props;
   skeleton?: SkeletonConfig.Props;
   slider?: SliderConfig.Props;
-  table?: TableConfig.Props;
-  tabs?: TabsConfig.Props;
   tagsInput?: TagsInputConfig.Props;
-  text?: TextConfig.Props;
   timeField?: TimeFieldConfig.Props;
   toast?: ToastConfig.Props;
   toggle?: ToggleConfig.Props;
-  tooltip?: TooltipConfig.Props;
 };
 
 export const JamsrUIConfig = (props: Props) => {
@@ -91,23 +83,15 @@ export const JamsrUIConfig = (props: Props) => {
   <SidebarConfig {...props.sidebar}>
   <SkeletonConfig {...props.skeleton}>
   <SliderConfig {...props.slider}>
-  <TableConfig {...props.table}>
-  <TabsConfig {...props.tabs}>
   <TagsInputConfig {...props.tagsInput}>
-  <TextConfig {...props.text}>
   <TimeFieldConfig {...props.timeField}>
   <ToastConfig {...props.toast}>
   <ToggleConfig {...props.toggle}>
-  <TooltipConfig {...props.tooltip}>
     {children}
-  </TooltipConfig>
   </ToggleConfig>
   </ToastConfig>
   </TimeFieldConfig>
-  </TextConfig>
   </TagsInputConfig>
-  </TabsConfig>
-  </TableConfig>
   </SliderConfig>
   </SkeletonConfig>
   </SidebarConfig>

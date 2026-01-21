@@ -1,10 +1,10 @@
 import { EmailIcon, InfoIcon } from "@jamsrui/icons";
-import { IconButton, Tooltip, TooltipGroup } from "jamsrui";
+import { IconButton, Tooltip } from "jamsrui";
 
 export const TooltipWithGroup = () => {
   return (
     <div className="flex gap-2">
-      <TooltipGroup delay={200}>
+      <Tooltip.Group delay={200}>
         <Tooltip>
           <Tooltip.Trigger>
             <IconButton label="Click Me!">
@@ -21,7 +21,7 @@ export const TooltipWithGroup = () => {
           </Tooltip.Trigger>
           <Tooltip.Content>This is a tooltip within group</Tooltip.Content>
         </Tooltip>
-      </TooltipGroup>
+      </Tooltip.Group>
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import { textVariants } from "@jamsrui/text";
 import { tv, VariantProps } from "tailwind-variants";
+import { textStyles } from "../text/styles";
 
 export const linkStyles = tv({
-  extend: textVariants,
+  extend: textStyles,
   base: ["cursor-pointer text-foreground-link hover:text-foreground-link/80"],
   variants: {
     underline: {

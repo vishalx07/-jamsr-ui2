@@ -1,8 +1,7 @@
-import { radiusBaseVariant, tv } from "@jamsrui/utils";
+import { radiusBaseVariant } from "@jamsrui/utils";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const textareaVariants = tv({
+export const textareaStyles = tv({
   base: [
     "textarea focus:outline-none disabled:status-disabled placeholder:text-foreground-secondary bg-transparent font-normal",
   ],
@@ -29,14 +28,4 @@ export const textareaVariants = tv({
   },
 });
 
-export const textareaGroupVariants = tv({
-  base: "textarea-group__textarea w-full px-3 py-2 text-sm placeholder:text-sm focus:outline-none",
-  variants: {
-    variant: {
-      bordered: "border border-border focus:border-focus",
-      solid: "bg-surface hover:bg-surface/90",
-    },
-  },
-});
-
-export type TextareaVariantProps = VariantProps<typeof textareaVariants>;
+export type TextareaVariants = VariantProps<typeof textareaStyles>;

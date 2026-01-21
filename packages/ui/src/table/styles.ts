@@ -1,8 +1,7 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
+import { radiusVariant } from "@jamsrui/utils";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const tableVariants = tv({
+export const tableStyles = tv({
   slots: {
     root: "relative flex flex-col gap-2 overflow-hidden",
     wrapper: "grid w-full gap-2 overflow-x-auto",
@@ -78,5 +77,5 @@ export const tableVariants = tv({
   },
 });
 
-export type TableVariantProps = VariantProps<typeof tableVariants>;
-export type TableSlots = keyof ReturnType<typeof tableVariants>;
+export type TableVariants = VariantProps<typeof tableStyles>;
+export type TableSlots = keyof ReturnType<typeof tableStyles>;

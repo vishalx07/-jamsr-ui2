@@ -18,13 +18,10 @@ import {
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
 
-import { tooltipVariants } from "./styles";
-
 import type { Delay, FloatingArrowProps, Placement } from "@floating-ui/react";
 import type { PropGetter } from "@jamsrui/utils";
 import type { PropsWithChildren } from "react";
 
-import type { TooltipVariants } from "./styles";
 import type { TooltipContent } from "./tooltip-content";
 
 export const useTooltip = (props: useTooltip.Props) => {
@@ -32,7 +29,6 @@ export const useTooltip = (props: useTooltip.Props) => {
     delay: delayProp,
     offset: offsetProp = 4,
     placement = "top",
-    radius,
     defaultOpen,
     isOpen: isOpenProp,
     onOpenChange,
@@ -101,19 +97,14 @@ export const useTooltip = (props: useTooltip.Props) => {
     role,
   ]);
 
-  const styles = tooltipVariants({
-    radius,
-  });
-
   const getContentProps: PropGetter<TooltipContent.Props> = useCallback(
     (props) => ({
       ...props,
-      className: styles.content(),
       style: floatingStyles,
       ref: refs.setFloating,
       ...getFloatingProps(),
     }),
-    [floatingStyles, getFloatingProps, refs.setFloating, styles],
+    [floatingStyles, getFloatingProps, refs.setFloating],
   );
 
   const getArrowProps = useCallback(
@@ -122,11 +113,8 @@ export const useTooltip = (props: useTooltip.Props) => {
       ...props,
       context,
       ref: setArrowEl,
-      className: styles.arrow({
-        className: props.className,
-      }),
     }),
-    [context, styles],
+    [context],
   );
 
   const getTriggerProps = useCallback(
@@ -159,7 +147,7 @@ export const useTooltip = (props: useTooltip.Props) => {
 };
 
 export namespace useTooltip {
-  export interface Props extends PropsWithChildren, TooltipVariants {
+  export interface Props extends PropsWithChildren {
     placement?: Placement;
     disabled?: boolean;
     offset?: number;

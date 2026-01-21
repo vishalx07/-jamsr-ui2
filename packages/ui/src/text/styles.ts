@@ -1,8 +1,6 @@
-import { tv } from "@jamsrui/utils";
+import { tv, type VariantProps } from "tailwind-variants";
 
-import type { VariantProps } from "@jamsrui/utils";
-
-export const textVariants = tv({
+export const textStyles = tv({
   base: "transition-colors cursor-default",
   variants: {
     variant: {
@@ -50,4 +48,4 @@ export const textVariants = tv({
   ],
 });
 
-export type TextVariants = VariantProps<typeof textVariants>;
+export type TextVariants = VariantProps<typeof textStyles>;

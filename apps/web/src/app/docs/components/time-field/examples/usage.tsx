@@ -1,6 +1,6 @@
 "use client";
 
-import { TimeField, TimeInput, TimeSegment } from "jamsrui";
+import { TimeField, TimeInput, TimeSegment } from "jamsrui/time-field";
 
 export const TimeFieldUsage = () => {
   return (
