@@ -4,7 +4,7 @@ import { Tabs } from "jamsrui/tabs";
 export const TabWithIcons = () => {
   return (
     <div className="flex flex-wrap gap-4">
-      <Tabs aria-label="Tabs variants">
+      <Tabs defaultValue="photos" aria-label="Tabs variants">
         <Tabs.List>
           <Tabs.Tab value="photos">
             <Icon icon="ic:round-photo" />

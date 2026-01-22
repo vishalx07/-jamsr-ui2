@@ -102,6 +102,90 @@ export const allVariants: Variant[] = [
   "soft",
 ];
 
+/**
+ * focus classNames when the element is focused by keyboard.
+ */
+export const focusVisibleClasses = [
+  "focus-visible:outline-solid",
+  "focus-visible:z-10",
+  "focus-visible:outline-2",
+  "focus-visible:outline-focus",
+  "focus-visible:outline-offset-2",
+];
+
+export const dataFocusVisibleClasses = [
+  "outline-none",
+  "data-[focus-visible=true]:z-10",
+  "data-[focus-visible=true]:outline-2",
+  "data-[focus-visible=true]:outline-solid",
+  "data-[focus-visible=true]:outline-focus",
+  "data-[focus-visible=true]:outline-offset-2",
+];
+
+export const groupDataFocusVisibleClasses = [
+  "outline-none",
+  "uig-focus-visible:z-10",
+  "uig-focus-visible:ring-2",
+  "uig-focus-visible:ring-focus",
+  "uig-focus-visible:ring-offset-2",
+  "uig-focus-visible:ring-offset-background",
+];
+
+export const ringClasses = [
+  "outline-none",
+  "ring-2",
+  "ring-focus",
+  "ring-offset-2",
+  "ring-offset-background",
+];
+
+/**
+ * This classes centers the element by using absolute positioning.
+ */
+export const translateCenterClasses = [
+  "absolute",
+  "top-1/2",
+  "left-1/2",
+  "-translate-x-1/2",
+  "-translate-y-1/2",
+];
+
+export const absoluteFullClasses = ["absolute", "inset-0"];
+
+export const radiusBaseVariant = {
+  sm: "rounded",
+  md: "rounded-md",
+  lg: "rounded-lg",
+  xl: "rounded-xl",
+  "2xl": "rounded-2xl",
+  "3xl": "rounded-3xl",
+  full: "rounded-full",
+  none: "rounded-none",
+} as const;
+
+export const radiusVariant = (name: string | string[], group?: string) => {
+  const keys = Array.isArray(name) ? name : [name];
+  const value = (className: string, radius: string) =>
+    keys.reduce(
+      (acc, key) => ({
+        ...acc,
+        [key]: group ? `${group}--radius-${radius} ${className}` : className,
+      }),
+      {},
+    );
+
+  return {
+    sm: value("rounded-sm", "sm"),
+    md: value("rounded-md", "md"),
+    lg: value("rounded-lg", "lg"),
+    xl: value("rounded-xl", "xl"),
+    "2xl": value("rounded-2xl", "2xl"),
+    "3xl": value("rounded-3xl", "3xl"),
+    full: value("rounded-full", "full"),
+    none: value("rounded-none", "none"),
+  };
+};
+
 export const variantStyles = tv({
   variants: {
     color: {

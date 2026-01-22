@@ -19,26 +19,7 @@ import {
 import { SidebarToggle } from "./sidebar-toggle";
 import { SidebarWrapper } from "./sidebar-wrapper";
 
-export {
-  SidebarBackdrop,
-  SidebarBody,
-  SidebarContainer,
-  SidebarContent,
-  SidebarContext,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarInset,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuItemButton,
-  SidebarStateProvider,
-  SidebarToggle,
-  SidebarWrapper,
-  useSidebarContext,
-  useSidebarState,
-};
+export { SidebarContext, useSidebarContext, useSidebarState };
 
 export const Sidebar = Object.assign(SidebarRoot, {
   Backdrop: SidebarBackdrop,

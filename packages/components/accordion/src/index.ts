@@ -3,19 +3,8 @@ import { AccordionContent } from "./accordion-content";
 import { AccordionHeading } from "./accordion-heading";
 import { AccordionIndicator } from "./accordion-indicator";
 import { AccordionItem } from "./accordion-item";
-import { useAccordionItemState } from "./accordion-item-context";
 import { AccordionPanel } from "./accordion-panel";
 import { AccordionTrigger } from "./accordion-trigger";
-
-export {
-  AccordionContent,
-  AccordionHeading,
-  AccordionIndicator,
-  AccordionItem,
-  AccordionPanel,
-  AccordionTrigger,
-  useAccordionItemState,
-};
 
 export const Accordion = Object.assign(AccordionRoot, {
   Item: AccordionItem,

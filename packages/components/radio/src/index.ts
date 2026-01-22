@@ -5,18 +5,11 @@ import { RadioControl } from "./radio-control";
 import { RadioGroup as RadioGroupRoot } from "./radio-group";
 import { RadioGroupContext, useRadioGroupContext } from "./radio-group-context";
 import { RadioIndicator } from "./radio-indicator";
-import { useRadio } from "./use-radio";
-import { useRadioGroup } from "./use-radio-group";
 
 export {
-  RadioContent,
   RadioContext,
-  RadioControl,
   RadioGroupContext,
-  RadioIndicator,
-  useRadio,
   useRadioContext,
-  useRadioGroup,
   useRadioGroupContext,
 };
 

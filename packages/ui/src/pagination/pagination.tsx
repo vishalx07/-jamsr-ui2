@@ -1,36 +1,32 @@
-import {
-  Pagination as PaginationUI,
-  PaginationItem as PaginationItemUI,
-  PaginationEllipsis as PaginationEllipsisUI,
-} from "@jamsrui/react";
+import { Pagination as PaginationUI } from "@jamsrui/react";
 import { cn } from "tailwind-variants";
 import { paginationStyles } from "./styles";
 
 const styles = paginationStyles();
 
 export const PaginationItem = (
-  props: PaginationItemUI.Props & { isActive?: boolean },
+  props: PaginationUI.Item & { isActive?: boolean },
 ) => {
   const { isActive, className, ...rest } = props;
   return (
-    <PaginationItemUI
+    <PaginationUI.Item
       {...rest}
       className={cn(paginationStyles({ isActive }).item(), className)}
     />
   );
 };
 
-export const PaginationEllipsis = (props: PaginationEllipsisUI.Props) => {
+export const PaginationEllipsis = (props: PaginationUI.Ellipsis) => {
   const { className, ...rest } = props;
   return (
-    <PaginationEllipsisUI
+    <PaginationUI.Ellipsis
       {...rest}
       className={cn(styles.ellipsis(), className)}
     />
   );
 };
 
-export const Pagination = (props: Pagination.Props) => {
+export const Pagination = (props: PaginationUI.Props) => {
   const { className, ...rest } = props;
   return <PaginationUI {...rest} className={cn(styles.root(), className)} />;
 };

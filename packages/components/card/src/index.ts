@@ -1,20 +1,12 @@
 import { Card as CardRoot } from "./card";
-import { CardContextProvider, useCardContext } from "./card-context";
 import { CardContent } from "./card-content";
+import { useCardContext } from "./card-context";
 import { CardDescription } from "./card-description";
 import { CardFooter } from "./card-footer";
 import { CardHeader } from "./card-header";
 import { CardTitle } from "./card-title";
 
-export {
-  CardContent,
-  CardContextProvider,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-  useCardContext,
-};
+export { useCardContext };
 
 export const Card = Object.assign(CardRoot, {
   Content: CardContent,

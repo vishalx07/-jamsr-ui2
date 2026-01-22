@@ -1,5 +1,5 @@
-import { groupDataFocusVisibleClasses } from "@jamsrui/utils";
 import { tv, type VariantProps } from "tailwind-variants";
+import { groupDataFocusVisibleClasses } from "../utils/variants";
 
 export const radioStyles = tv({
   slots: {

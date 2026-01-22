@@ -1,18 +1,7 @@
 import { Avatar as AvatarRoot } from "./avatar";
-import { AvatarContext, useAvatarContext } from "./avatar-context";
 import { AvatarFallback } from "./avatar-fallback";
 import { AvatarImage } from "./avatar-image";
 import { AvatarIndicator } from "./avatar-indicator";
-import { useAvatar } from "./use-avatar";
-
-export {
-  AvatarContext,
-  AvatarFallback,
-  AvatarImage,
-  AvatarIndicator,
-  useAvatar,
-  useAvatarContext,
-};
 
 export const Avatar = Object.assign(AvatarRoot, {
   Image: AvatarImage,

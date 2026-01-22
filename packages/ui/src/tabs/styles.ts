@@ -2,7 +2,7 @@ import {
   colorVariants,
   dataFocusVisibleClasses,
   focusVisibleClasses,
-} from "@jamsrui/utils";
+} from "../utils/variants";
 import { tv, type VariantProps } from "tailwind-variants";
 
 export const tabsStyles = tv({
@@ -49,8 +49,7 @@ export const tabsStyles = tv({
       },
       underlined: {
         list: "bg-transparent",
-        indicator:
-          "bottom-0 h-[2px] w-4/5 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
+        indicator: "bottom-0 h-0.5 w-4/5 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
       },
       bordered: {
         list: "border border-border bg-transparent shadow-sm",

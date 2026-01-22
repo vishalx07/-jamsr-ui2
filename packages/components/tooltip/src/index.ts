@@ -4,7 +4,7 @@ import { TooltipContent } from "./tooltip-content";
 import { TooltipPortal } from "./tooltip-portal";
 import { TooltipTrigger } from "./tooltip-trigger";
 
-export { TooltipArrow, TooltipContent, TooltipGroup, TooltipTrigger };
+export { TooltipGroup };
 
 export const Tooltip = Object.assign(TooltipRoot, {
   Trigger: TooltipTrigger,

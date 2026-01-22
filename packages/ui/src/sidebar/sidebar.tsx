@@ -1,20 +1,5 @@
 import {
   Sidebar as SidebarUI,
-  SidebarBackdrop as SidebarBackdropUI,
-  SidebarBody as SidebarBodyUI,
-  SidebarContainer as SidebarContainerUI,
-  SidebarContent as SidebarContentUI,
-  SidebarFooter as SidebarFooterUI,
-  SidebarGroup as SidebarGroupUI,
-  SidebarGroupLabel as SidebarGroupLabelUI,
-  SidebarHeader as SidebarHeaderUI,
-  SidebarInset as SidebarInsetUI,
-  SidebarMenu as SidebarMenuUI,
-  SidebarMenuItem as SidebarMenuItemUI,
-  SidebarMenuItemButton as SidebarMenuItemButtonUI,
-  SidebarStateProvider,
-  SidebarToggle as SidebarToggleUI,
-  SidebarWrapper as SidebarWrapperUI,
   useSidebarContext,
   useSidebarState,
 } from "@jamsrui/react";
@@ -23,10 +8,10 @@ import { sidebarStyles } from "./styles";
 
 const styles = sidebarStyles();
 
-export const SidebarWrapper = (props: SidebarWrapperUI.Props) => {
+export const SidebarWrapper = (props: SidebarUI.Wrapper) => {
   const { className, ...rest } = props;
   return (
-    <SidebarWrapperUI {...rest} className={cn(styles.wrapper(), className)} />
+    <SidebarUI.Wrapper {...rest} className={cn(styles.wrapper(), className)} />
   );
 };
 
@@ -35,93 +20,104 @@ export const Sidebar = (props: SidebarUI.Props) => {
   return <SidebarUI {...rest} className={cn(styles.sidebar(), className)} />;
 };
 
-export const SidebarContainer = (props: SidebarContainerUI.Props) => {
+export const SidebarContainer = (props: SidebarUI.Container) => {
   const { className, ...rest } = props;
   return (
-    <SidebarContainerUI
+    <SidebarUI.Container
       {...rest}
       className={cn(styles.container(), className)}
     />
   );
 };
 
-export const SidebarContent = (props: SidebarContentUI.Props) => {
+export const SidebarContent = (props: SidebarUI.Content) => {
   const { className, ...rest } = props;
   return (
-    <SidebarContentUI {...rest} className={cn(styles.content(), className)} />
+    <SidebarUI.Content {...rest} className={cn(styles.content(), className)} />
   );
 };
 
-export const SidebarHeader = (props: SidebarHeaderUI.Props) => {
+export const SidebarHeader = (props: SidebarUI.Header) => {
   const { className, ...rest } = props;
   return (
-    <SidebarHeaderUI {...rest} className={cn(styles.header(), className)} />
+    <SidebarUI.Header {...rest} className={cn(styles.header(), className)} />
   );
 };
 
-export const SidebarBody = (props: SidebarBodyUI.Props) => {
+export const SidebarBody = (props: SidebarUI.Body) => {
   const { className, ...rest } = props;
-  return <SidebarBodyUI {...rest} className={cn(styles.body(), className)} />;
+  return <SidebarUI.Body {...rest} className={cn(styles.body(), className)} />;
 };
 
-export const SidebarFooter = (props: SidebarFooterUI.Props) => {
+export const SidebarFooter = (props: SidebarUI.Footer) => {
   const { className, ...rest } = props;
   return (
-    <SidebarFooterUI {...rest} className={cn(styles.footer(), className)} />
+    <SidebarUI.Footer {...rest} className={cn(styles.footer(), className)} />
   );
 };
 
-export const SidebarGroup = (props: SidebarGroupUI.Props) => {
-  const { className, ...rest } = props;
-  return <SidebarGroupUI {...rest} className={cn(styles.group(), className)} />;
-};
-
-export const SidebarGroupLabel = (props: SidebarGroupLabelUI.Props) => {
+export const SidebarGroup = (props: SidebarUI.Group) => {
   const { className, ...rest } = props;
   return (
-    <SidebarGroupLabelUI
+    <SidebarUI.Group {...rest} className={cn(styles.group(), className)} />
+  );
+};
+
+export const SidebarGroupLabel = (props: SidebarUI.GroupLabel) => {
+  const { className, ...rest } = props;
+  return (
+    <SidebarUI.GroupLabel
       {...rest}
       className={cn(styles.groupLabel(), className)}
     />
   );
 };
 
-export const SidebarMenu = (props: SidebarMenuUI.Props) => {
+export const SidebarMenu = (props: SidebarUI.Menu) => {
   const { className, ...rest } = props;
-  return <SidebarMenuUI {...rest} className={cn(styles.menu(), className)} />;
+  return <SidebarUI.Menu {...rest} className={cn(styles.menu(), className)} />;
 };
 
-export const SidebarMenuItem = (props: SidebarMenuItemUI.Props) => {
+export const SidebarMenuItem = (props: SidebarUI.MenuItem) => {
   const { className, ...rest } = props;
   return (
-    <SidebarMenuItemUI {...rest} className={cn(styles.menuItem(), className)} />
+    <SidebarUI.MenuItem
+      {...rest}
+      className={cn(styles.menuItem(), className)}
+    />
   );
 };
 
-export const SidebarMenuItemButton = (props: SidebarMenuItemButtonUI.Props) => {
+export const SidebarMenuItemButton = (props: SidebarUI.MenuItemButton) => {
   const { className, ...rest } = props;
   return (
-    <SidebarMenuItemButtonUI
+    <SidebarUI.MenuItemButton
       {...rest}
       className={cn(styles.menuItemButton(), className)}
     />
   );
 };
 
-export const SidebarInset = (props: SidebarInsetUI.Props) => {
-  const { className, ...rest } = props;
-  return <SidebarInsetUI {...rest} className={cn(styles.inset(), className)} />;
-};
-
-export const SidebarBackdrop = (props: SidebarBackdropUI.Props) => {
+export const SidebarInset = (props: SidebarUI.Inset) => {
   const { className, ...rest } = props;
   return (
-    <SidebarBackdropUI {...rest} className={cn(styles.backdrop(), className)} />
+    <SidebarUI.Inset {...rest} className={cn(styles.inset(), className)} />
   );
 };
 
-export const SidebarToggle = (props: SidebarToggleUI.Props) => {
-  return <SidebarToggleUI {...props} />;
+export const SidebarBackdrop = (props: SidebarUI.Backdrop) => {
+  const { className, ...rest } = props;
+  return (
+    <SidebarUI.Backdrop
+      {...rest}
+      className={cn(styles.backdrop(), className)}
+    />
+  );
 };
 
-export { SidebarStateProvider, useSidebarContext, useSidebarState };
+export const SidebarToggle = (props: SidebarUI.Toggle) => {
+  return <SidebarUI.Toggle {...props} />;
+};
+
+export { useSidebarContext, useSidebarState };
+export const SidebarStateProvider = SidebarUI.StateProvider;

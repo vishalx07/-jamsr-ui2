@@ -5,14 +5,7 @@ import { DateSegment } from "./date-segment";
 import { useDateField } from "./use-date-field";
 import { useDateSegment } from "./use-date-segment";
 
-export {
-  DateFieldRoot,
-  DateFieldSeparator,
-  DateInput,
-  DateSegment,
-  useDateField,
-  useDateSegment,
-};
+export { useDateField, useDateSegment };
 
 export const DateField = Object.assign(DateFieldRoot, {
   Input: DateInput,

@@ -9,18 +9,7 @@ import { TableRow } from "./table-row";
 import { TableTable } from "./table-table";
 import { TableWrapper } from "./table-wrapper";
 
-export {
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableContext,
-  TableFooter,
-  TableHeader,
-  TableRow,
-  TableTable,
-  TableWrapper,
-  useTableContext,
-};
+export { TableContext, useTableContext };
 
 export const Table = Object.assign(TableRoot, {
   Body: TableBody,

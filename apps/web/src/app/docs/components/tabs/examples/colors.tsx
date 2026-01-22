@@ -12,7 +12,12 @@ export const TabColors = () => {
   return (
     <div className="inline-flex flex-col flex-wrap gap-4">
       {colors.map((color) => (
-        <Tabs key={color} color={color} aria-label="Tabs variants">
+        <Tabs
+          key={color}
+          defaultValue="photos"
+          color={color}
+          aria-label="Tabs variants"
+        >
           <Tabs.List>
             <Tabs.Tab value="photos">
               Photos

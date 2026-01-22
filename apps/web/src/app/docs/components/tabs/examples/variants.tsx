@@ -5,7 +5,12 @@ export const TabVariants = () => {
   return (
     <div className="inline-flex flex-col flex-wrap gap-4">
       {variants.map((variant) => (
-        <Tabs key={variant} variant={variant} aria-label="Tabs variants">
+        <Tabs
+          key={variant}
+          defaultValue="photos"
+          variant={variant}
+          aria-label="Tabs variants"
+        >
           <Tabs.List>
             <Tabs.Tab value="photos">
               Photos

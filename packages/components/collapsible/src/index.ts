@@ -2,8 +2,6 @@ import { Collapsible as CollapsibleRoot } from "./collapsible";
 import { CollapsibleContent } from "./collapsible-content";
 import { CollapsibleTrigger } from "./collapsible-trigger";
 
-export { CollapsibleContent, CollapsibleTrigger };
-
 export const Collapsible = Object.assign(CollapsibleRoot, {
   Content: CollapsibleContent,
   Trigger: CollapsibleTrigger,

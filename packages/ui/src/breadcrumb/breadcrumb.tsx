@@ -1,36 +1,32 @@
-import {
-  Breadcrumb as BreadcrumbUI,
-  BreadcrumbItem as BreadcrumbItemUI,
-  BreadcrumbSeparator as BreadcrumbSeparatorUI,
-} from "@jamsrui/react";
+import { Breadcrumb as BreadcrumbUI } from "@jamsrui/react";
 import { cn } from "tailwind-variants";
 import { breadcrumbStyles } from "./styles";
 
 const styles = breadcrumbStyles();
 
 export const BreadcrumbItem = (
-  props: BreadcrumbItemUI.Props & { isCurrent?: boolean },
+  props: BreadcrumbUI.Item & { isCurrent?: boolean },
 ) => {
   const { isCurrent, className, ...rest } = props;
   return (
-    <BreadcrumbItemUI
+    <BreadcrumbUI.Item
       {...rest}
       className={cn(isCurrent ? styles.current() : styles.item(), className)}
     />
   );
 };
 
-export const BreadcrumbSeparator = (props: BreadcrumbSeparatorUI.Props) => {
+export const BreadcrumbSeparator = (props: BreadcrumbUI.Separator) => {
   const { className, ...rest } = props;
   return (
-    <BreadcrumbSeparatorUI
+    <BreadcrumbUI.Separator
       {...rest}
       className={cn(styles.separator(), className)}
     />
   );
 };
 
-export const Breadcrumb = (props: Breadcrumb.Props) => {
+export const Breadcrumb = (props: BreadcrumbUI.Props) => {
   const { className, ...rest } = props;
   return <BreadcrumbUI {...rest} className={cn(styles.root(), className)} />;
 };

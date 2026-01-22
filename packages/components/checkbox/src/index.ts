@@ -5,7 +5,7 @@ import { CheckboxIndicator } from "./checkbox-indicator";
 import { CheckboxInput } from "./checkbox-input";
 import { useCheckbox } from "./use-checkbox";
 
-export { CheckboxContent, CheckboxControl, CheckboxIndicator, useCheckbox };
+export { useCheckbox };
 
 export const Checkbox = Object.assign(CheckboxRoot, {
   Root: CheckboxRoot,

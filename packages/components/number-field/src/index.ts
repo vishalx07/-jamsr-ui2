@@ -5,13 +5,7 @@ import { NumberFieldIncrement } from "./number-field-increment";
 import { NumberFieldInput } from "./number-field-input";
 import { useNumberField } from "./use-number-field";
 
-export {
-  NumberFieldDecrement,
-  NumberFieldGroup,
-  NumberFieldIncrement,
-  NumberFieldInput,
-  useNumberField,
-};
+export { useNumberField };
 
 export const NumberField = Object.assign(NumberFieldRoot, {
   Group: NumberFieldGroup,

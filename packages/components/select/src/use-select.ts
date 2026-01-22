@@ -60,7 +60,6 @@ export const useSelect = (props: useSelect.Props) => {
     disableTypeahead = false,
     name,
     form,
-    className,
     ...elementProps
   } = props;
 
@@ -215,10 +214,9 @@ export const useSelect = (props: useSelect.Props) => {
       "data-component": dataAttrDev("select"),
       "data-slot": dataAttrDev("root"),
       "data-disabled": dataAttr(isDisabled),
-      className: cn(className, elementProps.className),
       "data-open": dataAttr(isOpen),
     }),
-    [elementProps, isDisabled, className, isOpen],
+    [elementProps, isDisabled, isOpen],
   );
 
   const getValueProps: PropGetter<SelectValue.Props> = useCallback(

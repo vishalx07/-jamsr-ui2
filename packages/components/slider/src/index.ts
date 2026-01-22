@@ -1,19 +1,12 @@
 import { Slider as SliderRoot } from "./slider";
+import { useSliderContext } from "./slider-context";
 import { SliderControl } from "./slider-control";
-import { SliderTrack } from "./slider-track";
 import { SliderIndicator } from "./slider-indicator";
 import { SliderThumb } from "./slider-thumb";
+import { SliderTrack } from "./slider-track";
 import { SliderValue } from "./slider-value";
-import { useSliderContext } from "./slider-context";
 
-export {
-  SliderControl,
-  SliderTrack,
-  SliderIndicator,
-  SliderThumb,
-  SliderValue,
-  useSliderContext,
-};
+export { useSliderContext };
 
 export const Slider = Object.assign(SliderRoot, {
   Root: SliderRoot,

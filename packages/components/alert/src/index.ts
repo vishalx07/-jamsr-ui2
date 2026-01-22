@@ -1,20 +1,8 @@
 import { Alert as AlertRoot } from "./alert";
 import { AlertContent } from "./alert-content";
-import { AlertContextProvider, useAlertContext } from "./alert-context";
 import { AlertDescription } from "./alert-description";
 import { AlertIcon } from "./alert-icon";
 import { AlertTitle } from "./alert-title";
-import { useAlert } from "./use-alert";
-
-export {
-  AlertContent,
-  AlertContextProvider,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
-  useAlert,
-  useAlertContext,
-};
 
 export const Alert = Object.assign(AlertRoot, {
   Title: AlertTitle,

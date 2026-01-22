@@ -13,18 +13,6 @@ import { DataGridTable } from "./data-grid-table";
 
 import { DataGrid as DataGridRoot } from "./data-grid";
 
-export {
-  DataGridBody,
-  DataGridColumnVisibility,
-  DataGridHeader,
-  DataGridHeaderColumn,
-  DataGridPagination,
-  DataGridPaginationSelector,
-  DataGridRowSelect,
-  DataGridRowSelectAll,
-  DataGridTable,
-};
-
 export { useDataGridTable } from "./use-react-table";
 
 export const DataGrid = Object.assign(DataGridRoot, {

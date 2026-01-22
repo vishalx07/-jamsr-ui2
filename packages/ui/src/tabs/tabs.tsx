@@ -1,16 +1,20 @@
 "use client";
 
 import { Tabs as TabsUI } from "@jamsrui/react";
-import { createContext, useContext } from "react";
-import { tabsStyles } from "./styles";
+import { createContext, use, useMemo } from "react";
 import type { TabsVariants } from "./styles";
+import { tabsStyles } from "./styles";
 
-const TabsStyleContext = createContext<{
+const TabsContext = createContext<{
   styles: ReturnType<typeof tabsStyles>;
 } | null>(null);
 
-const useTabsStyleContext = () => {
-  return useContext(TabsStyleContext) || { styles: tabsStyles() };
+const useTabsContext = () => {
+  const ctx = use(TabsContext);
+  if (!ctx) {
+    throw new Error("useTabsContext must be used within a TabsContext");
+  }
+  return ctx;
 };
 
 export const Tabs = (props: Tabs.Props) => {
@@ -33,10 +37,11 @@ export const Tabs = (props: Tabs.Props) => {
     disableAnimation,
   });
 
+  const value = useMemo(() => ({ styles }), [styles]);
   return (
-    <TabsStyleContext.Provider value={{ styles }}>
+    <TabsContext.Provider value={value}>
       <TabsUI {...restProps} className={styles.root({ className })} />
-    </TabsStyleContext.Provider>
+    </TabsContext.Provider>
   );
 };
 
@@ -45,7 +50,7 @@ export namespace Tabs {
 }
 
 export const TabList = (props: TabsUI.List) => {
-  const { styles } = useTabsStyleContext();
+  const { styles } = useTabsContext();
   return (
     <TabsUI.List
       {...props}
@@ -55,7 +60,7 @@ export const TabList = (props: TabsUI.List) => {
 };
 
 export const Tab = (props: TabsUI.Tab) => {
-  const { styles } = useTabsStyleContext();
+  const { styles } = useTabsContext();
   return (
     <TabsUI.Tab
       {...props}
@@ -65,7 +70,7 @@ export const Tab = (props: TabsUI.Tab) => {
 };
 
 export const TabIndicator = (props: TabsUI.Indicator) => {
-  const { styles } = useTabsStyleContext();
+  const { styles } = useTabsContext();
   return (
     <TabsUI.Indicator
       {...props}
@@ -75,7 +80,7 @@ export const TabIndicator = (props: TabsUI.Indicator) => {
 };
 
 export const TabPanel = (props: TabsUI.Panel) => {
-  const { styles } = useTabsStyleContext();
+  const { styles } = useTabsContext();
   return (
     <TabsUI.Panel
       {...props}

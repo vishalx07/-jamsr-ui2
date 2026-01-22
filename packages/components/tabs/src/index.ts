@@ -5,7 +5,7 @@ import { TabPanel } from "./tab-panel";
 import { Tabs as TabsRoot } from "./tabs";
 import { TabsContext, useTabsContext } from "./tabs-context";
 
-export { Tab, TabIndicator, TabList, TabPanel, TabsContext, useTabsContext };
+export { TabsContext, useTabsContext };
 
 export const Tabs = Object.assign(TabsRoot, {
   List: TabList,

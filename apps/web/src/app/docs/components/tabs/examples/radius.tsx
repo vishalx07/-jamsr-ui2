@@ -5,7 +5,12 @@ export const TabRadius = () => {
   return (
     <div className="inline-flex flex-col flex-wrap gap-4">
       {radii.map((radius) => (
-        <Tabs key={radius} radius={radius} aria-label="Tabs variants">
+        <Tabs
+          key={radius}
+          defaultValue="photos"
+          radius={radius}
+          aria-label="Tabs variants"
+        >
           <Tabs.List>
             <Tabs.Tab value="photos">
               Photos

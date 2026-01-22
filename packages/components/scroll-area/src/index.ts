@@ -6,14 +6,7 @@ import { ScrollAreaScrollbar } from "./scroll-area-scrollbar";
 import { ScrollAreaThumb } from "./scroll-area-thumb";
 import { ScrollAreaViewport } from "./scroll-area-viewport";
 
-export {
-  ScrollAreaContent,
-  ScrollAreaCorner,
-  ScrollAreaScrollbar,
-  ScrollAreaThumb,
-  ScrollAreaViewport,
-  useScrollAreaContext,
-};
+export { useScrollAreaContext };
 
 export const ScrollArea = Object.assign(ScrollAreaRoot, {
   Viewport: ScrollAreaViewport,

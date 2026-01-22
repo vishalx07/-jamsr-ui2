@@ -1,5 +1,5 @@
-import { radiusVariant } from "@jamsrui/utils";
 import { tv, type VariantProps } from "tailwind-variants";
+import { radiusVariant } from "../utils/variants";
 
 export const popoverStyles = tv({
   slots: {

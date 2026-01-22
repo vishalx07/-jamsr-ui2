@@ -4,12 +4,12 @@ import { OtpInputSeparator } from "./otp-input-separator";
 import { OtpInputSlot } from "./otp-input-slot";
 import { useOtpInput } from "./use-otp-input";
 
-export { OtpInputGroup, OtpInputSeparator, OtpInputSlot, useOtpInput };
 export {
   REGEXP_ONLY_CHARS,
   REGEXP_ONLY_DIGITS,
   REGEXP_ONLY_DIGITS_AND_CHARS,
 } from "./regexp";
+export { useOtpInput };
 
 export const OtpInput = Object.assign(OtpInputRoot, {
   Slot: OtpInputSlot,

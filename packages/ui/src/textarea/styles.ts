@@ -1,4 +1,4 @@
-import { radiusBaseVariant } from "@jamsrui/utils";
+import { radiusBaseVariant } from "../utils/variants";
 import { tv, type VariantProps } from "tailwind-variants";
 
 export const textareaStyles = tv({

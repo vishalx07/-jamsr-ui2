@@ -7,16 +7,6 @@ import { SelectPopover } from "./select-popover";
 import { SelectTrigger } from "./select-trigger";
 import { SelectValue } from "./select-value";
 
-export {
-  SelectContent,
-  SelectIndicator,
-  SelectItem,
-  SelectItemIndicator,
-  SelectPopover,
-  SelectTrigger,
-  SelectValue,
-};
-
 export const Select = Object.assign(SelectRoot, {
   Item: SelectItem,
   Trigger: SelectTrigger,

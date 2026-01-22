@@ -1,4 +1,4 @@
-import { radiusVariant } from "@jamsrui/utils";
+import { radiusVariant } from "../utils/variants";
 import { tv, type VariantProps } from "tailwind-variants";
 
 export const tooltipStyles = tv({
