@@ -12,6 +12,7 @@ import { OtpInputSizes } from "./examples/sizes";
 import { OtpInputUsage } from "./examples/usage";
 import { OtpInputWithPatterns } from "./examples/with-patterns";
 import { OtpInputWithSeparators } from "./examples/with-separators";
+import { OtpInputInvalid } from "./examples/invalid";
 
 const title = "Otp Input";
 const description =
@@ -63,6 +64,9 @@ const OtpInput = () => {
         url={resolvePath("controlled.tsx")}
       >
         <OtpInputControlled />
+      </CodeExample>
+      <CodeExample isCentered title="Invalid" url={resolvePath("invalid.tsx")}>
+        <OtpInputInvalid />
       </CodeExample>
       <CodeExample
         isCentered

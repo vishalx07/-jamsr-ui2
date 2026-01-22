@@ -57,7 +57,7 @@ const SlotContent = (props: OtpInputUI.SlotRenderProps) => {
   return null;
 };
 
-export const OtpInputSlot = (props: OtpInputUI.Slot) => {
+export const OtpInputSlot = (props: Omit<OtpInputUI.Slot, "children">) => {
   const { styles } = useOtpInputContext();
   const { className, ...rest } = props;
   return (

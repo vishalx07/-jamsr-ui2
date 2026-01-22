@@ -1,5 +1,4 @@
 import { tv, type VariantProps } from "tailwind-variants";
-import { radiusVariant } from "../utils/variants";
 
 export const otpInputStyles = tv({
   slots: {
@@ -7,7 +6,7 @@ export const otpInputStyles = tv({
     group: "otp-input__group flex",
     slot: [
       "otp-input__slot border-border relative flex items-center justify-center",
-      "border-y border-r first:border-l first:rounded-l-md last:rounded-r-md outline-solid outline-0 outline-border/20",
+      "border-y border-r first:border-l outline-solid outline-0 outline-border/20",
       "transition-all duration-300 ease-in-out",
       "group-data-hover:border-border-dark data-active:border-transparent data-active:outline-focus data-active:outline-2",
       "group-data-invalid:border-danger group-data-invalid:data-active:outline-danger",
@@ -22,7 +21,23 @@ export const otpInputStyles = tv({
       "otp-input__caret absolute pointer-events-none flex w-[1.5px] bg-foreground animate-caret-blink z-1",
   },
   variants: {
-    radius: radiusVariant(["group", "separator"], "otp-input"),
+    radius: {
+      sm: {
+        group: "rounded-sm",
+        separator: "rounded-sm",
+        slot: "first:rounded-l-sm last:rounded-r-sm",
+      },
+      md: {
+        group: "rounded-md",
+        separator: "rounded-md",
+        slot: "first:rounded-l-md last:rounded-r-md",
+      },
+      lg: {
+        group: "rounded-lg",
+        separator: "rounded-lg",
+        slot: "first:rounded-l-lg last:rounded-r-lg",
+      },
+    },
     size: {
       sm: {
         slot: "w-8 h-8",
