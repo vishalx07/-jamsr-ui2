@@ -2,7 +2,7 @@
 import { useCallback, useMemo, useRef } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev } from "@jamsrui/utils";
+import { cn } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -50,7 +50,7 @@ export const useAccordion = (props: useAccordion.Props) => {
     (props) => ({
       ...restProps,
       ...props,
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
       className: cn(className, props?.className),
     }),
     [restProps, className],

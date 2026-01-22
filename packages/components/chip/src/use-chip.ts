@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type { PropGetter } from "@jamsrui/utils";
 
@@ -14,8 +14,8 @@ export const useChip = (props: useChip.Props) => {
 
   const getRootProps: PropGetter<Chip.Props> = useCallback(
     () => ({
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("chip"),
+      "data-slot": "root",
+      "data-component": "chip",
       ...elementProps,
       className,
     }),
@@ -25,7 +25,7 @@ export const useChip = (props: useChip.Props) => {
   const getDotProps: PropGetter<ChipDot.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("dot"),
+      "data-slot": "dot",
     }),
     [],
   );

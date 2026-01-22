@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -18,7 +18,7 @@ export const useAlert = (props: useAlert.Props) => {
 
   const getRootProps: PropGetter<Alert.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
       role: "alert",
       ...rootProps,
       ...props,
@@ -29,7 +29,7 @@ export const useAlert = (props: useAlert.Props) => {
   const getTitleProps: PropGetter<AlertTitle.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("title"),
+      "data-slot": "title",
       variant: "h6",
     }),
     [],
@@ -38,7 +38,7 @@ export const useAlert = (props: useAlert.Props) => {
   const getDescriptionProps: PropGetter<AlertDescription.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("description"),
+      "data-slot": "description",
     }),
     [],
   );
@@ -46,7 +46,7 @@ export const useAlert = (props: useAlert.Props) => {
   const getContentProps: PropGetter<AlertContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );
@@ -54,7 +54,7 @@ export const useAlert = (props: useAlert.Props) => {
   const getIconProps: PropGetter<AlertIcon.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("icon"),
+      "data-slot": "icon",
     }),
     [],
   );

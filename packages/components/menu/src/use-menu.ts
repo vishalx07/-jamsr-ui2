@@ -24,7 +24,7 @@ import {
   useTypeahead,
 } from "@floating-ui/react";
 import { useControlledState, useMergeRefs } from "@jamsrui/hooks";
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import { useMenuFloatingContext } from "./menu-floating-context";
 
@@ -232,7 +232,7 @@ export const useMenu = (props: useMenu.Props) => {
           ? 0
           : -1
         : undefined,
-      "data-slot": dataAttrDev("trigger"),
+      "data-slot": "trigger",
       role: isNested ? "menuitem" : undefined,
       "data-active": isActive,
       "data-nested": isNested,
@@ -260,7 +260,7 @@ export const useMenu = (props: useMenu.Props) => {
   const getOverlayProps = useCallback(
     (props: FloatingOverlayProps): FloatingOverlayProps & UIProps<"div"> => ({
       lockScroll,
-      "data-slot": dataAttrDev("overlay"),
+      "data-slot": "overlay",
       ...props,
     }),
     [lockScroll],
@@ -280,8 +280,8 @@ export const useMenu = (props: useMenu.Props) => {
   const getContainerProps: PropGetter<MenuContainer.Props> = useCallback(
     (props: MenuContainer.Props) => ({
       ...props,
-      "data-component": dataAttrDev("menu"),
-      "data-slot": dataAttrDev("menu-container"),
+      "data-component": "menu",
+      "data-slot": "menu-container",
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
@@ -292,7 +292,7 @@ export const useMenu = (props: useMenu.Props) => {
   const getContentProps: PropGetter<MenuContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("menu-content"),
+      "data-slot": "menu-content",
     }),
     [],
   );
@@ -334,7 +334,7 @@ export const useMenu = (props: useMenu.Props) => {
   const getMenuItemProps: PropGetter<Partial<MenuItem.Props>> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("menu-item"),
+      "data-slot": "menu-item",
       role: "menuitem",
     }),
     [],
@@ -344,7 +344,7 @@ export const useMenu = (props: useMenu.Props) => {
     useCallback(
       (props) => ({
         ...props,
-        "data-slot": dataAttrDev("submenu-indicator"),
+        "data-slot": "submenu-indicator",
       }),
       [],
     );
@@ -353,7 +353,7 @@ export const useMenu = (props: useMenu.Props) => {
     useCallback(
       (props) => ({
         ...props,
-        "data-slot": dataAttrDev("menu-item-indicator"),
+        "data-slot": "menu-item-indicator",
       }),
       [],
     );
@@ -361,7 +361,7 @@ export const useMenu = (props: useMenu.Props) => {
   const getMenuGroupProps: PropGetter<MenuGroup.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("menu-group"),
+      "data-slot": "menu-group",
     }),
     [],
   );
@@ -369,7 +369,7 @@ export const useMenu = (props: useMenu.Props) => {
   const getMenuGroupLabelProps: PropGetter<MenuGroupLabel.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("menu-group-label"),
+      "data-slot": "menu-group-label",
     }),
     [],
   );

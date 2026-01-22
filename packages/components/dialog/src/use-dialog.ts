@@ -9,7 +9,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { mergeProps } from "@jamsrui/utils";
 
 import type {
   FloatingFocusManagerProps,
@@ -68,7 +68,7 @@ export const useDialog = (props: useDialog.Props) => {
   const getHeaderProps: PropGetter<DialogHeader.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("header"),
+      "data-slot": "header",
     }),
     [],
   );
@@ -76,7 +76,7 @@ export const useDialog = (props: useDialog.Props) => {
   const getBodyProps: PropGetter<DialogBody.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("body"),
+      "data-slot": "body",
     }),
     [],
   );
@@ -84,7 +84,7 @@ export const useDialog = (props: useDialog.Props) => {
   const getContainerProps: PropGetter<DialogContainer.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("container"),
+      "data-slot": "container",
       ref: setFloating,
       ...getFloatingProps(),
     }),
@@ -98,7 +98,7 @@ export const useDialog = (props: useDialog.Props) => {
       exit: { scale: 0.9, opacity: 0, filter: "blur(4px)" },
       transition: { type: "spring", stiffness: 300, damping: 25 },
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );
@@ -106,7 +106,7 @@ export const useDialog = (props: useDialog.Props) => {
   const getFooterProps: PropGetter<DialogFooter.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("footer"),
+      "data-slot": "footer",
     }),
     [],
   );
@@ -114,7 +114,7 @@ export const useDialog = (props: useDialog.Props) => {
   const getCloseButtonProps: PropGetter<ComponentProps<"button">> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("close-button"),
+      "data-slot": "close-button",
       onClick: handleTriggerClose,
     }),
     [handleTriggerClose],

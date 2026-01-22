@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -17,7 +17,7 @@ export const useCard = (props: useCard.Props) => {
 
   const getRootProps: PropGetter<Card.Props> = useCallback(
     () => ({
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
       ...baseProps,
       className,
     }),
@@ -26,7 +26,7 @@ export const useCard = (props: useCard.Props) => {
 
   const getHeaderProps: PropGetter<CardHeader.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("header"),
+      "data-slot": "header",
       ...props,
     }),
     [],
@@ -34,7 +34,7 @@ export const useCard = (props: useCard.Props) => {
 
   const getTitleProps: PropGetter<CardTitle.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("title"),
+      "data-slot": "title",
       ...props,
       variant: "h5",
     }),
@@ -43,7 +43,7 @@ export const useCard = (props: useCard.Props) => {
 
   const getDescriptionProps: PropGetter<CardDescription.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("description"),
+      "data-slot": "description",
       variant: "caption",
       ...props,
     }),
@@ -52,7 +52,7 @@ export const useCard = (props: useCard.Props) => {
 
   const getContentProps: PropGetter<CardContent.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
       ...props,
     }),
     [],
@@ -60,7 +60,7 @@ export const useCard = (props: useCard.Props) => {
 
   const getFooterProps: PropGetter<CardFooter.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("footer"),
+      "data-slot": "footer",
       ...props,
     }),
     [],

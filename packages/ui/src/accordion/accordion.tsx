@@ -43,47 +43,29 @@ export const AccordionItem = (props: AccordionUI.Item) => {
   );
 };
 
-const AccordionHeading = (props: AccordionUI.Heading) => {
-  const { styles } = useAccordionContext();
-  return (
-    <AccordionUI.Heading
-      {...props}
-      className={styles.heading({ className: props.className })}
-    />
-  );
-};
-
 export const AccordionTrigger = (props: AccordionUI.Trigger) => {
   const { styles } = useAccordionContext();
   return (
-    <AccordionHeading>
+    <AccordionUI.Heading
+      className={styles.heading({ className: props.className })}
+    >
       <AccordionUI.Trigger
         {...props}
         className={styles.trigger({ className: props.className })}
       />
-    </AccordionHeading>
-  );
-};
-
-const AccordionPanel = (props: AccordionUI.Panel) => {
-  const { styles } = useAccordionContext();
-  return (
-    <AccordionUI.Panel
-      {...props}
-      className={styles.panel({ className: props.className })}
-    />
+    </AccordionUI.Heading>
   );
 };
 
 export const AccordionContent = (props: AccordionUI.Content) => {
   const { styles } = useAccordionContext();
   return (
-    <AccordionPanel>
+    <AccordionUI.Panel className={styles.panel({ className: props.className })}>
       <AccordionUI.Content
         {...props}
         className={styles.content({ className: props.className })}
       />
-    </AccordionPanel>
+    </AccordionUI.Panel>
   );
 };
 

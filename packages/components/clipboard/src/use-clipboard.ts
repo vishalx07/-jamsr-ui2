@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import { useCopyToClipboard } from "./use-copy-to-clipboard";
 
@@ -34,8 +34,8 @@ export const useClipboard = (props: useClipboard.Props) => {
     () => ({
       ...elementProps,
       onClick: onCopy,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("clipboard"),
+      "data-slot": "root",
+      "data-component": "clipboard",
     }),
     [elementProps, onCopy],
   );
@@ -50,7 +50,7 @@ export const useClipboard = (props: useClipboard.Props) => {
 
   const getIconProps: PropGetter<UIProps<"svg">> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("icon"),
+      "data-slot": "icon",
     }),
     [],
   );

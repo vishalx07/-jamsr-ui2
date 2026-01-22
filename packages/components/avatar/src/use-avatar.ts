@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type { PropGetter } from "@jamsrui/utils";
 
@@ -27,9 +27,9 @@ export const useAvatar = (props: useAvatar.Props) => {
   const getRootProps = useCallback(
     (): AvatarRoot.Props => ({
       ...elementProps,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("avatar"),
-      "data-status": dataAttrDev(status),
+      "data-slot": "root",
+      "data-component": "avatar",
+      "data-status": status,
       className,
     }),
     [elementProps, className, status],
@@ -52,7 +52,7 @@ export const useAvatar = (props: useAvatar.Props) => {
     (props) => ({
       ...props,
       ref: imageRef,
-      "data-slot": dataAttrDev("img"),
+      "data-slot": "img",
       onError: handleOnError,
       onLoad: handleOnLoad,
     }),
@@ -62,7 +62,7 @@ export const useAvatar = (props: useAvatar.Props) => {
   const getFallbackProps: PropGetter<AvatarFallback.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("fallback"),
+      "data-slot": "fallback",
     }),
     [],
   );
@@ -70,7 +70,7 @@ export const useAvatar = (props: useAvatar.Props) => {
   const getIndicatorProps: PropGetter<AvatarFallback.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("indicator"),
+      "data-slot": "indicator",
     }),
     [],
   );

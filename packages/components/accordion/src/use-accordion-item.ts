@@ -2,7 +2,7 @@
 import { useCallback, useId, useMemo } from "react";
 
 import { useCompositeItem } from "@jamsrui/composite";
-import { cn, dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { cn, dataAttr, mergeProps } from "@jamsrui/utils";
 
 import { useAccordionContext } from "./accordion-context";
 
@@ -32,7 +32,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
     (props) => ({
       ...elementProps,
       ...props,
-      "data-slot": dataAttrDev("accordion-item"),
+      "data-slot": "accordion-item",
       className: cn(elementProps.className, props?.className),
       "aria-disabled": dataAttr(isDisabled),
       "data-disabled": dataAttr(isDisabled),
@@ -43,7 +43,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
   const getPanelProps: PropGetter<AccordionPanel.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("panel"),
+      "data-slot": "panel",
       role: "region",
       "aria-labelledby": triggerId,
       id: contentId,
@@ -54,7 +54,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
   const getContentProps: PropGetter<AccordionContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );
@@ -69,7 +69,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
         "aria-disabled": isDisabled,
         "data-disabled": isDisabled,
       }),
-      "data-slot": dataAttrDev("trigger"),
+      "data-slot": "trigger",
       id: triggerId,
       "aria-expanded": isOpen,
       "aria-controls": contentId,
@@ -80,7 +80,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
   const getIndicatorProps: PropGetter<AccordionIndicator.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("indicator"),
+      "data-slot": "indicator",
       "data-open": dataAttr(isOpen),
     }),
     [isOpen],
@@ -89,7 +89,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
   const getHeadingProps: PropGetter<AccordionHeading.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("heading"),
+      "data-slot": "heading",
     }),
     [],
   );

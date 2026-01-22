@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useState, useEffect, useRef } from "react";
-import { dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { mergeProps } from "@jamsrui/utils";
 import type { PropGetter } from "@jamsrui/utils";
 import type { NumberField } from "./number-field";
 import type { NumberFieldDecrement } from "./number-field-decrement";
@@ -190,7 +190,7 @@ export const useNumberField = (props: useNumberField.Props) => {
   const getRootProps: PropGetter<NumberField.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
     }),
     [],
   );
@@ -212,7 +212,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         },
       }),
       value: inputValue,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
     }),
     [handleInputOnChange, handleInputOnBlur, handleKeyDown, inputValue],
   );
@@ -223,7 +223,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         onClick: handleIncrement,
       }),
       disabled: numberValue >= maxValue,
-      "data-slot": dataAttrDev("increment"),
+      "data-slot": "increment",
     }),
     [handleIncrement, numberValue, maxValue],
   );
@@ -234,7 +234,7 @@ export const useNumberField = (props: useNumberField.Props) => {
         onClick: handleDecrement,
       }),
       disabled: numberValue <= minValue,
-      "data-slot": dataAttrDev("decrement"),
+      "data-slot": "decrement",
     }),
     [handleDecrement, numberValue, minValue],
   );
@@ -242,7 +242,7 @@ export const useNumberField = (props: useNumberField.Props) => {
   const getGroupProps: PropGetter<NumberFieldGroup.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("group"),
+      "data-slot": "group",
     }),
     [],
   );

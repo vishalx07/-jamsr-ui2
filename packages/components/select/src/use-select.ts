@@ -24,7 +24,7 @@ import {
   useTypeahead,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { cn, dataAttr, mergeProps } from "@jamsrui/utils";
 
 import type {
   FloatingFocusManagerProps,
@@ -211,8 +211,8 @@ export const useSelect = (props: useSelect.Props) => {
   const getRootProps: PropGetter<useSelect.Props> = useCallback(
     () => ({
       ...elementProps,
-      "data-component": dataAttrDev("select"),
-      "data-slot": dataAttrDev("root"),
+      "data-component": "select",
+      "data-slot": "root",
       "data-disabled": dataAttr(isDisabled),
       "data-open": dataAttr(isOpen),
     }),
@@ -222,7 +222,7 @@ export const useSelect = (props: useSelect.Props) => {
   const getValueProps: PropGetter<SelectValue.Props> = useCallback(
     (props) => ({
       ...mergeProps(props),
-      "data-slot": dataAttrDev("value"),
+      "data-slot": "value",
     }),
     [],
   );
@@ -232,7 +232,7 @@ export const useSelect = (props: useSelect.Props) => {
       type: "button",
       id: labelId,
       ...mergeProps(props),
-      "data-slot": dataAttrDev("trigger"),
+      "data-slot": "trigger",
       disabled: isDisabled,
       "aria-disabled": dataAttr(isDisabled),
       "data-disabled": dataAttr(isDisabled),
@@ -246,7 +246,7 @@ export const useSelect = (props: useSelect.Props) => {
   const getIndicatorProps: PropGetter<SelectIndicator.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("indicator"),
+      "data-slot": "indicator",
     }),
     [],
   );
@@ -256,7 +256,7 @@ export const useSelect = (props: useSelect.Props) => {
       initial: { opacity: 0, scale: 0.9 },
       animate: { opacity: 1, scale: 1 },
       transition: { type: "spring", stiffness: 300, damping: 25 },
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
       ...props,
     }),
     [],
@@ -265,7 +265,7 @@ export const useSelect = (props: useSelect.Props) => {
   const getPopoverProps: PropGetter<SelectPopover.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("popover"),
+      "data-slot": "popover",
       ref: setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
@@ -276,7 +276,7 @@ export const useSelect = (props: useSelect.Props) => {
   const getSelectItemProps: PropGetter<Partial<SelectItem.Props>> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("selectItem"),
+      "data-slot": "selectItem",
     }),
     [],
   );
@@ -285,7 +285,7 @@ export const useSelect = (props: useSelect.Props) => {
     useCallback(
       (props) => ({
         ...props,
-        "data-slot": dataAttrDev("itemIndicator"),
+        "data-slot": "itemIndicator",
       }),
       [],
     );

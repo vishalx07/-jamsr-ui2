@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useRef, useState } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type { PropGetter } from "@jamsrui/utils";
 
@@ -27,8 +27,8 @@ export const useDateField = (props: useDateField.Props) => {
   const getRootProps: PropGetter<DateFieldRoot.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-component": dataAttrDev("date-field"),
-      "data-slot": dataAttrDev("root"),
+      "data-component": "date-field",
+      "data-slot": "root",
     }),
     [],
   );
@@ -38,7 +38,7 @@ export const useDateField = (props: useDateField.Props) => {
       ...props,
       contentEditable: true,
       suppressContentEditableWarning: true,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       inputMode: "numeric",
       spellCheck: false,
     }),
@@ -48,7 +48,7 @@ export const useDateField = (props: useDateField.Props) => {
   const getSeparatorProps: PropGetter<DateFieldSeparator.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("separator"),
+      "data-slot": "separator",
     }),
     [],
   );

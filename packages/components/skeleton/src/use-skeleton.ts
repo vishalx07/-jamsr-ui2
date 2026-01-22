@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { dataAttr, dataAttrDev } from "@jamsrui/utils";
+import { dataAttr } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -13,8 +13,8 @@ export const useSkeleton = (props: useSkeleton.Props) => {
 
   const getRootProps: PropGetter<Skeleton.Props> = useCallback(
     () => ({
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("skeleton"),
+      "data-slot": "root",
+      "data-component": "skeleton",
       "data-loaded": dataAttr(!isLoading),
       ...elementProps,
     }),
@@ -24,7 +24,7 @@ export const useSkeleton = (props: useSkeleton.Props) => {
   const getContentProps: PropGetter<SkeletonContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );

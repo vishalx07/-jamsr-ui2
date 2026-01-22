@@ -17,7 +17,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type {
   Alignment,
@@ -150,8 +150,8 @@ export const usePopover = (props: usePopover.Props) => {
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("popover"),
+      "data-slot": "root",
+      "data-component": "popover",
     }),
     [floatingStyles, getFloatingProps, refs.setFloating],
   );
@@ -163,7 +163,7 @@ export const usePopover = (props: usePopover.Props) => {
       exit: { opacity: 0, scale: 0.8 },
       transition: { type: "spring", stiffness: 300, damping: 25 },
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );

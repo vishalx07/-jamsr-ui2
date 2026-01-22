@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { mergeProps } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -21,8 +21,8 @@ export const useTable = (props: useTable.Props) => {
   const getRootProps: PropGetter<TableRoot.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("table"),
+      "data-slot": "root",
+      "data-component": "table",
     }),
     [],
   );
@@ -30,7 +30,7 @@ export const useTable = (props: useTable.Props) => {
   const getWrapperProps: PropGetter<TableWrapper.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("wrapper"),
+      "data-slot": "wrapper",
     }),
     [],
   );
@@ -38,7 +38,7 @@ export const useTable = (props: useTable.Props) => {
   const getTableProps: PropGetter<Table.Props> = useCallback(
     (props) => ({
       ...mergeProps(elementProps, props),
-      "data-slot": dataAttrDev("table"),
+      "data-slot": "table",
       className,
     }),
     [className, elementProps],
@@ -47,7 +47,7 @@ export const useTable = (props: useTable.Props) => {
   const getHeaderProps: PropGetter<TableHeader.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("header"),
+      "data-slot": "header",
     }),
     [],
   );
@@ -55,7 +55,7 @@ export const useTable = (props: useTable.Props) => {
   const getColumnProps: PropGetter<TableColumn.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("column"),
+      "data-slot": "column",
     }),
     [],
   );
@@ -63,7 +63,7 @@ export const useTable = (props: useTable.Props) => {
   const getBodyProps: PropGetter<TableBody.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("body"),
+      "data-slot": "body",
     }),
     [],
   );
@@ -71,7 +71,7 @@ export const useTable = (props: useTable.Props) => {
   const getRowProps: PropGetter<TableRow.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("row"),
+      "data-slot": "row",
     }),
     [],
   );
@@ -79,7 +79,7 @@ export const useTable = (props: useTable.Props) => {
   const getCellProps: PropGetter<TableCell.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("cell"),
+      "data-slot": "cell",
     }),
     [],
   );
@@ -87,7 +87,7 @@ export const useTable = (props: useTable.Props) => {
   const getFooterProps: PropGetter<TableFooter.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("footer"),
+      "data-slot": "footer",
     }),
     [],
   );

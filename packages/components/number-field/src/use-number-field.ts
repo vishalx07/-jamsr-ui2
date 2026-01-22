@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import { NumberParser } from "./parser";
 
@@ -147,7 +147,7 @@ export const useNumberField = (props: useNumberField.Props) => {
   const getRootProps: PropGetter<NumberField.Props> = useCallback(
     () => ({
       ...restProps,
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
     }),
@@ -163,7 +163,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       }),
       ref: inputRef,
       value,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       disabled: isDisabled,
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
@@ -182,7 +182,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       tabIndex: -1,
       size: "sm",
       radius: "none",
-      "data-slot": dataAttrDev("increment"),
+      "data-slot": "increment",
       ...mergeProps(props, {
         onClick: handleIncrement,
       }),
@@ -195,7 +195,7 @@ export const useNumberField = (props: useNumberField.Props) => {
       tabIndex: -1,
       size: "sm",
       radius: "none",
-      "data-slot": dataAttrDev("decrement"),
+      "data-slot": "decrement",
       ...mergeProps(props, {
         onClick: handleDecrement,
       }),
@@ -206,7 +206,7 @@ export const useNumberField = (props: useNumberField.Props) => {
   const getGroupProps: PropGetter<NumberFieldGroup.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("group"),
+      "data-slot": "group",
     }),
     [],
   );

@@ -2,10 +2,10 @@ import { tv } from "tailwind-variants";
 
 export const circularProgressStyles = tv({
   slots: {
-    root: "size-5",
+    root: "",
     track: "stroke-background-secondary",
     progress: "stroke-success",
-    label: "fill-foreground text-xs",
+    label: "fill-foreground text-lg",
   },
   variants: {
     isIntermediate: {

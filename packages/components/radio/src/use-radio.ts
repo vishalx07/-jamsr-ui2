@@ -4,7 +4,7 @@ import { useCallback } from "react";
 
 import { useFieldA11yContext } from "@jamsrui/context";
 import { useFocusVisible, useMergeRefs, usePress } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import { useRadioGroupContext } from "./radio-group-context";
 
@@ -46,8 +46,8 @@ export const useRadio = (props: useRadio.Props) => {
     (): RadioRoot.Props => ({
       ...elementProps,
       className,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("radio"),
+      "data-slot": "root",
+      "data-component": "radio",
       "data-selected": dataAttr(isChecked),
       "data-disabled": dataAttr(isDisabled),
       "data-focus-visible": dataAttr(isFocusVisible),
@@ -62,7 +62,7 @@ export const useRadio = (props: useRadio.Props) => {
         onChange: (e) => handleInputChange(e, $value),
       }),
       value: $value,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       type: "radio",
       ref: inputRefs,
       disabled: isDisabled,
@@ -84,21 +84,21 @@ export const useRadio = (props: useRadio.Props) => {
   const getControlProps: PropGetter<RadioControl.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": dataAttrDev("control"),
+      "data-attr": "control",
     }),
     [],
   );
   const getIndicatorProps: PropGetter<RadioIndicator.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": dataAttrDev("indicator"),
+      "data-attr": "indicator",
     }),
     [],
   );
   const getContentProps: PropGetter<RadioContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": dataAttrDev("control"),
+      "data-attr": "control",
     }),
     [],
   );

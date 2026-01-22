@@ -21,7 +21,7 @@ import {
   useTypeahead,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import { useContextMenuFloatingContext } from "./context-menu-floating-context";
 
@@ -196,7 +196,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
           ? 0
           : -1
         : undefined,
-      "data-slot": dataAttrDev("trigger"),
+      "data-slot": "trigger",
       role: isNested ? "menuitem" : undefined,
       "data-active": isActive,
       "data-nested": isNested,
@@ -226,7 +226,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
   const getOverlayProps = useCallback(
     (): FloatingOverlayProps & UIProps<"div"> => ({
       lockScroll,
-      "data-slot": dataAttrDev("overlay"),
+      "data-slot": "overlay",
     }),
     [lockScroll],
   );
@@ -244,8 +244,8 @@ export const useContextMenu = (props: useContextMenu.Props) => {
 
   const getContainerProps: PropGetter<ContextMenuContainer.Props> = useCallback(
     (props) => ({
-      "data-component": dataAttrDev("menu"),
-      "data-slot": dataAttrDev("root"),
+      "data-component": "menu",
+      "data-slot": "root",
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
@@ -286,7 +286,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
   const getMenuItemProps: PropGetter<ContextMenuItem.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("menu-item"),
+      "data-slot": "menu-item",
       role: "menuitem",
     }),
     [],
@@ -296,7 +296,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     useCallback(
       (props) => ({
         ...props,
-        "data-slot": dataAttrDev("menu-item-inner"),
+        "data-slot": "menu-item-inner",
       }),
       [],
     );

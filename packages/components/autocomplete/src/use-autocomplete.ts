@@ -13,7 +13,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type {
   FloatingFocusManagerProps,
@@ -109,8 +109,8 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
   const getRootProps: PropGetter<Autocomplete.Props> = useCallback(
     () => ({
       ...elementProps,
-      "data-component": dataAttrDev("autocomplete"),
-      "data-slot": dataAttrDev("root"),
+      "data-component": "autocomplete",
+      "data-slot": "root",
     }),
     [elementProps],
   );
@@ -119,7 +119,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     useCallback(
       (props) => ({
         ...props,
-        "data-slot": dataAttrDev("item"),
+        "data-slot": "item",
       }),
       [],
     );
@@ -127,7 +127,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
   const getPopoverProps: PropGetter<AutocompletePopover.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("popover"),
+      "data-slot": "popover",
       style: floatingStyles,
       ...getFloatingProps({}),
       ref: setFloating,
@@ -138,7 +138,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
   const getContentProps: PropGetter<AutocompleteContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );

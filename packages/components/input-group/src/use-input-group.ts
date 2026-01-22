@@ -8,7 +8,7 @@ import {
   useHover,
   useMergeRefs,
 } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev } from "@jamsrui/utils";
+import { dataAttr } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -51,8 +51,8 @@ export const useInputGroup = (props: useInputGroup.Props) => {
 
   const getRootProps = useCallback(
     (): InputGroupRoot.Props => ({
-      "data-component": dataAttrDev("input-group"),
-      "data-slot": dataAttrDev("root"),
+      "data-component": "input-group",
+      "data-slot": "root",
       "data-focused": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-hovered": dataAttr(isHovered),
@@ -66,7 +66,7 @@ export const useInputGroup = (props: useInputGroup.Props) => {
 
   const getPrefixProps: PropGetter<InputGroupPrefix.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("prefix"),
+      "data-slot": "prefix",
       ...props,
     }),
     [],
@@ -74,7 +74,7 @@ export const useInputGroup = (props: useInputGroup.Props) => {
 
   const getSuffixProps: PropGetter<InputGroupSuffix.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("suffix"),
+      "data-slot": "suffix",
       ...props,
     }),
     [],

@@ -2,7 +2,7 @@
 import { useCallback, useMemo } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -31,8 +31,8 @@ export const useTabs = (props: useTabs.Props) => {
   const getRootProps: PropGetter<Tabs.Props> = useCallback(
     () => ({
       ...elementProps,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("tabs"),
+      "data-slot": "root",
+      "data-component": "tabs",
       className,
       children,
     }),
@@ -42,7 +42,7 @@ export const useTabs = (props: useTabs.Props) => {
   const getTabListProps: PropGetter<TabList.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("tab-list"),
+      "data-slot": "tab-list",
     }),
     [],
   );
@@ -50,7 +50,7 @@ export const useTabs = (props: useTabs.Props) => {
   const getTabProps: PropGetter<Tab.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("tab"),
+      "data-slot": "tab",
     }),
     [],
   );
@@ -59,7 +59,7 @@ export const useTabs = (props: useTabs.Props) => {
     (props) => ({
       layoutId: "indicator",
       ...props,
-      "data-slot": dataAttrDev("indicator"),
+      "data-slot": "indicator",
     }),
     [],
   );
@@ -67,7 +67,7 @@ export const useTabs = (props: useTabs.Props) => {
   const getPanelProps: PropGetter<TabPanel.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("tab-panel"),
+      "data-slot": "tab-panel",
     }),
     [],
   );

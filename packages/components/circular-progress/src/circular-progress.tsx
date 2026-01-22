@@ -1,27 +1,15 @@
 "use client";
 
+import { CircularProgressContext } from "./circular-progress-context";
 import { useCircularProgress } from "./use-circular-progress";
 
 export const CircularProgress = (props: CircularProgress.Props) => {
   const ctx = useCircularProgress(props);
-  const {
-    showLabel,
-    getRootProps,
-    getTrackProps,
-    getLabelProps,
-    getProgressProps,
-    label,
-  } = ctx;
-
+  const { getRootProps } = ctx;
   return (
-    <svg {...getRootProps({})}>
-      {/* Background Track */}
-      <circle {...getTrackProps({})} />
-      {/* Progress Arc */}
-      <circle {...getProgressProps({})} />
-      {/* Text inside the circle */}
-      {!!showLabel && <text {...getLabelProps({})}>{label}</text>}
-    </svg>
+    <CircularProgressContext value={ctx}>
+      <svg {...getRootProps({})} />
+    </CircularProgressContext>
   );
 };
 

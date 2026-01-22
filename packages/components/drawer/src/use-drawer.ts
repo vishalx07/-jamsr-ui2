@@ -9,7 +9,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type {
   FloatingFocusManagerProps,
@@ -70,7 +70,7 @@ export const useDrawer = (props: useDrawer.Props) => {
   const getHeaderProps: PropGetter<DrawerHeader.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("header"),
+      "data-slot": "header",
     }),
     [],
   );
@@ -78,7 +78,7 @@ export const useDrawer = (props: useDrawer.Props) => {
   const getFooterProps: PropGetter<DrawerFooter.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("footer"),
+      "data-slot": "footer",
     }),
     [],
   );
@@ -86,7 +86,7 @@ export const useDrawer = (props: useDrawer.Props) => {
   const getBodyProps: PropGetter<DrawerBody.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("body"),
+      "data-slot": "body",
     }),
     [],
   );
@@ -94,7 +94,7 @@ export const useDrawer = (props: useDrawer.Props) => {
   const getPopoverProps: PropGetter<DrawerPopover.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("popover"),
+      "data-slot": "popover",
       ref: setFloating,
       ...getFloatingProps(),
     }),
@@ -104,7 +104,7 @@ export const useDrawer = (props: useDrawer.Props) => {
   const getContentProps: PropGetter<DrawerContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
       initial: {
         opacity: 0,
         x: "100%",
@@ -144,7 +144,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       props: ComponentProps<typeof FloatingOverlay>,
     ): FloatingOverlayProps & UIProps<"div"> => ({
       lockScroll: true,
-      "data-slot": dataAttrDev("backdrop"),
+      "data-slot": "backdrop",
       ...props,
     }),
     [],

@@ -8,7 +8,7 @@ import {
   useMergeRefs,
   usePress,
 } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -60,8 +60,8 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     (): CheckboxRoot.Props => ({
       ...elementProps,
       className,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("checkbox"),
+      "data-slot": "root",
+      "data-component": "checkbox",
       "data-checked": dataAttr(isChecked || isIntermediate),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
@@ -93,7 +93,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
       "aria-disabled": dataAttr(isDisabled),
       ref: inputRef,
       type: "checkbox",
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
     }),
     [handleInputOnChange, isDisabled, inputRef, inputProps],
   );
@@ -101,7 +101,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
   const getContentProps: PropGetter<CheckboxContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );
@@ -109,7 +109,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
   const getControlProps: PropGetter<CheckboxControl.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("control"),
+      "data-slot": "control",
     }),
     [],
   );
@@ -117,7 +117,7 @@ export const useCheckbox = (props: useCheckbox.Props) => {
   const getIndicatorProps: PropGetter<CheckboxIndicator.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("indicator"),
+      "data-slot": "indicator",
     }),
     [],
   );

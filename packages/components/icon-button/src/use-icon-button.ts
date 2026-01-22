@@ -2,7 +2,7 @@
 import { useCallback, useId, useMemo } from "react";
 
 import { useHover, useMergeRefs, usePress } from "@jamsrui/hooks";
-import { cn, dataAttr, dataAttrDev } from "@jamsrui/utils";
+import { cn, dataAttr } from "@jamsrui/utils";
 
 import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
@@ -36,7 +36,7 @@ export const useIconButton = (props: useIconButton.Props) => {
     (): Partial<IconButtonRoot.Props> => ({
       ...restProps,
       ref: mergedRefs,
-      "data-component": dataAttrDev("icon-button"),
+      "data-component": "icon-button",
       className: cn(className),
       "aria-labelledby": id,
       type,

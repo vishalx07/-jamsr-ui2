@@ -3,7 +3,7 @@
 import { useCallback, useId } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev } from "@jamsrui/utils";
+import { dataAttr } from "@jamsrui/utils";
 
 import type { Radio } from "./radio";
 import type { RadioGroupRoot } from "./radio-group-root";
@@ -33,8 +33,8 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
 
   const getRootProps = useCallback(
     (): RadioGroupRoot.Props => ({
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("radio-group"),
+      "data-slot": "root",
+      "data-component": "radio-group",
       "data-disabled": dataAttr(isDisabled),
       "data-invalid": dataAttr(isInvalid),
       ...restProps,

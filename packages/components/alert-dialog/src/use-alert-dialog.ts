@@ -9,7 +9,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { mergeProps } from "@jamsrui/utils";
 
 import type {
   FloatingFocusManagerProps,
@@ -68,7 +68,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   const getContainerProps: PropGetter<AlertDialogContainer.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("container"),
+      "data-slot": "container",
       ref: setFloating,
       ...getFloatingProps(),
     }),
@@ -78,7 +78,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   const getContentProps: PropGetter<AlertDialogContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );
@@ -86,7 +86,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   const getBodyProps: PropGetter<AlertDialogBody.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("body"),
+      "data-slot": "body",
     }),
     [],
   );
@@ -94,7 +94,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   const getFooterProps: PropGetter<AlertDialogFooter.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("footer"),
+      "data-slot": "footer",
     }),
     [],
   );
@@ -102,7 +102,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   const getTitleProps: PropGetter<AlertDialogTitle.Props> = useCallback(
     (props) => ({
       variant: "h6",
-      "data-slot": dataAttrDev("title"),
+      "data-slot": "title",
       ...props,
     }),
     [],
@@ -111,7 +111,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
   const getDescriptionProps: PropGetter<Text.Props> = useCallback(
     (props) => ({
       variant: "paragraph2",
-      "data-slot": dataAttrDev("description"),
+      "data-slot": "description",
       ...props,
     }),
     [],

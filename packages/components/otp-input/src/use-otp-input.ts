@@ -7,7 +7,7 @@ import {
   useHover,
   useMergeRefs,
 } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -192,7 +192,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
 
   const getRootProps: PropGetter<OtpInputRoot.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
       "data-hover": dataAttr(isHovered),
@@ -205,7 +205,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
 
   const getGroupProps: PropGetter<OtpInputGroup.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("group"),
+      "data-slot": "group",
       ...props,
     }),
     [],
@@ -213,7 +213,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
 
   const getSlotProps: PropGetter<OtpInputSlot.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("slot"),
+      "data-slot": "slot",
       ...props,
     }),
     [],
@@ -221,7 +221,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
 
   const getSeparatorProps: PropGetter<OtpInputSeparator.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("separator"),
+      "data-slot": "separator",
       ...props,
     }),
     [],
@@ -235,7 +235,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
         onFocus: handleOnFocus,
       }),
       ref: inputRefs,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       value,
       maxLength,
       disabled: isDisabled,
@@ -256,7 +256,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
 
   const getCaretProps: PropGetter<OtpInputCaret.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("caret"),
+      "data-slot": "caret",
       ...props,
     }),
     [],

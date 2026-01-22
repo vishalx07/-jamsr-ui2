@@ -7,7 +7,7 @@ import {
   useMergeRefs,
   usePress,
 } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -57,8 +57,8 @@ export const useSwitch = (props: useSwitch.Props) => {
     (): SwitchRoot.Props => ({
       ...elementProps,
       className,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("switch"),
+      "data-slot": "root",
+      "data-component": "switch",
       "data-checked": dataAttr(isChecked),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
@@ -74,7 +74,7 @@ export const useSwitch = (props: useSwitch.Props) => {
       }),
       ref: inputRefs,
       type: "checkbox",
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       disabled: isDisabled,
     }),
     [handleInputChange, inputProps, inputRefs, isDisabled],

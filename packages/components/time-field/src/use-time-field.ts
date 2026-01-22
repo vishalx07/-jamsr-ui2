@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useRef, useState } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type { PropGetter } from "@jamsrui/utils";
 
@@ -28,8 +28,8 @@ export const useTimeField = (props: useTimeField.Props) => {
   const getRootProps: PropGetter<TimeFieldRoot.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-component": dataAttrDev("time-field"),
-      "data-slot": dataAttrDev("root"),
+      "data-component": "time-field",
+      "data-slot": "root",
     }),
     [],
   );
@@ -39,7 +39,7 @@ export const useTimeField = (props: useTimeField.Props) => {
       ...props,
       contentEditable: true,
       suppressContentEditableWarning: true,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       inputMode: "numeric",
       spellCheck: false,
     }),
@@ -49,7 +49,7 @@ export const useTimeField = (props: useTimeField.Props) => {
   const getSeparatorProps: PropGetter<TimeFieldSeparator.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("separator"),
+      "data-slot": "separator",
     }),
     [],
   );

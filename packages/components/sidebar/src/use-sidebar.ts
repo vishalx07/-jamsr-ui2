@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import { useSidebarState } from "./sidebar-state-provider";
 
@@ -32,7 +32,7 @@ export const useSidebar = (props: useSidebar.Props) => {
         ...elementProps.style,
         "--width": `${width}px`,
       } as React.CSSProperties,
-      "data-slot": dataAttrDev("wrapper"),
+      "data-slot": "wrapper",
     }),
     [width, elementProps],
   );
@@ -40,7 +40,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getSidebarProps: PropGetter<Sidebar.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
     }),
     [],
   );
@@ -48,7 +48,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getHeaderProps: PropGetter<SidebarHeader.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("header"),
+      "data-slot": "header",
     }),
     [],
   );
@@ -56,7 +56,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getContentProps: PropGetter<SidebarContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
     }),
     [],
   );
@@ -64,7 +64,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getBodyProps: PropGetter<SidebarContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("body"),
+      "data-slot": "body",
     }),
     [],
   );
@@ -72,7 +72,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getGroupProps: PropGetter<SidebarGroup.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("group"),
+      "data-slot": "group",
     }),
     [],
   );
@@ -80,7 +80,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getGroupLabelProps: PropGetter<SidebarGroupLabel.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("group-label"),
+      "data-slot": "group-label",
     }),
     [],
   );
@@ -88,7 +88,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getMenuProps: PropGetter<SidebarMenu.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("menu"),
+      "data-slot": "menu",
     }),
     [],
   );
@@ -96,7 +96,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getMenuItemProps: PropGetter<SidebarMenuItem.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("menu-item"),
+      "data-slot": "menu-item",
     }),
     [],
   );
@@ -104,7 +104,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getFooterProps: PropGetter<SidebarFooter.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("footer"),
+      "data-slot": "footer",
     }),
     [],
   );
@@ -113,7 +113,7 @@ export const useSidebar = (props: useSidebar.Props) => {
     useCallback(
       (props) => ({
         ...props,
-        "data-slot": dataAttrDev("menu-item-button"),
+        "data-slot": "menu-item-button",
       }),
       [],
     );
@@ -122,7 +122,7 @@ export const useSidebar = (props: useSidebar.Props) => {
     (props) => ({
       ...props,
       onClick: () => toggleSidebar(),
-      "data-slot": dataAttrDev("backdrop"),
+      "data-slot": "backdrop",
     }),
     [toggleSidebar],
   );
@@ -130,7 +130,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getInsetProps: PropGetter<SidebarInset.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("inset"),
+      "data-slot": "inset",
     }),
     [],
   );
@@ -138,7 +138,7 @@ export const useSidebar = (props: useSidebar.Props) => {
   const getContainerProps: PropGetter<SidebarContainer.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("container"),
+      "data-slot": "container",
     }),
     [],
   );

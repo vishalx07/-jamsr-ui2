@@ -9,14 +9,17 @@ export const CircularProgressCustomized = () => {
       <CircularProgress
         isIntermediate={false}
         size={200}
-        strokeWidth={20}
         trackWidth={20}
-        showLabel
-        labelFormatter={(value) => `${value}KM`}
-        classNames={{
-          label: "text-xl font-bold",
-        }}
-      />
+        progressWidth={16}
+        value={30}
+        startAngle={180}
+      >
+        <CircularProgress.Track />
+        <CircularProgress.Progress />
+        <CircularProgress.Label className="text-4xl font-black">
+          30KM
+        </CircularProgress.Label>
+      </CircularProgress>
     </div>
   );
 };

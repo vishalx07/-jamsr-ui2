@@ -1,4 +1,4 @@
-export { dataAttr, dataAttrDev, isDisabledElement } from "./attr";
+export { dataAttr, isDisabledElement } from "./attr";
 export { cn } from "./cn";
 export { mergeConfigProps, mergeProps } from "./merge-props";
 export { mapPropsVariants } from "./tv";

@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { dataAttrDev } from "@jamsrui/utils";
+
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -21,7 +21,7 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
 
   const getRootProps: PropGetter<LinearProgress.Props> = useCallback(
     () => ({
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
       ...elementProps,
     }),
     [elementProps],
@@ -29,7 +29,7 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
 
   const getBarProps: PropGetter<LinearProgressBar.Props> = useCallback(
     () => ({
-      "data-slot": dataAttrDev("bar"),
+      "data-slot": "bar",
       initial: {
         width: isIntermediate ? `${progress}%` : 0,
       },
