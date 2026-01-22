@@ -2193,6 +2193,9 @@ importers:
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../utils
+      '@tanstack/react-table':
+        specifier: 'catalog:'
+        version: 8.21.3(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       motion:
         specifier: 'catalog:'
         version: 12.26.2(react-dom@19.2.3(react@19.2.3))(react@19.2.3)

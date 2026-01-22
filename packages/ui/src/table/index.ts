@@ -25,3 +25,7 @@ export {
   TableHeader,
   TableRow,
 };
+
+export namespace Table {
+  export interface Props extends TableRoot.Props {}
+}

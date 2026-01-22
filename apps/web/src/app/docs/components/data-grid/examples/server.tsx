@@ -1,7 +1,6 @@
 "use client";
 
 import { DataGrid, useDataGridTable } from "jamsrui/data-grid";
-import { DataGridPagination, DataGridTable } from "jamsrui/data-grid";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { PaginationState } from "@tanstack/react-table";
 import { useMemo, useState } from "react";
@@ -31,8 +30,8 @@ export const DataGridServerSide = () => {
 
   return (
     <DataGrid table={table}>
-      <DataGridTable />
-      <DataGridPagination />
+      <DataGrid.Table />
+      <DataGrid.Pagination />
     </DataGrid>
   );
 };

@@ -1,12 +1,11 @@
 "use client";
 
 import { faker } from "@faker-js/faker";
+import type { ColumnDef } from "@tanstack/react-table";
 import { Avatar } from "jamsrui/avatar";
 import { Chip } from "jamsrui/chip";
 import { DataGrid } from "jamsrui/data-grid";
 import { Text } from "jamsrui/text";
-import { DataGridRowSelect, DataGridRowSelectAll } from "jamsrui/data-grid";
-import type { ColumnDef } from "@tanstack/react-table";
 
 type User = {
   userId: string;
@@ -66,8 +65,8 @@ export async function fetchData(options: {
 export const COLUMNS = [
   {
     id: "select",
-    header: () => <DataGridRowSelectAll />,
-    cell: ({ row }) => <DataGridRowSelect row={row} />,
+    header: () => <DataGrid.RowSelectAll />,
+    cell: ({ row }) => <DataGrid.RowSelect row={row} />,
     enableSorting: false,
     enableHiding: false,
     maxSize: 50,

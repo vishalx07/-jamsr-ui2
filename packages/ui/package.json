@@ -74,6 +74,7 @@
     "@jamsrui/react": "workspace:^",
     "@jamsrui/text": "workspace:^",
     "@jamsrui/utils": "workspace:^",
+    "@tanstack/react-table": "catalog:",
     "motion": "catalog:",
     "tailwind-variants": "^3.2.2"
   },
