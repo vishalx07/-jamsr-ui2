@@ -16,7 +16,7 @@ export const LinearProgressControlled = () => {
       <IconButton label="Decrease" disabled={!CanDecrease} onClick={OnDecrease}>
         <MinusIcon />
       </IconButton>
-      <LinearProgress isIntermediate={false} progress={value} />
+      <LinearProgress isIntermediate={false} progress={value} size="lg" />
       <IconButton label="Increase" disabled={!CanIncrease} onClick={OnIncrease}>
         <PlusIcon />
       </IconButton>

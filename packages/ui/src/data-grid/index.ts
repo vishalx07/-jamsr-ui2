@@ -26,3 +26,15 @@ export const DataGrid = Object.assign(DataGridRoot, {
   RowSelectAll: DataGridRowSelectAll,
   Table: DataGridTable,
 });
+
+export {
+  DataGridBody,
+  DataGridColumnVisibility,
+  DataGridHeader,
+  DataGridHeaderColumn,
+  DataGridPagination,
+  DataGridPaginationSelector,
+  DataGridRowSelect,
+  DataGridRowSelectAll,
+  DataGridTable,
+};

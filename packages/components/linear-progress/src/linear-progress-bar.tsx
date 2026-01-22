@@ -7,9 +7,6 @@ import type { HTMLMotionProps } from "motion/react";
 
 export const LinearProgressBar = (props: LinearProgressBar.Props) => {
   const { getBarProps } = useLinearProgressContext();
-  // const renderElement = useRenderElement(motion.div, {
-  //   props: [getBarProps(props)],
-  // });
   return <motion.div {...getBarProps(props)} {...props} />;
 };
 

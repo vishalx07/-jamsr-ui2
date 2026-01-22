@@ -1,8 +1,6 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-
-
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { LinearProgress } from "./linear-progress";
@@ -10,14 +8,11 @@ import type { LinearProgressBar } from "./linear-progress-bar";
 
 export const useLinearProgress = (props: useLinearProgress.Props) => {
   const {
-    progress: progressProp = 0,
     isIntermediate = true,
+    progress: progressProp = isIntermediate ? 50 : 0,
     ...elementProps
   } = props;
-
-  const progress = isIntermediate
-    ? progressProp || 50
-    : Math.min(progressProp, 100);
+  const progress = Math.min(progressProp, 100);
 
   const getRootProps: PropGetter<LinearProgress.Props> = useCallback(
     () => ({
@@ -31,13 +26,13 @@ export const useLinearProgress = (props: useLinearProgress.Props) => {
     () => ({
       "data-slot": "bar",
       initial: {
-        width: isIntermediate ? `${progress}%` : 0,
+        width: 0,
       },
       animate: {
         width: `${progress}%`,
       },
     }),
-    [isIntermediate, progress],
+    [progress],
   );
 
   return useMemo(
