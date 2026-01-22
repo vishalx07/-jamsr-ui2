@@ -3,15 +3,7 @@ import { Popover } from "jamsrui/popover";
 import { Text } from "jamsrui/text";
 
 export const PopoverRadius = () => {
-  const radii: Popover.Props["radius"][] = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-  ];
+  const radii: Popover.Props["radius"][] = ["none", "sm", "md", "lg", "full"];
   return (
     <div className="flex flex-wrap gap-4">
       {radii.map((radius) => (

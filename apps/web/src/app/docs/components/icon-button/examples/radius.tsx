@@ -7,9 +7,6 @@ export const IconButtonRadius = () => {
     "sm",
     "md",
     "lg",
-    "xl",
-    "2xl",
-    "3xl",
     "full",
   ];
   return (

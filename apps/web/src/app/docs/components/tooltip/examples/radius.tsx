@@ -3,15 +3,7 @@ import { InfoIcon } from "@jamsrui/icons";
 import { Tooltip } from "jamsrui/tooltip";
 
 export const TooltipRadius = () => {
-  const radii: Tooltip.Props["radius"][] = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-  ];
+  const radii: Tooltip.Props["radius"][] = ["none", "sm", "md", "lg", "full"];
   return (
     <div className="flex gap-4  min-h-[100px] items-center justify-center">
       {radii.map((radius) => (

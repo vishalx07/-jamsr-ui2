@@ -7,9 +7,7 @@ export const AlertDialogRadius = () => {
     "sm",
     "md",
     "lg",
-    "xl",
-    "2xl",
-    "3xl",
+    "full",
   ];
   return (
     <div className="flex gap-2 flex-wrap">

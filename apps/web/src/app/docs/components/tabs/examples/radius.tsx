@@ -1,7 +1,7 @@
 import { Tabs } from "jamsrui/tabs";
 
 export const TabRadius = () => {
-  const radii = ["none", "sm", "md", "lg", "xl", "full"] as const;
+  const radii = ["none", "sm", "md", "lg", "full"] as const;
   return (
     <div className="inline-flex flex-col flex-wrap gap-4">
       {radii.map((radius) => (

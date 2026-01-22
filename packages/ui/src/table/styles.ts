@@ -1,5 +1,4 @@
 import { tv, type VariantProps } from "tailwind-variants";
-import { radiusVariant } from "../utils/variants";
 
 export const tableStyles = tv({
   slots: {
@@ -30,7 +29,13 @@ export const tableStyles = tv({
         root: "bg-surface",
       },
     },
-    radius: radiusVariant("root"),
+    radius: {
+      none: { root: "rounded-none" },
+      sm: { root: "rounded-sm" },
+      md: { root: "rounded-md" },
+      lg: { root: "rounded-lg" },
+      full: { root: "rounded-full" },
+    },
     density: {
       compact: {
         td: "py-2",

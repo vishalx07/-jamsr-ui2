@@ -102,11 +102,6 @@ export const tabsStyles = tv({
         tab: "rounded-lg",
         indicator: "rounded-lg",
       },
-      xl: {
-        list: "rounded-xl",
-        tab: "rounded-xl",
-        indicator: "rounded-xl",
-      },
       full: {
         list: "rounded-full",
         tab: "rounded-full",

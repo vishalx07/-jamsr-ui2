@@ -12,3 +12,7 @@ export const Popover = Object.assign(PopoverRoot, {
 });
 
 export { PopoverArrow, PopoverContent, PopoverTrigger };
+
+export namespace Popover {
+  export interface Props extends PopoverRoot.Props {}
+}

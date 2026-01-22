@@ -13,4 +13,8 @@ export const Tooltip = Object.assign(TooltipRoot, {
   Group: TooltipGroup,
 });
 
+export namespace Tooltip {
+  export interface Props extends TooltipRoot.Props {}
+}
+
 export { TooltipArrow, TooltipContent, TooltipTrigger, TooltipGroup };

@@ -1,4 +1,3 @@
-import { radiusVariant } from "../utils/variants";
 import { tv, type VariantProps } from "tailwind-variants";
 
 export const tooltipStyles = tv({
@@ -8,7 +7,13 @@ export const tooltipStyles = tv({
     arrow: "fill-background-secondary",
   },
   variants: {
-    radius: radiusVariant("content"),
+    radius: {
+      none: { content: "rounded-none" },
+      sm: { content: "rounded-sm" },
+      md: { content: "rounded-md" },
+      lg: { content: "rounded-lg" },
+      full: { content: "rounded-full" },
+    },
   },
   defaultVariants: {
     radius: "md",

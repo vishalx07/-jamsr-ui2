@@ -64,24 +64,6 @@ export const selectStyles = tv({
         selectItem: "rounded-lg",
         popover: "rounded-lg",
       },
-      xl: {
-        trigger: "rounded-xl",
-        content: "rounded-xl",
-        selectItem: "rounded-xl",
-        popover: "rounded-xl",
-      },
-      "2xl": {
-        trigger: "rounded-2xl",
-        content: "rounded-2xl",
-        selectItem: "rounded-2xl",
-        popover: "rounded-2xl",
-      },
-      "3xl": {
-        trigger: "rounded-3xl",
-        content: "rounded-3xl",
-        selectItem: "rounded-3xl",
-        popover: "rounded-3xl",
-      },
       full: {
         trigger: "rounded-full",
         content: "rounded-full",

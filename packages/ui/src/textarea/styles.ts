@@ -1,4 +1,3 @@
-import { radiusBaseVariant } from "../utils/variants";
 import { tv, type VariantProps } from "tailwind-variants";
 
 export const textareaStyles = tv({
@@ -16,7 +15,13 @@ export const textareaStyles = tv({
       md: "textarea--md px-3 py-2 text-sm placeholder:text-sm",
       lg: "textarea--lg px-3 py-2 text-base placeholder:text-base",
     },
-    radius: radiusBaseVariant,
+    radius: {
+      none: "rounded-none",
+      sm: "rounded-sm",
+      md: "rounded-md",
+      lg: "rounded-lg",
+      full: "rounded-full",
+    },
     isInvalid: {
       true: "border-danger!",
     },

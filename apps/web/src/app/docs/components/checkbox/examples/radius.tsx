@@ -8,7 +8,7 @@ export const CheckboxRadius = () => {
     { value: "sm", label: "Small" },
     { value: "md", label: "Medium" },
     { value: "lg", label: "Large" },
-    { value: "xl", label: "Extra Large" },
+    { value: "full", label: "Full" },
   ] as { value: CheckboxProps["radius"]; label: string }[];
 
   return (

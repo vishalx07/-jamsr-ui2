@@ -30,15 +30,6 @@ export const alertDialogStyles = tv({
       lg: {
         content: "rounded-lg",
       },
-      xl: {
-        content: "rounded-xl",
-      },
-      "2xl": {
-        content: "rounded-2xl",
-      },
-      "3xl": {
-        content: "rounded-3xl",
-      },
       full: {
         content: "rounded-full",
       },

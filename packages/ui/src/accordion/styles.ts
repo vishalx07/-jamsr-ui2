@@ -43,11 +43,6 @@ export const accordionStyles = tv({
         trigger: "rounded-lg",
         content: "rounded-lg",
       },
-      xl: {
-        item: "rounded-xl",
-        trigger: "rounded-xl",
-        content: "rounded-xl",
-      },
       full: {
         item: "rounded-full",
         trigger: "rounded-full",

@@ -19,9 +19,6 @@ export const contextMenuStyles = tv({
       sm: { content: "rounded-sm", menuItem: "rounded-sm" },
       md: { content: "rounded-md", menuItem: "rounded-md" },
       lg: { content: "rounded-lg", menuItem: "rounded-lg" },
-      xl: { content: "rounded-xl", menuItem: "rounded-xl" },
-      "2xl": { content: "rounded-2xl", menuItem: "rounded-2xl" },
-      "3xl": { content: "rounded-3xl", menuItem: "rounded-3xl" },
       full: { content: "rounded-full", menuItem: "rounded-full" },
     },
     backdrop: {

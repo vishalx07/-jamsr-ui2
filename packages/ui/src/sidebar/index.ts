@@ -1,3 +1,4 @@
+import { Sidebar as SidebarUI } from "@jamsrui/react";
 import {
   Sidebar as SidebarRoot,
   SidebarBackdrop,
@@ -36,6 +37,10 @@ export const Sidebar = Object.assign(SidebarRoot, {
   Toggle: SidebarToggle,
   Wrapper: SidebarWrapper,
 });
+
+export namespace Sidebar {
+  export interface Props extends SidebarUI.Props {}
+}
 
 export {
   SidebarBackdrop,

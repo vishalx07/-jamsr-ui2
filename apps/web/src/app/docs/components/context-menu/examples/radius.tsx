@@ -6,9 +6,7 @@ export const ContextMenuRadius = () => {
     "sm",
     "md",
     "lg",
-    "xl",
-    "2xl",
-    "3xl",
+    "full",
   ];
   return (
     <div className="flex flex-wrap justify-center gap-4">

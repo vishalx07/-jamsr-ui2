@@ -17,9 +17,6 @@ export const dialogStyles = tv({
       sm: { content: "rounded-sm" },
       md: { content: "rounded-md" },
       lg: { content: "rounded-lg" },
-      xl: { content: "rounded-xl" },
-      "2xl": { content: "rounded-2xl" },
-      "3xl": { content: "rounded-3xl" },
       full: { content: "rounded-full" },
     },
     fullWidth: {

@@ -22,6 +22,11 @@ export const otpInputStyles = tv({
   },
   variants: {
     radius: {
+      none: {
+        group: "rounded-none",
+        separator: "rounded-none",
+        slot: "first:rounded-l-none last:rounded-r-none",
+      },
       sm: {
         group: "rounded-sm",
         separator: "rounded-sm",
@@ -36,6 +41,11 @@ export const otpInputStyles = tv({
         group: "rounded-lg",
         separator: "rounded-lg",
         slot: "first:rounded-l-lg last:rounded-r-lg",
+      },
+      full: {
+        group: "rounded-full",
+        separator: "rounded-full",
+        slot: "first:rounded-l-full last:rounded-r-full",
       },
     },
     size: {
