@@ -1,39 +1,33 @@
-import {
-  DateField as DateFieldUI,
-  DateFieldSeparator as DateFieldSeparatorUI,
-  DateInput as DateInputUI,
-  DateSegment as DateSegmentUI,
-} from "@jamsrui/react";
-import { cn } from "tailwind-variants";
+import { DateField as DateFieldUI } from "@jamsrui/react";
 import { dateFieldStyles } from "./styles";
 
 const styles = dateFieldStyles();
 
-export const DateInput = (props: DateInputUI.Props) => {
+export const DateInput = (props: DateFieldUI.Input) => {
   const { className, ...rest } = props;
-  return <DateInputUI {...rest} className={cn(styles.root(), className)} />;
+  return <DateFieldUI.Input {...rest} className={styles.root({ className })} />;
 };
 
-export const DateSegment = (props: DateSegmentUI.Props) => {
+export const DateSegment = (props: DateFieldUI.Segment) => {
   const { className, ...rest } = props;
   return (
-    <DateSegmentUI {...rest} className={cn(styles.segment(), className)} />
+    <DateFieldUI.Segment {...rest} className={styles.segment({ className })} />
   );
 };
 
-export const DateFieldSeparator = (props: DateFieldSeparatorUI.Props) => {
+export const DateFieldSeparator = (props: DateFieldUI.Separator) => {
   const { className, ...rest } = props;
   return (
-    <DateFieldSeparatorUI
+    <DateFieldUI.Separator
       {...rest}
-      className={cn(styles.separator(), className)}
+      className={styles.separator({ className })}
     />
   );
 };
 
 export const DateField = (props: DateField.Props) => {
-  const { className, ...rest } = props;
-  return <DateFieldUI {...rest} className={className} />;
+  const { ...rest } = props;
+  return <DateFieldUI {...rest} />;
 };
 
 export namespace DateField {

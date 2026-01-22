@@ -1,22 +1,18 @@
-import {
-  Autocomplete as AutocompleteUI,
-  AutocompleteItem as AutocompleteItemUI,
-} from "@jamsrui/react";
-import { cn } from "tailwind-variants";
+import { Autocomplete as AutocompleteUI } from "@jamsrui/react";
 import { autocompleteStyles } from "./styles";
 
 const styles = autocompleteStyles();
 
-export const AutocompleteItem = (props: AutocompleteItemUI.Props) => {
+export const AutocompleteItem = (props: AutocompleteUI.Item) => {
   const { className, ...rest } = props;
   return (
-    <AutocompleteItemUI {...rest} className={cn(styles.item(), className)} />
+    <AutocompleteUI.Item {...rest} className={styles.item({ className })} />
   );
 };
 
 export const Autocomplete = (props: Autocomplete.Props) => {
   const { className, ...rest } = props;
-  return <AutocompleteUI {...rest} className={cn(styles.root(), className)} />;
+  return <AutocompleteUI {...rest} className={styles.root({ className })} />;
 };
 
 export namespace Autocomplete {

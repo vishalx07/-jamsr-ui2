@@ -1,23 +1,19 @@
-import {
-  Clipboard as ClipboardUI,
-  ClipboardButton as ClipboardButtonUI,
-} from "@jamsrui/react";
-import { cn } from "tailwind-variants";
+import { Clipboard as ClipboardUI } from "@jamsrui/react";
 import { clipboardStyles } from "./styles";
 
 const styles = clipboardStyles();
 
-export const ClipboardButton = (props: ClipboardButtonUI.Props) => {
+export const ClipboardButton = (props: ClipboardUI.Button) => {
   const { className, ...rest } = props;
   return (
-    <ClipboardButtonUI {...rest} className={cn(styles.button(), className)} />
+    <ClipboardUI.Button {...rest} className={styles.button({ className })} />
   );
 };
 
 export const Clipboard = (props: Clipboard.Props) => {
   const { className, children, ...rest } = props;
   return (
-    <ClipboardUI {...rest} className={cn(styles.root(), className)}>
+    <ClipboardUI {...rest} className={styles.root({ className })}>
       {children}
       <ClipboardButton />
     </ClipboardUI>

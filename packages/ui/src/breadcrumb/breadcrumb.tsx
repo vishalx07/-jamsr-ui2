@@ -1,5 +1,4 @@
 import { Breadcrumb as BreadcrumbUI } from "@jamsrui/react";
-import { cn } from "tailwind-variants";
 import { breadcrumbStyles } from "./styles";
 
 const styles = breadcrumbStyles();
@@ -11,7 +10,9 @@ export const BreadcrumbItem = (
   return (
     <BreadcrumbUI.Item
       {...rest}
-      className={cn(isCurrent ? styles.current() : styles.item(), className)}
+      className={
+        isCurrent ? styles.current({ className }) : styles.item({ className })
+      }
     />
   );
 };
@@ -21,14 +22,14 @@ export const BreadcrumbSeparator = (props: BreadcrumbUI.Separator) => {
   return (
     <BreadcrumbUI.Separator
       {...rest}
-      className={cn(styles.separator(), className)}
+      className={styles.separator({ className })}
     />
   );
 };
 
 export const Breadcrumb = (props: BreadcrumbUI.Props) => {
   const { className, ...rest } = props;
-  return <BreadcrumbUI {...rest} className={cn(styles.root(), className)} />;
+  return <BreadcrumbUI {...rest} className={styles.root({ className })} />;
 };
 
 export namespace Breadcrumb {

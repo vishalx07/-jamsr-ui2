@@ -3,7 +3,7 @@
 import { CloseIcon } from "@jamsrui/icons";
 import { Drawer as DrawerUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { cn, VariantProps } from "tailwind-variants";
+import { VariantProps } from "tailwind-variants";
 import { IconButton } from "../icon-button";
 import { drawerStyles } from "./styles";
 
@@ -63,7 +63,7 @@ export const DrawerContent = (props: DrawerUI.Content) => {
         <DrawerUI.Popover className={styles.popover()}>
           <DrawerUI.Content
             {...props}
-            className={cn(styles.content({ className: props.className }))}
+            className={styles.content({ className: props.className })}
           />
         </DrawerUI.Popover>
       </DrawerUI.Backdrop>
@@ -76,7 +76,7 @@ export const DrawerHeader = (props: DrawerUI.Header) => {
   return (
     <DrawerUI.Header
       {...props}
-      className={cn(styles.header(), props.className)}
+      className={styles.header({ className: props.className })}
     />
   );
 };
@@ -84,7 +84,10 @@ export const DrawerHeader = (props: DrawerUI.Header) => {
 export const DrawerBody = (props: DrawerUI.Body) => {
   const { styles } = useDrawerContext();
   return (
-    <DrawerUI.Body {...props} className={cn(styles.body(), props.className)} />
+    <DrawerUI.Body
+      {...props}
+      className={styles.body({ className: props.className })}
+    />
   );
 };
 
@@ -93,7 +96,7 @@ export const DrawerFooter = (props: DrawerUI.Footer) => {
   return (
     <DrawerUI.Footer
       {...props}
-      className={cn(styles.footer(), props.className)}
+      className={styles.footer({ className: props.className })}
     />
   );
 };
@@ -104,7 +107,7 @@ export const DrawerCloseButton = (props: IconButton.Props) => {
     <DrawerUI.CloseTrigger>
       <IconButton
         {...props}
-        className={cn(styles.closeButton(), props.className)}
+        className={styles.closeButton({ className: props.className })}
       >
         <CloseIcon />
       </IconButton>

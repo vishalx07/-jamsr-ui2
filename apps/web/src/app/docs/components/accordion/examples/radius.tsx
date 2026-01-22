@@ -2,7 +2,7 @@ import { Accordion } from "jamsrui/accordion";
 
 export const AccordionRadius = () => {
   return (
-    <Accordion variant="splitted" radius="xl">
+    <Accordion variant="splitted" radius="full">
       <Accordion.Item>
         <Accordion.Trigger>
           Accordion 1

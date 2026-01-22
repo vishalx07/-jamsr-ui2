@@ -1,5 +1,5 @@
 import { Skeleton as SkeletonUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { VariantProps } from "tailwind-variants";
 import { skeletonStyles } from "./styles";
 
 type SkeletonVariants = VariantProps<typeof skeletonStyles>;
@@ -10,7 +10,7 @@ const SkeletonContent = (props: {
 }) => {
   const styles = skeletonStyles();
   return (
-    <div className={cn(styles.content(), props.className)}>
+    <div className={styles.content({ className: props.className })}>
       {props.children}
     </div>
   );
@@ -25,7 +25,7 @@ export const Skeleton = (props: Skeleton.Props) => {
     <SkeletonUI
       {...restProps}
       isLoading={isLoading}
-      className={cn(styles.root(), className)}
+      className={styles.root({ className })}
     >
       <SkeletonContent>{children}</SkeletonContent>
     </SkeletonUI>

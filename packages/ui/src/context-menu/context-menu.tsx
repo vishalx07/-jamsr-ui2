@@ -1,12 +1,33 @@
+"use client";
+
 import { ContextMenu as ContextMenuUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { createContext, use, useMemo } from "react";
+import { VariantProps } from "tailwind-variants";
 import { contextMenuStyles } from "./styles";
 
 type ContextMenuVariants = VariantProps<typeof contextMenuStyles>;
 
+const ContextMenuContext = createContext<{
+  styles: ReturnType<typeof contextMenuStyles>;
+} | null>(null);
+
+const useContextMenuContext = () => {
+  const ctx = use(ContextMenuContext);
+  if (!ctx) {
+    throw new Error("useContextMenuContext must be used within a ContextMenu");
+  }
+  return ctx;
+};
+
 export const ContextMenu = (props: ContextMenu.Props) => {
   const { radius, backdrop, color, ...restProps } = props;
-  return <ContextMenuUI {...restProps} />;
+  const styles = contextMenuStyles({ radius, backdrop, color });
+  const value = useMemo(() => ({ styles }), [styles]);
+  return (
+    <ContextMenuContext value={value}>
+      <ContextMenuUI {...restProps} />
+    </ContextMenuContext>
+  );
 };
 
 export namespace ContextMenu {
@@ -18,7 +39,7 @@ export const ContextMenuTrigger = (props: ContextMenuUI.Trigger) => {
 };
 
 export const ContextMenuContent = (props: ContextMenuUI.Content) => {
-  const styles = contextMenuStyles();
+  const { styles } = useContextMenuContext();
   return (
     <ContextMenuUI.Portal>
       <ContextMenuUI.Container className={styles.container()}>
@@ -32,7 +53,7 @@ export const ContextMenuContent = (props: ContextMenuUI.Content) => {
 };
 
 export const ContextMenuItem = (props: ContextMenuUI.Item) => {
-  const styles = contextMenuStyles();
+  const { styles } = useContextMenuContext();
   return (
     <ContextMenuUI.Item
       {...props}

@@ -1,14 +1,32 @@
+"use client";
+
 import { Accordion as AccordionUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { createContext, use, useMemo } from "react";
+import { VariantProps } from "tailwind-variants";
 import { accordionStyles } from "./styles";
 
 type AccordionVariants = VariantProps<typeof accordionStyles>;
 
+const AccordionContext = createContext<{
+  styles: ReturnType<typeof accordionStyles>;
+} | null>(null);
+
+const useAccordionContext = () => {
+  const ctx = use(AccordionContext);
+  if (!ctx) {
+    throw new Error("useAccordionContext must be used within an Accordion");
+  }
+  return ctx;
+};
+
 export const Accordion = (props: Accordion.Props) => {
   const { variant, radius, className, ...restProps } = props;
   const styles = accordionStyles({ variant, radius });
+  const value = useMemo(() => ({ styles }), [styles]);
   return (
-    <AccordionUI {...restProps} className={cn(styles.root(), className)} />
+    <AccordionContext value={value}>
+      <AccordionUI {...restProps} className={styles.root({ className })} />
+    </AccordionContext>
   );
 };
 export namespace Accordion {
@@ -16,65 +34,65 @@ export namespace Accordion {
 }
 
 export const AccordionItem = (props: AccordionUI.Item) => {
-  const styles = accordionStyles();
+  const { styles } = useAccordionContext();
   return (
     <AccordionUI.Item
       {...props}
-      className={cn(styles.item(), props.className)}
+      className={styles.item({ className: props.className })}
     />
   );
 };
 
 const AccordionHeading = (props: AccordionUI.Heading) => {
-  const styles = accordionStyles();
+  const { styles } = useAccordionContext();
   return (
     <AccordionUI.Heading
       {...props}
-      className={cn(styles.heading(), props.className)}
+      className={styles.heading({ className: props.className })}
     />
   );
 };
 
 export const AccordionTrigger = (props: AccordionUI.Trigger) => {
-  const styles = accordionStyles();
+  const { styles } = useAccordionContext();
   return (
     <AccordionHeading>
       <AccordionUI.Trigger
         {...props}
-        className={cn(styles.trigger(), props.className)}
+        className={styles.trigger({ className: props.className })}
       />
     </AccordionHeading>
   );
 };
 
 const AccordionPanel = (props: AccordionUI.Panel) => {
-  const styles = accordionStyles();
+  const { styles } = useAccordionContext();
   return (
     <AccordionUI.Panel
       {...props}
-      className={cn(styles.panel(), props.className)}
+      className={styles.panel({ className: props.className })}
     />
   );
 };
 
 export const AccordionContent = (props: AccordionUI.Content) => {
-  const styles = accordionStyles();
+  const { styles } = useAccordionContext();
   return (
     <AccordionPanel>
       <AccordionUI.Content
         {...props}
-        className={cn(styles.content(), props.className)}
+        className={styles.content({ className: props.className })}
       />
     </AccordionPanel>
   );
 };
 
 export const AccordionIndicator = (props: AccordionUI.Indicator) => {
-  const styles = accordionStyles();
+  const { styles } = useAccordionContext();
   return (
     <AccordionUI.Indicator
       {...props}
-      className={cn(styles.indicator(), props.className)}
+      className={styles.indicator({ className: props.className })}
     />
   );
 };

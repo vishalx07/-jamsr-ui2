@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog as DialogUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { VariantProps } from "tailwind-variants";
 import { dialogStyles } from "./styles";
 import { createContext, use, useMemo } from "react";
 import { IconButton } from "../icon-button";
@@ -74,7 +74,7 @@ export const DialogHeader = (props: DialogUI.Header) => {
   return (
     <DialogUI.Header
       {...props}
-      className={cn(styles.header(), props.className)}
+      className={styles.header({ className: props.className })}
     />
   );
 };
@@ -82,7 +82,10 @@ export const DialogHeader = (props: DialogUI.Header) => {
 export const DialogBody = (props: DialogUI.Body) => {
   const { styles } = useDialogContext();
   return (
-    <DialogUI.Body {...props} className={cn(styles.body(), props.className)} />
+    <DialogUI.Body
+      {...props}
+      className={styles.body({ className: props.className })}
+    />
   );
 };
 
@@ -91,7 +94,7 @@ export const DialogFooter = (props: DialogUI.Footer) => {
   return (
     <DialogUI.Footer
       {...props}
-      className={cn(styles.footer(), props.className)}
+      className={styles.footer({ className: props.className })}
     />
   );
 };
@@ -122,7 +125,7 @@ export const DialogContainer = (props: DialogUI.Container) => {
   return (
     <DialogUI.Container
       {...props}
-      className={cn(styles.container(), props.className)}
+      className={styles.container({ className: props.className })}
     />
   );
 };

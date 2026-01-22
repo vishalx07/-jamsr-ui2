@@ -1,54 +1,70 @@
-import {
-  NumberField as NumberFieldUI,
-  NumberFieldDecrement as NumberFieldDecrementUI,
-  NumberFieldGroup as NumberFieldGroupUI,
-  NumberFieldIncrement as NumberFieldIncrementUI,
-  NumberFieldInput as NumberFieldInputUI,
-} from "@jamsrui/react";
-import { cn } from "tailwind-variants";
+"use client";
+
+import { NumberField as NumberFieldUI } from "@jamsrui/react";
+import { createContext, use, useMemo } from "react";
 import { numberFieldStyles } from "./styles";
 
-const styles = numberFieldStyles();
+const NumberFieldContext = createContext<{
+  styles: ReturnType<typeof numberFieldStyles>;
+} | null>(null);
 
-export const NumberFieldGroup = (props: NumberFieldGroupUI.Props) => {
-  const { className, ...rest } = props;
-  return (
-    <NumberFieldGroupUI {...rest} className={cn(styles.root(), className)} />
-  );
-};
-
-export const NumberFieldInput = (props: NumberFieldInputUI.Props) => {
-  const { className, ...rest } = props;
-  return (
-    <NumberFieldInputUI {...rest} className={cn(styles.input(), className)} />
-  );
-};
-
-export const NumberFieldIncrement = (props: NumberFieldIncrementUI.Props) => {
-  const { className, ...rest } = props;
-  return (
-    <NumberFieldIncrementUI
-      {...rest}
-      className={cn(styles.button(), className)}
-    />
-  );
-};
-
-export const NumberFieldDecrement = (props: NumberFieldDecrementUI.Props) => {
-  const { className, ...rest } = props;
-  return (
-    <NumberFieldDecrementUI
-      {...rest}
-      className={cn(styles.button(), className)}
-    />
-  );
+const useNumberFieldContext = () => {
+  const ctx = use(NumberFieldContext);
+  if (!ctx) {
+    throw new Error("useNumberFieldContext must be used within a NumberField");
+  }
+  return ctx;
 };
 
 export const NumberField = (props: NumberField.Props) => {
   const { className, ...rest } = props;
-  return <NumberFieldUI {...rest} className={className} />;
+  const styles = numberFieldStyles();
+  const value = useMemo(() => ({ styles }), [styles]);
+  return (
+    <NumberFieldContext value={value}>
+      <NumberFieldUI {...rest} className={className} />
+    </NumberFieldContext>
+  );
 };
 
 export namespace NumberField {
   export interface Props extends NumberFieldUI.Props {}
 }
+
+export const NumberFieldGroup = (props: NumberFieldUI.Group) => {
+  const { styles } = useNumberFieldContext();
+  const { className, ...rest } = props;
+  return (
+    <NumberFieldUI.Group {...rest} className={styles.root({ className })} />
+  );
+};
+
+export const NumberFieldInput = (props: NumberFieldUI.Input) => {
+  const { styles } = useNumberFieldContext();
+  const { className, ...rest } = props;
+  return (
+    <NumberFieldUI.Input {...rest} className={styles.input({ className })} />
+  );
+};
+
+export const NumberFieldIncrement = (props: NumberFieldUI.Increment) => {
+  const { styles } = useNumberFieldContext();
+  const { className, ...rest } = props;
+  return (
+    <NumberFieldUI.Increment
+      {...rest}
+      className={styles.button({ className })}
+    />
+  );
+};
+
+export const NumberFieldDecrement = (props: NumberFieldUI.Decrement) => {
+  const { styles } = useNumberFieldContext();
+  const { className, ...rest } = props;
+  return (
+    <NumberFieldUI.Decrement
+      {...rest}
+      className={styles.button({ className })}
+    />
+  );
+};

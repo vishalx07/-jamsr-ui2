@@ -1,11 +1,10 @@
 import { FileUpload as FileUploadUI, formatBytes } from "@jamsrui/react";
-import { cn } from "tailwind-variants";
 import { fileUploadStyles } from "./styles";
 
 export const FileUpload = (props: FileUpload.Props) => {
   const { className, ...rest } = props;
   const styles = fileUploadStyles();
-  return <FileUploadUI {...rest} className={cn(styles.root(), className)} />;
+  return <FileUploadUI {...rest} className={styles.root({ className })} />;
 };
 
 export { formatBytes };

@@ -1,23 +1,17 @@
 import { TimeField as TimeFieldUI } from "@jamsrui/react";
-import { cn } from "tailwind-variants";
 import { timeFieldStyles } from "./styles";
 
 const styles = timeFieldStyles();
 
 export const TimeInput = (props: TimeFieldUI.Input) => {
   const { className, ...rest } = props;
-  return (
-    <TimeFieldUI.Input {...rest} className={cn(styles.root(), className)} />
-  );
+  return <TimeFieldUI.Input {...rest} className={styles.root({ className })} />;
 };
 
 export const TimeSegment = (props: TimeFieldUI.Segment) => {
   const { className, ...rest } = props;
   return (
-    <TimeFieldUI.Segment
-      {...rest}
-      className={cn(styles.segment(), className)}
-    />
+    <TimeFieldUI.Segment {...rest} className={styles.segment({ className })} />
   );
 };
 
@@ -26,7 +20,7 @@ export const TimeFieldSeparator = (props: TimeFieldUI.Separator) => {
   return (
     <TimeFieldUI.Separator
       {...rest}
-      className={cn(styles.separator(), className)}
+      className={styles.separator({ className })}
     />
   );
 };

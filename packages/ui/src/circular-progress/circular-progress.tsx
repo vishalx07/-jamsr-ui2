@@ -1,5 +1,5 @@
 import { CircularProgress as CircularProgressUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { VariantProps } from "tailwind-variants";
 import { circularProgressStyles } from "./styles";
 
 type CircularProgressVariants = VariantProps<typeof circularProgressStyles>;
@@ -11,7 +11,7 @@ export const CircularProgress = (props: CircularProgress.Props) => {
     <CircularProgressUI
       {...restProps}
       isIntermediate={isIntermediate}
-      className={cn(styles.root(), className)}
+      className={styles.root({ className })}
     />
   );
 };

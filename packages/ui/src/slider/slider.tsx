@@ -1,61 +1,85 @@
 "use client";
 
-import {
-  Slider as SliderUI,
-  SliderControl as SliderControlUI,
-  SliderIndicator as SliderIndicatorUI,
-  SliderThumb as SliderThumbUI,
-  SliderTrack as SliderTrackUI,
-  SliderValue as SliderValueUI,
-} from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { Slider as SliderUI } from "@jamsrui/react";
+import { createContext, use, useMemo } from "react";
+import { VariantProps } from "tailwind-variants";
 import { sliderStyles } from "./styles";
 
 type SliderVariants = VariantProps<typeof sliderStyles>;
 
-export const SliderControl = (props: SliderControlUI.Props) => {
-  const styles = sliderStyles();
-  const { className, ...rest } = props;
-  return (
-    <SliderControlUI {...rest} className={cn(styles.control(), className)} />
-  );
-};
+const SliderContext = createContext<{
+  styles: ReturnType<typeof sliderStyles>;
+} | null>(null);
 
-export const SliderTrack = (props: SliderTrackUI.Props) => {
-  const styles = sliderStyles();
-  const { className, ...rest } = props;
-  return <SliderTrackUI {...rest} className={cn(styles.track(), className)} />;
-};
-
-export const SliderIndicator = (props: SliderIndicatorUI.Props) => {
-  const styles = sliderStyles();
-  const { className, ...rest } = props;
-  return (
-    <SliderIndicatorUI
-      {...rest}
-      className={cn(styles.indicator(), className)}
-    />
-  );
-};
-
-export const SliderThumb = (props: SliderThumbUI.Props) => {
-  const styles = sliderStyles();
-  const { className, ...rest } = props;
-  return <SliderThumbUI {...rest} className={cn(styles.thumb(), className)} />;
-};
-
-export const SliderValue = (props: SliderValueUI.Props) => {
-  const styles = sliderStyles();
-  const { className, ...rest } = props;
-  return <SliderValueUI {...rest} className={cn(styles.value(), className)} />;
+const useSliderContext = () => {
+  const ctx = use(SliderContext);
+  if (!ctx) {
+    throw new Error("useSliderContext must be used within a Slider");
+  }
+  return ctx;
 };
 
 export const Slider = (props: Slider.Props) => {
   const { orientation, isDisabled, className, ...rest } = props;
   const styles = sliderStyles({ orientation, isDisabled });
-  return <SliderUI {...rest} className={cn(styles.root(), className)} />;
+  const value = useMemo(() => ({ styles }), [styles]);
+  return (
+    <SliderContext value={value}>
+      <SliderUI {...rest} className={styles.root({ className })} />
+    </SliderContext>
+  );
 };
 
 export namespace Slider {
   export interface Props extends SliderUI.Props, SliderVariants {}
 }
+
+export const SliderControl = (props: SliderUI.Control) => {
+  const { styles } = useSliderContext();
+  return (
+    <SliderUI.Control
+      {...props}
+      className={styles.control({ className: props.className })}
+    />
+  );
+};
+
+export const SliderTrack = (props: SliderUI.Track) => {
+  const { styles } = useSliderContext();
+  return (
+    <SliderUI.Track
+      {...props}
+      className={styles.track({ className: props.className })}
+    />
+  );
+};
+
+export const SliderIndicator = (props: SliderUI.Indicator) => {
+  const { styles } = useSliderContext();
+  return (
+    <SliderUI.Indicator
+      {...props}
+      className={styles.indicator({ className: props.className })}
+    />
+  );
+};
+
+export const SliderThumb = (props: SliderUI.Thumb) => {
+  const { styles } = useSliderContext();
+  return (
+    <SliderUI.Thumb
+      {...props}
+      className={styles.thumb({ className: props.className })}
+    />
+  );
+};
+
+export const SliderValue = (props: SliderUI.Value) => {
+  const { styles } = useSliderContext();
+  return (
+    <SliderUI.Value
+      {...props}
+      className={styles.value({ className: props.className })}
+    />
+  );
+};
