@@ -17,6 +17,7 @@ export const ClipboardEvents = () => {
       onCopyError={onError}
     >
       Click me to copy text
+      <Clipboard.Icon />
     </Clipboard>
   );
 };

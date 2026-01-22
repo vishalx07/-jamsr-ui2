@@ -1,8 +1,6 @@
 "use client";
 import { createContext, use } from "react";
 
-import type { useClipboard } from "./use-clipboard";
-
 export const ClipboardContext = createContext<ClipboardContext.Props | null>(
   null,
 );
@@ -16,5 +14,7 @@ export const useClipboardContext = () => {
 };
 
 export namespace ClipboardContext {
-  export interface Props extends ReturnType<typeof useClipboard> {}
+  export interface Props {
+    isCopied: boolean;
+  }
 }

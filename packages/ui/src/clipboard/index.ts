@@ -1,11 +1,11 @@
-import { Clipboard as ClipboardRoot, ClipboardButton } from "./clipboard";
+import { ClipboardIcon, Clipboard as ClipboardRoot } from "./clipboard";
 
 export const Clipboard = Object.assign(ClipboardRoot, {
-  Button: ClipboardButton,
+  Icon: ClipboardIcon,
 });
 
 export namespace Clipboard {
   export interface Props extends ClipboardRoot.Props {}
 }
 
-export { ClipboardButton };
+export { ClipboardIcon };

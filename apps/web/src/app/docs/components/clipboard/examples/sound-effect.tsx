@@ -21,6 +21,7 @@ export const ClipboardSoundEffect = () => {
       onCopyError={onError}
     >
       Click me to copy text with sound
+      <Clipboard.Icon />
     </Clipboard>
   );
 };

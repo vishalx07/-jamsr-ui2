@@ -1,9 +1,10 @@
 import { Clipboard } from "jamsrui/clipboard";
 
-export const ClipboardWithoutButton = () => {
+export const ClipboardWithContent = () => {
   return (
-    <Clipboard text="Hello world!" hideCopyButton>
+    <Clipboard text="Hello world!">
       Click me to copy text
+      <Clipboard.Icon />
     </Clipboard>
   );
 };

@@ -10,7 +10,7 @@ export { Charts } from '@jamsrui/charts';
 export { useCheckbox, Checkbox } from '@jamsrui/checkbox';
 export { Chip } from '@jamsrui/chip';
 export { CircularProgress } from '@jamsrui/circular-progress';
-export { Clipboard, ClipboardButton } from '@jamsrui/clipboard';
+export { Clipboard, useCopyToClipboard } from '@jamsrui/clipboard';
 export { Collapsible } from '@jamsrui/collapsible';
 export { Composite, CompositeItem, useComposite, useCompositeItem } from '@jamsrui/composite';
 export { ContextMenu } from '@jamsrui/context-menu';

@@ -1,22 +1,19 @@
-import { Clipboard as ClipboardUI } from "@jamsrui/react";
 import { clipboardStyles } from "./styles";
+import { Clipboard as ClipboardUI } from "@jamsrui/react";
 
 const styles = clipboardStyles();
 
-export const ClipboardButton = (props: ClipboardUI.Button) => {
+export const ClipboardIcon = (props: ClipboardUI.Icon) => {
   const { className, ...rest } = props;
-  return (
-    <ClipboardUI.Button {...rest} className={styles.button({ className })} />
-  );
+  return <ClipboardUI.Icon {...rest} className={styles.icon({ className })} />;
 };
 
 export const Clipboard = (props: Clipboard.Props) => {
-  const { className, children, ...rest } = props;
   return (
-    <ClipboardUI {...rest} className={styles.root({ className })}>
-      {children}
-      <ClipboardButton />
-    </ClipboardUI>
+    <ClipboardUI
+      {...props}
+      className={styles.root({ className: props.className })}
+    />
   );
 };
 
