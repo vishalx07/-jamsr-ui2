@@ -1,4 +1,5 @@
 import { tv } from "tailwind-variants";
+import { groupDataFocusVisibleClasses } from "../utils/variants";
 
 export const checkboxStyles = tv({
   slots: {
@@ -8,6 +9,7 @@ export const checkboxStyles = tv({
     ],
     control: [
       "checkbox__control flex justify-center items-center",
+      ...groupDataFocusVisibleClasses,
       "shrink-0 border-default uig-hover:border-default-hover",
       "relative appearance-none border uig-checked:border-primary uig-checked:bg-primary uig-checked:text-primary-foreground",
       "uig-disabled:status-disabled uig-pressed:scale-90 transition-all duration-300",

@@ -5,6 +5,7 @@ import { Description } from "jamsrui/description";
 import { IconButton } from "jamsrui/icon-button";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
+import { Textarea } from "jamsrui/textarea";
 import { TextField } from "jamsrui/textfield";
 import { useState } from "react";
 
@@ -16,7 +17,7 @@ export const TextareaControlled = () => {
     <TextField className="max-w-62 w-full">
       <Label>Name</Label>
       <InputGroup>
-        <InputGroup.Textarea value={value} onValueChange={setValue} />
+        <Textarea value={value} onValueChange={setValue} />
         {hasValue && (
           <IconButton
             variant="light"

@@ -2,6 +2,7 @@
 
 import { EyeClosedIcon, EyeOpenIcon } from "@jamsrui/icons";
 import { IconButton } from "jamsrui/icon-button";
+import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
 import { TextField } from "jamsrui/textfield";
@@ -16,7 +17,7 @@ export const InputPasswordToggle = () => {
     <TextField>
       <Label>Password</Label>
       <InputGroup>
-        <InputGroup.Input
+        <Input
           type={showPassword ? "text" : "password"}
           placeholder="Enter your name"
         />

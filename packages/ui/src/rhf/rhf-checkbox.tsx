@@ -1,26 +1,28 @@
 "use client";
-import { RadioGroup } from "@jamsrui/radio";
 
+import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
+import { Checkbox } from "../checkbox";
 
-export const RHFRadioGroup = (props: RHFRadioGroup.Props) => {
+export const RHFCheckbox = (props: RHFCheckbox.Props) => {
   const { field, fieldState } = useRHFContext();
   const { value, onChange, onBlur, name, ref, disabled } = field;
   const { invalid } = fieldState;
   return (
-    <RadioGroup
+    <Checkbox
       ref={ref}
+      checked={value}
+      data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}
       onBlur={onBlur}
-      onValueChange={onChange}
-      value={value}
+      onCheckedChange={onChange}
       {...props}
     />
   );
 };
 
-export namespace RHFRadioGroup {
-  export interface Props extends RadioGroup.Props {}
+export namespace RHFCheckbox {
+  export interface Props extends Checkbox.Props {}
 }

@@ -1,4 +1,5 @@
 import { tv } from "tailwind-variants";
+import { focusVisibleClasses } from "../utils/variants";
 
 export const selectStyles = tv({
   slots: {
@@ -11,6 +12,7 @@ export const selectStyles = tv({
       "select__trigger relative flex w-full flex-row items-center gap-3 border border-border px-3 py-2 outline-none",
       "focus:border-primary data-hover:border-border-dark data-open:border-primary",
       "data-disabled:status-disabled",
+      ...focusVisibleClasses,
     ],
     indicator:
       "select__indicator shrink-0 transition-transform duration-300 group-data-open:rotate-180",

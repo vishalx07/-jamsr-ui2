@@ -1,15 +1,15 @@
 "use client";
-import { Select } from "@jamsrui/select";
 
 import { dataAttr } from "@jamsrui/utils";
 import { useRHFContext } from "./rhf-context";
+import { NumberField } from "../number-field";
 
-export const RHFSelect = (props: RHFSelect.Props) => {
+export const RHFNumberField = (props: RHFNumberField.Props) => {
   const { field, fieldState } = useRHFContext();
   const { value, onChange, onBlur, name, ref, disabled } = field;
   const { invalid } = fieldState;
   return (
-    <Select
+    <NumberField
       ref={ref}
       data-invalid={dataAttr(invalid)}
       disabled={disabled}
@@ -23,6 +23,6 @@ export const RHFSelect = (props: RHFSelect.Props) => {
   );
 };
 
-export namespace RHFSelect {
-  export interface Props extends Select.Props {}
+export namespace RHFNumberField {
+  export interface Props extends NumberField.Props {}
 }

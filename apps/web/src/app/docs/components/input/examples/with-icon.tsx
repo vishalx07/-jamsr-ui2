@@ -1,4 +1,5 @@
 import { EmailIcon } from "@jamsrui/icons";
+import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
 import { TextField } from "jamsrui/textfield";
@@ -11,11 +12,7 @@ export const InputWithIcon = () => {
         <InputGroup.Prefix>
           <EmailIcon />
         </InputGroup.Prefix>
-        <InputGroup.Input
-          placeholder="Enter your email"
-          type="email"
-          className="w-full"
-        />
+        <Input placeholder="Enter your email" type="email" className="w-full" />
       </InputGroup>
     </TextField>
   );

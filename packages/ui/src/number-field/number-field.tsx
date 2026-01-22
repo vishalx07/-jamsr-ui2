@@ -17,12 +17,12 @@ const useNumberFieldContext = () => {
 };
 
 export const NumberField = (props: NumberField.Props) => {
-  const { className, ...rest } = props;
-  const styles = numberFieldStyles();
+  const { className, isInvalid, ...rest } = props;
+  const styles = numberFieldStyles({ isInvalid });
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <NumberFieldContext value={value}>
-      <NumberFieldUI {...rest} className={className} />
+      <NumberFieldUI {...rest} className={styles.root({ className })} />
     </NumberFieldContext>
   );
 };
@@ -35,7 +35,7 @@ export const NumberFieldGroup = (props: NumberFieldUI.Group) => {
   const { styles } = useNumberFieldContext();
   const { className, ...rest } = props;
   return (
-    <NumberFieldUI.Group {...rest} className={styles.root({ className })} />
+    <NumberFieldUI.Group {...rest} className={styles.group({ className })} />
   );
 };
 
@@ -53,7 +53,7 @@ export const NumberFieldIncrement = (props: NumberFieldUI.Increment) => {
   return (
     <NumberFieldUI.Increment
       {...rest}
-      className={styles.button({ className })}
+      className={styles.increment({ className })}
     />
   );
 };
@@ -64,7 +64,7 @@ export const NumberFieldDecrement = (props: NumberFieldUI.Decrement) => {
   return (
     <NumberFieldUI.Decrement
       {...rest}
-      className={styles.button({ className })}
+      className={styles.decrement({ className })}
     />
   );
 };

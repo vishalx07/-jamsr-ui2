@@ -1,9 +1,9 @@
 "use client";
 
-import { Input, InputGroup as InputGroupUI, Textarea } from "@jamsrui/react";
+import { InputGroup as InputGroupUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
 import { VariantProps } from "tailwind-variants";
-import { inputGroupInputStyles, inputGroupStyles } from "./styles";
+import { inputGroupStyles } from "./styles";
 
 type InputGroupVariants = VariantProps<typeof inputGroupStyles>;
 
@@ -52,14 +52,4 @@ export const InputGroupSuffix = (props: InputGroupUI.Suffix) => {
       className={styles.suffix({ className: props.className })}
     />
   );
-};
-
-export const InputGroupInput = (props: Input.Props) => {
-  const styles = inputGroupInputStyles();
-  return <Input {...props} className={styles} />;
-};
-
-export const InputGroupTextArea = (props: Textarea.Props) => {
-  const styles = inputGroupInputStyles();
-  return <Textarea {...props} className={styles} />;
 };

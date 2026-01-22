@@ -39,7 +39,6 @@ export { Pagination } from '@jamsrui/pagination';
 export { Popover } from '@jamsrui/popover';
 export { RadioContext, RadioGroupContext, useRadioContext, useRadioGroupContext, RadioGroup, Radio } from '@jamsrui/radio';
 export { Rating } from '@jamsrui/rating';
-export { RHFField } from '@jamsrui/rhf';
 export { Ripple } from '@jamsrui/ripple';
 export { useScrollAreaContext, ScrollArea } from '@jamsrui/scroll-area';
 export { Select } from '@jamsrui/select';

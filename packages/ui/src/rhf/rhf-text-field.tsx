@@ -1,6 +1,6 @@
 "use client";
 
-import { TextField } from "@jamsrui/textfield";
+import { TextField } from "../textfield";
 import { useRHFContext } from "./rhf-context";
 
 export const RHFTextField = (props: RHFTextField.Props) => {

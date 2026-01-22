@@ -3,20 +3,18 @@
 import { DocsPage } from "@/components/docs-page";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeClosedIcon, EyeOpenIcon } from "@jamsrui/icons";
-import {
-  Button,
-  Checkbox,
-  IconButton,
-  InputGroup,
-  Label,
-  NumberField,
-  OtpInput,
-  Radio,
-  RHFField,
-  Select,
-  Switch,
-  toast,
-} from "jamsrui";
+import { Button } from "jamsrui/button";
+import { Checkbox } from "jamsrui/checkbox";
+import { IconButton } from "jamsrui/icon-button";
+import { InputGroup } from "jamsrui/input-group";
+import { Label } from "jamsrui/label";
+import { NumberField } from "jamsrui/number-field";
+import { OtpInput } from "jamsrui/otp-input";
+import { Radio } from "jamsrui/radio-group";
+import { Select } from "jamsrui/select";
+import { Switch } from "jamsrui/switch";
+import { toast } from "jamsrui/toast";
+import { RHFField } from "jamsrui/rhf";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import z, { boolean, number, object, string } from "zod";
