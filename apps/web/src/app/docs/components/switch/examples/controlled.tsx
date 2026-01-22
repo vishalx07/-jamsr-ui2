@@ -8,7 +8,7 @@ import { useState } from "react";
 export const SwitchControlled = () => {
   const [isChecked, setIsChecked] = useState(false);
   return (
-    <Switch isChecked={isChecked} onCheckedChange={setIsChecked}>
+    <Switch checked={isChecked} onCheckedChange={setIsChecked}>
       <Switch.Track />
       <Switch.Content>
         <Label>Are you ok?</Label>

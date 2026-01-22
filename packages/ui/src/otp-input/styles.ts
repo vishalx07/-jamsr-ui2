@@ -1,6 +1,5 @@
-import { radiusVariant, tv } from "@jamsrui/utils";
-
-import type { VariantProps } from "tailwind-variants";
+import { tv, type VariantProps } from "tailwind-variants";
+import { radiusVariant } from "../utils/variants";
 
 export const otpInputStyles = tv({
   slots: {

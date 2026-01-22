@@ -5,6 +5,7 @@ import { RadioControl } from "./radio-control";
 import { RadioGroup as RadioGroupRoot } from "./radio-group";
 import { RadioGroupContext, useRadioGroupContext } from "./radio-group-context";
 import { RadioIndicator } from "./radio-indicator";
+import { RadioInput } from "./radio-input";
 
 export {
   RadioContext,
@@ -20,6 +21,7 @@ export const Radio = Object.assign(RadioRoot, {
   Content: RadioContent,
   Control: RadioControl,
   Indicator: RadioIndicator,
+  Input: RadioInput,
 });
 
 export namespace Radio {

@@ -25,7 +25,11 @@ export const Slider = (props: Slider.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <SliderContext value={value}>
-      <SliderUI {...rest} className={styles.root({ className })} />
+      <SliderUI
+        {...rest}
+        orientation={orientation}
+        className={styles.root({ className })}
+      />
     </SliderContext>
   );
 };

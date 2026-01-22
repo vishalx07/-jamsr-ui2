@@ -1,10 +1,9 @@
 import { Description } from "jamsrui/description";
 import { Label } from "jamsrui/label";
 import { Switch } from "jamsrui/switch";
-import { SwitchProps } from "@jamsrui/switch";
 
 export const SwitchColors = () => {
-  const data: { color: SwitchProps["color"]; description: string }[] = [
+  const data: { color: Switch.Props["color"]; description: string }[] = [
     {
       color: "default",
       description: "Enable notifications (Default)",

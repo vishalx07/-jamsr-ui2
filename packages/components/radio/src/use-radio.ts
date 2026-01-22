@@ -84,21 +84,21 @@ export const useRadio = (props: useRadio.Props) => {
   const getControlProps: PropGetter<RadioControl.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": "control",
+      "data-slot": "control",
     }),
     [],
   );
   const getIndicatorProps: PropGetter<RadioIndicator.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": "indicator",
+      "data-slot": "indicator",
     }),
     [],
   );
   const getContentProps: PropGetter<RadioContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": "control",
+      "data-slot": "content",
     }),
     [],
   );

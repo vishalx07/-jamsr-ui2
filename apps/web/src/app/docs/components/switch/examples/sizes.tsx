@@ -1,14 +1,12 @@
 import { Label } from "jamsrui/label";
 import { Switch } from "jamsrui/switch";
-import { SwitchProps } from "@jamsrui/switch";
 
 export const SwitchSizes = () => {
   const examples = [
-    { size: "xs", label: "Notifications" },
     { size: "sm", label: "Dark Mode" },
     { size: "md", label: "Enable Two-Factor Authentication" },
     { size: "lg", label: "Receive Marketing Emails" },
-  ] as { size: SwitchProps["size"]; label: string }[];
+  ] as { size: Switch.Props["size"]; label: string }[];
 
   return (
     <div className="flex flex-col gap-4">

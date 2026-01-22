@@ -3,26 +3,14 @@
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useRadioContext } from "./radio-context";
-import { RadioIndicator } from "./radio-indicator";
-import { RadioInput } from "./radio-input";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const RadioControl = (props: RadioControl.Props) => {
-  const { children = <RadioIndicator />, ...restProps } = props;
+  const { ...restProps } = props;
   const { getControlProps } = useRadioContext();
   const renderElement = useRenderElement("div", {
-    props: [
-      getControlProps(restProps),
-      {
-        children: (
-          <>
-            <RadioInput />
-            {children}
-          </>
-        ),
-      },
-    ],
+    props: [getControlProps(restProps)],
   });
   return renderElement;
 };

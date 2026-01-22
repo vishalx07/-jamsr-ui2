@@ -39,10 +39,6 @@ export const switchStyles = tv({
       },
     },
     size: {
-      xs: {
-        track: "h-4 w-7 px-0.5",
-        thumb: "size-3 uig-pressed:w-3.5",
-      },
       sm: {
         track: "h-5 w-9",
         thumb: "size-3.5 uig-pressed:w-4",

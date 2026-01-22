@@ -32,11 +32,20 @@ export namespace Select {
 
 export const SelectTrigger = (props: SelectUI.Trigger) => {
   const { styles } = useSelectContext();
+  const {
+    children = (
+      <>
+        <SelectValue />
+        <SelectIndicator />
+      </>
+    ),
+    className,
+    ...restProps
+  } = props;
   return (
-    <SelectUI.Trigger
-      {...props}
-      className={styles.trigger({ className: props.className })}
-    />
+    <SelectUI.Trigger {...restProps} className={styles.trigger({ className })}>
+      {children}
+    </SelectUI.Trigger>
   );
 };
 

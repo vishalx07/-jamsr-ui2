@@ -25,12 +25,15 @@ const useOtpInputContext = () => {
 };
 
 export const OtpInput = (props: OtpInput.Props) => {
-  const { radius, size, className, ...rest } = props;
+  const { radius, size, className, children, ...rest } = props;
   const styles = otpInputStyles({ radius, size });
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <OtpInputContext value={value}>
-      <OtpInputUI {...rest} className={styles.root({ className })} />
+      <OtpInputUI {...rest} className={styles.root({ className })}>
+        <OtpInputUI.Input className={styles.input()} />
+        {children}
+      </OtpInputUI>
     </OtpInputContext>
   );
 };
@@ -45,10 +48,29 @@ export const OtpInputGroup = (props: OtpInputUI.Group) => {
   return <OtpInputUI.Group {...rest} className={styles.group({ className })} />;
 };
 
+const SlotContent = (props: OtpInputUI.SlotRenderProps) => {
+  const { char, isActive, placeholderChar } = props;
+  const { styles } = useOtpInputContext();
+  if (char) return char;
+  if (placeholderChar) return placeholderChar;
+  if (isActive) return <OtpInputUI.Caret className={styles.caret()} />;
+  return null;
+};
+
 export const OtpInputSlot = (props: OtpInputUI.Slot) => {
   const { styles } = useOtpInputContext();
   const { className, ...rest } = props;
-  return <OtpInputUI.Slot {...rest} className={styles.slot({ className })} />;
+  return (
+    <OtpInputUI.Slot {...rest} className={styles.slot({ className })}>
+      {({ char, isActive, placeholderChar }) => (
+        <SlotContent
+          char={char}
+          isActive={isActive}
+          placeholderChar={placeholderChar}
+        />
+      )}
+    </OtpInputUI.Slot>
+  );
 };
 
 export const OtpInputSeparator = (props: OtpInputUI.Separator) => {

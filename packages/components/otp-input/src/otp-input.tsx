@@ -1,19 +1,14 @@
 "use client";
 
 import { OtpInputContext } from "./otp-input-context";
-import { OtpInputInput } from "./otp-input-input";
 import { OtpInputRoot } from "./otp-input-root";
 import { useOtpInput } from "./use-otp-input";
 
 export const OtpInput = (props: OtpInput.Props) => {
-  const { children, ...restProps } = props;
-  const ctx = useOtpInput(restProps);
+  const ctx = useOtpInput(props);
   return (
     <OtpInputContext value={ctx}>
-      <OtpInputRoot>
-        <OtpInputInput />
-        {children}
-      </OtpInputRoot>
+      <OtpInputRoot>{props.children}</OtpInputRoot>
     </OtpInputContext>
   );
 };

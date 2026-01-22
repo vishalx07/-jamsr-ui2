@@ -15,17 +15,17 @@ export const radioStyles = tv({
       "shrink-0",
       "overflow-hidden",
       "border-solid",
-      "border",
+      "border-[1.5px]",
       "box-border",
       "border-default",
       "rounded-full",
-      "transition-all duration-300",
       "uig-hover:border-default-hover",
       "uig-pressed:scale-95",
+      "uig-selected:border-transparent",
       ...groupDataFocusVisibleClasses,
       "group-data-invalid:border-danger",
     ],
-    indicator: "absolute rounded-full",
+    indicator: "absolute rounded-full bg-white",
     input: "inset-0 absolute opacity-[0.0001]",
     label: "select-none text-foreground",
     content: "flex grow flex-col",
@@ -34,28 +34,22 @@ export const radioStyles = tv({
   variants: {
     color: {
       default: {
-        indicator: "bg-default-active text-default-foreground",
-        control: "uig-selected:border-default-active",
+        control: "uig-selected:bg-default",
       },
       primary: {
-        indicator: "bg-primary text-primary-foreground",
-        control: "uig-selected:border-primary",
+        control: "uig-selected:bg-primary",
       },
       secondary: {
-        indicator: "bg-secondary text-secondary-foreground",
-        control: "uig-selected:border-secondary",
+        control: "uig-selected:bg-secondary",
       },
       success: {
-        indicator: "bg-success text-success-foreground",
-        control: "uig-selected:border-success",
+        control: "uig-selected:bg-success",
       },
       warning: {
-        indicator: "bg-warning text-warning-foreground",
-        control: "uig-selected:border-warning",
+        control: "uig-selected:bg-warning",
       },
       danger: {
-        indicator: "bg-danger text-danger-foreground",
-        control: "uig-selected:border-danger",
+        control: "uig-selected:bg-danger",
       },
     },
     size: {

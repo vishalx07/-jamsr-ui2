@@ -14,9 +14,7 @@ import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { OtpInputCaret } from "./otp-input-caret";
 import type { OtpInputGroup } from "./otp-input-group";
 import type { OtpInputInput } from "./otp-input-input";
-import type { OtpInputRoot } from "./otp-input-root";
 import type { OtpInputSeparator } from "./otp-input-separator";
-import type { OtpInputSlot } from "./otp-input-slot";
 
 export const useOtpInput = (props: useOtpInput.Props) => {
   const {
@@ -190,30 +188,22 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [placeholder, selectionEnd, selectionStart, value],
   );
 
-  const getRootProps: PropGetter<OtpInputRoot.Props> = useCallback(
-    (props) => ({
+  const getRootProps = useCallback(
+    () => ({
       "data-slot": "root",
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
       "data-hover": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
-      ...props,
+      ...restProps,
     }),
-    [isDisabled, isHovered, isFocused, isInvalid],
+    [isDisabled, isHovered, isFocused, isInvalid, restProps],
   );
 
   const getGroupProps: PropGetter<OtpInputGroup.Props> = useCallback(
     (props) => ({
       "data-slot": "group",
-      ...props,
-    }),
-    [],
-  );
-
-  const getSlotProps: PropGetter<OtpInputSlot.Props> = useCallback(
-    (props) => ({
-      "data-slot": "slot",
       ...props,
     }),
     [],
@@ -227,9 +217,9 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [],
   );
 
-  const getInputProps = useCallback(
-    (): OtpInputInput.Props => ({
-      ...mergeProps(restProps, {
+  const getInputProps: PropGetter<OtpInputInput.Props> = useCallback(
+    (props): OtpInputInput.Props => ({
+      ...mergeProps(props, {
         onChange: handleOnChange,
         onBlur: handleOnBlur,
         onFocus: handleOnFocus,
@@ -242,7 +232,6 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       pattern: regexp?.source,
     }),
     [
-      restProps,
       value,
       handleOnChange,
       handleOnBlur,
@@ -266,7 +255,6 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     () => ({
       getRootProps,
       getGroupProps,
-      getSlotProps,
       getSeparatorProps,
       getInputProps,
       getCaretProps,
@@ -275,7 +263,6 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [
       getRootProps,
       getGroupProps,
-      getSlotProps,
       getSeparatorProps,
       getInputProps,
       getCaretProps,
@@ -284,17 +271,16 @@ export const useOtpInput = (props: useOtpInput.Props) => {
   );
 };
 
-type OverrideProps<T, R> = Omit<T, keyof R> & R;
 export namespace useOtpInput {
-  export interface Props extends OverrideProps<
-    OtpInputInput.Props,
-    {
-      value?: string;
-      onValueChange?: (value: string) => void;
-      defaultValue?: string;
-      maxLength: number;
-      onComplete?: (value: string) => void;
-      isInvalid?: boolean;
-    }
-  > {}
+  export interface Props extends UIProps<"div"> {
+    value?: string;
+    onValueChange?: (value: string) => void;
+    defaultValue?: string;
+    maxLength: number;
+    onComplete?: (value: string) => void;
+    isInvalid?: boolean;
+    disabled?: boolean;
+    placeholder?: string;
+    pattern?: string;
+  }
 }

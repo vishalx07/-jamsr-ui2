@@ -1,44 +1,40 @@
 "use client";
 
-import { Radio as RadioUI, RadioGroup as RadioGroupUI } from "@jamsrui/react";
-import { createContext, useContext } from "react";
-import { radioStyles, radioGroupStyles } from "./styles";
-import type { RadioVariants, RadioGroupVariants } from "./styles";
+import { RadioGroup as RadioGroupUI, Radio as RadioUI } from "@jamsrui/react";
+import { createContext, use, useMemo } from "react";
+import type { RadioGroupVariants, RadioVariants } from "./styles";
+import { radioGroupStyles, radioStyles } from "./styles";
 
-// Radio Style Context
 const RadioStyleContext = createContext<{
   styles: ReturnType<typeof radioStyles>;
 } | null>(null);
 
 const useRadioStyleContext = () => {
-  return useContext(RadioStyleContext) || { styles: radioStyles() };
+  const ctx = use(RadioStyleContext);
+  if (!ctx) {
+    throw new Error("useRadioContext must be used within a Radio");
+  }
+  return ctx;
 };
 
-// RadioGroup Style Context
-const RadioGroupStyleContext = createContext<{
-  styles: ReturnType<typeof radioGroupStyles>;
-  radioStyles: ReturnType<typeof radioStyles>;
-} | null>(null);
+const RadioGroupContext = createContext<RadioVariants | null>(null);
 
-const useRadioGroupStyleContext = () => {
-  return (
-    useContext(RadioGroupStyleContext) || {
-      styles: radioGroupStyles(),
-      radioStyles: radioStyles(),
-    }
-  );
+const useRadioGroupContext = () => {
+  const ctx = use(RadioGroupContext);
+  if (!ctx) {
+    throw new Error("useRadioContext must be used within a Radio");
+  }
+  return ctx;
 };
 
-// RadioGroup
 export const RadioGroup = (props: RadioGroup.Props) => {
   const { color, size, className, ...restProps } = props;
   const styles = radioGroupStyles({});
-  const radStyles = radioStyles({ color, size });
-
+  const value: RadioVariants = useMemo(() => ({ color, size }), [color, size]);
   return (
-    <RadioGroupStyleContext.Provider value={{ styles, radioStyles: radStyles }}>
+    <RadioGroupContext value={value}>
       <RadioGroupUI {...restProps} className={styles.root({ className })} />
-    </RadioGroupStyleContext.Provider>
+    </RadioGroupContext>
   );
 };
 
@@ -47,21 +43,28 @@ export namespace RadioGroup {
     extends RadioGroupUI.Props, RadioVariants, RadioGroupVariants {}
 }
 
-// Radio
 export const Radio = (props: Radio.Props) => {
-  const { color, size, className, ...restProps } = props;
-  const { radioStyles: groupRadioStyles } = useRadioGroupStyleContext();
-  // Use group styles if no individual styles provided
+  const group = useRadioGroupContext();
+  const {
+    color = group.color,
+    size = group.size,
+    className,
+    ...restProps
+  } = props;
   const styles = radioStyles({
-    color: color ?? undefined,
-    size: size ?? undefined,
+    color,
+    size,
   });
-  // Merge with group styles (group provides defaults)
-  const finalStyles = color || size ? styles : groupRadioStyles;
 
+  const value = useMemo(
+    () => ({
+      styles,
+    }),
+    [styles],
+  );
   return (
-    <RadioStyleContext.Provider value={{ styles: finalStyles }}>
-      <RadioUI {...restProps} className={finalStyles.root({ className })} />
+    <RadioStyleContext.Provider value={value}>
+      <RadioUI {...restProps} className={styles.root({ className })} />
     </RadioStyleContext.Provider>
   );
 };
@@ -70,18 +73,20 @@ export namespace Radio {
   export interface Props extends RadioUI.Props, RadioVariants {}
 }
 
-// RadioControl
 export const RadioControl = (props: RadioUI.Control) => {
   const { styles } = useRadioStyleContext();
+  const { children = <RadioIndicator />, className, ...restProps } = props;
   return (
     <RadioUI.Control
-      {...props}
+      {...restProps}
       className={styles.control({ className: props.className })}
-    />
+    >
+      <RadioUI.Input className={styles.input()} />
+      {children}
+    </RadioUI.Control>
   );
 };
 
-// RadioIndicator
 export const RadioIndicator = (props: RadioUI.Indicator) => {
   const { styles } = useRadioStyleContext();
   return (
@@ -92,7 +97,6 @@ export const RadioIndicator = (props: RadioUI.Indicator) => {
   );
 };
 
-// RadioContent
 export const RadioContent = (props: RadioUI.Content) => {
   const { styles } = useRadioStyleContext();
   return (

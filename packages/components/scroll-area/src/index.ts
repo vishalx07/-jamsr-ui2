@@ -18,19 +18,9 @@ export const ScrollArea = Object.assign(ScrollAreaRoot, {
 
 export namespace ScrollArea {
   export interface Props extends ScrollAreaRoot.Props {}
-  export interface ViewportProps extends React.ComponentProps<
-    typeof ScrollAreaViewport
-  > {}
-  export interface ContentProps extends React.ComponentProps<
-    typeof ScrollAreaContent
-  > {}
-  export interface ScrollbarProps extends React.ComponentProps<
-    typeof ScrollAreaScrollbar
-  > {}
-  export interface ThumbProps extends React.ComponentProps<
-    typeof ScrollAreaThumb
-  > {}
-  export interface CornerProps extends React.ComponentProps<
-    typeof ScrollAreaCorner
-  > {}
+  export interface Viewport extends ScrollAreaViewport.Props {}
+  export interface Content extends ScrollAreaContent.Props {}
+  export interface Scrollbar extends ScrollAreaScrollbar.Props {}
+  export interface Thumb extends ScrollAreaThumb.Props {}
+  export interface Corner extends ScrollAreaCorner.Props {}
 }
