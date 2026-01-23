@@ -1064,6 +1064,9 @@ importers:
       '@jamsrui/label':
         specifier: workspace:^
         version: link:../label
+      '@jamsrui/textfield':
+        specifier: workspace:^
+        version: link:../textfield
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -2084,9 +2087,6 @@ importers:
       '@jamsrui/rating':
         specifier: workspace:^
         version: link:../components/rating
-      '@jamsrui/rhf':
-        specifier: workspace:^
-        version: link:../components/rhf
       '@jamsrui/ripple':
         specifier: workspace:^
         version: link:../components/ripple

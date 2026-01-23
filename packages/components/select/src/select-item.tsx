@@ -1,9 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect } from "react";
+import { useCallback, useLayoutEffect } from "react";
 
 import { useListItem } from "@floating-ui/react";
-import { useRenderElement } from "@jamsrui/hooks";
+import { useHover, useMergeRefs, useRenderElement } from "@jamsrui/hooks";
 import { dataAttr } from "@jamsrui/utils";
 
 import { useSelectContext } from "./select-context";
@@ -12,7 +12,7 @@ import { SelectItemContext } from "./select-item-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SelectItem = (props: SelectItem.Props) => {
-  const { textValue, value, disabled, ...restProps } = props;
+  const { textValue, value, disabled, ref, ...restProps } = props;
   const {
     getSelectItemProps,
     value: selectValue,
@@ -33,9 +33,11 @@ export const SelectItem = (props: SelectItem.Props) => {
     }
   }, [value, textValue, registerItem, unregisterItem]);
 
-  const { ref, index } = useListItem({
+  const { ref: itemRef, index } = useListItem({
     label: isDisabled ? null : textValue,
   });
+  const { isHovered, ref: hoverRef } = useHover({ isDisabled });
+  const refs = useMergeRefs([ref, hoverRef, itemRef]);
 
   const isActive = activeIndex === index;
   const isSelected = Array.isArray(selectValue)
@@ -67,6 +69,7 @@ export const SelectItem = (props: SelectItem.Props) => {
         "aria-disabled": dataAttr(isDisabled),
         "data-disabled": dataAttr(isDisabled),
         "data-active": dataAttr(isActive),
+        "data-hovered": dataAttr(isHovered),
         tabIndex: isActive ? 0 : -1,
       },
       isDisabled
@@ -76,7 +79,7 @@ export const SelectItem = (props: SelectItem.Props) => {
             onKeyDown: handleOnKeyDown,
           }) as any),
       {
-        ref,
+        ref: refs,
       },
     ],
   });

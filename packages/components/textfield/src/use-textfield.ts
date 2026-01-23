@@ -24,9 +24,11 @@ export const useTextField = (props: useTextField.Props) => {
 
   return useMemo(() => {
     return {
+      isDisabled,
+      isInvalid,
       getRootProps,
     };
-  }, [getRootProps]);
+  }, [isDisabled, isInvalid, getRootProps]);
 };
 
 export namespace useTextField {

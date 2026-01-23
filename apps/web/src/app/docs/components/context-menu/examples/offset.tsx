@@ -9,9 +9,9 @@ export const ContextMenuOffset = () => {
         </div>
       </ContextMenu.Trigger>
       <ContextMenu.Content>
-        <ContextMenu.Item>Undo</ContextMenu.Item>
-        <ContextMenu.Item>Info</ContextMenu.Item>
-        <ContextMenu.Item>Search</ContextMenu.Item>
+        <ContextMenu.Item textValue="Undo">Undo</ContextMenu.Item>
+        <ContextMenu.Item textValue="Info">Info</ContextMenu.Item>
+        <ContextMenu.Item textValue="Search">Search</ContextMenu.Item>
       </ContextMenu.Content>
     </ContextMenu>
   );

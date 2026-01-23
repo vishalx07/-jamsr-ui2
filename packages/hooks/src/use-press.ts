@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-export function usePress(props: { isDisabled?: boolean } = {}) {
+export function usePress<T extends HTMLElement>(
+  props: { isDisabled?: boolean } = {},
+) {
   const { isDisabled = false } = props;
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<T>(null);
 
   const [isPressing, setIsPressing] = useState(false);
   const [isPointerInside, setIsPointerInside] = useState(false);

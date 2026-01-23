@@ -22,7 +22,6 @@ import {
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
 
-
 import { useContextMenuFloatingContext } from "./context-menu-floating-context";
 
 import type {
@@ -39,15 +38,6 @@ import { ContextMenuContainer } from "./context-menu-container";
 import type { ContextMenuContent } from "./context-menu-content";
 import type { ContextMenuFloatingContext } from "./context-menu-floating-context";
 import type { ContextMenuItem } from "./context-menu-item";
-import type { ContextMenuItemInner } from "./context-menu-item-inner";
-
-type ContextMenuSlots =
-  | "arrow"
-  | "backdrop"
-  | "root"
-  | "content"
-  | "menuItem"
-  | "menuItemInner";
 
 export const useContextMenu = (props: useContextMenu.Props) => {
   const parentId = useFloatingParentNodeId();
@@ -200,7 +190,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       role: isNested ? "menuitem" : undefined,
       "data-active": isActive,
       "data-nested": isNested,
-      "data-open": isOpen,
+      "data-opened": isOpen,
       onContextMenu: isNested ? undefined : handleContextMenu,
       ...getReferenceProps({
         ...parentCtx.getItemProps({
@@ -283,20 +273,12 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     [activeIndex, getItemProps],
   );
 
-  const getMenuItemProps: PropGetter<ContextMenuItem.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": "menu-item",
-      role: "menuitem",
-    }),
-    [],
-  );
-
-  const getMenuItemInnerProps: PropGetter<ContextMenuItemInner.Props> =
+  const getMenuItemProps: PropGetter<Partial<ContextMenuItem.Props>> =
     useCallback(
       (props) => ({
         ...props,
-        "data-slot": "menu-item-inner",
+        "data-slot": "menu-item",
+        role: "menuitem",
       }),
       [],
     );
@@ -314,14 +296,12 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       getContainerProps,
       getMenuItemProps,
       isNested,
-      getMenuItemInnerProps,
     }),
     [
       floatingCtx,
       getContentProps,
       getFloatingListProps,
       getFocusManagerProps,
-      getMenuItemInnerProps,
       getMenuItemProps,
       getNodeProps,
       getOverlayProps,

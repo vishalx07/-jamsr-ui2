@@ -3,7 +3,7 @@ import { useInput } from "./use-input";
 
 export const Input = (props: Input.Props) => {
   const { getInputProps } = useInput(props);
-  return <input {...getInputProps({})} />;
+  return <input {...getInputProps()} />;
 };
 
 export namespace Input {

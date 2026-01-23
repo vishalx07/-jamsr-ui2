@@ -114,40 +114,40 @@ export const alertStyles = tv({
       status: "error",
       variant: "bordered",
       className: {
-        root: "border-danger-stroke text-danger",
+        root: "border-danger-border text-danger",
       },
     },
     {
       status: "success",
       variant: "bordered",
       className: {
-        root: "border-success-stroke text-success",
+        root: "border-success-border text-success",
       },
     },
     {
       status: "info",
       variant: "bordered",
       className: {
-        root: "border-primary-stroke text-primary",
+        root: "border-primary-border text-primary",
       },
     },
     {
       status: "warning",
       variant: "bordered",
       className: {
-        root: "border-warning-stroke text-warning",
+        root: "border-warning-border text-warning",
       },
     },
     {
       status: "neutral",
       variant: "bordered",
       className: {
-        root: "border-default-stroke text-foreground",
+        root: "border-default-border text-foreground",
       },
     },
   ],
   defaultVariants: {
     status: "success",
-    variant: "soft",
+    variant: "solid",
   },
 });

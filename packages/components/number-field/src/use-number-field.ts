@@ -2,7 +2,11 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { useControlledState } from "@jamsrui/hooks";
+import {
+  useControlledState,
+  useFocusVisible,
+  useMergeRefs,
+} from "@jamsrui/hooks";
 import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import { NumberParser } from "./parser";
@@ -36,7 +40,13 @@ export const useNumberField = (props: useNumberField.Props) => {
   });
   const [value, setValue] = useState("");
 
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLInputElement>({
+      isDisabled,
+    });
   const inputRef = useRef<HTMLInputElement>(null);
+  const inputRefs = useMergeRefs([inputRef, focusVisibleRef]);
+
   const parser = useMemo(
     () => new NumberParser(locale, formatOptions),
     [locale, formatOptions],
@@ -161,12 +171,13 @@ export const useNumberField = (props: useNumberField.Props) => {
         onBlur: handleInputOnBlur,
         onKeyDown: handleInputKeyDown,
       }),
-      ref: inputRef,
+      ref: inputRefs,
       value,
       "data-slot": "input",
       disabled: isDisabled,
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
+      "data-focus-visible": dataAttr(isFocusVisible),
     }),
     [
       handleInputKeyDown,
@@ -174,6 +185,8 @@ export const useNumberField = (props: useNumberField.Props) => {
       handleInputOnChange,
       isDisabled,
       value,
+      isFocusVisible,
+      inputRefs,
     ],
   );
 
@@ -207,8 +220,9 @@ export const useNumberField = (props: useNumberField.Props) => {
     (props) => ({
       ...props,
       "data-slot": "group",
+      "data-focus-visible": dataAttr(isFocusVisible),
     }),
-    [],
+    [isFocusVisible],
   );
 
   return useMemo(

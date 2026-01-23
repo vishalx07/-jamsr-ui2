@@ -14,7 +14,7 @@ export const autocompleteStyles = tv({
     input: [
       "flex-1 bg-transparent text-sm outline-none",
       "placeholder:text-foreground-tertiary",
-      "disabled:cursor-not-allowed",
+      "disabled:cursor-disabled",
     ],
     content: [
       "absolute z-50 mt-1 w-full overflow-hidden rounded-md border border-border bg-surface shadow-lg",

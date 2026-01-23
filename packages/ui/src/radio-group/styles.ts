@@ -5,7 +5,7 @@ export const radioStyles = tv({
   slots: {
     root: [
       "group relative inline-flex gap-2 cursor-default items-center justify-start tap-highlight-transparent",
-      "ui-disabled:status-disabled",
+      "data-disabled:status-disabled",
     ],
     control: [
       "relative",
@@ -19,9 +19,9 @@ export const radioStyles = tv({
       "box-border",
       "border-default",
       "rounded-full",
-      "uig-hover:border-default-hover",
-      "uig-pressed:scale-95",
-      "uig-selected:border-transparent",
+      "group-data-hovered:border-default-hover",
+      "group-data-pressed:scale-95",
+      "group-data-selected:border-transparent",
       ...groupDataFocusVisibleClasses,
       "group-data-invalid:border-danger",
     ],
@@ -34,22 +34,22 @@ export const radioStyles = tv({
   variants: {
     color: {
       default: {
-        control: "uig-selected:bg-default",
+        control: "group-data-selected:bg-default",
       },
       primary: {
-        control: "uig-selected:bg-primary",
+        control: "group-data-selected:bg-primary",
       },
       secondary: {
-        control: "uig-selected:bg-secondary",
+        control: "group-data-selected:bg-secondary",
       },
       success: {
-        control: "uig-selected:bg-success",
+        control: "group-data-selected:bg-success",
       },
       warning: {
-        control: "uig-selected:bg-warning",
+        control: "group-data-selected:bg-warning",
       },
       danger: {
-        control: "uig-selected:bg-danger",
+        control: "group-data-selected:bg-danger",
       },
     },
     size: {

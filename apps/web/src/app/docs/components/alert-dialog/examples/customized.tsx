@@ -21,7 +21,8 @@ export const AlertDialogCustomized = () => {
           <AlertDialog.Cancel
             radius="none"
             className="w-full shrink focus-visible:-outline-offset-2 rounded-bl-md"
-            variant="light"
+            variant="solid"
+            color="default"
           >
             Cancel
           </AlertDialog.Cancel>
@@ -29,8 +30,8 @@ export const AlertDialogCustomized = () => {
           <AlertDialog.Action
             radius="none"
             className="w-full font-bold shrink focus-visible:-outline-offset-2 rounded-br-md"
-            variant="light"
-            color="default"
+            variant="solid"
+            color="danger"
           >
             Confirm
           </AlertDialog.Action>

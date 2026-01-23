@@ -11,13 +11,21 @@ export const ContextMenuPreventClose = () => {
         </div>
       </ContextMenu.Trigger>
       <ContextMenu.Content>
-        <ContextMenu.Item preventCloseOnClick>Click me here!</ContextMenu.Item>
-        <ContextMenu.Item>Info</ContextMenu.Item>
-        <ContextMenu.Item>Search</ContextMenu.Item>
-        <ContextMenu.Item disabled>Redo</ContextMenu.Item>
-        <ContextMenu.Item>Cut</ContextMenu.Item>
-        <ContextMenu.Item disabled>Edit</ContextMenu.Item>
-        <ContextMenu.Item color="danger">Delete</ContextMenu.Item>
+        <ContextMenu.Item textValue="Click me here!" preventCloseOnClick>
+          Click me here!
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Info">Info</ContextMenu.Item>
+        <ContextMenu.Item textValue="Search">Search</ContextMenu.Item>
+        <ContextMenu.Item textValue="Redo" disabled>
+          Redo
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Cut">Cut</ContextMenu.Item>
+        <ContextMenu.Item textValue="Edit" disabled>
+          Edit
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Delete" color="danger">
+          Delete
+        </ContextMenu.Item>
       </ContextMenu.Content>
     </ContextMenu>
   );

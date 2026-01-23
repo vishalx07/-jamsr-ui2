@@ -127,7 +127,7 @@ export const tabsStyles = tv({
       color: "default",
       className: {
         indicator: ["bg-background", "dark:bg-default", "shadow-sm"],
-        tabContent: "uig-selected:text-default-foreground",
+        tabContent: "group-data-selected:text-default-foreground",
       },
     },
     {
@@ -135,7 +135,7 @@ export const tabsStyles = tv({
       color: "primary",
       className: {
         indicator: colorVariants.solid.primary,
-        tabContent: "uig-selected:text-primary-foreground",
+        tabContent: "group-data-selected:text-primary-foreground",
       },
     },
     {
@@ -143,7 +143,7 @@ export const tabsStyles = tv({
       color: "secondary",
       className: {
         indicator: colorVariants.solid.secondary,
-        tabContent: "uig-selected:text-secondary-foreground",
+        tabContent: "group-data-selected:text-secondary-foreground",
       },
     },
     {
@@ -151,7 +151,7 @@ export const tabsStyles = tv({
       color: "success",
       className: {
         indicator: colorVariants.solid.success,
-        tabContent: "uig-selected:text-success-foreground",
+        tabContent: "group-data-selected:text-success-foreground",
       },
     },
     {
@@ -159,7 +159,7 @@ export const tabsStyles = tv({
       color: "warning",
       className: {
         indicator: colorVariants.solid.warning,
-        tabContent: "uig-selected:text-warning-foreground",
+        tabContent: "group-data-selected:text-warning-foreground",
       },
     },
     {
@@ -167,7 +167,7 @@ export const tabsStyles = tv({
       color: "danger",
       className: {
         indicator: colorVariants.solid.danger,
-        tabContent: "uig-selected:text-danger-foreground",
+        tabContent: "group-data-selected:text-danger-foreground",
       },
     },
     {
@@ -175,7 +175,7 @@ export const tabsStyles = tv({
       color: "default",
       className: {
         indicator: "bg-foreground",
-        tabContent: "uig-selected:text-foreground",
+        tabContent: "group-data-selected:text-foreground",
       },
     },
     {
@@ -183,7 +183,7 @@ export const tabsStyles = tv({
       color: "primary",
       className: {
         indicator: "bg-primary",
-        tabContent: "uig-selected:text-primary",
+        tabContent: "group-data-selected:text-primary",
       },
     },
     {
@@ -191,7 +191,7 @@ export const tabsStyles = tv({
       color: "secondary",
       className: {
         indicator: "bg-secondary",
-        tabContent: "uig-selected:text-secondary",
+        tabContent: "group-data-selected:text-secondary",
       },
     },
     {
@@ -199,7 +199,7 @@ export const tabsStyles = tv({
       color: "success",
       className: {
         indicator: "bg-success",
-        tabContent: "uig-selected:text-success",
+        tabContent: "group-data-selected:text-success",
       },
     },
     {
@@ -207,7 +207,7 @@ export const tabsStyles = tv({
       color: "warning",
       className: {
         indicator: "bg-warning",
-        tabContent: "uig-selected:text-warning",
+        tabContent: "group-data-selected:text-warning",
       },
     },
     {
@@ -215,7 +215,7 @@ export const tabsStyles = tv({
       color: "danger",
       className: {
         indicator: "bg-danger",
-        tabContent: "uig-selected:text-danger",
+        tabContent: "group-data-selected:text-danger",
       },
     },
   ],

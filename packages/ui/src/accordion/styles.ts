@@ -13,7 +13,7 @@ export const accordionStyles = tv({
     content: "py-2 text-base px-4",
     panel: "overflow-hidden",
     indicator:
-      "rotate-0 transition-transform duration-500 data-open:-rotate-180 ml-auto",
+      "rotate-0 transition-transform duration-500 data-opened:-rotate-180 ml-auto",
   },
   variants: {
     variant: {

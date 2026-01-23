@@ -45,7 +45,7 @@ export const useIconButton = (props: useIconButton.Props) => {
       "aria-disabled": dataAttr(isDisabled),
       "data-loading": dataAttr(isLoading),
       "data-pressed": dataAttr(isPressed),
-      "data-hover": dataAttr(isHovered),
+      "data-hovered": dataAttr(isHovered),
     }),
     [
       className,

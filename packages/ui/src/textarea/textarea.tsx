@@ -5,7 +5,7 @@ import {
   useInputGroupContextOpt,
 } from "@jamsrui/react";
 import { inputGroupInputStyles, inputStyles } from "../input/styles";
-import type { TextareaVariants } from "./styles";
+import { Input } from "../input";
 
 export const Textarea = (props: Textarea.Props) => {
   const { variant, size, radius, isInvalid, className, ...restProps } = props;
@@ -17,5 +17,5 @@ export const Textarea = (props: Textarea.Props) => {
 };
 
 export namespace Textarea {
-  export interface Props extends TextareaUI.Props, TextareaVariants {}
+  export interface Props extends TextareaUI.Props, Input.Variants {}
 }

@@ -52,12 +52,20 @@ export const ContextMenuContent = (props: ContextMenuUI.Content) => {
   );
 };
 
-export const ContextMenuItem = (props: ContextMenuUI.Item) => {
+export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const { styles } = useContextMenuContext();
+  const { color, radius, className, ...restProps } = props;
   return (
     <ContextMenuUI.Item
-      {...props}
-      className={styles.menuItem({ className: props.className })}
+      {...restProps}
+      className={styles.menuItem({ className, color, radius })}
     />
   );
 };
+
+export namespace ContextMenuItem {
+  export interface Props extends ContextMenuUI.Item {
+    color?: ContextMenuVariants["color"];
+    radius?: ContextMenuVariants["radius"];
+  }
+}

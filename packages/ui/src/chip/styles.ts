@@ -38,7 +38,11 @@ const colorVariants = {
 
 export const chipStyles = tv({
   slots: {
-    root: "chip chip__root relative box-border inline-flex min-w-min max-w-fit shrink-0 items-center justify-between whitespace-nowrap rounded-full gap-2",
+    root: [
+      "chip chip__root relative box-border inline-flex min-w-min max-w-fit shrink-0",
+      "items-center justify-between whitespace-nowrap rounded-full gap-2",
+      "font-medium",
+    ],
     dot: "chip__dot size-1.5 rounded-full",
   },
   variants: {
@@ -115,42 +119,42 @@ export const chipStyles = tv({
       variant: "dot",
       color: "primary",
       className: {
-        dot: "outline-primary-border",
+        dot: "outline-primary-soft-border",
       },
     },
     {
       variant: "dot",
       color: "secondary",
       className: {
-        dot: "outline-secondary-border",
+        dot: "outline-secondary-soft-border",
       },
     },
     {
       variant: "dot",
       color: "success",
       className: {
-        dot: "outline-success-border",
+        dot: "outline-success-soft-border",
       },
     },
     {
       variant: "dot",
       color: "warning",
       className: {
-        dot: "outline-warning-border",
+        dot: "outline-warning-soft-border",
       },
     },
     {
       variant: "dot",
       color: "danger",
       className: {
-        dot: "outline-danger-border",
+        dot: "outline-danger-soft-border",
       },
     },
     {
       variant: "dot",
       color: "default",
       className: {
-        dot: "outline-default-border",
+        dot: "outline-default-soft-border",
       },
     },
     // bordered

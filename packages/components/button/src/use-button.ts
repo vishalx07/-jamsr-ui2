@@ -26,7 +26,7 @@ export const useButton = (props: useButton.Props) => {
       disabled: isDisabled,
       "data-loading": dataAttr(isLoading),
       "data-pressed": dataAttr(isPressed),
-      "data-hover": dataAttr(isHovered),
+      "data-hovered": dataAttr(isHovered),
     }),
     [isDisabled, isHovered, isLoading, isPressed, mergedRefs, restProps],
   );

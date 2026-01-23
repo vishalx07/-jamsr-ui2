@@ -12,13 +12,16 @@ import { dataAttr } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
+import { useTextFieldContext } from "@jamsrui/textfield";
 import type { InputGroupPrefix } from "./input-group-prefix";
 import type { InputGroupRoot } from "./input-group-root";
 import type { InputGroupSuffix } from "./input-group-suffix";
 
 export const useInputGroup = (props: useInputGroup.Props) => {
   const { ref, ...elementProps } = props;
-  const isDisabled = false;
+  const ctx = useTextFieldContext();
+  const isDisabled = ctx?.isDisabled ?? false;
+  const isInvalid = ctx?.isInvalid ?? false;
 
   const { isFocused, ref: focusRef } = useFocus<HTMLInputElement>({
     isDisabled,
@@ -30,7 +33,8 @@ export const useInputGroup = (props: useInputGroup.Props) => {
   const { isHovered, ref: hoverRef } = useHover<HTMLDivElement>({
     isDisabled,
   });
-  const inputRefs = useMergeRefs([ref, focusRef, focusVisibleRef, hoverRef]);
+  const refs = useMergeRefs([ref, hoverRef]);
+  const inputRefs = useMergeRefs([focusRef, focusVisibleRef]);
 
   const handleOnMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
@@ -57,11 +61,22 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-hovered": dataAttr(isHovered),
       "data-disabled": dataAttr(isDisabled),
+      "data-invalid": dataAttr(isInvalid),
       "aria-disabled": dataAttr(isDisabled),
+      "aria-invalid": dataAttr(isInvalid),
       onMouseDown: handleOnMouseDown,
+      ref: refs,
       ...elementProps,
     }),
-    [elementProps, isDisabled, isFocusVisible, isFocused, isHovered],
+    [
+      elementProps,
+      isDisabled,
+      isFocusVisible,
+      isFocused,
+      isHovered,
+      isInvalid,
+      refs,
+    ],
   );
 
   const getPrefixProps: PropGetter<InputGroupPrefix.Props> = useCallback(
@@ -85,8 +100,9 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       getRootProps,
       getPrefixProps,
       getSuffixProps,
+      inputRefs,
     }),
-    [getRootProps, getPrefixProps, getSuffixProps],
+    [getRootProps, getPrefixProps, getSuffixProps, inputRefs],
   );
 };
 

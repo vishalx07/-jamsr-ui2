@@ -98,24 +98,35 @@ export const AlertDialogDescription = (props: AlertDialogUI.Description) => {
   );
 };
 
-export const AlertDialogCancel = (props: AlertDialogUI.Cancel) => {
+export const AlertDialogCancel = (props: Button.Props) => {
   const { styles } = useAlertDialogContext();
   return (
     <AlertDialogUI.Cancel
-      render={<Button color="default" variant="soft" />}
-      {...props}
-      className={styles.cancel({ className: props.className })}
+      render={
+        <Button
+          color="default"
+          variant="solid"
+          {...props}
+          className={styles.cancel({ className: props.className })}
+        />
+      }
     />
   );
 };
 
-export const AlertDialogAction = (props: AlertDialogUI.Action) => {
+export const AlertDialogAction = (props: Button.Props) => {
   const { styles } = useAlertDialogContext();
+  console.log({ props });
   return (
-    <AlertDialogUI.Action
-      render={<Button color="danger" variant="solid" />}
-      {...props}
-      className={styles.action({ className: props.className })}
+    <AlertDialogUI.Cancel
+      render={
+        <Button
+          color="danger"
+          variant="solid"
+          {...props}
+          className={styles.action({ className: props.className })}
+        />
+      }
     />
   );
 };

@@ -1,6 +1,7 @@
-import { IconButton as IconButtonUI, CircularProgress } from "@jamsrui/react";
+import { IconButton as IconButtonUI } from "@jamsrui/react";
 import { VariantProps } from "tailwind-variants";
 import { iconButtonStyles } from "./styles";
+import { CircularProgress } from "../circular-progress";
 
 type IconButtonVariantProps = VariantProps<typeof iconButtonStyles>;
 

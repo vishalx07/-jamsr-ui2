@@ -214,7 +214,7 @@ export const useSelect = (props: useSelect.Props) => {
       "data-component": "select",
       "data-slot": "root",
       "data-disabled": dataAttr(isDisabled),
-      "data-open": dataAttr(isOpen),
+      "data-opened": dataAttr(isOpen),
     }),
     [elementProps, isDisabled, isOpen],
   );
@@ -236,11 +236,12 @@ export const useSelect = (props: useSelect.Props) => {
       disabled: isDisabled,
       "aria-disabled": dataAttr(isDisabled),
       "data-disabled": dataAttr(isDisabled),
+      "data-opened": dataAttr(isOpen),
       ...getReferenceProps({
         ref: setReference,
       }),
     }),
-    [getReferenceProps, isDisabled, labelId, setReference],
+    [getReferenceProps, isDisabled, isOpen, labelId, setReference],
   );
 
   const getIndicatorProps: PropGetter<SelectIndicator.Props> = useCallback(
@@ -366,6 +367,7 @@ export const useSelect = (props: useSelect.Props) => {
       getItemIndicatorProps,
       registerItem,
       unregisterItem,
+      isDisabled,
     }),
     [
       activeIndex,
@@ -389,6 +391,7 @@ export const useSelect = (props: useSelect.Props) => {
       onSelectValue,
       placeholder,
       value,
+      isDisabled,
     ],
   );
 };

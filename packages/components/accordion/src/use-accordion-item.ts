@@ -81,7 +81,7 @@ export const useAccordionItem = (props: useAccordionItem.Props) => {
     (props) => ({
       ...props,
       "data-slot": "indicator",
-      "data-open": dataAttr(isOpen),
+      "data-opened": dataAttr(isOpen),
     }),
     [isOpen],
   );

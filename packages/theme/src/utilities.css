@@ -2,6 +2,14 @@
   opacity: var(--opacity-disabled);
 }
 
+@utility cursor-interactive {
+  cursor: var(--cursor-interactive);
+}
+
+@utility cursor-disabled {
+  cursor: var(--cursor-disabled);
+}
+
 /*  utility */
 @utility z-backdrop {
   z-index: 98;
@@ -34,33 +42,5 @@
 @custom-variant dark (&:is(.dark, .dark *,[data-theme="dark"], [data-theme="dark"] *));
 @custom-variant light (&:is(.light, .light *,[data-theme="light"], [data-theme="light"] *));
 
-@custom-variant uig-has-start-content (&:is(:where(.group[data-has-start-content=true]) &));
-@custom-variant uig-has-end-content (&:is(:where(.group[data-has-end-content=true]) &));
-@custom-variant uig-has-label (&:is(:where(.group[data-has-label=true]) &));
-
-@custom-variant ui-hover (&:not(:disabled):hover);
-@custom-variant uig-hover (&:is(:where(.group[data-hovered=true]) &));
-
-@custom-variant uig-selected (&:is(:where(.group[data-selected=true]) &));
-
-@custom-variant uig-checked (&:is(:where(.group[data-checked=true]) &));
-
-@custom-variant uig-focus (&:is(:where(.group[data-focused=true]) &));
-
-@custom-variant uig-pressed (&:is(:where(.group[data-pressed=true]) &));
-
-@custom-variant uig-active (&:is(:where(.group[data-active=true]) &));
-
-@custom-variant uig-open (&:is(:where(.group[data-open=true]) &));
-
-@custom-variant uig-interactive (&:is(:where(.group[data-interactive=true]) &));
-
-@custom-variant uig-filled-within (&:is(:where(.group[data-filled-within=true]) &));
-
-@custom-variant uig-focus-visible (&:is(:where(.group[data-focus-visible=true]) &));
-
-@custom-variant uig-readonly (&:is(:where(.group[data-readonly=true]) &));
-
-@custom-variant uig-disabled (&:is(:where(.group[data-disabled=true]) &));
-
-@custom-variant uig-invalid (&:is(:where(.group[data-invalid=true]) &));
+@custom-variant data-hovered (&[data-hovered]:not(:focus):not(:focus-within):not([data-invalid]):not(.group[data-invalid] &):not([data-opened]):not([data-pressed]):not([data-selected]));
+@custom-variant focus-within (&:where(:focus-within));

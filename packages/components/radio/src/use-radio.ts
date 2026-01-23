@@ -3,7 +3,12 @@
 import { useCallback } from "react";
 
 import { useFieldA11yContext } from "@jamsrui/context";
-import { useFocusVisible, useMergeRefs, usePress } from "@jamsrui/hooks";
+import {
+  useFocusVisible,
+  useHover,
+  useMergeRefs,
+  usePress,
+} from "@jamsrui/hooks";
 import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import { useRadioGroupContext } from "./radio-group-context";
@@ -35,11 +40,21 @@ export const useRadio = (props: useRadio.Props) => {
     ...elementProps
   } = props;
 
-  const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLInputElement>({
+      isDisabled,
+    });
+  const { isPressed, ref: pressRef } = usePress<HTMLInputElement>({
     isDisabled,
   });
-  const { isPressed, ref: pressRef } = usePress({ isDisabled });
-  const inputRefs = useMergeRefs([focusVisibleRef, pressRef]);
+  const { isHovered, ref: hoverRef } = useHover<HTMLInputElement>({
+    isDisabled,
+  });
+  const inputRefs = useMergeRefs<HTMLInputElement>([
+    focusVisibleRef,
+    pressRef,
+    hoverRef,
+  ]);
   const isChecked = value === $value;
 
   const getRootProps = useCallback(
@@ -52,8 +67,17 @@ export const useRadio = (props: useRadio.Props) => {
       "data-disabled": dataAttr(isDisabled),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
+      "data-hovered": dataAttr(isHovered),
     }),
-    [elementProps, className, isChecked, isDisabled, isFocusVisible, isPressed],
+    [
+      elementProps,
+      className,
+      isChecked,
+      isDisabled,
+      isFocusVisible,
+      isPressed,
+      isHovered,
+    ],
   );
   const getInputProps: PropGetter<RadioInput.Props> = useCallback(
     (props) => ({

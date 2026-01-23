@@ -9,12 +9,24 @@ export const ContextMenuColors = () => {
         </div>
       </ContextMenu.Trigger>
       <ContextMenu.Content>
-        <ContextMenu.Item color="default">Default</ContextMenu.Item>
-        <ContextMenu.Item color="primary">Primary</ContextMenu.Item>
-        <ContextMenu.Item color="secondary">Secondary</ContextMenu.Item>
-        <ContextMenu.Item color="success">Success</ContextMenu.Item>
-        <ContextMenu.Item color="warning">Warning</ContextMenu.Item>
-        <ContextMenu.Item color="danger">Danger</ContextMenu.Item>
+        <ContextMenu.Item textValue="Default" color="default">
+          Default
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Primary" color="primary">
+          Primary
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Secondary" color="secondary">
+          Secondary
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Success" color="success">
+          Success
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Warning" color="warning">
+          Warning
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Danger" color="danger">
+          Danger
+        </ContextMenu.Item>
       </ContextMenu.Content>
     </ContextMenu>
   );

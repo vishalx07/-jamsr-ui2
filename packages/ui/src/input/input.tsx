@@ -12,7 +12,7 @@ export const Input = (props: Input.Props) => {
   const styles = ctx
     ? inputGroupInputStyles({ variant, className })
     : inputStyles({ variant, size, radius, isInvalid, className });
-  return <InputUI {...restProps} className={styles} />;
+  return <InputUI className={styles} {...restProps} />;
 };
 
 export namespace Input {

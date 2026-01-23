@@ -9,10 +9,10 @@ export const ContextMenuUsage = () => {
         </div>
       </ContextMenu.Trigger>
       <ContextMenu.Content>
-        <ContextMenu.Item>Edit</ContextMenu.Item>
-        <ContextMenu.Item>Delete</ContextMenu.Item>
-        <ContextMenu.Item>Rename</ContextMenu.Item>
-        <ContextMenu.Item>Others</ContextMenu.Item>
+        <ContextMenu.Item textValue="Edit">Edit</ContextMenu.Item>
+        <ContextMenu.Item textValue="Delete">Delete</ContextMenu.Item>
+        <ContextMenu.Item textValue="Rename">Rename</ContextMenu.Item>
+        <ContextMenu.Item textValue="Others">Others</ContextMenu.Item>
       </ContextMenu.Content>
     </ContextMenu>
   );

@@ -4,6 +4,7 @@ import { useCallback, useId, useMemo } from "react";
 import {
   useControlledState,
   useFocusVisible,
+  useHover,
   useMergeRefs,
   usePress,
 } from "@jamsrui/hooks";
@@ -35,13 +36,24 @@ export const useSwitch = (props: useSwitch.Props) => {
   });
 
   const isDisabled = disabled;
-  const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLInputElement>({
+      isDisabled,
+    });
+  const { isPressed, ref: pressRef } = usePress<HTMLInputElement>({
     isDisabled,
   });
-  const { isPressed, ref: pressRef } = usePress({ isDisabled });
+  const { isHovered, ref: hoverRef } = useHover<HTMLInputElement>({
+    isDisabled,
+  });
 
   const inputRef = inputProps?.ref;
-  const inputRefs = useMergeRefs([inputRef, focusVisibleRef, pressRef]);
+  const inputRefs = useMergeRefs<HTMLInputElement>([
+    inputRef,
+    focusVisibleRef,
+    pressRef,
+    hoverRef,
+  ]);
   const layoutId = useId();
 
   const handleInputChange = useCallback(
@@ -63,8 +75,17 @@ export const useSwitch = (props: useSwitch.Props) => {
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
       "data-disabled": dataAttr(isDisabled),
+      "data-hovered": dataAttr(isHovered),
     }),
-    [elementProps, className, isChecked, isDisabled, isFocusVisible, isPressed],
+    [
+      elementProps,
+      className,
+      isChecked,
+      isDisabled,
+      isFocusVisible,
+      isPressed,
+      isHovered,
+    ],
   );
 
   const getInputProps: PropGetter<SwitchInput.Props> = useCallback(

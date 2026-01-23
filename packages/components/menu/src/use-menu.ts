@@ -25,7 +25,6 @@ import {
 } from "@floating-ui/react";
 import { useControlledState, useMergeRefs } from "@jamsrui/hooks";
 
-
 import { useMenuFloatingContext } from "./menu-floating-context";
 
 import type {
@@ -39,7 +38,7 @@ import type {
   Side,
 } from "@floating-ui/react";
 import type { PropGetter, UIProps } from "@jamsrui/utils";
-import type { ComponentProps } from "react";
+import type { ComponentProps, Ref } from "react";
 
 import type { MenuContainer } from "./menu-container";
 import type { MenuContent } from "./menu-content";
@@ -221,7 +220,7 @@ export const useMenu = (props: useMenu.Props) => {
   }, [tree, isOpen, nodeId, parentId]);
 
   const isActive = isOpen && hasFocusInside && isNested;
-  const itemRef = useMergeRefs([refs.setReference, item.ref]);
+  const itemRef = useMergeRefs<HTMLDivElement>([refs.setReference, item.ref]);
   const parentCtx = useMenuFloatingContext();
 
   const getTriggerProps = useCallback(
@@ -236,7 +235,7 @@ export const useMenu = (props: useMenu.Props) => {
       role: isNested ? "menuitem" : undefined,
       "data-active": isActive,
       "data-nested": isNested,
-      "data-open": isOpen,
+      "data-opened": isOpen,
       ...getReferenceProps({
         ...parentCtx.getItemProps({
           onMouseEnter() {

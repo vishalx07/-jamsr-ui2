@@ -7,49 +7,52 @@ export const switchStyles = tv({
     track: [
       ...groupDataFocusVisibleClasses,
       "flex relative cursor-default shrink-0 items-center rounded-full bg-surface-secondary p-1",
-      "uig-disabled:status-disabled",
-      "ui-interactive:hover:opacity-95",
-      "justify-start uig-checked:justify-end",
+      "group-data-disabled:status-disabled",
+      "group-data-hovered:opacity-90",
+      "justify-start group-data-checked:justify-end",
       "border-[0.5px] border-border-light",
     ],
-    thumb: "size-8 rounded-full bg-white flex justify-center items-center",
+    thumb: [
+      "rounded-full bg-white flex justify-center items-center",
+      "duration-300 transition-[width,height]",
+    ],
     content: "grid grow gap-1",
     input:
-      "opacity-[0.0001] absolute inset-0 cursor-default disabled:cursor-not-allowed z-1",
+      "opacity-[0.0001] absolute inset-0 cursor-default disabled:cursor-disabled z-1",
   },
   variants: {
     color: {
       default: {
-        track: "uig-checked:bg-default",
+        track: "group-data-checked:bg-default",
       },
       primary: {
-        track: "uig-checked:bg-primary",
+        track: "group-data-checked:bg-primary",
       },
       secondary: {
-        track: "uig-checked:bg-secondary",
+        track: "group-data-checked:bg-secondary",
       },
       success: {
-        track: "uig-checked:bg-success",
+        track: "group-data-checked:bg-success",
       },
       warning: {
-        track: "uig-checked:bg-warning",
+        track: "group-data-checked:bg-warning",
       },
       danger: {
-        track: "uig-checked:bg-danger",
+        track: "group-data-checked:bg-danger",
       },
     },
     size: {
       sm: {
         track: "h-5 w-9",
-        thumb: "size-3.5 uig-pressed:w-4",
+        thumb: "size-3.5 group-data-pressed:w-4",
       },
       md: {
         track: "h-6 w-10",
-        thumb: "size-4 uig-pressed:w-5",
+        thumb: "size-4 group-data-pressed:w-5",
       },
       lg: {
         track: "h-7 w-12",
-        thumb: "size-5 uig-pressed:w-6",
+        thumb: "size-5 group-data-pressed:w-6",
       },
     },
     isInvalid: {

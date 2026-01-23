@@ -8,10 +8,9 @@ export const contextMenuStyles = tv({
     content:
       "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
     menuItem: [
-      "relative box-border flex size-full cursor-default select-none items-center gap-2 px-2 py-1.5 text-left outline-none ui-disabled:status-disabled",
-      "ui-active:bg-surface-secondary",
+      "relative box-border flex size-full cursor-default select-none items-center gap-2 px-2 py-1.5 text-left outline-none data-disabled:status-disabled",
+      "data-active:bg-surface-secondary",
     ],
-    menuItemInner: "grow",
   },
   variants: {
     radius: {
@@ -34,22 +33,27 @@ export const contextMenuStyles = tv({
     },
     color: {
       default: {
-        menuItem: "ui-hover:bg-surface-secondary ui-hover:text-foreground",
+        menuItem:
+          "data-hovered:bg-surface-secondary data-hovered:text-foreground",
       },
       primary: {
-        menuItem: "ui-hover:bg-primary ui-hover:text-primary-foreground",
+        menuItem:
+          "data-hovered:bg-primary data-hovered:text-primary-foreground",
       },
       secondary: {
-        menuItem: "ui-hover:bg-secondary ui-hover:text-secondary-foreground",
+        menuItem:
+          "data-hovered:bg-secondary data-hovered:text-secondary-foreground",
       },
       success: {
-        menuItem: "ui-hover:bg-success ui-hover:text-success-foreground",
+        menuItem:
+          "data-hovered:bg-success data-hovered:text-success-foreground",
       },
       warning: {
-        menuItem: "ui-hover:bg-warning ui-hover:text-warning-foreground",
+        menuItem:
+          "data-hovered:bg-warning data-hovered:text-warning-foreground",
       },
       danger: {
-        menuItem: "ui-hover:bg-danger ui-hover:text-danger-foreground",
+        menuItem: "data-hovered:bg-danger data-hovered:text-danger-foreground",
       },
     },
   },

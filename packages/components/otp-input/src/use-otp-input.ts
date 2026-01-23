@@ -193,7 +193,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
       "data-slot": "root",
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
-      "data-hover": dataAttr(isHovered),
+      "data-hovered": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
       ...restProps,

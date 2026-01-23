@@ -33,7 +33,7 @@ export const CheckboxIcon = () => {
       fill="none"
       initial={false}
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="4"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >

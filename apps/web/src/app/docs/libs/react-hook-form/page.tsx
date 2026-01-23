@@ -110,6 +110,7 @@ const Page = () => {
                   </IconButton>
                 </InputGroup.Suffix>
               </InputGroup>
+              <RHFField.FieldError />
             </RHFField.TextField>
           </RHFField>
           {/* Bio */}

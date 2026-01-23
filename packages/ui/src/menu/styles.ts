@@ -39,22 +39,27 @@ export const menuStyles = tv({
     },
     color: {
       default: {
-        menuItem: "ui-hover:bg-surface-secondary ui-hover:text-foreground",
+        menuItem:
+          "data-hovered:bg-surface-secondary data-hovered:text-foreground",
       },
       primary: {
-        menuItem: "ui-hover:bg-primary ui-hover:text-primary-foreground",
+        menuItem:
+          "data-hovered:bg-primary data-hovered:text-primary-foreground",
       },
       secondary: {
-        menuItem: "ui-hover:bg-secondary ui-hover:text-secondary-foreground",
+        menuItem:
+          "data-hovered:bg-secondary data-hovered:text-secondary-foreground",
       },
       success: {
-        menuItem: "ui-hover:bg-success ui-hover:text-success-foreground",
+        menuItem:
+          "data-hovered:bg-success data-hovered:text-success-foreground",
       },
       warning: {
-        menuItem: "ui-hover:bg-warning ui-hover:text-warning-foreground",
+        menuItem:
+          "data-hovered:bg-warning data-hovered:text-warning-foreground",
       },
       danger: {
-        menuItem: "ui-hover:bg-danger ui-hover:text-danger-foreground",
+        menuItem: "data-hovered:bg-danger data-hovered:text-danger-foreground",
       },
     },
   },

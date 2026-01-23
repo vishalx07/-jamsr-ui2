@@ -10,12 +10,12 @@ export const selectStyles = tv({
     ],
     trigger: [
       "select__trigger relative flex w-full flex-row items-center gap-3 border border-border px-3 py-2 outline-none",
-      "focus:border-primary data-hover:border-border-dark data-open:border-primary",
+      "focus:border-primary data-hovered:border-border-dark data-opened:border-primary",
       "data-disabled:status-disabled",
       ...focusVisibleClasses,
     ],
     indicator:
-      "select__indicator shrink-0 transition-transform duration-300 group-data-open:rotate-180",
+      "select__indicator shrink-0 transition-transform duration-300 group-data-opened:rotate-180",
     itemIndicator: "select__item-indicator ml-auto",
     popover: "select__popover z-popover outline-none overflow-hidden",
     content: [
@@ -24,7 +24,7 @@ export const selectStyles = tv({
     ],
     selectItem: [
       "select__item relative flex w-full cursor-default select-none items-center gap-2 p-2 text-sm outline-none",
-      "data-hover:bg-surface-secondary",
+      "data-hovered:bg-surface-secondary",
       "data-active:bg-surface-secondary",
       "data-selected:bg-surface-secondary/50",
       "data-disabled:status-disabled",

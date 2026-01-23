@@ -10,7 +10,7 @@ export const ButtonRoot = (props: ButtonRoot.Props) => {
   const { getButtonProps } = ctx;
 
   const button = useRenderElement("button", {
-    props: [getButtonProps({}), { children: props.children }],
+    props: [getButtonProps({})],
   });
   return <ButtonContext value={ctx}>{button}</ButtonContext>;
 };

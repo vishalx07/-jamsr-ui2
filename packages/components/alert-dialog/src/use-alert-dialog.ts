@@ -19,7 +19,6 @@ import type { Text } from "@jamsrui/text";
 import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
-import type { AlertDialogAction } from "./alert-dialog-action";
 import type { AlertDialogBody } from "./alert-dialog-body";
 import type { AlertDialogCancel } from "./alert-dialog-cancel";
 import type { AlertDialogContainer } from "./alert-dialog-container";
@@ -129,21 +128,11 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
 
   const getCancelProps: PropGetter<AlertDialogCancel.Props> = useCallback(
     (props) => ({
-      variant: "bordered",
       ...mergeProps(props, {
         onClick: handleTriggerClose,
       }),
     }),
     [handleTriggerClose],
-  );
-
-  const getActionProps: PropGetter<AlertDialogAction.Props> = useCallback(
-    (props) => ({
-      color: "danger",
-      variant: "solid",
-      ...props,
-    }),
-    [],
   );
 
   const getOverlayProps = useCallback(
@@ -173,7 +162,6 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       getOverlayProps,
       getFocusManagerProps,
       getCancelProps,
-      getActionProps,
       isOpen,
     }),
     [
@@ -187,7 +175,6 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       getOverlayProps,
       getFocusManagerProps,
       getCancelProps,
-      getActionProps,
       isOpen,
     ],
   );
