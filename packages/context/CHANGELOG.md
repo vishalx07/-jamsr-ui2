@@ -1,5 +1,16 @@
 # @jamsrui/context
 
+## 0.1.0
+
+### Minor Changes
+
+- feat: headless
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/utils@0.1.0
+
 ## 0.0.9
 
 ### Patch Changes

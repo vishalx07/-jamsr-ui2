@@ -1,5 +1,20 @@
 # storybook-2
 
+## 0.1.0
+
+### Minor Changes
+
+- feat: headless
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/accordion@0.1.0
+  - @jamsrui/button@0.1.0
+  - @jamsrui/text@0.1.0
+  - @jamsrui/react@0.1.0
+  - @jamsrui/theme@0.1.0
+
 ## 0.0.36
 
 ### Patch Changes

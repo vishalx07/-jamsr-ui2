@@ -1,5 +1,11 @@
 # @jamsrui/icons
 
+## 0.1.0
+
+### Minor Changes
+
+- feat: headless
+
 ## 0.0.17
 
 ### Patch Changes

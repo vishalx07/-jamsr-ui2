@@ -1,5 +1,21 @@
 # web
 
+## 0.2.0
+
+### Minor Changes
+
+- feat: headless
+
+### Patch Changes
+
+- Updated dependencies
+  - @jamsrui/hooks@0.1.0
+  - @jamsrui/icons@0.1.0
+  - @jamsrui/react@0.1.0
+  - @jamsrui/theme@0.1.0
+  - jamsrui@1.1.0
+  - @jamsrui/utils@0.1.0
+
 ## 0.1.36
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@jamsrui/template",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "main": "./src/index.ts",
   "scripts": {
     "typecheck": "tsc --noEmit",

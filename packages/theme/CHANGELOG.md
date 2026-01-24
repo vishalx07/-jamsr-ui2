@@ -1,5 +1,11 @@
 # @jamsrui/theme
 
+## 0.1.0
+
+### Minor Changes
+
+- feat: headless
+
 ## 0.0.19
 
 ### Patch Changes
