@@ -2,19 +2,18 @@ import { tv } from "tailwind-variants";
 
 export const alertDialogStyles = tv({
   slots: {
-    header: "alert-dialog__header p-4 text-base font-bold",
-    container: "alert-dialog alert-dialog__container z-dialog max-w-md w-full",
+    header: "p-4 text-base font-bold",
+    container: "z-dialog max-w-md w-full",
     content:
-      "alert-dialog__content relative flex size-full flex-col overflow-y-auto bg-surface shadow-lg",
-    footer:
-      "alert-dialog__footer flex w-full items-center justify-end gap-2 p-4",
-    body: "alert-dialog__body w-full p-4",
-    trigger: "alert-dialog__trigger",
-    title: "alert-dialog__title text-foreground",
-    description: "alert-dialog__description text-foreground-secondary",
-    backdrop: "alert-dialog__backdrop z-backdrop grid place-items-center",
-    cancel: "alert-dialog__cancel",
-    action: "alert-dialog__action",
+      "relative flex size-full flex-col overflow-y-auto bg-surface shadow-lg",
+    footer: "flex w-full items-center justify-end gap-2 p-4",
+    body: "w-full p-4",
+    trigger: "",
+    title: "text-foreground",
+    description: "text-foreground-secondary",
+    backdrop: "z-backdrop grid place-items-center",
+    cancel: "",
+    action: "",
   },
   variants: {
     radius: {
@@ -36,14 +35,13 @@ export const alertDialogStyles = tv({
     },
     backdrop: {
       transparent: {
-        backdrop: "alert-dialog--backdrop-transparent",
+        backdrop: "",
       },
       opaque: {
-        backdrop: "alert-dialog--backdrop-opaque bg-black/50",
+        backdrop: "bg-black/50",
       },
       blur: {
-        backdrop:
-          "alert-dialog--backdrop-blur bg-black/30 backdrop-blur-md backdrop-saturate-150",
+        backdrop: "bg-black/30 backdrop-blur-md backdrop-saturate-150",
       },
     },
   },

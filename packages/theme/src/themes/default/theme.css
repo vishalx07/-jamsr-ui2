@@ -9,7 +9,7 @@ body {
     --white: oklch(100% 0 0);
     --black: oklch(0% 0 0);
 
-    --cursor-interactive: pointer;
+    --cursor-interactive: default;
     --cursor-disabled: not-allowed;
 
     --opacity-disabled: 0.5;

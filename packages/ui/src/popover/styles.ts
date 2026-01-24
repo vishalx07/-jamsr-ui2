@@ -2,11 +2,11 @@ import { tv, type VariantProps } from "tailwind-variants";
 
 export const popoverStyles = tv({
   slots: {
-    container: "popover popover__content z-popover",
+    container: "z-popover",
     content:
-      "popover__dialog bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-(--transform-origin)",
-    arrow: "popover__arrow fill-background-secondary",
-    backdrop: "popover__backdrop z-backdrop",
+      "bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-(--transform-origin)",
+    arrow: "fill-background-secondary",
+    backdrop: "z-backdrop",
   },
   variants: {
     radius: {
@@ -14,18 +14,16 @@ export const popoverStyles = tv({
       sm: { content: "rounded-sm", popover: "rounded-sm" },
       md: { content: "rounded-md", popover: "rounded-md" },
       lg: { content: "rounded-lg", popover: "rounded-lg" },
-      full: { content: "rounded-full", popover: "rounded-full" },
     },
     backdrop: {
       transparent: {
-        backdrop: "popover--backdrop-transparent",
+        backdrop: "",
       },
       opaque: {
-        backdrop: "popover--backdrop-opaque bg-black/50",
+        backdrop: "bg-black/50",
       },
       blur: {
-        backdrop:
-          "popover--backdrop-blur bg-black/30 backdrop-blur-md backdrop-saturate-150",
+        backdrop: "bg-black/30 backdrop-blur-md backdrop-saturate-150",
       },
     },
   },

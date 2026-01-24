@@ -42,5 +42,5 @@
 @custom-variant dark (&:is(.dark, .dark *,[data-theme="dark"], [data-theme="dark"] *));
 @custom-variant light (&:is(.light, .light *,[data-theme="light"], [data-theme="light"] *));
 
-@custom-variant data-hovered (&[data-hovered]:not(:focus):not(:focus-within):not([data-invalid]):not(.group[data-invalid] &):not([data-opened]):not([data-pressed]):not([data-selected]));
+@custom-variant data-hovered (&[data-hovered]:not([data-invalid]):not(.group[data-invalid] &):not([data-opened]):not([data-pressed]):not([data-selected]));
 @custom-variant focus-within (&:where(:focus-within));

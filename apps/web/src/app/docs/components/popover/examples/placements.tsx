@@ -25,7 +25,9 @@ export const PopoverPlacements = () => {
             <Button>{placement}</Button>
           </Popover.Trigger>
           <Popover.Content>
-            <Text>This is a Popover content</Text>
+            Popover is a non-modal dialog that floats around its disclosure.
+            It's commonly used for displaying additional rich content on top of
+            something.{" "}
           </Popover.Content>
         </Popover>
       ))}

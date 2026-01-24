@@ -39,36 +39,32 @@ const colorVariants = {
 export const chipStyles = tv({
   slots: {
     root: [
-      "chip chip__root relative box-border inline-flex min-w-min max-w-fit shrink-0",
+      "relative box-border inline-flex min-w-min max-w-fit shrink-0",
       "items-center justify-between whitespace-nowrap rounded-full gap-2",
       "font-medium",
     ],
-    dot: "chip__dot size-1.5 rounded-full",
+    dot: "size-1.5 rounded-full",
   },
   variants: {
     variant: {
-      solid: {
-        root: "chip--solid",
-      },
+      solid: {},
       bordered: {
-        root: "chip--bordered border",
+        root: "border",
       },
-      soft: {
-        root: "chip--soft",
-      },
+      soft: {},
       dot: {
-        dot: "chip--dot outline-2",
+        dot: "outline-2",
       },
     },
     size: {
       sm: {
-        root: "chip--xs h-5 px-1 text-xs",
+        root: "h-5 px-1 text-xs",
       },
       md: {
-        root: "chip--sm h-6 px-2 text-xs",
+        root: "h-6 px-2 text-xs",
       },
       lg: {
-        root: "chip--md h-7 px-3 text-sm",
+        root: "h-7 px-3 text-sm",
       },
     },
     color: {
@@ -81,12 +77,12 @@ export const chipStyles = tv({
     },
     isSquare: {
       true: {
-        root: "chip--squared flex aspect-square items-center justify-center",
+        root: "flex aspect-square items-center justify-center",
       },
     },
     isBordered: {
       true: {
-        root: "chip--bordered border",
+        root: "border",
       },
     },
     radius: {

@@ -60,7 +60,7 @@ const Popover = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Without Scroll"
+        title="Without Locking Scroll"
         url={resolvePath("without-lockscroll.tsx")}
       >
         <PopoverWithoutLockScroll />

@@ -3,27 +3,27 @@ import { focusVisibleClasses } from "../utils/variants";
 
 export const selectStyles = tv({
   slots: {
-    root: ["select select__root group relative flex flex-col gap-1 text-sm"],
+    root: ["group relative flex flex-col gap-1 text-sm"],
     value: [
-      "select__value text-sm",
+      "text-sm",
       "font-normal overflow-hidden text-ellipsis grow text-start",
     ],
     trigger: [
-      "select__trigger relative flex w-full flex-row items-center gap-3 border border-border px-3 py-2 outline-none",
-      "focus:border-primary data-hovered:border-border-dark data-opened:border-primary",
+      "relative flex w-full flex-row items-center gap-3 border border-border px-3 py-2 outline-none",
+      "focus:border-primary data-hovered:not-focus:border-border-dark data-opened:border-primary",
       "data-disabled:status-disabled",
       ...focusVisibleClasses,
     ],
     indicator:
-      "select__indicator shrink-0 transition-transform duration-300 group-data-opened:rotate-180",
-    itemIndicator: "select__item-indicator ml-auto",
-    popover: "select__popover z-popover outline-none overflow-hidden",
+      "shrink-0 transition-transform duration-300 group-data-opened:rotate-180",
+    itemIndicator: "ml-auto",
+    popover: "z-popover outline-none overflow-hidden",
     content: [
-      "select__content z-popover flex h-full flex-col gap-px overflow-y-auto overflow-x-hidden bg-surface shadow-md backdrop-blur-3xl p-2",
+      "z-popover flex h-full flex-col gap-px overflow-y-auto overflow-x-hidden bg-surface shadow-md backdrop-blur-3xl p-2",
       "origin-[top_center]",
     ],
     selectItem: [
-      "select__item relative flex w-full cursor-default select-none items-center gap-2 p-2 text-sm outline-none",
+      "relative flex w-full cursor-default select-none items-center gap-2 p-2 text-sm outline-none",
       "data-hovered:bg-surface-secondary",
       "data-active:bg-surface-secondary",
       "data-selected:bg-surface-secondary/50",

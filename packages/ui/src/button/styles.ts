@@ -4,7 +4,7 @@ import { variantStyles } from "../utils/variants";
 export const buttonStyles = tv({
   extend: variantStyles,
   base: [
-    "button cursor-interactive relative inline-flex py-2 px-4 justify-center items-center gap-2 shrink-0",
+    "cursor-interactive relative inline-flex py-2 px-4 justify-center items-center gap-2 shrink-0",
     "disabled:status-disabled",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
     "font-medium",

@@ -52,5 +52,11 @@ export const PopoverContent = (props: PopoverUI.Content) => {
 };
 
 export const PopoverArrow = (props: PopoverUI.Arrow) => {
-  return <PopoverUI.Arrow {...props} />;
+  const { styles } = usePopoverContext();
+  return (
+    <PopoverUI.Arrow
+      {...props}
+      className={styles.arrow({ className: props.className })}
+    />
+  );
 };
