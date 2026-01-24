@@ -1,4 +1,5 @@
-import { Button, Table } from "@jamsrui/react";
+import { Button } from "jamsrui/button";
+import { Table } from "jamsrui/table";
 export const TableUsage = () => {
   return (
     <Table aria-label="Example static collection table" variant="solid">
@@ -38,7 +39,7 @@ export const TableUsage = () => {
               <span className="text-sm text-foreground-secondary">
                 Showing 4 of 4 employees
               </span>
-              <Button color="primary" size="xs">
+              <Button color="primary" size="sm">
                 View All
               </Button>
             </div>

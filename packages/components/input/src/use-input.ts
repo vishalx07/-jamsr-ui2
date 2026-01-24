@@ -2,43 +2,54 @@
 import { useCallback, useMemo } from "react";
 
 import { useFieldA11yContext } from "@jamsrui/context";
-import { useControlledState } from "@jamsrui/hooks";
+import {
+  useControlledState,
+  useFocusVisible,
+  useHover,
+  useMergeRefs,
+} from "@jamsrui/hooks";
+import { dataAttr } from "@jamsrui/utils";
+
+import type { UIProps } from "@jamsrui/utils";
+import { useTextFieldContext } from "@jamsrui/textfield";
 import { useInputGroupContextOpt } from "@jamsrui/input-group";
-import { cn, mapPropsVariants } from "@jamsrui/utils";
-
-import { inputGroupVariants, inputVariants } from "./styles";
-
-import type { PropGetter, UIProps } from "@jamsrui/utils";
-
-import type { InputVariantProps } from "./styles";
 
 export const useInput = (props: useInput.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    inputVariants.variantKeys,
-  );
-  const inputGroupCtx = useInputGroupContextOpt();
   const fieldA11yCtx = useFieldA11yContext();
+
+  const ctx = useTextFieldContext();
+  const inputGroupCtx = useInputGroupContextOpt();
+  const isTextFieldDisabled = ctx?.isDisabled ?? false;
+  const isTextFieldInvalid = ctx?.isInvalid ?? false;
 
   const {
     value: valueProp,
     defaultValue,
     onValueChange,
-    className,
+    ref,
+    disabled: isDisabled = isTextFieldDisabled,
     ...elementProps
-  } = $props;
+  } = props;
 
   const [value = "", setValue] = useControlledState({
     defaultProp: defaultValue,
     onChange: onValueChange,
     prop: valueProp,
   });
-  const styles = inputGroupCtx
-    ? inputGroupVariants({
-        ...inputGroupCtx.variantProps,
-        ...variantProps,
-      })
-    : inputVariants(variantProps);
+
+  const { isHovered, ref: hoverRef } = useHover<HTMLInputElement>({
+    isDisabled,
+  });
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLInputElement>({
+      isDisabled,
+    });
+  const refs = useMergeRefs([
+    ref,
+    hoverRef,
+    focusVisibleRef,
+    inputGroupCtx?.inputRefs,
+  ]);
 
   const handleInputChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,16 +58,29 @@ export const useInput = (props: useInput.Props) => {
     [setValue],
   );
 
-  const getInputProps: PropGetter<UIProps<"input">> = useCallback(
-    (props) => ({
+  const getInputProps = useCallback(
+    () => ({
       ...fieldA11yCtx?.getInputProps(),
       ...elementProps,
-      ...props,
-      className: cn(styles, className),
       value,
       onChange: handleInputChange,
+      ref: refs,
+      "data-hovered": dataAttr(isHovered),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-invalid": dataAttr(isTextFieldInvalid),
+      disabled: isDisabled,
     }),
-    [fieldA11yCtx, elementProps, styles, className, value, handleInputChange],
+    [
+      fieldA11yCtx,
+      elementProps,
+      value,
+      handleInputChange,
+      refs,
+      isHovered,
+      isFocusVisible,
+      isDisabled,
+      isTextFieldInvalid,
+    ],
   );
 
   return useMemo(
@@ -68,7 +92,7 @@ export const useInput = (props: useInput.Props) => {
 };
 
 export namespace useInput {
-  export interface Props extends UIProps<"input">, InputVariantProps {
+  export interface Props extends UIProps<"input"> {
     value?: string;
     defaultValue?: string;
     onValueChange?: (value: string) => void;

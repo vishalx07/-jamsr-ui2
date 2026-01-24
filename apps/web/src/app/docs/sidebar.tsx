@@ -1,7 +1,9 @@
 "use client";
 
 import { AppLogo } from "@/components/app-logo";
-import { Chip, Sidebar, Text } from "@jamsrui/react";
+import { Chip } from "jamsrui/chip";
+import { Sidebar } from "jamsrui/sidebar";
+import { Text } from "jamsrui/text";
 import { Route } from "next";
 import Link from "next/link";
 
@@ -37,7 +39,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Date Field", url: "/docs/components/date-field" },
       { title: "Date Picker", url: "/docs/components/date-picker" },
       { title: "Dialog", url: "/docs/components/dialog" },
-      { title: "Divider", url: "/docs/components/divider" },
+      { title: "Separator", url: "/docs/components/separator" },
       { title: "Drawer", url: "/docs/components/drawer" },
       { title: "Editor", url: "/docs/components/editor" },
       { title: "File Upload", url: "/docs/components/file-upload" },

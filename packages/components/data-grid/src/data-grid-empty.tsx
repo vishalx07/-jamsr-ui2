@@ -1,5 +1,5 @@
 "use client";
-import { TableCell, TableRow } from "@jamsrui/table";
+import { Table } from "@jamsrui/table";
 
 import { useDataGridContext } from "./data-grid-context";
 
@@ -7,9 +7,9 @@ export const DataGridEmpty = () => {
   const { table } = useDataGridContext();
   const totalColumns = table.getAllColumns().length;
   return (
-    <TableRow>
-      <TableCell colSpan={totalColumns}>No data available</TableCell>
-    </TableRow>
+    <Table.Row>
+      <Table.Cell colSpan={totalColumns}>No data available</Table.Cell>
+    </Table.Row>
   );
 };
 

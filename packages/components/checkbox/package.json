@@ -25,7 +25,6 @@
     "@jamsrui/context": "workspace:^",
     "@jamsrui/core": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
-    "@jamsrui/slot": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"

@@ -1,9 +1,7 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
 import { Input } from "@jamsrui/input";
-import { mergeConfigProps } from "@jamsrui/utils";
 
-import { useAutocompleteConfig } from "./autocomplete-config";
 import { AutocompleteContent } from "./autocomplete-content";
 import { AutocompleteContext } from "./autocomplete-context";
 import { AutocompletePopover } from "./autocomplete-popover";
@@ -11,9 +9,7 @@ import { useAutocomplete } from "./use-autocomplete";
 
 export const Autocomplete = (props: Autocomplete.Props) => {
   const { children } = props;
-  const config = useAutocompleteConfig();
-  const mergedProps = mergeConfigProps(config, config, props);
-  const ctx = useAutocomplete(mergedProps);
+  const ctx = useAutocomplete(props);
   const { getRootProps, getInputProps } = ctx;
 
   const composedChildren = (

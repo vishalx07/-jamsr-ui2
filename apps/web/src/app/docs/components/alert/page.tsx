@@ -3,7 +3,6 @@ import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { AlertCustomIcon } from "./examples/custom-icon";
-import { AlertRadius } from "./examples/radius";
 import { AlertStatus } from "./examples/status";
 import { AlertUsage } from "./examples/usage";
 import { AlertVariantBordered } from "./examples/variants/bordered";
@@ -49,9 +48,6 @@ const Alert = () => {
           <AlertVariantFlat />
         </CodeExample>
       </DocsPageSection>
-      <CodeExample title="Radius" url={resolvePath("radius.tsx")}>
-        <AlertRadius />
-      </CodeExample>
       <CodeExample title="With Action" url={resolvePath("with-action.tsx")}>
         <AlertWithAction />
       </CodeExample>

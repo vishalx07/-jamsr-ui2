@@ -1,4 +1,5 @@
-import { Label, Radio, RadioGroup } from "@jamsrui/react";
+import { Label } from "jamsrui/label";
+import { Radio, RadioGroup } from "jamsrui/radio-group";
 
 export const RadioUsage = () => {
   return (

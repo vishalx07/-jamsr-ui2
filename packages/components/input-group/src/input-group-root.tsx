@@ -1,12 +1,14 @@
 "use client";
 import { useRenderElement } from "@jamsrui/hooks";
-import type { UIProps } from "@jamsrui/utils";
+
 import { useInputGroupContext } from "./input-group-context";
 
-export const InputGroupRoot = (props: InputGroupRoot.Props) => {
+import type { UIProps } from "@jamsrui/utils";
+
+export const InputGroupRoot = (_props: InputGroupRoot.Props) => {
   const { getRootProps } = useInputGroupContext();
   const renderElement = useRenderElement("div", {
-    props: [getRootProps(props)],
+    props: [getRootProps()],
   });
   return renderElement;
 };

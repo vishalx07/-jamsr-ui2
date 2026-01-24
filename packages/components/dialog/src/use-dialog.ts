@@ -9,9 +9,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
-
-import { dialogVariants } from "./styles";
+import { mergeProps } from "@jamsrui/utils";
 
 import type {
   FloatingFocusManagerProps,
@@ -21,18 +19,12 @@ import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { DialogBody } from "./dialog-body";
-import type { DialogCloseButton } from "./dialog-close-button";
 import type { DialogContainer } from "./dialog-container";
 import type { DialogContent } from "./dialog-content";
 import type { DialogFooter } from "./dialog-footer";
 import type { DialogHeader } from "./dialog-header";
-import type { DialogVariants } from "./styles";
 
 export const useDialog = (props: useDialog.Props) => {
-  const [newProps, variantProps] = mapPropsVariants(
-    props,
-    dialogVariants.variantKeys,
-  );
   const {
     defaultOpen,
     disableAnimation = false,
@@ -41,7 +33,7 @@ export const useDialog = (props: useDialog.Props) => {
     isOpen: isOpenProp,
     onOpenChange,
     hideCloseButton,
-  } = newProps;
+  } = props;
 
   const [isOpen, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -67,7 +59,6 @@ export const useDialog = (props: useDialog.Props) => {
   const interactions = useInteractions([click, dismiss, role]);
   const { getReferenceProps, getFloatingProps } = interactions;
 
-  const styles = dialogVariants(variantProps);
   const getBackdropProps = useCallback(() => {}, []);
 
   const handleTriggerClose = useCallback(() => {
@@ -77,36 +68,27 @@ export const useDialog = (props: useDialog.Props) => {
   const getHeaderProps: PropGetter<DialogHeader.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("header"),
-      className: styles.header({
-        className: props.className,
-      }),
+      "data-slot": "header",
     }),
-    [styles],
+    [],
   );
 
   const getBodyProps: PropGetter<DialogBody.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("body"),
-      className: styles.body({
-        className: props.className,
-      }),
+      "data-slot": "body",
     }),
-    [styles],
+    [],
   );
 
   const getContainerProps: PropGetter<DialogContainer.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("container"),
-      className: styles.container({
-        className: props.className,
-      }),
+      "data-slot": "container",
       ref: setFloating,
       ...getFloatingProps(),
     }),
-    [getFloatingProps, setFloating, styles],
+    [getFloatingProps, setFloating],
   );
 
   const getContentProps: PropGetter<DialogContent.Props> = useCallback(
@@ -116,37 +98,26 @@ export const useDialog = (props: useDialog.Props) => {
       exit: { scale: 0.9, opacity: 0, filter: "blur(4px)" },
       transition: { type: "spring", stiffness: 300, damping: 25 },
       ...props,
-      "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: props.className,
-      }),
+      "data-slot": "content",
     }),
-    [styles],
+    [],
   );
 
   const getFooterProps: PropGetter<DialogFooter.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("footer"),
-      className: styles.footer({
-        className: props.className,
-      }),
+      "data-slot": "footer",
     }),
-    [styles],
+    [],
   );
 
-  const getCloseButtonProps: PropGetter<DialogCloseButton.Props> = useCallback(
+  const getCloseButtonProps: PropGetter<ComponentProps<"button">> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("close-button"),
-      className: styles.closeButton({
-        className: props.className,
-      }),
-      radius: "full",
-      size: "sm",
+      "data-slot": "close-button",
       onClick: handleTriggerClose,
     }),
-    [handleTriggerClose, styles],
+    [handleTriggerClose],
   );
 
   const getCloseTriggerProps: PropGetter<ComponentProps<"button">> =
@@ -168,11 +139,13 @@ export const useDialog = (props: useDialog.Props) => {
   );
 
   const getOverlayProps = useCallback(
-    (): ComponentProps<typeof FloatingOverlay> => ({
-      className: styles.backdrop(),
+    (
+      props: ComponentProps<typeof FloatingOverlay>,
+    ): ComponentProps<typeof FloatingOverlay> => ({
       lockScroll: true,
+      ...props,
     }),
-    [styles],
+    [],
   );
 
   const getFocusManagerProps = useCallback(
@@ -218,7 +191,7 @@ export const useDialog = (props: useDialog.Props) => {
 };
 
 export namespace useDialog {
-  export interface Props extends DialogVariants {
+  export interface Props {
     defaultOpen?: boolean;
     isOpen?: boolean;
     onOpenChange?: (open: boolean) => void;

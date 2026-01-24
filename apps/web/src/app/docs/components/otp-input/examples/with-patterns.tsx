@@ -1,9 +1,5 @@
-import {
-  Label,
-  OtpInput,
-  REGEXP_ONLY_CHARS,
-  REGEXP_ONLY_DIGITS,
-} from "@jamsrui/react";
+import { Label } from "jamsrui/label";
+import { OtpInput, REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS } from "jamsrui/otp-input";
 
 export const OtpInputWithPatterns = () => {
   return (

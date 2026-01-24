@@ -2,7 +2,6 @@
 import { useFieldA11yContext } from "@jamsrui/context";
 import { useMergeRefs } from "@jamsrui/hooks";
 import { type UIProps } from "@jamsrui/utils";
-import { fieldErrorVariants } from "./styles";
 
 export const useFieldError = (
   props: useFieldError.Props,
@@ -13,7 +12,7 @@ export const useFieldError = (
 
   return {
     ref: mergedRefs,
-    className: fieldErrorVariants({ className }),
+    className,
     ...fieldAllyCtx?.getFieldErrorProps(),
     ...restProps,
   };

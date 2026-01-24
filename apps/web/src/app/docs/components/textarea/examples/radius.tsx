@@ -1,4 +1,6 @@
-import { Textarea, Label, TextField } from "@jamsrui/react";
+import { Label } from "jamsrui/label";
+import { Textarea } from "jamsrui/textarea";
+import { TextField } from "jamsrui/textfield";
 
 export const TextareaRadius = () => {
   return (
@@ -20,16 +22,8 @@ export const TextareaRadius = () => {
         <Textarea radius="lg" />
       </TextField>
       <TextField>
-        <Label>Radius xl</Label>
-        <Textarea radius="xl" />
-      </TextField>
-      <TextField>
-        <Label>Radius 2xl</Label>
-        <Textarea radius="2xl" />
-      </TextField>
-      <TextField>
-        <Label>Radius 3xl</Label>
-        <Textarea radius="3xl" />
+        <Label>Radius full</Label>
+        <Textarea radius="full" />
       </TextField>
     </div>
   );

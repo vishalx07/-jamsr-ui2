@@ -1,5 +1,5 @@
 import { EmailIcon } from "@jamsrui/icons";
-import { IconButton } from "@jamsrui/react";
+import { IconButton } from "jamsrui/icon-button";
 
 export const IconButtonSizes = () => {
   return (

@@ -5,7 +5,7 @@ import { useCallback, useMemo, useRef } from "react";
  */
 export function useMergeRefs<Instance>(
   refs: Array<React.Ref<Instance> | undefined>,
-): null | React.RefCallback<Instance> {
+): null | React.Ref<Instance> {
   const cleanupRef = useRef<void | (() => void)>(undefined);
 
   const refEffect = useCallback((instance: Instance | null) => {
@@ -24,9 +24,9 @@ export function useMergeRefs<Instance>(
             };
       }
 
-      (ref as React.MutableRefObject<Instance | null>).current = instance;
+      (ref as React.RefObject<Instance | null>).current = instance;
       return () => {
-        (ref as React.MutableRefObject<Instance | null>).current = null;
+        (ref as React.RefObject<Instance | null>).current = null;
       };
     });
 
@@ -44,12 +44,12 @@ export function useMergeRefs<Instance>(
     return (value) => {
       if (cleanupRef.current) {
         cleanupRef.current();
-        (cleanupRef as React.MutableRefObject<void | (() => void)>).current =
+        (cleanupRef as React.RefObject<void | (() => void)>).current =
           undefined;
       }
 
       if (value != null) {
-        (cleanupRef as React.MutableRefObject<void | (() => void)>).current =
+        (cleanupRef as React.RefObject<void | (() => void)>).current =
           refEffect(value);
       }
     };

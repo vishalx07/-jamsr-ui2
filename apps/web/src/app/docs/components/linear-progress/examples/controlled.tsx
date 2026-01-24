@@ -1,6 +1,7 @@
 "use client";
 
-import { IconButton, LinearProgress } from "@jamsrui/react";
+import { IconButton } from "jamsrui/icon-button";
+import { LinearProgress } from "jamsrui/linear-progress";
 import { MinusIcon, PlusIcon } from "@jamsrui/icons";
 import { useState } from "react";
 
@@ -15,7 +16,7 @@ export const LinearProgressControlled = () => {
       <IconButton label="Decrease" disabled={!CanDecrease} onClick={OnDecrease}>
         <MinusIcon />
       </IconButton>
-      <LinearProgress isIntermediate={false} progress={value} />
+      <LinearProgress isIntermediate={false} progress={value} size="lg" />
       <IconButton label="Increase" disabled={!CanIncrease} onClick={OnIncrease}>
         <PlusIcon />
       </IconButton>

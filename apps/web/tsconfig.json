@@ -16,7 +16,10 @@
     "**/*.tsx",
     "next-env.d.ts",
     "next.config.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "../../packages/ui/src/alert.tsx",
+    "../../packages/ui/src/button.tsx",
+    "../../packages/ui/src/select.tsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,6 +1,7 @@
 "use client";
 
-import { Button, toast } from "@jamsrui/react";
+import { Button } from "jamsrui/button";
+import { toast } from "jamsrui/toast";
 
 const ToastVariants = () => {
   return (

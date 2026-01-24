@@ -13,9 +13,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
-import { autocompleteVariants } from "./styles";
 
 import type {
   FloatingFocusManagerProps,
@@ -23,22 +21,16 @@ import type {
   Placement,
 } from "@floating-ui/react";
 import type { Input } from "@jamsrui/input";
-import type { PropGetter, SlotsToClassNames } from "@jamsrui/utils";
+import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { Autocomplete } from "./autocomplete";
 import type { AutocompleteContent } from "./autocomplete-content";
 import type { AutocompleteItem } from "./autocomplete-item";
 import type { AutocompletePopover } from "./autocomplete-popover";
-import type { AutocompleteSlots, AutocompleteVariantProps } from "./styles";
 
 export const useAutocomplete = (props: useAutocomplete.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    autocompleteVariants.variantKeys,
-  );
   const {
-    classNames,
     isOpen: isOpenProp,
     defaultOpen,
     onOpenChange,
@@ -48,7 +40,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     placement = "bottom-start",
     isMultiple,
     ...elementProps
-  } = $props;
+  } = props;
 
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -114,60 +106,41 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     setIsOpen((open) => !open);
   }, [setIsOpen]);
 
-  const styles = autocompleteVariants(variantProps);
   const getRootProps: PropGetter<Autocomplete.Props> = useCallback(
     () => ({
       ...elementProps,
-      "data-component": dataAttrDev("autocomplete"),
-      "data-slot": dataAttrDev("root"),
-      className: styles.root({
-        className: cn(classNames?.root, elementProps.className),
-      }),
+      "data-component": "autocomplete",
+      "data-slot": "root",
     }),
-    [classNames?.root, elementProps, styles],
+    [elementProps],
   );
 
   const getAutocompleteItemProps: PropGetter<AutocompleteItem.Props> =
     useCallback(
       (props) => ({
         ...props,
-        "data-slot": dataAttrDev("item"),
-        className: styles.item({
-          className: cn(classNames?.item, props.className),
-        }),
+        "data-slot": "item",
       }),
-      [classNames?.item, styles],
+      [],
     );
 
   const getPopoverProps: PropGetter<AutocompletePopover.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("popover"),
-      className: styles.popover({
-        className: cn(classNames?.popover, props.className),
-      }),
+      "data-slot": "popover",
       style: floatingStyles,
       ...getFloatingProps({}),
       ref: setFloating,
     }),
-    [
-      classNames?.popover,
-      floatingStyles,
-      getFloatingProps,
-      setFloating,
-      styles,
-    ],
+    [floatingStyles, getFloatingProps, setFloating],
   );
 
   const getContentProps: PropGetter<AutocompleteContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: cn(classNames?.content, props.className),
-      }),
+      "data-slot": "content",
     }),
-    [classNames?.content, styles],
+    [],
   );
 
   const getFocusManagerProps = useCallback(
@@ -192,12 +165,6 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
     (props) => ({
       ...props,
       ...getReferenceProps({}),
-      slotProps: {
-        contentWrapper: {
-          ref: setReference,
-          onClick: handleToggleOpen,
-        },
-      },
     }),
     [getReferenceProps, handleToggleOpen, setReference],
   );
@@ -231,7 +198,6 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
 };
 export namespace useAutocomplete {
   interface InnerProps {
-    classNames?: SlotsToClassNames<AutocompleteSlots>;
     value?: string[];
     defaultValue?: string[];
     onValueChange?: (value: string[]) => void;
@@ -243,8 +209,5 @@ export namespace useAutocomplete {
   }
 
   export interface Props
-    extends
-      Omit<Input.Props, keyof InnerProps>,
-      AutocompleteVariantProps,
-      InnerProps {}
+    extends Omit<Input.Props, keyof InnerProps>, InnerProps {}
 }

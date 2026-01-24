@@ -1,54 +1,14 @@
 "use client";
 
-import {
-  FloatingFocusManager,
-  FloatingOverlay,
-  FloatingPortal,
-} from "@floating-ui/react";
-import { AnimatePresence } from "motion/react";
-
-import { useRenderElement } from "@jamsrui/hooks";
-import { UIProps } from "@jamsrui/utils";
+import { HTMLMotionProps, motion } from "motion/react";
 import { usePopoverContext } from "./popover-context";
-import { PopoverDialog } from "./popover-dialog";
 
 export const PopoverContent = (props: PopoverContent.Props) => {
-  const {
-    isOpen,
-    getFloatingFocusManagerProps,
-    getContentProps,
-    getOverlayProps,
-    getAnimatePresenceProps,
-  } = usePopoverContext();
-  const renderElement = useRenderElement("div", {
-    props: [getContentProps(props)],
-  });
-  return (
-    <AnimatePresence {...getAnimatePresenceProps()}>
-      {!!isOpen && (
-        <FloatingPortal>
-          <FloatingOverlay {...getOverlayProps()} />
-          <FloatingFocusManager {...getFloatingFocusManagerProps()}>
-            {renderElement}
-          </FloatingFocusManager>
-        </FloatingPortal>
-      )}
-    </AnimatePresence>
-  );
-};
-
-export const PopoverContentWithDialog = (props: PopoverDialog.Props) => {
-  return (
-    <PopoverContent>
-      <PopoverDialog {...props} />
-    </PopoverContent>
-  );
+  const { children, ...restProps } = props;
+  const { getContentProps } = usePopoverContext();
+  return <motion.div {...getContentProps(restProps)}>{children}</motion.div>;
 };
 
 export namespace PopoverContent {
-  export interface Props extends UIProps<"div"> {}
-}
-
-export namespace PopoverContentWithDialog {
-  export interface Props extends PopoverDialog.Props {}
+  export interface Props extends HTMLMotionProps<"div"> {}
 }

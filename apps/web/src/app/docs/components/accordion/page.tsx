@@ -2,7 +2,6 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
-import { AccordionCustomIcon } from "./examples/custom-icon";
 import { AccordionDisabled } from "./examples/disabled";
 import { AccordionMultipleSelection } from "./examples/multiple-selection";
 import { AccordionRadius } from "./examples/radius";
@@ -40,9 +39,6 @@ const Accordion = () => {
       </CodeExample>
       <CodeExample title="Variants" url={resolvePath("variants.tsx")}>
         <AccordionVariants />
-      </CodeExample>
-      <CodeExample title="Custom Icon" url={resolvePath("custom-icon.tsx")}>
-        <AccordionCustomIcon />
       </CodeExample>
       <CodeExample title="Without Icon" url={resolvePath("without-icon.tsx")}>
         <AccordionWithoutIcon />

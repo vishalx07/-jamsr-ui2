@@ -2,11 +2,14 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { useControlledState } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev, mergeProps } from "@jamsrui/utils";
+import {
+  useControlledState,
+  useFocusVisible,
+  useMergeRefs,
+} from "@jamsrui/hooks";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import { NumberParser } from "./parser";
-import { numberFieldVariants } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -15,7 +18,6 @@ import type { NumberFieldDecrement } from "./number-field-decrement";
 import type { NumberFieldGroup } from "./number-field-group";
 import type { NumberFieldIncrement } from "./number-field-increment";
 import type { NumberFieldInput } from "./number-field-input";
-import type { NumberFieldVariants } from "./styles";
 
 export const useNumberField = (props: useNumberField.Props) => {
   const {
@@ -38,8 +40,13 @@ export const useNumberField = (props: useNumberField.Props) => {
   });
   const [value, setValue] = useState("");
 
-  const styles = numberFieldVariants({ isInvalid });
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLInputElement>({
+      isDisabled,
+    });
   const inputRef = useRef<HTMLInputElement>(null);
+  const inputRefs = useMergeRefs([inputRef, focusVisibleRef]);
+
   const parser = useMemo(
     () => new NumberParser(locale, formatOptions),
     [locale, formatOptions],
@@ -150,14 +157,11 @@ export const useNumberField = (props: useNumberField.Props) => {
   const getRootProps: PropGetter<NumberField.Props> = useCallback(
     () => ({
       ...restProps,
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
-      className: styles.root({
-        className: props.className,
-      }),
     }),
-    [isDisabled, props.className, restProps, styles],
+    [isDisabled, restProps],
   );
 
   const getInputProps: PropGetter<NumberFieldInput.Props> = useCallback(
@@ -167,23 +171,22 @@ export const useNumberField = (props: useNumberField.Props) => {
         onBlur: handleInputOnBlur,
         onKeyDown: handleInputKeyDown,
       }),
-      ref: inputRef,
+      ref: inputRefs,
       value,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       disabled: isDisabled,
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
-      className: styles.input({
-        className: props.className,
-      }),
+      "data-focus-visible": dataAttr(isFocusVisible),
     }),
     [
       handleInputKeyDown,
       handleInputOnBlur,
       handleInputOnChange,
       isDisabled,
-      styles,
       value,
+      isFocusVisible,
+      inputRefs,
     ],
   );
 
@@ -192,15 +195,12 @@ export const useNumberField = (props: useNumberField.Props) => {
       tabIndex: -1,
       size: "sm",
       radius: "none",
-      "data-slot": dataAttrDev("increment"),
+      "data-slot": "increment",
       ...mergeProps(props, {
         onClick: handleIncrement,
       }),
-      className: styles.increment({
-        className: props.className,
-      }),
     }),
-    [handleIncrement, styles],
+    [handleIncrement],
   );
 
   const getDecrementProps: PropGetter<NumberFieldDecrement.Props> = useCallback(
@@ -208,26 +208,21 @@ export const useNumberField = (props: useNumberField.Props) => {
       tabIndex: -1,
       size: "sm",
       radius: "none",
-      "data-slot": dataAttrDev("decrement"),
+      "data-slot": "decrement",
       ...mergeProps(props, {
         onClick: handleDecrement,
       }),
-      className: styles.decrement({
-        className: props.className,
-      }),
     }),
-    [handleDecrement, styles],
+    [handleDecrement],
   );
 
   const getGroupProps: PropGetter<NumberFieldGroup.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("group"),
-      className: styles.group({
-        className: props.className,
-      }),
+      "data-slot": "group",
+      "data-focus-visible": dataAttr(isFocusVisible),
     }),
-    [styles],
+    [isFocusVisible],
   );
 
   return useMemo(
@@ -249,7 +244,7 @@ export const useNumberField = (props: useNumberField.Props) => {
 };
 
 export namespace useNumberField {
-  export interface Props extends UIProps<"div">, NumberFieldVariants {
+  export interface Props extends UIProps<"div"> {
     formatOptions?: Intl.NumberFormatOptions;
     locale?: string;
     minValue?: number;
@@ -261,5 +256,6 @@ export namespace useNumberField {
     name?: string;
     form?: string;
     disabled?: boolean;
+    isInvalid?: boolean;
   }
 }

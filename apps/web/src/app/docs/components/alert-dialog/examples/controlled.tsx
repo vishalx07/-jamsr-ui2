@@ -1,6 +1,7 @@
 "use client";
 
-import { AlertDialog, Button } from "@jamsrui/react";
+import { AlertDialog } from "jamsrui/alert-dialog";
+import { Button } from "jamsrui/button";
 import { useState } from "react";
 
 export const AlertDialogControlled = () => {

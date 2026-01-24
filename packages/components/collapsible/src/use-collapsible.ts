@@ -2,7 +2,7 @@
 import { useCallback, useId, useMemo } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttrDev, mergeProps } from "@jamsrui/utils";
+import { mergeProps } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -31,7 +31,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
     () => ({
       "aria-expanded": isOpen,
       "data-expanded": isOpen,
-      "data-slot": dataAttrDev("root"),
+      "data-slot": "root",
     }),
     [isOpen],
   );
@@ -39,7 +39,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
   const getContentProps: PropGetter<CollapsibleContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("content"),
+      "data-slot": "content",
       id: contentId,
       role: "region",
       "aria-labelledby": triggerId,
@@ -57,7 +57,7 @@ export const useCollapsible = (props: useCollapsible.Props) => {
         },
       ),
       id: triggerId,
-      "data-slot": dataAttrDev("trigger"),
+      "data-slot": "trigger",
       "aria-controls": contentId,
       "aria-expanded": isOpen,
       "data-expanded": isOpen,

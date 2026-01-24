@@ -1,33 +1,20 @@
 "use client";
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 
-import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
-import { avatarVariants } from "./styles";
 
 import type { PropGetter } from "@jamsrui/utils";
 
 import type { AvatarFallback } from "./avatar-fallback";
 import type { AvatarImage } from "./avatar-image";
 import type { AvatarRoot } from "./avatar-root";
-import type { AvatarVariants } from "./styles";
 
 type ImageLoadingStatus = "idle" | "loading" | "loaded" | "error";
 
 export const useAvatar = (props: useAvatar.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    avatarVariants.variantKeys,
-  );
-  const { ...elementProps } = $props;
+  const { className, ...elementProps } = props;
   const [status, setStatus] = useState<ImageLoadingStatus>("idle");
-  const color = variantProps.color ?? "default";
   const imageRef = useRef<HTMLImageElement>(null);
-
-  const styles = avatarVariants({
-    ...variantProps,
-    color,
-  });
 
   const handleOnError = useCallback(() => {
     setStatus("error");
@@ -40,14 +27,12 @@ export const useAvatar = (props: useAvatar.Props) => {
   const getRootProps = useCallback(
     (): AvatarRoot.Props => ({
       ...elementProps,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("avatar"),
-      "data-status": dataAttrDev(status),
-      className: styles.root({
-        className: props.className,
-      }),
+      "data-slot": "root",
+      "data-component": "avatar",
+      "data-status": status,
+      className,
     }),
-    [elementProps, props.className, status, styles],
+    [elementProps, className, status],
   );
 
   useLayoutEffect(() => {
@@ -67,36 +52,27 @@ export const useAvatar = (props: useAvatar.Props) => {
     (props) => ({
       ...props,
       ref: imageRef,
-      "data-slot": dataAttrDev("img"),
+      "data-slot": "img",
       onError: handleOnError,
       onLoad: handleOnLoad,
-      className: styles.img({
-        className: props.className,
-      }),
     }),
-    [handleOnError, handleOnLoad, styles],
+    [handleOnError, handleOnLoad],
   );
 
   const getFallbackProps: PropGetter<AvatarFallback.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("fallback"),
-      className: styles.fallback({
-        className: props.className,
-      }),
+      "data-slot": "fallback",
     }),
-    [styles],
+    [],
   );
 
   const getIndicatorProps: PropGetter<AvatarFallback.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("indicator"),
-      className: styles.indicator({
-        className: props.className,
-      }),
+      "data-slot": "indicator",
     }),
-    [styles],
+    [],
   );
 
   return useMemo(
@@ -111,5 +87,5 @@ export const useAvatar = (props: useAvatar.Props) => {
   );
 };
 export namespace useAvatar {
-  export interface Props extends AvatarVariants, AvatarRoot.Props {}
+  export interface Props extends AvatarRoot.Props {}
 }

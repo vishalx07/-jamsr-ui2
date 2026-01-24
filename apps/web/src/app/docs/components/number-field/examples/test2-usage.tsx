@@ -1,4 +1,6 @@
-import { Description, Label, NumberField } from "@jamsrui/react";
+import { Description } from "jamsrui/description";
+import { Label } from "jamsrui/label";
+import { NumberField } from "jamsrui/number-field";
 
 export function WithFormatOptions() {
   return (

@@ -1,5 +1,6 @@
 "use client";
-import { Description, OtpInput } from "@jamsrui/react";
+import { Description } from "jamsrui/description";
+import { OtpInput } from "jamsrui/otp-input";
 import { useState } from "react";
 
 export const OtpInputControlled = () => {

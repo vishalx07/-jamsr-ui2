@@ -1,4 +1,4 @@
-import { Alert } from "@jamsrui/react";
+import { Alert } from "jamsrui/alert";
 
 export const AlertVariantBordered = () => {
   return (
@@ -15,13 +15,13 @@ export const AlertVariantBordered = () => {
         <Alert.Icon />
         <Alert.Content>This is an info Alert.</Alert.Content>
       </Alert>
-      <Alert variant="bordered" status="danger">
+      <Alert variant="bordered" status="error">
         <Alert.Icon />
-        <Alert.Content>This is an danger Alert.</Alert.Content>
+        <Alert.Content>This is an error Alert.</Alert.Content>
       </Alert>
-      <Alert variant="bordered" status="default">
+      <Alert variant="bordered" status="neutral">
         <Alert.Icon />
-        <Alert.Content>This is a default Alert.</Alert.Content>
+        <Alert.Content>This is a neutral Alert.</Alert.Content>
       </Alert>
     </div>
   );

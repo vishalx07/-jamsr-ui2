@@ -1,37 +1,38 @@
 "use client";
-import { useRenderElement } from "@jamsrui/hooks";
-import { mergeConfigProps } from "@jamsrui/utils";
 
-import { ClipboardButton } from "./clipboard-button";
-import { useClipboardConfig } from "./clipboard-config";
+import { Button } from "@jamsrui/button";
+import { dataAttr, mergeProps, UIProps } from "@jamsrui/utils";
+import { useMemo } from "react";
 import { ClipboardContext } from "./clipboard-context";
-import { copyToClipboardVariants } from "./styles";
-import { useClipboard } from "./use-clipboard";
+import { useCopyToClipboard } from "./use-copy-to-clipboard";
 
 export const Clipboard = (props: Clipboard.Props) => {
-  const config = useClipboardConfig();
-  const mergedProps = mergeConfigProps(
-    copyToClipboardVariants.defaultVariants,
-    config,
-    props,
-  );
-  const ctx = useClipboard(mergedProps as Clipboard.Props);
-  const { getRootProps } = ctx;
-
-  const { children } = props;
-  const composedChildren = (
-    <>
-      {children}
-      <ClipboardButton />
-    </>
-  );
-
-  const renderElement = useRenderElement("label", {
-    props: [getRootProps(), { children: composedChildren }],
+  const { text, onCopyError, onCopySuccess, timeout, ...restProps } = props;
+  const { isCopied, onCopy } = useCopyToClipboard({
+    text,
+    onCopyError,
+    onCopySuccess,
+    timeout,
   });
-  return <ClipboardContext value={ctx}>{renderElement}</ClipboardContext>;
+
+  const value: ClipboardContext.Props = useMemo(
+    () => ({ isCopied }),
+    [isCopied],
+  );
+  return (
+    <ClipboardContext value={value}>
+      <Button
+        data-slot="root"
+        data-component="clipboard"
+        data-copied={dataAttr(isCopied)}
+        {...mergeProps(restProps, {
+          onClick: onCopy,
+        })}
+      />
+    </ClipboardContext>
+  );
 };
 
 export namespace Clipboard {
-  export interface Props extends useClipboard.Props {}
+  export interface Props extends useCopyToClipboard.Props, UIProps<"button"> {}
 }

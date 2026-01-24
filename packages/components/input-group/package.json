@@ -23,6 +23,7 @@
     "@jamsrui/field-error": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/label": "workspace:^",
+    "@jamsrui/textfield": "workspace:^",
     "@jamsrui/utils": "workspace:^"
   },
   "clean-package": "./clean-package.config.json"

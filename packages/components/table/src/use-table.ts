@@ -1,13 +1,10 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
+import { mergeProps } from "@jamsrui/utils";
 
-import { tableVariants } from "./styles";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
-
-import type { TableSlots, TableVariantProps } from "./styles";
 import { Table } from "./table";
 import type { TableBody } from "./table-body";
 import type { TableCell } from "./table-cell";
@@ -19,115 +16,80 @@ import type { TableRow } from "./table-row";
 import type { TableWrapper } from "./table-wrapper";
 
 export const useTable = (props: useTable.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    tableVariants.variantKeys,
-  );
-  const { classNames, ...elementProps } = $props;
-  const styles = tableVariants(variantProps);
+  const { className, ...elementProps } = props;
 
   const getRootProps: PropGetter<TableRoot.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("table"),
-      className: styles.root({
-        className: cn(classNames?.root, props.className),
-      }),
+      "data-slot": "root",
+      "data-component": "table",
     }),
-    [classNames?.root, styles],
+    [],
   );
 
   const getWrapperProps: PropGetter<TableWrapper.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("wrapper"),
-      className: styles.wrapper({
-        className: cn(classNames?.wrapper, props.className),
-      }),
+      "data-slot": "wrapper",
     }),
-    [classNames?.wrapper, styles],
+    [],
   );
 
   const getTableProps: PropGetter<Table.Props> = useCallback(
     (props) => ({
       ...mergeProps(elementProps, props),
-      "data-slot": dataAttrDev("table"),
-      className: styles.table({
-        className: cn(
-          elementProps.className,
-          classNames?.table,
-          props.className,
-        ),
-      }),
+      "data-slot": "table",
+      className,
     }),
-    [classNames?.table, elementProps, styles],
+    [className, elementProps],
   );
 
   const getHeaderProps: PropGetter<TableHeader.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("header"),
-      className: styles.thead({
-        className: cn(classNames?.thead, props.className),
-      }),
+      "data-slot": "header",
     }),
-    [classNames?.thead, styles],
+    [],
   );
 
   const getColumnProps: PropGetter<TableColumn.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("column"),
-      className: styles.th({
-        className: cn(classNames?.th, props.className),
-      }),
+      "data-slot": "column",
     }),
-    [classNames?.th, styles],
+    [],
   );
 
   const getBodyProps: PropGetter<TableBody.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("body"),
-      className: styles.tbody({
-        className: cn(classNames?.tbody, props.className),
-      }),
+      "data-slot": "body",
     }),
-    [classNames?.tbody, styles],
+    [],
   );
 
   const getRowProps: PropGetter<TableRow.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("row"),
-      className: styles.tr({
-        className: cn(classNames?.tr, props.className),
-      }),
+      "data-slot": "row",
     }),
-    [classNames?.tr, styles],
+    [],
   );
 
   const getCellProps: PropGetter<TableCell.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("cell"),
-      className: styles.td({
-        className: cn(classNames?.td, props.className),
-      }),
+      "data-slot": "cell",
     }),
-    [classNames?.td, styles],
+    [],
   );
 
   const getFooterProps: PropGetter<TableFooter.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": dataAttrDev("footer"),
-      className: styles.tfoot({
-        className: cn(classNames?.tfoot, props.className),
-      }),
+      "data-slot": "footer",
     }),
-    [classNames?.tfoot, styles],
+    [],
   );
 
   return useMemo(
@@ -157,7 +119,5 @@ export const useTable = (props: useTable.Props) => {
 };
 
 export namespace useTable {
-  export interface Props extends UIProps<"table">, TableVariantProps {
-    classNames?: SlotsToClassNames<TableSlots>;
-  }
+  export interface Props extends UIProps<"table"> {}
 }

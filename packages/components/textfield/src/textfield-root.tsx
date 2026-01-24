@@ -5,10 +5,10 @@ import { useTextFieldContext } from "./textfield-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const TextfieldRoot = (props: TextfieldRoot.Props) => {
+export const TextfieldRoot = () => {
   const ctx = useTextFieldContext();
   const renderElement = useRenderElement("div", {
-    props: [props, ctx?.getRootProps({}) ?? {}],
+    props: [ctx?.getRootProps({}) ?? {}],
   });
   return renderElement;
 };

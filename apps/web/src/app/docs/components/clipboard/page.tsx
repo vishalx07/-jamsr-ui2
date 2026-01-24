@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { ClipboardEvents } from "./examples/events";
 import { ClipboardSoundEffect } from "./examples/sound-effect";
 import { ClipboardUsage } from "./examples/usage";
-import { ClipboardWithChildren } from "./examples/with-children";
-import { ClipboardWithoutButton } from "./examples/without-button";
+import { ClipboardWithContent } from "./examples/with-content";
+import { ClipboardWithoutIcon } from "./examples/without-icon";
 
 const title = "Clipboard";
 const description = "Clipboard";
@@ -25,17 +25,17 @@ const Clipboard = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="With Children"
-        url={resolvePath("with-children.tsx")}
+        title="With Content"
+        url={resolvePath("with-content.tsx")}
       >
-        <ClipboardWithChildren />
+        <ClipboardWithContent />
       </CodeExample>
       <CodeExample
         isCentered
-        title="Without Button"
-        url={resolvePath("without-button.tsx")}
+        title="Without Icon"
+        url={resolvePath("without-icon.tsx")}
       >
-        <ClipboardWithoutButton />
+        <ClipboardWithoutIcon />
       </CodeExample>
       <CodeExample isCentered title="Events" url={resolvePath("events.tsx")}>
         <ClipboardEvents />

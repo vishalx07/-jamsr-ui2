@@ -1,4 +1,5 @@
-import { Label, Select, SelectItem } from "@jamsrui/react";
+import { Label } from "jamsrui/label";
+import { Select } from "jamsrui/select";
 
 export const SelectUsage = () => {
   return (
@@ -11,26 +12,26 @@ export const SelectUsage = () => {
       <Select.Trigger />
       <Select.Popover>
         <Select.Content>
-          <SelectItem value="apple" textValue="Apple">
+          <Select.Item value="apple" textValue="Apple">
             Apple
             <Select.ItemIndicator />
-          </SelectItem>
-          <SelectItem value="blueberry" textValue="Blueberry">
+          </Select.Item>
+          <Select.Item value="blueberry" textValue="Blueberry">
             Blueberry
             <Select.ItemIndicator />
-          </SelectItem>
-          <SelectItem value="watermelon" textValue="Watermelon">
+          </Select.Item>
+          <Select.Item value="watermelon" textValue="Watermelon">
             Watermelon
             <Select.ItemIndicator />
-          </SelectItem>
-          <SelectItem value="banana" textValue="Banana">
+          </Select.Item>
+          <Select.Item value="banana" textValue="Banana">
             Banana
             <Select.ItemIndicator />
-          </SelectItem>
-          <SelectItem value="orange" textValue="Orange">
+          </Select.Item>
+          <Select.Item value="orange" textValue="Orange">
             Orange
             <Select.ItemIndicator />
-          </SelectItem>
+          </Select.Item>
         </Select.Content>
       </Select.Popover>
     </Select>

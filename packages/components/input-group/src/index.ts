@@ -6,16 +6,8 @@ import {
 } from "./input-group-context";
 import { InputGroupPrefix } from "./input-group-prefix";
 import { InputGroupSuffix } from "./input-group-suffix";
-import { useInputGroup } from "./use-input-group";
 
-export {
-  InputGroupContext,
-  InputGroupPrefix,
-  InputGroupSuffix,
-  useInputGroup,
-  useInputGroupContext,
-  useInputGroupContextOpt,
-};
+export { InputGroupContext, useInputGroupContext, useInputGroupContextOpt };
 
 export const InputGroup = Object.assign(InputGroupBase, {
   Root: InputGroupBase,

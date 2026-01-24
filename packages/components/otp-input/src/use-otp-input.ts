@@ -7,31 +7,16 @@ import {
   useHover,
   useMergeRefs,
 } from "@jamsrui/hooks";
-import {
-  dataAttr,
-  dataAttrDev,
-  mapPropsVariants,
-  mergeProps,
-} from "@jamsrui/utils";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
 
-import { otpInputVariants } from "./styles";
-
-import type { PropGetter } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { OtpInputCaret } from "./otp-input-caret";
 import type { OtpInputGroup } from "./otp-input-group";
 import type { OtpInputInput } from "./otp-input-input";
-import type { OtpInputRoot } from "./otp-input-root";
 import type { OtpInputSeparator } from "./otp-input-separator";
-import type { OtpInputSlot } from "./otp-input-slot";
-import type { OtpInputVariants } from "./styles";
 
 export const useOtpInput = (props: useOtpInput.Props) => {
-  const [$props, variantKeys] = mapPropsVariants(
-    props,
-    otpInputVariants.variantKeys,
-  );
-  const styles = otpInputVariants(variantKeys);
   const {
     value: valueProp,
     onValueChange,
@@ -44,7 +29,7 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     ref,
     isInvalid = false,
     ...restProps
-  } = $props;
+  } = props;
   const [value = "", setValue] = useControlledState({
     defaultProp: defaultValue,
     prop: valueProp,
@@ -203,72 +188,56 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [placeholder, selectionEnd, selectionStart, value],
   );
 
-  const getRootProps: PropGetter<OtpInputRoot.Props> = useCallback(
-    (props) => ({
-      "data-slot": dataAttrDev("root"),
+  const getRootProps = useCallback(
+    () => ({
+      "data-slot": "root",
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
-      "data-hover": dataAttr(isHovered),
+      "data-hovered": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),
       "data-invalid": dataAttr(isInvalid),
-      ...props,
-      className: styles.root({ className: props.className }),
+      ...restProps,
     }),
-    [isDisabled, isHovered, isFocused, isInvalid, styles],
+    [isDisabled, isHovered, isFocused, isInvalid, restProps],
   );
 
   const getGroupProps: PropGetter<OtpInputGroup.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("group"),
+      "data-slot": "group",
       ...props,
-      className: styles.group({ className: props.className }),
     }),
-    [styles],
-  );
-
-  const getSlotProps: PropGetter<OtpInputSlot.Props> = useCallback(
-    (props) => ({
-      "data-slot": dataAttrDev("slot"),
-      ...props,
-      className: styles.slot({ className: props.className }),
-    }),
-    [styles],
+    [],
   );
 
   const getSeparatorProps: PropGetter<OtpInputSeparator.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("separator"),
+      "data-slot": "separator",
       ...props,
-      className: styles.separator({ className: props.className }),
     }),
-    [styles],
+    [],
   );
 
-  const getInputProps = useCallback(
-    (): OtpInputInput.Props => ({
-      ...mergeProps(restProps, {
+  const getInputProps: PropGetter<OtpInputInput.Props> = useCallback(
+    (props): OtpInputInput.Props => ({
+      ...mergeProps(props, {
         onChange: handleOnChange,
         onBlur: handleOnBlur,
         onFocus: handleOnFocus,
       }),
       ref: inputRefs,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       value,
       maxLength,
-      className: styles.input({ className: props.className }),
       disabled: isDisabled,
       pattern: regexp?.source,
     }),
     [
-      restProps,
       value,
       handleOnChange,
       handleOnBlur,
       handleOnFocus,
       inputRefs,
       maxLength,
-      styles,
-      props.className,
       isDisabled,
       regexp?.source,
     ],
@@ -276,18 +245,16 @@ export const useOtpInput = (props: useOtpInput.Props) => {
 
   const getCaretProps: PropGetter<OtpInputCaret.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("caret"),
+      "data-slot": "caret",
       ...props,
-      className: styles.caret({ className: props.className }),
     }),
-    [styles],
+    [],
   );
 
   return useMemo(
     () => ({
       getRootProps,
       getGroupProps,
-      getSlotProps,
       getSeparatorProps,
       getInputProps,
       getCaretProps,
@@ -296,7 +263,6 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     [
       getRootProps,
       getGroupProps,
-      getSlotProps,
       getSeparatorProps,
       getInputProps,
       getCaretProps,
@@ -305,20 +271,16 @@ export const useOtpInput = (props: useOtpInput.Props) => {
   );
 };
 
-type OverrideProps<T, R> = Omit<T, keyof R> & R;
 export namespace useOtpInput {
-  export interface Props
-    extends
-      OtpInputVariants,
-      OverrideProps<
-        OtpInputInput.Props,
-        {
-          value?: string;
-          onValueChange?: (value: string) => void;
-          defaultValue?: string;
-          maxLength: number;
-          onComplete?: (value: string) => void;
-          isInvalid?: boolean;
-        }
-      > {}
+  export interface Props extends UIProps<"div"> {
+    value?: string;
+    onValueChange?: (value: string) => void;
+    defaultValue?: string;
+    maxLength: number;
+    onComplete?: (value: string) => void;
+    isInvalid?: boolean;
+    disabled?: boolean;
+    placeholder?: string;
+    pattern?: string;
+  }
 }

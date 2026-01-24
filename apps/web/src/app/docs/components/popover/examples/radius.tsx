@@ -1,15 +1,9 @@
-import { Button, Popover, Text } from "@jamsrui/react";
+import { Button } from "jamsrui/button";
+import { Popover } from "jamsrui/popover";
+import { Text } from "jamsrui/text";
 
 export const PopoverRadius = () => {
-  const radii: Popover.Props["radius"][] = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-  ];
+  const radii: Popover.Props["radius"][] = ["none", "sm", "md", "lg"];
   return (
     <div className="flex flex-wrap gap-4">
       {radii.map((radius) => (
@@ -18,7 +12,9 @@ export const PopoverRadius = () => {
             <Button>{radius}</Button>
           </Popover.Trigger>
           <Popover.Content>
-            <Text>This is a Popover content</Text>
+            Popover is a non-modal dialog that floats around its disclosure.
+            It's commonly used for displaying additional rich content on top of
+            something.
           </Popover.Content>
         </Popover>
       ))}

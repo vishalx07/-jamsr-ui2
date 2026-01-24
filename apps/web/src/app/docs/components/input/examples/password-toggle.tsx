@@ -1,13 +1,11 @@
 "use client";
 
 import { EyeClosedIcon, EyeOpenIcon } from "@jamsrui/icons";
-import {
-  IconButton,
-  Input,
-  InputGroup,
-  Label,
-  TextField,
-} from "@jamsrui/react";
+import { IconButton } from "jamsrui/icon-button";
+import { Input } from "jamsrui/input";
+import { InputGroup } from "jamsrui/input-group";
+import { Label } from "jamsrui/label";
+import { TextField } from "jamsrui/textfield";
 import { useState } from "react";
 
 export const InputPasswordToggle = () => {

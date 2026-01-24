@@ -1,6 +1,6 @@
 "use client";
 
-import { Clipboard } from "@jamsrui/react";
+import { Clipboard } from "jamsrui/clipboard";
 
 export const ClipboardEvents = () => {
   const onSuccess = () => {
@@ -17,6 +17,7 @@ export const ClipboardEvents = () => {
       onCopyError={onError}
     >
       Click me to copy text
+      <Clipboard.Icon />
     </Clipboard>
   );
 };

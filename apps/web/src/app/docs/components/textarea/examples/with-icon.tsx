@@ -1,5 +1,8 @@
 import { EmailIcon } from "@jamsrui/icons";
-import { InputGroup, Label, Textarea, TextField } from "@jamsrui/react";
+import { InputGroup } from "jamsrui/input-group";
+import { Label } from "jamsrui/label";
+import { Textarea } from "jamsrui/textarea";
+import { TextField } from "jamsrui/textfield";
 
 export const TextareaWithIcon = () => {
   return (

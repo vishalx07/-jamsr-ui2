@@ -1,14 +1,11 @@
 "use client";
 import { useFloatingTree, useListItem } from "@floating-ui/react";
-import { useMergeRefs, useRenderElement } from "@jamsrui/hooks";
+import { useHover, useMergeRefs, useRenderElement } from "@jamsrui/hooks";
 
 import { useContextMenuContext } from "./context-menu-context";
 import { useContextMenuFloatingContext } from "./context-menu-floating-context";
-import { ContextMenuItemInner } from "./context-menu-item-inner";
 
-import type { UIProps } from "@jamsrui/utils";
-
-import type { ContextMenu } from "./context-menu";
+import { dataAttr, type UIProps } from "@jamsrui/utils";
 
 export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const { getMenuItemProps } = useContextMenuContext();
@@ -16,36 +13,30 @@ export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const {
     textValue,
     children,
-    isDisabled,
-    startContent,
-    endContent,
+    disabled: isDisabled,
     preventCloseOnClick,
     ...elementProps
   } = props;
 
   const parentCtx = useContextMenuFloatingContext();
   const item = useListItem({
-    label: textValue ?? (typeof children === "string" ? children : undefined),
+    label: textValue,
   });
-  const isActive = item.index === parentCtx.activeIndex;
-  const refs = useMergeRefs([item.ref]);
+  const { isHovered, ref: hoverRef } = useHover({ isDisabled });
 
-  const composedChildren = (
-    <>
-      {startContent}
-      <ContextMenuItemInner>{children}</ContextMenuItemInner>
-      {endContent}
-    </>
-  );
+  const isActive = item.index === parentCtx.activeIndex;
+  const refs = useMergeRefs([item.ref, hoverRef]);
+
   const renderElement = useRenderElement("button", {
     props: [
       getMenuItemProps(elementProps),
       {
-        children: composedChildren,
+        children,
         disabled: isDisabled,
-        "data-disabled": isDisabled,
-        "data-active": isActive,
-        "aria-disabled": isDisabled,
+        "data-disabled": dataAttr(isDisabled),
+        "data-active": dataAttr(isActive),
+        "aria-disabled": dataAttr(isDisabled),
+        "data-hovered": dataAttr(isHovered),
         ref: refs,
         tabIndex: isActive ? 0 : -1,
         onClick() {
@@ -65,11 +56,8 @@ export const ContextMenuItem = (props: ContextMenuItem.Props) => {
 
 export namespace ContextMenuItem {
   export interface Props extends UIProps<"button"> {
-    textValue?: string;
-    isDisabled?: boolean;
-    color?: ContextMenu.Props["color"];
-    startContent?: React.ReactNode;
-    endContent?: React.ReactNode;
+    textValue: string;
+    disabled?: boolean;
     preventCloseOnClick?: boolean;
   }
 }

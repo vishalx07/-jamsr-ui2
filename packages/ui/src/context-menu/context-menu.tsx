@@ -1,0 +1,71 @@
+"use client";
+
+import { ContextMenu as ContextMenuUI } from "@jamsrui/react";
+import { createContext, use, useMemo } from "react";
+import { VariantProps } from "tailwind-variants";
+import { contextMenuStyles } from "./styles";
+
+type ContextMenuVariants = VariantProps<typeof contextMenuStyles>;
+
+const ContextMenuContext = createContext<{
+  styles: ReturnType<typeof contextMenuStyles>;
+} | null>(null);
+
+const useContextMenuContext = () => {
+  const ctx = use(ContextMenuContext);
+  if (!ctx) {
+    throw new Error("useContextMenuContext must be used within a ContextMenu");
+  }
+  return ctx;
+};
+
+export const ContextMenu = (props: ContextMenu.Props) => {
+  const { radius, backdrop, color, ...restProps } = props;
+  const styles = contextMenuStyles({ radius, backdrop, color });
+  const value = useMemo(() => ({ styles }), [styles]);
+  return (
+    <ContextMenuContext value={value}>
+      <ContextMenuUI {...restProps} />
+    </ContextMenuContext>
+  );
+};
+
+export namespace ContextMenu {
+  export interface Props extends ContextMenuUI.Props, ContextMenuVariants {}
+}
+
+export const ContextMenuTrigger = (props: ContextMenuUI.Trigger) => {
+  return <ContextMenuUI.Trigger {...props} />;
+};
+
+export const ContextMenuContent = (props: ContextMenuUI.Content) => {
+  const { styles } = useContextMenuContext();
+  return (
+    <ContextMenuUI.Portal>
+      <ContextMenuUI.Container className={styles.container()}>
+        <ContextMenuUI.Content
+          {...props}
+          className={styles.content({ className: props.className })}
+        />
+      </ContextMenuUI.Container>
+    </ContextMenuUI.Portal>
+  );
+};
+
+export const ContextMenuItem = (props: ContextMenuItem.Props) => {
+  const { styles } = useContextMenuContext();
+  const { color, radius, className, ...restProps } = props;
+  return (
+    <ContextMenuUI.Item
+      {...restProps}
+      className={styles.menuItem({ className, color, radius })}
+    />
+  );
+};
+
+export namespace ContextMenuItem {
+  export interface Props extends ContextMenuUI.Item {
+    color?: ContextMenuVariants["color"];
+    radius?: ContextMenuVariants["radius"];
+  }
+}

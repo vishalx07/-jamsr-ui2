@@ -1,6 +1,6 @@
 "use client";
 
-import { Clipboard } from "@jamsrui/react";
+import { Clipboard } from "jamsrui/clipboard";
 
 export const ClipboardSoundEffect = () => {
   const onSuccess = () => {
@@ -21,6 +21,7 @@ export const ClipboardSoundEffect = () => {
       onCopyError={onError}
     >
       Click me to copy text with sound
+      <Clipboard.Icon />
     </Clipboard>
   );
 };

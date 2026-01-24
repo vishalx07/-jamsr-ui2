@@ -1,12 +1,15 @@
 import { Icon } from "@iconify/react";
-import { Avatar, IconButton, Menu, Text } from "@jamsrui/react";
+import { Avatar } from "jamsrui/avatar";
+import { IconButton } from "jamsrui/icon-button";
+import { Menu } from "jamsrui/menu";
+import { Text } from "jamsrui/text";
 
 const WorkspaceSwitcher = () => {
   return (
     <Menu placement="bottom-start">
       <Menu.Trigger>
         <div className="flex gap-1 items-center hover:bg-surface-secondary p-0.5 rounded-sm">
-          <Avatar size="xs">
+          <Avatar size="sm">
             {/* <Avatar.Image alt="Jamsrworld" src="" /> */}
             <Avatar.Fallback>JW</Avatar.Fallback>
           </Avatar>
@@ -32,13 +35,13 @@ export const SidebarHeader = () => {
     <div className="flex gap-1 items-center">
       <WorkspaceSwitcher />
       <div className="ml-auto flex gap-1 items-center">
-        <IconButton label="Search" variant="light" size="xs">
+        <IconButton label="Search" variant="light" size="sm">
           <Icon
             icon="hugeicons:search-01"
             className="text-foreground-secondary"
           />
         </IconButton>
-        <IconButton label="Draft" size="xs">
+        <IconButton label="Draft" size="sm">
           <Icon icon="mynaui:edit-one-solid" />
         </IconButton>
       </div>

@@ -7,22 +7,15 @@ export const useCopyToClipboard = (props: useCopyToClipboard.Props) => {
     text,
     onCopyError: onError,
     onCopySuccess: onSuccess,
-    ctx,
-    message,
     timeout = 1000,
   } = props;
   const timeoutRef = useRef<number>(null);
-  const context = {
-    message,
-    ctx,
-    text,
-  };
 
   const onCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
       setIsCopied(true);
-      onSuccess?.(context);
+      onSuccess?.();
 
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -32,8 +25,7 @@ export const useCopyToClipboard = (props: useCopyToClipboard.Props) => {
         setIsCopied(false);
       }, timeout);
     } catch (err: unknown) {
-      console.log(" err:->", err);
-      onError?.(context);
+      onError?.(err);
     }
   };
 
@@ -44,13 +36,10 @@ export const useCopyToClipboard = (props: useCopyToClipboard.Props) => {
 };
 
 export namespace useCopyToClipboard {
-  type Context = { message?: string; ctx?: unknown; text: string };
   export interface Props {
     text: string;
-    message?: string;
-    onCopySuccess?: (ctx: Context) => void;
-    onCopyError?: (ctx: Context) => void;
-    ctx?: unknown;
+    onCopySuccess?: () => void;
+    onCopyError?: (err: unknown) => void;
     timeout?: number;
   }
 }

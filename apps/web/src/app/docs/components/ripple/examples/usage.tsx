@@ -1,4 +1,4 @@
-import { Ripple } from "@jamsrui/react";
+import { Ripple } from "jamsrui/ripple";
 
 export const RippleUsage = () => {
   return (

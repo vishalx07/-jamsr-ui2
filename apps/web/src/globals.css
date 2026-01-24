@@ -3,6 +3,7 @@
 
 @source "../../../packages/components/*/src/**/*.{tsx,ts}";
 @source "../../../packages/utils/src/**/*.{tsx,ts}";
+@source "../../../packages/ui";
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

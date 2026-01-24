@@ -3,16 +3,15 @@
 import { useCallback } from "react";
 
 import { useFieldA11yContext } from "@jamsrui/context";
-import { useFocusVisible, useMergeRefs, usePress } from "@jamsrui/hooks";
 import {
-  dataAttr,
-  dataAttrDev,
-  mapPropsVariants,
-  mergeProps,
-} from "@jamsrui/utils";
+  useFocusVisible,
+  useHover,
+  useMergeRefs,
+  usePress,
+} from "@jamsrui/hooks";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import { useRadioGroupContext } from "./radio-group-context";
-import { radioVariant } from "./styles";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
@@ -21,24 +20,15 @@ import type { RadioControl } from "./radio-control";
 import type { RadioIndicator } from "./radio-indicator";
 import type { RadioInput } from "./radio-input";
 import type { RadioRoot } from "./radio-root";
-import type { RadioVariantProps } from "./styles";
 
 export const useRadio = (props: useRadio.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    radioVariant.variantKeys,
-  );
-
   const {
     name: inputName,
     handleInputChange,
     value,
     isDisabled: isGroupDisabled,
-    color,
-    size,
     inputProps: groupInputProps,
   } = useRadioGroupContext();
-  const styles = radioVariant({ size, color, ...variantProps });
   const fieldA11yCtx = useFieldA11yContext();
 
   const {
@@ -46,30 +36,48 @@ export const useRadio = (props: useRadio.Props) => {
     readonly: isReadonly = false,
     value: $value,
     inputProps,
+    className,
     ...elementProps
-  } = $props;
+  } = props;
 
-  const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLInputElement>({
+      isDisabled,
+    });
+  const { isPressed, ref: pressRef } = usePress<HTMLInputElement>({
     isDisabled,
   });
-  const { isPressed, ref: pressRef } = usePress({ isDisabled });
-  const inputRefs = useMergeRefs([focusVisibleRef, pressRef]);
+  const { isHovered, ref: hoverRef } = useHover<HTMLInputElement>({
+    isDisabled,
+  });
+  const inputRefs = useMergeRefs<HTMLInputElement>([
+    focusVisibleRef,
+    pressRef,
+    hoverRef,
+  ]);
   const isChecked = value === $value;
 
   const getRootProps = useCallback(
     (): RadioRoot.Props => ({
       ...elementProps,
-      className: styles.root({
-        className: props.className,
-      }),
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("radio"),
+      className,
+      "data-slot": "root",
+      "data-component": "radio",
       "data-selected": dataAttr(isChecked),
       "data-disabled": dataAttr(isDisabled),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-pressed": dataAttr(isPressed),
+      "data-hovered": dataAttr(isHovered),
     }),
-    [elementProps, isChecked, isDisabled, isFocusVisible, isPressed, styles],
+    [
+      elementProps,
+      className,
+      isChecked,
+      isDisabled,
+      isFocusVisible,
+      isPressed,
+      isHovered,
+    ],
   );
   const getInputProps: PropGetter<RadioInput.Props> = useCallback(
     (props) => ({
@@ -78,12 +86,9 @@ export const useRadio = (props: useRadio.Props) => {
         onChange: (e) => handleInputChange(e, $value),
       }),
       value: $value,
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       type: "radio",
       ref: inputRefs,
-      className: styles.input({
-        className: props.className,
-      }),
       disabled: isDisabled,
       readOnly: isReadonly,
       name: inputName,
@@ -94,7 +99,6 @@ export const useRadio = (props: useRadio.Props) => {
       inputProps,
       $value,
       inputRefs,
-      styles,
       isDisabled,
       isReadonly,
       inputName,
@@ -104,33 +108,23 @@ export const useRadio = (props: useRadio.Props) => {
   const getControlProps: PropGetter<RadioControl.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": dataAttrDev("control"),
-      className: styles.control({
-        className: props.className,
-      }),
+      "data-slot": "control",
     }),
-    [styles],
+    [],
   );
   const getIndicatorProps: PropGetter<RadioIndicator.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": dataAttrDev("indicator"),
-      className: styles.indicator({
-        className: props.className,
-      }),
+      "data-slot": "indicator",
     }),
-
-    [styles],
+    [],
   );
   const getContentProps: PropGetter<RadioContent.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-attr": dataAttrDev("control"),
-      className: styles.content({
-        className: props.className,
-      }),
+      "data-slot": "content",
     }),
-    [styles],
+    [],
   );
 
   return {
@@ -144,7 +138,7 @@ export const useRadio = (props: useRadio.Props) => {
 };
 
 export namespace useRadio {
-  export interface Props extends RadioVariantProps, UIProps<"div"> {
+  export interface Props extends UIProps<"div"> {
     disabled?: boolean;
     readonly?: boolean;
     value: string | number;

@@ -3,19 +3,11 @@
 import { useRenderElement } from "@jamsrui/hooks";
 import { type UIProps } from "@jamsrui/utils";
 import { useSliderContext } from "./slider-context";
-import { slider } from "./styles";
 
 export const SliderIndicator = (props: SliderIndicator.Props) => {
-  const { render, children, className, ...restProps } = props;
+  const { render, children, ...restProps } = props;
   const { orientation, isDisabled, values, getPercentageForValue, min, max } =
     useSliderContext();
-  const { indicator } = slider({ orientation, isDisabled });
-  const styles = indicator({ className });
-
-  // Calculate style based on values
-  // If 1 value: 0% to value%
-  // If 2 values: value[0]% to value[1]%
-  // We assume sorted values in hook.
 
   let left = 0;
   let width = 0;
@@ -58,7 +50,6 @@ export const SliderIndicator = (props: SliderIndicator.Props) => {
     props: {
       ...restProps,
       children,
-      className: styles,
       style: { ...restProps.style, ...style },
       render,
     },

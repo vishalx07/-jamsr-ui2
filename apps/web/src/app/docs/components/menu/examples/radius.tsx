@@ -1,16 +1,9 @@
 import { ChevronUpIcon } from "@jamsrui/icons";
-import { Button, Menu } from "@jamsrui/react";
+import { Button } from "jamsrui/button";
+import { Menu } from "jamsrui/menu";
 
 export const MenuRadius = () => {
-  const radii: Menu.Props["radius"][] = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-  ];
+  const radii: Menu.Props["radius"][] = ["none", "sm", "md", "lg", "full"];
   return (
     <div className="flex flex-wrap justify-center gap-4">
       {radii.map((radius) => (

@@ -1,18 +1,9 @@
-import { Avatar } from "@jamsrui/react";
+import { Avatar } from "jamsrui/avatar";
 import { useId } from "react";
 
 export const AvatarRadius = () => {
   const id = useId();
-  const radii: Avatar.Props["radius"][] = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "xl",
-    "2xl",
-    "3xl",
-    "full",
-  ];
+  const radii: Avatar.Props["radius"][] = ["none", "sm", "md", "lg", "full"];
   return (
     <div className="flex gap-2">
       {radii.map((radius) => (

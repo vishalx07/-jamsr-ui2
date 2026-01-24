@@ -1,4 +1,5 @@
-import { AlertDialog, Button } from "@jamsrui/react";
+import { AlertDialog } from "jamsrui/alert-dialog";
+import { Button } from "jamsrui/button";
 
 export const AlertDialogBackdrop = () => {
   const backdrops: AlertDialog.Props["backdrop"][] = [

@@ -1,6 +1,7 @@
 "use client";
 
-import { Label, Select } from "@jamsrui/react";
+import { Label } from "jamsrui/label";
+import { Select } from "jamsrui/select";
 import { useState } from "react";
 
 enum Fruits {

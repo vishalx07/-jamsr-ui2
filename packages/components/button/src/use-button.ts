@@ -2,29 +2,14 @@
 import { useCallback, useMemo } from "react";
 
 import { useHover, useMergeRefs, usePress } from "@jamsrui/hooks";
-import { cn, dataAttr, mapPropsVariants } from "@jamsrui/utils";
-
-import { buttonVariant } from "./styles";
+import { dataAttr } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
-
 import type { ButtonRoot } from "./button";
 
 export const useButton = (props: useButton.Props) => {
-  const [elementProps, variantKeys] = mapPropsVariants(
-    props,
-    buttonVariant.variantKeys,
-  );
-  const {
-    disabled = false,
-    isLoading = false,
-    className,
-    ref,
-    ...restProps
-  } = elementProps;
-
+  const { disabled = false, isLoading = false, ref, ...restProps } = props;
   const isDisabled = disabled || isLoading;
-  const styles = buttonVariant(variantKeys);
 
   const { isHovered, ref: hoverRef } = useHover({
     isDisabled,
@@ -39,21 +24,11 @@ export const useButton = (props: useButton.Props) => {
       ...restProps,
       ref: mergedRefs,
       disabled: isDisabled,
-      className: cn(styles, className),
       "data-loading": dataAttr(isLoading),
       "data-pressed": dataAttr(isPressed),
-      "data-hover": dataAttr(isHovered),
+      "data-hovered": dataAttr(isHovered),
     }),
-    [
-      className,
-      isDisabled,
-      isHovered,
-      isLoading,
-      isPressed,
-      mergedRefs,
-      restProps,
-      styles,
-    ],
+    [isDisabled, isHovered, isLoading, isPressed, mergedRefs, restProps],
   );
 
   return useMemo(
@@ -66,18 +41,11 @@ export const useButton = (props: useButton.Props) => {
 };
 
 export namespace useButton {
-  export interface VariantProps extends ButtonRoot.VariantProps {}
-  export interface Props extends VariantProps, UIProps<"button"> {
+  export interface Props extends UIProps<"button"> {
     /**
      * If `true`, the button will show a spinner and be non-interactive.
      * Useful for indicating a loading state during async operations.
      */
     isLoading?: boolean;
-
-    /**
-     * If `true`, disables all animations on the button.
-     * Useful for performance-sensitive environments or reduced motion settings.
-     */
-    disableAnimation?: boolean;
   }
 }

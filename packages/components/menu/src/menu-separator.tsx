@@ -1,13 +1,11 @@
 "use client";
 
-import { Divider } from "@jamsrui/divider";
-import { cn } from "@jamsrui/utils";
+import { Separator } from "@jamsrui/separator";
 
 export const MenuSeparator = (props: MenuSeparator.Props) => {
-  const { className, ...restProps } = props;
-  return <Divider className={cn("my-1.5", className)} {...restProps} />;
+  return <Separator {...props} />;
 };
 
 export namespace MenuSeparator {
-  export interface Props extends Divider.Props {}
+  export interface Props extends Separator.Props {}
 }

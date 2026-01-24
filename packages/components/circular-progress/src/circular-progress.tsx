@@ -1,36 +1,15 @@
 "use client";
-import { mergeConfigProps } from "@jamsrui/utils";
 
-import { useCircularProgressConfig } from "./circular-progress-config";
-import { circularProgressVariants } from "./styles";
+import { CircularProgressContext } from "./circular-progress-context";
 import { useCircularProgress } from "./use-circular-progress";
 
 export const CircularProgress = (props: CircularProgress.Props) => {
-  const config = useCircularProgressConfig();
-  const mergedProps = mergeConfigProps(
-    circularProgressVariants.defaultVariants,
-    config,
-    props,
-  );
-  const ctx = useCircularProgress(mergedProps);
-  const {
-    showLabel,
-    getRootProps,
-    getTrackProps,
-    getLabelProps,
-    getProgressProps,
-    label,
-  } = ctx;
-
+  const ctx = useCircularProgress(props);
+  const { getRootProps } = ctx;
   return (
-    <svg {...getRootProps({})}>
-      {/* Background Track */}
-      <circle {...getTrackProps({})} />
-      {/* Progress Arc */}
-      <circle {...getProgressProps({})} />
-      {/* Text inside the circle */}
-      {!!showLabel && <text {...getLabelProps({})}>{label}</text>}
-    </svg>
+    <CircularProgressContext value={ctx}>
+      <svg {...getRootProps({})} />
+    </CircularProgressContext>
   );
 };
 

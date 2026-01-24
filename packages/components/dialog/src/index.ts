@@ -1,44 +1,26 @@
 import { Dialog as DialogRoot } from "./dialog";
+import { DialogBackdrop } from "./dialog-backdrop";
 import { DialogBody } from "./dialog-body";
 import { DialogCloseButton } from "./dialog-close-button";
 import { DialogCloseTrigger } from "./dialog-close-trigger";
-import { DialogConfig, useDialogConfig } from "./dialog-config";
-import {
-  DialogContainer,
-  DialogContainerWithContent,
-} from "./dialog-container";
+import { DialogContainer } from "./dialog-container";
 import { DialogContent } from "./dialog-content";
-import { DialogContext, useDialogContext } from "./dialog-context";
 import { DialogFooter } from "./dialog-footer";
 import { DialogHeader } from "./dialog-header";
+import { DialogPortal } from "./dialog-portal";
 import { DialogTrigger } from "./dialog-trigger";
-
-export {
-  DialogBody,
-  DialogCloseButton,
-  DialogCloseTrigger,
-  DialogConfig,
-  DialogContainer,
-  DialogContainerWithContent,
-  DialogContent,
-  DialogContext,
-  DialogFooter,
-  DialogHeader,
-  DialogTrigger,
-  useDialogConfig,
-  useDialogContext,
-};
 
 export const Dialog = Object.assign(DialogRoot, {
   Body: DialogBody,
   CloseTrigger: DialogCloseTrigger,
   CloseButton: DialogCloseButton,
   Container: DialogContainer,
-  Content: DialogContainerWithContent,
-  ContentRoot: DialogContent,
+  Content: DialogContent,
   Footer: DialogFooter,
   Header: DialogHeader,
   Trigger: DialogTrigger,
+  Portal: DialogPortal,
+  Backdrop: DialogBackdrop,
 });
 
 export namespace Dialog {
@@ -49,6 +31,5 @@ export namespace Dialog {
   export interface Trigger extends DialogTrigger.Props {}
   export interface CloseTrigger extends DialogCloseTrigger.Props {}
   export interface Container extends DialogContainer.Props {}
-  export interface Content extends DialogContainerWithContent.Props {}
-  export interface Config extends DialogConfig.Props {}
+  export interface Content extends DialogContent.Props {}
 }

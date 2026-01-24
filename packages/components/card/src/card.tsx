@@ -1,21 +1,12 @@
 "use client";
 
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeConfigProps } from "@jamsrui/utils";
 
-import { useCardConfig } from "./card-config";
 import { CardContextProvider } from "./card-context";
-import { cardVariants } from "./styles";
 import { useCard } from "./use-card";
 
 export const Card = (props: Card.Props) => {
-  const config = useCardConfig();
-  const mergedProps = mergeConfigProps(
-    cardVariants.defaultVariants,
-    config,
-    props,
-  );
-  const ctx = useCard(mergedProps);
+  const ctx = useCard(props);
 
   const renderElement = useRenderElement("div", {
     props: ctx.getRootProps({}),

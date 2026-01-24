@@ -1,26 +1,33 @@
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
-} from "@jamsrui/react";
+import { ContextMenu } from "jamsrui/context-menu";
 
 export const ContextMenuColors = () => {
   return (
     <ContextMenu>
-      <ContextMenuTrigger>
+      <ContextMenu.Trigger>
         <div className="border-border text-center p-12 border-dashed border w-full">
           Right Click Here
         </div>
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem color="default">Default</ContextMenuItem>
-        <ContextMenuItem color="primary">Primary</ContextMenuItem>
-        <ContextMenuItem color="secondary">Secondary</ContextMenuItem>
-        <ContextMenuItem color="success">Success</ContextMenuItem>
-        <ContextMenuItem color="warning">Warning</ContextMenuItem>
-        <ContextMenuItem color="danger">Danger</ContextMenuItem>
-      </ContextMenuContent>
+      </ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item textValue="Default" color="default">
+          Default
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Primary" color="primary">
+          Primary
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Secondary" color="secondary">
+          Secondary
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Success" color="success">
+          Success
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Warning" color="warning">
+          Warning
+        </ContextMenu.Item>
+        <ContextMenu.Item textValue="Danger" color="danger">
+          Danger
+        </ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   );
 };

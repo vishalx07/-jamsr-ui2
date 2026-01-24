@@ -1,13 +1,10 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import {
-  Avatar,
-  formatBytes,
-  IconButton,
-  Text,
-  useFileUpload,
-} from "@jamsrui/react";
+import { Avatar } from "jamsrui/avatar";
+import { IconButton } from "jamsrui/icon-button";
+import { Text } from "jamsrui/text";
+import { formatBytes, useFileUpload } from "jamsrui/file-upload";
 import { cn } from "@jamsrui/utils";
 
 export const FileUploadUsage = () => {
@@ -78,7 +75,7 @@ export const FileUploadUsage = () => {
                 </div>
                 <IconButton
                   label="Remove"
-                  size="xs"
+                  size="sm"
                   radius="full"
                   className="absolute -top-2 -right-2 hidden group-hover:flex"
                   onClick={() => removeFile(file.id)}

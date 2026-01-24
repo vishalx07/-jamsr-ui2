@@ -1,4 +1,4 @@
-import { Alert } from "@jamsrui/react";
+import { Alert } from "jamsrui/alert";
 
 export const AlertWithTitle = () => {
   return (
@@ -30,7 +30,7 @@ export const AlertWithTitle = () => {
           </Alert.Description>
         </Alert.Content>
       </Alert>
-      <Alert status="danger">
+      <Alert status="error">
         <Alert.Icon />
         <Alert.Content>
           <Alert.Title>Error!</Alert.Title>

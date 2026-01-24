@@ -1,4 +1,4 @@
-import { Link } from "@jamsrui/react";
+import { Link } from "jamsrui/link";
 
 export const LinkUsage = () => {
   return <Link href="/">Go to homepage </Link>;

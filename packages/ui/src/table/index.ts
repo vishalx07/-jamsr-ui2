@@ -1,0 +1,31 @@
+import {
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableFooter,
+  TableHeader,
+  Table as TableRoot,
+  TableRow,
+} from "./table";
+
+export const Table = Object.assign(TableRoot, {
+  Header: TableHeader,
+  Column: TableColumn,
+  Body: TableBody,
+  Row: TableRow,
+  Cell: TableCell,
+  Footer: TableFooter,
+});
+
+export {
+  TableBody,
+  TableCell,
+  TableColumn,
+  TableFooter,
+  TableHeader,
+  TableRow,
+};
+
+export namespace Table {
+  export interface Props extends TableRoot.Props {}
+}

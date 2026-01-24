@@ -1,4 +1,4 @@
-import { OtpInput } from "@jamsrui/react";
+import { OtpInput } from "jamsrui/otp-input";
 
 export const OtpInputCustomization = () => {
   return (

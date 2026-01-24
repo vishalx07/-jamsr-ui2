@@ -2,8 +2,9 @@
 
 import { useRenderElement } from "@jamsrui/hooks";
 
-import type { UIProps } from "@jamsrui/utils";
 import { useInputGroupContext } from "./input-group-context";
+
+import type { UIProps } from "@jamsrui/utils";
 
 export const InputGroupSuffix = (props: InputGroupSuffix.Props) => {
   const { getSuffixProps } = useInputGroupContext();

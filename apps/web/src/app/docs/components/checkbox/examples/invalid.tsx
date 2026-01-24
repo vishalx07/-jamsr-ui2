@@ -1,4 +1,6 @@
-import { Checkbox, Description, Label } from "@jamsrui/react";
+import { Checkbox } from "jamsrui/checkbox";
+import { Description } from "jamsrui/description";
+import { Label } from "jamsrui/label";
 
 export const CheckboxInvalid = () => {
   return (

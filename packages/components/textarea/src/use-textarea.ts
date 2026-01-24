@@ -1,44 +1,48 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-import { useControlledState } from "@jamsrui/hooks";
-import { useInputGroupContextOpt } from "@jamsrui/input-group";
-import { cn, mapPropsVariants } from "@jamsrui/utils";
-
-import { textareaGroupVariants, textareaVariants } from "./styles";
-
-import type { PropGetter, UIProps } from "@jamsrui/utils";
-
 import { useFieldA11yContext } from "@jamsrui/context";
-import type { TextareaVariantProps } from "./styles";
+import {
+  useControlledState,
+  useFocusVisible,
+  useHover,
+  useMergeRefs,
+} from "@jamsrui/hooks";
+import { dataAttr, mergeProps } from "@jamsrui/utils";
+
+import type { UIProps } from "@jamsrui/utils";
+import { useTextFieldContext } from "@jamsrui/textfield";
 
 export const useTextarea = (props: useTextarea.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    textareaVariants.variantKeys,
-  );
-  const inputGroupCtx = useInputGroupContextOpt();
   const fieldA11yCtx = useFieldA11yContext();
+
+  const ctx = useTextFieldContext();
+  const isTextFieldDisabled = ctx?.isDisabled ?? false;
+  const isTextFieldInvalid = ctx?.isInvalid ?? false;
 
   const {
     value: valueProp,
     defaultValue,
     onValueChange,
-    className,
+    ref,
+    disabled: isDisabled = isTextFieldDisabled,
     ...elementProps
-  } = $props;
+  } = props;
+
+  const { isHovered, ref: hoverRef } = useHover<HTMLTextAreaElement>({
+    isDisabled,
+  });
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLTextAreaElement>({
+      isDisabled,
+    });
+  const refs = useMergeRefs([ref, hoverRef, focusVisibleRef]);
 
   const [value = "", setValue] = useControlledState({
     defaultProp: defaultValue,
     onChange: onValueChange,
     prop: valueProp,
   });
-  const styles = inputGroupCtx
-    ? textareaGroupVariants({
-        ...inputGroupCtx.variantProps,
-        ...variantProps,
-      })
-    : textareaVariants(variantProps);
 
   const handleTextareaChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -47,22 +51,25 @@ export const useTextarea = (props: useTextarea.Props) => {
     [setValue],
   );
 
-  const getTextareaProps: PropGetter<UIProps<"textarea">> = useCallback(
-    (props) => ({
+  const getTextareaProps = useCallback(
+    (): UIProps<"textarea"> => ({
       ...fieldA11yCtx?.getInputProps(),
-      ...elementProps,
-      ...props,
-      className: cn(styles, className),
+      ...mergeProps(elementProps, { onChange: handleTextareaChange }),
       value,
-      onChange: handleTextareaChange,
+      ref: refs,
+      "data-hovered": dataAttr(isHovered),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      "data-invalid": dataAttr(isTextFieldInvalid),
     }),
     [
       fieldA11yCtx,
       elementProps,
-      styles,
-      className,
       value,
       handleTextareaChange,
+      refs,
+      isHovered,
+      isFocusVisible,
+      isTextFieldInvalid,
     ],
   );
 
@@ -75,7 +82,7 @@ export const useTextarea = (props: useTextarea.Props) => {
 };
 
 export namespace useTextarea {
-  export interface Props extends UIProps<"textarea">, TextareaVariantProps {
+  export interface Props extends UIProps<"textarea"> {
     value?: string;
     defaultValue?: string;
     onValueChange?: (value: string) => void;

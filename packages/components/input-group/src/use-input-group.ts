@@ -8,26 +8,20 @@ import {
   useHover,
   useMergeRefs,
 } from "@jamsrui/hooks";
-import { cn, dataAttr, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
-
-import { inputGroupVariants } from "./styles";
+import { dataAttr } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import { InputGroupPrefix } from "./input-group-prefix";
-import { InputGroupRoot } from "./input-group-root";
+import { useTextFieldContext } from "@jamsrui/textfield";
+import type { InputGroupPrefix } from "./input-group-prefix";
+import type { InputGroupRoot } from "./input-group-root";
 import type { InputGroupSuffix } from "./input-group-suffix";
-import type { InputGroupVariantProps } from "./styles";
 
 export const useInputGroup = (props: useInputGroup.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    inputGroupVariants.variantKeys,
-  );
-  const { ref, className, ...elementProps } = $props;
-
-  const styles = inputGroupVariants(variantProps);
-  const isDisabled = false;
+  const { ref, ...elementProps } = props;
+  const ctx = useTextFieldContext();
+  const isDisabled = ctx?.isDisabled ?? false;
+  const isInvalid = ctx?.isInvalid ?? false;
 
   const { isFocused, ref: focusRef } = useFocus<HTMLInputElement>({
     isDisabled,
@@ -39,7 +33,8 @@ export const useInputGroup = (props: useInputGroup.Props) => {
   const { isHovered, ref: hoverRef } = useHover<HTMLDivElement>({
     isDisabled,
   });
-  const inputRefs = useMergeRefs([ref, focusRef, focusVisibleRef, hoverRef]);
+  const refs = useMergeRefs([ref, hoverRef]);
+  const inputRefs = useMergeRefs([focusRef, focusVisibleRef]);
 
   const handleOnMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
@@ -58,44 +53,46 @@ export const useInputGroup = (props: useInputGroup.Props) => {
     }
   };
 
-  const getRootProps: PropGetter<InputGroupRoot.Props> = useCallback(
-    (props) => ({
-      "data-component": dataAttrDev("input-group"),
-      "data-slot": dataAttrDev("root"),
+  const getRootProps = useCallback(
+    (): InputGroupRoot.Props => ({
+      "data-component": "input-group",
+      "data-slot": "root",
       "data-focused": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-hovered": dataAttr(isHovered),
       "data-disabled": dataAttr(isDisabled),
+      "data-invalid": dataAttr(isInvalid),
       "aria-disabled": dataAttr(isDisabled),
+      "aria-invalid": dataAttr(isInvalid),
       onMouseDown: handleOnMouseDown,
+      ref: refs,
       ...elementProps,
-      className: styles.root({
-        className: cn(props.className),
-      }),
     }),
-    [isDisabled, isFocusVisible, isFocused, isHovered, styles],
+    [
+      elementProps,
+      isDisabled,
+      isFocusVisible,
+      isFocused,
+      isHovered,
+      isInvalid,
+      refs,
+    ],
   );
 
   const getPrefixProps: PropGetter<InputGroupPrefix.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("prefix"),
+      "data-slot": "prefix",
       ...props,
-      className: styles.prefix({
-        className: cn(props.className),
-      }),
     }),
-    [styles],
+    [],
   );
 
   const getSuffixProps: PropGetter<InputGroupSuffix.Props> = useCallback(
     (props) => ({
-      "data-slot": dataAttrDev("suffix"),
+      "data-slot": "suffix",
       ...props,
-      className: styles.suffix({
-        className: cn(props.className),
-      }),
     }),
-    [styles],
+    [],
   );
 
   return useMemo(
@@ -103,12 +100,12 @@ export const useInputGroup = (props: useInputGroup.Props) => {
       getRootProps,
       getPrefixProps,
       getSuffixProps,
-      variantProps,
+      inputRefs,
     }),
-    [getRootProps, getPrefixProps, getSuffixProps, variantProps],
+    [getRootProps, getPrefixProps, getSuffixProps, inputRefs],
   );
 };
 
 export namespace useInputGroup {
-  export interface Props extends UIProps<"div">, InputGroupVariantProps {}
+  export interface Props extends UIProps<"div"> {}
 }

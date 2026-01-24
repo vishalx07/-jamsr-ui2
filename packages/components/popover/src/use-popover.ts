@@ -17,9 +17,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
-import { popoverVariants } from "./styles";
 
 import type {
   Alignment,
@@ -32,10 +30,8 @@ import type {
 import type { PropGetter } from "@jamsrui/utils";
 import type { AnimatePresenceProps } from "motion/react";
 import type { ComponentProps } from "react";
-
-import type { PopoverContent } from "./popover-content";
-import { PopoverDialog } from "./popover-dialog";
-import type { PopoverVariants } from "./styles";
+import { PopoverContainer } from "./popover-container";
+import { PopoverContent } from "./popover-content";
 
 export function getTransformOrigin(placement: Placement): string {
   const [side, align] = placement.split("-") as [Side, Alignment | undefined];
@@ -72,10 +68,6 @@ export function getTransformOrigin(placement: Placement): string {
 }
 
 export const usePopover = (props: usePopover.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    popoverVariants.variantKeys,
-  );
   const {
     defaultOpen,
     disabled: isDisabled = false,
@@ -86,7 +78,7 @@ export const usePopover = (props: usePopover.Props) => {
     onOpenChange,
     placement = "top",
     triggerOn = "click",
-  } = $props;
+  } = props;
 
   const [isOpen, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -152,35 +144,28 @@ export const usePopover = (props: usePopover.Props) => {
     hover,
   ]);
 
-  const styles = popoverVariants(variantProps);
-  const getContentProps: PropGetter<PopoverContent.Props> = useCallback(
+  const getContainerProps: PropGetter<PopoverContainer.Props> = useCallback(
     (props) => ({
       ...props,
-      className: styles.content({
-        className: cn(props.className),
-      }),
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("popover"),
+      "data-slot": "root",
+      "data-component": "popover",
     }),
-    [floatingStyles, getFloatingProps, refs.setFloating, styles],
+    [floatingStyles, getFloatingProps, refs.setFloating],
   );
 
-  const getDialogProps: PropGetter<PopoverDialog.Props> = useCallback(
+  const getContentProps: PropGetter<PopoverContent.Props> = useCallback(
     (props) => ({
       initial: { opacity: 0, scale: 0.8 },
       animate: { opacity: 1, scale: 1, x: 0, y: 0 },
       exit: { opacity: 0, scale: 0.8 },
       transition: { type: "spring", stiffness: 300, damping: 25 },
       ...props,
-      "data-slot": dataAttrDev("content"),
-      className: styles.dialog({
-        className: cn(props.className),
-      }),
+      "data-slot": "content",
     }),
-    [styles],
+    [],
   );
 
   const getArrowProps = useCallback(
@@ -189,11 +174,8 @@ export const usePopover = (props: usePopover.Props) => {
       ...props,
       context,
       ref: setArrowEl,
-      className: styles.arrow({
-        className: props.className,
-      }),
     }),
-    [context, styles],
+    [context],
   );
 
   const getTriggerProps = useCallback(
@@ -201,18 +183,8 @@ export const usePopover = (props: usePopover.Props) => {
       ...getReferenceProps({
         ref: refs.setReference,
       }),
-      className:
-        variantProps.backdrop === "blur" && (isOpen || isAnimating)
-          ? "z-popover"
-          : "",
     }),
-    [
-      getReferenceProps,
-      isAnimating,
-      isOpen,
-      refs.setReference,
-      variantProps.backdrop,
-    ],
+    [getReferenceProps, refs.setReference],
   );
 
   const getFloatingFocusManagerProps = useCallback(
@@ -226,11 +198,13 @@ export const usePopover = (props: usePopover.Props) => {
   );
 
   const getOverlayProps = useCallback(
-    (): ComponentProps<typeof FloatingOverlay> => ({
+    (
+      props: ComponentProps<typeof FloatingOverlay>,
+    ): ComponentProps<typeof FloatingOverlay> => ({
       lockScroll,
-      className: styles.backdrop(),
+      ...props,
     }),
-    [lockScroll, styles],
+    [lockScroll],
   );
 
   const getAnimatePresenceProps = useCallback(
@@ -244,7 +218,6 @@ export const usePopover = (props: usePopover.Props) => {
 
   return useMemo(
     () => ({
-      getRootProps: getContentProps,
       getArrowProps,
       isOpen,
       getTriggerProps,
@@ -253,8 +226,9 @@ export const usePopover = (props: usePopover.Props) => {
       getContentProps,
       getOverlayProps,
       getAnimatePresenceProps,
-      getDialogProps,
+      getContainerProps,
       isDisabled,
+      isAnimating,
     }),
     [
       getContentProps,
@@ -263,17 +237,17 @@ export const usePopover = (props: usePopover.Props) => {
       getTriggerProps,
       getFloatingFocusManagerProps,
       showArrow,
-      getContentProps,
       getOverlayProps,
       getAnimatePresenceProps,
-      getDialogProps,
+      getContainerProps,
       isDisabled,
+      isAnimating,
     ],
   );
 };
 
 export namespace usePopover {
-  export interface Props extends PopoverVariants {
+  export interface Props {
     defaultOpen?: boolean;
     placement?: Placement;
     isModal?: boolean;

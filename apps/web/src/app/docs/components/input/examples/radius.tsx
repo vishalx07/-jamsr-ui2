@@ -1,4 +1,6 @@
-import { Input, Label, TextField } from "@jamsrui/react";
+import { Input } from "jamsrui/input";
+import { Label } from "jamsrui/label";
+import { TextField } from "jamsrui/textfield";
 
 export const InputRadius = () => {
   return (
@@ -20,16 +22,8 @@ export const InputRadius = () => {
         <Input radius="lg" />
       </TextField>
       <TextField>
-        <Label>Radius xl</Label>
-        <Input radius="xl" />
-      </TextField>
-      <TextField>
-        <Label>Radius 2xl</Label>
-        <Input radius="2xl" />
-      </TextField>
-      <TextField>
-        <Label>Radius 3xl</Label>
-        <Input radius="3xl" />
+        <Label>Radius full</Label>
+        <Input radius="full" />
       </TextField>
     </div>
   );

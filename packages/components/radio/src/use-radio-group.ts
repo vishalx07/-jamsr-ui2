@@ -3,35 +3,25 @@
 import { useCallback, useId } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { dataAttr, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
-
-import { radioGroupVariant } from "./styles";
+import { dataAttr } from "@jamsrui/utils";
 
 import type { Radio } from "./radio";
 import type { RadioGroupRoot } from "./radio-group-root";
 import type { RadioInput } from "./radio-input";
-import type { RadioGroupVariants, RadioVariants } from "./styles";
 
 export const useRadioGroup = (props: useRadioGroup.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    radioGroupVariant.variantKeys,
-  );
-
   const {
     value: propValue,
     defaultValue,
     onValueChange,
     name,
     disabled: isDisabled = false,
-    color,
-    size,
     inputProps,
     isInvalid = false,
+    className,
     ...restProps
-  } = $props;
+  } = props;
 
-  const styles = radioGroupVariant(variantProps);
   const inputNameId = useId();
   const inputName = name ?? inputNameId;
 
@@ -43,16 +33,14 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
 
   const getRootProps = useCallback(
     (): RadioGroupRoot.Props => ({
-      "data-slot": dataAttrDev("root"),
-      "data-component": dataAttrDev("radio-group"),
+      "data-slot": "root",
+      "data-component": "radio-group",
       "data-disabled": dataAttr(isDisabled),
       "data-invalid": dataAttr(isInvalid),
       ...restProps,
-      className: styles.root({
-        className: props.className,
-      }),
+      className,
     }),
-    [isDisabled, isInvalid, restProps, styles, props.className],
+    [isDisabled, isInvalid, restProps, className],
   );
 
   const handleInputChange = useCallback(
@@ -72,15 +60,12 @@ export const useRadioGroup = (props: useRadioGroup.Props) => {
     value,
     name: inputName,
     isDisabled,
-    color,
-    size,
     inputProps,
   };
 };
 
 export namespace useRadioGroup {
-  export interface Props
-    extends RadioGroupVariants, RadioVariants, RadioGroupRoot.Props {
+  export interface Props extends RadioGroupRoot.Props {
     value?: Radio.Value;
     onValueChange?: (value: Radio.Value) => void;
     defaultValue?: Radio.Value;

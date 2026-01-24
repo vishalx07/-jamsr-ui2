@@ -1,4 +1,4 @@
-import { Alert } from "@jamsrui/react";
+import { Alert } from "jamsrui/alert";
 
 export const AlertWithoutIcon = () => {
   return (

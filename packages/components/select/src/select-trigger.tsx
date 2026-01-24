@@ -1,26 +1,27 @@
 "use client";
 
-import { useRenderElement } from "@jamsrui/hooks";
+import { useHover, useMergeRefs, useRenderElement } from "@jamsrui/hooks";
 
 import { useSelectContext } from "./select-context";
-import { SelectIndicator } from "./select-indicator";
-import { SelectValue } from "./select-value";
 
-import type { UIProps } from "@jamsrui/utils";
+import { dataAttr, type UIProps } from "@jamsrui/utils";
 
 export const SelectTrigger = (props: SelectTrigger.Props) => {
-  const {
-    children = (
-      <>
-        <SelectValue />
-        <SelectIndicator />
-      </>
-    ),
-    ...restProps
-  } = props;
-  const { getTriggerProps } = useSelectContext();
+  const { ref, ...restProps } = props;
+  const { getTriggerProps, isDisabled } = useSelectContext();
+  const { isHovered, ref: hoverRef } = useHover<HTMLButtonElement>({
+    isDisabled,
+  });
+  const refs = useMergeRefs([ref, hoverRef]);
+
   const renderElement = useRenderElement("button", {
-    props: [getTriggerProps(restProps), { children }],
+    props: [
+      getTriggerProps(restProps),
+      {
+        "data-hovered": dataAttr(isHovered),
+        ref: refs,
+      },
+    ],
   });
   return renderElement;
 };

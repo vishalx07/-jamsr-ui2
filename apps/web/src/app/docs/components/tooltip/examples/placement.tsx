@@ -1,4 +1,5 @@
-import { Button, Tooltip } from "@jamsrui/react";
+import { Button } from "jamsrui/button";
+import { Tooltip } from "jamsrui/tooltip";
 
 export const TooltipPlacement = () => {
   const placements: Tooltip.Props["placement"][] = [

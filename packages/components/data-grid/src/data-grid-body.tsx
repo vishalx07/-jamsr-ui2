@@ -1,5 +1,4 @@
 "use client";
-import { TableBody, TableCell, TableRow } from "@jamsrui/table";
 import { flexRender } from "@tanstack/react-table";
 
 import { useDataGridContext } from "./data-grid-context";
@@ -7,18 +6,19 @@ import { DataGridEmpty } from "./data-grid-empty";
 import { getPinningStyles } from "./utils";
 
 import type { Row } from "@tanstack/react-table";
+import { Table } from "@jamsrui/table";
 
 export const DataGridBody = () => {
   const { table, isEmpty } = useDataGridContext();
   return (
-    <TableBody>
+    <Table.Body>
       {isEmpty && <DataGridEmpty />}
       {table.getRowModel().rows.map((row) => {
         return (
-          <TableRow key={row.id}>
+          <Table.Row key={row.id}>
             {row.getVisibleCells().map((cell) => {
               return (
-                <TableCell
+                <Table.Cell
                   key={cell.id}
                   data-pinned={cell.column.getIsPinned() || undefined}
                   style={{
@@ -27,13 +27,13 @@ export const DataGridBody = () => {
                   }}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
+                </Table.Cell>
               );
             })}
-          </TableRow>
+          </Table.Row>
         );
       })}
-    </TableBody>
+    </Table.Body>
   );
 };
 

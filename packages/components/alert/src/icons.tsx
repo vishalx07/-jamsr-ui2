@@ -1,17 +1,13 @@
 "use client";
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from "@jamsrui/icons";
+import { Alert } from "./alert";
 
-import type { AlertVariants } from "./styles";
-
-export type IconMapping = Record<
-  NonNullable<AlertVariants["status"]>,
-  React.ReactNode
->;
+export type IconMapping = Record<NonNullable<Alert.Status>, React.ReactNode>;
 
 export const iconMappingDefault: IconMapping = {
-  danger: <ErrorIcon />,
+  error: <ErrorIcon />,
   info: <InfoIcon />,
   success: <SuccessIcon />,
   warning: <WarningIcon />,
-  default: <InfoIcon />,
+  neutral: <InfoIcon />,
 };

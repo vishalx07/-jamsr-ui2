@@ -1,5 +1,5 @@
 "use client";
-import { useCallback, useMemo } from "react";
+import { ComponentProps, useCallback, useMemo } from "react";
 
 import {
   useClick,
@@ -9,40 +9,33 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants, mergeProps } from "@jamsrui/utils";
 
-import { drawerVariants } from "./styles";
 
 import type {
   FloatingFocusManagerProps,
+  FloatingOverlay,
   FloatingOverlayProps,
 } from "@floating-ui/react";
-import type { PropGetter, SlotsToClassNames, UIProps } from "@jamsrui/utils";
+import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { DrawerBody } from "./drawer-body";
-import type { DrawerCloseButton } from "./drawer-close-button";
 import type { DrawerContent } from "./drawer-content";
 import type { DrawerFooter } from "./drawer-footer";
 import type { DrawerHeader } from "./drawer-header";
 import type { DrawerPopover } from "./drawer-popover";
-import type { DrawerSlots, DrawerVariants } from "./styles";
+
+type Anchor = "left" | "right" | "top" | "bottom";
 
 export const useDrawer = (props: useDrawer.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    drawerVariants.variantKeys,
-  );
   const {
-    classNames,
-    slotProps,
     defaultOpen,
     isOpen: isOpenProp,
     onOpenChange,
     isDismissible,
     isKeyboardDismissible,
     hideCloseButton = false,
-  } = $props;
-  const styles = drawerVariants(variantProps);
+    anchor = "right",
+  } = props;
 
   const [isOpen, setIsOpen] = useControlledState({
     defaultProp: defaultOpen,
@@ -76,83 +69,42 @@ export const useDrawer = (props: useDrawer.Props) => {
 
   const getHeaderProps: PropGetter<DrawerHeader.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.header, props),
-      "data-slot": dataAttrDev("header"),
-      className: styles.header({
-        className: cn(
-          slotProps?.header?.className,
-          classNames?.header,
-          props.className,
-        ),
-      }),
+      ...props,
+      "data-slot": "header",
     }),
-    [classNames?.header, slotProps?.header, styles],
+    [],
   );
 
   const getFooterProps: PropGetter<DrawerFooter.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.footer, props),
-      "data-slot": dataAttrDev("footer"),
-      className: styles.footer({
-        className: cn(
-          slotProps?.footer?.className,
-          classNames?.footer,
-          props.className,
-        ),
-      }),
+      ...props,
+      "data-slot": "footer",
     }),
-    [classNames?.footer, slotProps?.footer, styles],
+    [],
   );
 
   const getBodyProps: PropGetter<DrawerBody.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.body, props),
-      "data-slot": dataAttrDev("body"),
-      className: styles.body({
-        className: cn(
-          slotProps?.body?.className,
-          classNames?.body,
-          props.className,
-        ),
-      }),
+      ...props,
+      "data-slot": "body",
     }),
-    [classNames?.body, slotProps?.body, styles],
+    [],
   );
 
   const getPopoverProps: PropGetter<DrawerPopover.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.popover, props),
-      "data-slot": dataAttrDev("popover"),
-      className: styles.popover({
-        className: cn(
-          slotProps?.popover?.className,
-          classNames?.popover,
-          props.className,
-        ),
-      }),
+      ...props,
+      "data-slot": "popover",
       ref: setFloating,
       ...getFloatingProps(),
     }),
-    [
-      classNames?.popover,
-      getFloatingProps,
-      setFloating,
-      slotProps?.popover,
-      styles,
-    ],
+    [getFloatingProps, setFloating],
   );
 
   const getContentProps: PropGetter<DrawerContent.Props> = useCallback(
     (props) => ({
-      ...mergeProps(slotProps?.content, props),
-      "data-slot": dataAttrDev("content"),
-      className: styles.content({
-        className: cn(
-          slotProps?.content?.className,
-          classNames?.content,
-          props.className,
-        ),
-      }),
+      ...props,
+      "data-slot": "content",
       initial: {
         opacity: 0,
         x: "100%",
@@ -170,7 +122,7 @@ export const useDrawer = (props: useDrawer.Props) => {
           type: "spring",
           stiffness: 120,
           damping: 20,
-          mass: 0.8,
+          mass: 0.2,
         },
       },
       exit: {
@@ -178,47 +130,24 @@ export const useDrawer = (props: useDrawer.Props) => {
         x: "100%",
         transition: {
           type: "spring",
-          stiffness: 300, // More force
-          damping: 30, // Less resistance
+          stiffness: 300,
+          damping: 30,
           mass: 0.6,
         },
       },
     }),
-    [classNames?.content, slotProps?.content, styles],
-  );
-
-  const getCloseButtonProps: PropGetter<DrawerCloseButton.Props> = useCallback(
-    (props) => ({
-      ...mergeProps(slotProps?.closeButton, props),
-      "data-slot": dataAttrDev("closeButton"),
-      className: styles.closeButton({
-        className: cn(
-          slotProps?.closeButton?.className,
-          classNames?.closeButton,
-          props.className,
-        ),
-      }),
-      radius: "full",
-      size: "sm",
-      onClick: handleTriggerClose,
-    }),
-    [
-      classNames?.closeButton,
-      handleTriggerClose,
-      slotProps?.closeButton,
-      styles,
-    ],
+    [],
   );
 
   const getBackdropProps = useCallback(
-    (): FloatingOverlayProps & UIProps<"div"> => ({
+    (
+      props: ComponentProps<typeof FloatingOverlay>,
+    ): FloatingOverlayProps & UIProps<"div"> => ({
       lockScroll: true,
-      "data-slot": dataAttrDev("backdrop"),
-      className: styles.backdrop({
-        className: cn(classNames?.backdrop),
-      }),
+      "data-slot": "backdrop",
+      ...props,
     }),
-    [classNames?.backdrop, styles],
+    [],
   );
 
   const getFocusManagerProps = useCallback(
@@ -251,7 +180,6 @@ export const useDrawer = (props: useDrawer.Props) => {
       getFooterProps,
       getBodyProps,
       getContentProps,
-      getCloseButtonProps,
       getBackdropProps,
       getFocusManagerProps,
       getTriggerProps,
@@ -259,13 +187,13 @@ export const useDrawer = (props: useDrawer.Props) => {
       isOpen,
       getPopoverProps,
       hideCloseButton,
+      anchor,
     }),
     [
       getHeaderProps,
       getFooterProps,
       getBodyProps,
       getContentProps,
-      getCloseButtonProps,
       getBackdropProps,
       getFocusManagerProps,
       getTriggerProps,
@@ -273,26 +201,19 @@ export const useDrawer = (props: useDrawer.Props) => {
       isOpen,
       getPopoverProps,
       hideCloseButton,
+      anchor,
     ],
   );
 };
 
 export namespace useDrawer {
-  export interface Props extends DrawerVariants {
-    classNames?: SlotsToClassNames<DrawerSlots>;
-    slotProps?: {
-      popover?: DrawerPopover.Props;
-      header?: DrawerHeader.Props;
-      footer?: DrawerFooter.Props;
-      content?: DrawerContent.Props;
-      body?: DrawerBody.Props;
-      closeButton?: DrawerCloseButton.Props;
-    };
+  export interface Props {
     defaultOpen?: boolean;
     isOpen?: boolean;
     onOpenChange?: (open: boolean) => void;
     isDismissible?: boolean;
     isKeyboardDismissible?: boolean;
     hideCloseButton?: boolean;
+    anchor?: Anchor;
   }
 }

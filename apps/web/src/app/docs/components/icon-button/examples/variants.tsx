@@ -1,4 +1,4 @@
-import { IconButton } from "@jamsrui/react";
+import { IconButton } from "jamsrui/icon-button";
 import { EmailIcon } from "@jamsrui/icons";
 
 export const IconButtonVariants = () => {

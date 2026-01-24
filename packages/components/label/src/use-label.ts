@@ -5,7 +5,6 @@ import { useFieldA11yContext } from "@jamsrui/context";
 import { useMergeRefs } from "@jamsrui/hooks";
 
 import type { UIProps } from "@jamsrui/utils";
-import { labelVariants } from "./styles";
 
 export const useLabel = (props: useLabel.Props): useLabel.ReturnType => {
   const { onMouseDown, className, ref, ...restProps } = props;
@@ -32,7 +31,7 @@ export const useLabel = (props: useLabel.Props): useLabel.ReturnType => {
   return {
     ref: mergedRef,
     onMouseDown: handleOnMouseDown,
-    className: labelVariants({ className }),
+    className,
     ...fieldAllyCtx?.getLabelProps(),
     ...restProps,
   };

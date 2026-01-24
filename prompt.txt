@@ -1,0 +1,11 @@
+Now go with table, tabs, text, textarea, tooltip fix them all
+
+find all the components which are just re-exporting the base package and then 
+
+- implement [component-name] in ui package like others alert, accordion, button etc....
+- create [component-name] folder and [component-name].tsx styles.ts index.ts like others
+- you have to move styles from their base package like @jamsrui/* to here in ui package
+- this means remove styles classNames from their base package and also remove their style|s.ts file
+- also remove [component-name]Config and its usage from its base package
+- also if there are slots classNames props in base use-[component-name].ts file remove them also
+- also check in the docs examples should be in dot pattern if not update them

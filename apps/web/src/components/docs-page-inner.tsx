@@ -1,7 +1,8 @@
 "use client";
 
-import { SidebarToggle, Text, useSidebarState } from "@jamsrui/react";
+import { SidebarToggle, useSidebarState } from "jamsrui/sidebar";
 import { cn } from "@jamsrui/utils";
+import { Text } from "jamsrui/text";
 
 type Props = {
   children: React.ReactNode;
@@ -19,7 +20,7 @@ export const DocsPageInner = (props: Props) => {
       <div
         className={cn(
           "py-12 w-full px-4 md:px-12  mx-auto",
-          size === "lg" ? "max-w-screen-lg" : "max-w-screen-md",
+          size === "lg" ? "max-w-5xl" : "max-w-3xl",
         )}
       >
         <SidebarToggle className="md:hidden" />

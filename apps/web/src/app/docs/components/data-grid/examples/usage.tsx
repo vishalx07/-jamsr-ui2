@@ -1,6 +1,6 @@
 "use client";
 
-import { DataGrid, useDataGridTable } from "@jamsrui/react";
+import { DataGrid, useDataGridTable } from "jamsrui/data-grid";
 import { COLUMNS, USERS } from "./columns";
 
 export const DataGridUsage = () => {

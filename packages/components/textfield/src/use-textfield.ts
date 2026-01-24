@@ -4,36 +4,31 @@ import { useCallback, useMemo } from "react";
 
 import { dataAttr, type PropGetter } from "@jamsrui/utils";
 
-import { textFieldVariants } from "./styles";
 import type { TextfieldRoot } from "./textfield-root";
 
 export const useTextField = (props: useTextField.Props) => {
-  const {
-    className,
-    disabled: isDisabled = false,
-    isInvalid,
-    ...restProps
-  } = props;
-  const styles = textFieldVariants({ className });
+  const { disabled: isDisabled = false, isInvalid, ...restProps } = props;
 
   const getRootProps: PropGetter<TextfieldRoot.Props> = useCallback(
     () => ({
-      className: styles,
       disabled: isDisabled,
       "data-disabled": dataAttr(isDisabled),
       "aria-disabled": dataAttr(isDisabled),
       "data-invalid": dataAttr(isInvalid),
       "aria-invalid": dataAttr(isInvalid),
+      "data-slot": "textfield",
       ...restProps,
     }),
-    [styles, isDisabled, isInvalid, restProps],
+    [isDisabled, isInvalid, restProps],
   );
 
   return useMemo(() => {
     return {
+      isDisabled,
+      isInvalid,
       getRootProps,
     };
-  }, [getRootProps]);
+  }, [isDisabled, isInvalid, getRootProps]);
 };
 
 export namespace useTextField {

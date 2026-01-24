@@ -1,4 +1,4 @@
-import { CircularProgress } from "@jamsrui/react";
+import { CircularProgress } from "jamsrui/circular-progress";
 
 export const CircularProgressUsage = () => {
   return <CircularProgress />;

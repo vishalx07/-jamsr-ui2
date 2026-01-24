@@ -1,9 +1,7 @@
 "use client";
 import { useCallback, useRef, useState } from "react";
 
-import { dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
 
-import { dateFieldVariants } from "./styles";
 
 import type { PropGetter } from "@jamsrui/utils";
 
@@ -15,11 +13,6 @@ type Segments = Record<DateSegment.Segment, string>;
 import { DateFieldRoot } from "./date-field-root";
 
 export const useDateField = (props: useDateField.Props) => {
-  const [$props, variantProps] = mapPropsVariants(
-    props,
-    dateFieldVariants.variantKeys,
-  );
-
   const [segments, setSegments] = useState<Segments>({
     day: "",
     month: "",
@@ -31,15 +24,13 @@ export const useDateField = (props: useDateField.Props) => {
   const elementRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const styles = dateFieldVariants(variantProps);
   const getRootProps: PropGetter<DateFieldRoot.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-component": dataAttrDev("date-field"),
-      className: styles.root({ className: props.className }),
-      "data-slot": dataAttrDev("root"),
+      "data-component": "date-field",
+      "data-slot": "root",
     }),
-    [styles],
+    [],
   );
 
   const getInputProps: PropGetter<DateFieldRoot.Props> = useCallback(
@@ -47,21 +38,19 @@ export const useDateField = (props: useDateField.Props) => {
       ...props,
       contentEditable: true,
       suppressContentEditableWarning: true,
-      className: styles.input({ className: props.className }),
-      "data-slot": dataAttrDev("input"),
+      "data-slot": "input",
       inputMode: "numeric",
       spellCheck: false,
     }),
-    [styles],
+    [],
   );
 
   const getSeparatorProps: PropGetter<DateFieldSeparator.Props> = useCallback(
     (props) => ({
       ...props,
-      className: styles.separator({ className: props.className }),
-      "data-slot": dataAttrDev("separator"),
+      "data-slot": "separator",
     }),
-    [styles],
+    [],
   );
 
   return {

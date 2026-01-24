@@ -10,26 +10,26 @@ import {
   EyeClosedIcon,
 } from "@jamsrui/icons";
 import { Menu } from "@jamsrui/menu";
-import { TableColumn, TableHeader, TableRow } from "@jamsrui/table";
 import { cn } from "@jamsrui/utils";
 import { flexRender } from "@tanstack/react-table";
 
 import { useDataGridContext } from "./data-grid-context";
 import { getPinningStyles } from "./utils";
 
+import { Table } from "@jamsrui/table";
 import type { Column, Header } from "@tanstack/react-table";
 
 export const DataGridHeader = () => {
   const { table } = useDataGridContext();
   const headerGroups = table.getHeaderGroups();
   return (
-    <TableHeader>
+    <Table.Header>
       {headerGroups.map((headerGroup) => {
         return (
-          <TableRow key={headerGroup.id}>
+          <Table.Row key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
               return (
-                <TableColumn
+                <Table.Column
                   key={header.id}
                   className="relative"
                   colSpan={header.colSpan}
@@ -45,13 +45,13 @@ export const DataGridHeader = () => {
                         header.column.columnDef.header,
                         header.getContext(),
                       )}
-                </TableColumn>
+                </Table.Column>
               );
             })}
-          </TableRow>
+          </Table.Row>
         );
       })}
-    </TableHeader>
+    </Table.Header>
   );
 };
 

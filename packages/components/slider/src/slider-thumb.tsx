@@ -4,10 +4,9 @@ import { useRenderElement } from "@jamsrui/hooks";
 import { type UIProps } from "@jamsrui/utils";
 import React, { useRef, useLayoutEffect } from "react";
 import { useSliderContext } from "./slider-context";
-import { slider } from "./styles";
 
 export const SliderThumb = (props: SliderThumb.Props) => {
-  const { render, children, className, index = 0, ...restProps } = props;
+  const { render, children, index = 0, ...restProps } = props;
   const {
     orientation,
     isDisabled,
@@ -16,8 +15,6 @@ export const SliderThumb = (props: SliderThumb.Props) => {
     registerThumb,
     handleThumbPointerDown,
   } = useSliderContext();
-  const { thumb } = slider({ orientation, isDisabled });
-  const styles = thumb({ className });
 
   const ref = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
@@ -75,7 +72,6 @@ export const SliderThumb = (props: SliderThumb.Props) => {
     props: {
       ...restProps,
       children,
-      className: styles,
       ref,
       style: { ...restProps.style, ...style },
       onPointerDown: (e) => handleThumbPointerDown(index, e),

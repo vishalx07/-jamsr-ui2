@@ -1,4 +1,4 @@
-import { IconButton } from "@jamsrui/react";
+import { IconButton } from "jamsrui/icon-button";
 import { EmailIcon } from "@jamsrui/icons";
 
 export const IconButtonRadius = () => {
@@ -7,9 +7,6 @@ export const IconButtonRadius = () => {
     "sm",
     "md",
     "lg",
-    "xl",
-    "2xl",
-    "3xl",
     "full",
   ];
   return (

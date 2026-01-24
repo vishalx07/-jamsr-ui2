@@ -1,4 +1,4 @@
-import { Autocomplete, AutocompleteItem } from "@jamsrui/react";
+import { Autocomplete } from "jamsrui/autocomplete";
 
 const animals = [
   {
@@ -60,13 +60,13 @@ export const AutocompleteUsage = () => {
     <div>
       <Autocomplete label="Animal">
         {animals.map((animal) => (
-          <AutocompleteItem
+          <Autocomplete.Item
             key={animal.value}
             value={animal.value}
             textValue={animal.label}
           >
             {animal.label}
-          </AutocompleteItem>
+          </Autocomplete.Item>
         ))}
       </Autocomplete>
     </div>

@@ -2,20 +2,13 @@
 import { useCallback, useMemo, useRef } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
-import { cn, dataAttrDev, mapPropsVariants } from "@jamsrui/utils";
-
-import { accordionVariants } from "./styles";
+import { cn } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Accordion } from "./accordion";
-import type { AccordionVariants } from "./styles";
 
 export const useAccordion = (props: useAccordion.Props) => {
-  const [elementProps, variantProps] = mapPropsVariants(
-    props,
-    accordionVariants.variantKeys,
-  );
   const {
     value: valueProp,
     defaultValue,
@@ -23,8 +16,9 @@ export const useAccordion = (props: useAccordion.Props) => {
     onValueChange,
     isMultiple,
     loop,
+    className,
     ...restProps
-  } = elementProps;
+  } = props;
 
   const [value = [], setValue] = useControlledState({
     defaultProp: defaultValue,
@@ -34,7 +28,6 @@ export const useAccordion = (props: useAccordion.Props) => {
 
   const handleValueChange = useCallback(() => {}, []);
 
-  const styles = accordionVariants(variantProps);
   const elementRefs = useRef<(HTMLElement | null)[]>([]);
 
   const handleAccordionOpen = useCallback(
@@ -57,12 +50,10 @@ export const useAccordion = (props: useAccordion.Props) => {
     (props) => ({
       ...restProps,
       ...props,
-      "data-slot": dataAttrDev("root"),
-      className: styles.root({
-        className: cn(restProps.className, props.className),
-      }),
+      "data-slot": "root",
+      className: cn(className, props?.className),
     }),
-    [restProps, styles],
+    [restProps, className],
   );
 
   return useMemo(
@@ -71,7 +62,6 @@ export const useAccordion = (props: useAccordion.Props) => {
       handleValueChange,
       value,
       isDisabled,
-      styles,
       handleAccordionOpen,
       elementRefs,
     }),
@@ -80,7 +70,6 @@ export const useAccordion = (props: useAccordion.Props) => {
       handleAccordionOpen,
       handleValueChange,
       isDisabled,
-      styles,
       value,
       elementRefs,
     ],
@@ -89,7 +78,7 @@ export const useAccordion = (props: useAccordion.Props) => {
 
 export namespace useAccordion {
   export type AccordionValue = string[];
-  export interface Props extends UIProps<"div">, AccordionVariants {
+  export interface Props extends UIProps<"div"> {
     value?: AccordionValue;
     defaultValue?: AccordionValue;
     disabled?: boolean;

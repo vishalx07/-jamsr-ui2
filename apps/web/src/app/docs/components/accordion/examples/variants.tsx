@@ -1,40 +1,28 @@
-import { Accordion } from "@jamsrui/react";
+import { Accordion } from "jamsrui/accordion";
 
 export const AccordionVariants = () => {
   return (
     <Accordion variant="splitted">
       <Accordion.Item>
-        <Accordion.Heading>
-          <Accordion.Trigger>
-            Accordion 1
-            <Accordion.Indicator />
-          </Accordion.Trigger>
-        </Accordion.Heading>
-        <Accordion.Panel>
-          <Accordion.Content>I am the accordion content</Accordion.Content>
-        </Accordion.Panel>
+        <Accordion.Trigger>
+          Accordion 1
+          <Accordion.Indicator />
+        </Accordion.Trigger>
+        <Accordion.Content>I am the accordion content</Accordion.Content>
       </Accordion.Item>
       <Accordion.Item>
-        <Accordion.Heading>
-          <Accordion.Trigger>
-            Accordion 2
-            <Accordion.Indicator />
-          </Accordion.Trigger>
-        </Accordion.Heading>
-        <Accordion.Panel>
-          <Accordion.Content>I am the accordion content</Accordion.Content>
-        </Accordion.Panel>
+        <Accordion.Trigger>
+          Accordion 2
+          <Accordion.Indicator />
+        </Accordion.Trigger>
+        <Accordion.Content>I am the accordion content</Accordion.Content>
       </Accordion.Item>
       <Accordion.Item>
-        <Accordion.Heading>
-          <Accordion.Trigger>
-            Accordion 3
-            <Accordion.Indicator />
-          </Accordion.Trigger>
-        </Accordion.Heading>
-        <Accordion.Panel>
-          <Accordion.Content>I am the accordion content</Accordion.Content>
-        </Accordion.Panel>
+        <Accordion.Trigger>
+          Accordion 3
+          <Accordion.Indicator />
+        </Accordion.Trigger>
+        <Accordion.Content>I am the accordion content</Accordion.Content>
       </Accordion.Item>
     </Accordion>
   );

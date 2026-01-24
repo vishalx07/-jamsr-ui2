@@ -1,23 +1,14 @@
 "use client";
 
 import { useRenderElement } from "@jamsrui/hooks";
-import { mergeConfigProps } from "@jamsrui/utils";
 
-import { useAlertConfig } from "./alert-config";
 import { AlertContextProvider } from "./alert-context";
-import { alertStyles } from "./styles";
 import { useAlert } from "./use-alert";
 
 import type { UIProps } from "@jamsrui/utils";
 
 export const Alert = (props: Alert.Props) => {
-  const config = useAlertConfig();
-  const mergedProps = mergeConfigProps(
-    alertStyles.defaultVariants,
-    config,
-    props,
-  );
-  const ctx = useAlert(mergedProps);
+  const ctx = useAlert(props);
   const { getRootProps } = ctx;
 
   const renderElement = useRenderElement("div", {
@@ -27,5 +18,6 @@ export const Alert = (props: Alert.Props) => {
 };
 
 export namespace Alert {
-  export interface Props extends UIProps<"div">, useAlert.Props {}
+  export type Status = "success" | "warning" | "info" | "error" | "neutral";
+  export interface Props extends useAlert.Props {}
 }

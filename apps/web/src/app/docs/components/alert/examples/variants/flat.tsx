@@ -1,4 +1,4 @@
-import { Alert } from "@jamsrui/react";
+import { Alert } from "jamsrui/alert";
 
 export const AlertVariantFlat = () => {
   return (
@@ -15,13 +15,13 @@ export const AlertVariantFlat = () => {
         <Alert.Icon />
         <Alert.Content>This is an info Alert.</Alert.Content>
       </Alert>
-      <Alert variant="soft" status="danger">
+      <Alert variant="soft" status="error">
         <Alert.Icon />
-        <Alert.Content>This is an danger Alert.</Alert.Content>
+        <Alert.Content>This is an error Alert.</Alert.Content>
       </Alert>
-      <Alert variant="soft" status="default">
+      <Alert variant="soft" status="neutral">
         <Alert.Icon />
-        <Alert.Content>This is a default Alert.</Alert.Content>
+        <Alert.Content>This is a neutral Alert.</Alert.Content>
       </Alert>
     </div>
   );

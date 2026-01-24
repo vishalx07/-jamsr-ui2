@@ -1,5 +1,7 @@
 import { ChevronUpIcon, InfoIcon, SearchIcon, TrashIcon } from "@jamsrui/icons";
-import { Button, Kbd, Menu } from "@jamsrui/react";
+import { Button } from "jamsrui/button";
+import { Kbd } from "jamsrui/kbd";
+import { Menu } from "jamsrui/menu";
 
 export const MenuStartEndContent = () => {
   return (

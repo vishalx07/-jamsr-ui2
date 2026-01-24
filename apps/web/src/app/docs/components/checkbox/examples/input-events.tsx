@@ -1,6 +1,7 @@
 "use client";
 
-import { Checkbox, Label } from "@jamsrui/react";
+import { Checkbox } from "jamsrui/checkbox";
+import { Label } from "jamsrui/label";
 
 export const CheckboxInputEvents = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

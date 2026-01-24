@@ -1,23 +1,18 @@
-import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
-} from "@jamsrui/react";
+import { ContextMenu } from "jamsrui/context-menu";
 
 export const ContextMenuOffset = () => {
   return (
     <ContextMenu offset={100}>
-      <ContextMenuTrigger>
+      <ContextMenu.Trigger>
         <div className="border-border text-center p-12 border-dashed border w-full">
           Right Click Here
         </div>
-      </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem>Undo</ContextMenuItem>
-        <ContextMenuItem>Info</ContextMenuItem>
-        <ContextMenuItem>Search</ContextMenuItem>
-      </ContextMenuContent>
+      </ContextMenu.Trigger>
+      <ContextMenu.Content>
+        <ContextMenu.Item textValue="Undo">Undo</ContextMenu.Item>
+        <ContextMenu.Item textValue="Info">Info</ContextMenu.Item>
+        <ContextMenu.Item textValue="Search">Search</ContextMenu.Item>
+      </ContextMenu.Content>
     </ContextMenu>
   );
 };
