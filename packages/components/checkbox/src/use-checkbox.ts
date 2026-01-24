@@ -38,13 +38,14 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     onChange: onCheckedChange,
   });
 
-  const { isFocusVisible, ref: focusVisibleRef } = useFocusVisible({
+  const { isFocusVisible, ref: focusVisibleRef } =
+    useFocusVisible<HTMLInputElement>({
+      isDisabled,
+    });
+  const { isPressed, ref: pressRef } = usePress<HTMLInputElement>({
     isDisabled,
   });
-  const { isPressed, ref: pressRef } = usePress({
-    isDisabled,
-  });
-  const { isHovered, ref: hoverRef } = useHover({
+  const { isHovered, ref: hoverRef } = useHover<HTMLInputElement>({
     isDisabled,
   });
   const inputRef = useMergeRefs([focusVisibleRef, pressRef, hoverRef]);

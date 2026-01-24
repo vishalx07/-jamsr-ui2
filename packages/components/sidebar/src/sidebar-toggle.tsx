@@ -12,9 +12,9 @@ export const SidebarToggle = (props: SidebarToggle.Props) => {
     <IconButton
       label="Toggle Sidebar"
       onClick={toggleSidebar}
-      radius="md"
-      size="sm"
-      variant="light"
+      // radius="md"
+      // size="sm"
+      // variant="light"
       {...restProps}
     >
       {children}

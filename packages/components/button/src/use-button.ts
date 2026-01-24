@@ -11,10 +11,10 @@ export const useButton = (props: useButton.Props) => {
   const { disabled = false, isLoading = false, ref, ...restProps } = props;
   const isDisabled = disabled || isLoading;
 
-  const { isHovered, ref: hoverRef } = useHover({
+  const { isHovered, ref: hoverRef } = useHover<HTMLButtonElement>({
     isDisabled,
   });
-  const { isPressed, ref: pressRef } = usePress({
+  const { isPressed, ref: pressRef } = usePress<HTMLButtonElement>({
     isDisabled,
   });
   const mergedRefs = useMergeRefs([ref, hoverRef, pressRef]);

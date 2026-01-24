@@ -29,7 +29,7 @@ export const AutocompleteItem = (props: AutocompleteItem.Props) => {
   const { isHovered, ref: hoverRef } = useHover<HTMLLIElement>({
     isDisabled,
   });
-  const mergedRefs = useMergeRefs([ref, hoverRef]);
+  const mergedRefs = useMergeRefs<HTMLLIElement>([ref, hoverRef]);
 
   const renderElement = useRenderElement("li", {
     props: [

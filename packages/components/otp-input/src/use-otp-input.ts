@@ -26,7 +26,6 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     onComplete,
     placeholder,
     pattern,
-    ref,
     isInvalid = false,
     ...restProps
   } = props;
@@ -36,9 +35,17 @@ export const useOtpInput = (props: useOtpInput.Props) => {
     onChange: onValueChange,
   });
   const inputRef = useRef<HTMLInputElement>(null);
-  const { ref: hoverRef, isHovered } = useHover({ isDisabled });
-  const { ref: focusRef, isFocused } = useFocus({ isDisabled });
-  const inputRefs = useMergeRefs([inputRef, hoverRef, focusRef, ref]);
+  const { ref: hoverRef, isHovered } = useHover<HTMLInputElement>({
+    isDisabled,
+  });
+  const { ref: focusRef, isFocused } = useFocus<HTMLInputElement>({
+    isDisabled,
+  });
+  const inputRefs = useMergeRefs<HTMLInputElement>([
+    inputRef,
+    hoverRef,
+    focusRef,
+  ]);
 
   const inputMetadataRef = useRef<
     [number | null, number | null, "none" | "forward" | "backward" | null]

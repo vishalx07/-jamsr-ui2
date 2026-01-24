@@ -14,7 +14,6 @@ export { Clipboard, useCopyToClipboard } from '@jamsrui/clipboard';
 export { Collapsible } from '@jamsrui/collapsible';
 export { Composite, CompositeItem, useComposite, useCompositeItem } from '@jamsrui/composite';
 export { ContextMenu } from '@jamsrui/context-menu';
-export { useDataGridTable, DataGrid } from '@jamsrui/data-grid';
 export { useDateField, useDateSegment, DateField } from '@jamsrui/date-field';
 export { DatePicker } from '@jamsrui/date-picker';
 export { Description } from '@jamsrui/description';

@@ -26,7 +26,6 @@
     "@jamsrui/collapsible": "workspace:^",
     "@jamsrui/composite": "workspace:^",
     "@jamsrui/context-menu": "workspace:^",
-    "@jamsrui/data-grid": "workspace:^",
     "@jamsrui/date-field": "workspace:^",
     "@jamsrui/date-picker": "workspace:^",
     "@jamsrui/description": "workspace:^",

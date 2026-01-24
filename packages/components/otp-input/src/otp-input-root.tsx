@@ -6,10 +6,10 @@ import { useOtpInputContext } from "./otp-input-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const OtpInputRoot = (props: OtpInputRoot.Props) => {
+export const OtpInputRoot = (_props: OtpInputRoot.Props) => {
   const { getRootProps } = useOtpInputContext();
   const renderElement = useRenderElement("div", {
-    props: getRootProps(props),
+    props: getRootProps(),
   });
   return renderElement;
 };

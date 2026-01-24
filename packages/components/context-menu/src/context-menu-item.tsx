@@ -22,10 +22,12 @@ export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const item = useListItem({
     label: textValue,
   });
-  const { isHovered, ref: hoverRef } = useHover({ isDisabled });
+  const { isHovered, ref: hoverRef } = useHover<HTMLButtonElement>({
+    isDisabled,
+  });
 
   const isActive = item.index === parentCtx.activeIndex;
-  const refs = useMergeRefs([item.ref, hoverRef]);
+  const refs = useMergeRefs<HTMLButtonElement>([item.ref, hoverRef]);
 
   const renderElement = useRenderElement("button", {
     props: [

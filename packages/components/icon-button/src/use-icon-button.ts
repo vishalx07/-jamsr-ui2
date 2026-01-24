@@ -24,13 +24,13 @@ export const useIconButton = (props: useIconButton.Props) => {
   const id = useId();
   const isDisabled = isLoading || disabled;
 
-  const { isHovered, ref: hoverRef } = useHover({
+  const { isHovered, ref: hoverRef } = useHover<HTMLButtonElement>({
     isDisabled,
   });
-  const { isPressed, ref: pressRef } = usePress({
+  const { isPressed, ref: pressRef } = usePress<HTMLButtonElement>({
     isDisabled,
   });
-  const mergedRefs = useMergeRefs([ref, hoverRef, pressRef]);
+  const mergedRefs = useMergeRefs<HTMLButtonElement>([ref, hoverRef, pressRef]);
 
   const getButtonProps = useCallback(
     (): Partial<IconButtonRoot.Props> => ({
