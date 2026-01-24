@@ -5,7 +5,7 @@ import type { Table as ReactTable } from "@tanstack/react-table";
 
 export const useDataGrid = (props: useDataGrid.Props) => {
   const { table } = props;
-  const isEmpty = table.getCoreRowModel().rows.length === 0;
+  const isEmpty = table.options.data.length === 0;
 
   return useMemo(
     () => ({

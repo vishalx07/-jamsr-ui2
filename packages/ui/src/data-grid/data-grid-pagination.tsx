@@ -20,7 +20,9 @@ export const DataGridPaginationSelector = (
 ) => {
   const { className, ...restProps } = props;
   const { table } = useDataGridContext();
-  const [value, setValue] = useState<number>(10);
+  const [value, setValue] = useState<number>(
+    table.getState().pagination.pageSize,
+  );
 
   const onValueChange = (value: string) => {
     const valueAsNumber = Number(value);

@@ -1,7 +1,7 @@
 "use client";
 
 import { useFloatingTree, useListItem } from "@floating-ui/react";
-import { useMergeRefs, useRenderElement } from "@jamsrui/hooks";
+import { useHover, useMergeRefs, useRenderElement } from "@jamsrui/hooks";
 
 import { useMenuContext } from "./menu-context";
 import { useMenuFloatingContext } from "./menu-floating-context";
@@ -24,7 +24,11 @@ export const MenuItem = (props: MenuItem.Props) => {
     label: textValue,
   });
   const isActive = item.index === parentCtx.activeIndex;
-  const refs = useMergeRefs([item.ref]);
+  const { isHovered, ref: hoverRef } = useHover<HTMLButtonElement>({
+    isDisabled,
+  });
+
+  const refs = useMergeRefs<HTMLButtonElement>([item.ref, hoverRef]);
 
   const renderElement = useRenderElement("button", {
     props: [
@@ -34,6 +38,7 @@ export const MenuItem = (props: MenuItem.Props) => {
         disabled: isDisabled,
         "data-disabled": dataAttr(isDisabled),
         "data-active": dataAttr(isActive),
+        "data-hovered": dataAttr(isHovered),
         "aria-disabled": dataAttr(isDisabled),
         ref: refs,
         tabIndex: isActive ? 0 : -1,
