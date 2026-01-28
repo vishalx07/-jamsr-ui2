@@ -1,5 +1,6 @@
 import { Label as LabelUI } from "@jamsrui/react";
 import { cn } from "tailwind-variants";
+
 import { labelStyles } from "./styles";
 
 export const Label = (props: Label.Props) => {

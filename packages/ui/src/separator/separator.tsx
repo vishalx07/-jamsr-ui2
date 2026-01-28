@@ -1,8 +1,11 @@
 "use client";
 
 import { Separator as SeparatorUI } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
+
 import { separatorStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type SeparatorVariants = VariantProps<typeof separatorStyles>;
 

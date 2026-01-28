@@ -1,9 +1,12 @@
 "use client";
 
-import { RowData } from "@tanstack/react-table";
-import { ReactNode } from "react";
+
+
 import { DataGridContext } from "./data-grid-context";
 import { useDataGrid } from "./use-data-grid";
+
+import type { RowData } from "@tanstack/react-table";
+import type { ReactNode } from "react";
 
 declare module "@tanstack/react-table" {
   interface ColumnMeta<TData extends RowData, TValue> {

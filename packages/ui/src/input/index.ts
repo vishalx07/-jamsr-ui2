@@ -1,4 +1,5 @@
 import { Input as InputRoot } from "./input";
+
 import type { InputVariants } from "./styles";
 
 export const Input = InputRoot;

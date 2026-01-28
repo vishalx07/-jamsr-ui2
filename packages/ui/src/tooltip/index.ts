@@ -1,4 +1,5 @@
 import { TooltipGroup } from "@jamsrui/react";
+
 import {
   Tooltip as TooltipRoot,
   TooltipArrow,
@@ -17,4 +18,4 @@ export namespace Tooltip {
   export interface Props extends TooltipRoot.Props {}
 }
 
-export { TooltipArrow, TooltipContent, TooltipTrigger, TooltipGroup };
+export { TooltipArrow, TooltipContent, TooltipGroup, TooltipTrigger };

@@ -1,9 +1,13 @@
 "use client";
 
-import { Avatar as AvatarUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { Avatar as AvatarUI } from "@jamsrui/react";
+
 import { avatarStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type AvatarVariants = VariantProps<typeof avatarStyles>;
 

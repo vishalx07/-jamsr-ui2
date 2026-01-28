@@ -1,6 +1,9 @@
 import { Kbd as KbdUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { cn } from "tailwind-variants";
+
 import { kbdStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
 
 type KbdVariants = VariantProps<typeof kbdStyles>;
 

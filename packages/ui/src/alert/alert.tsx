@@ -1,9 +1,13 @@
 "use client";
 
-import { Alert as AlertUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { Alert as AlertUI } from "@jamsrui/react";
+
 import { alertStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type AlertVariants = VariantProps<typeof alertStyles>;
 
@@ -27,8 +31,8 @@ export const Alert = (props: Alert.Props) => {
     <AlertContext value={value}>
       <AlertUI
         {...restProps}
-        status={status}
         className={styles.root({ className })}
+        status={status}
       />
     </AlertContext>
   );

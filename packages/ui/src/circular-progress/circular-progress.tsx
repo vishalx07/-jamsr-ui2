@@ -1,9 +1,13 @@
 "use client";
 
-import { CircularProgress as CircularProgressUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { CircularProgress as CircularProgressUI } from "@jamsrui/react";
+
 import { circularProgressStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type CircularProgressVariants = VariantProps<typeof circularProgressStyles>;
 

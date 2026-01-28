@@ -1,9 +1,12 @@
+import { tv  } from "tailwind-variants";
+
 import {
   colorVariants,
   dataFocusVisibleClasses,
   focusVisibleClasses,
 } from "../utils/variants";
-import { tv, type VariantProps } from "tailwind-variants";
+
+import type {VariantProps} from "tailwind-variants";
 
 export const tabsStyles = tv({
   slots: {

@@ -10,14 +10,14 @@ import {
 } from "@jamsrui/icons";
 import { cn } from "@jamsrui/utils";
 import { flexRender } from "@tanstack/react-table";
+
 import { IconButton } from "../icon-button";
 import { Menu } from "../menu";
-
 import { useDataGridContext } from "./data-grid-context";
 import { getPinningStyles } from "./utils";
+import { Table } from "../table";
 
 import type { Column, Header } from "@tanstack/react-table";
-import { Table } from "../table";
 
 export const DataGridHeader = () => {
   const { table } = useDataGridContext();
@@ -68,10 +68,10 @@ const DataGridColumnHeaderDropdown = ({
     <Menu>
       <Menu.Trigger>
         <IconButton
+          className="invisible group-hover/th:visible"
           label="More"
           size="sm"
           variant="light"
-          className="invisible group-hover/th:visible"
         >
           <EllipsisVerticalIcon className="size-4" />
         </IconButton>
@@ -82,6 +82,7 @@ const DataGridColumnHeaderDropdown = ({
             <Menu.RadioItem
               disabled={!column.getCanSort()}
               preventCloseOnClick={false}
+              textValue="Asc"
               value="asc"
               onClick={() => {
                 if (column.getIsSorted() === "asc") {
@@ -90,7 +91,6 @@ const DataGridColumnHeaderDropdown = ({
                   column.toggleSorting(false);
                 }
               }}
-              textValue="Asc"
             >
               <ArrowUpIcon />
               Asc
@@ -99,6 +99,7 @@ const DataGridColumnHeaderDropdown = ({
             <Menu.RadioItem
               disabled={!column.getCanSort()}
               preventCloseOnClick={false}
+              textValue="Desc"
               value="desc"
               onClick={() => {
                 if (column.getIsSorted() === "desc") {
@@ -107,7 +108,6 @@ const DataGridColumnHeaderDropdown = ({
                   column.toggleSorting(true);
                 }
               }}
-              textValue="Desc"
             >
               <ArrowDownIcon />
               Desc
@@ -129,11 +129,11 @@ const DataGridColumnHeaderDropdown = ({
           <Menu.RadioGroup value={column.getIsPinned() || ""}>
             <Menu.RadioItem
               preventCloseOnClick={false}
+              textValue="Pin To Left"
               value="left"
               onClick={() => {
                 column.pin(column.getIsPinned() === "left" ? false : "left");
               }}
-              textValue="Pin To Left"
             >
               <ArrowLeftToLineIcon />
               Pin To Left
@@ -141,11 +141,11 @@ const DataGridColumnHeaderDropdown = ({
             </Menu.RadioItem>
             <Menu.RadioItem
               preventCloseOnClick={false}
+              textValue="Pin To Right"
               value="right"
               onClick={() =>
                 column.pin(column.getIsPinned() === "right" ? false : "right")
               }
-              textValue="Pin To Right"
             >
               <ArrowRightToLineIcon />
               Pin To Right
@@ -165,8 +165,8 @@ const DataGridHeaderResizer = ({
 }) => {
   return (
     <span
-      data-slot="data-grid-header-resizer"
       aria-label="resize"
+      data-slot="data-grid-header-resizer"
       onDoubleClick={() => header.column.resetSize()}
       onMouseDown={header.getResizeHandler()}
       onTouchStart={header.getResizeHandler()}

@@ -1,6 +1,6 @@
 import {
-  InputGroupPrefix,
   InputGroup as InputGroupRoot,
+  InputGroupPrefix,
   InputGroupSuffix,
 } from "./input-group";
 

@@ -10,7 +10,6 @@ import {
 } from "@floating-ui/react";
 import { useControlledState } from "@jamsrui/hooks";
 
-
 import type {
   FloatingFocusManagerProps,
   FloatingOverlay,

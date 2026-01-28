@@ -1,10 +1,14 @@
 "use client";
 
-import { AlertDialog as AlertDialogUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { AlertDialog as AlertDialogUI } from "@jamsrui/react";
+
+
 import { alertDialogStyles } from "./styles";
 import { Button } from "../button";
+
+import type { VariantProps } from "tailwind-variants";
 
 type AlertDialogVariants = VariantProps<typeof alertDialogStyles>;
 

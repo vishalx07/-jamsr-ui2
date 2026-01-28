@@ -1,9 +1,13 @@
 "use client";
 
-import { LinearProgress as LinearProgressUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { LinearProgress as LinearProgressUI } from "@jamsrui/react";
+
 import { linearProgressStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type LinearProgressVariants = VariantProps<typeof linearProgressStyles>;
 

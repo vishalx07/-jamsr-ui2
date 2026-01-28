@@ -1,9 +1,13 @@
 "use client";
 
-import { Checkbox as CheckboxUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { Checkbox as CheckboxUI } from "@jamsrui/react";
+
 import { checkboxStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type CheckboxVariants = VariantProps<typeof checkboxStyles>;
 

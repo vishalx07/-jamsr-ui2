@@ -1,6 +1,9 @@
 import { Link as LinkUI } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
+
 import { linkStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type LinkVariantProps = VariantProps<typeof linkStyles>;
 

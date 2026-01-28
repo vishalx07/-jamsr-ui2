@@ -1,9 +1,10 @@
 "use client";
 
+import { cn } from "@jamsrui/utils";
+
 import { Table } from "../table";
 import { DataGridBody } from "./data-grid-body";
 import { DataGridHeader } from "./data-grid-header";
-import { cn } from "@jamsrui/utils";
 
 export const DataGridTable = (props: DataGridTable.Props) => {
   const {

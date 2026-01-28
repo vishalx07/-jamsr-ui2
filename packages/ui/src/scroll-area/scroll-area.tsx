@@ -1,8 +1,12 @@
 "use client";
 
-import { ScrollArea as ScrollAreaUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { scrollAreaStyles, ScrollAreaVariants } from "./styles";
+
+import { ScrollArea as ScrollAreaUI } from "@jamsrui/react";
+
+import { scrollAreaStyles } from "./styles";
+
+import type { ScrollAreaVariants } from "./styles";
 
 const ScrollAreaContext = createContext<{
   styles: ReturnType<typeof scrollAreaStyles>;
@@ -48,8 +52,8 @@ export const ScrollAreaScrollbar = (props: ScrollAreaUI.Scrollbar) => {
   return (
     <ScrollAreaUI.Scrollbar
       {...rest}
-      orientation={orientation}
       className={styles.scrollbar({ className })}
+      orientation={orientation}
     />
   );
 };

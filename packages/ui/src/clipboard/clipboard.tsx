@@ -1,5 +1,6 @@
-import { clipboardStyles } from "./styles";
 import { Clipboard as ClipboardUI } from "@jamsrui/react";
+
+import { clipboardStyles } from "./styles";
 
 const styles = clipboardStyles();
 

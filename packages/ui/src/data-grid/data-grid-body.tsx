@@ -4,15 +4,15 @@ import { flexRender } from "@tanstack/react-table";
 import { useDataGridContext } from "./data-grid-context";
 import { DataGridEmpty } from "./data-grid-empty";
 import { getPinningStyles } from "./utils";
+import { Table } from "../table";
 
 import type { Row } from "@tanstack/react-table";
-import { Table } from "../table";
 
 export const DataGridBody = () => {
   const { table, isEmpty } = useDataGridContext();
   return (
     <Table.Body>
-      {isEmpty && <DataGridEmpty />}
+      {isEmpty ? <DataGridEmpty /> : null}
       {table.getRowModel().rows.map((row) => {
         return (
           <Table.Row key={row.id}>

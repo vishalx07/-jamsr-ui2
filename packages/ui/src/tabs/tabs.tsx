@@ -1,9 +1,13 @@
 "use client";
 
-import { Tabs as TabsUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import type { TabsVariants } from "./styles";
+
+import { Tabs as TabsUI } from "@jamsrui/react";
+
 import { tabsStyles } from "./styles";
+
+import type { TabsVariants } from "./styles";
+
 
 const TabsContext = createContext<{
   styles: ReturnType<typeof tabsStyles>;

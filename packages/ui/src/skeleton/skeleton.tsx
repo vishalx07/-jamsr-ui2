@@ -1,6 +1,9 @@
 import { Skeleton as SkeletonUI } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
+
 import { skeletonStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type SkeletonVariants = VariantProps<typeof skeletonStyles>;
 
@@ -24,8 +27,8 @@ export const Skeleton = (props: Skeleton.Props) => {
   return (
     <SkeletonUI
       {...restProps}
-      isLoading={isLoading}
       className={styles.root({ className })}
+      isLoading={isLoading}
     >
       <SkeletonContent>{children}</SkeletonContent>
     </SkeletonUI>

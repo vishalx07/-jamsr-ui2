@@ -1,9 +1,13 @@
 "use client";
 
-import { ContextMenu as ContextMenuUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { ContextMenu as ContextMenuUI } from "@jamsrui/react";
+
 import { contextMenuStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type ContextMenuVariants = VariantProps<typeof contextMenuStyles>;
 

@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import {
   getCoreRowModel,
   getExpandedRowModel,
@@ -8,7 +10,6 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { useState } from "react";
 
 import type {
   ColumnFiltersState,

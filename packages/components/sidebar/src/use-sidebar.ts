@@ -1,8 +1,6 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-
-
 import { useSidebarState } from "./sidebar-state-provider";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";

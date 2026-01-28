@@ -1,9 +1,13 @@
 "use client";
 
-import { Switch as SwitchUI } from "@jamsrui/react";
 import { createContext, use } from "react";
-import type { SwitchVariants } from "./styles";
+
+import { Switch as SwitchUI } from "@jamsrui/react";
+
 import { switchStyles } from "./styles";
+
+import type { SwitchVariants } from "./styles";
+
 
 const SwitchContext = createContext<{
   styles: ReturnType<typeof switchStyles>;

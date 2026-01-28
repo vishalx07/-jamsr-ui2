@@ -1,9 +1,12 @@
 "use client";
 
+import { createContext, use } from "react";
+
 import { Select as SelectUI } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
+
 import { selectStyles } from "./styles";
-import { createContext, useContext } from "react";
+
+import type { VariantProps } from "tailwind-variants";
 
 type SelectVariants = VariantProps<typeof selectStyles>;
 
@@ -12,7 +15,10 @@ const SelectContext = createContext<{
 } | null>(null);
 
 const useSelectContext = () => {
-  return useContext(SelectContext) || { styles: selectStyles() };
+  const ctx = use(SelectContext);
+  if (!ctx)
+    throw new Error("useSelectContext must be used within SelectContext");
+  return ctx;
 };
 
 export const Select = (props: Select.Props) => {

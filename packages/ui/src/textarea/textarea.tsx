@@ -4,8 +4,10 @@ import {
   Textarea as TextareaUI,
   useInputGroupContextOpt,
 } from "@jamsrui/react";
+
 import { inputGroupInputStyles, inputStyles } from "../input/styles";
-import { Input } from "../input";
+
+import type { Input } from "../input";
 
 export const Textarea = (props: Textarea.Props) => {
   const { variant, size, radius, isInvalid, className, ...restProps } = props;

@@ -1,4 +1,5 @@
 import { TagsInput as TagsInputUI } from "@jamsrui/react";
+
 import { tagsInputStyles } from "./styles";
 
 export const TagsInput = (props: TagsInput.Props) => {

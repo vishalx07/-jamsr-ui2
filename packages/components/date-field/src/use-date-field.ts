@@ -1,8 +1,6 @@
 "use client";
 import { useCallback, useRef, useState } from "react";
 
-
-
 import type { PropGetter } from "@jamsrui/utils";
 
 import type { DateSegment } from "./date-segment";

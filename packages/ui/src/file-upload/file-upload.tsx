@@ -1,4 +1,5 @@
 import { FileUpload as FileUploadUI, formatBytes } from "@jamsrui/react";
+
 import { fileUploadStyles } from "./styles";
 
 export const FileUpload = (props: FileUpload.Props) => {

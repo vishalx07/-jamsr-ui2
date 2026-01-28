@@ -1,6 +1,9 @@
 import { Rating as RatingUI } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
+
 import { ratingStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type RatingVariants = VariantProps<typeof ratingStyles>;
 

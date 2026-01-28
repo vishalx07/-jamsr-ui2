@@ -1,9 +1,13 @@
 "use client";
 
-import { Card as CardUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { Card as CardUI } from "@jamsrui/react";
+
 import { cardStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type CardVariants = VariantProps<typeof cardStyles>;
 

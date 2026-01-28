@@ -1,8 +1,6 @@
 "use client";
 import { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 
-
-
 import type { PropGetter } from "@jamsrui/utils";
 
 import type { AvatarFallback } from "./avatar-fallback";

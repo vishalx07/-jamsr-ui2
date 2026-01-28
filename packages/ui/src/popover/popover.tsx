@@ -1,9 +1,13 @@
 "use client";
 
-import { Popover as PopoverUI } from "@jamsrui/react";
 import { createContext, use } from "react";
-import type { PopoverVariants } from "./styles";
+
+import { Popover as PopoverUI } from "@jamsrui/react";
+
 import { popoverStyles } from "./styles";
+
+import type { PopoverVariants } from "./styles";
+
 
 const PopoverStylesContext = createContext<{
   styles: ReturnType<typeof popoverStyles>;

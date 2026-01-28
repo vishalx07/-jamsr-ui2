@@ -1,7 +1,10 @@
 import { Button as ButtonUI } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
+
+
 import { buttonStyles } from "./styles";
 import { CircularProgress } from "../circular-progress";
+
+import type { VariantProps } from "tailwind-variants";
 
 type ButtonVariantProps = VariantProps<typeof buttonStyles>;
 
@@ -21,7 +24,7 @@ export const Button = (props: Button.Props) => {
       {...restProps}
       className={buttonStyles({ color, size, variant, className, radius })}
     >
-      {isLoading && <CircularProgress />}
+      {isLoading ? <CircularProgress /> : null}
       {children}
     </ButtonUI>
   );

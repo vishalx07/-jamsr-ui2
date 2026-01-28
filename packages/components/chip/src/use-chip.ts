@@ -1,8 +1,6 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-
-
 import type { PropGetter } from "@jamsrui/utils";
 
 import type { Chip } from "./chip";

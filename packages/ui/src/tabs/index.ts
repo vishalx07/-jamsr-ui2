@@ -1,4 +1,4 @@
-import { Tabs as TabsRoot, Tab, TabIndicator, TabList, TabPanel } from "./tabs";
+import { Tab, TabIndicator, TabList, TabPanel, Tabs as TabsRoot } from "./tabs";
 
 export const Tabs = Object.assign(TabsRoot, {
   List: TabList,

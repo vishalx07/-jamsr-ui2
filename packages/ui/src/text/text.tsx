@@ -1,5 +1,7 @@
 import { Text as TextUI } from "@jamsrui/react";
+
 import { textStyles } from "./styles";
+
 import type { TextVariants } from "./styles";
 
 export const Text = (props: Text.Props) => {

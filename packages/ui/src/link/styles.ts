@@ -1,4 +1,5 @@
 import { tv } from "tailwind-variants";
+
 import { textStyles } from "../text/styles";
 
 export const linkStyles = tv({

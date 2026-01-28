@@ -1,16 +1,23 @@
 "use client";
 
+import { createContext, use, useMemo } from "react";
+
 import { Tooltip as TooltipUI } from "@jamsrui/react";
-import { createContext, useContext, useMemo } from "react";
-import type { TooltipVariants } from "./styles";
+
 import { tooltipStyles } from "./styles";
+
+import type { TooltipVariants } from "./styles";
 
 const TooltipStyleContext = createContext<{
   styles: ReturnType<typeof tooltipStyles>;
 } | null>(null);
 
 const useTooltipStyleContext = () => {
-  return useContext(TooltipStyleContext) || { styles: tooltipStyles() };
+  const ctx = use(TooltipStyleContext);
+  if (!ctx) {
+    throw new Error("useTooltipStyleContext must be used within a Tooltip");
+  }
+  return ctx;
 };
 
 export const Tooltip = (props: Tooltip.Props) => {

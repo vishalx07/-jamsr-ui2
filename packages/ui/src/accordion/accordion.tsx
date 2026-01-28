@@ -1,9 +1,12 @@
 "use client";
 
-import { Accordion as AccordionUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { Accordion as AccordionUI } from "@jamsrui/react";
+
 import { accordionStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
 
 type AccordionVariants = VariantProps<typeof accordionStyles>;
 

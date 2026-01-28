@@ -1,4 +1,4 @@
-import { ClipboardIcon, Clipboard as ClipboardRoot } from "./clipboard";
+import { Clipboard as ClipboardRoot, ClipboardIcon } from "./clipboard";
 
 export const Clipboard = Object.assign(ClipboardRoot, {
   Icon: ClipboardIcon,

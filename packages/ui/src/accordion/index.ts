@@ -1,8 +1,8 @@
 import {
+  Accordion as AccordionRoot,
   AccordionContent,
   AccordionIndicator,
   AccordionItem,
-  Accordion as AccordionRoot,
   AccordionTrigger,
 } from "./accordion";
 

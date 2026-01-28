@@ -1,9 +1,13 @@
 "use client";
 
-import { Slider as SliderUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { Slider as SliderUI } from "@jamsrui/react";
+
 import { sliderStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type SliderVariants = VariantProps<typeof sliderStyles>;
 
@@ -27,8 +31,8 @@ export const Slider = (props: Slider.Props) => {
     <SliderContext value={value}>
       <SliderUI
         {...rest}
-        orientation={orientation}
         className={styles.root({ className })}
+        orientation={orientation}
       />
     </SliderContext>
   );

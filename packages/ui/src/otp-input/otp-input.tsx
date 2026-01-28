@@ -1,14 +1,18 @@
 "use client";
 
+import { createContext, use, useMemo } from "react";
+
 import {
   OtpInput as OtpInputUI,
   REGEXP_ONLY_CHARS,
   REGEXP_ONLY_DIGITS,
   REGEXP_ONLY_DIGITS_AND_CHARS,
 } from "@jamsrui/react";
-import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
 import { otpInputStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type OtpInputVariants = VariantProps<typeof otpInputStyles>;
 

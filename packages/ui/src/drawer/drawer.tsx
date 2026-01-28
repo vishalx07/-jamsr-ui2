@@ -1,11 +1,15 @@
 "use client";
 
+import { createContext, use, useMemo } from "react";
+
 import { CloseIcon } from "@jamsrui/icons";
 import { Drawer as DrawerUI } from "@jamsrui/react";
-import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+
 import { IconButton } from "../icon-button";
 import { drawerStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
 
 type DrawerVariants = VariantProps<typeof drawerStyles>;
 

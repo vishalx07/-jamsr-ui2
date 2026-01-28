@@ -1,9 +1,9 @@
 "use client";
 import { Settings2Icon } from "@jamsrui/icons";
+import { AnimatedTickIcon } from "@jamsrui/icons/animated";
+
 import { Button } from "../button";
 import { Menu } from "../menu";
-
-import { AnimatedTickIcon } from "@jamsrui/icons/animated";
 import { useDataGridContext } from "./data-grid-context";
 
 export const DataGridColumnVisibility = () => {
@@ -26,10 +26,10 @@ export const DataGridColumnVisibility = () => {
               <Menu.Item
                 key={column.id}
                 preventCloseOnClick
+                className="capitalize"
                 disabled={!column.getCanHide()}
                 onClick={column.getToggleVisibilityHandler()}
                 textValue={headerTitle}
-                className="capitalize"
               >
                 <AnimatedTickIcon
                   className="text-primary"

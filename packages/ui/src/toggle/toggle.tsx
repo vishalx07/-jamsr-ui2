@@ -1,6 +1,9 @@
 import { Toggle as ToggleUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
+import { cn } from "tailwind-variants";
+
 import { toggleStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
 
 type ToggleVariants = VariantProps<typeof toggleStyles>;
 

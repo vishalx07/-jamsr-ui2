@@ -1,4 +1,3 @@
-import { Sidebar as SidebarUI } from "@jamsrui/react";
 import {
   Sidebar as SidebarRoot,
   SidebarBackdrop,
@@ -19,6 +18,9 @@ import {
   useSidebarContext,
   useSidebarState,
 } from "./sidebar";
+
+import type { Sidebar as SidebarUI } from "@jamsrui/react";
+
 
 export const Sidebar = Object.assign(SidebarRoot, {
   Backdrop: SidebarBackdrop,

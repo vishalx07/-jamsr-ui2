@@ -1,19 +1,23 @@
 "use client";
 import { useState } from "react";
 
-import { IconButton } from "../icon-button";
+import { useRenderElement } from "@jamsrui/hooks";
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@jamsrui/icons";
+import { cn } from "@jamsrui/utils";
+
+import { IconButton } from "../icon-button";
 import { Label } from "../label";
 import { Select } from "../select";
-
-import { useRenderElement } from "@jamsrui/hooks";
-import { cn, UIProps } from "@jamsrui/utils";
 import { useDataGridContext } from "./data-grid-context";
+
+import type { UIProps } from "@jamsrui/utils";
+
+
 
 export const DataGridPaginationSelector = (
   props: DataGridPaginationSelector.Props,
@@ -32,11 +36,11 @@ export const DataGridPaginationSelector = (
   return (
     <Select
       className={cn("flex flex-row items-center gap-2", className)}
+      data-slot="pagination-selector"
       onValueChange={onValueChange}
       returnFocus={false}
       size="sm"
       value={value}
-      data-slot="pagination-selector"
       {...restProps}
     >
       <Label>Rows Per Page:</Label>
@@ -87,8 +91,8 @@ export const DataGridPaginationControls = (
 
   return (
     <div
-      data-slot="pagination-controls"
       className={cn("flex gap-1 md:gap-4", className)}
+      data-slot="pagination-controls"
       {...restProps}
     >
       <div className="flex items-center justify-center text-sm font-medium">

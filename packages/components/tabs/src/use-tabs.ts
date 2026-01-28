@@ -3,7 +3,6 @@ import { useCallback, useMemo } from "react";
 
 import { useControlledState } from "@jamsrui/hooks";
 
-
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Tab } from "./tab";

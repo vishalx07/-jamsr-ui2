@@ -1,9 +1,13 @@
 "use client";
 
-import { Chip as ChipUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { Chip as ChipUI } from "@jamsrui/react";
+
 import { chipStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type ChipVariants = VariantProps<typeof chipStyles>;
 

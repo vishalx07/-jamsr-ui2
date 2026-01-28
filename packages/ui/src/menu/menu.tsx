@@ -1,9 +1,13 @@
 "use client";
 
-import { Menu as MenuUI } from "@jamsrui/react";
-import { cn, VariantProps } from "tailwind-variants";
-import { menuStyles } from "./styles";
 import { createContext, use } from "react";
+
+import { Menu as MenuUI } from "@jamsrui/react";
+import { cn } from "tailwind-variants";
+
+import { menuStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
 
 type MenuVariants = VariantProps<typeof menuStyles>;
 

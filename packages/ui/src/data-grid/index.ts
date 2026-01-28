@@ -1,3 +1,4 @@
+import { DataGrid as DataGridRoot } from "./data-grid";
 import { DataGridBody } from "./data-grid-body";
 import { DataGridColumnVisibility } from "./data-grid-column-visibility";
 import { DataGridHeader, DataGridHeaderColumn } from "./data-grid-header";
@@ -11,7 +12,6 @@ import {
 } from "./data-grid-row-select";
 import { DataGridTable } from "./data-grid-table";
 
-import { DataGrid as DataGridRoot } from "./data-grid";
 
 export { useDataGridTable } from "./use-react-table";
 

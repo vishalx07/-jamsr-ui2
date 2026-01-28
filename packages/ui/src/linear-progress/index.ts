@@ -1,6 +1,6 @@
 import {
-  LinearProgressBar,
   LinearProgress as LinearProgressRoot,
+  LinearProgressBar,
 } from "./linear-progress";
 
 export const LinearProgress = Object.assign(LinearProgressRoot, {

@@ -1,5 +1,6 @@
 import { Description as DescriptionUI } from "@jamsrui/react";
 import { cn } from "tailwind-variants";
+
 import { descriptionStyles } from "./styles";
 
 export const Description = (props: Description.Props) => {

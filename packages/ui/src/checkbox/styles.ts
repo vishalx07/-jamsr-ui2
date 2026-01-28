@@ -1,4 +1,5 @@
 import { tv } from "tailwind-variants";
+
 import { groupDataFocusVisibleClasses } from "../utils/variants";
 
 export const checkboxStyles = tv({

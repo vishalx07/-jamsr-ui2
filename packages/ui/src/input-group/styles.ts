@@ -1,4 +1,5 @@
 import { tv } from "tailwind-variants";
+
 import { dataFocusVisibleClasses } from "../utils/variants";
 
 export const inputGroupStyles = tv({

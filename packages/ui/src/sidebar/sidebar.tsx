@@ -3,6 +3,7 @@ import {
   useSidebarContext,
   useSidebarState,
 } from "@jamsrui/react";
+
 import { sidebarStyles } from "./styles";
 
 const styles = sidebarStyles();

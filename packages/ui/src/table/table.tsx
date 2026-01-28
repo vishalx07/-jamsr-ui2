@@ -1,9 +1,13 @@
 "use client";
 
-import { Table as TableUI } from "@jamsrui/react";
 import { createContext, use } from "react";
-import type { TableVariants } from "./styles";
+
+import { Table as TableUI } from "@jamsrui/react";
+
 import { tableStyles } from "./styles";
+
+import type { TableVariants } from "./styles";
+
 
 const TableContext = createContext<{
   styles: ReturnType<typeof tableStyles>;

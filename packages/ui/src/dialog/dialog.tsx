@@ -1,11 +1,16 @@
 "use client";
 
-import { Dialog as DialogUI } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
-import { dialogStyles } from "./styles";
 import { createContext, use, useMemo } from "react";
-import { IconButton } from "../icon-button";
+
 import { CloseIcon } from "@jamsrui/icons";
+import { Dialog as DialogUI } from "@jamsrui/react";
+
+
+import { dialogStyles } from "./styles";
+import { IconButton } from "../icon-button";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type DialogVariants = VariantProps<typeof dialogStyles>;
 
@@ -105,8 +110,8 @@ export const DialogCloseButton = (props: Partial<IconButton.Props>) => {
     <DialogUI.CloseButton>
       <IconButton
         label="Close Dialog"
-        size="sm"
         radius="full"
+        size="sm"
         {...props}
         className={styles.closeButton({ className: props.className })}
       >

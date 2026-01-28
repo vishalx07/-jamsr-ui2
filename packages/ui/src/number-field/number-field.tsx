@@ -1,7 +1,9 @@
 "use client";
 
-import { NumberField as NumberFieldUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
+
+import { NumberField as NumberFieldUI } from "@jamsrui/react";
+
 import { numberFieldStyles } from "./styles";
 
 const NumberFieldContext = createContext<{

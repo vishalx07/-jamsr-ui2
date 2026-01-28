@@ -1,9 +1,13 @@
 "use client";
 
-import { InputGroup as InputGroupUI } from "@jamsrui/react";
 import { createContext, use, useMemo } from "react";
-import { VariantProps } from "tailwind-variants";
+
+import { InputGroup as InputGroupUI } from "@jamsrui/react";
+
 import { inputGroupStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type InputGroupVariants = VariantProps<typeof inputGroupStyles>;
 

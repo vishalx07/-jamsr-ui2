@@ -1,6 +1,9 @@
-import { Toast as ToastUI, Toaster, useToast, toast } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
+import { toast, Toast as ToastUI, Toaster, useToast } from "@jamsrui/react";
+
 import { toastStyles } from "./styles";
+
+import type { VariantProps } from "tailwind-variants";
+
 
 type ToastVariants = VariantProps<typeof toastStyles>;
 
@@ -10,7 +13,7 @@ export const Toast = (props: Toast.Props) => {
   return <ToastUI {...rest} className={styles.root({ className })} />;
 };
 
-export { Toaster, useToast, toast };
+export { toast, Toaster, useToast };
 
 export namespace Toast {
   export interface Props extends ToastUI.Props, ToastVariants {}

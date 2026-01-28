@@ -1,7 +1,7 @@
 import {
+  CircularProgress as CircularProgressRoot,
   CircularProgressLabel,
   CircularProgressProgress,
-  CircularProgress as CircularProgressRoot,
   CircularProgressTrack,
 } from "./circular-progress";
 
@@ -13,8 +13,8 @@ export const CircularProgress = Object.assign(CircularProgressRoot, {
 
 export {
   CircularProgressLabel,
-  CircularProgressTrack,
   CircularProgressProgress,
+  CircularProgressTrack,
 };
 
 export namespace CircularProgress {

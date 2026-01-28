@@ -1,4 +1,5 @@
 import { Pagination as PaginationUI } from "@jamsrui/react";
+
 import { paginationStyles } from "./styles";
 
 const styles = paginationStyles();

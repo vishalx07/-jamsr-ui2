@@ -1,4 +1,5 @@
 import { Header as HeaderUI } from "@jamsrui/react";
+
 import { headerStyles } from "./styles";
 
 export const Header = (props: Header.Props) => {

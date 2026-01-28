@@ -1,5 +1,8 @@
-import { tv, type VariantProps } from "tailwind-variants";
+import { tv  } from "tailwind-variants";
+
 import { dataFocusVisibleClasses } from "../utils/variants";
+
+import type {VariantProps} from "tailwind-variants";
 
 export const numberFieldStyles = tv({
   slots: {

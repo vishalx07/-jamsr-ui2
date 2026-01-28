@@ -1,6 +1,5 @@
 "use client";
 import { Table } from "../table";
-
 import { useDataGridContext } from "./data-grid-context";
 
 export const DataGridEmpty = () => {

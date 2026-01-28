@@ -1,8 +1,6 @@
 "use client";
 import { useCallback, useMemo } from "react";
 
-
-
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
 import type { Alert } from "./alert";

@@ -1,7 +1,10 @@
 import { IconButton as IconButtonUI } from "@jamsrui/react";
-import { VariantProps } from "tailwind-variants";
+
+
 import { iconButtonStyles } from "./styles";
 import { CircularProgress } from "../circular-progress";
+
+import type { VariantProps } from "tailwind-variants";
 
 type IconButtonVariantProps = VariantProps<typeof iconButtonStyles>;
 
@@ -21,7 +24,7 @@ export const IconButton = (props: IconButton.Props) => {
       {...restProps}
       className={iconButtonStyles({ color, size, variant, radius, className })}
     >
-      {isLoading && <CircularProgress />}
+      {isLoading ? <CircularProgress /> : null}
       {!isLoading && children}
     </IconButtonUI>
   );

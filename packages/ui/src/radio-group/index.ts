@@ -1,7 +1,7 @@
 import {
   Radio as RadioRoot,
-  RadioControl,
   RadioContent,
+  RadioControl,
   RadioGroup as RadioGroupRoot,
   RadioIndicator,
 } from "./radio-group";
@@ -22,4 +22,4 @@ export namespace RadioGroup {
   export interface Props extends RadioGroupRoot.Props {}
 }
 
-export { RadioControl, RadioContent, RadioIndicator };
+export { RadioContent, RadioControl, RadioIndicator };
