@@ -2,9 +2,8 @@
 
 import { ChevronRightIcon, EmailIcon } from "@jamsrui/icons";
 import { Collapsible } from "jamsrui/collapsible";
-import { Sidebar } from "jamsrui/sidebar";
-import { CollapsibleContent, CollapsibleTrigger } from "jamsrui/collapsible";
 import {
+  Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
@@ -148,7 +147,11 @@ const SidebarNestedMenuItem = (props: NavItem & { isNested?: boolean }) => {
         )}
         <SidebarMenuItemButton
           {...(!isDisabled && {
-            render: hasChild ? <CollapsibleTrigger /> : <Link href="/" />,
+            render: hasChild ? (
+              <Collapsible.Trigger children={null} />
+            ) : (
+              <Link href="/" />
+            ),
           })}
           disabled={isDisabled}
           className="[&[data-expanded=true]>svg.arrow]:rotate-90"
@@ -160,13 +163,13 @@ const SidebarNestedMenuItem = (props: NavItem & { isNested?: boolean }) => {
           )}
         </SidebarMenuItemButton>
         {hasChild && (
-          <CollapsibleContent>
+          <Collapsible.Content>
             <SidebarMenu className="pl-2 pt-1">
               {items.map((item, index) => (
                 <SidebarNestedMenuItem isNested key={index} {...item} />
               ))}
             </SidebarMenu>
-          </CollapsibleContent>
+          </Collapsible.Content>
         )}
       </SidebarMenuItem>
     </Collapsible>

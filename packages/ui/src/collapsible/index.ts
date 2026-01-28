@@ -1,5 +1,1 @@
-export {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@jamsrui/react";
+export { Collapsible } from "@jamsrui/react";
