@@ -8,6 +8,7 @@ export const selectStyles = tv({
     value: [
       "text-sm",
       "font-normal overflow-hidden text-ellipsis grow text-start",
+      "data-placeholder:text-foreground-secondary",
     ],
     trigger: [
       "relative flex w-full flex-row items-center gap-3 border border-border px-3 py-2 outline-none",

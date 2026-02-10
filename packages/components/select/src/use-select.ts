@@ -73,7 +73,7 @@ export const useSelect = (props: useSelect.Props) => {
   // Ref for dynamically registered labels (for items that appear after initial render)
   const selectLabelsRef = useRef<Map<string | number, string>>(new Map());
   // Counter to trigger re-render when dynamic items register
-  const [, setLabelUpdateTrigger] = useState(0);
+  const [labelUpdateTrigger, setLabelUpdateTrigger] = useState(0);
 
   // Synchronous children parsing: extract labels during render (no effects needed)
   // This is the only way to have labels available on the very first render
@@ -223,8 +223,9 @@ export const useSelect = (props: useSelect.Props) => {
     (props) => ({
       ...mergeProps(props),
       "data-slot": "value",
+      "data-placeholder": dataAttr(!hasValue),
     }),
-    [],
+    [hasValue],
   );
 
   const getTriggerProps: PropGetter<SelectTrigger.Props> = useCallback(
@@ -334,7 +335,8 @@ export const useSelect = (props: useSelect.Props) => {
         return selectLabelsRef.current.get(v);
       })
       .filter((label): label is string => label != null);
-  }, [value, initialLabels]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, initialLabels, labelUpdateTrigger]);
 
   const getRenderValue = useMemo(() => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

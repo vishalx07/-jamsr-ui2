@@ -8,13 +8,16 @@ import { useSelectContext } from "./select-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SelectPopover = (props: SelectPopover.Props) => {
+  const { children } = props;
   const { getPopoverProps, isOpen, getFocusManagerProps } = useSelectContext();
   const renderElement = useRenderElement("div", {
     props: [getPopoverProps(props)],
   });
 
   if (!isOpen) {
-    return null;
+    // Render children hidden so SelectItem components can mount
+    // and register their labels for the trigger display
+    return <div hidden>{children}</div>;
   }
 
   return (

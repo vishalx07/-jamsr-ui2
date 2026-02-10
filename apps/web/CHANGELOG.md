@@ -1,5 +1,13 @@
 # web
 
+## 0.2.1
+
+### Patch Changes
+
+- fix: select
+- Updated dependencies
+  - jamsrui@1.1.1
+
 ## 0.2.0
 
 ### Minor Changes

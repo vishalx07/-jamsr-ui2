@@ -3,11 +3,7 @@ import { Select } from "jamsrui/select";
 
 export const SelectUsage = () => {
   return (
-    <Select
-      defaultValue="apple"
-      className="max-w-xs w-full"
-      placeholder="Select one fruit"
-    >
+    <Select className="max-w-xs w-full" placeholder="Select one fruit">
       <Label>Fruit</Label>
       <Select.Trigger />
       <Select.Popover>
