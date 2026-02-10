@@ -1,14 +1,14 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 import { dataFocusVisibleClasses } from "../utils/variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const numberFieldStyles = tv({
   slots: {
     root: ["group flex flex-col gap-1 w-full"],
-    increment: "h-full w-12 border-l",
-    decrement: "h-full w-12 border-r",
+    increment: "h-full w-12 border-l border-l-border grid place-content-center",
+    decrement: "h-full w-12 border-r border-r-border grid place-content-center",
     input: "outline-0 px-3 py-1 grow text-sm",
     group: [
       "border border-border flex items-center rounded-md h-9 w-full",

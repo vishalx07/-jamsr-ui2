@@ -1,5 +1,13 @@
 # web
 
+## 0.2.2
+
+### Patch Changes
+
+- fix:number-field
+- Updated dependencies
+  - jamsrui@1.1.2
+
 ## 0.2.1
 
 ### Patch Changes

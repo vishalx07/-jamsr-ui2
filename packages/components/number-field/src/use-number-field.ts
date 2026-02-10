@@ -38,7 +38,7 @@ export const useNumberField = (props: useNumberField.Props) => {
     defaultProp: defaultValue,
     prop: valueProp,
   });
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(inputValue ? String(inputValue) : "");
 
   const { isFocusVisible, ref: focusVisibleRef } =
     useFocusVisible<HTMLInputElement>({

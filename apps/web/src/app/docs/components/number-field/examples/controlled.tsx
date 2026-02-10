@@ -6,7 +6,7 @@ import { NumberField } from "jamsrui/number-field";
 import { useState } from "react";
 
 export const NumberFieldControlled = () => {
-  const [value, setValue] = useState<number>();
+  const [value, setValue] = useState<number>(0);
   return (
     <NumberField value={value} onValueChange={setValue}>
       <Label>Width</Label>
