@@ -8,7 +8,6 @@ import { radioGroupStyles, radioStyles } from "./styles";
 
 import type { RadioGroupVariants, RadioVariants } from "./styles";
 
-
 const RadioStyleContext = createContext<{
   styles: ReturnType<typeof radioStyles>;
 } | null>(null);
@@ -53,6 +52,7 @@ export const Radio = (props: Radio.Props) => {
     color = group.color,
     size = group.size,
     className,
+    children = <RadioIndicator />,
     ...restProps
   } = props;
   const styles = radioStyles({
@@ -68,7 +68,10 @@ export const Radio = (props: Radio.Props) => {
   );
   return (
     <RadioStyleContext.Provider value={value}>
-      <RadioUI {...restProps} className={styles.root({ className })} />
+      <RadioUI {...restProps} className={styles.root({ className })}>
+        <RadioUI.Input className={styles.input({})} />
+        {children}
+      </RadioUI>
     </RadioStyleContext.Provider>
   );
 };
@@ -77,36 +80,12 @@ export namespace Radio {
   export interface Props extends RadioUI.Props, RadioVariants {}
 }
 
-export const RadioControl = (props: RadioUI.Control) => {
-  const { styles } = useRadioStyleContext();
-  const { children = <RadioIndicator />, className, ...restProps } = props;
-  return (
-    <RadioUI.Control
-      {...restProps}
-      className={styles.control({ className: props.className })}
-    >
-      <RadioUI.Input className={styles.input()} />
-      {children}
-    </RadioUI.Control>
-  );
-};
-
 export const RadioIndicator = (props: RadioUI.Indicator) => {
   const { styles } = useRadioStyleContext();
   return (
     <RadioUI.Indicator
       {...props}
       className={styles.indicator({ className: props.className })}
-    />
-  );
-};
-
-export const RadioContent = (props: RadioUI.Content) => {
-  const { styles } = useRadioStyleContext();
-  return (
-    <RadioUI.Content
-      {...props}
-      className={styles.content({ className: props.className })}
     />
   );
 };

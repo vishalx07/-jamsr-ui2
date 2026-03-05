@@ -4,6 +4,7 @@ import { Label } from "jamsrui/label";
 import { Radio, RadioGroup } from "jamsrui/radio-group";
 import { Tabs } from "jamsrui/tabs";
 import { useState } from "react";
+import { Field } from "jamsrui/textfield";
 
 type Color = NonNullable<Radio.Props["color"]>;
 
@@ -32,36 +33,26 @@ export const RadioColors = () => {
 
       <RadioGroup color={color}>
         <Label>Select your favorite city</Label>
-        <Radio value="buenos-aires">
-          <Radio.Control />
-          <Radio.Content>
-            <Label>Buenos Aires</Label>
-          </Radio.Content>
-        </Radio>
-        <Radio value="sydney">
-          <Radio.Control />
-          <Radio.Content>
-            <Label>Sydney</Label>
-          </Radio.Content>
-        </Radio>
-        <Radio value="san-francisco">
-          <Radio.Control />
-          <Radio.Content>
-            <Label>San Francisco</Label>
-          </Radio.Content>
-        </Radio>
-        <Radio value="london">
-          <Radio.Control />
-          <Radio.Content>
-            <Label>London</Label>
-          </Radio.Content>
-        </Radio>
-        <Radio value="tokyo">
-          <Radio.Control />
-          <Radio.Content>
-            <Label>Tokyo</Label>
-          </Radio.Content>
-        </Radio>
+        <Field orientation="horizontal">
+          <Radio value="buenos-aires" />
+          <Label>Buenos Aires</Label>
+        </Field>
+        <Field orientation="horizontal">
+          <Radio value="sydney" />
+          <Label>Sydney</Label>
+        </Field>
+        <Field orientation="horizontal">
+          <Radio value="san-francisco" />
+          <Label>San Francisco</Label>
+        </Field>
+        <Field orientation="horizontal">
+          <Radio value="london" />
+          <Label>London</Label>
+        </Field>
+        <Field orientation="horizontal">
+          <Radio value="tokyo" />
+          <Label>Tokyo</Label>
+        </Field>
       </RadioGroup>
     </>
   );

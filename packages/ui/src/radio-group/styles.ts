@@ -1,16 +1,12 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 import { groupDataFocusVisibleClasses } from "../utils/variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const radioStyles = tv({
   slots: {
     root: [
-      "group relative inline-flex gap-2 cursor-default items-center justify-start tap-highlight-transparent",
-      "data-disabled:status-disabled",
-    ],
-    control: [
       "relative",
       "inline-flex",
       "items-center",
@@ -22,11 +18,11 @@ export const radioStyles = tv({
       "box-border",
       "border-default",
       "rounded-full",
-      "group-data-hovered:border-default-hover",
-      "group-data-pressed:scale-95",
-      "group-data-selected:border-transparent",
+      "data-hovered:border-default-hover",
+      "data-pressed:scale-95",
+      "data-selected:border-transparent",
       ...groupDataFocusVisibleClasses,
-      "group-data-invalid:border-danger",
+      "data-invalid:border-danger",
     ],
     indicator: "absolute rounded-full bg-white",
     input: "inset-0 absolute opacity-[0.0001]",
@@ -37,41 +33,41 @@ export const radioStyles = tv({
   variants: {
     color: {
       default: {
-        control: "group-data-selected:bg-default",
+        root: "data-selected:bg-default",
       },
       primary: {
-        control: "group-data-selected:bg-primary",
+        root: "data-selected:bg-primary",
       },
       secondary: {
-        control: "group-data-selected:bg-secondary",
+        root: "data-selected:bg-secondary",
       },
       success: {
-        control: "group-data-selected:bg-success",
+        root: "data-selected:bg-success",
       },
       warning: {
-        control: "group-data-selected:bg-warning",
+        root: "data-selected:bg-warning",
       },
       danger: {
-        control: "group-data-selected:bg-danger",
+        root: "data-selected:bg-danger",
       },
     },
     size: {
       sm: {
-        control: "size-4",
+        root: "size-4",
         indicator: "size-1.5",
         labelWrapper: "ml-1",
         label: "text-sm",
         description: "text-xs",
       },
       md: {
-        control: "size-4.5",
+        root: "size-4.5",
         indicator: "size-2",
         labelWrapper: "ml-2",
         label: "text-base",
         description: "text-sm",
       },
       lg: {
-        control: "size-5",
+        root: "size-5",
         indicator: "size-2.5",
         labelWrapper: "ml-2",
         label: "text-lg",
