@@ -26,13 +26,14 @@ export const Switch = (props: Switch.Props) => {
     size,
     isInvalid,
     className,
-    children = <SwitchControl />,
+    children = <SwitchThumb />,
     ...restProps
   } = props;
   const styles = switchStyles({ color, size, isInvalid });
   return (
     <SwitchContext value={{ styles }}>
       <SwitchUI {...restProps} className={styles.root({ className })}>
+        <SwitchUI.Input className={styles.input()} />
         {children}
       </SwitchUI>
     </SwitchContext>
@@ -43,33 +44,12 @@ export namespace Switch {
   export interface Props extends SwitchUI.Props, SwitchVariants {}
 }
 
-export const SwitchControl = (props: SwitchUI.Track) => {
-  const { styles } = useSwitchContext();
-  const { className, children = <SwitchThumb />, ...restProps } = props;
-  return (
-    <SwitchUI.Control {...restProps} className={styles.control({ className })}>
-      <SwitchUI.Input className={styles.input()} />
-      {children}
-    </SwitchUI.Control>
-  );
-};
-
 export const SwitchThumb = (props: SwitchUI.Thumb) => {
   const { styles } = useSwitchContext();
   return (
     <SwitchUI.Thumb
       {...props}
       className={styles.thumb({ className: props.className })}
-    />
-  );
-};
-
-export const SwitchContent = (props: SwitchUI.Content) => {
-  const { styles } = useSwitchContext();
-  return (
-    <SwitchUI.Content
-      {...props}
-      className={styles.content({ className: props.className })}
     />
   );
 };

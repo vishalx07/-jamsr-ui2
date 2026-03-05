@@ -1,12 +1,21 @@
-import { TextField as TextFieldUI } from "@jamsrui/react";
+import { Field as FieldUI } from "@jamsrui/react";
 
 import { textFieldStyles } from "./styles";
 
-export const TextField = (props: TextFieldUI.Props) => {
-  const styles = textFieldStyles({ className: props.className });
-  return <TextFieldUI {...props} className={styles} />;
+export const Field = (props: FieldUI.Props) => {
+  const styles = textFieldStyles({
+    className: props.className,
+    orientation: props.orientation,
+  });
+  return <FieldUI {...props} className={styles} />;
 };
+export namespace Field {
+  export interface Props extends FieldUI.Props {}
+}
 
-export namespace TextField {
-  export interface Props extends TextFieldUI.Props {}
+export const FieldContent = (props: FieldUI.Content) => {
+  return <FieldUI.Content {...props} />;
+};
+export namespace FieldContent {
+  export interface Props extends FieldUI.Content {}
 }

@@ -11,12 +11,12 @@ import {
 import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import type { UIProps } from "@jamsrui/utils";
-import { useTextFieldContext } from "@jamsrui/textfield";
+import { useFieldContext } from "@jamsrui/textfield";
 
 export const useTextarea = (props: useTextarea.Props) => {
   const fieldA11yCtx = useFieldA11yContext();
 
-  const ctx = useTextFieldContext();
+  const ctx = useFieldContext();
   const isTextFieldDisabled = ctx?.isDisabled ?? false;
   const isTextFieldInvalid = ctx?.isInvalid ?? false;
 

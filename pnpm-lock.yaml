@@ -189,9 +189,6 @@ importers:
       '@jamsrui/icons':
         specifier: workspace:^
         version: link:../../packages/icons
-      '@jamsrui/react':
-        specifier: workspace:^
-        version: link:../../packages/react
       '@jamsrui/theme':
         specifier: workspace:^
         version: link:../../packages/theme

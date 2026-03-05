@@ -2,7 +2,8 @@
 
 import { Label } from "jamsrui/label";
 import { Switch } from "jamsrui/switch";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Field } from "jamsrui/textfield";
 
 export const SwitchInputEvents = () => {
   const [checked, setChecked] = useState(false);
@@ -10,13 +11,13 @@ export const SwitchInputEvents = () => {
     setChecked(e.target.checked);
   };
   return (
-    <Switch
-      inputProps={{
-        onChange,
-      }}
-    >
-      <Switch.Control />
+    <Field orientation="horizontal">
+      <Switch
+        inputProps={{
+          onChange,
+        }}
+      />
       <Label>Switch is {checked ? "on" : "off"}</Label>
-    </Switch>
+    </Field>
   );
 };

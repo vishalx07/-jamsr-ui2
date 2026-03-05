@@ -42,6 +42,7 @@ const Switch = () => {
       >
         <SwitchDescription />
       </CodeExample>
+
       <CodeExample isCentered title="Colors" url={resolvePath("colors.tsx")}>
         <SwitchColors />
       </CodeExample>

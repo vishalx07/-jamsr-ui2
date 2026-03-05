@@ -5,7 +5,7 @@ import { IconButton } from "jamsrui/icon-button";
 import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
-import { TextField } from "jamsrui/textfield";
+import { Field } from "jamsrui/textfield";
 import { useState } from "react";
 
 export const InputPasswordToggle = () => {
@@ -14,7 +14,7 @@ export const InputPasswordToggle = () => {
     setShowPassword(!showPassword);
   };
   return (
-    <TextField>
+    <Field>
       <Label>Password</Label>
       <InputGroup>
         <Input
@@ -33,6 +33,6 @@ export const InputPasswordToggle = () => {
           </IconButton>
         </InputGroup.Suffix>
       </InputGroup>
-    </TextField>
+    </Field>
   );
 };

@@ -12,11 +12,9 @@ import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import type { SwitchContent } from "./switch-content";
 import type { SwitchInput } from "./switch-input";
 import type { SwitchRoot } from "./switch-root";
 import type { SwitchThumb } from "./switch-thumb";
-import type { SwitchControl } from "./switch-track";
 
 export const useSwitch = (props: useSwitch.Props) => {
   const {
@@ -101,14 +99,6 @@ export const useSwitch = (props: useSwitch.Props) => {
     [handleInputChange, inputProps, inputRefs, isDisabled],
   );
 
-  const getTrackProps: PropGetter<SwitchControl.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": "track",
-    }),
-    [],
-  );
-
   const getThumbProps: PropGetter<SwitchThumb.Props> = useCallback(
     (props) => ({
       ...props,
@@ -118,31 +108,14 @@ export const useSwitch = (props: useSwitch.Props) => {
     [layoutId],
   );
 
-  const getContentProps: PropGetter<SwitchContent.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": "content",
-    }),
-    [],
-  );
-
   return useMemo(
     () => ({
       isChecked,
       getRootProps,
       getThumbProps,
-      getContentProps,
-      getTrackProps,
       getInputProps,
     }),
-    [
-      isChecked,
-      getRootProps,
-      getThumbProps,
-      getContentProps,
-      getTrackProps,
-      getInputProps,
-    ],
+    [isChecked, getRootProps, getThumbProps, getInputProps],
   );
 };
 

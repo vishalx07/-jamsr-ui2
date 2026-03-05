@@ -11,13 +11,13 @@ import {
 import { dataAttr } from "@jamsrui/utils";
 
 import type { UIProps } from "@jamsrui/utils";
-import { useTextFieldContext } from "@jamsrui/textfield";
+import { useFieldContext } from "@jamsrui/textfield";
 import { useInputGroupContextOpt } from "@jamsrui/input-group";
 
 export const useInput = (props: useInput.Props) => {
   const fieldA11yCtx = useFieldA11yContext();
 
-  const ctx = useTextFieldContext();
+  const ctx = useFieldContext();
   const inputGroupCtx = useInputGroupContextOpt();
   const isTextFieldDisabled = ctx?.isDisabled ?? false;
   const isTextFieldInvalid = ctx?.isInvalid ?? false;

@@ -1,33 +1,33 @@
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
 import { Textarea } from "jamsrui/textarea";
-import { TextField } from "jamsrui/textfield";
+import { Field } from "jamsrui/textfield";
 
 export const TextareaPrefixSuffix = () => {
   return (
     <div className="space-y-4">
-      <TextField>
+      <Field>
         <Label>Amount</Label>
         <InputGroup variant="solid">
           <InputGroup.Prefix>$</InputGroup.Prefix>
           <Textarea />
         </InputGroup>
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Discount</Label>
         <InputGroup variant="solid">
           <Textarea />
           <InputGroup.Suffix>%</InputGroup.Suffix>
         </InputGroup>
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Website</Label>
         <InputGroup variant="solid">
           <InputGroup.Prefix>https://</InputGroup.Prefix>
           <Textarea />
           <InputGroup.Suffix>.com</InputGroup.Suffix>
         </InputGroup>
-      </TextField>
+      </Field>
     </div>
   );
 };
