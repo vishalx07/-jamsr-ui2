@@ -6,13 +6,13 @@ import { useDialogContext } from "./dialog-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const DialogContainer = (props: DialogContainer.Props) => {
+export const DialogPositioner = (props: DialogPositioner.Props) => {
   const { getPositionerProps } = useDialogContext();
   const renderElement = useRenderElement("div", {
     props: [getPositionerProps(props)],
   });
   return renderElement;
 };
-export namespace DialogContainer {
+export namespace DialogPositioner {
   export interface Props extends UIProps<"div"> {}
 }

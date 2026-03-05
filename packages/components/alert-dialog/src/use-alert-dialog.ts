@@ -21,7 +21,7 @@ import type { ComponentProps } from "react";
 
 import type { AlertDialogBody } from "./alert-dialog-body";
 import type { AlertDialogCancel } from "./alert-dialog-cancel";
-import type { AlertDialogContainer } from "./alert-dialog-container";
+import type { AlertDialogPositioner } from "./alert-dialog-container";
 import type { AlertDialogContent } from "./alert-dialog-content";
 import type { AlertDialogFooter } from "./alert-dialog-footer";
 import type { AlertDialogTitle } from "./alert-dialog-title";
@@ -64,7 +64,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
     setIsOpen(false);
   }, [setIsOpen]);
 
-  const getPositionerProps: PropGetter<AlertDialogContainer.Props> =
+  const getPositionerProps: PropGetter<AlertDialogPositioner.Props> =
     useCallback(
       (props) => ({
         ...props,

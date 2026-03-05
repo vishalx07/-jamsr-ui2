@@ -15,6 +15,7 @@ export const DialogTrigger = (props: DialogTrigger.Props) => {
   console.warn("Invalid children passed to DialogTrigger");
   return null;
 };
+
 export namespace DialogTrigger {
   export interface Props {
     children: React.ReactElement<unknown>;

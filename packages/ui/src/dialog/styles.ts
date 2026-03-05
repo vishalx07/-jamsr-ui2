@@ -5,7 +5,7 @@ export const dialogStyles = tv({
     backdrop: "z-backdrop grid place-items-center",
     header: "p-4 text-base font-bold",
     body: "w-full p-4",
-    container: "z-dialog max-w-md w-full focus-visible:outline-none",
+    positioner: "z-dialog max-w-md w-full focus-visible:outline-none",
     content:
       "relative flex size-full flex-col overflow-y-auto bg-surface shadow-lg",
     footer: "flex w-full items-center justify-end gap-2 p-4",
@@ -21,7 +21,7 @@ export const dialogStyles = tv({
     },
     fullWidth: {
       true: {
-        container: "m-0 h-dvh max-w-full rounded-none! sm:m-0",
+        positioner: "m-0 h-dvh max-w-full rounded-none! sm:m-0",
       },
     },
     backdrop: {
@@ -46,6 +46,11 @@ export const dialogStyles = tv({
         body: "grow overflow-y-auto",
       },
       outside: {},
+    },
+    isAnimationDisabled: {
+      true: {
+        content: "",
+      },
     },
   },
   defaultVariants: {

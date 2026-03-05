@@ -6,7 +6,7 @@ import { useAlertDialogContext } from "./alert-dialog-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const AlertDialogContainer = (props: AlertDialogContainer.Props) => {
+export const AlertDialogPositioner = (props: AlertDialogPositioner.Props) => {
   const { getPositionerProps } = useAlertDialogContext();
   const renderElement = useRenderElement("div", {
     props: [getPositionerProps(props)],
@@ -14,6 +14,6 @@ export const AlertDialogContainer = (props: AlertDialogContainer.Props) => {
   return renderElement;
 };
 
-export namespace AlertDialogContainer {
+export namespace AlertDialogPositioner {
   export interface Props extends UIProps<"div"> {}
 }

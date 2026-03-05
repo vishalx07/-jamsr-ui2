@@ -3,10 +3,10 @@ import {
   DialogBody,
   DialogCloseButton,
   DialogCloseTrigger,
-  DialogContainer,
   DialogContent,
   DialogFooter,
   DialogHeader,
+  DialogPositioner,
   DialogTrigger,
 } from "./dialog";
 
@@ -18,7 +18,6 @@ export const Dialog = Object.assign(DialogRoot, {
   Footer: DialogFooter,
   CloseButton: DialogCloseButton,
   CloseTrigger: DialogCloseTrigger,
-  Container: DialogContainer,
 });
 
 export namespace Dialog {
@@ -29,9 +28,9 @@ export {
   DialogBody,
   DialogCloseButton,
   DialogCloseTrigger,
-  DialogContainer,
   DialogContent,
   DialogFooter,
   DialogHeader,
+  DialogPositioner,
   DialogTrigger,
 };

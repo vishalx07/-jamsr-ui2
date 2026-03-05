@@ -5,12 +5,10 @@ import { createContext, use, useMemo } from "react";
 import { CloseIcon } from "@jamsrui/icons";
 import { Dialog as DialogUI } from "@jamsrui/react";
 
-
 import { dialogStyles } from "./styles";
 import { IconButton } from "../icon-button";
 
 import type { VariantProps } from "tailwind-variants";
-
 
 type DialogVariants = VariantProps<typeof dialogStyles>;
 
@@ -63,12 +61,12 @@ export const DialogContent = (props: DialogUI.Content) => {
   return (
     <DialogUI.Portal>
       <DialogUI.Backdrop className={styles.backdrop()}>
-        <DialogUI.Container className={styles.container()}>
+        <DialogUI.Positioner className={styles.positioner()}>
           <DialogUI.Content
             {...props}
             className={styles.content({ className: props.className })}
           />
-        </DialogUI.Container>
+        </DialogUI.Positioner>
       </DialogUI.Backdrop>
     </DialogUI.Portal>
   );
@@ -125,12 +123,12 @@ export const DialogCloseTrigger = (props: DialogUI.CloseTrigger) => {
   return <DialogUI.CloseTrigger {...props} />;
 };
 
-export const DialogContainer = (props: DialogUI.Container) => {
+export const DialogPositioner = (props: DialogUI.Positioner) => {
   const { styles } = useDialogContext();
   return (
-    <DialogUI.Container
+    <DialogUI.Positioner
       {...props}
-      className={styles.container({ className: props.className })}
+      className={styles.positioner({ className: props.className })}
     />
   );
 };
