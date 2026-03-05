@@ -1,7 +1,10 @@
 "use client";
 
-import { FloatingArrow, FloatingArrowProps } from "@floating-ui/react";
+import { FloatingArrow } from "@floating-ui/react";
+
 import { usePopoverContext } from "./popover-context";
+
+import type { FloatingArrowProps } from "@floating-ui/react";
 
 export const PopoverArrow = (props: PopoverArrow.Props) => {
   const { getArrowProps } = usePopoverContext();

@@ -8,7 +8,6 @@ import { popoverStyles } from "./styles";
 
 import type { PopoverVariants } from "./styles";
 
-
 const PopoverStylesContext = createContext<{
   styles: ReturnType<typeof popoverStyles>;
   backdrop?: PopoverVariants["backdrop"];
@@ -45,12 +44,12 @@ export const PopoverContent = (props: PopoverUI.Content) => {
   return (
     <PopoverUI.Portal>
       <PopoverUI.Backdrop className={styles.backdrop()} />
-      <PopoverUI.Container className={styles.container()}>
+      <PopoverUI.Positioner className={styles.positioner()}>
         <PopoverUI.Content
           {...props}
           className={styles.content({ className: props.className })}
         />
-      </PopoverUI.Container>
+      </PopoverUI.Positioner>
     </PopoverUI.Portal>
   );
 };

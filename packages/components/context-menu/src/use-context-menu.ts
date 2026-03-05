@@ -232,17 +232,18 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     [context, isNested],
   );
 
-  const getContainerProps: PropGetter<ContextMenuContainer.Props> = useCallback(
-    (props) => ({
-      "data-component": "menu",
-      "data-slot": "root",
-      ref: refs.setFloating,
-      style: floatingStyles,
-      ...getFloatingProps(),
-      ...props,
-    }),
-    [floatingStyles, getFloatingProps, refs.setFloating],
-  );
+  const getPositionerProps: PropGetter<ContextMenuContainer.Props> =
+    useCallback(
+      (props) => ({
+        "data-component": "menu",
+        "data-slot": "root",
+        ref: refs.setFloating,
+        style: floatingStyles,
+        ...getFloatingProps(),
+        ...props,
+      }),
+      [floatingStyles, getFloatingProps, refs.setFloating],
+    );
 
   const getContentProps: PropGetter<ContextMenuContent.Props> = useCallback(
     (props) => props,
@@ -293,7 +294,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       getTriggerProps,
       getFloatingListProps,
       floatingCtx,
-      getContainerProps,
+      getPositionerProps,
       getMenuItemProps,
       isNested,
     }),
@@ -305,7 +306,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       getMenuItemProps,
       getNodeProps,
       getOverlayProps,
-      getContainerProps,
+      getPositionerProps,
       getTriggerProps,
       isNested,
       isOpen,

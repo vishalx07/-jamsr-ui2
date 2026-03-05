@@ -6,9 +6,9 @@ import { useContextMenuContext } from "./context-menu-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const ContextMenuContainer = (props: ContextMenuContainer.Props) => {
-  const { getContainerProps } = useContextMenuContext();
+  const { getPositionerProps } = useContextMenuContext();
   const renderElement = useRenderElement("div", {
-    props: [getContainerProps(props)],
+    props: [getPositionerProps(props)],
   });
   return renderElement;
 };

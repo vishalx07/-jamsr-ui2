@@ -1,15 +1,17 @@
 "use client";
 
-import { useRenderElement } from "@jamsrui/hooks";
-import { UIProps } from "@jamsrui/utils";
-import { usePopoverContext } from "./popover-context";
 import { FloatingFocusManager } from "@floating-ui/react";
+import { useRenderElement } from "@jamsrui/hooks";
 
-export const PopoverContainer = (props: PopoverContainer.Props) => {
-  const { getContainerProps, getFloatingFocusManagerProps } =
+import { usePopoverContext } from "./popover-context";
+
+import type { UIProps } from "@jamsrui/utils";
+
+export const PopoverPositioner = (props: PopoverPositioner.Props) => {
+  const { getPositionerProps, getFloatingFocusManagerProps } =
     usePopoverContext();
   const renderElement = useRenderElement("div", {
-    props: [getContainerProps(props)],
+    props: [getPositionerProps(props)],
   });
   return (
     <FloatingFocusManager {...getFloatingFocusManagerProps()}>
@@ -18,6 +20,6 @@ export const PopoverContainer = (props: PopoverContainer.Props) => {
   );
 };
 
-export namespace PopoverContainer {
+export namespace PopoverPositioner {
   export interface Props extends UIProps<"div"> {}
 }

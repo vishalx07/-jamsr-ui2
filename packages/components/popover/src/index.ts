@@ -1,9 +1,9 @@
 import { Popover as PopoverRoot } from "./popover";
 import { PopoverArrow } from "./popover-arrow";
 import { PopoverBackdrop } from "./popover-backdrop";
-import { PopoverContainer } from "./popover-container";
 import { PopoverContent } from "./popover-content";
 import { PopoverPortal } from "./popover-portal";
+import { PopoverPositioner } from "./popover-positioner";
 import { PopoverTrigger } from "./popover-trigger";
 
 export const Popover = Object.assign(PopoverRoot, {
@@ -12,7 +12,7 @@ export const Popover = Object.assign(PopoverRoot, {
   Arrow: PopoverArrow,
   Portal: PopoverPortal,
   Backdrop: PopoverBackdrop,
-  Container: PopoverContainer,
+  Positioner: PopoverPositioner,
 });
 
 export namespace Popover {
@@ -22,5 +22,5 @@ export namespace Popover {
   export interface Arrow extends PopoverArrow.Props {}
   export interface Portal extends PopoverPortal.Props {}
   export interface Backdrop extends PopoverBackdrop.Props {}
-  export interface Container extends PopoverContainer.Props {}
+  export interface Positioner extends PopoverPositioner.Props {}
 }

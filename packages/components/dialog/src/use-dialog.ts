@@ -81,7 +81,7 @@ export const useDialog = (props: useDialog.Props) => {
     [],
   );
 
-  const getContainerProps: PropGetter<DialogContainer.Props> = useCallback(
+  const getPositionerProps: PropGetter<DialogContainer.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": "container",
@@ -169,7 +169,7 @@ export const useDialog = (props: useDialog.Props) => {
       getFocusManagerProps,
       isOpen,
       hideCloseButton,
-      getContainerProps,
+      getPositionerProps,
       getCloseButtonProps,
     }),
     [
@@ -184,7 +184,7 @@ export const useDialog = (props: useDialog.Props) => {
       getFocusManagerProps,
       isOpen,
       hideCloseButton,
-      getContainerProps,
+      getPositionerProps,
       getCloseButtonProps,
     ],
   );

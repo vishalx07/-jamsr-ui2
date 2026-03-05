@@ -1,9 +1,11 @@
 "use client";
 
-import { FloatingPortal, FloatingPortalProps } from "@floating-ui/react";
+import { FloatingPortal } from "@floating-ui/react";
 import { AnimatePresence } from "motion/react";
 
 import { usePopoverContext } from "./popover-context";
+
+import type { FloatingPortalProps } from "@floating-ui/react";
 
 export const PopoverPortal = (props: PopoverPortal.Props) => {
   const { isOpen, getAnimatePresenceProps } = usePopoverContext();

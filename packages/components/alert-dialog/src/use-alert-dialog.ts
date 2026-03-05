@@ -64,15 +64,16 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
     setIsOpen(false);
   }, [setIsOpen]);
 
-  const getContainerProps: PropGetter<AlertDialogContainer.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": "container",
-      ref: setFloating,
-      ...getFloatingProps(),
-    }),
-    [getFloatingProps, setFloating],
-  );
+  const getPositionerProps: PropGetter<AlertDialogContainer.Props> =
+    useCallback(
+      (props) => ({
+        ...props,
+        "data-slot": "container",
+        ref: setFloating,
+        ...getFloatingProps(),
+      }),
+      [getFloatingProps, setFloating],
+    );
 
   const getContentProps: PropGetter<AlertDialogContent.Props> = useCallback(
     (props) => ({
@@ -152,7 +153,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
 
   return useMemo(
     () => ({
-      getContainerProps,
+      getPositionerProps,
       getContentProps,
       getBodyProps,
       getFooterProps,
@@ -165,7 +166,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       isOpen,
     }),
     [
-      getContainerProps,
+      getPositionerProps,
       getBodyProps,
       getContentProps,
       getFooterProps,

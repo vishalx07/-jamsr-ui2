@@ -7,9 +7,9 @@ import { useDialogContext } from "./dialog-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const DialogContainer = (props: DialogContainer.Props) => {
-  const { getContainerProps } = useDialogContext();
+  const { getPositionerProps } = useDialogContext();
   const renderElement = useRenderElement("div", {
-    props: [getContainerProps(props)],
+    props: [getPositionerProps(props)],
   });
   return renderElement;
 };

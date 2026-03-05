@@ -7,9 +7,9 @@ import { useSidebarContext } from "./sidebar-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const SidebarContainer = (props: SidebarContainer.Props) => {
-  const { getContainerProps } = useSidebarContext();
+  const { getPositionerProps } = useSidebarContext();
   const renderElement = useRenderElement("div", {
-    props: [getContainerProps(props)],
+    props: [getPositionerProps(props)],
   });
   return renderElement;
 };

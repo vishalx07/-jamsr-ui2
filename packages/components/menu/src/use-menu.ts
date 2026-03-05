@@ -276,7 +276,7 @@ export const useMenu = (props: useMenu.Props) => {
     [context, isNested],
   );
 
-  const getContainerProps: PropGetter<MenuContainer.Props> = useCallback(
+  const getPositionerProps: PropGetter<MenuContainer.Props> = useCallback(
     (props: MenuContainer.Props) => ({
       ...props,
       "data-component": "menu",
@@ -384,7 +384,7 @@ export const useMenu = (props: useMenu.Props) => {
       getTriggerProps,
       getFloatingListProps,
       floatingCtx,
-      getContainerProps,
+      getPositionerProps,
       getMenuItemProps,
       isNested,
       getSubmenuIndicatorProps,
@@ -404,7 +404,7 @@ export const useMenu = (props: useMenu.Props) => {
       getTriggerProps,
       getFloatingListProps,
       floatingCtx,
-      getContainerProps,
+      getPositionerProps,
       getMenuItemProps,
       isNested,
       getSubmenuIndicatorProps,
