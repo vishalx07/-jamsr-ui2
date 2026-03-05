@@ -1,8 +1,10 @@
 "use client";
 
+import { FloatingPortal } from "@floating-ui/react";
+
 import { useTooltipContext } from "./tooltip-context";
 
-import { FloatingPortal, FloatingPortalProps } from "@floating-ui/react";
+import type { FloatingPortalProps } from "@floating-ui/react";
 
 export const TooltipPortal = (props: TooltipPortal.Props) => {
   const { isOpen } = useTooltipContext();

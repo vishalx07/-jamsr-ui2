@@ -23,6 +23,7 @@ import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps, PropsWithChildren } from "react";
 
 import type { TooltipContent } from "./tooltip-content";
+import { TooltipPositioner } from "./tooltip-positioner";
 
 export const useTooltip = (props: useTooltip.Props) => {
   const {
@@ -97,7 +98,7 @@ export const useTooltip = (props: useTooltip.Props) => {
     role,
   ]);
 
-  const getContentProps: PropGetter<TooltipContent.Props> = useCallback(
+  const getPositionerProps: PropGetter<TooltipPositioner.Props> = useCallback(
     (props) => ({
       ...props,
       style: floatingStyles,
@@ -105,6 +106,14 @@ export const useTooltip = (props: useTooltip.Props) => {
       ...getFloatingProps(),
     }),
     [floatingStyles, getFloatingProps, refs.setFloating],
+  );
+
+  const getContentProps: PropGetter<TooltipContent.Props> = useCallback(
+    (props) => ({
+      ...props,
+      "data-slot": "content",
+    }),
+    [],
   );
 
   const getArrowProps = useCallback(
@@ -131,6 +140,7 @@ export const useTooltip = (props: useTooltip.Props) => {
     () => ({
       getContentProps,
       getArrowProps,
+      getPositionerProps,
       isOpen,
       showArrow,
       getTriggerProps,
@@ -139,6 +149,7 @@ export const useTooltip = (props: useTooltip.Props) => {
     [
       getContentProps,
       getArrowProps,
+      getPositionerProps,
       isOpen,
       showArrow,
       getTriggerProps,

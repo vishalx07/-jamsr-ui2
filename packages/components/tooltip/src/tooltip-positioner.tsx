@@ -6,14 +6,14 @@ import { useTooltipContext } from "./tooltip-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const TooltipContent = (props: TooltipContent.Props) => {
-  const { getContentProps } = useTooltipContext();
+export const TooltipPositioner = (props: TooltipPositioner.Props) => {
+  const { getPositionerProps } = useTooltipContext();
   const renderElement = useRenderElement("div", {
-    props: [getContentProps(props)],
+    props: [getPositionerProps(props)],
   });
   return renderElement;
 };
 
-export namespace TooltipContent {
+export namespace TooltipPositioner {
   export interface Props extends UIProps<"div"> {}
 }

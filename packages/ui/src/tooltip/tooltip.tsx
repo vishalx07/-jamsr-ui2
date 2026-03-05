@@ -43,10 +43,12 @@ export const TooltipContent = (props: TooltipUI.Content) => {
   const { styles } = useTooltipStyleContext();
   return (
     <TooltipUI.Portal>
-      <TooltipUI.Content
-        {...props}
-        className={styles.content({ className: props.className })}
-      />
+      <TooltipUI.Positioner className={styles.positioner()}>
+        <TooltipUI.Content
+          {...props}
+          className={styles.content({ className: props.className })}
+        />
+      </TooltipUI.Positioner>
     </TooltipUI.Portal>
   );
 };

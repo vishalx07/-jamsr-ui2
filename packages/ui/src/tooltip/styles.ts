@@ -1,12 +1,13 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const tooltipStyles = tv({
   slots: {
     content:
       "bg-surface inline-flex px-3 py-1 text-sm font-medium text-foreground",
     arrow: "fill-background-secondary",
+    positioner: "",
   },
   variants: {
     radius: {
