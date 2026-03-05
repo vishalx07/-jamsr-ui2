@@ -4,7 +4,6 @@ import { createContext, use, useMemo } from "react";
 
 import { AlertDialog as AlertDialogUI } from "@jamsrui/react";
 
-
 import { alertDialogStyles } from "./styles";
 import { Button } from "../button";
 
@@ -52,12 +51,12 @@ export const AlertDialogContent = (props: AlertDialogUI.Content) => {
   const { styles } = useAlertDialogContext();
   return (
     <AlertDialogBackdrop>
-      <AlertDialogUI.Container className={styles.container()}>
+      <AlertDialogUI.Positioner className={styles.positioner()}>
         <AlertDialogUI.Content
           {...props}
           className={styles.content({ className: props.className })}
         />
-      </AlertDialogUI.Container>
+      </AlertDialogUI.Positioner>
     </AlertDialogBackdrop>
   );
 };

@@ -3,7 +3,7 @@ import { tv } from "tailwind-variants";
 export const alertDialogStyles = tv({
   slots: {
     header: "p-4 text-base font-bold",
-    container: "z-dialog max-w-md w-full",
+    positioner: "z-dialog max-w-md w-full",
     content:
       "relative flex size-full flex-col overflow-y-auto bg-surface shadow-lg",
     footer: "flex w-full items-center justify-end gap-2 p-4",

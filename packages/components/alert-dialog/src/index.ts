@@ -16,7 +16,7 @@ export const AlertDialog = Object.assign(AlertDialogRoot, {
   Footer: AlertDialogFooter,
   Title: AlertDialogTitle,
   Description: AlertDialogDescription,
-  Container: AlertDialogPositioner,
+  Positioner: AlertDialogPositioner,
   Cancel: AlertDialogCancel,
   Backdrop: AlertDialogBackdrop,
 });
@@ -29,7 +29,7 @@ export namespace AlertDialog {
   export interface Footer extends AlertDialogFooter.Props {}
   export interface Title extends AlertDialogTitle.Props {}
   export interface Description extends AlertDialogDescription.Props {}
-  export interface Container extends AlertDialogPositioner.Props {}
+  export interface Positioner extends AlertDialogPositioner.Props {}
   export interface ContentInner extends AlertDialogContent.Props {}
   export interface Cancel extends AlertDialogCancel.Props {}
   export interface Backdrop extends AlertDialogBackdrop.Props {}
