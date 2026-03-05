@@ -1,8 +1,10 @@
 "use client";
+
 import { FloatingOverlay } from "@floating-ui/react";
 
-import { ComponentProps } from "react";
 import { useDrawerContext } from "./drawer-context";
+
+import type { ComponentProps } from "react";
 
 export const DrawerBackdrop = (props: DrawerBackdrop.Props) => {
   const { children, ...restProps } = props;

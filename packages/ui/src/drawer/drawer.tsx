@@ -5,7 +5,6 @@ import { createContext, use, useMemo } from "react";
 import { CloseIcon } from "@jamsrui/icons";
 import { Drawer as DrawerUI } from "@jamsrui/react";
 
-
 import { IconButton } from "../icon-button";
 import { drawerStyles } from "./styles";
 
@@ -64,12 +63,12 @@ export const DrawerContent = (props: DrawerUI.Content) => {
   return (
     <DrawerUI.Portal>
       <DrawerUI.Backdrop className={styles.backdrop()}>
-        <DrawerUI.Popover className={styles.popover()}>
+        <DrawerUI.Positioner className={styles.positioner()}>
           <DrawerUI.Content
             {...props}
             className={styles.content({ className: props.className })}
           />
-        </DrawerUI.Popover>
+        </DrawerUI.Positioner>
       </DrawerUI.Backdrop>
     </DrawerUI.Portal>
   );

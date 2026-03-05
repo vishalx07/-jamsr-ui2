@@ -5,8 +5,8 @@ import { DrawerCloseTrigger } from "./drawer-close-trigger";
 import { DrawerContent } from "./drawer-content";
 import { DrawerFooter } from "./drawer-footer";
 import { DrawerHeader } from "./drawer-header";
-import { DrawerPopover } from "./drawer-popover";
 import { DrawerPortal } from "./drawer-portal";
+import { DrawerPositioner } from "./drawer-positioner";
 import { DrawerTrigger } from "./drawer-trigger";
 
 export const Drawer = Object.assign(DrawerRoot, {
@@ -17,7 +17,7 @@ export const Drawer = Object.assign(DrawerRoot, {
   Header: DrawerHeader,
   Trigger: DrawerTrigger,
   Portal: DrawerPortal,
-  positioner: DrawerPopover,
+  Positioner: DrawerPositioner,
   Backdrop: DrawerBackdrop,
 });
 
@@ -29,4 +29,5 @@ export namespace Drawer {
   export interface Footer extends DrawerFooter.Props {}
   export interface Header extends DrawerHeader.Props {}
   export interface Trigger extends DrawerTrigger.Props {}
+  export interface Positioner extends DrawerPositioner.Props {}
 }
