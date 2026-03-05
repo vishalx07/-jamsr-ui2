@@ -3,20 +3,21 @@
 import { PlusIcon } from "@jamsrui/icons";
 import { Checkbox } from "jamsrui/checkbox";
 import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/textfield";
 
 export const CheckboxCustomIndicator = () => {
   return (
-    <Checkbox>
-      <Checkbox.Control>
+    <Field orientation="horizontal">
+      <Checkbox>
         <Checkbox.Indicator>
           {({ isChecked }) =>
             isChecked ? <PlusIcon className="size-3" /> : null
           }
         </Checkbox.Indicator>
-      </Checkbox.Control>
-      <Checkbox.Content>
+      </Checkbox>
+      <Field.Content>
         <Label>Enable email notifications</Label>
-      </Checkbox.Content>
-    </Checkbox>
+      </Field.Content>
+    </Field>
   );
 };

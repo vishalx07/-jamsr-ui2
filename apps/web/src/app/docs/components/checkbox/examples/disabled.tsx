@@ -1,13 +1,12 @@
 import { Checkbox } from "jamsrui/checkbox";
 import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/textfield";
 
 export const CheckboxDisabled = () => {
   return (
-    <Checkbox disabled>
-      <Checkbox.Control />
-      <Checkbox.Content>
-        <Label>Enable email notifications</Label>
-      </Checkbox.Content>
-    </Checkbox>
+    <Field orientation="horizontal">
+      <Checkbox disabled />
+      <Label>Enable email notifications</Label>
+    </Field>
   );
 };

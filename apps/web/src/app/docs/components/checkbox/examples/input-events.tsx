@@ -2,21 +2,21 @@
 
 import { Checkbox } from "jamsrui/checkbox";
 import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/textfield";
+import React from "react";
 
 export const CheckboxInputEvents = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.checked);
   };
   return (
-    <Checkbox
-      inputProps={{
-        onChange: handleChange,
-      }}
-    >
-      <Checkbox.Control />
-      <Checkbox.Content>
-        <Label>Enable email notifications</Label>
-      </Checkbox.Content>
-    </Checkbox>
+    <Field orientation="horizontal">
+      <Checkbox
+        inputProps={{
+          onChange: handleChange,
+        }}
+      />
+      <Label>Enable email notifications</Label>
+    </Field>
   );
 };

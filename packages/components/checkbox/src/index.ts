@@ -1,6 +1,4 @@
 import { Checkbox as CheckboxRoot } from "./checkbox";
-import { CheckboxContent } from "./checkbox-content";
-import { CheckboxControl } from "./checkbox-control";
 import { CheckboxIndicator } from "./checkbox-indicator";
 import { CheckboxInput } from "./checkbox-input";
 import { useCheckbox } from "./use-checkbox";
@@ -9,16 +7,12 @@ export { useCheckbox };
 
 export const Checkbox = Object.assign(CheckboxRoot, {
   Root: CheckboxRoot,
-  Control: CheckboxControl,
   Indicator: CheckboxIndicator,
-  Content: CheckboxContent,
   Input: CheckboxInput,
 });
 
 export namespace Checkbox {
   export interface Props extends CheckboxRoot.Props {}
-  export interface Control extends CheckboxControl.Props {}
   export interface Indicator extends CheckboxIndicator.Props {}
-  export interface Content extends CheckboxContent.Props {}
   export interface Input extends CheckboxInput.Props {}
 }
