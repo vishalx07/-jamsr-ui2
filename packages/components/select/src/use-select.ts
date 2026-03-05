@@ -39,7 +39,7 @@ import type { SelectContent } from "./select-content";
 import type { SelectIndicator } from "./select-indicator";
 import type { SelectItem } from "./select-item";
 import type { SelectItemIndicator } from "./select-item-indicator";
-import type { SelectPopover } from "./select-popover";
+import type { SelectPositioner } from "./select-positioner";
 import type { SelectTrigger } from "./select-trigger";
 import type { SelectValue } from "./select-value";
 
@@ -264,10 +264,10 @@ export const useSelect = (props: useSelect.Props) => {
     [],
   );
 
-  const getPopoverProps: PropGetter<SelectPopover.Props> = useCallback(
+  const getPositionerProps: PropGetter<SelectPositioner.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": "popover",
+      "data-slot": "positioner",
       ref: setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
@@ -352,7 +352,7 @@ export const useSelect = (props: useSelect.Props) => {
       getTriggerProps,
       getIndicatorProps,
       getContentProps,
-      getPopoverProps,
+      getPositionerProps,
       getSelectItemProps,
       getValueProps,
       isOpen,
@@ -381,7 +381,7 @@ export const useSelect = (props: useSelect.Props) => {
       getFocusManagerProps,
       getIndicatorProps,
       getItemProps,
-      getPopoverProps,
+      getPositionerProps,
       getRenderValue,
       getRootProps,
       getSelectItemProps,

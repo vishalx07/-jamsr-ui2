@@ -19,7 +19,7 @@ export const selectStyles = tv({
     indicator:
       "shrink-0 transition-transform duration-300 group-data-opened:rotate-180",
     itemIndicator: "ml-auto",
-    popover: "z-popover outline-none overflow-hidden",
+    positioner: "z-popover outline-none overflow-hidden",
     content: [
       "z-popover flex h-full flex-col gap-px overflow-y-auto overflow-x-hidden bg-surface shadow-md backdrop-blur-3xl p-2",
       "origin-[top_center]",
@@ -46,31 +46,31 @@ export const selectStyles = tv({
         trigger: "rounded-none",
         content: "rounded-none",
         selectItem: "rounded-none",
-        popover: "rounded-none",
+        positioner: "rounded-none",
       },
       sm: {
         trigger: "rounded-sm",
         content: "rounded-sm",
         selectItem: "rounded-sm",
-        popover: "rounded-sm",
+        positioner: "rounded-sm",
       },
       md: {
         trigger: "rounded-md",
         content: "rounded-md",
         selectItem: "rounded-md",
-        popover: "rounded-md",
+        positioner: "rounded-md",
       },
       lg: {
         trigger: "rounded-lg",
         content: "rounded-lg",
         selectItem: "rounded-lg",
-        popover: "rounded-lg",
+        positioner: "rounded-lg",
       },
       full: {
         trigger: "rounded-full",
         content: "rounded-full",
         selectItem: "rounded-full",
-        popover: "rounded-full",
+        positioner: "rounded-full",
       },
     },
     size: {

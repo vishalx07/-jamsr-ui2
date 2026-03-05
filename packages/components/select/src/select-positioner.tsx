@@ -7,11 +7,12 @@ import { useSelectContext } from "./select-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const SelectPopover = (props: SelectPopover.Props) => {
+export const SelectPositioner = (props: SelectPositioner.Props) => {
   const { children } = props;
-  const { getPopoverProps, isOpen, getFocusManagerProps } = useSelectContext();
+  const { getPositionerProps, isOpen, getFocusManagerProps } =
+    useSelectContext();
   const renderElement = useRenderElement("div", {
-    props: [getPopoverProps(props)],
+    props: [getPositionerProps(props)],
   });
 
   if (!isOpen) {
@@ -29,6 +30,6 @@ export const SelectPopover = (props: SelectPopover.Props) => {
   );
 };
 
-export namespace SelectPopover {
+export namespace SelectPositioner {
   export interface Props extends UIProps<"div"> {}
 }

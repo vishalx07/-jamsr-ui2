@@ -75,23 +75,17 @@ export const SelectIndicator = (props: SelectUI.Indicator) => {
   );
 };
 
-export const SelectPopover = (props: SelectUI.Popover) => {
-  const { styles } = useSelectContext();
-  return (
-    <SelectUI.Popover
-      {...props}
-      className={styles.popover({ className: props.className })}
-    />
-  );
-};
-
 export const SelectContent = (props: SelectUI.Content) => {
   const { styles } = useSelectContext();
   return (
-    <SelectUI.Content
-      {...props}
-      className={styles.content({ className: props.className })}
-    />
+    <SelectUI.Positioner
+      className={styles.positioner({ className: props.className })}
+    >
+      <SelectUI.Content
+        {...props}
+        className={styles.content({ className: props.className })}
+      />
+    </SelectUI.Positioner>
   );
 };
 

@@ -90,7 +90,7 @@ export const useDrawer = (props: useDrawer.Props) => {
     [],
   );
 
-  const getPopoverProps: PropGetter<DrawerPopover.Props> = useCallback(
+  const getPositionerProps: PropGetter<DrawerPopover.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": "popover",
@@ -184,7 +184,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       getTriggerProps,
       getTriggerCloseProps,
       isOpen,
-      getPopoverProps,
+      getPositionerProps,
       hideCloseButton,
       anchor,
     }),
@@ -198,7 +198,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       getTriggerProps,
       getTriggerCloseProps,
       isOpen,
-      getPopoverProps,
+      getPositionerProps,
       hideCloseButton,
       anchor,
     ],

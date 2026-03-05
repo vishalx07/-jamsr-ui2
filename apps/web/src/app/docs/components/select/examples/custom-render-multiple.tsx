@@ -219,21 +219,11 @@ export const SelectCustomRenderMultiple = () => {
           <div className="flex flex-wrap gap-1">
             {selectedUsers.map((item) => {
               return (
-                <Chip
-                  key={item.id}
-                  classNames={{
-                    content: "flex items-center gap-2 py-1",
-                    root: "h-auto",
-                  }}
-                >
-                  <Avatar
-                    alt={item.name}
-                    className="shrink-0"
-                    size="sm"
-                    src={item.avatar}
-                    width={100}
-                    height={100}
-                  />
+                <Chip key={item.id}>
+                  <Avatar className="shrink-0" size="sm">
+                    <Avatar.Image src={item.avatar} alt={item.name} />
+                    <Avatar.Fallback>{item.name.charAt(0)}</Avatar.Fallback>
+                  </Avatar>
                   <div className="flex flex-col">
                     <span className="text-left text-sm">{item.name}</span>
                     <span className="text-xs text-foreground-secondary">
@@ -248,36 +238,24 @@ export const SelectCustomRenderMultiple = () => {
       }}
     >
       <Select.Trigger />
-      <Select.Popover>
-        <Select.Content>
-          {users.map((user) => {
-            return (
-              <Select.Item
-                key={user.id}
-                value={user.email}
-                textValue={user.name}
-              >
-                <div className="flex items-center gap-2">
-                  <Avatar
-                    alt={user.name}
-                    className="shrink-0"
-                    size="sm"
-                    src={user.avatar}
-                    width={100}
-                    height={100}
-                  />
-                  <div className="flex flex-col">
-                    <span className="text-left text-sm">{user.name}</span>
-                    <span className="text-xs text-default-400">
-                      {user.email}
-                    </span>
-                  </div>
+      <Select.Content>
+        {users.map((user) => {
+          return (
+            <Select.Item key={user.id} value={user.email} textValue={user.name}>
+              <div className="flex items-center gap-2">
+                <Avatar className="shrink-0" size="sm">
+                  <Avatar.Image src={user.avatar} alt={user.name} />
+                  <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                </Avatar>
+                <div className="flex flex-col">
+                  <span className="text-left text-sm">{user.name}</span>
+                  <span className="text-xs text-default-400">{user.email}</span>
                 </div>
-              </Select.Item>
-            );
-          })}
-        </Select.Content>
-      </Select.Popover>
+              </div>
+            </Select.Item>
+          );
+        })}
+      </Select.Content>
     </Select>
   );
 };

@@ -214,17 +214,13 @@ export const SelectCustomRenderComplex = () => {
       renderValue={(values) => {
         const value = values[0];
         const selectedUser = users.find((u) => u.email === value);
-        if (!selectedUser) return null;
+        if (!selectedUser) return <></>;
         return (
           <div className="flex items-center gap-2">
-            <Avatar
-              alt={selectedUser.name}
-              className="shrink-0"
-              size="sm"
-              src={selectedUser.avatar}
-              width={100}
-              height={100}
-            />
+            <Avatar className="shrink-0" size="sm">
+              <Avatar.Image src={selectedUser.avatar} alt={selectedUser.name} />
+              <Avatar.Fallback>{selectedUser.name.charAt(0)}</Avatar.Fallback>
+            </Avatar>
             <div className="flex flex-col">
               <span className="text-left text-sm">{selectedUser.name}</span>
               <span className="text-xs text-foreground-secondary">
@@ -236,32 +232,30 @@ export const SelectCustomRenderComplex = () => {
       }}
     >
       <Select.Trigger />
-      <Select.Popover>
-        <Select.Content>
-          {users.map((user) => {
-            return (
-              <Select.Item key={user.id} value={user.email}>
-                <div className="flex items-center gap-2">
-                  <Avatar
-                    alt={user.name}
-                    className="shrink-0"
-                    size="sm"
-                    src={user.avatar}
-                    width={100}
-                    height={100}
-                  />
-                  <div className="flex flex-col">
-                    <span className="text-left text-sm">{user.name}</span>
-                    <span className="text-xs text-foreground-secondary">
-                      {user.email}
-                    </span>
-                  </div>
+      <Select.Content>
+        {users.map((user) => {
+          return (
+            <Select.Item
+              textValue={user.email}
+              key={user.id}
+              value={user.email}
+            >
+              <div className="flex items-center gap-2">
+                <Avatar className="shrink-0" size="sm">
+                  <Avatar.Image src={user.avatar} alt={user.name} />
+                  <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                </Avatar>
+                <div className="flex flex-col">
+                  <span className="text-left text-sm">{user.name}</span>
+                  <span className="text-xs text-foreground-secondary">
+                    {user.email}
+                  </span>
                 </div>
-              </Select.Item>
-            );
-          })}
-        </Select.Content>
-      </Select.Popover>
+              </div>
+            </Select.Item>
+          );
+        })}
+      </Select.Content>
     </Select>
   );
 };

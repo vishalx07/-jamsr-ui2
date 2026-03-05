@@ -123,7 +123,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
       [],
     );
 
-  const getPopoverProps: PropGetter<AutocompletePopover.Props> = useCallback(
+  const getPositionerProps: PropGetter<AutocompletePopover.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": "popover",
@@ -174,7 +174,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
       getRootProps,
       getInputProps,
       getContentProps,
-      getPopoverProps,
+      getPositionerProps,
       getFloatingListProps,
       getFocusManagerProps,
       isOpen,
@@ -188,7 +188,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
       getFloatingListProps,
       getFocusManagerProps,
       getInputProps,
-      getPopoverProps,
+      getPositionerProps,
       getRootProps,
       isOpen,
       value,

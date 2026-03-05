@@ -18,30 +18,28 @@ export const SelectControlledNumber = () => {
     <Select className="max-w-xs w-full" value={value} onValueChange={setValue}>
       <Label>Fruit</Label>
       <Select.Trigger />
-      <Select.Popover>
-        <Select.Content>
-          <Select.Item value={Fruits.APPLE} textValue="Apple">
-            Apple
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value={Fruits.BLUEBERRY} textValue="Blueberry">
-            Blueberry
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value={Fruits.WATERMELON} textValue="Watermelon">
-            Watermelon
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value={Fruits.BANANA} textValue="Banana">
-            Banana
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value={Fruits.ORANGE} textValue="Orange">
-            Orange
-            <Select.ItemIndicator />
-          </Select.Item>
-        </Select.Content>
-      </Select.Popover>
+      <Select.Content>
+        <Select.Item value={Fruits.APPLE} textValue="Apple">
+          Apple
+          <Select.ItemIndicator />
+        </Select.Item>
+        <Select.Item value={Fruits.BLUEBERRY} textValue="Blueberry">
+          Blueberry
+          <Select.ItemIndicator />
+        </Select.Item>
+        <Select.Item value={Fruits.WATERMELON} textValue="Watermelon">
+          Watermelon
+          <Select.ItemIndicator />
+        </Select.Item>
+        <Select.Item value={Fruits.BANANA} textValue="Banana">
+          Banana
+          <Select.ItemIndicator />
+        </Select.Item>
+        <Select.Item value={Fruits.ORANGE} textValue="Orange">
+          Orange
+          <Select.ItemIndicator />
+        </Select.Item>
+      </Select.Content>
     </Select>
   );
 };

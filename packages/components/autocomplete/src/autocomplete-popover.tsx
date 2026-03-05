@@ -7,10 +7,10 @@ import { useAutocompleteContext } from "./autocomplete-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const AutocompletePopover = (props: AutocompletePopover.Props) => {
-  const { getPopoverProps, isOpen, getFocusManagerProps } =
+  const { getPositionerProps, isOpen, getFocusManagerProps } =
     useAutocompleteContext();
   const renderElement = useRenderElement("button", {
-    props: [getPopoverProps(props)],
+    props: [getPositionerProps(props)],
   });
   return isOpen ? (
     <FloatingPortal>

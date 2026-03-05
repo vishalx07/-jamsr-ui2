@@ -37,9 +37,7 @@ export const SelectUsage = () => {
     >
       <Label>Fruit</Label>
       <Select.Trigger />
-      <Select.Popover>
-        <SelectContent />
-      </Select.Popover>
+      <SelectContent />
     </Select>
   );
 };

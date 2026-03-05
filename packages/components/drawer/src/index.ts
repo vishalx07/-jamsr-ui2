@@ -17,7 +17,7 @@ export const Drawer = Object.assign(DrawerRoot, {
   Header: DrawerHeader,
   Trigger: DrawerTrigger,
   Portal: DrawerPortal,
-  Popover: DrawerPopover,
+  positioner: DrawerPopover,
   Backdrop: DrawerBackdrop,
 });
 

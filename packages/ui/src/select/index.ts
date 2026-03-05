@@ -4,7 +4,6 @@ import {
   SelectIndicator,
   SelectItem,
   SelectItemIndicator,
-  SelectPopover,
   SelectTrigger,
   SelectValue,
 } from "./select";
@@ -14,7 +13,6 @@ export const Select = Object.assign(SelectRoot, {
   Indicator: SelectIndicator,
   Item: SelectItem,
   ItemIndicator: SelectItemIndicator,
-  Popover: SelectPopover,
   Trigger: SelectTrigger,
   Value: SelectValue,
 });
@@ -28,7 +26,6 @@ export {
   SelectIndicator,
   SelectItem,
   SelectItemIndicator,
-  SelectPopover,
   SelectTrigger,
   SelectValue,
 };

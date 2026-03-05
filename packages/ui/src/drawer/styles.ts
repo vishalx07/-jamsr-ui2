@@ -3,7 +3,7 @@ import { tv } from "tailwind-variants";
 export const drawerStyles = tv({
   slots: {
     backdrop: "z-backdrop overflow-hidden!",
-    popover: "z-dialog",
+    positioner: "z-dialog",
     content:
       "absolute flex w-full flex-col overflow-y-auto bg-surface shadow-sm",
     header: "p-4",

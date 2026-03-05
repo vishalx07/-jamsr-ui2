@@ -3,7 +3,7 @@ import { SelectContent } from "./select-content";
 import { SelectIndicator } from "./select-indicator";
 import { SelectItem } from "./select-item";
 import { SelectItemIndicator } from "./select-item-indicator";
-import { SelectPopover } from "./select-popover";
+import { SelectPositioner } from "./select-positioner";
 import { SelectTrigger } from "./select-trigger";
 import { SelectValue } from "./select-value";
 
@@ -12,7 +12,7 @@ export const Select = Object.assign(SelectRoot, {
   Trigger: SelectTrigger,
   Value: SelectValue,
   Indicator: SelectIndicator,
-  Popover: SelectPopover,
+  Positioner: SelectPositioner,
   Content: SelectContent,
   ItemIndicator: SelectItemIndicator,
 });
@@ -23,7 +23,7 @@ export namespace Select {
   export interface Trigger extends SelectTrigger.Props {}
   export interface Value extends SelectValue.Props {}
   export interface Indicator extends SelectIndicator.Props {}
-  export interface Popover extends SelectPopover.Props {}
+  export interface Positioner extends SelectPositioner.Props {}
   export interface Content extends SelectContent.Props {}
   export interface ItemIndicator extends SelectItemIndicator.Props {}
 }

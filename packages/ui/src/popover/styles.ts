@@ -1,6 +1,6 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const popoverStyles = tv({
   slots: {
@@ -12,10 +12,10 @@ export const popoverStyles = tv({
   },
   variants: {
     radius: {
-      none: { content: "rounded-none", popover: "rounded-none" },
-      sm: { content: "rounded-sm", popover: "rounded-sm" },
-      md: { content: "rounded-md", popover: "rounded-md" },
-      lg: { content: "rounded-lg", popover: "rounded-lg" },
+      none: { content: "rounded-none", positioner: "rounded-none" },
+      sm: { content: "rounded-sm", positioner: "rounded-sm" },
+      md: { content: "rounded-md", positioner: "rounded-md" },
+      lg: { content: "rounded-lg", positioner: "rounded-lg" },
     },
     backdrop: {
       transparent: {

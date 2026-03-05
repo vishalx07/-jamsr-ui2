@@ -6,9 +6,9 @@ import { useDrawerContext } from "./drawer-context";
 import type { UIProps } from "@jamsrui/utils";
 
 export const DrawerPopover = (props: DrawerPopover.Props) => {
-  const { getPopoverProps } = useDrawerContext();
+  const { getPositionerProps } = useDrawerContext();
   const renderElement = useRenderElement("div", {
-    props: [getPopoverProps(props)],
+    props: [getPositionerProps(props)],
   });
   return renderElement;
 };
