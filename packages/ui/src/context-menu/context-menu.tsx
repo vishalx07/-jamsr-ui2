@@ -8,7 +8,6 @@ import { contextMenuStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type ContextMenuVariants = VariantProps<typeof contextMenuStyles>;
 
 const ContextMenuContext = createContext<{
@@ -46,12 +45,12 @@ export const ContextMenuContent = (props: ContextMenuUI.Content) => {
   const { styles } = useContextMenuContext();
   return (
     <ContextMenuUI.Portal>
-      <ContextMenuUI.Container className={styles.container()}>
+      <ContextMenuUI.Positioner className={styles.container()}>
         <ContextMenuUI.Content
           {...props}
           className={styles.content({ className: props.className })}
         />
-      </ContextMenuUI.Container>
+      </ContextMenuUI.Positioner>
     </ContextMenuUI.Portal>
   );
 };
