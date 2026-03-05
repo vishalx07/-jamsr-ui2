@@ -5,7 +5,7 @@ import { Switch } from "jamsrui/switch";
 export const SwitchDescription = () => {
   return (
     <Switch>
-      <Switch.Track />
+      <Switch.Control />
       <Switch.Content>
         <Label>Are you ok?</Label>
         <Description>This is a description</Description>

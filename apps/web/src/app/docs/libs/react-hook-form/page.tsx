@@ -146,7 +146,7 @@ const Page = () => {
               <Switch.Content>
                 <Label>Dark Mode</Label>
               </Switch.Content>
-              <Switch.Track />
+              <Switch.Control />
             </RHFField.Switch>
           </RHFField>
           {/* Gender */}

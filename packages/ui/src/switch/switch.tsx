@@ -8,7 +8,6 @@ import { switchStyles } from "./styles";
 
 import type { SwitchVariants } from "./styles";
 
-
 const SwitchContext = createContext<{
   styles: ReturnType<typeof switchStyles>;
 } | null>(null);
@@ -22,11 +21,20 @@ const useSwitchContext = () => {
 };
 
 export const Switch = (props: Switch.Props) => {
-  const { color, size, isInvalid, className, ...restProps } = props;
+  const {
+    color,
+    size,
+    isInvalid,
+    className,
+    children = <SwitchControl />,
+    ...restProps
+  } = props;
   const styles = switchStyles({ color, size, isInvalid });
   return (
     <SwitchContext value={{ styles }}>
-      <SwitchUI {...restProps} className={styles.root({ className })} />
+      <SwitchUI {...restProps} className={styles.root({ className })}>
+        {children}
+      </SwitchUI>
     </SwitchContext>
   );
 };
@@ -35,14 +43,14 @@ export namespace Switch {
   export interface Props extends SwitchUI.Props, SwitchVariants {}
 }
 
-export const SwitchTrack = (props: SwitchUI.Track) => {
+export const SwitchControl = (props: SwitchUI.Track) => {
   const { styles } = useSwitchContext();
   const { className, children = <SwitchThumb />, ...restProps } = props;
   return (
-    <SwitchUI.Track {...restProps} className={styles.track({ className })}>
+    <SwitchUI.Control {...restProps} className={styles.control({ className })}>
       <SwitchUI.Input className={styles.input()} />
       {children}
-    </SwitchUI.Track>
+    </SwitchUI.Control>
   );
 };
 

@@ -16,7 +16,7 @@ import type { SwitchContent } from "./switch-content";
 import type { SwitchInput } from "./switch-input";
 import type { SwitchRoot } from "./switch-root";
 import type { SwitchThumb } from "./switch-thumb";
-import type { SwitchTrack } from "./switch-track";
+import type { SwitchControl } from "./switch-track";
 
 export const useSwitch = (props: useSwitch.Props) => {
   const {
@@ -101,7 +101,7 @@ export const useSwitch = (props: useSwitch.Props) => {
     [handleInputChange, inputProps, inputRefs, isDisabled],
   );
 
-  const getTrackProps: PropGetter<SwitchTrack.Props> = useCallback(
+  const getTrackProps: PropGetter<SwitchControl.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": "track",

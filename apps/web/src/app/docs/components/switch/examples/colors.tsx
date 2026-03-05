@@ -34,7 +34,7 @@ export const SwitchColors = () => {
     <div className="flex flex-col gap-4">
       {data.map((item) => (
         <Switch key={item.color} color={item.color}>
-          <Switch.Track />
+          <Switch.Control />
           <Switch.Content>
             <Label className="capitalize">{item.color}</Label>
             <Description>{item.description}</Description>

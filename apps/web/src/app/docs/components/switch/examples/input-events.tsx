@@ -15,7 +15,7 @@ export const SwitchInputEvents = () => {
         onChange,
       }}
     >
-      <Switch.Track />
+      <Switch.Control />
       <Label>Switch is {checked ? "on" : "off"}</Label>
     </Switch>
   );

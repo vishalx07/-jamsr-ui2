@@ -12,9 +12,9 @@ export const SwitchSizes = () => {
     <div className="flex flex-col gap-4">
       {examples.map((example) => (
         <Switch key={example.size} size={example.size}>
-          <Switch.Track>
+          <Switch.Control>
             <Switch.Thumb />
-          </Switch.Track>
+          </Switch.Control>
           <Label>{example.label}</Label>
         </Switch>
       ))}

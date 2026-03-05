@@ -1,13 +1,13 @@
 import {
   Switch as SwitchRoot,
   SwitchContent,
+  SwitchControl,
   SwitchThumb,
-  SwitchTrack,
 } from "./switch";
 
 export const Switch = Object.assign(SwitchRoot, {
   Content: SwitchContent,
-  Track: SwitchTrack,
+  Control: SwitchControl,
   Thumb: SwitchThumb,
 });
 
@@ -15,4 +15,4 @@ export namespace Switch {
   export interface Props extends SwitchRoot.Props {}
 }
 
-export { SwitchContent, SwitchThumb, SwitchTrack };
+export { SwitchContent, SwitchControl, SwitchThumb };

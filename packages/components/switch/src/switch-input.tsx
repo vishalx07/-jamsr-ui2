@@ -11,7 +11,7 @@ export const SwitchInput = (props: SwitchInput.Props) => {
   const { getInputProps } = useSwitchContext();
   const fieldA11yContext = useFieldA11yContext();
   const renderElement = useRenderElement("input", {
-    props: [getInputProps(props), fieldA11yContext?.getInputProps() ?? {}],
+    props: [fieldA11yContext?.getInputProps() ?? {}, getInputProps(props)],
   });
   return renderElement;
 };

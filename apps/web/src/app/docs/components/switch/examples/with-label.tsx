@@ -7,7 +7,7 @@ export const SwitchWithLabel = () => {
       <Switch.Content>
         <Label>This is label</Label>
       </Switch.Content>
-      <Switch.Track />
+      <Switch.Control />
     </Switch>
   );
 };

@@ -9,7 +9,7 @@ export const SwitchControlled = () => {
   const [isChecked, setIsChecked] = useState(false);
   return (
     <Switch checked={isChecked} onCheckedChange={setIsChecked}>
-      <Switch.Track />
+      <Switch.Control />
       <Switch.Content>
         <Label>Are you ok?</Label>
         <Description>{isChecked ? "Checked" : "Unchecked"}</Description>

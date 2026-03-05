@@ -1,13 +1,13 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 import { groupDataFocusVisibleClasses } from "../utils/variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const switchStyles = tv({
   slots: {
     root: "group flex gap-2",
-    track: [
+    control: [
       ...groupDataFocusVisibleClasses,
       "flex relative cursor-default shrink-0 items-center rounded-full bg-surface-secondary p-1",
       "group-data-disabled:status-disabled",
@@ -26,35 +26,35 @@ export const switchStyles = tv({
   variants: {
     color: {
       default: {
-        track: "group-data-checked:bg-default",
+        control: "group-data-checked:bg-default",
       },
       primary: {
-        track: "group-data-checked:bg-primary",
+        control: "group-data-checked:bg-primary",
       },
       secondary: {
-        track: "group-data-checked:bg-secondary",
+        control: "group-data-checked:bg-secondary",
       },
       success: {
-        track: "group-data-checked:bg-success",
+        control: "group-data-checked:bg-success",
       },
       warning: {
-        track: "group-data-checked:bg-warning",
+        control: "group-data-checked:bg-warning",
       },
       danger: {
-        track: "group-data-checked:bg-danger",
+        control: "group-data-checked:bg-danger",
       },
     },
     size: {
       sm: {
-        track: "h-5 w-9",
+        control: "h-5 w-9",
         thumb: "size-3.5 group-data-pressed:w-4",
       },
       md: {
-        track: "h-6 w-10",
+        control: "h-6 w-10",
         thumb: "size-4 group-data-pressed:w-5",
       },
       lg: {
-        track: "h-7 w-12",
+        control: "h-7 w-12",
         thumb: "size-5 group-data-pressed:w-6",
       },
     },
