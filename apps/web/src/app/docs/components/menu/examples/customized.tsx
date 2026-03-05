@@ -10,7 +10,7 @@ const motionVariants: Variants = {
 
 export const MenuCustomized = () => {
   return (
-    <Menu radius="2xl">
+    <Menu radius="sm">
       <Menu.Trigger>
         <button>
           <Avatar>

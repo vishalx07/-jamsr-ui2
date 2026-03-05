@@ -3,7 +3,6 @@
 import { createContext, use } from "react";
 
 import { Menu as MenuUI } from "@jamsrui/react";
-import { cn } from "tailwind-variants";
 
 import { menuStyles } from "./styles";
 
@@ -46,12 +45,12 @@ export const MenuContent = (props: MenuUI.Content) => {
   return (
     <MenuUI.Portal>
       <MenuUI.Backdrop className={styles.backdrop()} />
-      <MenuUI.Container className={styles.container()}>
+      <MenuUI.Positioner className={styles.container()}>
         <MenuUI.Content
           {...props}
           className={styles.content({ className: props.className })}
         />
-      </MenuUI.Container>
+      </MenuUI.Positioner>
     </MenuUI.Portal>
   );
 };
@@ -150,10 +149,10 @@ export const MenuArrow = (props: MenuUI.Arrow) => {
   );
 };
 
-export const MenuContainer = (props: React.ComponentProps<"div">) => {
+export const MenuPositioner = (props: React.ComponentProps<"div">) => {
   const { styles } = useMenuContext();
   return (
-    <MenuUI.Container
+    <MenuUI.Positioner
       {...props}
       className={styles.container({ className: props.className })}
     />

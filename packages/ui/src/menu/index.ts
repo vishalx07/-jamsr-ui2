@@ -2,7 +2,6 @@ import {
   Menu as MenuRoot,
   MenuArrow,
   MenuCheckboxItem,
-  MenuContainer,
   MenuContent,
   MenuGroup,
   MenuGroupLabel,
@@ -28,7 +27,6 @@ export const Menu = Object.assign(MenuRoot, {
   SubmenuIndicator: MenuSubmenuIndicator,
   ItemIndicator: MenuItemIndicator,
   Arrow: MenuArrow,
-  Container: MenuContainer,
 });
 
 export namespace Menu {
@@ -38,7 +36,6 @@ export namespace Menu {
 export {
   MenuArrow,
   MenuCheckboxItem,
-  MenuContainer,
   MenuContent,
   MenuGroup,
   MenuGroupLabel,

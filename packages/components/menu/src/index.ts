@@ -2,7 +2,7 @@ import { Menu as MenuRoot } from "./menu";
 import { MenuArrow } from "./menu-arrow";
 import { MenuBackdrop } from "./menu-backdrop";
 import { MenuCheckboxItem } from "./menu-checkbox-item";
-import { MenuContainer } from "./menu-container";
+import { MenuPositioner } from "./menu-container";
 import { MenuContent } from "./menu-content";
 import { MenuGroup } from "./menu-group";
 import { MenuGroupLabel } from "./menu-group-label";
@@ -28,7 +28,7 @@ export const Menu = Object.assign(MenuRoot, {
   SubmenuIndicator: SubmenuIndicator,
   ItemIndicator: MenuItemIndicator,
   Arrow: MenuArrow,
-  Container: MenuContainer,
+  Positioner: MenuPositioner,
   Portal: MenuPortal,
   Backdrop: MenuBackdrop,
 });
@@ -46,4 +46,5 @@ export namespace Menu {
   export interface Content extends MenuContent.Props {}
   export interface ItemIndicator extends MenuItemIndicator.Props {}
   export interface Arrow extends MenuArrow.Props {}
+  export interface Positioner extends MenuPositioner.Props {}
 }

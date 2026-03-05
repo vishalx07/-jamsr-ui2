@@ -1,12 +1,12 @@
 import { ContextMenu as ContextMenuRoot } from "./context-menu";
-import { ContextMenuContainer } from "./context-menu-container";
+import { ContextMenuPositioner } from "./context-menu-container";
 import { ContextMenuContent } from "./context-menu-content";
 import { ContextMenuItem } from "./context-menu-item";
 import { ContextMenuPortal } from "./context-menu-portal";
 import { ContextMenuTrigger } from "./context-menu-trigger";
 
 export const ContextMenu = Object.assign(ContextMenuRoot, {
-  Container: ContextMenuContainer,
+  Container: ContextMenuPositioner,
   Portal: ContextMenuPortal,
   Trigger: ContextMenuTrigger,
   Content: ContextMenuContent,

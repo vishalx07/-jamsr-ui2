@@ -40,7 +40,7 @@ import type {
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps, Ref } from "react";
 
-import type { MenuContainer } from "./menu-container";
+import type { MenuPositioner } from "./menu-container";
 import type { MenuContent } from "./menu-content";
 import type { MenuFloatingContext } from "./menu-floating-context.tsx";
 import type { MenuGroup } from "./menu-group";
@@ -276,8 +276,8 @@ export const useMenu = (props: useMenu.Props) => {
     [context, isNested],
   );
 
-  const getPositionerProps: PropGetter<MenuContainer.Props> = useCallback(
-    (props: MenuContainer.Props) => ({
+  const getPositionerProps: PropGetter<MenuPositioner.Props> = useCallback(
+    (props: MenuPositioner.Props) => ({
       ...props,
       "data-component": "menu",
       "data-slot": "menu-container",

@@ -1,13 +1,13 @@
 "use client";
 
+import { FloatingFocusManager } from "@floating-ui/react";
 import { useRenderElement } from "@jamsrui/hooks";
 
 import { useMenuContext } from "./menu-context";
 
-import { FloatingFocusManager } from "@floating-ui/react";
 import type { UIProps } from "@jamsrui/utils";
 
-export const MenuContainer = (props: MenuContainer.Props) => {
+export const MenuPositioner = (props: MenuPositioner.Props) => {
   const { getPositionerProps, getFocusManagerProps } = useMenuContext();
   const renderElement = useRenderElement("div", {
     props: [getPositionerProps(props)],
@@ -19,6 +19,6 @@ export const MenuContainer = (props: MenuContainer.Props) => {
   );
 };
 
-export namespace MenuContainer {
+export namespace MenuPositioner {
   export interface Props extends UIProps<"div"> {}
 }
