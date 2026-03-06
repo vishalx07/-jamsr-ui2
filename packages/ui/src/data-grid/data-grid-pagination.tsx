@@ -17,8 +17,6 @@ import { useDataGridContext } from "./data-grid-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-
-
 export const DataGridPaginationSelector = (
   props: DataGridPaginationSelector.Props,
 ) => {
@@ -45,19 +43,17 @@ export const DataGridPaginationSelector = (
     >
       <Label>Rows Per Page:</Label>
       <Select.Trigger className="px-1" />
-      <Select.Popover>
-        <Select.Content>
-          {[10, 20, 50, 100, 500].map((pageSize) => (
-            <Select.Item
-              key={pageSize.toString()}
-              textValue={pageSize.toString()}
-              value={pageSize}
-            >
-              {pageSize.toString()}
-            </Select.Item>
-          ))}
-        </Select.Content>
-      </Select.Popover>
+      <Select.Content>
+        {[10, 20, 50, 100, 500].map((pageSize) => (
+          <Select.Item
+            key={pageSize.toString()}
+            textValue={pageSize.toString()}
+            value={pageSize}
+          >
+            {pageSize.toString()}
+          </Select.Item>
+        ))}
+      </Select.Content>
     </Select>
   );
 };

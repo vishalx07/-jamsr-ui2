@@ -1,11 +1,18 @@
 import { tv } from "tailwind-variants";
 
 export const textFieldStyles = tv({
-  base: "group flex gap-1",
+  slots: {
+    root: "group flex gap-1",
+    content: "flex flex-col",
+  },
   variants: {
     orientation: {
-      horizontal: "flex-row",
-      vertical: "flex-col",
+      horizontal: {
+        root: "flex-row",
+      },
+      vertical: {
+        root: "flex-col",
+      },
     },
   },
   defaultVariants: {
