@@ -4,9 +4,9 @@ import type { VariantProps } from "tailwind-variants";
 
 export const popoverStyles = tv({
   slots: {
-    positioner: "z-popover",
+    positioner: "z-popover focus-visible:outline-none",
     content:
-      "bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl focus:outline-none origin-(--transform-origin)",
+      "bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl origin-(--transform-origin)",
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
   },

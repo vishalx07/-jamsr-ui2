@@ -45,7 +45,7 @@ export const MenuContent = (props: MenuUI.Content) => {
   return (
     <MenuUI.Portal>
       <MenuUI.Backdrop className={styles.backdrop()} />
-      <MenuUI.Positioner className={styles.container()}>
+      <MenuUI.Positioner className={styles.positioner()}>
         <MenuUI.Content
           {...props}
           className={styles.content({ className: props.className })}
@@ -154,7 +154,7 @@ export const MenuPositioner = (props: React.ComponentProps<"div">) => {
   return (
     <MenuUI.Positioner
       {...props}
-      className={styles.container({ className: props.className })}
+      className={styles.positioner({ className: props.className })}
     />
   );
 };

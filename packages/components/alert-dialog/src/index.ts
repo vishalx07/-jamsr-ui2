@@ -2,7 +2,7 @@ import { AlertDialog as AlertDialogRoot } from "./alert-dialog";
 import { AlertDialogBackdrop } from "./alert-dialog-backdrop";
 import { AlertDialogBody } from "./alert-dialog-body";
 import { AlertDialogCancel } from "./alert-dialog-cancel";
-import { AlertDialogPositioner } from "./alert-dialog-container";
+import { AlertDialogPositioner } from "./alert-dialog-positioner";
 import { AlertDialogContent } from "./alert-dialog-content";
 import { AlertDialogDescription } from "./alert-dialog-description";
 import { AlertDialogFooter } from "./alert-dialog-footer";

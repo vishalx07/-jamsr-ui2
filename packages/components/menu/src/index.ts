@@ -2,7 +2,7 @@ import { Menu as MenuRoot } from "./menu";
 import { MenuArrow } from "./menu-arrow";
 import { MenuBackdrop } from "./menu-backdrop";
 import { MenuCheckboxItem } from "./menu-checkbox-item";
-import { MenuPositioner } from "./menu-container";
+import { MenuPositioner } from "./menu-positioner";
 import { MenuContent } from "./menu-content";
 import { MenuGroup } from "./menu-group";
 import { MenuGroupLabel } from "./menu-group-label";

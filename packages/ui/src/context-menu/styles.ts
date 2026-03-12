@@ -4,9 +4,9 @@ export const contextMenuStyles = tv({
   slots: {
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
-    container: "min-w-37.5 z-popover outline-none",
+    positioner: "min-w-37.5 z-popover focus-visible:outline-none",
     content:
-      "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
+      "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md",
     menuItem: [
       "relative box-border flex size-full cursor-default select-none items-center gap-2 px-2 py-1.5 text-left outline-none data-disabled:status-disabled",
       "data-active:bg-surface-secondary",

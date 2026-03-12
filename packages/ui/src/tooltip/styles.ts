@@ -7,7 +7,7 @@ export const tooltipStyles = tv({
     content:
       "bg-surface inline-flex px-3 py-1 text-sm font-medium text-foreground",
     arrow: "fill-background-secondary",
-    positioner: "",
+    positioner: "focus-visible:outline-none",
   },
   variants: {
     radius: {

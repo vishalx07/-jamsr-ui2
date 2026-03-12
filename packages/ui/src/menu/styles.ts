@@ -4,9 +4,9 @@ export const menuStyles = tv({
   slots: {
     arrow: "fill-background-secondary",
     backdrop: "z-backdrop",
-    container: "min-w-40 z-popover outline-none outline-0",
+    positioner: "min-w-40 z-popover focus-visible:outline-none",
     content: [
-      "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
+      "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md",
       "shadow-lg origin-(--transform-origin)",
     ],
     menuItem: [

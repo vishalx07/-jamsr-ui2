@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants";
 
-import { groupDataFocusVisibleClasses } from "../utils/variants";
+import { dataFocusVisibleClasses } from "../utils/variants";
 
 import type { VariantProps } from "tailwind-variants";
 
@@ -21,7 +21,7 @@ export const radioStyles = tv({
       "data-hovered:border-default-hover",
       "data-pressed:scale-95",
       "data-selected:border-transparent",
-      ...groupDataFocusVisibleClasses,
+      ...dataFocusVisibleClasses,
       "data-invalid:border-danger",
     ],
     indicator: "absolute rounded-full bg-white",

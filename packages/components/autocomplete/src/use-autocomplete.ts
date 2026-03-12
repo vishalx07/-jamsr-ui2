@@ -26,7 +26,7 @@ import type { ComponentProps } from "react";
 import type { Autocomplete } from "./autocomplete";
 import type { AutocompleteContent } from "./autocomplete-content";
 import type { AutocompleteItem } from "./autocomplete-item";
-import type { AutocompletePopover } from "./autocomplete-popover";
+import type { AutocompletePositioner } from "./autocomplete-positioner";
 
 export const useAutocomplete = (props: useAutocomplete.Props) => {
   const {
@@ -123,7 +123,7 @@ export const useAutocomplete = (props: useAutocomplete.Props) => {
       [],
     );
 
-  const getPositionerProps: PropGetter<AutocompletePopover.Props> = useCallback(
+  const getPositionerProps: PropGetter<AutocompletePositioner.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": "popover",

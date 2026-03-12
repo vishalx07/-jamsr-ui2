@@ -19,7 +19,7 @@ export const selectStyles = tv({
     indicator:
       "shrink-0 transition-transform duration-300 group-data-opened:rotate-180",
     itemIndicator: "ml-auto",
-    positioner: "z-popover outline-none overflow-hidden",
+    positioner: "z-popover focus-visible:outline-none overflow-hidden",
     content: [
       "z-popover flex h-full flex-col gap-px overflow-y-auto overflow-x-hidden bg-surface shadow-md backdrop-blur-3xl p-2",
       "origin-[top_center]",

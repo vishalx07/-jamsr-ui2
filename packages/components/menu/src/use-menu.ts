@@ -40,7 +40,7 @@ import type {
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps, Ref } from "react";
 
-import type { MenuPositioner } from "./menu-container";
+import type { MenuPositioner } from "./menu-positioner";
 import type { MenuContent } from "./menu-content";
 import type { MenuFloatingContext } from "./menu-floating-context.tsx";
 import type { MenuGroup } from "./menu-group";

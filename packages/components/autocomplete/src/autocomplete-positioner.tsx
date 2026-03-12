@@ -6,7 +6,7 @@ import { useAutocompleteContext } from "./autocomplete-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-export const AutocompletePopover = (props: AutocompletePopover.Props) => {
+export const AutocompletePositioner = (props: AutocompletePositioner.Props) => {
   const { getPositionerProps, isOpen, getFocusManagerProps } =
     useAutocompleteContext();
   const renderElement = useRenderElement("button", {
@@ -21,6 +21,6 @@ export const AutocompletePopover = (props: AutocompletePopover.Props) => {
   ) : null;
 };
 
-export namespace AutocompletePopover {
+export namespace AutocompletePositioner {
   export interface Props extends UIProps<"button"> {}
 }

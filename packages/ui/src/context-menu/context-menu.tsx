@@ -45,7 +45,7 @@ export const ContextMenuContent = (props: ContextMenuUI.Content) => {
   const { styles } = useContextMenuContext();
   return (
     <ContextMenuUI.Portal>
-      <ContextMenuUI.Positioner className={styles.container()}>
+      <ContextMenuUI.Positioner className={styles.positioner()}>
         <ContextMenuUI.Content
           {...props}
           className={styles.content({ className: props.className })}
