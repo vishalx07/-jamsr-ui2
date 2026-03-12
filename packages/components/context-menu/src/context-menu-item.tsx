@@ -1,11 +1,12 @@
 "use client";
 import { useFloatingTree, useListItem } from "@floating-ui/react";
 import { useHover, useMergeRefs, useRenderElement } from "@jamsrui/hooks";
+import { dataAttr } from "@jamsrui/utils";
 
 import { useContextMenuContext } from "./context-menu-context";
 import { useContextMenuFloatingContext } from "./context-menu-floating-context";
 
-import { dataAttr, type UIProps } from "@jamsrui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const { getMenuItemProps } = useContextMenuContext();
@@ -20,7 +21,7 @@ export const ContextMenuItem = (props: ContextMenuItem.Props) => {
 
   const parentCtx = useContextMenuFloatingContext();
   const item = useListItem({
-    label: textValue,
+    label: isDisabled ? null : textValue,
   });
   const { isHovered, ref: hoverRef } = useHover<HTMLButtonElement>({
     isDisabled,
@@ -32,6 +33,7 @@ export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const renderElement = useRenderElement("button", {
     props: [
       getMenuItemProps(elementProps),
+      parentCtx.getItemProps() as any,
       {
         children,
         disabled: isDisabled,

@@ -2,11 +2,12 @@
 
 import { useFloatingTree, useListItem } from "@floating-ui/react";
 import { useHover, useMergeRefs, useRenderElement } from "@jamsrui/hooks";
+import { dataAttr } from "@jamsrui/utils";
 
 import { useMenuContext } from "./menu-context";
 import { useMenuFloatingContext } from "./menu-floating-context";
 
-import { dataAttr, type UIProps } from "@jamsrui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const MenuItem = (props: MenuItem.Props) => {
   const { getMenuItemProps } = useMenuContext();
@@ -21,7 +22,7 @@ export const MenuItem = (props: MenuItem.Props) => {
 
   const parentCtx = useMenuFloatingContext();
   const item = useListItem({
-    label: textValue,
+    label: isDisabled ? null : textValue,
   });
   const isActive = item.index === parentCtx.activeIndex;
   const { isHovered, ref: hoverRef } = useHover<HTMLButtonElement>({
@@ -33,6 +34,7 @@ export const MenuItem = (props: MenuItem.Props) => {
   const renderElement = useRenderElement("button", {
     props: [
       getMenuItemProps(elementProps),
+      parentCtx.getItemProps() as any,
       {
         children: children,
         disabled: isDisabled,
@@ -48,7 +50,7 @@ export const MenuItem = (props: MenuItem.Props) => {
           }
           tree?.events.emit("click");
         },
-        onMouseEnter() {
+        onFocus() {
           parentCtx.setHasFocusInside(true);
         },
       },

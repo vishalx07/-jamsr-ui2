@@ -13,8 +13,8 @@ export const MenuNested = () => {
         <Menu.Item textValue="Search">Search</Menu.Item>
         <Menu>
           <Menu.Trigger>
-            <Menu.Item textValue="Search">
-              Search <Menu.SubmenuIndicator />
+            <Menu.Item textValue="Others">
+              Others <Menu.SubmenuIndicator />
             </Menu.Item>
           </Menu.Trigger>
           <Menu.Content>
@@ -23,8 +23,8 @@ export const MenuNested = () => {
             <Menu.Item textValue="Search">Search</Menu.Item>
             <Menu>
               <Menu.Trigger>
-                <Menu.Item textValue="Search">
-                  Search <Menu.SubmenuIndicator />
+                <Menu.Item textValue="More">
+                  More <Menu.SubmenuIndicator />
                 </Menu.Item>
               </Menu.Trigger>
               <Menu.Content>

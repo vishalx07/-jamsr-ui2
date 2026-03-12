@@ -14,7 +14,7 @@ export const ContextMenuNested = () => {
         <ContextMenu.Item textValue="Search">Search</ContextMenu.Item>
         <ContextMenu>
           <ContextMenu.Trigger>
-            <ContextMenu.Item textValue="Search">Search</ContextMenu.Item>
+            <ContextMenu.Item textValue="Others">Others</ContextMenu.Item>
           </ContextMenu.Trigger>
           <ContextMenu.Content>
             <ContextMenu.Item textValue="Undo">Undo</ContextMenu.Item>

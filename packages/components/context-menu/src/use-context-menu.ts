@@ -34,10 +34,10 @@ import type {
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
-import { ContextMenuPositioner } from "./context-menu-positioner";
 import type { ContextMenuContent } from "./context-menu-content";
 import type { ContextMenuFloatingContext } from "./context-menu-floating-context";
 import type { ContextMenuItem } from "./context-menu-item";
+import type { ContextMenuPositioner } from "./context-menu-positioner";
 
 export const useContextMenu = (props: useContextMenu.Props) => {
   const parentId = useFloatingParentNodeId();
@@ -55,7 +55,6 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     openDelay = 75,
     placement = "right-start",
     className,
-    ...restProps
   } = props;
 
   const tree = useFloatingTree();
@@ -192,6 +191,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       "data-nested": isNested,
       "data-opened": isOpen,
       onContextMenu: isNested ? undefined : handleContextMenu,
+      ...(isNested ? { preventCloseOnClick: true } : {}),
       ...getReferenceProps({
         ...parentCtx.getItemProps({
           onMouseEnter() {
