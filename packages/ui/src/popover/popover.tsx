@@ -39,20 +39,38 @@ export const PopoverTrigger = (props: PopoverUI.Trigger) => {
   return <PopoverUI.Trigger {...props} />;
 };
 
-export const PopoverContent = (props: PopoverUI.Content) => {
+export const PopoverContent = (props: PopoverContent.Props) => {
   const { styles } = usePopoverContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <PopoverUI.Portal>
-      <PopoverUI.Backdrop className={styles.backdrop()} />
-      <PopoverUI.Positioner className={styles.positioner()}>
+    <PopoverUI.Portal {...slotProps?.portal}>
+      <PopoverUI.Backdrop
+        {...slotProps?.backdrop}
+        className={styles.backdrop({ className: slotProps?.backdrop?.className })}
+      />
+      <PopoverUI.Positioner
+        {...slotProps?.positioner}
+        className={styles.positioner({
+          className: slotProps?.positioner?.className,
+        })}
+      >
         <PopoverUI.Content
-          {...props}
-          className={styles.content({ className: props.className })}
+          {...restProps}
+          className={styles.content({ className: restProps.className })}
         />
       </PopoverUI.Positioner>
     </PopoverUI.Portal>
   );
 };
+export namespace PopoverContent {
+  export interface Props extends PopoverUI.Content {
+    slotProps?: {
+      portal?: React.ComponentProps<typeof PopoverUI.Portal>;
+      backdrop?: React.ComponentProps<typeof PopoverUI.Backdrop>;
+      positioner?: React.ComponentProps<typeof PopoverUI.Positioner>;
+    };
+  }
+}
 
 export const PopoverArrow = (props: PopoverUI.Arrow) => {
   const { styles } = usePopoverContext();

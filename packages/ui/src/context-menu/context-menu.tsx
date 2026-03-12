@@ -41,19 +41,33 @@ export const ContextMenuTrigger = (props: ContextMenuUI.Trigger) => {
   return <ContextMenuUI.Trigger {...props} />;
 };
 
-export const ContextMenuContent = (props: ContextMenuUI.Content) => {
+export const ContextMenuContent = (props: ContextMenuContent.Props) => {
   const { styles } = useContextMenuContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <ContextMenuUI.Portal>
-      <ContextMenuUI.Positioner className={styles.positioner()}>
+    <ContextMenuUI.Portal {...slotProps?.portal}>
+      <ContextMenuUI.Positioner
+        {...slotProps?.positioner}
+        className={styles.positioner({
+          className: slotProps?.positioner?.className,
+        })}
+      >
         <ContextMenuUI.Content
-          {...props}
-          className={styles.content({ className: props.className })}
+          {...restProps}
+          className={styles.content({ className: restProps.className })}
         />
       </ContextMenuUI.Positioner>
     </ContextMenuUI.Portal>
   );
 };
+export namespace ContextMenuContent {
+  export interface Props extends ContextMenuUI.Content {
+    slotProps?: {
+      portal?: React.ComponentProps<typeof ContextMenuUI.Portal>;
+      positioner?: React.ComponentProps<typeof ContextMenuUI.Positioner>;
+    };
+  }
+}
 
 export const ContextMenuItem = (props: ContextMenuItem.Props) => {
   const { styles } = useContextMenuContext();

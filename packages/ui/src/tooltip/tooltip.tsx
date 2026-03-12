@@ -39,19 +39,33 @@ export const TooltipTrigger = (props: TooltipUI.Trigger) => {
   return <TooltipUI.Trigger {...props} />;
 };
 
-export const TooltipContent = (props: TooltipUI.Content) => {
+export const TooltipContent = (props: TooltipContent.Props) => {
   const { styles } = useTooltipStyleContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <TooltipUI.Portal>
-      <TooltipUI.Positioner className={styles.positioner()}>
+    <TooltipUI.Portal {...slotProps?.portal}>
+      <TooltipUI.Positioner
+        {...slotProps?.positioner}
+        className={styles.positioner({
+          className: slotProps?.positioner?.className,
+        })}
+      >
         <TooltipUI.Content
-          {...props}
-          className={styles.content({ className: props.className })}
+          {...restProps}
+          className={styles.content({ className: restProps.className })}
         />
       </TooltipUI.Positioner>
     </TooltipUI.Portal>
   );
 };
+export namespace TooltipContent {
+  export interface Props extends TooltipUI.Content {
+    slotProps?: {
+      portal?: React.ComponentProps<typeof TooltipUI.Portal>;
+      positioner?: React.ComponentProps<typeof TooltipUI.Positioner>;
+    };
+  }
+}
 
 export const TooltipArrow = (props: TooltipUI.Arrow) => {
   const { styles } = useTooltipStyleContext();

@@ -5,7 +5,9 @@ import { Chip } from "jamsrui/chip";
 import { Sidebar } from "jamsrui/sidebar";
 import { Text } from "jamsrui/text";
 import { Route } from "next";
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "tailwind-variants";
 
 const data: { title: string; items: { title: string; url: Route }[] }[] = [
   {
@@ -85,6 +87,21 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
   },
 ];
 
+const LinkItem = ({ href, ...restProp }: LinkProps<Route>) => {
+  const path = usePathname();
+  const isActive = path === href;
+  return (
+    <Link
+      href={href}
+      {...restProp}
+      className={cn(
+        restProp.className,
+        isActive ? "bg-background-quaternary" : "hover:bg-background-tertiary",
+      )}
+    />
+  );
+};
+
 export const AppSidebar = () => {
   return (
     <Sidebar width={250}>
@@ -106,7 +123,7 @@ export const AppSidebar = () => {
                       return (
                         <Sidebar.MenuItem key={item.title}>
                           <Sidebar.MenuItemButton
-                            render={<Link href={item.url} />}
+                            render={<LinkItem href={item.url} />}
                           >
                             {item.title}
                           </Sidebar.MenuItemButton>

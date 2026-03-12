@@ -24,8 +24,8 @@ const useAlertDialogContext = () => {
 };
 
 export const AlertDialog = (props: AlertDialog.Props) => {
-  const { radius, backdrop, ...restProps } = props;
-  const styles = alertDialogStyles({ radius, backdrop });
+  const { radius, backdrop, size, ...restProps } = props;
+  const styles = alertDialogStyles({ radius, backdrop, size });
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <AlertDialogContext value={value}>
@@ -44,22 +44,41 @@ export const AlertDialogTrigger = (props: AlertDialogUI.Trigger) => {
 
 const AlertDialogBackdrop = (props: AlertDialogUI.Backdrop) => {
   const { styles } = useAlertDialogContext();
-  return <AlertDialogUI.Backdrop {...props} className={styles.backdrop()} />;
+  return (
+    <AlertDialogUI.Backdrop
+      {...props}
+      className={styles.backdrop({ className: props.className })}
+    />
+  );
 };
 
-export const AlertDialogContent = (props: AlertDialogUI.Content) => {
+export const AlertDialogContent = (props: AlertDialogContent.Props) => {
   const { styles } = useAlertDialogContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <AlertDialogBackdrop>
-      <AlertDialogUI.Positioner className={styles.positioner()}>
+    <AlertDialogBackdrop {...slotProps?.backdrop}>
+      <AlertDialogUI.Positioner
+        {...slotProps?.positioner}
+        className={styles.positioner({
+          className: slotProps?.positioner?.className,
+        })}
+      >
         <AlertDialogUI.Content
-          {...props}
-          className={styles.content({ className: props.className })}
+          {...restProps}
+          className={styles.content({ className: restProps.className })}
         />
       </AlertDialogUI.Positioner>
     </AlertDialogBackdrop>
   );
 };
+export namespace AlertDialogContent {
+  export interface Props extends AlertDialogUI.Content {
+    slotProps?: {
+      backdrop?: AlertDialogUI.Backdrop;
+      positioner?: AlertDialogUI.Positioner;
+    };
+  }
+}
 
 export const AlertDialogBody = (props: AlertDialogUI.Body) => {
   const { styles } = useAlertDialogContext();

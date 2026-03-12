@@ -46,31 +46,51 @@ export const AccordionItem = (props: AccordionUI.Item) => {
   );
 };
 
-export const AccordionTrigger = (props: AccordionUI.Trigger) => {
+export const AccordionTrigger = (props: AccordionTrigger.Props) => {
   const { styles } = useAccordionContext();
+  const { slotProps, ...restProps } = props;
   return (
     <AccordionUI.Heading
-      className={styles.heading({ className: props.className })}
+      {...slotProps?.heading}
+      className={styles.heading({ className: slotProps?.heading?.className })}
     >
       <AccordionUI.Trigger
-        {...props}
-        className={styles.trigger({ className: props.className })}
+        {...restProps}
+        className={styles.trigger({ className: restProps.className })}
       />
     </AccordionUI.Heading>
   );
 };
+export namespace AccordionTrigger {
+  export interface Props extends AccordionUI.Trigger {
+    slotProps?: {
+      heading?: AccordionUI.Heading;
+    };
+  }
+}
 
-export const AccordionContent = (props: AccordionUI.Content) => {
+export const AccordionContent = (props: AccordionContent.Props) => {
   const { styles } = useAccordionContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <AccordionUI.Panel className={styles.panel({ className: props.className })}>
+    <AccordionUI.Panel
+      {...slotProps?.panel}
+      className={styles.panel({ className: slotProps?.panel?.className })}
+    >
       <AccordionUI.Content
-        {...props}
-        className={styles.content({ className: props.className })}
+        {...restProps}
+        className={styles.content({ className: restProps.className })}
       />
     </AccordionUI.Panel>
   );
 };
+export namespace AccordionContent {
+  export interface Props extends AccordionUI.Content {
+    slotProps?: {
+      panel?: AccordionUI.Panel;
+    };
+  }
+}
 
 export const AccordionIndicator = (props: AccordionUI.Indicator) => {
   const { styles } = useAccordionContext();

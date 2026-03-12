@@ -40,20 +40,38 @@ export const MenuTrigger = (props: MenuUI.Trigger) => {
   return <MenuUI.Trigger {...props} />;
 };
 
-export const MenuContent = (props: MenuUI.Content) => {
+export const MenuContent = (props: MenuContent.Props) => {
   const { styles } = useMenuContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <MenuUI.Portal>
-      <MenuUI.Backdrop className={styles.backdrop()} />
-      <MenuUI.Positioner className={styles.positioner()}>
+    <MenuUI.Portal {...slotProps?.portal}>
+      <MenuUI.Backdrop
+        {...slotProps?.backdrop}
+        className={styles.backdrop({ className: slotProps?.backdrop?.className })}
+      />
+      <MenuUI.Positioner
+        {...slotProps?.positioner}
+        className={styles.positioner({
+          className: slotProps?.positioner?.className,
+        })}
+      >
         <MenuUI.Content
-          {...props}
-          className={styles.content({ className: props.className })}
+          {...restProps}
+          className={styles.content({ className: restProps.className })}
         />
       </MenuUI.Positioner>
     </MenuUI.Portal>
   );
 };
+export namespace MenuContent {
+  export interface Props extends MenuUI.Content {
+    slotProps?: {
+      portal?: React.ComponentProps<typeof MenuUI.Portal>;
+      backdrop?: React.ComponentProps<typeof MenuUI.Backdrop>;
+      positioner?: React.ComponentProps<typeof MenuUI.Positioner>;
+    };
+  }
+}
 
 export const MenuItem = (props: MenuItem.Props) => {
   const { styles } = useMenuContext();

@@ -29,8 +29,19 @@ export const alertDialogStyles = tv({
       lg: {
         content: "rounded-lg",
       },
-      full: {
-        content: "rounded-full",
+    },
+    size: {
+      sm: {
+        positioner: "max-w-sm",
+      },
+      md: {
+        positioner: "max-w-md",
+      },
+      lg: {
+        positioner: "max-w-lg",
+      },
+      xl: {
+        positioner: "max-w-xl",
       },
     },
     backdrop: {
@@ -48,5 +59,6 @@ export const alertDialogStyles = tv({
   defaultVariants: {
     backdrop: "opaque",
     radius: "md",
+    size: "md",
   },
 });

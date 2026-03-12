@@ -58,21 +58,39 @@ export const DrawerTrigger = (props: DrawerUI.Trigger) => {
   return <DrawerUI.Trigger {...props} />;
 };
 
-export const DrawerContent = (props: DrawerUI.Content) => {
+export const DrawerContent = (props: DrawerContent.Props) => {
   const { styles } = useDrawerContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <DrawerUI.Portal>
-      <DrawerUI.Backdrop className={styles.backdrop()}>
-        <DrawerUI.Positioner className={styles.positioner()}>
+    <DrawerUI.Portal {...slotProps?.portal}>
+      <DrawerUI.Backdrop
+        {...slotProps?.backdrop}
+        className={styles.backdrop({ className: slotProps?.backdrop?.className })}
+      >
+        <DrawerUI.Positioner
+          {...slotProps?.positioner}
+          className={styles.positioner({
+            className: slotProps?.positioner?.className,
+          })}
+        >
           <DrawerUI.Content
-            {...props}
-            className={styles.content({ className: props.className })}
+            {...restProps}
+            className={styles.content({ className: restProps.className })}
           />
         </DrawerUI.Positioner>
       </DrawerUI.Backdrop>
     </DrawerUI.Portal>
   );
 };
+export namespace DrawerContent {
+  export interface Props extends DrawerUI.Content {
+    slotProps?: {
+      portal?: React.ComponentProps<typeof DrawerUI.Portal>;
+      backdrop?: React.ComponentProps<typeof DrawerUI.Backdrop>;
+      positioner?: React.ComponentProps<typeof DrawerUI.Positioner>;
+    };
+  }
+}
 
 export const DrawerHeader = (props: DrawerUI.Header) => {
   const { styles } = useDrawerContext();

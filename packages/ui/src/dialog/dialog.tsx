@@ -56,21 +56,39 @@ export const DialogTrigger = (props: DialogUI.Trigger) => {
   return <DialogUI.Trigger {...props} />;
 };
 
-export const DialogContent = (props: DialogUI.Content) => {
+export const DialogContent = (props: DialogContent.Props) => {
   const { styles } = useDialogContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <DialogUI.Portal>
-      <DialogUI.Backdrop className={styles.backdrop()}>
-        <DialogUI.Positioner className={styles.positioner()}>
+    <DialogUI.Portal {...slotProps?.portal}>
+      <DialogUI.Backdrop
+        {...slotProps?.backdrop}
+        className={styles.backdrop({ className: slotProps?.backdrop?.className })}
+      >
+        <DialogUI.Positioner
+          {...slotProps?.positioner}
+          className={styles.positioner({
+            className: slotProps?.positioner?.className,
+          })}
+        >
           <DialogUI.Content
-            {...props}
-            className={styles.content({ className: props.className })}
+            {...restProps}
+            className={styles.content({ className: restProps.className })}
           />
         </DialogUI.Positioner>
       </DialogUI.Backdrop>
     </DialogUI.Portal>
   );
 };
+export namespace DialogContent {
+  export interface Props extends DialogUI.Content {
+    slotProps?: {
+      portal?: React.ComponentProps<typeof DialogUI.Portal>;
+      backdrop?: React.ComponentProps<typeof DialogUI.Backdrop>;
+      positioner?: React.ComponentProps<typeof DialogUI.Positioner>;
+    };
+  }
+}
 
 export const DialogHeader = (props: DialogUI.Header) => {
   const { styles } = useDialogContext();

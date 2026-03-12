@@ -8,7 +8,9 @@ export const AlertDialogCustomized = () => {
       <AlertDialog.Trigger>
         <Button>Click to delete!</Button>
       </AlertDialog.Trigger>
-      <AlertDialog.Content className="max-w-82">
+      <AlertDialog.Content
+        slotProps={{ positioner: { className: "max-w-xs" } }}
+      >
         <AlertDialog.Body className="flex justify-center flex-col items-center gap-4 text-center">
           <AlertDialog.Title>Warning!</AlertDialog.Title>
           <AlertDialog.Description>

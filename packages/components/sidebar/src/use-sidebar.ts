@@ -133,7 +133,7 @@ export const useSidebar = (props: useSidebar.Props) => {
     [],
   );
 
-  const getPositionerProps: PropGetter<SidebarContainer.Props> = useCallback(
+  const getContainerProps: PropGetter<SidebarContainer.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": "container",
@@ -156,7 +156,7 @@ export const useSidebar = (props: useSidebar.Props) => {
       getBodyProps,
       getInsetProps,
       getWrapperProps,
-      getPositionerProps,
+      getContainerProps,
     }),
     [
       getSidebarProps,
@@ -172,7 +172,7 @@ export const useSidebar = (props: useSidebar.Props) => {
       getBodyProps,
       getInsetProps,
       getWrapperProps,
-      getPositionerProps,
+      getContainerProps,
     ],
   );
 };

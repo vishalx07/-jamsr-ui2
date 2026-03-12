@@ -75,19 +75,30 @@ export const SelectIndicator = (props: SelectUI.Indicator) => {
   );
 };
 
-export const SelectContent = (props: SelectUI.Content) => {
+export const SelectContent = (props: SelectContent.Props) => {
   const { styles } = useSelectContext();
+  const { slotProps, ...restProps } = props;
   return (
     <SelectUI.Positioner
-      className={styles.positioner({ className: props.className })}
+      {...slotProps?.positioner}
+      className={styles.positioner({
+        className: slotProps?.positioner?.className,
+      })}
     >
       <SelectUI.Content
-        {...props}
-        className={styles.content({ className: props.className })}
+        {...restProps}
+        className={styles.content({ className: restProps.className })}
       />
     </SelectUI.Positioner>
   );
 };
+export namespace SelectContent {
+  export interface Props extends SelectUI.Content {
+    slotProps?: {
+      positioner?: React.ComponentProps<typeof SelectUI.Positioner>;
+    };
+  }
+}
 
 export const SelectItem = (props: SelectUI.Item) => {
   const { styles } = useSelectContext();

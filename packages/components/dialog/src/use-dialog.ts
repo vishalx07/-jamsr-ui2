@@ -84,7 +84,7 @@ export const useDialog = (props: useDialog.Props) => {
   const getPositionerProps: PropGetter<DialogPositioner.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": "container",
+      "data-slot": "positioner",
       ref: setFloating,
       ...getFloatingProps(),
     }),
