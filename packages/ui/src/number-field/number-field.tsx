@@ -33,7 +33,7 @@ export namespace NumberField {
   export interface Props extends NumberFieldUI.Props {}
 }
 
-export const NumberFieldGroup = (props: NumberFieldUI.Group) => {
+export const NumberFieldGroup = (props: NumberFieldGroup.Props) => {
   const { styles } = useNumberFieldContext();
   const { className, ...rest } = props;
   return (
@@ -41,7 +41,7 @@ export const NumberFieldGroup = (props: NumberFieldUI.Group) => {
   );
 };
 
-export const NumberFieldInput = (props: NumberFieldUI.Input) => {
+export const NumberFieldInput = (props: NumberFieldInput.Props) => {
   const { styles } = useNumberFieldContext();
   const { className, ...rest } = props;
   return (
@@ -49,7 +49,7 @@ export const NumberFieldInput = (props: NumberFieldUI.Input) => {
   );
 };
 
-export const NumberFieldIncrement = (props: NumberFieldUI.Increment) => {
+export const NumberFieldIncrement = (props: NumberFieldIncrement.Props) => {
   const { styles } = useNumberFieldContext();
   const { className, ...rest } = props;
   return (
@@ -60,7 +60,7 @@ export const NumberFieldIncrement = (props: NumberFieldUI.Increment) => {
   );
 };
 
-export const NumberFieldDecrement = (props: NumberFieldUI.Decrement) => {
+export const NumberFieldDecrement = (props: NumberFieldDecrement.Props) => {
   const { styles } = useNumberFieldContext();
   const { className, ...rest } = props;
   return (
@@ -70,3 +70,19 @@ export const NumberFieldDecrement = (props: NumberFieldUI.Decrement) => {
     />
   );
 };
+
+export namespace NumberFieldGroup {
+  export interface Props extends NumberFieldUI.Group {}
+}
+
+export namespace NumberFieldInput {
+  export interface Props extends NumberFieldUI.Input {}
+}
+
+export namespace NumberFieldIncrement {
+  export interface Props extends NumberFieldUI.Increment {}
+}
+
+export namespace NumberFieldDecrement {
+  export interface Props extends NumberFieldUI.Decrement {}
+}

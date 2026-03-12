@@ -36,7 +36,7 @@ export namespace Accordion {
   export interface Props extends AccordionUI.Props, AccordionVariants {}
 }
 
-export const AccordionItem = (props: AccordionUI.Item) => {
+export const AccordionItem = (props: AccordionItem.Props) => {
   const { styles } = useAccordionContext();
   return (
     <AccordionUI.Item
@@ -92,7 +92,7 @@ export namespace AccordionContent {
   }
 }
 
-export const AccordionIndicator = (props: AccordionUI.Indicator) => {
+export const AccordionIndicator = (props: AccordionIndicator.Props) => {
   const { styles } = useAccordionContext();
   return (
     <AccordionUI.Indicator
@@ -101,3 +101,11 @@ export const AccordionIndicator = (props: AccordionUI.Indicator) => {
     />
   );
 };
+
+export namespace AccordionItem {
+  export interface Props extends AccordionUI.Item {}
+}
+
+export namespace AccordionIndicator {
+  export interface Props extends AccordionUI.Indicator {}
+}

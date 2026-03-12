@@ -37,7 +37,7 @@ export namespace ContextMenu {
   export interface Props extends ContextMenuUI.Props, ContextMenuVariants {}
 }
 
-export const ContextMenuTrigger = (props: ContextMenuUI.Trigger) => {
+export const ContextMenuTrigger = (props: ContextMenuTrigger.Props) => {
   return <ContextMenuUI.Trigger {...props} />;
 };
 
@@ -85,4 +85,8 @@ export namespace ContextMenuItem {
     color?: ContextMenuVariants["color"];
     radius?: ContextMenuVariants["radius"];
   }
+}
+
+export namespace ContextMenuTrigger {
+  export interface Props extends ContextMenuUI.Trigger {}
 }

@@ -9,6 +9,7 @@ export const Autocomplete = Object.assign(AutocompleteRoot, {
 
 export namespace Autocomplete {
   export interface Props extends AutocompleteRoot.Props {}
+  export interface Item extends AutocompleteItem.Props {}
 }
 
 export { AutocompleteItem };

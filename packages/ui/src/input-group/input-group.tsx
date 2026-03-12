@@ -8,7 +8,6 @@ import { inputGroupStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type InputGroupVariants = VariantProps<typeof inputGroupStyles>;
 
 const InputGroupContext = createContext<{
@@ -38,7 +37,7 @@ export namespace InputGroup {
   export interface Props extends InputGroupUI.Props, InputGroupVariants {}
 }
 
-export const InputGroupPrefix = (props: InputGroupUI.Prefix) => {
+export const InputGroupPrefix = (props: InputGroupPrefix.Props) => {
   const { styles } = useInputGroupContext();
   return (
     <InputGroupUI.Prefix
@@ -48,7 +47,7 @@ export const InputGroupPrefix = (props: InputGroupUI.Prefix) => {
   );
 };
 
-export const InputGroupSuffix = (props: InputGroupUI.Suffix) => {
+export const InputGroupSuffix = (props: InputGroupSuffix.Props) => {
   const { styles } = useInputGroupContext();
   return (
     <InputGroupUI.Suffix
@@ -57,3 +56,11 @@ export const InputGroupSuffix = (props: InputGroupUI.Suffix) => {
     />
   );
 };
+
+export namespace InputGroupPrefix {
+  export interface Props extends InputGroupUI.Prefix {}
+}
+
+export namespace InputGroupSuffix {
+  export interface Props extends InputGroupUI.Suffix {}
+}

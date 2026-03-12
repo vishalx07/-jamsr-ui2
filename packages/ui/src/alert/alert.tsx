@@ -8,7 +8,6 @@ import { alertStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type AlertVariants = VariantProps<typeof alertStyles>;
 
 const AlertContext = createContext<{
@@ -42,7 +41,7 @@ export namespace Alert {
   export interface Props extends AlertUI.Props, AlertVariants {}
 }
 
-export const AlertContent = (props: AlertUI.Content) => {
+export const AlertContent = (props: AlertContent.Props) => {
   const { styles } = useAlertContext();
   return (
     <AlertUI.Content
@@ -52,7 +51,7 @@ export const AlertContent = (props: AlertUI.Content) => {
   );
 };
 
-export const AlertIcon = (props: AlertUI.Icon) => {
+export const AlertIcon = (props: AlertIcon.Props) => {
   const { styles } = useAlertContext();
   return (
     <AlertUI.Icon
@@ -62,7 +61,7 @@ export const AlertIcon = (props: AlertUI.Icon) => {
   );
 };
 
-export const AlertTitle = (props: AlertUI.Title) => {
+export const AlertTitle = (props: AlertTitle.Props) => {
   const { styles } = useAlertContext();
   return (
     <AlertUI.Title
@@ -72,7 +71,7 @@ export const AlertTitle = (props: AlertUI.Title) => {
   );
 };
 
-export const AlertDescription = (props: AlertUI.Description) => {
+export const AlertDescription = (props: AlertDescription.Props) => {
   const { styles } = useAlertContext();
   return (
     <AlertUI.Description
@@ -81,3 +80,19 @@ export const AlertDescription = (props: AlertUI.Description) => {
     />
   );
 };
+
+export namespace AlertContent {
+  export interface Props extends AlertUI.Content {}
+}
+
+export namespace AlertIcon {
+  export interface Props extends AlertUI.Icon {}
+}
+
+export namespace AlertTitle {
+  export interface Props extends AlertUI.Title {}
+}
+
+export namespace AlertDescription {
+  export interface Props extends AlertUI.Description {}
+}

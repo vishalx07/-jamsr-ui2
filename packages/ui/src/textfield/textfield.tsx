@@ -18,7 +18,7 @@ const useFieldContext = () => {
   return ctx;
 };
 
-export const Field = (props: FieldUI.Props) => {
+export const Field = (props: Field.Props) => {
   const styles = textFieldStyles({
     className: props.className,
     orientation: props.orientation,
@@ -34,7 +34,7 @@ export namespace Field {
   export interface Props extends FieldUI.Props {}
 }
 
-export const FieldContent = (props: FieldUI.Content) => {
+export const FieldContent = (props: FieldContent.Props) => {
   const { styles } = useFieldContext();
   return <FieldUI.Content {...props} className={styles.content()} />;
 };

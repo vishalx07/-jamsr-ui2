@@ -1,6 +1,9 @@
-import { AlertDialog } from "jamsrui/alert-dialog";
+import { AlertDialog, AlertDialogTrigger } from "jamsrui/alert-dialog";
 import { Button } from "jamsrui/button";
 import { Separator } from "jamsrui/separator";
+
+type A = AlertDialog.Props;
+type B = AlertDialogTrigger.Props;
 
 export const AlertDialogCustomized = () => {
   return (

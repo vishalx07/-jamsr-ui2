@@ -13,7 +13,6 @@ import { otpInputStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type OtpInputVariants = VariantProps<typeof otpInputStyles>;
 
 const OtpInputContext = createContext<{
@@ -46,7 +45,7 @@ export namespace OtpInput {
   export interface Props extends OtpInputUI.Props, OtpInputVariants {}
 }
 
-export const OtpInputGroup = (props: OtpInputUI.Group) => {
+export const OtpInputGroup = (props: OtpInputGroup.Props) => {
   const { styles } = useOtpInputContext();
   const { className, ...rest } = props;
   return <OtpInputUI.Group {...rest} className={styles.group({ className })} />;
@@ -61,7 +60,7 @@ const SlotContent = (props: OtpInputUI.SlotRenderProps) => {
   return null;
 };
 
-export const OtpInputSlot = (props: Omit<OtpInputUI.Slot, "children">) => {
+export const OtpInputSlot = (props: OtpInputSlot.Props) => {
   const { styles } = useOtpInputContext();
   const { className, ...rest } = props;
   return (
@@ -77,7 +76,7 @@ export const OtpInputSlot = (props: Omit<OtpInputUI.Slot, "children">) => {
   );
 };
 
-export const OtpInputSeparator = (props: OtpInputUI.Separator) => {
+export const OtpInputSeparator = (props: OtpInputSeparator.Props) => {
   const { styles } = useOtpInputContext();
   const { className, ...rest } = props;
   return (
@@ -89,3 +88,15 @@ export const OtpInputSeparator = (props: OtpInputUI.Separator) => {
 };
 
 export { REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS };
+
+export namespace OtpInputGroup {
+  export interface Props extends OtpInputUI.Group {}
+}
+
+export namespace OtpInputSlot {
+  export interface Props extends Omit<OtpInputUI.Slot, "children"> {}
+}
+
+export namespace OtpInputSeparator {
+  export interface Props extends OtpInputUI.Separator {}
+}

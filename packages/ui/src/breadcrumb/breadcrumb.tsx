@@ -4,9 +4,7 @@ import { breadcrumbStyles } from "./styles";
 
 const styles = breadcrumbStyles();
 
-export const BreadcrumbItem = (
-  props: BreadcrumbUI.Item & { isCurrent?: boolean },
-) => {
+export const BreadcrumbItem = (props: BreadcrumbItem.Props) => {
   const { isCurrent, className, ...rest } = props;
   return (
     <BreadcrumbUI.Item
@@ -18,7 +16,7 @@ export const BreadcrumbItem = (
   );
 };
 
-export const BreadcrumbSeparator = (props: BreadcrumbUI.Separator) => {
+export const BreadcrumbSeparator = (props: BreadcrumbSeparator.Props) => {
   const { className, ...rest } = props;
   return (
     <BreadcrumbUI.Separator
@@ -28,11 +26,19 @@ export const BreadcrumbSeparator = (props: BreadcrumbUI.Separator) => {
   );
 };
 
-export const Breadcrumb = (props: BreadcrumbUI.Props) => {
+export const Breadcrumb = (props: Breadcrumb.Props) => {
   const { className, ...rest } = props;
   return <BreadcrumbUI {...rest} className={styles.root({ className })} />;
 };
 
 export namespace Breadcrumb {
   export interface Props extends BreadcrumbUI.Props {}
+}
+
+export namespace BreadcrumbItem {
+  export interface Props extends BreadcrumbUI.Item & { isCurrent?: boolean } {}
+}
+
+export namespace BreadcrumbSeparator {
+  export interface Props extends BreadcrumbUI.Separator {}
 }

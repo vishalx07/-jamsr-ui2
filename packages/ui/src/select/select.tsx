@@ -36,7 +36,7 @@ export namespace Select {
   export interface Props extends SelectUI.Props, SelectVariants {}
 }
 
-export const SelectTrigger = (props: SelectUI.Trigger) => {
+export const SelectTrigger = (props: SelectTrigger.Props) => {
   const { styles } = useSelectContext();
   const {
     children = (
@@ -55,7 +55,7 @@ export const SelectTrigger = (props: SelectUI.Trigger) => {
   );
 };
 
-export const SelectValue = (props: SelectUI.Value) => {
+export const SelectValue = (props: SelectValue.Props) => {
   const { styles } = useSelectContext();
   return (
     <SelectUI.Value
@@ -65,7 +65,7 @@ export const SelectValue = (props: SelectUI.Value) => {
   );
 };
 
-export const SelectIndicator = (props: SelectUI.Indicator) => {
+export const SelectIndicator = (props: SelectIndicator.Props) => {
   const { styles } = useSelectContext();
   return (
     <SelectUI.Indicator
@@ -100,7 +100,7 @@ export namespace SelectContent {
   }
 }
 
-export const SelectItem = (props: SelectUI.Item) => {
+export const SelectItem = (props: SelectItem.Props) => {
   const { styles } = useSelectContext();
   return (
     <SelectUI.Item
@@ -110,7 +110,7 @@ export const SelectItem = (props: SelectUI.Item) => {
   );
 };
 
-export const SelectItemIndicator = (props: SelectUI.ItemIndicator) => {
+export const SelectItemIndicator = (props: SelectItemIndicator.Props) => {
   const { styles } = useSelectContext();
   return (
     <SelectUI.ItemIndicator
@@ -119,3 +119,23 @@ export const SelectItemIndicator = (props: SelectUI.ItemIndicator) => {
     />
   );
 };
+
+export namespace SelectTrigger {
+  export interface Props extends SelectUI.Trigger {}
+}
+
+export namespace SelectValue {
+  export interface Props extends SelectUI.Value {}
+}
+
+export namespace SelectIndicator {
+  export interface Props extends SelectUI.Indicator {}
+}
+
+export namespace SelectItem {
+  export interface Props extends SelectUI.Item {}
+}
+
+export namespace SelectItemIndicator {
+  export interface Props extends SelectUI.ItemIndicator {}
+}

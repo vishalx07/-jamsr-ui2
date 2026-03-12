@@ -4,7 +4,7 @@ import { autocompleteStyles } from "./styles";
 
 const styles = autocompleteStyles();
 
-export const AutocompleteItem = (props: AutocompleteUI.Item) => {
+export const AutocompleteItem = (props: AutocompleteItem.Props) => {
   const { className, ...rest } = props;
   return (
     <AutocompleteUI.Item {...rest} className={styles.item({ className })} />
@@ -18,4 +18,8 @@ export const Autocomplete = (props: Autocomplete.Props) => {
 
 export namespace Autocomplete {
   export interface Props extends AutocompleteUI.Props {}
+}
+
+export namespace AutocompleteItem {
+  export interface Props extends AutocompleteUI.Item {}
 }

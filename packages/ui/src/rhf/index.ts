@@ -23,3 +23,17 @@ export const RHFField = Object.assign(RHFFieldRoot, {
   OtpInput: RHFOtpInput,
   TextField: RHFTextField,
 });
+
+export namespace RHFField {
+  export interface Props extends RHFFieldRoot.Props {}
+  export interface FieldError extends RHFFieldError.Props {}
+  export interface Input extends RHFInput.Props {}
+  export interface Textarea extends RHFTextarea.Props {}
+  export interface Switch extends RHFSwitch.Props {}
+  export interface Checkbox extends RHFCheckbox.Props {}
+  export interface NumberField extends RHFNumberField.Props {}
+  export interface RadioGroup extends RHFRadioGroup.Props {}
+  export interface Select extends RHFSelect.Props {}
+  export interface OtpInput extends RHFOtpInput.Props {}
+  export interface TextField extends RHFTextField.Props {}
+}

@@ -38,9 +38,12 @@ export namespace AlertDialog {
   export interface Props extends AlertDialogUI.Props, AlertDialogVariants {}
 }
 
-export const AlertDialogTrigger = (props: AlertDialogUI.Trigger) => {
+export const AlertDialogTrigger = (props: AlertDialogTrigger.Props) => {
   return <AlertDialogUI.Trigger {...props} />;
 };
+export namespace AlertDialogTrigger {
+  export interface Props extends AlertDialogUI.Trigger {}
+}
 
 const AlertDialogBackdrop = (props: AlertDialogUI.Backdrop) => {
   const { styles } = useAlertDialogContext();
@@ -80,7 +83,7 @@ export namespace AlertDialogContent {
   }
 }
 
-export const AlertDialogBody = (props: AlertDialogUI.Body) => {
+export const AlertDialogBody = (props: AlertDialogBody.Props) => {
   const { styles } = useAlertDialogContext();
   return (
     <AlertDialogUI.Body
@@ -90,7 +93,7 @@ export const AlertDialogBody = (props: AlertDialogUI.Body) => {
   );
 };
 
-export const AlertDialogFooter = (props: AlertDialogUI.Footer) => {
+export const AlertDialogFooter = (props: AlertDialogFooter.Props) => {
   const { styles } = useAlertDialogContext();
   return (
     <AlertDialogUI.Footer
@@ -100,7 +103,7 @@ export const AlertDialogFooter = (props: AlertDialogUI.Footer) => {
   );
 };
 
-export const AlertDialogTitle = (props: AlertDialogUI.Title) => {
+export const AlertDialogTitle = (props: AlertDialogTitle.Props) => {
   const { styles } = useAlertDialogContext();
   return (
     <AlertDialogUI.Title
@@ -110,7 +113,7 @@ export const AlertDialogTitle = (props: AlertDialogUI.Title) => {
   );
 };
 
-export const AlertDialogDescription = (props: AlertDialogUI.Description) => {
+export const AlertDialogDescription = (props: AlertDialogDescription.Props) => {
   const { styles } = useAlertDialogContext();
   return (
     <AlertDialogUI.Description
@@ -120,7 +123,7 @@ export const AlertDialogDescription = (props: AlertDialogUI.Description) => {
   );
 };
 
-export const AlertDialogCancel = (props: Button.Props) => {
+export const AlertDialogCancel = (props: AlertDialogCancel.Props) => {
   const { styles } = useAlertDialogContext();
   return (
     <AlertDialogUI.Cancel
@@ -136,9 +139,8 @@ export const AlertDialogCancel = (props: Button.Props) => {
   );
 };
 
-export const AlertDialogAction = (props: Button.Props) => {
+export const AlertDialogAction = (props: AlertDialogAction.Props) => {
   const { styles } = useAlertDialogContext();
-  console.log({ props });
   return (
     <AlertDialogUI.Cancel
       render={
@@ -152,3 +154,27 @@ export const AlertDialogAction = (props: Button.Props) => {
     />
   );
 };
+
+export namespace AlertDialogBody {
+  export interface Props extends AlertDialogUI.Body {}
+}
+
+export namespace AlertDialogFooter {
+  export interface Props extends AlertDialogUI.Footer {}
+}
+
+export namespace AlertDialogTitle {
+  export interface Props extends AlertDialogUI.Title {}
+}
+
+export namespace AlertDialogDescription {
+  export interface Props extends AlertDialogUI.Description {}
+}
+
+export namespace AlertDialogCancel {
+  export interface Props extends Button.Props {}
+}
+
+export namespace AlertDialogAction {
+  export interface Props extends Button.Props {}
+}

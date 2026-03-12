@@ -8,7 +8,6 @@ import { sliderStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type SliderVariants = VariantProps<typeof sliderStyles>;
 
 const SliderContext = createContext<{
@@ -42,7 +41,7 @@ export namespace Slider {
   export interface Props extends SliderUI.Props, SliderVariants {}
 }
 
-export const SliderControl = (props: SliderUI.Control) => {
+export const SliderControl = (props: SliderControl.Props) => {
   const { styles } = useSliderContext();
   return (
     <SliderUI.Control
@@ -52,7 +51,7 @@ export const SliderControl = (props: SliderUI.Control) => {
   );
 };
 
-export const SliderTrack = (props: SliderUI.Track) => {
+export const SliderTrack = (props: SliderTrack.Props) => {
   const { styles } = useSliderContext();
   return (
     <SliderUI.Track
@@ -62,7 +61,7 @@ export const SliderTrack = (props: SliderUI.Track) => {
   );
 };
 
-export const SliderIndicator = (props: SliderUI.Indicator) => {
+export const SliderIndicator = (props: SliderIndicator.Props) => {
   const { styles } = useSliderContext();
   return (
     <SliderUI.Indicator
@@ -72,7 +71,7 @@ export const SliderIndicator = (props: SliderUI.Indicator) => {
   );
 };
 
-export const SliderThumb = (props: SliderUI.Thumb) => {
+export const SliderThumb = (props: SliderThumb.Props) => {
   const { styles } = useSliderContext();
   return (
     <SliderUI.Thumb
@@ -82,7 +81,7 @@ export const SliderThumb = (props: SliderUI.Thumb) => {
   );
 };
 
-export const SliderValue = (props: SliderUI.Value) => {
+export const SliderValue = (props: SliderValue.Props) => {
   const { styles } = useSliderContext();
   return (
     <SliderUI.Value
@@ -91,3 +90,23 @@ export const SliderValue = (props: SliderUI.Value) => {
     />
   );
 };
+
+export namespace SliderControl {
+  export interface Props extends SliderUI.Control {}
+}
+
+export namespace SliderTrack {
+  export interface Props extends SliderUI.Track {}
+}
+
+export namespace SliderIndicator {
+  export interface Props extends SliderUI.Indicator {}
+}
+
+export namespace SliderThumb {
+  export interface Props extends SliderUI.Thumb {}
+}
+
+export namespace SliderValue {
+  export interface Props extends SliderUI.Value {}
+}

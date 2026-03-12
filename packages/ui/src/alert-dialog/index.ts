@@ -23,6 +23,14 @@ export const AlertDialog = Object.assign(AlertDialogRoot, {
 
 export namespace AlertDialog {
   export interface Props extends AlertDialogRoot.Props {}
+  export interface Trigger extends AlertDialogTrigger.Props {}
+  export interface Content extends AlertDialogContent.Props {}
+  export interface Body extends AlertDialogBody.Props {}
+  export interface Footer extends AlertDialogFooter.Props {}
+  export interface Title extends AlertDialogTitle.Props {}
+  export interface Description extends AlertDialogDescription.Props {}
+  export interface Cancel extends AlertDialogCancel.Props {}
+  export interface Action extends AlertDialogAction.Props {}
 }
 
 export {

@@ -9,6 +9,9 @@ export const Tabs = Object.assign(TabsRoot, {
 
 export namespace Tabs {
   export interface Props extends TabsRoot.Props {}
+  export interface List extends TabList.Props {}
+  export interface Indicator extends TabIndicator.Props {}
+  export interface Panel extends TabPanel.Props {}
 }
 
 export { Tab, TabIndicator, TabList, TabPanel };

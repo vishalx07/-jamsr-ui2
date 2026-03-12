@@ -47,7 +47,7 @@ export namespace Checkbox {
   export interface Props extends CheckboxUI.Props, CheckboxVariants {}
 }
 
-export const CheckboxIndicator = (props: CheckboxUI.Indicator) => {
+export const CheckboxIndicator = (props: CheckboxIndicator.Props) => {
   const { styles } = useCheckboxContext();
   return (
     <CheckboxUI.Indicator
@@ -56,3 +56,7 @@ export const CheckboxIndicator = (props: CheckboxUI.Indicator) => {
     />
   );
 };
+
+export namespace CheckboxIndicator {
+  export interface Props extends CheckboxUI.Indicator {}
+}

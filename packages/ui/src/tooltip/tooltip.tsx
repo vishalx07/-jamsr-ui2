@@ -35,7 +35,7 @@ export namespace Tooltip {
   export interface Props extends TooltipUI.Props, TooltipVariants {}
 }
 
-export const TooltipTrigger = (props: TooltipUI.Trigger) => {
+export const TooltipTrigger = (props: TooltipTrigger.Props) => {
   return <TooltipUI.Trigger {...props} />;
 };
 
@@ -67,7 +67,7 @@ export namespace TooltipContent {
   }
 }
 
-export const TooltipArrow = (props: TooltipUI.Arrow) => {
+export const TooltipArrow = (props: TooltipArrow.Props) => {
   const { styles } = useTooltipStyleContext();
   return (
     <TooltipUI.Arrow
@@ -76,3 +76,11 @@ export const TooltipArrow = (props: TooltipUI.Arrow) => {
     />
   );
 };
+
+export namespace TooltipTrigger {
+  export interface Props extends TooltipUI.Trigger {}
+}
+
+export namespace TooltipArrow {
+  export interface Props extends TooltipUI.Arrow {}
+}

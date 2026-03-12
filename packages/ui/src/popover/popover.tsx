@@ -35,7 +35,7 @@ export namespace Popover {
   export interface Props extends PopoverUI.Props, PopoverVariants {}
 }
 
-export const PopoverTrigger = (props: PopoverUI.Trigger) => {
+export const PopoverTrigger = (props: PopoverTrigger.Props) => {
   return <PopoverUI.Trigger {...props} />;
 };
 
@@ -46,7 +46,9 @@ export const PopoverContent = (props: PopoverContent.Props) => {
     <PopoverUI.Portal {...slotProps?.portal}>
       <PopoverUI.Backdrop
         {...slotProps?.backdrop}
-        className={styles.backdrop({ className: slotProps?.backdrop?.className })}
+        className={styles.backdrop({
+          className: slotProps?.backdrop?.className,
+        })}
       />
       <PopoverUI.Positioner
         {...slotProps?.positioner}
@@ -72,7 +74,7 @@ export namespace PopoverContent {
   }
 }
 
-export const PopoverArrow = (props: PopoverUI.Arrow) => {
+export const PopoverArrow = (props: PopoverArrow.Props) => {
   const { styles } = usePopoverContext();
   return (
     <PopoverUI.Arrow
@@ -81,3 +83,11 @@ export const PopoverArrow = (props: PopoverUI.Arrow) => {
     />
   );
 };
+
+export namespace PopoverTrigger {
+  export interface Props extends PopoverUI.Trigger {}
+}
+
+export namespace PopoverArrow {
+  export interface Props extends PopoverUI.Arrow {}
+}

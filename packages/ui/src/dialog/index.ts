@@ -22,6 +22,13 @@ export const Dialog = Object.assign(DialogRoot, {
 
 export namespace Dialog {
   export interface Props extends DialogRoot.Props {}
+  export interface Trigger extends DialogTrigger.Props {}
+  export interface Content extends DialogContent.Props {}
+  export interface Header extends DialogHeader.Props {}
+  export interface Body extends DialogBody.Props {}
+  export interface Footer extends DialogFooter.Props {}
+  export interface CloseButton extends DialogCloseButton.Props {}
+  export interface CloseTrigger extends DialogCloseTrigger.Props {}
 }
 
 export {

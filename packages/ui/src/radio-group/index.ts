@@ -10,6 +10,7 @@ export const Radio = Object.assign(RadioRoot, {
 
 export namespace Radio {
   export interface Props extends RadioRoot.Props {}
+  export interface Indicator extends RadioIndicator.Props {}
 }
 
 export const RadioGroup = RadioGroupRoot;

@@ -35,7 +35,7 @@ export namespace ScrollArea {
   export interface Props extends ScrollAreaUI.Props, ScrollAreaVariants {}
 }
 
-export const ScrollAreaViewport = (props: ScrollAreaUI.Viewport) => {
+export const ScrollAreaViewport = (props: ScrollAreaViewport.Props) => {
   const { styles } = useScrollAreaContext();
   const { className, ...rest } = props;
   return (
@@ -46,7 +46,7 @@ export const ScrollAreaViewport = (props: ScrollAreaUI.Viewport) => {
   );
 };
 
-export const ScrollAreaScrollbar = (props: ScrollAreaUI.Scrollbar) => {
+export const ScrollAreaScrollbar = (props: ScrollAreaScrollbar.Props) => {
   const { styles } = useScrollAreaContext();
   const { orientation = "vertical", className, ...rest } = props;
   return (
@@ -58,7 +58,7 @@ export const ScrollAreaScrollbar = (props: ScrollAreaUI.Scrollbar) => {
   );
 };
 
-export const ScrollAreaThumb = (props: ScrollAreaUI.Thumb) => {
+export const ScrollAreaThumb = (props: ScrollAreaThumb.Props) => {
   const { styles } = useScrollAreaContext();
   const { className, ...rest } = props;
   return (
@@ -66,7 +66,7 @@ export const ScrollAreaThumb = (props: ScrollAreaUI.Thumb) => {
   );
 };
 
-export const ScrollAreaCorner = (props: ScrollAreaUI.Corner) => {
+export const ScrollAreaCorner = (props: ScrollAreaCorner.Props) => {
   const { styles } = useScrollAreaContext();
   const { className, ...rest } = props;
   return (
@@ -74,10 +74,30 @@ export const ScrollAreaCorner = (props: ScrollAreaUI.Corner) => {
   );
 };
 
-export const ScrollAreaContent = (props: ScrollAreaUI.Content) => {
+export const ScrollAreaContent = (props: ScrollAreaContent.Props) => {
   const { styles } = useScrollAreaContext();
   const { className, ...rest } = props;
   return (
     <ScrollAreaUI.Content {...rest} className={styles.content({ className })} />
   );
 };
+
+export namespace ScrollAreaViewport {
+  export interface Props extends ScrollAreaUI.Viewport {}
+}
+
+export namespace ScrollAreaScrollbar {
+  export interface Props extends ScrollAreaUI.Scrollbar {}
+}
+
+export namespace ScrollAreaThumb {
+  export interface Props extends ScrollAreaUI.Thumb {}
+}
+
+export namespace ScrollAreaCorner {
+  export interface Props extends ScrollAreaUI.Corner {}
+}
+
+export namespace ScrollAreaContent {
+  export interface Props extends ScrollAreaUI.Content {}
+}

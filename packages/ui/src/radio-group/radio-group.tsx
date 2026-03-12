@@ -80,7 +80,7 @@ export namespace Radio {
   export interface Props extends RadioUI.Props, RadioVariants {}
 }
 
-export const RadioIndicator = (props: RadioUI.Indicator) => {
+export const RadioIndicator = (props: RadioIndicator.Props) => {
   const { styles } = useRadioStyleContext();
   return (
     <RadioUI.Indicator
@@ -89,3 +89,7 @@ export const RadioIndicator = (props: RadioUI.Indicator) => {
     />
   );
 };
+
+export namespace RadioIndicator {
+  export interface Props extends RadioUI.Indicator {}
+}

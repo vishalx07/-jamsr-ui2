@@ -8,7 +8,6 @@ import { avatarStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type AvatarVariants = VariantProps<typeof avatarStyles>;
 
 const AvatarContext = createContext<{
@@ -38,7 +37,7 @@ export namespace Avatar {
   export interface Props extends AvatarUI.Props, AvatarVariants {}
 }
 
-export const AvatarImage = (props: AvatarUI.Image) => {
+export const AvatarImage = (props: AvatarImage.Props) => {
   const { styles } = useAvatarContext();
   return (
     <AvatarUI.Image
@@ -48,7 +47,7 @@ export const AvatarImage = (props: AvatarUI.Image) => {
   );
 };
 
-export const AvatarFallback = (props: AvatarUI.Fallback) => {
+export const AvatarFallback = (props: AvatarFallback.Props) => {
   const { styles } = useAvatarContext();
   return (
     <AvatarUI.Fallback
@@ -58,7 +57,7 @@ export const AvatarFallback = (props: AvatarUI.Fallback) => {
   );
 };
 
-export const AvatarIndicator = (props: AvatarUI.Indicator) => {
+export const AvatarIndicator = (props: AvatarIndicator.Props) => {
   const { styles } = useAvatarContext();
   return (
     <AvatarUI.Indicator
@@ -67,3 +66,15 @@ export const AvatarIndicator = (props: AvatarUI.Indicator) => {
     />
   );
 };
+
+export namespace AvatarImage {
+  export interface Props extends AvatarUI.Image {}
+}
+
+export namespace AvatarFallback {
+  export interface Props extends AvatarUI.Fallback {}
+}
+
+export namespace AvatarIndicator {
+  export interface Props extends AvatarUI.Indicator {}
+}

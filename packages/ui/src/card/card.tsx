@@ -8,7 +8,6 @@ import { cardStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type CardVariants = VariantProps<typeof cardStyles>;
 
 const CardContext = createContext<{
@@ -38,7 +37,7 @@ export namespace Card {
   export interface Props extends CardUI.Props, CardVariants {}
 }
 
-export const CardHeader = (props: CardUI.Header) => {
+export const CardHeader = (props: CardHeader.Props) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Header
@@ -48,7 +47,7 @@ export const CardHeader = (props: CardUI.Header) => {
   );
 };
 
-export const CardTitle = (props: CardUI.Title) => {
+export const CardTitle = (props: CardTitle.Props) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Title
@@ -58,7 +57,7 @@ export const CardTitle = (props: CardUI.Title) => {
   );
 };
 
-export const CardDescription = (props: CardUI.Description) => {
+export const CardDescription = (props: CardDescription.Props) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Description
@@ -68,7 +67,7 @@ export const CardDescription = (props: CardUI.Description) => {
   );
 };
 
-export const CardContent = (props: CardUI.Content) => {
+export const CardContent = (props: CardContent.Props) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Content
@@ -78,7 +77,7 @@ export const CardContent = (props: CardUI.Content) => {
   );
 };
 
-export const CardFooter = (props: CardUI.Footer) => {
+export const CardFooter = (props: CardFooter.Props) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Footer
@@ -87,3 +86,23 @@ export const CardFooter = (props: CardUI.Footer) => {
     />
   );
 };
+
+export namespace CardHeader {
+  export interface Props extends CardUI.Header {}
+}
+
+export namespace CardTitle {
+  export interface Props extends CardUI.Title {}
+}
+
+export namespace CardDescription {
+  export interface Props extends CardUI.Description {}
+}
+
+export namespace CardContent {
+  export interface Props extends CardUI.Content {}
+}
+
+export namespace CardFooter {
+  export interface Props extends CardUI.Footer {}
+}

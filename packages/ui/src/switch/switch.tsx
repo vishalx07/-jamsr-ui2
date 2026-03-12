@@ -44,7 +44,7 @@ export namespace Switch {
   export interface Props extends SwitchUI.Props, SwitchVariants {}
 }
 
-export const SwitchThumb = (props: SwitchUI.Thumb) => {
+export const SwitchThumb = (props: SwitchThumb.Props) => {
   const { styles } = useSwitchContext();
   return (
     <SwitchUI.Thumb
@@ -53,3 +53,7 @@ export const SwitchThumb = (props: SwitchUI.Thumb) => {
     />
   );
 };
+
+export namespace SwitchThumb {
+  export interface Props extends SwitchUI.Thumb {}
+}

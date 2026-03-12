@@ -19,4 +19,7 @@ export {
 
 export namespace CircularProgress {
   export interface Props extends CircularProgressRoot.Props {}
+  export interface Label extends CircularProgressLabel.Props {}
+  export interface Track extends CircularProgressTrack.Props {}
+  export interface Progress extends CircularProgressProgress.Props {}
 }

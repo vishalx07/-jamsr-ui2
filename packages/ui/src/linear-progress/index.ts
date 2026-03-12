@@ -9,4 +9,5 @@ export const LinearProgress = Object.assign(LinearProgressRoot, {
 
 export namespace LinearProgress {
   export interface Props extends LinearProgressRoot.Props {}
+  export interface Bar extends LinearProgressBar.Props {}
 }

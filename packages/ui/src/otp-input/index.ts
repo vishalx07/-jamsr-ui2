@@ -16,6 +16,9 @@ export const OtpInput = Object.assign(OtpInputRoot, {
 
 export namespace OtpInput {
   export interface Props extends OtpInputRoot.Props {}
+  export interface Group extends OtpInputGroup.Props {}
+  export interface Slot extends OtpInputSlot.Props {}
+  export interface Separator extends OtpInputSeparator.Props {}
 }
 
 export {

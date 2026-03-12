@@ -8,7 +8,6 @@ import { tabsStyles } from "./styles";
 
 import type { TabsVariants } from "./styles";
 
-
 const TabsContext = createContext<{
   styles: ReturnType<typeof tabsStyles>;
 } | null>(null);
@@ -53,7 +52,7 @@ export namespace Tabs {
   export interface Props extends TabsUI.Props, TabsVariants {}
 }
 
-export const TabList = (props: TabsUI.List) => {
+export const TabList = (props: TabList.Props) => {
   const { styles } = useTabsContext();
   return (
     <TabsUI.List
@@ -63,7 +62,7 @@ export const TabList = (props: TabsUI.List) => {
   );
 };
 
-export const Tab = (props: TabsUI.Tab) => {
+export const Tab = (props: Tab.Props) => {
   const { styles } = useTabsContext();
   return (
     <TabsUI.Tab
@@ -73,7 +72,7 @@ export const Tab = (props: TabsUI.Tab) => {
   );
 };
 
-export const TabIndicator = (props: TabsUI.Indicator) => {
+export const TabIndicator = (props: TabIndicator.Props) => {
   const { styles } = useTabsContext();
   return (
     <TabsUI.Indicator
@@ -83,7 +82,7 @@ export const TabIndicator = (props: TabsUI.Indicator) => {
   );
 };
 
-export const TabPanel = (props: TabsUI.Panel) => {
+export const TabPanel = (props: TabPanel.Props) => {
   const { styles } = useTabsContext();
   return (
     <TabsUI.Panel
@@ -92,3 +91,15 @@ export const TabPanel = (props: TabsUI.Panel) => {
     />
   );
 };
+
+export namespace TabList {
+  export interface Props extends TabsUI.List {}
+}
+
+export namespace TabIndicator {
+  export interface Props extends TabsUI.Indicator {}
+}
+
+export namespace TabPanel {
+  export interface Props extends TabsUI.Panel {}
+}

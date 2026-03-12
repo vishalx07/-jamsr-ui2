@@ -8,7 +8,6 @@ import { chipStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type ChipVariants = VariantProps<typeof chipStyles>;
 
 const ChipContext = createContext<{
@@ -54,7 +53,7 @@ export namespace Chip {
   export interface Props extends ChipUI.Props, ChipVariants {}
 }
 
-export const ChipDot = (props: ChipUI.Dot) => {
+export const ChipDot = (props: ChipDot.Props) => {
   const { styles } = useChipContext();
   return (
     <ChipUI.Dot
@@ -63,3 +62,7 @@ export const ChipDot = (props: ChipUI.Dot) => {
     />
   );
 };
+
+export namespace ChipDot {
+  export interface Props extends ChipUI.Dot {}
+}

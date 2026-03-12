@@ -52,7 +52,7 @@ export namespace Dialog {
   export interface Props extends DialogUI.Props, DialogVariants {}
 }
 
-export const DialogTrigger = (props: DialogUI.Trigger) => {
+export const DialogTrigger = (props: DialogTrigger.Props) => {
   return <DialogUI.Trigger {...props} />;
 };
 
@@ -63,7 +63,9 @@ export const DialogContent = (props: DialogContent.Props) => {
     <DialogUI.Portal {...slotProps?.portal}>
       <DialogUI.Backdrop
         {...slotProps?.backdrop}
-        className={styles.backdrop({ className: slotProps?.backdrop?.className })}
+        className={styles.backdrop({
+          className: slotProps?.backdrop?.className,
+        })}
       >
         <DialogUI.Positioner
           {...slotProps?.positioner}
@@ -90,7 +92,7 @@ export namespace DialogContent {
   }
 }
 
-export const DialogHeader = (props: DialogUI.Header) => {
+export const DialogHeader = (props: DialogHeader.Props) => {
   const { styles } = useDialogContext();
   return (
     <DialogUI.Header
@@ -100,7 +102,7 @@ export const DialogHeader = (props: DialogUI.Header) => {
   );
 };
 
-export const DialogBody = (props: DialogUI.Body) => {
+export const DialogBody = (props: DialogBody.Props) => {
   const { styles } = useDialogContext();
   return (
     <DialogUI.Body
@@ -110,7 +112,7 @@ export const DialogBody = (props: DialogUI.Body) => {
   );
 };
 
-export const DialogFooter = (props: DialogUI.Footer) => {
+export const DialogFooter = (props: DialogFooter.Props) => {
   const { styles } = useDialogContext();
   return (
     <DialogUI.Footer
@@ -120,7 +122,7 @@ export const DialogFooter = (props: DialogUI.Footer) => {
   );
 };
 
-export const DialogCloseButton = (props: Partial<IconButton.Props>) => {
+export const DialogCloseButton = (props: DialogCloseButton.Props) => {
   const { styles } = useDialogContext();
   return (
     <DialogUI.CloseButton>
@@ -137,11 +139,11 @@ export const DialogCloseButton = (props: Partial<IconButton.Props>) => {
   );
 };
 
-export const DialogCloseTrigger = (props: DialogUI.CloseTrigger) => {
+export const DialogCloseTrigger = (props: DialogCloseTrigger.Props) => {
   return <DialogUI.CloseTrigger {...props} />;
 };
 
-export const DialogPositioner = (props: DialogUI.Positioner) => {
+export const DialogPositioner = (props: DialogPositioner.Props) => {
   const { styles } = useDialogContext();
   return (
     <DialogUI.Positioner
@@ -150,3 +152,31 @@ export const DialogPositioner = (props: DialogUI.Positioner) => {
     />
   );
 };
+
+export namespace DialogTrigger {
+  export interface Props extends DialogUI.Trigger {}
+}
+
+export namespace DialogHeader {
+  export interface Props extends DialogUI.Header {}
+}
+
+export namespace DialogBody {
+  export interface Props extends DialogUI.Body {}
+}
+
+export namespace DialogFooter {
+  export interface Props extends DialogUI.Footer {}
+}
+
+export namespace DialogCloseButton {
+  export interface Props extends Partial<IconButton.Props> {}
+}
+
+export namespace DialogCloseTrigger {
+  export interface Props extends DialogUI.CloseTrigger {}
+}
+
+export namespace DialogPositioner {
+  export interface Props extends DialogUI.Positioner {}
+}

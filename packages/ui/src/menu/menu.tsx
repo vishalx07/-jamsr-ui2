@@ -36,7 +36,7 @@ export namespace Menu {
   export interface Props extends MenuUI.Props, MenuVariants {}
 }
 
-export const MenuTrigger = (props: MenuUI.Trigger) => {
+export const MenuTrigger = (props: MenuTrigger.Props) => {
   return <MenuUI.Trigger {...props} />;
 };
 
@@ -47,7 +47,9 @@ export const MenuContent = (props: MenuContent.Props) => {
     <MenuUI.Portal {...slotProps?.portal}>
       <MenuUI.Backdrop
         {...slotProps?.backdrop}
-        className={styles.backdrop({ className: slotProps?.backdrop?.className })}
+        className={styles.backdrop({
+          className: slotProps?.backdrop?.className,
+        })}
       />
       <MenuUI.Positioner
         {...slotProps?.positioner}
@@ -89,7 +91,7 @@ export namespace MenuItem {
   }
 }
 
-export const MenuGroup = (props: MenuUI.Group) => {
+export const MenuGroup = (props: MenuGroup.Props) => {
   const { styles } = useMenuContext();
   return (
     <MenuUI.Group
@@ -99,7 +101,7 @@ export const MenuGroup = (props: MenuUI.Group) => {
   );
 };
 
-export const MenuGroupLabel = (props: MenuUI.GroupLabel) => {
+export const MenuGroupLabel = (props: MenuGroupLabel.Props) => {
   const { styles } = useMenuContext();
   return (
     <MenuUI.GroupLabel
@@ -109,11 +111,11 @@ export const MenuGroupLabel = (props: MenuUI.GroupLabel) => {
   );
 };
 
-export const MenuSeparator = (props: MenuUI.Separator) => {
+export const MenuSeparator = (props: MenuSeparator.Props) => {
   return <MenuUI.Separator {...props} />;
 };
 
-export const MenuCheckboxItem = (props: MenuUI.CheckboxItem) => {
+export const MenuCheckboxItem = (props: MenuCheckboxItem.Props) => {
   const { styles } = useMenuContext();
   return (
     <MenuUI.CheckboxItem
@@ -123,11 +125,11 @@ export const MenuCheckboxItem = (props: MenuUI.CheckboxItem) => {
   );
 };
 
-export const MenuRadioGroup = (props: MenuUI.RadioGroup) => {
+export const MenuRadioGroup = (props: MenuRadioGroup.Props) => {
   return <MenuUI.RadioGroup {...props} />;
 };
 
-export const MenuRadioItem = (props: MenuUI.RadioItem) => {
+export const MenuRadioItem = (props: MenuRadioItem.Props) => {
   const { styles } = useMenuContext();
   return (
     <MenuUI.RadioItem
@@ -137,7 +139,7 @@ export const MenuRadioItem = (props: MenuUI.RadioItem) => {
   );
 };
 
-export const MenuItemIndicator = (props: MenuUI.ItemIndicator) => {
+export const MenuItemIndicator = (props: MenuItemIndicator.Props) => {
   const { styles } = useMenuContext();
   return (
     <MenuUI.ItemIndicator
@@ -147,7 +149,7 @@ export const MenuItemIndicator = (props: MenuUI.ItemIndicator) => {
   );
 };
 
-export const MenuSubmenuIndicator = (props: React.ComponentProps<"span">) => {
+export const MenuSubmenuIndicator = (props: MenuSubmenuIndicator.Props) => {
   const { styles } = useMenuContext();
   return (
     <MenuUI.SubmenuIndicator
@@ -157,7 +159,7 @@ export const MenuSubmenuIndicator = (props: React.ComponentProps<"span">) => {
   );
 };
 
-export const MenuArrow = (props: MenuUI.Arrow) => {
+export const MenuArrow = (props: MenuArrow.Props) => {
   const { styles } = useMenuContext();
   return (
     <MenuUI.Arrow
@@ -167,7 +169,7 @@ export const MenuArrow = (props: MenuUI.Arrow) => {
   );
 };
 
-export const MenuPositioner = (props: React.ComponentProps<"div">) => {
+export const MenuPositioner = (props: MenuPositioner.Props) => {
   const { styles } = useMenuContext();
   return (
     <MenuUI.Positioner
@@ -176,3 +178,47 @@ export const MenuPositioner = (props: React.ComponentProps<"div">) => {
     />
   );
 };
+
+export namespace MenuTrigger {
+  export interface Props extends MenuUI.Trigger {}
+}
+
+export namespace MenuGroup {
+  export interface Props extends MenuUI.Group {}
+}
+
+export namespace MenuGroupLabel {
+  export interface Props extends MenuUI.GroupLabel {}
+}
+
+export namespace MenuSeparator {
+  export interface Props extends MenuUI.Separator {}
+}
+
+export namespace MenuCheckboxItem {
+  export interface Props extends MenuUI.CheckboxItem {}
+}
+
+export namespace MenuRadioGroup {
+  export interface Props extends MenuUI.RadioGroup {}
+}
+
+export namespace MenuRadioItem {
+  export interface Props extends MenuUI.RadioItem {}
+}
+
+export namespace MenuItemIndicator {
+  export interface Props extends MenuUI.ItemIndicator {}
+}
+
+export namespace MenuSubmenuIndicator {
+  export interface Props extends React.ComponentProps<"span"> {}
+}
+
+export namespace MenuArrow {
+  export interface Props extends MenuUI.Arrow {}
+}
+
+export namespace MenuPositioner {
+  export interface Props extends React.ComponentProps<"div"> {}
+}

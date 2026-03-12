@@ -15,4 +15,7 @@ export { PopoverArrow, PopoverContent, PopoverTrigger };
 
 export namespace Popover {
   export interface Props extends PopoverRoot.Props {}
+  export interface Arrow extends PopoverArrow.Props {}
+  export interface Content extends PopoverContent.Props {}
+  export interface Trigger extends PopoverTrigger.Props {}
 }

@@ -15,6 +15,10 @@ export const NumberField = Object.assign(NumberFieldRoot, {
 
 export namespace NumberField {
   export interface Props extends NumberFieldRoot.Props {}
+  export interface Group extends NumberFieldGroup.Props {}
+  export interface Input extends NumberFieldInput.Props {}
+  export interface Increment extends NumberFieldIncrement.Props {}
+  export interface Decrement extends NumberFieldDecrement.Props {}
 }
 
 export {

@@ -182,12 +182,7 @@ const DataGridHeaderResizer = ({
   );
 };
 
-export const DataGridHeaderColumn = (props: {
-  header: Header<any, unknown>;
-  children: React.ReactNode;
-  hideResizer?: boolean;
-  hideDropdown?: boolean;
-}) => {
+export const DataGridHeaderColumn = (props: DataGridHeaderColumn.Props) => {
   const { header, children, hideResizer = false, hideDropdown = false } = props;
   return (
     <div
@@ -221,3 +216,7 @@ export const DataGridHeaderColumn = (props: {
     </div>
   );
 };
+
+export namespace DataGridHeaderColumn {
+  export interface Props extends { header: Header<any, unknown>; children: React.ReactNode; hideResizer?: boolean; hideDropdown?: boolean; } {}
+}
