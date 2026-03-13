@@ -1,26 +1,23 @@
-import { Accordion as AccordionRoot } from "./accordion";
-import { AccordionContent } from "./accordion-content";
-import { AccordionHeading } from "./accordion-heading";
-import { AccordionIndicator } from "./accordion-indicator";
-import { AccordionItem } from "./accordion-item";
-import { AccordionPanel } from "./accordion-panel";
-import { AccordionTrigger } from "./accordion-trigger";
+import { Accordion as AccordionBaseUI } from "@base-ui/react/accordion";
 
-export const Accordion = Object.assign(AccordionRoot, {
-  Item: AccordionItem,
-  Trigger: AccordionTrigger,
+import { AccordionContent } from "./accordion-content";
+import { AccordionIndicator } from "./accordion-indicator";
+
+export const Accordion = Object.assign(AccordionBaseUI.Root, {
+  Item: AccordionBaseUI.Item,
+  Trigger: AccordionBaseUI.Trigger,
+  Panel: AccordionBaseUI.Panel,
+  Heading: AccordionBaseUI.Header,
   Content: AccordionContent,
-  Panel: AccordionPanel,
   Indicator: AccordionIndicator,
-  Heading: AccordionHeading,
 });
 
 export namespace Accordion {
-  export interface Props extends AccordionRoot.Props {}
-  export interface Item extends AccordionItem.Props {}
-  export interface Trigger extends AccordionTrigger.Props {}
+  export interface Props extends AccordionBaseUI.Root.Props {}
+  export interface Item extends AccordionBaseUI.Item.Props {}
+  export interface Trigger extends AccordionBaseUI.Trigger.Props {}
+  export interface Panel extends AccordionBaseUI.Panel.Props {}
+  export interface Heading extends AccordionBaseUI.Header.Props {}
   export interface Content extends AccordionContent.Props {}
-  export interface Panel extends AccordionPanel.Props {}
   export interface Indicator extends AccordionIndicator.Props {}
-  export interface Heading extends AccordionHeading.Props {}
 }

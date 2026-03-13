@@ -3,6 +3,7 @@
 import { createContext, use, useMemo } from "react";
 
 import { Accordion as AccordionUI } from "@jamsrui/react";
+import { cn } from "tailwind-variants";
 
 import { accordionStyles } from "./styles";
 
@@ -28,7 +29,10 @@ export const Accordion = (props: Accordion.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <AccordionContext value={value}>
-      <AccordionUI {...restProps} className={styles.root({ className })} />
+      <AccordionUI
+        {...restProps}
+        className={styles.root({ className: cn(className) })}
+      />
     </AccordionContext>
   );
 };
@@ -41,10 +45,13 @@ export const AccordionItem = (props: AccordionItem.Props) => {
   return (
     <AccordionUI.Item
       {...props}
-      className={styles.item({ className: props.className })}
+      className={styles.item({ className: cn(props.className) })}
     />
   );
 };
+export namespace AccordionItem {
+  export interface Props extends AccordionUI.Item {}
+}
 
 export const AccordionTrigger = (props: AccordionTrigger.Props) => {
   const { styles } = useAccordionContext();
@@ -52,11 +59,13 @@ export const AccordionTrigger = (props: AccordionTrigger.Props) => {
   return (
     <AccordionUI.Heading
       {...slotProps?.heading}
-      className={styles.heading({ className: slotProps?.heading?.className })}
+      className={styles.heading({
+        className: cn(slotProps?.heading?.className),
+      })}
     >
       <AccordionUI.Trigger
         {...restProps}
-        className={styles.trigger({ className: restProps.className })}
+        className={styles.trigger({ className: cn(restProps.className) })}
       />
     </AccordionUI.Heading>
   );
@@ -75,7 +84,7 @@ export const AccordionContent = (props: AccordionContent.Props) => {
   return (
     <AccordionUI.Panel
       {...slotProps?.panel}
-      className={styles.panel({ className: slotProps?.panel?.className })}
+      className={styles.panel({ className: cn(slotProps?.panel?.className) })}
     >
       <AccordionUI.Content
         {...restProps}
@@ -101,11 +110,6 @@ export const AccordionIndicator = (props: AccordionIndicator.Props) => {
     />
   );
 };
-
-export namespace AccordionItem {
-  export interface Props extends AccordionUI.Item {}
-}
-
 export namespace AccordionIndicator {
   export interface Props extends AccordionUI.Indicator {}
 }

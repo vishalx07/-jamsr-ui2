@@ -20,10 +20,3 @@ export namespace Accordion {
   export interface Content extends AccordionContent.Props {}
   export interface Indicator extends AccordionIndicator.Props {}
 }
-
-export {
-  AccordionContent,
-  AccordionIndicator,
-  AccordionItem,
-  AccordionTrigger,
-};

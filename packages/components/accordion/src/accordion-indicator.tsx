@@ -1,21 +1,22 @@
 "use client";
 
-import { useRenderElement } from "@jamsrui/hooks";
+import { useRender } from "@base-ui/react";
 
-import { useAccordionItemContext } from "./accordion-item-context";
 import { ChevronDownIcon } from "./icons";
 
-import type { UIProps } from "@jamsrui/utils";
-
 export const AccordionIndicator = (props: AccordionIndicator.Props) => {
-  const { children = <ChevronDownIcon />, ...restProps } = props;
-  const { getIndicatorProps } = useAccordionItemContext();
-  const renderElement = useRenderElement("span", {
-    props: [getIndicatorProps(restProps), { children }],
+  const { children = <ChevronDownIcon />, render, ...restProps } = props;
+  const element = useRender({
+    defaultTagName: "span",
+    render,
+    props: {
+      children,
+      ...restProps,
+    },
   });
-  return renderElement;
+  return element;
 };
 
 export namespace AccordionIndicator {
-  export interface Props extends UIProps<"span"> {}
+  export interface Props extends useRender.ComponentProps<"span"> {}
 }
