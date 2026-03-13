@@ -3,19 +3,14 @@
 import { Checkbox } from "jamsrui/checkbox";
 import { Label } from "jamsrui/label";
 import { Field } from "jamsrui/textfield";
-import React from "react";
 
 export const CheckboxInputEvents = () => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.checked);
+  const handleChange = (e: boolean) => {
+    console.log(e);
   };
   return (
     <Field orientation="horizontal">
-      <Checkbox
-        inputProps={{
-          onChange: handleChange,
-        }}
-      />
+      <Checkbox onCheckedChange={handleChange} />
       <Label>Enable email notifications</Label>
     </Field>
   );

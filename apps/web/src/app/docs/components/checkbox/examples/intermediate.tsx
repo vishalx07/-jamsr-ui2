@@ -5,7 +5,7 @@ import { Field } from "jamsrui/textfield";
 export const CheckboxIntermediate = () => {
   return (
     <Field orientation="horizontal">
-      <Checkbox isIntermediate />
+      <Checkbox indeterminate />
       <Label>I am a checkbox</Label>
     </Field>
   );

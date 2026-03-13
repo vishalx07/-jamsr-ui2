@@ -1,8 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 
-import { useCheckboxContext } from "./checkbox-context";
-
+import type { CheckboxIndicatorState } from "@base-ui/react";
 import type { Variants } from "motion/react";
 
 const tickVariants: Variants = {
@@ -25,11 +24,11 @@ const tickVariants: Variants = {
   },
 };
 
-export const CheckboxIcon = () => {
-  const { isChecked, isIntermediate } = useCheckboxContext();
+export const CheckboxIcon = (props: CheckboxIndicatorState) => {
+  const { checked, indeterminate } = props;
   return (
     <motion.svg
-      animate={isChecked || isIntermediate ? "checked" : "unchecked"}
+      animate={checked || indeterminate ? "checked" : "unchecked"}
       fill="none"
       initial={false}
       stroke="currentColor"
@@ -38,7 +37,7 @@ export const CheckboxIcon = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <motion.path
-        d={isIntermediate ? "M5 12h14" : "M4.5 12.75l6 6 9-13.5"}
+        d={indeterminate ? "M5 12h14" : "M4.5 12.75l6 6 9-13.5"}
         strokeLinecap="round"
         strokeLinejoin="round"
         variants={tickVariants}

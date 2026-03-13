@@ -3,6 +3,7 @@
 import { createContext, use, useMemo } from "react";
 
 import { Checkbox as CheckboxUI } from "@jamsrui/react";
+import { cn } from "tailwind-variants";
 
 import { checkboxStyles } from "./styles";
 
@@ -35,8 +36,10 @@ export const Checkbox = (props: Checkbox.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <CheckboxContext value={value}>
-      <CheckboxUI {...restProps} className={styles.root({ className })}>
-        <CheckboxUI.Input className={styles.input({})} />
+      <CheckboxUI
+        {...restProps}
+        className={styles.root({ className: cn(className) })}
+      >
         {children}
       </CheckboxUI>
     </CheckboxContext>
@@ -52,7 +55,7 @@ export const CheckboxIndicator = (props: CheckboxIndicator.Props) => {
   return (
     <CheckboxUI.Indicator
       {...props}
-      className={styles.indicator({ className: props.className })}
+      className={styles.indicator({ className: cn(props.className) })}
     />
   );
 };
