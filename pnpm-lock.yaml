@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@base-ui/react':
+      specifier: ^1.3.0
+      version: 1.3.0
     '@floating-ui/react':
       specifier: '>=0.27'
       version: 0.27.16
@@ -263,22 +266,10 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
-  packages/components/__template__:
-    devDependencies:
-      '@types/react':
-        specifier: 'catalog:'
-        version: 19.2.8
-      clean-package:
-        specifier: ^2.2.0
-        version: 2.2.0
-      react:
-        specifier: 'catalog:'
-        version: 19.2.3
-
   packages/components/accordion:
     dependencies:
       '@base-ui/react':
-        specifier: ^1.3.0
+        specifier: 'catalog:'
         version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/composite':
         specifier: workspace:^
@@ -311,6 +302,9 @@ importers:
 
   packages/components/alert:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -342,6 +336,9 @@ importers:
 
   packages/components/alert-dialog:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -376,6 +373,9 @@ importers:
 
   packages/components/autocomplete:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -407,6 +407,9 @@ importers:
 
   packages/components/avatar:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -432,6 +435,9 @@ importers:
 
   packages/components/breadcrumb:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -454,6 +460,9 @@ importers:
 
   packages/components/button:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -479,6 +488,9 @@ importers:
 
   packages/components/card:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -504,6 +516,9 @@ importers:
 
   packages/components/charts:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -526,6 +541,9 @@ importers:
 
   packages/components/checkbox:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -551,6 +569,9 @@ importers:
 
   packages/components/chip:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -576,6 +597,9 @@ importers:
 
   packages/components/circular-progress:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -598,6 +622,9 @@ importers:
 
   packages/components/clipboard:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/button':
         specifier: workspace:^
         version: link:../button
@@ -626,6 +653,9 @@ importers:
 
   packages/components/collapsible:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -651,6 +681,9 @@ importers:
 
   packages/components/composite:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/utils':
         specifier: workspace:^
         version: link:../../utils
@@ -667,6 +700,9 @@ importers:
 
   packages/components/context-menu:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -692,6 +728,9 @@ importers:
 
   packages/components/date-field:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -717,6 +756,9 @@ importers:
 
   packages/components/date-picker:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -739,6 +781,9 @@ importers:
 
   packages/components/description:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/context':
         specifier: workspace:^
         version: link:../../context
@@ -764,6 +809,9 @@ importers:
 
   packages/components/dialog:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -798,6 +846,9 @@ importers:
 
   packages/components/drawer:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -832,6 +883,9 @@ importers:
 
   packages/components/editor:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -854,6 +908,9 @@ importers:
 
   packages/components/field-error:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/context':
         specifier: workspace:^
         version: link:../../context
@@ -879,6 +936,9 @@ importers:
 
   packages/components/file-upload:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -901,6 +961,9 @@ importers:
 
   packages/components/header:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -923,6 +986,9 @@ importers:
 
   packages/components/icon-button:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -945,6 +1011,9 @@ importers:
 
   packages/components/input:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/context':
         specifier: workspace:^
         version: link:../../context
@@ -976,6 +1045,9 @@ importers:
 
   packages/components/input-group:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1010,6 +1082,9 @@ importers:
 
   packages/components/kbd:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1032,6 +1107,9 @@ importers:
 
   packages/components/label:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/context':
         specifier: workspace:^
         version: link:../../context
@@ -1057,6 +1135,9 @@ importers:
 
   packages/components/linear-progress:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1082,6 +1163,9 @@ importers:
 
   packages/components/link:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1107,6 +1191,9 @@ importers:
 
   packages/components/menu:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1141,6 +1228,9 @@ importers:
 
   packages/components/number-field:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1166,6 +1256,9 @@ importers:
 
   packages/components/otp-input:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1191,6 +1284,9 @@ importers:
 
   packages/components/pagination:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1213,6 +1309,9 @@ importers:
 
   packages/components/popover:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: ^0.27.8
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1241,6 +1340,9 @@ importers:
 
   packages/components/radio:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/context':
         specifier: workspace:^
         version: link:../../context
@@ -1266,6 +1368,9 @@ importers:
 
   packages/components/rating:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1288,6 +1393,9 @@ importers:
 
   packages/components/ripple:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1310,6 +1418,9 @@ importers:
 
   packages/components/scroll-area:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1332,6 +1443,9 @@ importers:
 
   packages/components/select:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1363,6 +1477,9 @@ importers:
 
   packages/components/separator:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1385,6 +1502,9 @@ importers:
 
   packages/components/sidebar:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1410,6 +1530,9 @@ importers:
 
   packages/components/skeleton:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1432,6 +1555,9 @@ importers:
 
   packages/components/slider:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1454,6 +1580,9 @@ importers:
 
   packages/components/switch:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1479,6 +1608,9 @@ importers:
 
   packages/components/table:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1501,6 +1633,9 @@ importers:
 
   packages/components/tabs:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1526,6 +1661,9 @@ importers:
 
   packages/components/tags-input:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1548,6 +1686,9 @@ importers:
 
   packages/components/text:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1573,6 +1714,9 @@ importers:
 
   packages/components/textarea:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/context':
         specifier: workspace:^
         version: link:../../context
@@ -1604,6 +1748,9 @@ importers:
 
   packages/components/textfield:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/context':
         specifier: workspace:^
         version: link:../../context
@@ -1629,6 +1776,9 @@ importers:
 
   packages/components/time-field:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1654,6 +1804,9 @@ importers:
 
   packages/components/toast:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1679,6 +1832,9 @@ importers:
 
   packages/components/toggle:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@jamsrui/core':
         specifier: workspace:^
         version: link:../../core
@@ -1701,6 +1857,9 @@ importers:
 
   packages/components/tooltip:
     dependencies:
+      '@base-ui/react':
+        specifier: 'catalog:'
+        version: 1.3.0(@types/react@19.2.8)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@floating-ui/react':
         specifier: 'catalog:'
         version: 0.27.16(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1762,7 +1921,7 @@ importers:
         version: 9.39.2(jiti@2.6.1)
       eslint-config-airbnb-extended:
         specifier: 3.0.0
-        version: 3.0.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2)
+        version: 3.0.0(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2)
       eslint-config-prettier:
         specifier: ^10.1.1
         version: 10.1.8(eslint@9.39.2(jiti@2.6.1))
@@ -8696,14 +8855,14 @@ snapshots:
       eslint: 9.39.2(jiti@2.6.1)
       semver: 7.7.3
 
-  eslint-config-airbnb-extended@3.0.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2):
+  eslint-config-airbnb-extended@3.0.0(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2):
     dependencies:
       '@next/eslint-plugin-next': 16.1.2
       '@stylistic/eslint-plugin': 5.7.0(eslint@9.39.2(jiti@2.6.1))
       confusing-browser-globals: 1.0.11
       eslint: 9.39.2(jiti@2.6.1)
-      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1)))(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.6.1))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1))
+      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1)))(eslint-plugin-import@2.32.0(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-import-x: 4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-n: 17.23.2(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2)
@@ -8738,7 +8897,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-import-resolver-typescript@4.4.4(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1)))(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.6.1)):
+  eslint-import-resolver-typescript@4.4.4(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1)))(eslint-plugin-import@2.32.0(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       debug: 4.4.3
       eslint: 9.39.2(jiti@2.6.1)
@@ -8749,19 +8908,18 @@ snapshots:
       tinyglobby: 0.2.15
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1))
       eslint-plugin-import-x: 4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1))
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1)):
+  eslint-module-utils@2.12.1(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
-      '@typescript-eslint/parser': 8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2)
       eslint: 9.39.2(jiti@2.6.1)
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1)))(eslint-plugin-import@2.32.0)(eslint@9.39.2(jiti@2.6.1))
+      eslint-import-resolver-typescript: 4.4.4(eslint-plugin-import-x@4.16.1(@typescript-eslint/utils@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint@9.39.2(jiti@2.6.1)))(eslint-plugin-import@2.32.0(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -8790,7 +8948,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1)):
+  eslint-plugin-import@2.32.0(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -8801,7 +8959,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.39.2(jiti@2.6.1)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1))
+      eslint-module-utils: 2.12.1(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.4.4)(eslint@9.39.2(jiti@2.6.1))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -8812,8 +8970,6 @@ snapshots:
       semver: 6.3.1
       string.prototype.trimend: 1.0.9
       tsconfig-paths: 3.15.0
-    optionalDependencies:
-      '@typescript-eslint/parser': 8.53.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.8.2)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack

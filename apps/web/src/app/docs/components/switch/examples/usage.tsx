@@ -20,7 +20,7 @@ const SwitchUsage2 = () => {
   const id = useId();
   return (
     <div className="flex items-center gap-2">
-      <Switch inputProps={{ id }} />
+      <Switch id={id} />
       <div className="flex flex-col">
         <Label htmlFor={id} className="text-sm font-medium">
           Press Me!
@@ -37,7 +37,7 @@ const SwitchUsage3 = () => {
   const id = useId();
   return (
     <div className="flex items-center gap-2">
-      <Switch inputProps={{ id }} />
+      <Switch id={id} />
       <Label htmlFor={id} className="flex flex-col">
         <span className="text-sm font-medium">Press Me!</span>
         <span className="text-xs text-foreground-secondary">

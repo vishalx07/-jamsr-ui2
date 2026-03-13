@@ -18,6 +18,7 @@
     "react": "catalog:"
   },
   "dependencies": {
+    "@base-ui/react": "catalog:",
     "@jamsrui/core": "workspace:^",
     "@jamsrui/description": "workspace:^",
     "@jamsrui/field-error": "workspace:^",

@@ -3,6 +3,7 @@
 import { createContext, use } from "react";
 
 import { Switch as SwitchUI } from "@jamsrui/react";
+import { cn } from "tailwind-variants";
 
 import { switchStyles } from "./styles";
 
@@ -32,8 +33,10 @@ export const Switch = (props: Switch.Props) => {
   const styles = switchStyles({ color, size, isInvalid });
   return (
     <SwitchContext value={{ styles }}>
-      <SwitchUI {...restProps} className={styles.root({ className })}>
-        <SwitchUI.Input className={styles.input()} />
+      <SwitchUI
+        {...restProps}
+        className={styles.root({ className: cn(className) })}
+      >
         {children}
       </SwitchUI>
     </SwitchContext>
@@ -49,7 +52,7 @@ export const SwitchThumb = (props: SwitchThumb.Props) => {
   return (
     <SwitchUI.Thumb
       {...props}
-      className={styles.thumb({ className: props.className })}
+      className={styles.thumb({ className: cn(props.className) })}
     />
   );
 };
