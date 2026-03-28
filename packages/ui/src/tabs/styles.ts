@@ -1,4 +1,4 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
 import {
   colorVariants,
@@ -6,13 +6,13 @@ import {
   focusVisibleClasses,
 } from "../utils/variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const tabsStyles = tv({
   slots: {
     root: "",
     list: [
-      "inline-flex",
+      "relative inline-flex z-0",
       "p-1",
       "h-fit",
       "gap-2",
@@ -34,29 +34,36 @@ export const tabsStyles = tv({
       "transition-opacity",
       "tap-highlight-transparent",
       "disabled:status-disabled",
-      "data-selected:text-foreground",
+      "data-active:text-foreground",
       ...focusVisibleClasses,
     ],
-    indicator: ["absolute", "-z-1", "bg-white"],
+    indicator: [
+      "bg-white",
+      "w-(--active-tab-width) rounded-xs transition-all duration-200 ease-in-out",
+      "absolute -z-1 left-0 translate-x-(--active-tab-left)",
+    ],
     panel: ["py-3", "px-1", "outline-none", ...dataFocusVisibleClasses],
   },
   variants: {
     variant: {
       solid: {
         list: "bg-background-secondary",
-        indicator: "inset-0",
+        indicator:
+          "h-(--active-tab-height) top-(--active-tab-top) bottom-(--active-tab-bottom)",
       },
       light: {
         list: "bg-transparent",
-        indicator: "inset-0",
+        indicator:
+          "h-(--active-tab-height) top-(--active-tab-top) bottom-(--active-tab-bottom)",
       },
       underlined: {
         list: "bg-transparent",
-        indicator: "bottom-0 h-0.5 w-4/5 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
+        indicator: "bottom-0 h-0.5 shadow-[0_1px_0px_0_rgba(0,0,0,0.05)]",
       },
       bordered: {
         list: "border border-border bg-transparent shadow-sm",
-        indicator: "inset-0",
+        indicator:
+          "h-(--active-tab-height) top-(--active-tab-top) bottom-(--active-tab-bottom)",
       },
     },
     color: {

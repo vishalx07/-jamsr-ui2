@@ -9,18 +9,16 @@ export const TabWithIcons = () => {
           <Tabs.Tab value="photos">
             <Icon icon="ic:round-photo" />
             Photos
-            <Tabs.Indicator />
           </Tabs.Tab>
           <Tabs.Tab value="music">
             <Icon icon="mynaui:music-solid" />
             Music
-            <Tabs.Indicator />
           </Tabs.Tab>
           <Tabs.Tab value="videos">
             <Icon icon="tabler:video-filled" />
             Videos
-            <Tabs.Indicator />
           </Tabs.Tab>
+          <Tabs.Indicator />
         </Tabs.List>
       </Tabs>
     </div>

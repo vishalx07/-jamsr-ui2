@@ -1,23 +1,16 @@
-import { Tab } from "./tab";
-import { TabIndicator } from "./tab-indicator";
-import { TabList } from "./tab-list";
-import { TabPanel } from "./tab-panel";
-import { Tabs as TabsRoot } from "./tabs";
-import { TabsContext, useTabsContext } from "./tabs-context";
+import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 
-export { TabsContext, useTabsContext };
-
-export const Tabs = Object.assign(TabsRoot, {
-  List: TabList,
-  Tab: Tab,
-  Panel: TabPanel,
-  Indicator: TabIndicator,
+export const Tabs = Object.assign(TabsPrimitive.Root, {
+  List: TabsPrimitive.List,
+  Tab: TabsPrimitive.Tab,
+  Panel: TabsPrimitive.Panel,
+  Indicator: TabsPrimitive.Indicator,
 });
 
 export namespace Tabs {
-  export interface Props extends TabsRoot.Props {}
-  export interface List extends TabList.Props {}
-  export interface Tab extends Tab.Props {}
-  export interface Panel extends TabPanel.Props {}
-  export interface Indicator extends TabIndicator.Props {}
+  export interface Props extends TabsPrimitive.Root.Props {}
+  export interface List extends TabsPrimitive.List.Props {}
+  export interface Tab extends TabsPrimitive.Tab.Props {}
+  export interface Panel extends TabsPrimitive.Panel.Props {}
+  export interface Indicator extends TabsPrimitive.Indicator.Props {}
 }

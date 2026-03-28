@@ -48,10 +48,6 @@ export const Tabs = (props: Tabs.Props) => {
   );
 };
 
-export namespace Tabs {
-  export interface Props extends TabsUI.Props, TabsVariants {}
-}
-
 export const TabList = (props: TabList.Props) => {
   const { styles } = useTabsContext();
   return (
@@ -62,7 +58,7 @@ export const TabList = (props: TabList.Props) => {
   );
 };
 
-export const Tab = (props: Tab.Props) => {
+export const Tab = (props: Tabs.Props) => {
   const { styles } = useTabsContext();
   return (
     <TabsUI.Tab
@@ -71,9 +67,13 @@ export const Tab = (props: Tab.Props) => {
     />
   );
 };
+export namespace Tabs {
+  export interface Props extends TabsUI.Props, TabsVariants {}
+}
 
 export const TabIndicator = (props: TabIndicator.Props) => {
   const { styles } = useTabsContext();
+  console.log(styles.indicator());
   return (
     <TabsUI.Indicator
       {...props}
