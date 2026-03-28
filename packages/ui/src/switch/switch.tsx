@@ -2,7 +2,7 @@
 
 import { createContext, use } from "react";
 
-import { Switch as SwitchUI } from "@jamsrui/react";
+import { Switch as SwitchPrimitive } from "@base-ui/react/switch";
 import { cn } from "tailwind-variants";
 
 import { switchStyles } from "./styles";
@@ -33,30 +33,26 @@ export const Switch = (props: Switch.Props) => {
   const styles = switchStyles({ color, size, isInvalid });
   return (
     <SwitchContext value={{ styles }}>
-      <SwitchUI
+      <SwitchPrimitive.Root
         {...restProps}
         className={styles.root({ className: cn(className) })}
       >
         {children}
-      </SwitchUI>
+      </SwitchPrimitive.Root>
     </SwitchContext>
   );
 };
 
 export namespace Switch {
-  export interface Props extends SwitchUI.Props, SwitchVariants {}
+  export interface Props extends SwitchPrimitive.Root.Props, SwitchVariants {}
 }
 
-export const SwitchThumb = (props: SwitchThumb.Props) => {
+export const SwitchThumb = (props: SwitchPrimitive.Thumb.Props) => {
   const { styles } = useSwitchContext();
   return (
-    <SwitchUI.Thumb
+    <SwitchPrimitive.Thumb
       {...props}
       className={styles.thumb({ className: cn(props.className) })}
     />
   );
 };
-
-export namespace SwitchThumb {
-  export interface Props extends SwitchUI.Thumb {}
-}

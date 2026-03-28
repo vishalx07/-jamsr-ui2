@@ -10,7 +10,6 @@ import { SwitchDisabled } from "./examples/disabled";
 import { SwitchSizes } from "./examples/sizes";
 import { SwitchUsage } from "./examples/usage";
 import { SwitchWithLabel } from "./examples/with-label";
-import { SwitchInputEvents } from "./examples/input-events";
 
 const title = "Switch";
 const description =
@@ -62,13 +61,6 @@ const Switch = () => {
         url={resolvePath("controlled.tsx")}
       >
         <SwitchControlled />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Input Events"
-        url={resolvePath("input-events.tsx")}
-      >
-        <SwitchInputEvents />
       </CodeExample>
       <CodeExample
         isCentered

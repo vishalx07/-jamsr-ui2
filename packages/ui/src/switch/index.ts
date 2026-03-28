@@ -6,7 +6,4 @@ export const Switch = Object.assign(SwitchRoot, {
 
 export namespace Switch {
   export interface Props extends SwitchRoot.Props {}
-  export interface Thumb extends SwitchThumb.Props {}
 }
-
-export { SwitchThumb };
