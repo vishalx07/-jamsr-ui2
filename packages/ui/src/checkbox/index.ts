@@ -7,5 +7,4 @@ export const Checkbox = Object.assign(CheckboxRoot, {
 
 export namespace Checkbox {
   export interface Props extends CheckboxRoot.Props {}
-  export interface Indicator extends CheckboxIndicator.Props {}
 }

@@ -2,7 +2,7 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { Checkbox as CheckboxUI } from "@jamsrui/react";
+import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
 import { cn } from "tailwind-variants";
 
 import { checkboxStyles } from "./styles";
@@ -36,30 +36,44 @@ export const Checkbox = (props: Checkbox.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <CheckboxContext value={value}>
-      <CheckboxUI
+      <CheckboxPrimitive.Root
         {...restProps}
         className={styles.root({ className: cn(className) })}
       >
         {children}
-      </CheckboxUI>
+      </CheckboxPrimitive.Root>
     </CheckboxContext>
   );
 };
 
 export namespace Checkbox {
-  export interface Props extends CheckboxUI.Props, CheckboxVariants {}
+  export interface Props
+    extends CheckboxPrimitive.Root.Props, CheckboxVariants {}
 }
 
-export const CheckboxIndicator = (props: CheckboxIndicator.Props) => {
+export const CheckboxIndicator = (props: CheckboxPrimitive.Indicator.Props) => {
   const { styles } = useCheckboxContext();
+  const { children = <CheckIcon />, className, ...restProps } = props;
   return (
-    <CheckboxUI.Indicator
-      {...props}
-      className={styles.indicator({ className: cn(props.className) })}
-    />
+    <CheckboxPrimitive.Indicator
+      {...restProps}
+      className={styles.indicator({ className: cn(className) })}
+    >
+      {children}
+    </CheckboxPrimitive.Indicator>
   );
 };
 
-export namespace CheckboxIndicator {
-  export interface Props extends CheckboxUI.Indicator {}
-}
+const CheckIcon = (props: React.ComponentProps<"svg">) => {
+  return (
+    <svg
+      fill="currentcolor"
+      height="10"
+      viewBox="0 0 10 10"
+      width="10"
+      {...props}
+    >
+      <path d="M9.1603 1.12218C9.50684 1.34873 9.60427 1.81354 9.37792 2.16038L5.13603 8.66012C5.01614 8.8438 4.82192 8.96576 4.60451 8.99384C4.3871 9.02194 4.1683 8.95335 4.00574 8.80615L1.24664 6.30769C0.939709 6.02975 0.916013 5.55541 1.19372 5.24822C1.47142 4.94102 1.94536 4.91731 2.2523 5.19524L4.36085 7.10461L8.12299 1.33999C8.34934 0.993152 8.81376 0.895638 9.1603 1.12218Z" />{" "}
+    </svg>
+  );
+};

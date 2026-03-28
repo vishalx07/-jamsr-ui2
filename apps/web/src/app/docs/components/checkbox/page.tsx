@@ -6,7 +6,6 @@ import { CheckboxControlled } from "./examples/controlled";
 import { CheckboxCustomIndicator } from "./examples/custom-indicator";
 import { CheckboxDescription } from "./examples/description";
 import { CheckboxDisabled } from "./examples/disabled";
-import { CheckboxInputEvents } from "./examples/input-events";
 import { CheckboxIntermediate } from "./examples/intermediate";
 import { CheckboxInvalid } from "./examples/invalid";
 import { CheckboxRadius } from "./examples/radius";
@@ -72,13 +71,6 @@ const Checkbox = () => {
         url={resolvePath("custom-indicator.tsx")}
       >
         <CheckboxCustomIndicator />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Input Events"
-        url={resolvePath("input-events.tsx")}
-      >
-        <CheckboxInputEvents />
       </CodeExample>
     </DocsPage>
   );
