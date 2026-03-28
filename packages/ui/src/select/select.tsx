@@ -22,9 +22,11 @@ const useSelectContext = () => {
   return ctx;
 };
 
-export const Select = (props: Select.Props) => {
-  const { color, radius, size, isInvalid, ...restProps } = props;
-  const styles = selectStyles({ color, radius, size, isInvalid });
+export const Select = <Value, Multiple extends boolean | undefined = false>(
+  props: Select.Props<Value, Multiple>,
+) => {
+  const { color, radius, size, isInvalid, className, ...restProps } = props;
+  const styles = selectStyles({ color, radius, size, isInvalid, className });
 
   return (
     <SelectContext.Provider value={{ styles }}>
@@ -36,10 +38,13 @@ export const Select = (props: Select.Props) => {
 };
 
 export namespace Select {
-  export interface Props
-    extends SelectPrimitive.Root.Props<any, any>, SelectVariants {
-    className?: string;
-  }
+  export type Props<
+    Value,
+    Multiple extends boolean | undefined = false,
+  > = SelectPrimitive.Root.Props<Value, Multiple> &
+    SelectVariants & {
+      className?: string;
+    };
 }
 
 export const SelectTrigger = (props: SelectPrimitive.Trigger.Props) => {
