@@ -209,49 +209,63 @@ const users = [
 
 export const SelectCustomRenderMultiple = () => {
   return (
-    <Select
-      className="w-full max-w-sm"
-      size="lg"
-      isMultiple
-      renderValue={(values) => {
-        const selectedUsers = users.filter((u) => values.includes(u.email));
-        return (
-          <div className="flex flex-wrap gap-1">
-            {selectedUsers.map((item) => {
-              return (
-                <Chip key={item.id}>
-                  <Avatar className="shrink-0" size="sm">
-                    <Avatar.Image src={item.avatar} alt={item.name} />
-                    <Avatar.Fallback>{item.name.charAt(0)}</Avatar.Fallback>
-                  </Avatar>
-                  <div className="flex flex-col">
-                    <span className="text-left text-sm">{item.name}</span>
-                    <span className="text-xs text-foreground-secondary">
-                      {item.email}
-                    </span>
-                  </div>
-                </Chip>
-              );
-            })}
-          </div>
-        );
-      }}
-    >
-      <Select.Trigger />
+    <Select size="lg" multiple>
+      <Select.Trigger className="min-w-40">
+        <Select.Value placeholder="Select users">
+          {(values: string[]) => {
+            if (values.length === 0) return "Select users";
+            return (
+              <div className="flex flex-wrap gap-1">
+                {values.map((value) => {
+                  const selectedUser = users.find((u) => u.email === value);
+                  if (!selectedUser) return <></>;
+                  return (
+                    <Chip key={selectedUser.id} className="p-2">
+                      <Avatar className="shrink-0" size="xs">
+                        <Avatar.Image
+                          src={selectedUser.avatar}
+                          alt={selectedUser.name}
+                        />
+                        <Avatar.Fallback>
+                          {selectedUser.name.charAt(0)}
+                        </Avatar.Fallback>
+                      </Avatar>
+                      <div className="flex flex-col">
+                        <span className="text-left text-xs">
+                          {selectedUser.name}
+                        </span>
+                        <span className="text-xs text-foreground-secondary">
+                          {selectedUser.email}
+                        </span>
+                      </div>
+                    </Chip>
+                  );
+                })}
+              </div>
+            );
+          }}
+        </Select.Value>
+        <Select.Icon />
+      </Select.Trigger>
       <Select.Content>
         {users.map((user) => {
           return (
-            <Select.Item key={user.id} value={user.email} textValue={user.name}>
-              <div className="flex items-center gap-2">
-                <Avatar className="shrink-0" size="sm">
-                  <Avatar.Image src={user.avatar} alt={user.name} />
-                  <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
-                </Avatar>
-                <div className="flex flex-col">
-                  <span className="text-left text-sm">{user.name}</span>
-                  <span className="text-xs text-default-400">{user.email}</span>
+            <Select.Item key={user.id} value={user.email}>
+              <Select.ItemIndicator />
+              <Select.ItemText>
+                <div className="flex items-center gap-2">
+                  <Avatar className="shrink-0" size="sm">
+                    <Avatar.Image src={user.avatar} alt={user.name} />
+                    <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                  </Avatar>
+                  <div className="flex flex-col">
+                    <span className="text-left text-sm">{user.name}</span>
+                    <span className="text-xs text-default-400">
+                      {user.email}
+                    </span>
+                  </div>
                 </div>
-              </div>
+              </Select.ItemText>
             </Select.Item>
           );
         })}

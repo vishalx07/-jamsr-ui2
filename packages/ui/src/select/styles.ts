@@ -12,24 +12,28 @@ export const selectStyles = tv({
     ],
     trigger: [
       "relative flex w-full flex-row items-center gap-3 border border-border px-3 py-2 outline-none",
-      "focus:border-primary data-hovered:not-focus:border-border-dark data-opened:border-primary",
+      "focus:border-primary data-hovered:not-focus:border-border-dark data-popup-open:border-primary",
       "data-disabled:status-disabled",
       ...focusVisibleClasses,
     ],
-    indicator:
-      "shrink-0 transition-transform duration-300 group-data-opened:rotate-180",
-    itemIndicator: "ml-auto",
-    positioner: "z-popover focus-visible:outline-none overflow-hidden",
-    content: [
-      "z-popover flex h-full flex-col gap-px overflow-y-auto overflow-x-hidden bg-surface shadow-md backdrop-blur-3xl p-2",
-      "origin-[top_center]",
+    icon: "shrink-0 transition-transform duration-300 group-data-popup-open:rotate-180",
+    positioner: "z-popover outline-hidden select-none",
+    list: [
+      "relative overflow-y-auto py-1 px-1 scroll-py-6",
+      "max-h-(--available-height)",
     ],
     selectItem: [
       "relative flex w-full cursor-default select-none items-center gap-2 p-2 text-sm outline-none",
-      "data-hovered:bg-surface-secondary",
-      "data-active:bg-surface-secondary",
-      "data-selected:bg-surface-secondary/50",
-      "data-disabled:status-disabled",
+      "data-disabled:status-disabled data-highlighted:bg-surface-secondary data-selected:bg-surface-secondary/50",
+      "grid grid-cols-[0.75rem_1fr]",
+    ],
+    itemIndicator: "col-start-1",
+    itemText: "col-start-2",
+    scrollUpArrow: "",
+    scrollDownArrow: "",
+    popup: [
+      "group min-w-(--anchor-width) origin-(--transform-origin) bg-clip-padding bg-surface outline-hidden",
+      "transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-[side=none]:min-w-[calc(var(--anchor-width)+1.3rem)] data-[side=none]:data-ending-style:transition-none data-starting-style:scale-90 data-starting-style:opacity-0 data-[side=none]:data-starting-style:scale-100 data-[side=none]:data-starting-style:opacity-100 data-[side=none]:data-starting-style:transition-none",
     ],
   },
   variants: {
@@ -44,33 +48,28 @@ export const selectStyles = tv({
     radius: {
       none: {
         trigger: "rounded-none",
-        content: "rounded-none",
+        popup: "rounded-none",
         selectItem: "rounded-none",
-        positioner: "rounded-none",
       },
       sm: {
         trigger: "rounded-sm",
-        content: "rounded-sm",
+        popup: "rounded-sm",
         selectItem: "rounded-sm",
-        positioner: "rounded-sm",
       },
       md: {
         trigger: "rounded-md",
-        content: "rounded-md",
+        popup: "rounded-md",
         selectItem: "rounded-md",
-        positioner: "rounded-md",
       },
       lg: {
         trigger: "rounded-lg",
-        content: "rounded-lg",
+        popup: "rounded-lg",
         selectItem: "rounded-lg",
-        positioner: "rounded-lg",
       },
       full: {
         trigger: "rounded-full",
-        content: "rounded-full",
+        popup: "rounded-full",
         selectItem: "rounded-full",
-        positioner: "rounded-full",
       },
     },
     size: {

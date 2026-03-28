@@ -12,7 +12,7 @@ export {
 } from "@jamsrui/button";
 export { Card, useCardContext } from "@jamsrui/card";
 export { Charts } from "@jamsrui/charts";
-export { Checkbox, useCheckbox } from "@jamsrui/checkbox";
+export { Checkbox } from "@jamsrui/checkbox";
 export { Chip } from "@jamsrui/chip";
 export { CircularProgress } from "@jamsrui/circular-progress";
 export { Clipboard, useCopyToClipboard } from "@jamsrui/clipboard";

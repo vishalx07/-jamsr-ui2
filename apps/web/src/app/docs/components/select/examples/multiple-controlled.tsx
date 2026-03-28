@@ -1,31 +1,62 @@
 "use client";
 
+import { Description } from "jamsrui/description";
+import { Label } from "jamsrui/label";
 import { Select } from "jamsrui/select";
 import { useState } from "react";
 
+const languages = {
+  javascript: "JavaScript",
+  typescript: "TypeScript",
+  python: "Python",
+  java: "Java",
+  csharp: "C#",
+  php: "PHP",
+  cpp: "C++",
+  rust: "Rust",
+  go: "Go",
+  swift: "Swift",
+};
+type Language = keyof typeof languages;
+
+const values = Object.keys(languages) as Language[];
+
+function renderValue(value: Language[]) {
+  if (value.length === 0) {
+    return "Select languages…";
+  }
+  const firstLanguage = languages[value[0]!];
+  const additionalLanguages =
+    value.length > 1 ? ` (+${value.length - 1} more)` : "";
+  return firstLanguage + additionalLanguages;
+}
+
 export const SelectMultipleControlled = () => {
-  const [value, setValue] = useState<string[]>(["option1", "option2"]);
+  const [value, setValue] = useState<Language[]>([]);
   return (
-    <Select
-      className="max-w-md w-full"
-      isMultiple
-      value={value}
-      onValueChange={setValue}
-    >
-      <Select.Trigger />
-      <Select.Content>
-        {Array(20)
-          .fill(null)
-          .map((_, idx) => {
-            const value = `option${idx}`;
+    <div className="flex flex-col gap-2">
+      <Select multiple value={value} onValueChange={setValue}>
+        <Label>Fruit</Label>
+        <Select.Trigger className="min-w-80">
+          <Select.Value>
+            {(value) => {
+              return renderValue(value);
+            }}
+          </Select.Value>
+          <Select.Icon />
+        </Select.Trigger>
+        <Select.Content>
+          {values.map((value) => {
             return (
-              <Select.Item key={value} value={value} textValue={value}>
-                {`Option ${idx}`}
+              <Select.Item key={value} value={value}>
                 <Select.ItemIndicator />
+                <Select.ItemText>{languages[value]}</Select.ItemText>
               </Select.Item>
             );
           })}
-      </Select.Content>
-    </Select>
+        </Select.Content>
+      </Select>
+      <Description>Selected values: {value.join(", ")}</Description>
+    </div>
   );
 };

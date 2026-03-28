@@ -79,6 +79,7 @@
     "@tanstack/react-table": "catalog:",
     "motion": "catalog:",
     "react-hook-form": "^7.66.0",
+    "@base-ui/react": "catalog:",
     "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {

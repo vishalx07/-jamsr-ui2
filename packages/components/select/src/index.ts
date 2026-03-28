@@ -1,29 +1,33 @@
-import { Select as SelectRoot } from "./select";
-import { SelectContent } from "./select-content";
-import { SelectIndicator } from "./select-indicator";
-import { SelectItem } from "./select-item";
-import { SelectItemIndicator } from "./select-item-indicator";
-import { SelectPositioner } from "./select-positioner";
-import { SelectTrigger } from "./select-trigger";
-import { SelectValue } from "./select-value";
+import { Select as SelectPrimitive } from "@base-ui/react/select";
 
-export const Select = Object.assign(SelectRoot, {
-  Item: SelectItem,
-  Trigger: SelectTrigger,
-  Value: SelectValue,
-  Indicator: SelectIndicator,
-  Positioner: SelectPositioner,
-  Content: SelectContent,
-  ItemIndicator: SelectItemIndicator,
+export const Select = Object.assign(SelectPrimitive.Root, {
+  Item: SelectPrimitive.Item,
+  Trigger: SelectPrimitive.Trigger,
+  Value: SelectPrimitive.Value,
+  Icon: SelectPrimitive.Icon,
+  Portal: SelectPrimitive.Portal,
+  Positioner: SelectPrimitive.Positioner,
+  ItemIndicator: SelectPrimitive.ItemIndicator,
+  List: SelectPrimitive.List,
+  Arrow: SelectPrimitive.Arrow,
+  Group: SelectPrimitive.Group,
+  GroupLabel: SelectPrimitive.GroupLabel,
+  ScrollUpArrow: SelectPrimitive.ScrollUpArrow,
+  ScrollDownArrow: SelectPrimitive.ScrollDownArrow,
+  Separator: SelectPrimitive.Separator,
+  ItemText: SelectPrimitive.ItemText,
+  Label: SelectPrimitive.Label,
+  Backdrop: SelectPrimitive.Backdrop,
+  Popup: SelectPrimitive.Popup,
 });
 
 export namespace Select {
-  export interface Props extends SelectRoot.Props {}
-  export interface Item extends SelectItem.Props {}
-  export interface Trigger extends SelectTrigger.Props {}
-  export interface Value extends SelectValue.Props {}
-  export interface Indicator extends SelectIndicator.Props {}
-  export interface Positioner extends SelectPositioner.Props {}
-  export interface Content extends SelectContent.Props {}
-  export interface ItemIndicator extends SelectItemIndicator.Props {}
+  export interface Props extends SelectPrimitive.Root.Props {}
+  export interface Item extends SelectPrimitive.Item.Props {}
+  export interface Trigger extends SelectPrimitive.Trigger.Props {}
+  export interface Value extends SelectPrimitive.Value.Props {}
+  export interface Icon extends SelectPrimitive.Icon.Props {}
+  export interface Positioner extends SelectPrimitive.Positioner.Props {}
+  export interface ItemIndicator extends SelectPrimitive.ItemIndicator.Props {}
+  export interface List extends SelectPrimitive.List.Props {}
 }

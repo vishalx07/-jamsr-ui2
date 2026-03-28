@@ -73,7 +73,6 @@ export namespace Tabs {
 
 export const TabIndicator = (props: TabIndicator.Props) => {
   const { styles } = useTabsContext();
-  console.log(styles.indicator());
   return (
     <TabsUI.Indicator
       {...props}

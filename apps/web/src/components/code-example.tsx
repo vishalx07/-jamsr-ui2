@@ -46,19 +46,14 @@ export const CodeExample = async (props: CodeExampleProps) => {
       </div>
       <Tabs defaultValue="preview">
         <Tabs.List>
-          <Tabs.Tab value="preview">
-            Preview
-            <Tabs.Indicator />
-          </Tabs.Tab>
-          <Tabs.Tab value="code">
-            Code
-            <Tabs.Indicator />
-          </Tabs.Tab>
+          <Tabs.Tab value="preview">Preview</Tabs.Tab>
+          <Tabs.Tab value="code">Code</Tabs.Tab>
+          <Tabs.Indicator />
         </Tabs.List>
         <Tabs.Panel value="preview">
           <div
             className={cn(
-              "border min-h-[200px]  border-border rounded-lg p-4",
+              "border min-h-50  border-border rounded-lg p-4",
               isCentered && "flex items-center justify-center",
             )}
           >

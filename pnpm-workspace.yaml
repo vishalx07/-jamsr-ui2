@@ -9,7 +9,7 @@ catalog:
   "@types/react": ">=19"
   "@types/react-dom": ">=19"
   tailwindcss: ^4.1.4
-  typescript: 5.9.3
+  typescript: 6.0.2
   "@floating-ui/react": ">=0.27"
   "@tanstack/react-table": ">=8"
   "@types/node": 25.0.9
