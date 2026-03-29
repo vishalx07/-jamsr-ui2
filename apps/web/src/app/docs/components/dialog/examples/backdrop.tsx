@@ -9,35 +9,27 @@ const DialogItem = (
 ) => {
   const { buttonText, ...restProps } = props;
   return (
-    <div>
-      <Dialog {...restProps}>
-        <Dialog.Trigger>
-          <Button>{buttonText}</Button>
-        </Dialog.Trigger>
-        <Dialog.Content>
-          <Dialog.Header>Heading</Dialog.Header>
-          <Dialog.Body className="flex flex-col gap-4">
-            <Text>Im am dialog Body</Text>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Dignissimos corrupti est quos asperiores libero maiores amet non
-              obcaecati odio excepturi illo recusandae tenetur, qui earum
-              dolorem minus, quibusdam optio? Cum.
-            </Text>
-          </Dialog.Body>
-          <Dialog.Footer>
-            <Dialog.CloseTrigger>
-              <Button variant="light" color="secondary">
-                Cancel
-              </Button>
-            </Dialog.CloseTrigger>
-            <Dialog.CloseTrigger>
-              <Button color="primary">Submit</Button>
-            </Dialog.CloseTrigger>
-          </Dialog.Footer>
-        </Dialog.Content>
-      </Dialog>
-    </div>
+    <Dialog {...restProps}>
+      <Dialog.Trigger render={<Button>{buttonText}</Button>} />
+      <Dialog.Content>
+        <Dialog.Header>Heading</Dialog.Header>
+        <Dialog.Body className="flex flex-col gap-4">
+          <Text>Im am dialog Body</Text>
+          <Text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+            corrupti est quos asperiores libero maiores amet non obcaecati odio
+            excepturi illo recusandae tenetur, qui earum dolorem minus,
+            quibusdam optio? Cum.
+          </Text>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <Dialog.Cancel render={<Button>Cancel</Button>} />
+          <Button color="primary" variant="solid">
+            Submit
+          </Button>
+        </Dialog.Footer>
+      </Dialog.Content>
+    </Dialog>
   );
 };
 

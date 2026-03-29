@@ -2,11 +2,12 @@
 
 import { createContext, use, useMemo } from "react";
 
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { CloseIcon } from "@jamsrui/icons";
-import { Dialog as DialogUI } from "@jamsrui/react";
+import { cn } from "tailwind-variants";
 
-import { dialogStyles } from "./styles";
 import { IconButton } from "../icon-button";
+import { dialogStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
@@ -42,52 +43,48 @@ export const Dialog = (props: Dialog.Props) => {
   });
   const value = useMemo(() => ({ styles }), [styles]);
   return (
-    <DialogUI {...restProps}>
-      <DialogContext value={value}>{props.children}</DialogContext>
-    </DialogUI>
+    <DialogContext value={value}>
+      <DialogPrimitive.Root {...restProps}>
+        {props.children}
+      </DialogPrimitive.Root>
+    </DialogContext>
   );
 };
 
 export namespace Dialog {
-  export interface Props extends DialogUI.Props, DialogVariants {}
+  export interface Props extends DialogPrimitive.Root.Props, DialogVariants {}
 }
 
-export const DialogTrigger = (props: DialogTrigger.Props) => {
-  return <DialogUI.Trigger {...props} />;
+export const DialogTrigger = (props: DialogPrimitive.Trigger.Props) => {
+  return <DialogPrimitive.Trigger {...props} />;
 };
 
 export const DialogContent = (props: DialogContent.Props) => {
   const { styles } = useDialogContext();
-  const { slotProps, ...restProps } = props;
+  const { slotProps, className, ...restProps } = props;
   return (
-    <DialogUI.Portal {...slotProps?.portal}>
-      <DialogUI.Backdrop
+    <DialogPrimitive.Portal {...slotProps?.portal}>
+      <DialogPrimitive.Backdrop
         {...slotProps?.backdrop}
         className={styles.backdrop({
-          className: slotProps?.backdrop?.className,
+          className: cn(slotProps?.backdrop?.className),
         })}
       >
-        <DialogUI.Positioner
-          {...slotProps?.positioner}
-          className={styles.positioner({
-            className: slotProps?.positioner?.className,
+        <DialogPrimitive.Popup
+          {...restProps}
+          className={styles.popup({
+            className: cn(className),
           })}
-        >
-          <DialogUI.Content
-            {...restProps}
-            className={styles.content({ className: restProps.className })}
-          />
-        </DialogUI.Positioner>
-      </DialogUI.Backdrop>
-    </DialogUI.Portal>
+        />
+      </DialogPrimitive.Backdrop>
+    </DialogPrimitive.Portal>
   );
 };
 export namespace DialogContent {
-  export interface Props extends DialogUI.Content {
+  export interface Props extends DialogPrimitive.Popup.Props {
     slotProps?: {
-      portal?: React.ComponentProps<typeof DialogUI.Portal>;
-      backdrop?: React.ComponentProps<typeof DialogUI.Backdrop>;
-      positioner?: React.ComponentProps<typeof DialogUI.Positioner>;
+      portal?: DialogPrimitive.Portal.Props;
+      backdrop?: DialogPrimitive.Backdrop.Props;
     };
   }
 }
@@ -95,88 +92,50 @@ export namespace DialogContent {
 export const DialogHeader = (props: DialogHeader.Props) => {
   const { styles } = useDialogContext();
   return (
-    <DialogUI.Header
-      {...props}
-      className={styles.header({ className: props.className })}
-    />
+    <div {...props} className={styles.header({ className: props.className })} />
   );
 };
+export namespace DialogHeader {
+  export interface Props extends React.ComponentProps<"div"> {}
+}
 
 export const DialogBody = (props: DialogBody.Props) => {
   const { styles } = useDialogContext();
   return (
-    <DialogUI.Body
-      {...props}
-      className={styles.body({ className: props.className })}
-    />
+    <div {...props} className={styles.body({ className: props.className })} />
   );
 };
+export namespace DialogBody {
+  export interface Props extends React.ComponentProps<"div"> {}
+}
 
 export const DialogFooter = (props: DialogFooter.Props) => {
   const { styles } = useDialogContext();
   return (
-    <DialogUI.Footer
-      {...props}
-      className={styles.footer({ className: props.className })}
-    />
+    <div {...props} className={styles.footer({ className: props.className })} />
   );
 };
+export namespace DialogFooter {
+  export interface Props extends React.ComponentProps<"div"> {}
+}
 
-export const DialogCloseButton = (props: DialogCloseButton.Props) => {
+export const DialogClose = (props: Partial<IconButton.Props>) => {
   const { styles } = useDialogContext();
   return (
-    <DialogUI.CloseButton>
+    <DialogPrimitive.Close>
       <IconButton
         label="Close Dialog"
         radius="full"
         size="sm"
         {...props}
-        className={styles.closeButton({ className: props.className })}
+        className={styles.closeButton({ className: cn(props.className) })}
       >
         <CloseIcon className="size-4" />
       </IconButton>
-    </DialogUI.CloseButton>
+    </DialogPrimitive.Close>
   );
 };
 
-export const DialogCloseTrigger = (props: DialogCloseTrigger.Props) => {
-  return <DialogUI.CloseTrigger {...props} />;
+export const DialogCancel = (props: DialogPrimitive.Close.Props) => {
+  return <DialogPrimitive.Close {...props} />;
 };
-
-export const DialogPositioner = (props: DialogPositioner.Props) => {
-  const { styles } = useDialogContext();
-  return (
-    <DialogUI.Positioner
-      {...props}
-      className={styles.positioner({ className: props.className })}
-    />
-  );
-};
-
-export namespace DialogTrigger {
-  export interface Props extends DialogUI.Trigger {}
-}
-
-export namespace DialogHeader {
-  export interface Props extends DialogUI.Header {}
-}
-
-export namespace DialogBody {
-  export interface Props extends DialogUI.Body {}
-}
-
-export namespace DialogFooter {
-  export interface Props extends DialogUI.Footer {}
-}
-
-export namespace DialogCloseButton {
-  export interface Props extends Partial<IconButton.Props> {}
-}
-
-export namespace DialogCloseTrigger {
-  export interface Props extends DialogUI.CloseTrigger {}
-}
-
-export namespace DialogPositioner {
-  export interface Props extends DialogUI.Positioner {}
-}
