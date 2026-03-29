@@ -5,12 +5,14 @@ import { Text } from "jamsrui/text";
 
 export const PopoverWithArrow = () => {
   return (
-    <Popover>
-      <Popover.Trigger>
-        <IconButton label="Popover Trigger">
-          <InfoIcon />
-        </IconButton>
-      </Popover.Trigger>
+    <Popover showArrow>
+      <Popover.Trigger
+        render={
+          <IconButton label="Popover Trigger">
+            <InfoIcon />
+          </IconButton>
+        }
+      />
       <Popover.Content className="flex flex-col gap-2">
         <Popover.Arrow />
         <Text variant="h6">Notifications</Text>

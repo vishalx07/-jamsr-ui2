@@ -2,14 +2,14 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { PopoverAligns } from "./examples/aligns";
 import { PopoverBackdrop } from "./examples/backdrop";
 import { PopoverControlled } from "./examples/controlled";
-import { PopoverPlacements } from "./examples/placements";
+import { PopoverOpenOnHover } from "./examples/open-on-hover";
 import { PopoverRadius } from "./examples/radius";
-import { PopoverTriggerOnHover } from "./examples/trigger-on-hover";
+import { PopoverSides } from "./examples/sides";
 import { PopoverUsage } from "./examples/usage";
 import { PopoverWithArrow } from "./examples/with-arrow";
-import { PopoverWithoutLockScroll } from "./examples/without-lockscroll";
 
 const title = "Popover";
 const description =
@@ -34,19 +34,18 @@ const Popover = () => {
       >
         <PopoverWithArrow />
       </CodeExample>
-      <CodeExample
-        isCentered
-        title="Placements"
-        url={resolvePath("placements.tsx")}
-      >
-        <PopoverPlacements />
+      <CodeExample isCentered title="Sides" url={resolvePath("sides.tsx")}>
+        <PopoverSides />
+      </CodeExample>
+      <CodeExample isCentered title="Aligns" url={resolvePath("aligns.tsx")}>
+        <PopoverAligns />
       </CodeExample>
       <CodeExample
         isCentered
         title="Trigger On Hover"
-        url={resolvePath("trigger-on-hover.tsx")}
+        url={resolvePath("open-on-hover.tsx")}
       >
-        <PopoverTriggerOnHover />
+        <PopoverOpenOnHover />
       </CodeExample>
       <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <PopoverRadius />
@@ -57,13 +56,6 @@ const Popover = () => {
         url={resolvePath("controlled.tsx")}
       >
         <PopoverControlled />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Without Locking Scroll"
-        url={resolvePath("without-lockscroll.tsx")}
-      >
-        <PopoverWithoutLockScroll />
       </CodeExample>
       <CodeExample
         isCentered

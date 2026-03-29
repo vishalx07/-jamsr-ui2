@@ -5,17 +5,26 @@ import type { VariantProps } from "tailwind-variants";
 export const popoverStyles = tv({
   slots: {
     positioner: "z-popover focus-visible:outline-none",
-    content:
-      "bg-surface max-w-64 p-2 text-sm shadow-md backdrop-blur-3xl origin-(--transform-origin)",
-    arrow: "fill-background-secondary",
-    backdrop: "z-backdrop",
+    popup: [
+      "bg-surface max-w-64 p-2 text-sm shadow-lg backdrop-blur-3xl",
+      "origin-(--transform-origin)",
+      "transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0",
+    ],
+    arrow: [
+      "text-surface",
+      "data-[side=bottom]:-top-2 data-[side=left]:-right-3.25 data-[side=left]:rotate-90 data-[side=right]:-left-3.25 data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180",
+    ],
+    backdrop: [
+      "z-backdrop fixed inset-0 min-h-dvh",
+      "transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-[-webkit-touch-callout:none]:absolute",
+    ],
   },
   variants: {
     radius: {
-      none: { content: "rounded-none", positioner: "rounded-none" },
-      sm: { content: "rounded-sm", positioner: "rounded-sm" },
-      md: { content: "rounded-md", positioner: "rounded-md" },
-      lg: { content: "rounded-lg", positioner: "rounded-lg" },
+      none: { popup: "rounded-none" },
+      sm: { popup: "rounded-sm" },
+      md: { popup: "rounded-md" },
+      lg: { popup: "rounded-lg" },
     },
     backdrop: {
       transparent: {
