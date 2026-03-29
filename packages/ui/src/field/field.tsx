@@ -6,7 +6,7 @@ export const FieldRoot = (props: FieldPrimitive.Root.Props) => {
   return (
     <FieldPrimitive.Root
       className={cn(
-        "flex w-full max-w-64 flex-col items-start gap-1",
+        "flex w-full group max-w-64 flex-col items-start gap-1",
         className,
       )}
       {...restProps}
@@ -45,7 +45,10 @@ export const FieldLabel = (props: FieldPrimitive.Label.Props) => {
   const { className, ...restProps } = props;
   return (
     <FieldPrimitive.Label
-      className={cn("text-sm font-medium text-foreground", className)}
+      className={cn(
+        "text-sm font-medium text-foreground group-data-disabled:status-disabled",
+        className,
+      )}
       {...restProps}
     />
   );
