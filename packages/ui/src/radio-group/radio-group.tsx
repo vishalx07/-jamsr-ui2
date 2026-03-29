@@ -2,7 +2,9 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { Radio as RadioUI, RadioGroup as RadioGroupUI } from "@jamsrui/react";
+import { Radio as RadioPrimitive } from "@base-ui/react/radio";
+import { RadioGroup as RadioGroupPrimitive } from "@base-ui/react/radio-group";
+import { cn } from "tailwind-variants";
 
 import { radioGroupStyles, radioStyles } from "./styles";
 
@@ -32,18 +34,18 @@ const useRadioGroupContext = () => {
 
 export const RadioGroup = (props: RadioGroup.Props) => {
   const { color, size, className, ...restProps } = props;
-  const styles = radioGroupStyles({});
+  const styles = radioGroupStyles({ className: cn(className) });
   const value: RadioVariants = useMemo(() => ({ color, size }), [color, size]);
   return (
     <RadioGroupContext value={value}>
-      <RadioGroupUI {...restProps} className={styles.root({ className })} />
+      <RadioGroupPrimitive {...restProps} className={styles} />
     </RadioGroupContext>
   );
 };
 
 export namespace RadioGroup {
   export interface Props
-    extends RadioGroupUI.Props, RadioVariants, RadioGroupVariants {}
+    extends RadioGroupPrimitive.Props, RadioVariants, RadioGroupVariants {}
 }
 
 export const Radio = (props: Radio.Props) => {
@@ -67,29 +69,27 @@ export const Radio = (props: Radio.Props) => {
     [styles],
   );
   return (
-    <RadioStyleContext.Provider value={value}>
-      <RadioUI {...restProps} className={styles.root({ className })}>
-        <RadioUI.Input className={styles.input({})} />
+    <RadioStyleContext value={value}>
+      <RadioPrimitive.Root
+        {...restProps}
+        className={styles.root({ className: cn(className) })}
+      >
         {children}
-      </RadioUI>
-    </RadioStyleContext.Provider>
+      </RadioPrimitive.Root>
+    </RadioStyleContext>
   );
 };
 
 export namespace Radio {
-  export interface Props extends RadioUI.Props, RadioVariants {}
+  export interface Props extends RadioPrimitive.Root.Props, RadioVariants {}
 }
 
-export const RadioIndicator = (props: RadioIndicator.Props) => {
+export const RadioIndicator = (props: RadioPrimitive.Indicator.Props) => {
   const { styles } = useRadioStyleContext();
   return (
-    <RadioUI.Indicator
+    <RadioPrimitive.Indicator
       {...props}
-      className={styles.indicator({ className: props.className })}
+      className={styles.indicator({ className: cn(props.className) })}
     />
   );
 };
-
-export namespace RadioIndicator {
-  export interface Props extends RadioUI.Indicator {}
-}

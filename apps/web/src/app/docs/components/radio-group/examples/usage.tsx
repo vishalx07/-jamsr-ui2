@@ -1,6 +1,6 @@
+import { Field } from "jamsrui/field";
 import { Label } from "jamsrui/label";
 import { Radio, RadioGroup } from "jamsrui/radio-group";
-import { Field } from "jamsrui/textfield";
 
 export const RadioUsage = () => {
   return (
@@ -8,23 +8,23 @@ export const RadioUsage = () => {
       <Label>Select your favorite city</Label>
       <Field orientation="horizontal">
         <Radio value="buenos-aires" />
-        <Label>Buenos Aires</Label>
+        <Field.Label>Buenos Aires</Field.Label>
       </Field>
       <Field orientation="horizontal">
         <Radio value="sydney" />
-        <Label>Sydney</Label>
+        <Field.Label>Sydney</Field.Label>
       </Field>
       <Field orientation="horizontal">
         <Radio value="san-francisco" />
-        <Label>San Francisco</Label>
+        <Field.Label>San Francisco</Field.Label>
       </Field>
       <Field orientation="horizontal">
         <Radio value="london" />
-        <Label>London</Label>
+        <Field.Label>London</Field.Label>
       </Field>
       <Field orientation="horizontal">
         <Radio value="tokyo" />
-        <Label>Tokyo</Label>
+        <Field.Label>Tokyo</Field.Label>
       </Field>
     </RadioGroup>
   );

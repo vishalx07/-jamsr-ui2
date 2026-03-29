@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants";
 
-import { dataFocusVisibleClasses } from "../utils/variants";
+import { focusVisibleClasses } from "../utils/variants";
 
 import type { VariantProps } from "tailwind-variants";
 
@@ -20,35 +20,31 @@ export const radioStyles = tv({
       "rounded-full",
       "data-hovered:border-default-hover",
       "data-pressed:scale-95",
-      "data-selected:border-transparent",
-      ...dataFocusVisibleClasses,
+      "data-checked:border-transparent",
+      ...focusVisibleClasses,
       "data-invalid:border-danger",
     ],
     indicator: "absolute rounded-full bg-white",
-    input: "inset-0 absolute opacity-[0.0001]",
-    label: "select-none text-foreground",
-    content: "flex grow flex-col",
-    description: "text-foreground-secondary",
   },
   variants: {
     color: {
       default: {
-        root: "data-selected:bg-default",
+        root: "data-checked:bg-default",
       },
       primary: {
-        root: "data-selected:bg-primary",
+        root: "data-checked:bg-primary",
       },
       secondary: {
-        root: "data-selected:bg-secondary",
+        root: "data-checked:bg-secondary",
       },
       success: {
-        root: "data-selected:bg-success",
+        root: "data-checked:bg-success",
       },
       warning: {
-        root: "data-selected:bg-warning",
+        root: "data-checked:bg-warning",
       },
       danger: {
-        root: "data-selected:bg-danger",
+        root: "data-checked:bg-danger",
       },
     },
     size: {
@@ -82,14 +78,7 @@ export const radioStyles = tv({
 });
 
 export const radioGroupStyles = tv({
-  slots: {
-    root: "group relative flex flex-col gap-2",
-    label: "text-sm font-normal text-foreground",
-    content: "flex flex-col flex-wrap gap-2",
-    description: "text-xs text-foreground-secondary",
-    errorMessage: "text-xs text-danger",
-  },
-  variants: {},
+  base: "group relative flex flex-col gap-2",
 });
 
 export type RadioVariants = VariantProps<typeof radioStyles>;

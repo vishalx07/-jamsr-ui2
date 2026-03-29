@@ -25,9 +25,9 @@ export const RadioColors = () => {
           {colors.map((color) => (
             <Tabs.Tab value={color} key={color} onClick={() => setColor(color)}>
               {color}
-              <Tabs.Indicator />
             </Tabs.Tab>
           ))}
+          <Tabs.Indicator />
         </Tabs.List>
       </Tabs>
 

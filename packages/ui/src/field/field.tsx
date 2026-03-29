@@ -1,18 +1,25 @@
 import { Field as FieldPrimitive } from "@base-ui/react/field";
 import { cn } from "tailwind-variants";
 
-export const FieldRoot = (props: FieldPrimitive.Root.Props) => {
-  const { className, ...restProps } = props;
+export const FieldRoot = (props: FieldRoot.Props) => {
+  const { className, orientation = "vertical", ...restProps } = props;
   return (
     <FieldPrimitive.Root
       className={cn(
-        "flex w-full group max-w-64 flex-col items-start gap-1",
+        orientation === "vertical"
+          ? "flex w-full group max-w-64 flex-col items-start gap-1"
+          : "flex w-full group max-w-64 flex-row items-center gap-1",
         className,
       )}
       {...restProps}
     />
   );
 };
+export namespace FieldRoot {
+  export interface Props extends FieldPrimitive.Root.Props {
+    orientation?: "vertical" | "horizontal";
+  }
+}
 
 export const FieldControl = (props: FieldPrimitive.Control.Props) => {
   const { className, ...restProps } = props;
