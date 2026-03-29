@@ -5,7 +5,6 @@ import { Metadata } from "next";
 import { AlertDialogBackdrop } from "./examples/backdrop";
 import { AlertDialogControlled } from "./examples/controlled";
 import { AlertDialogCustomized } from "./examples/customized";
-import { AlertDialogNonDismissible } from "./examples/non-dismissible";
 import { AlertDialogRadius } from "./examples/radius";
 import { AlertDialogUsage } from "./examples/usage";
 
@@ -31,13 +30,6 @@ const Confirmation = () => {
         url={resolvePath("backdrop.tsx")}
       >
         <AlertDialogBackdrop />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Non-dismissible"
-        url={resolvePath("non-dismissible.tsx")}
-      >
-        <AlertDialogNonDismissible />
       </CodeExample>
       <CodeExample isCentered title="Radius" url={resolvePath("radius.tsx")}>
         <AlertDialogRadius />

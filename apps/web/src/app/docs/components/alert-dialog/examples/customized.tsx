@@ -1,26 +1,21 @@
-import { AlertDialog, AlertDialogTrigger } from "jamsrui/alert-dialog";
+import { AlertDialog } from "jamsrui/alert-dialog";
 import { Button } from "jamsrui/button";
 import { Separator } from "jamsrui/separator";
 
-type A = AlertDialog.Props;
-type B = AlertDialogTrigger.Props;
-
 export const AlertDialogCustomized = () => {
   return (
-    <AlertDialog isKeyboardDismissible={false} isDismissible={false}>
+    <AlertDialog>
       <AlertDialog.Trigger>
         <Button>Click to delete!</Button>
       </AlertDialog.Trigger>
-      <AlertDialog.Content
-        slotProps={{ positioner: { className: "max-w-xs" } }}
-      >
-        <AlertDialog.Body className="flex justify-center flex-col items-center gap-4 text-center">
+      <AlertDialog.Content className="max-w-xs items-center p-0 text-center">
+        <div className="p-4 gap-4 flex flex-col">
           <AlertDialog.Title>Warning!</AlertDialog.Title>
           <AlertDialog.Description>
             Are you sure you want to delete this? You won't be able to revert
             this!
           </AlertDialog.Description>
-        </AlertDialog.Body>
+        </div>
         <Separator />
         <AlertDialog.Footer className="p-0 gap-0 items-stretch">
           <AlertDialog.Cancel

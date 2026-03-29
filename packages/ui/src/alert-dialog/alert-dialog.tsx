@@ -2,10 +2,11 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { AlertDialog as AlertDialogUI } from "@jamsrui/react";
+import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
+import { cn } from "tailwind-variants";
 
-import { alertDialogStyles } from "./styles";
 import { Button } from "../button";
+import { alertDialogStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
@@ -29,152 +30,124 @@ export const AlertDialog = (props: AlertDialog.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <AlertDialogContext value={value}>
-      <AlertDialogUI {...restProps} />
+      <AlertDialogPrimitive.Root {...restProps} />
     </AlertDialogContext>
   );
 };
 
 export namespace AlertDialog {
-  export interface Props extends AlertDialogUI.Props, AlertDialogVariants {}
+  export interface Props
+    extends AlertDialogPrimitive.Root.Props, AlertDialogVariants {}
 }
 
 export const AlertDialogTrigger = (props: AlertDialogTrigger.Props) => {
-  return <AlertDialogUI.Trigger {...props} />;
+  const { children } = props;
+  return <AlertDialogPrimitive.Trigger render={children} {...props} />;
 };
 export namespace AlertDialogTrigger {
-  export interface Props extends AlertDialogUI.Trigger {}
+  export interface Props extends Omit<
+    AlertDialogPrimitive.Trigger.Props,
+    "children"
+  > {
+    children: React.ReactElement;
+  }
 }
-
-const AlertDialogBackdrop = (props: AlertDialogUI.Backdrop) => {
-  const { styles } = useAlertDialogContext();
-  return (
-    <AlertDialogUI.Backdrop
-      {...props}
-      className={styles.backdrop({ className: props.className })}
-    />
-  );
-};
 
 export const AlertDialogContent = (props: AlertDialogContent.Props) => {
   const { styles } = useAlertDialogContext();
-  const { slotProps, ...restProps } = props;
+  const { slotProps, className, ...restProps } = props;
   return (
-    <AlertDialogBackdrop {...slotProps?.backdrop}>
-      <AlertDialogUI.Positioner
-        {...slotProps?.positioner}
-        className={styles.positioner({
-          className: slotProps?.positioner?.className,
+    <AlertDialogPrimitive.Portal {...slotProps?.portal}>
+      <AlertDialogPrimitive.Backdrop
+        {...slotProps?.backdrop}
+        className={styles.backdrop({
+          className: cn(slotProps?.backdrop?.className),
         })}
-      >
-        <AlertDialogUI.Content
-          {...restProps}
-          className={styles.content({ className: restProps.className })}
-        />
-      </AlertDialogUI.Positioner>
-    </AlertDialogBackdrop>
+      />
+      <AlertDialogPrimitive.Popup
+        {...restProps}
+        className={styles.popup({
+          className: cn(className),
+        })}
+      />
+    </AlertDialogPrimitive.Portal>
   );
 };
 export namespace AlertDialogContent {
-  export interface Props extends AlertDialogUI.Content {
+  export interface Props extends AlertDialogPrimitive.Popup.Props {
     slotProps?: {
-      backdrop?: AlertDialogUI.Backdrop;
-      positioner?: AlertDialogUI.Positioner;
+      portal?: AlertDialogPrimitive.Portal.Props;
+      backdrop?: AlertDialogPrimitive.Backdrop.Props;
     };
   }
 }
 
-export const AlertDialogBody = (props: AlertDialogBody.Props) => {
-  const { styles } = useAlertDialogContext();
-  return (
-    <AlertDialogUI.Body
-      {...props}
-      className={styles.body({ className: props.className })}
-    />
-  );
-};
-
 export const AlertDialogFooter = (props: AlertDialogFooter.Props) => {
   const { styles } = useAlertDialogContext();
   return (
-    <AlertDialogUI.Footer
-      {...props}
-      className={styles.footer({ className: props.className })}
+    <div {...props} className={styles.footer({ className: props.className })} />
+  );
+};
+export namespace AlertDialogFooter {
+  export interface Props extends React.ComponentProps<"div"> {}
+}
+
+export const AlertDialogTitle = (props: AlertDialogPrimitive.Title.Props) => {
+  const { styles } = useAlertDialogContext();
+  const { className, ...restProps } = props;
+  return (
+    <AlertDialogPrimitive.Title
+      {...restProps}
+      className={styles.title({ className: cn(className) })}
     />
   );
 };
 
-export const AlertDialogTitle = (props: AlertDialogTitle.Props) => {
+export const AlertDialogDescription = (
+  props: AlertDialogPrimitive.Description.Props,
+) => {
   const { styles } = useAlertDialogContext();
+  const { className, ...restProps } = props;
   return (
-    <AlertDialogUI.Title
-      {...props}
-      className={styles.title({ className: props.className })}
-    />
-  );
-};
-
-export const AlertDialogDescription = (props: AlertDialogDescription.Props) => {
-  const { styles } = useAlertDialogContext();
-  return (
-    <AlertDialogUI.Description
-      {...props}
-      className={styles.description({ className: props.className })}
+    <AlertDialogPrimitive.Description
+      {...restProps}
+      className={styles.description({ className: cn(className) })}
     />
   );
 };
 
 export const AlertDialogCancel = (props: AlertDialogCancel.Props) => {
   const { styles } = useAlertDialogContext();
+  const { className, ...restProps } = props;
   return (
-    <AlertDialogUI.Cancel
+    <AlertDialogPrimitive.Close
       render={
         <Button
           color="default"
           variant="solid"
-          {...props}
-          className={styles.cancel({ className: props.className })}
+          {...restProps}
+          className={styles.cancel({ className: cn(className) })}
         />
       }
     />
   );
 };
-
-export const AlertDialogAction = (props: AlertDialogAction.Props) => {
-  const { styles } = useAlertDialogContext();
-  return (
-    <AlertDialogUI.Cancel
-      render={
-        <Button
-          color="danger"
-          variant="solid"
-          {...props}
-          className={styles.action({ className: props.className })}
-        />
-      }
-    />
-  );
-};
-
-export namespace AlertDialogBody {
-  export interface Props extends AlertDialogUI.Body {}
-}
-
-export namespace AlertDialogFooter {
-  export interface Props extends AlertDialogUI.Footer {}
-}
-
-export namespace AlertDialogTitle {
-  export interface Props extends AlertDialogUI.Title {}
-}
-
-export namespace AlertDialogDescription {
-  export interface Props extends AlertDialogUI.Description {}
-}
 
 export namespace AlertDialogCancel {
   export interface Props extends Button.Props {}
 }
 
+export const AlertDialogAction = (props: AlertDialogAction.Props) => {
+  const { styles } = useAlertDialogContext();
+  return (
+    <Button
+      color="danger"
+      variant="solid"
+      {...props}
+      className={styles.action({ className: props.className })}
+    />
+  );
+};
 export namespace AlertDialogAction {
   export interface Props extends Button.Props {}
 }
