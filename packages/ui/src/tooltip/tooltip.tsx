@@ -2,7 +2,8 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { Tooltip as TooltipUI } from "@jamsrui/react";
+import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
+import { cn } from "tailwind-variants";
 
 import { tooltipStyles } from "./styles";
 
@@ -10,6 +11,7 @@ import type { TooltipVariants } from "./styles";
 
 const TooltipStyleContext = createContext<{
   styles: ReturnType<typeof tooltipStyles>;
+  showArrow: boolean;
 } | null>(null);
 
 const useTooltipStyleContext = () => {
@@ -21,66 +23,63 @@ const useTooltipStyleContext = () => {
 };
 
 export const Tooltip = (props: Tooltip.Props) => {
-  const { radius, ...restProps } = props;
+  const { radius, showArrow = false, ...restProps } = props;
   const styles = tooltipStyles({ radius });
-  const value = useMemo(() => ({ styles }), [styles]);
+  const value = useMemo(() => ({ styles, showArrow }), [styles, showArrow]);
   return (
-    <TooltipStyleContext.Provider value={value}>
-      <TooltipUI {...restProps} />
-    </TooltipStyleContext.Provider>
+    <TooltipStyleContext value={value}>
+      <TooltipPrimitive.Root {...restProps} />
+    </TooltipStyleContext>
   );
 };
 
 export namespace Tooltip {
-  export interface Props extends TooltipUI.Props, TooltipVariants {}
+  export interface Props extends TooltipPrimitive.Root.Props, TooltipVariants {
+    showArrow?: boolean;
+  }
 }
 
-export const TooltipTrigger = (props: TooltipTrigger.Props) => {
-  return <TooltipUI.Trigger {...props} />;
+export const TooltipTrigger = (props: TooltipPrimitive.Trigger.Props) => {
+  return <TooltipPrimitive.Trigger {...props} />;
 };
 
 export const TooltipContent = (props: TooltipContent.Props) => {
-  const { styles } = useTooltipStyleContext();
+  const { styles, showArrow } = useTooltipStyleContext();
   const { slotProps, ...restProps } = props;
   return (
-    <TooltipUI.Portal {...slotProps?.portal}>
-      <TooltipUI.Positioner
+    <TooltipPrimitive.Portal {...slotProps?.portal}>
+      <TooltipPrimitive.Positioner
+        sideOffset={showArrow ? 8 : 4}
         {...slotProps?.positioner}
         className={styles.positioner({
-          className: slotProps?.positioner?.className,
+          className: cn(slotProps?.positioner?.className),
         })}
       >
-        <TooltipUI.Content
+        <TooltipPrimitive.Popup
           {...restProps}
-          className={styles.content({ className: restProps.className })}
+          className={styles.popup({ className: cn(restProps.className) })}
         />
-      </TooltipUI.Positioner>
-    </TooltipUI.Portal>
+      </TooltipPrimitive.Positioner>
+    </TooltipPrimitive.Portal>
   );
 };
 export namespace TooltipContent {
-  export interface Props extends TooltipUI.Content {
+  export interface Props extends TooltipPrimitive.Popup.Props {
     slotProps?: {
-      portal?: React.ComponentProps<typeof TooltipUI.Portal>;
-      positioner?: React.ComponentProps<typeof TooltipUI.Positioner>;
+      portal?: TooltipPrimitive.Portal.Props;
+      positioner?: TooltipPrimitive.Positioner.Props;
     };
   }
 }
 
-export const TooltipArrow = (props: TooltipArrow.Props) => {
+export const TooltipArrow = (props: TooltipPrimitive.Arrow.Props) => {
   const { styles } = useTooltipStyleContext();
   return (
-    <TooltipUI.Arrow
+    <TooltipPrimitive.Arrow
       {...props}
-      className={styles.arrow({ className: props.className })}
+      className={styles.arrow({ className: cn(props.className) })}
     />
   );
 };
 
-export namespace TooltipTrigger {
-  export interface Props extends TooltipUI.Trigger {}
-}
-
-export namespace TooltipArrow {
-  export interface Props extends TooltipUI.Arrow {}
-}
+export const TooltipGroup = TooltipPrimitive.Provider;

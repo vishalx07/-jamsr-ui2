@@ -8,7 +8,7 @@ export const TooltipControlled = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="grid place-content-center gap-4">
-      <Tooltip isOpen={isOpen} onOpenChange={setIsOpen}>
+      <Tooltip open={isOpen} onOpenChange={setIsOpen}>
         <Tooltip.Trigger>
           <Button>Hover me</Button>
         </Tooltip.Trigger>

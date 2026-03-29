@@ -2,10 +2,11 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { TooltipAligns } from "./examples/aligns";
 import { TooltipControlled } from "./examples/controlled";
 import { TooltipOffset } from "./examples/offset";
-import { TooltipPlacement } from "./examples/placement";
 import { TooltipRadius } from "./examples/radius";
+import { TooltipSides } from "./examples/sides";
 import { TooltipUsage } from "./examples/usage";
 import { TooltipWithArrow } from "./examples/with-arrow";
 import { TooltipWithGroup } from "./examples/with-group";
@@ -39,12 +40,11 @@ const Tooltip = () => {
       <CodeExample isCentered title="Offset" url={resolvePath("offset.tsx")}>
         <TooltipOffset />
       </CodeExample>
-      <CodeExample
-        isCentered
-        title="Placement"
-        url={resolvePath("placement.tsx")}
-      >
-        <TooltipPlacement />
+      <CodeExample isCentered title="Aligns" url={resolvePath("aligns.tsx")}>
+        <TooltipAligns />
+      </CodeExample>
+      <CodeExample isCentered title="Sides" url={resolvePath("sides.tsx")}>
+        <TooltipSides />
       </CodeExample>
       <CodeExample
         isCentered
