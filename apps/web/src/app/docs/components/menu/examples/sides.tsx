@@ -1,22 +1,27 @@
-import { ChevronUpIcon } from "@jamsrui/icons";
 import { Button } from "jamsrui/button";
 import { Menu } from "jamsrui/menu";
 
-export const MenuRadius = () => {
-  const radii: Menu.Props["radius"][] = ["none", "sm", "md", "lg"];
+export const MenuSides = () => {
+  const sides = [
+    "top",
+    "right",
+    "bottom",
+    "left",
+    "inline-end",
+    "inline-start",
+  ] as const;
   return (
-    <div className="flex flex-wrap justify-center gap-4">
-      {radii.map((radius) => (
-        <Menu key={radius} radius={radius}>
-          <Menu.Trigger
-            render={
-              <Button radius={radius}>
-                <ChevronUpIcon />
-                Open Me {radius}
-              </Button>
-            }
-          />
-          <Menu.Content>
+    <div className="flex flex-wrap gap-4">
+      {sides.map((side) => (
+        <Menu key={side}>
+          <Menu.Trigger render={<Button>{side}</Button>} />
+          <Menu.Content
+            slotProps={{
+              positioner: {
+                side,
+              },
+            }}
+          >
             <Menu.Item>Add to Library</Menu.Item>
             <Menu.Item>Add to Playlist</Menu.Item>
             <Menu.Item>Play Next</Menu.Item>

@@ -2,6 +2,7 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
+import { MenuAligns } from "./examples/aligns";
 import { MenuBackdrop } from "./examples/backdrop";
 import { MenuCheckboxItemsExample } from "./examples/checkbox-items";
 import { MenuColors } from "./examples/colors";
@@ -9,14 +10,12 @@ import { MenuControlled } from "./examples/controlled";
 import { MenuGroupExample } from "./examples/group";
 import { MenuNested } from "./examples/nested";
 import { MenuOffset } from "./examples/offset";
-import { MenuPlacement } from "./examples/placement";
-import { MenuPreventClose } from "./examples/prevent-close";
 import { MenuRadioItemsExample } from "./examples/radio-items";
 import { MenuRadius } from "./examples/radius";
+import { MenuSides } from "./examples/sides";
 import { MenuStartEndContent } from "./examples/start-end-content";
 import { MenuUsage } from "./examples/usage";
 import { MenuWithArrow } from "./examples/with-arrow";
-import { MenuWithoutLockScroll } from "./examples/without-lock-scroll";
 
 const title = "Menu";
 const description =
@@ -68,19 +67,11 @@ const Menu = () => {
       >
         <MenuWithArrow />
       </CodeExample>
-      <CodeExample
-        isCentered
-        title="Prevent Close"
-        url={resolvePath("prevent-close.tsx")}
-      >
-        <MenuPreventClose />
+      <CodeExample isCentered title="Sides" url={resolvePath("sides.tsx")}>
+        <MenuSides />
       </CodeExample>
-      <CodeExample
-        isCentered
-        title="Placement"
-        url={resolvePath("placement.tsx")}
-      >
-        <MenuPlacement />
+      <CodeExample isCentered title="Aligns" url={resolvePath("aligns.tsx")}>
+        <MenuAligns />
       </CodeExample>
       <CodeExample isCentered title="Offset" url={resolvePath("offset.tsx")}>
         <MenuOffset />
@@ -104,13 +95,6 @@ const Menu = () => {
         url={resolvePath("controlled.tsx")}
       >
         <MenuControlled />
-      </CodeExample>
-      <CodeExample
-        title="Without Lock Scroll"
-        url={resolvePath("without-lock-scroll.tsx")}
-        isCentered
-      >
-        <MenuWithoutLockScroll />
       </CodeExample>
     </DocsPage>
   );

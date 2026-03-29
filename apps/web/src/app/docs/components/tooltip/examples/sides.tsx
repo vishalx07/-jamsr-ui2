@@ -14,9 +14,7 @@ export const TooltipSides = () => {
     <div className="flex flex-col gap-4  min-h-25 items-center justify-center">
       {sides.map((side) => (
         <Tooltip key={side}>
-          <Tooltip.Trigger>
-            <Button>{side}</Button>
-          </Tooltip.Trigger>
+          <Tooltip.Trigger render={<Button>{side}</Button>} />
           <Tooltip.Content slotProps={{ positioner: { side } }}>
             <Tooltip.Arrow />I am tooltip
           </Tooltip.Content>

@@ -9,9 +9,7 @@ export const TooltipControlled = () => {
   return (
     <div className="grid place-content-center gap-4">
       <Tooltip open={isOpen} onOpenChange={setIsOpen}>
-        <Tooltip.Trigger>
-          <Button>Hover me</Button>
-        </Tooltip.Trigger>
+        <Tooltip.Trigger render={<Button>Hover me</Button>} />
         <Tooltip.Content>This is a tooltip</Tooltip.Content>
       </Tooltip>
       {!isOpen ? "Closed" : "Opened"}

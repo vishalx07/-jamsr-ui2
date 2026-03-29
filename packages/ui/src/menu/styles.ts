@@ -2,12 +2,19 @@ import { tv } from "tailwind-variants";
 
 export const menuStyles = tv({
   slots: {
-    arrow: "fill-background-secondary",
-    backdrop: "z-backdrop",
-    positioner: "min-w-40 z-popover focus-visible:outline-none",
-    content: [
+    arrow: [
+      "text-surface",
+      "data-[side=bottom]:-top-2 data-[side=left]:-right-3.25 data-[side=left]:rotate-90 data-[side=right]:-left-3.25 data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180",
+    ],
+    backdrop: [
+      "z-backdrop fixed inset-0 min-h-dvh",
+      "transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 supports-[-webkit-touch-callout:none]:absolute",
+    ],
+    positioner: "z-popover outline-hidden",
+    popup: [
       "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md",
-      "shadow-lg origin-(--transform-origin)",
+      "shadow-lg",
+      "origin-(--transform-origin) transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0",
     ],
     menuItem: [
       "relative box-border flex size-full select-none items-center gap-2 px-2 py-1.5 text-left outline-none data-disabled:status-disabled",
@@ -16,15 +23,14 @@ export const menuStyles = tv({
     menuGroup: [""],
     menuGroupLabel: "pl-2 text-foreground-secondary py-1",
     submenuIndicator: "ml-auto size-4",
-    menuItemIndicator: "size-4",
+    menuItemIndicator: "size-4 grid place-content-center",
   },
   variants: {
     radius: {
-      none: { content: "rounded-none", menuItem: "rounded-none" },
-      sm: { content: "rounded-sm", menuItem: "rounded-sm" },
-      md: { content: "rounded-md", menuItem: "rounded-md" },
-      lg: { content: "rounded-lg", menuItem: "rounded-lg" },
-      full: { content: "rounded-full", menuItem: "rounded-full" },
+      none: { popup: "rounded-none", menuItem: "rounded-none" },
+      sm: { popup: "rounded-sm", menuItem: "rounded-sm" },
+      md: { popup: "rounded-md", menuItem: "rounded-md" },
+      lg: { popup: "rounded-lg", menuItem: "rounded-lg" },
     },
     backdrop: {
       transparent: {
@@ -40,26 +46,27 @@ export const menuStyles = tv({
     color: {
       default: {
         menuItem:
-          "data-hovered:bg-surface-secondary data-hovered:text-foreground",
+          "data-highlighted:bg-surface-secondary data-highlighted:text-foreground",
       },
       primary: {
         menuItem:
-          "data-hovered:bg-primary data-hovered:text-primary-foreground",
+          "data-highlighted:bg-primary data-highlighted:text-primary-foreground",
       },
       secondary: {
         menuItem:
-          "data-hovered:bg-secondary data-hovered:text-secondary-foreground",
+          "data-highlighted:bg-secondary data-highlighted:text-secondary-foreground",
       },
       success: {
         menuItem:
-          "data-hovered:bg-success data-hovered:text-success-foreground",
+          "data-highlighted:bg-success data-highlighted:text-success-foreground",
       },
       warning: {
         menuItem:
-          "data-hovered:bg-warning data-hovered:text-warning-foreground",
+          "data-highlighted:bg-warning data-highlighted:text-warning-foreground",
       },
       danger: {
-        menuItem: "data-hovered:bg-danger data-hovered:text-danger-foreground",
+        menuItem:
+          "data-highlighted:bg-danger data-highlighted:text-danger-foreground",
       },
     },
   },

@@ -4,17 +4,23 @@ import { Menu } from "jamsrui/menu";
 
 export const MenuOffset = () => {
   return (
-    <Menu offset={20}>
-      <Menu.Trigger>
-        <Button>
-          <ChevronUpIcon />
-          Open Me
-        </Button>
-      </Menu.Trigger>
-      <Menu.Content>
-        <Menu.Item textValue="Undo">Undo</Menu.Item>
-        <Menu.Item textValue="Info">Info</Menu.Item>
-        <Menu.Item textValue="Search">Search</Menu.Item>
+    <Menu>
+      <Menu.Trigger
+        render={
+          <Button>
+            <ChevronUpIcon />
+            Open Me
+          </Button>
+        }
+      />
+      <Menu.Content slotProps={{ positioner: { sideOffset: 20 } }}>
+        <Menu.Item>Add to Library</Menu.Item>
+        <Menu.Item>Add to Playlist</Menu.Item>
+        <Menu.Item>Play Next</Menu.Item>
+        <Menu.Item>Play Last</Menu.Item>
+        <Menu.Item>Share</Menu.Item>
+        <Menu.Item>Favorite</Menu.Item>
+        <Menu.Item disabled>Delete</Menu.Item>
       </Menu.Content>
     </Menu>
   );

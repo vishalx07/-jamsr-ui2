@@ -7,9 +7,7 @@ export const TooltipAligns = () => {
     <div className="flex flex-col gap-4  min-h-25 items-center justify-center">
       {aligns.map((align) => (
         <Tooltip key={align}>
-          <Tooltip.Trigger>
-            <Button>{align}</Button>
-          </Tooltip.Trigger>
+          <Tooltip.Trigger render={<Button>{align}</Button>} />
           <Tooltip.Content slotProps={{ positioner: { align } }}>
             <Tooltip.Arrow />I am tooltip
           </Tooltip.Content>

@@ -5,11 +5,13 @@ import { Tooltip } from "jamsrui/tooltip";
 export const TooltipOffset = () => {
   return (
     <Tooltip>
-      <Tooltip.Trigger>
-        <IconButton label="Click Me!">
-          <InfoIcon width={24} height={24} />
-        </IconButton>
-      </Tooltip.Trigger>
+      <Tooltip.Trigger
+        render={
+          <IconButton label="Click Me!">
+            <InfoIcon width={24} height={24} />
+          </IconButton>
+        }
+      />
       <Tooltip.Content slotProps={{ positioner: { sideOffset: 20 } }}>
         This tooltip has offset 20
       </Tooltip.Content>

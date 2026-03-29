@@ -36,15 +36,3 @@ export namespace DataGrid {
     extends DataGridPaginationSelector.Props {}
   export interface Table extends DataGridTable.Props {}
 }
-
-export {
-  DataGridBody,
-  DataGridColumnVisibility,
-  DataGridHeader,
-  DataGridHeaderColumn,
-  DataGridPagination,
-  DataGridPaginationSelector,
-  DataGridRowSelect,
-  DataGridRowSelectAll,
-  DataGridTable,
-};

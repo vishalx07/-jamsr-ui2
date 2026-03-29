@@ -94,7 +94,7 @@ const DataGridColumnHeaderDropdown = ({
             >
               <ArrowUpIcon />
               Asc
-              <Menu.ItemIndicator className="ml-auto" />
+              <Menu.CheckboxItemIndicator className="ml-auto" />
             </Menu.RadioItem>
             <Menu.RadioItem
               disabled={!column.getCanSort()}
@@ -111,7 +111,7 @@ const DataGridColumnHeaderDropdown = ({
             >
               <ArrowDownIcon />
               Desc
-              <Menu.ItemIndicator className="ml-auto" />
+              <Menu.CheckboxItemIndicator className="ml-auto" />
             </Menu.RadioItem>
           </Menu.RadioGroup>
         </Menu.Group>
@@ -137,7 +137,7 @@ const DataGridColumnHeaderDropdown = ({
             >
               <ArrowLeftToLineIcon />
               Pin To Left
-              <Menu.ItemIndicator className="ml-auto" />
+              <Menu.CheckboxItemIndicator className="ml-auto" />
             </Menu.RadioItem>
             <Menu.RadioItem
               preventCloseOnClick={false}
@@ -149,7 +149,7 @@ const DataGridColumnHeaderDropdown = ({
             >
               <ArrowRightToLineIcon />
               Pin To Right
-              <Menu.ItemIndicator className="ml-auto" />
+              <Menu.CheckboxItemIndicator className="ml-auto" />
             </Menu.RadioItem>
           </Menu.RadioGroup>
         </Menu.Group>
