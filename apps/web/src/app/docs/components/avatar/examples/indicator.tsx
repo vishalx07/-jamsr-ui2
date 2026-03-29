@@ -70,6 +70,7 @@ export const AvatarIndicatorExample = () => {
               alt="John"
               src={`https://avatar.iran.liara.run/public/girl?username=Jamsr`}
             />
+            <Avatar.Fallback />
           </Avatar>
         </Avatar.Indicator>
       </Avatar>
