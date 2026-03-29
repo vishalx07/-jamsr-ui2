@@ -57,6 +57,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Otp Input", url: "/docs/components/otp-input" },
       { title: "Pagination", url: "/docs/components/pagination" },
       { title: "Popover", url: "/docs/components/popover" },
+      { title: "Preview Card", url: "/docs/components/preview-card" },
       { title: "Radio Group", url: "/docs/components/radio-group" },
       { title: "Rating", url: "/docs/components/rating" },
       { title: "Ripple", url: "/docs/components/ripple" },
