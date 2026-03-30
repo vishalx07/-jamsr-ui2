@@ -1,6 +1,5 @@
 import { Checkbox } from "jamsrui/checkbox";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 
 export const CheckboxRadius = () => {
   const radiusExamples = [
@@ -16,7 +15,7 @@ export const CheckboxRadius = () => {
       {radiusExamples.map((item) => (
         <Field key={item.value} orientation="horizontal">
           <Checkbox radius={item.value} />
-          <Label>{item.label}</Label>
+          <Field.Label>{item.label}</Field.Label>
         </Field>
       ))}
     </div>

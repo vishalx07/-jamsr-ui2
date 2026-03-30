@@ -1,7 +1,5 @@
 import { Checkbox } from "jamsrui/checkbox";
-import { Description } from "jamsrui/description";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 
 export const CheckboxSizes = () => {
   const checkboxExamples = [
@@ -27,8 +25,8 @@ export const CheckboxSizes = () => {
         <Field key={item.size} orientation="horizontal">
           <Checkbox size={item.size} />
           <Field.Content>
-            <Label>{item.label}</Label>
-            <Description>{item.description}</Description>
+            <Field.Label>{item.label}</Field.Label>
+            <Field.Description>{item.description}</Field.Description>
           </Field.Content>
         </Field>
       ))}

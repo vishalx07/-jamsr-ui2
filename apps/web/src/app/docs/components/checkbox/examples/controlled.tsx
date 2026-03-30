@@ -1,8 +1,7 @@
 "use client";
 
 import { Checkbox } from "jamsrui/checkbox";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 import { useState } from "react";
 
 export const CheckboxControlled = () => {
@@ -10,11 +9,11 @@ export const CheckboxControlled = () => {
   return (
     <Field orientation="horizontal">
       <Checkbox checked={isChecked} onCheckedChange={setIsChecked} />
-      <Label>
+      <Field.Label>
         {isChecked
           ? "I agree to receive marketing emails"
           : "Agree to receive marketing emails"}
-      </Label>
+      </Field.Label>
     </Field>
   );
 };

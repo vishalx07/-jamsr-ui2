@@ -1,12 +1,11 @@
 import { Checkbox } from "jamsrui/checkbox";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 
 export const CheckboxIntermediate = () => {
   return (
     <Field orientation="horizontal">
       <Checkbox indeterminate />
-      <Label>I am a checkbox</Label>
+      <Field.Label>I am a checkbox</Field.Label>
     </Field>
   );
 };

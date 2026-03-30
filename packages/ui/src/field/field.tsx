@@ -6,9 +6,8 @@ export const FieldRoot = (props: FieldRoot.Props) => {
   return (
     <FieldPrimitive.Root
       className={cn(
-        orientation === "vertical"
-          ? "flex w-full group max-w-64 flex-col items-start gap-1"
-          : "flex w-full group max-w-64 flex-row items-center gap-1",
+        "flex group gap-1",
+        orientation === "vertical" ? "flex-col" : "flex-row",
         className,
       )}
       {...restProps}
@@ -60,3 +59,14 @@ export const FieldLabel = (props: FieldPrimitive.Label.Props) => {
     />
   );
 };
+
+export const FieldContent = (props: FieldContent.Props) => {
+  const { className, ...restProps } = props;
+  return (
+    <div className={cn("flex flex-col gap-1", className)} {...restProps} />
+  );
+};
+
+export namespace FieldContent {
+  export interface Props extends React.ComponentProps<"div"> {}
+}

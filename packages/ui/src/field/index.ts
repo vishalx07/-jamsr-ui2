@@ -1,4 +1,5 @@
 import {
+  FieldContent,
   FieldControl,
   FieldDescription,
   FieldError,
@@ -11,4 +12,5 @@ export const Field = Object.assign(FieldRoot, {
   Error: FieldError,
   Description: FieldDescription,
   Label: FieldLabel,
+  Content: FieldContent,
 });

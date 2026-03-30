@@ -1,17 +1,15 @@
 import { Checkbox } from "jamsrui/checkbox";
-import { Description } from "jamsrui/description";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 
 export const CheckboxDescription = () => {
   return (
     <Field orientation="horizontal">
       <Checkbox />
       <Field.Content>
-        <Label>Enable email notifications</Label>
-        <Description>
+        <Field.Label>Enable email notifications</Field.Label>
+        <Field.Description>
           Receive updates and promotional offers via email.
-        </Description>
+        </Field.Description>
       </Field.Content>
     </Field>
   );

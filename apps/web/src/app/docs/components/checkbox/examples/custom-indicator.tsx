@@ -2,8 +2,7 @@
 
 import { PlusIcon } from "@jamsrui/icons";
 import { Checkbox } from "jamsrui/checkbox";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 import { useState } from "react";
 
 export const CheckboxCustomIndicator = () => {
@@ -14,7 +13,7 @@ export const CheckboxCustomIndicator = () => {
         <Checkbox.Indicator>{checked ? <PlusIcon /> : null}</Checkbox.Indicator>
       </Checkbox>
       <Field.Content>
-        <Label>Enable email notifications</Label>
+        <Field.Label>Enable email notifications</Field.Label>
       </Field.Content>
     </Field>
   );
