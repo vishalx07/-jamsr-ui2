@@ -1,10 +1,8 @@
 "use client";
 
-import { Description } from "jamsrui/description";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Switch } from "jamsrui/switch";
 import { useState } from "react";
-import { Field } from "jamsrui/textfield";
 
 export const SwitchControlled = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -12,8 +10,10 @@ export const SwitchControlled = () => {
     <Field orientation="horizontal">
       <Switch checked={isChecked} onCheckedChange={setIsChecked} />
       <Field.Content>
-        <Label>Are you ok?</Label>
-        <Description>{isChecked ? "Checked" : "Unchecked"}</Description>
+        <Field.Label>Are you ok?</Field.Label>
+        <Field.Description>
+          {isChecked ? "Checked" : "Unchecked"}
+        </Field.Description>
       </Field.Content>
     </Field>
   );

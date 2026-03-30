@@ -1,7 +1,5 @@
-import { Description } from "jamsrui/description";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Switch } from "jamsrui/switch";
-import { Field } from "jamsrui/textfield";
 
 export const SwitchColors = () => {
   const data: { color: Switch.Props["color"]; description: string }[] = [
@@ -37,8 +35,8 @@ export const SwitchColors = () => {
         <Field key={item.color} orientation="horizontal">
           <Switch color={item.color} />
           <Field.Content>
-            <Label className="capitalize">{item.color}</Label>
-            <Description>{item.description}</Description>
+            <Field.Label className="capitalize">{item.color}</Field.Label>
+            <Field.Description>{item.description}</Field.Description>
           </Field.Content>
         </Field>
       ))}

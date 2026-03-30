@@ -1,6 +1,5 @@
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Switch } from "jamsrui/switch";
-import { Field } from "jamsrui/textfield";
 
 export const SwitchSizes = () => {
   const examples = [
@@ -14,7 +13,7 @@ export const SwitchSizes = () => {
       {examples.map((example) => (
         <Field key={example.size} orientation="horizontal">
           <Switch size={example.size} />
-          <Label>{example.label}</Label>
+          <Field.Label>{example.label}</Field.Label>
         </Field>
       ))}
     </div>
