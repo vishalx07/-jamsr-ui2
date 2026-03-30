@@ -1,8 +1,8 @@
-import { Button as ButtonUI } from "@jamsrui/react";
+import { Button as ButtonPrimitive } from "@base-ui/react/button";
+import { cn } from "tailwind-variants";
 
-
-import { buttonStyles } from "./styles";
 import { CircularProgress } from "../circular-progress";
+import { buttonStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
@@ -20,16 +20,24 @@ export const Button = (props: Button.Props) => {
     ...restProps
   } = props;
   return (
-    <ButtonUI
+    <ButtonPrimitive
       {...restProps}
-      className={buttonStyles({ color, size, variant, className, radius })}
+      className={buttonStyles({
+        color,
+        size,
+        variant,
+        className: cn(className),
+        radius,
+      })}
     >
       {isLoading ? <CircularProgress /> : null}
       {children}
-    </ButtonUI>
+    </ButtonPrimitive>
   );
 };
 
 export namespace Button {
-  export interface Props extends ButtonUI.Props, ButtonVariantProps {}
+  export interface Props extends ButtonPrimitive.Props, ButtonVariantProps {
+    isLoading?: boolean;
+  }
 }

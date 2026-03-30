@@ -9,7 +9,6 @@ export const buttonStyles = tv({
     "disabled:status-disabled",
     "focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2",
     "font-medium",
-    "transition-[scale] duration-150 data-pressed:scale-98",
   ],
   variants: {
     variant: {
