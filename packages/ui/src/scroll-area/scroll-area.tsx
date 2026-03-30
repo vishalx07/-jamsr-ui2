@@ -2,8 +2,8 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { ScrollArea as ScrollAreaUI } from "@jamsrui/react";
-// import { ScrollArea } from "@base-ui/react/scroll-area";
+import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
+import { cn } from "tailwind-variants";
 
 import { scrollAreaStyles } from "./styles";
 
@@ -27,78 +27,75 @@ export const ScrollArea = (props: ScrollArea.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <ScrollAreaContext value={value}>
-      <ScrollAreaUI {...rest} className={styles.root({ className })} />
+      <ScrollAreaPrimitive.Root
+        {...rest}
+        className={styles.root({ className: cn(className) })}
+      />
     </ScrollAreaContext>
   );
 };
 
 export namespace ScrollArea {
-  export interface Props extends ScrollAreaUI.Props, ScrollAreaVariants {}
+  export interface Props
+    extends ScrollAreaPrimitive.Root.Props, ScrollAreaVariants {}
 }
 
-export const ScrollAreaViewport = (props: ScrollAreaViewport.Props) => {
+export const ScrollAreaViewport = (
+  props: ScrollAreaPrimitive.Viewport.Props,
+) => {
   const { styles } = useScrollAreaContext();
   const { className, ...rest } = props;
   return (
-    <ScrollAreaUI.Viewport
+    <ScrollAreaPrimitive.Viewport
       {...rest}
-      className={styles.viewport({ className })}
+      className={styles.viewport({ className: cn(className) })}
     />
   );
 };
 
-export const ScrollAreaScrollbar = (props: ScrollAreaScrollbar.Props) => {
+export const ScrollAreaScrollbar = (
+  props: ScrollAreaPrimitive.Scrollbar.Props,
+) => {
   const { styles } = useScrollAreaContext();
   const { orientation = "vertical", className, ...rest } = props;
   return (
-    <ScrollAreaUI.Scrollbar
+    <ScrollAreaPrimitive.Scrollbar
       {...rest}
-      className={styles.scrollbar({ className })}
+      className={styles.scrollbar({ className: cn(className) })}
       orientation={orientation}
     />
   );
 };
 
-export const ScrollAreaThumb = (props: ScrollAreaThumb.Props) => {
+export const ScrollAreaThumb = (props: ScrollAreaPrimitive.Thumb.Props) => {
   const { styles } = useScrollAreaContext();
   const { className, ...rest } = props;
   return (
-    <ScrollAreaUI.Thumb {...rest} className={styles.thumb({ className })} />
+    <ScrollAreaPrimitive.Thumb
+      {...rest}
+      className={styles.thumb({ className: cn(className) })}
+    />
   );
 };
 
-export const ScrollAreaCorner = (props: ScrollAreaCorner.Props) => {
+export const ScrollAreaCorner = (props: ScrollAreaPrimitive.Corner.Props) => {
   const { styles } = useScrollAreaContext();
   const { className, ...rest } = props;
   return (
-    <ScrollAreaUI.Corner {...rest} className={styles.corner({ className })} />
+    <ScrollAreaPrimitive.Corner
+      {...rest}
+      className={styles.corner({ className: cn(className) })}
+    />
   );
 };
 
-export const ScrollAreaContent = (props: ScrollAreaContent.Props) => {
+export const ScrollAreaContent = (props: ScrollAreaPrimitive.Content.Props) => {
   const { styles } = useScrollAreaContext();
   const { className, ...rest } = props;
   return (
-    <ScrollAreaUI.Content {...rest} className={styles.content({ className })} />
+    <ScrollAreaPrimitive.Content
+      {...rest}
+      className={styles.content({ className: cn(className) })}
+    />
   );
 };
-
-export namespace ScrollAreaViewport {
-  export interface Props extends ScrollAreaUI.Viewport {}
-}
-
-export namespace ScrollAreaScrollbar {
-  export interface Props extends ScrollAreaUI.Scrollbar {}
-}
-
-export namespace ScrollAreaThumb {
-  export interface Props extends ScrollAreaUI.Thumb {}
-}
-
-export namespace ScrollAreaCorner {
-  export interface Props extends ScrollAreaUI.Corner {}
-}
-
-export namespace ScrollAreaContent {
-  export interface Props extends ScrollAreaUI.Content {}
-}
