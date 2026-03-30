@@ -13,7 +13,6 @@ import { OtpInput } from "jamsrui/otp-input";
 import { Radio } from "jamsrui/radio-group";
 import { Select } from "jamsrui/select";
 import { Switch } from "jamsrui/switch";
-import { toast } from "jamsrui/toast";
 import { RHFField } from "jamsrui/rhf";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -69,7 +68,7 @@ const Page = () => {
 
   const onSubmit = form.handleSubmit((values) => {
     console.log(values);
-    toast.success(<pre>{JSON.stringify(values, null, 2)}</pre>);
+    // toast.success(<pre>{JSON.stringify(values, null, 2)}</pre>);
   });
 
   const [showPassword, setShowPassword] = useState(false);
