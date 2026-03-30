@@ -1,16 +1,19 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const sliderStyles = tv({
   slots: {
     root: "relative flex touch-none select-none items-center",
     control: "flex items-center",
     track:
-      "relative h-5 w-full grow overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800",
-    indicator: "absolute h-full bg-primary",
-    thumb:
-      "block h-5 w-5 rounded-full border-2 border-primary bg-white ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:status-disabled",
+      "relative h-5 w-full grow overflow-hidden rounded-full bg-neutral-800",
+    indicator: "absolute h-full bg-secondary",
+    thumb: [
+      "block h-5 w-5 rounded-full bg-white",
+      "has-focus-visible:focus-visible",
+      "disabled:status-disabled",
+    ],
     value: "text-sm",
   },
   variants: {
@@ -25,9 +28,6 @@ export const sliderStyles = tv({
         track: "h-full w-5",
         indicator: "w-full bottom-0",
       },
-    },
-    isDisabled: {
-      true: {},
     },
   },
   defaultVariants: {

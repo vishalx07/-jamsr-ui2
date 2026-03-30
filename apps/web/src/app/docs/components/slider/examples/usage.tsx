@@ -32,7 +32,6 @@ export default function SliderUsage() {
 
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-medium">Vertical Slider</h3>
-        {/* Height must be set for vertical slider */}
         <Slider.Root defaultValue={50} orientation="vertical" className="h-52">
           <Slider.Control>
             <Slider.Track>
