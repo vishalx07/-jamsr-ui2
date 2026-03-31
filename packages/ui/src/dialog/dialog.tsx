@@ -122,17 +122,19 @@ export namespace DialogFooter {
 export const DialogClose = (props: Partial<IconButton.Props>) => {
   const { styles } = useDialogContext();
   return (
-    <DialogPrimitive.Close>
-      <IconButton
-        label="Close Dialog"
-        radius="full"
-        size="sm"
-        {...props}
-        className={styles.closeButton({ className: cn(props.className) })}
-      >
-        <CloseIcon className="size-4" />
-      </IconButton>
-    </DialogPrimitive.Close>
+    <DialogPrimitive.Close
+      render={
+        <IconButton
+          label="Close Dialog"
+          radius="full"
+          size="sm"
+          {...props}
+          className={styles.closeButton({ className: cn(props.className) })}
+        >
+          <CloseIcon className="size-4" />
+        </IconButton>
+      }
+    />
   );
 };
 

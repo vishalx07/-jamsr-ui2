@@ -2,73 +2,82 @@ import { tv } from "tailwind-variants";
 
 export const drawerStyles = tv({
   slots: {
-    backdrop: "z-backdrop overflow-hidden!",
-    positioner: "z-dialog focus-visible:outline-none",
-    content:
-      "absolute flex w-full flex-col overflow-y-auto bg-surface shadow-sm",
-    header: "p-4",
-    footer: "flex justify-end gap-2 p-4",
-    body: "grow p-4",
-    closeButton: "absolute right-4 top-4",
+    backdrop:
+      "[--backdrop-opacity:0.2] [--bleed:3rem] dark:[--backdrop-opacity:0.7] fixed inset-0 min-h-dvh opacity-[calc(var(--backdrop-opacity)*(1-var(--drawer-swipe-progress)))] transition-opacity duration-450 ease-[cubic-bezier(0.32,0.72,0,1)] data-swiping:duration-0 data-ending-style:opacity-0 data-starting-style:opacity-0 data-ending-style:duration-[calc(var(--drawer-swipe-strength)*400ms)] supports-[-webkit-touch-callout:none]:absolute",
+    viewport: "fixed inset-0 flex",
+    content: "mx-auto w-full",
+    close: "absolute right-4 top-4",
+    title: "",
+    description: "",
+    popup:
+      "bg-surface p-6 text-foreground shadow-lg overflow-y-auto overscroll-contain touch-auto transition-transform duration-450 ease-[cubic-bezier(0.32,0.72,0,1)] data-swiping:select-none  data-ending-style:duration-[calc(var(--drawer-swipe-strength)*400ms)]",
+    footer: "flex items-center justify-end gap-2",
+    bar: "w-12 h-1 mx-auto mb-4 rounded-full bg-surface-tertiary",
   },
   variants: {
     anchor: {
-      left: {
-        content: "left-0 top-0 h-dvh",
-      },
       right: {
-        content: "right-0 top-0 h-dvh",
+        viewport: "justify-end",
+        popup: [
+          "data-ending-style:transform-[translateX(calc(100%-var(--bleed)+var(--viewport-padding)+2px))] data-starting-style:transform-[translateX(calc(100%-var(--bleed)+var(--viewport-padding)+2px))]",
+          "supports-[-webkit-touch-callout:none]:mr-0 supports-[-webkit-touch-callout:none]:pr-6",
+        ],
       },
-      top: {
-        content: "left-0 top-0",
+      left: {
+        viewport: "justify-start",
+        popup: [
+          "data-ending-style:transform-[translateX(calc(-100%+var(--bleed)-var(--viewport-padding)-2px))] data-starting-style:transform-[translateX(calc(-100%+var(--bleed)-var(--viewport-padding)-2px))]",
+          "supports-[-webkit-touch-callout:none]:ml-0 supports-[-webkit-touch-callout:none]:pl-6",
+        ],
       },
-      bottom: {
-        content: "bottom-0 left-0",
+      down: {
+        viewport: "items-end",
+        popup: [
+          "data-ending-style:transform-[translateY(calc(100%-3rem+2px))] data-starting-style:transform-[translateY(calc(100%-3rem+2px))]",
+          "-mb-12",
+          "pb-[calc(1.5rem+env(safe-area-inset-bottom,0px)+3rem)] pt-4 ",
+        ],
+      },
+      up: {
+        viewport: "items-start",
+        popup: [
+          "data-ending-style:transform-[translateY(calc(-100%+3rem-2px))] data-starting-style:transform-[translateY(calc(-100%+3rem-2px))]",
+          "-mt-12",
+          "pt-[calc(1.5rem+env(safe-area-inset-top,0px)+3rem)] pb-4 ",
+        ],
       },
     },
     size: {
       xs: {
-        content: "max-w-xs",
+        popup: "max-w-xs",
       },
       sm: {
-        content: "max-w-sm",
+        popup: "max-w-sm",
       },
       md: {
-        content: "max-w-md",
+        popup: "max-w-md",
       },
       lg: {
-        content: "max-w-lg",
+        popup: "max-w-lg",
       },
       xl: {
-        content: "max-w-xl",
+        popup: "max-w-xl",
       },
       "2xl": {
-        content: "max-w-2xl",
+        popup: "max-w-2xl",
       },
       "3xl": {
-        content: "max-w-3xl",
+        popup: "max-w-3xl",
       },
       "4xl": {
-        content: "max-w-4xl",
+        popup: "max-w-4xl",
       },
       "5xl": {
-        content: "max-w-5xl",
+        popup: "max-w-5xl",
       },
       full: {
-        content: "m-0 h-dvh max-w-full rounded-none! sm:m-0",
+        popup: "max-w-full",
       },
-    },
-    isBordered: {
-      true: {
-        header: "border-b border-border",
-        footer: "border-t border-border",
-      },
-    },
-    scrollBehavior: {
-      inside: {
-        body: "overflow-y-auto",
-      },
-      outside: {},
     },
     backdrop: {
       transparent: {
@@ -82,27 +91,41 @@ export const drawerStyles = tv({
       },
     },
     radius: {
-      none: { content: "rounded-none" },
-      sm: { content: "rounded-sm" },
-      md: { content: "rounded-md" },
-      lg: { content: "rounded-lg" },
-      full: { content: "rounded-full" },
+      none: { popup: "rounded-none" },
+      sm: { popup: "rounded-sm" },
+      md: { popup: "rounded-md" },
+      lg: { popup: "rounded-lg" },
+      full: { popup: "rounded-full" },
     },
   },
   compoundVariants: [
     {
-      anchor: ["top", "bottom"],
+      anchor: ["right", "left"],
       className: {
-        content: "w-full max-w-full!",
+        viewport:
+          "[--viewport-padding:0px] supports-[-webkit-touch-callout:none]:[--viewport-padding:0.625rem] items-stretch p-(--viewport-padding)",
+        popup: [
+          "[--bleed:3rem] supports-[-webkit-touch-callout:none]:[--bleed:0px]",
+          "transform-[translateX(var(--drawer-swipe-movement-x))] ",
+          "h-full",
+        ],
+      },
+    },
+    {
+      anchor: ["down", "up"],
+      className: {
+        viewport: "justify-center",
+        popup: [
+          "transform-[translateY(var(--drawer-swipe-movement-y))]",
+          "w-full max-h-[calc(80vh+3rem)]",
+        ],
       },
     },
   ],
   defaultVariants: {
-    scrollBehavior: "inside",
-    size: "lg",
-    isBordered: false,
+    size: "md",
     backdrop: "opaque",
-    anchor: "right",
-    radius: "none",
+    anchor: "down",
+    radius: "md",
   },
 });

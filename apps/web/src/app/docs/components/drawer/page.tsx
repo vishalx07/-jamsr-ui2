@@ -4,11 +4,8 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { DrawerAnchors } from "./examples/anchors";
 import { DrawerBackdrop } from "./examples/backdrop";
-import { DrawerBordered } from "./examples/bordered";
 import { DrawerCustomCloseBtn } from "./examples/custom-close-button";
-import { DrawerCustomized } from "./examples/customized";
 import { DrawerNonDismissible } from "./examples/non-dismissible";
-import { DrawerScrollBehavior } from "./examples/scroll-behavior";
 import { DrawerSize } from "./examples/size";
 import { DrawerUsage } from "./examples/usage";
 import { DrawerWithoutCloseButton } from "./examples/without-close-button";
@@ -37,20 +34,6 @@ const Drawer = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Bordered"
-        url={resolvePath("bordered.tsx")}
-      >
-        <DrawerBordered />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Scroll Behavior"
-        url={resolvePath("scroll-behavior.tsx")}
-      >
-        <DrawerScrollBehavior />
-      </CodeExample>
-      <CodeExample
-        isCentered
         title="Custom Close Button"
         url={resolvePath("custom-close-button.tsx")}
       >
@@ -76,13 +59,6 @@ const Drawer = () => {
         url={resolvePath("non-dismissible.tsx")}
       >
         <DrawerNonDismissible />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Customized"
-        url={resolvePath("customized.tsx")}
-      >
-        <DrawerCustomized />
       </CodeExample>
     </DocsPage>
   );
