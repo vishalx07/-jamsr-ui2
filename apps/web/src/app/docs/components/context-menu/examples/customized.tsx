@@ -1,15 +1,15 @@
 
 import { ContextMenu } from "jamsrui/context-menu";
 
-export const ContextMenuOffset = () => {
+export const ContextMenuCustomized = () => {
   return (
-    <ContextMenu>
+    <ContextMenu radius="sm">
       <ContextMenu.Trigger>
         <div className="border-border text-foreground-secondary flex w-full items-center justify-center rounded-xl border border-dashed py-12 text-center">
           Right Click Here
         </div>
       </ContextMenu.Trigger>
-      <ContextMenu.Content slotProps={{ positioner: { sideOffset: 20 } }}>
+      <ContextMenu.Content>
         <ContextMenu.Item>Add to Library</ContextMenu.Item>
         <ContextMenu.Item>Add to Playlist</ContextMenu.Item>
         <ContextMenu.Item>Play Next</ContextMenu.Item>

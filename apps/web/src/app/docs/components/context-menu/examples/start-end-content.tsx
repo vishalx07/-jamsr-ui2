@@ -1,68 +1,68 @@
 import { InfoIcon, SearchIcon, TrashIcon } from "@jamsrui/icons";
-import { ContextMenu } from "jamsrui/context-menu";
 import { Kbd } from "jamsrui/kbd";
-import { Label } from "jamsrui/label";
+import { ContextMenu } from "jamsrui/context-menu";
+
 
 export const ContextMenuStartEndContent = () => {
   return (
     <ContextMenu>
       <ContextMenu.Trigger>
-        <div className="border-border text-center p-12 border-dashed border w-full">
+        <div className="border-border text-foreground-secondary flex w-full items-center justify-center rounded-xl border border-dashed py-12 text-center">
           Right Click Here
         </div>
       </ContextMenu.Trigger>
       <ContextMenu.Content>
-        <ContextMenu.Item textValue="Undo">
+        <ContextMenu.Item>
           <SearchIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Undo
+          Add to Library
           <Kbd className="ml-auto" keys={["command"]}>
-            U
+            L
           </Kbd>
         </ContextMenu.Item>
-        <ContextMenu.Item textValue="Info">
+        <ContextMenu.Item>
           <InfoIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Info
+          Add to Playlist
           <Kbd className="ml-auto" keys={["command"]}>
-            I
+            P
           </Kbd>
         </ContextMenu.Item>
-        <ContextMenu.Item textValue="Search">
+        <ContextMenu.Item>
           <SearchIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Search
+          Share
           <Kbd className="ml-auto" keys={["command"]}>
-            K
+            S
           </Kbd>
         </ContextMenu.Item>
-        <ContextMenu.Item textValue="Cut">
+        <ContextMenu.Item>
           <SearchIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Cut
+          Favorite
           <Kbd className="ml-auto" keys={["command"]}>
-            C
+            F
           </Kbd>
         </ContextMenu.Item>
-        <ContextMenu.Item textValue="Delete" color="danger">
+        <ContextMenu.Item color="danger" className="hover:bg-danger">
           <TrashIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Delete{" "}
+          Delete
           <Kbd className="ml-auto" keys={["command"]}>
             D
           </Kbd>

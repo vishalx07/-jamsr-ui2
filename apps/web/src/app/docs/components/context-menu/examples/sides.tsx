@@ -1,18 +1,30 @@
-
 import { ContextMenu } from "jamsrui/context-menu";
 
-export const ContextMenuRadius = () => {
-  const radii: ContextMenu.Props["radius"][] = ["none", "sm", "md", "lg"];
+export const ContextMenuSides = () => {
+  const sides = [
+    "top",
+    "right",
+    "bottom",
+    "left",
+    "inline-end",
+    "inline-start",
+  ] as const;
   return (
-    <div className="flex flex-wrap justify-center gap-4">
-      {radii.map((radius) => (
-        <ContextMenu key={radius} radius={radius}>
+    <div className="flex flex-wrap gap-4">
+      {sides.map((side) => (
+        <ContextMenu key={side}>
           <ContextMenu.Trigger>
-            <div className="border-border text-foreground-secondary flex w-full items-center justify-center rounded-xl border border-dashed py-12 text-center">
-              Right Click Here
-            </div>
-          </ContextMenu.Trigger>
-          <ContextMenu.Content>
+        <div className="border-border text-foreground-secondary flex w-full items-center justify-center rounded-xl border border-dashed py-12 text-center">
+          Right Click Here
+        </div>
+      </ContextMenu.Trigger>
+          <ContextMenu.Content
+            slotProps={{
+              positioner: {
+                side,
+              },
+            }}
+          >
             <ContextMenu.Item>Add to Library</ContextMenu.Item>
             <ContextMenu.Item>Add to Playlist</ContextMenu.Item>
             <ContextMenu.Item>Play Next</ContextMenu.Item>
