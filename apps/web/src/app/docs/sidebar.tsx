@@ -32,6 +32,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Card", url: "/docs/components/card" },
       { title: "Charts", url: "/docs/components/charts" },
       { title: "Checkbox", url: "/docs/components/checkbox" },
+      { title: "Checkbox Group", url: "/docs/components/checkbox-group" },
       { title: "Chip", url: "/docs/components/chip" },
       { title: "Circular Progress", url: "/docs/components/circular-progress" },
       { title: "Clipboard", url: "/docs/components/clipboard" },

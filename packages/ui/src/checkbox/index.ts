@@ -1,4 +1,8 @@
-import { Checkbox as CheckboxRoot, CheckboxIndicator } from "./checkbox";
+import {
+  Checkbox as CheckboxRoot,
+  CheckboxGroupRoot,
+  CheckboxIndicator,
+} from "./checkbox";
 
 export const Checkbox = Object.assign(CheckboxRoot, {
   Root: CheckboxRoot,
@@ -8,3 +12,5 @@ export const Checkbox = Object.assign(CheckboxRoot, {
 export namespace Checkbox {
   export interface Props extends CheckboxRoot.Props {}
 }
+
+export const CheckboxGroup = Object.assign(CheckboxGroupRoot, {});
