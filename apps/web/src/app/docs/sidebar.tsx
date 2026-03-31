@@ -38,6 +38,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Clipboard", url: "/docs/components/clipboard" },
       { title: "Collapsible", url: "/docs/components/collapsible" },
       { title: "Combobox", url: "/docs/components/combobox" },
+      { title: "Command", url: "/docs/components/command" },
       { title: "Context Menu", url: "/docs/components/context-menu" },
       { title: "Data Grid", url: "/docs/components/data-grid" },
       { title: "Date Field", url: "/docs/components/date-field" },
