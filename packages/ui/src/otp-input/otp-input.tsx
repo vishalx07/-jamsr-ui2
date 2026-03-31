@@ -3,100 +3,153 @@
 import { createContext, use, useMemo } from "react";
 
 import {
-  OtpInput as OtpInputUI,
+  OTPInput,
+  OTPInputContext,
   REGEXP_ONLY_CHARS,
   REGEXP_ONLY_DIGITS,
   REGEXP_ONLY_DIGITS_AND_CHARS,
-} from "@jamsrui/react";
+} from "input-otp";
 
 import { otpInputStyles } from "./styles";
 
+import type { OTPInputProps, SlotProps } from "input-otp";
 import type { VariantProps } from "tailwind-variants";
 
 type OtpInputVariants = VariantProps<typeof otpInputStyles>;
 
-const OtpInputContext = createContext<{
+const OtpInputStyleContext = createContext<{
   styles: ReturnType<typeof otpInputStyles>;
 } | null>(null);
 
-const useOtpInputContext = () => {
-  const ctx = use(OtpInputContext);
+const useOtpInputStyleContext = () => {
+  const ctx = use(OtpInputStyleContext);
   if (!ctx) {
-    throw new Error("useOtpInputContext must be used within an OtpInput");
+    throw new Error("useOtpInputStyleContext must be used within an OtpInput");
   }
   return ctx;
 };
 
-export const OtpInput = (props: OtpInput.Props) => {
-  const { radius, size, className, children, ...rest } = props;
+export type OtpInputRootProps = Omit<OTPInputProps, "render"> &
+  OtpInputVariants & {
+    maxLength: number;
+    ref?: React.Ref<HTMLInputElement>;
+    value?: string;
+    onChange?: (value: string) => void;
+    onValueChange?: (value: string) => void;
+    onComplete?: (...args: unknown[]) => unknown;
+    isInvalid?: boolean;
+  };
+
+export const OtpInput = (props: OtpInputRootProps) => {
+  const {
+    radius,
+    size,
+    isInvalid,
+    containerClassName,
+    onValueChange,
+    onChange,
+    disabled,
+    children,
+    ref,
+    ...rest
+  } = props;
   const styles = otpInputStyles({ radius, size });
-  const value = useMemo(() => ({ styles }), [styles]);
+  const ctxValue = useMemo(() => ({ styles }), [styles]);
+
+  const rootClassName = [
+    styles.root({ className: containerClassName }),
+    isInvalid ? "group" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <OtpInputContext value={value}>
-      <OtpInputUI {...rest} className={styles.root({ className })}>
-        <OtpInputUI.Input className={styles.input()} />
-        {children}
-      </OtpInputUI>
-    </OtpInputContext>
+    <OtpInputStyleContext value={ctxValue}>
+      <div
+        className="group contents"
+        data-disabled={disabled || undefined}
+        data-hovered=""
+        data-invalid={isInvalid || undefined}
+      >
+        <OTPInput
+          {...rest}
+          ref={ref}
+          containerClassName={rootClassName}
+          disabled={disabled}
+          onChange={(newValue) => {
+            onChange?.(newValue);
+            onValueChange?.(newValue);
+          }}
+        >
+          <button> {children}</button>
+        </OTPInput>
+      </div>
+    </OtpInputStyleContext>
   );
 };
 
 export namespace OtpInput {
-  export interface Props extends OtpInputUI.Props, OtpInputVariants {}
+  export interface Props extends OtpInputRootProps {}
 }
 
 export const OtpInputGroup = (props: OtpInputGroup.Props) => {
-  const { styles } = useOtpInputContext();
+  const { styles } = useOtpInputStyleContext();
   const { className, ...rest } = props;
-  return <OtpInputUI.Group {...rest} className={styles.group({ className })} />;
+  return <div {...rest} className={styles.group({ className })} />;
 };
 
-const SlotContent = (props: OtpInputUI.SlotRenderProps) => {
-  const { char, isActive, placeholderChar } = props;
-  const { styles } = useOtpInputContext();
+export namespace OtpInputGroup {
+  export interface Props extends React.ComponentProps<"div"> {}
+}
+
+const SlotContent = (props: SlotProps) => {
+  const { char, isActive, placeholderChar, hasFakeCaret } = props;
+  const { styles } = useOtpInputStyleContext();
   if (char) return char;
   if (placeholderChar) return placeholderChar;
-  if (isActive) return <OtpInputUI.Caret className={styles.caret()} />;
+  if (hasFakeCaret || isActive) {
+    return <div className={styles.caret()} />;
+  }
   return null;
 };
 
 export const OtpInputSlot = (props: OtpInputSlot.Props) => {
-  const { styles } = useOtpInputContext();
-  const { className, ...rest } = props;
-  return (
-    <OtpInputUI.Slot {...rest} className={styles.slot({ className })}>
-      {({ char, isActive, placeholderChar }) => (
-        <SlotContent
-          char={char}
-          isActive={isActive}
-          placeholderChar={placeholderChar}
-        />
-      )}
-    </OtpInputUI.Slot>
-  );
-};
+  const { styles } = useOtpInputStyleContext();
+  const { index, className, ...rest } = props;
+  const inputContext = use(OTPInputContext);
+  const slot = inputContext.slots[index];
+  if (!slot) return null;
 
-export const OtpInputSeparator = (props: OtpInputSeparator.Props) => {
-  const { styles } = useOtpInputContext();
-  const { className, ...rest } = props;
   return (
-    <OtpInputUI.Separator
+    <div
       {...rest}
-      className={styles.separator({ className })}
-    />
+      className={styles.slot({ className })}
+      data-active={slot.isActive || undefined}
+    >
+      <SlotContent
+        char={slot.char}
+        hasFakeCaret={slot.hasFakeCaret}
+        isActive={slot.isActive}
+        placeholderChar={slot.placeholderChar}
+      />
+    </div>
   );
 };
-
-export { REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS };
-
-export namespace OtpInputGroup {
-  export interface Props extends OtpInputUI.Group {}
-}
 
 export namespace OtpInputSlot {
-  export interface Props extends Omit<OtpInputUI.Slot, "children"> {}
+  export interface Props extends React.ComponentProps<"div"> {
+    index: number;
+  }
 }
 
+export const OtpInputSeparator = (props: OtpInputSeparator.Props) => {
+  const { styles } = useOtpInputStyleContext();
+  const { className, ...rest } = props;
+  return <div {...rest} className={styles.separator({ className })} />;
+};
+
 export namespace OtpInputSeparator {
-  export interface Props extends OtpInputUI.Separator {}
+  export interface Props extends React.ComponentProps<"div"> {}
 }
+
+export { REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS };

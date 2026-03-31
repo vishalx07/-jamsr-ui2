@@ -56,7 +56,7 @@ export const NavigationMenuUsage = () => {
             </NavigationMenu.Icon>
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
-            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2">
+            <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2">
               {gettingStartedLinks.map((item) => (
                 <li key={item.href}>
                   <NavigationMenu.Link
@@ -83,7 +83,7 @@ export const NavigationMenuUsage = () => {
             </NavigationMenu.Icon>
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
-            <ul className="flex w-[300px] flex-col gap-1">
+            <ul className="flex w-75 flex-col gap-1">
               {handbookLinks.map((item) => (
                 <li key={item.href}>
                   <NavigationMenu.Link
