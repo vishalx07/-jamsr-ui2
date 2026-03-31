@@ -1,13 +1,34 @@
 import {
-  Autocomplete as AutocompleteRoot,
+  AutocompleteClear,
+  AutocompleteContent,
+  AutocompleteEmpty,
+  AutocompleteGroup,
+  AutocompleteGroupLabel,
+  AutocompleteIcon,
+  AutocompleteInput,
+  AutocompleteInputGroup,
   AutocompleteItem,
+  AutocompleteList,
+  AutocompleteRoot,
+  AutocompleteSeparator,
+  AutocompleteStatus,
+  AutocompleteTrigger,
+  AutocompleteValue,
 } from "./autocomplete";
 
 export const Autocomplete = Object.assign(AutocompleteRoot, {
+  Input: AutocompleteInput,
+  InputGroup: AutocompleteInputGroup,
+  Trigger: AutocompleteTrigger,
+  Clear: AutocompleteClear,
+  Content: AutocompleteContent,
+  List: AutocompleteList,
   Item: AutocompleteItem,
+  Empty: AutocompleteEmpty,
+  Group: AutocompleteGroup,
+  GroupLabel: AutocompleteGroupLabel,
+  Separator: AutocompleteSeparator,
+  Value: AutocompleteValue,
+  Icon: AutocompleteIcon,
+  Status: AutocompleteStatus,
 });
-
-export namespace Autocomplete {
-  export interface Props extends AutocompleteRoot.Props {}
-  export interface Item extends AutocompleteItem.Props {}
-}

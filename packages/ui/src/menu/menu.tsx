@@ -14,6 +14,7 @@ type MenuVariants = VariantProps<typeof menuStyles>;
 const MenuContext = createContext<{
   styles: ReturnType<typeof menuStyles>;
   showArrow?: boolean;
+  backdrop: MenuVariants["backdrop"];
 } | null>(null);
 
 const useMenuContext = () => {
@@ -25,9 +26,18 @@ const useMenuContext = () => {
 };
 
 export const Menu = (props: Menu.Props) => {
-  const { radius, backdrop, color, showArrow, ...restProps } = props;
+  const {
+    radius,
+    backdrop = "transparent",
+    color,
+    showArrow,
+    ...restProps
+  } = props;
   const styles = menuStyles({ radius, backdrop, color });
-  const value = useMemo(() => ({ styles, showArrow }), [styles, showArrow]);
+  const value = useMemo(
+    () => ({ styles, showArrow, backdrop }),
+    [styles, showArrow, backdrop],
+  );
   return (
     <MenuContext.Provider value={value}>
       <MenuPrimitive.Root {...restProps} />
@@ -46,16 +56,18 @@ export const MenuTrigger = (props: MenuPrimitive.Trigger.Props) => {
 };
 
 export const MenuContent = (props: MenuContent.Props) => {
-  const { styles, showArrow } = useMenuContext();
+  const { styles, showArrow, backdrop } = useMenuContext();
   const { slotProps, ...restProps } = props;
   return (
     <MenuPrimitive.Portal {...slotProps?.portal}>
-      <MenuPrimitive.Backdrop
-        {...slotProps?.backdrop}
-        className={styles.backdrop({
-          className: cn(slotProps?.backdrop?.className),
-        })}
-      />
+      {backdrop !== "transparent" && (
+        <MenuPrimitive.Backdrop
+          {...slotProps?.backdrop}
+          className={styles.backdrop({
+            className: cn(slotProps?.backdrop?.className),
+          })}
+        />
+      )}
       <MenuPrimitive.Positioner
         sideOffset={showArrow ? 8 : 4}
         {...slotProps?.positioner}

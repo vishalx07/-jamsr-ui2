@@ -2,26 +2,26 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
-import { AutocompleteUsage } from "./examples/usage";
+import { ComboboxUsage } from "./examples/usage";
 
-const title = "Autocomplete";
+const title = "Combobox";
 const description =
-  "An input that suggests options as you type for search-like behavior.";
+  "An input combined with a list of predefined items to select from.";
 
 export const metadata: Metadata = {
   title,
   description,
 };
 
-const AutocompletePage = () => {
+const ComboboxPage = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
       <CodeExample title="Usage" url={resolvePath("usage.tsx")}>
-        <AutocompleteUsage />
+        <ComboboxUsage />
       </CodeExample>
     </DocsPage>
   );
 };
 
-export default AutocompletePage;
+export default ComboboxPage;

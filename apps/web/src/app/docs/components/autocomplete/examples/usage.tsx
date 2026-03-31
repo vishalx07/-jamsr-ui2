@@ -1,73 +1,42 @@
+"use client";
+
 import { Autocomplete } from "jamsrui/autocomplete";
 
-const animals = [
-  {
-    label: "Cat",
-    value: "cat",
-  },
-  {
-    label: "Dog",
-    value: "dog",
-  },
-  {
-    label: "Elephant",
-    value: "elephant",
-  },
-  {
-    label: "Lion",
-    value: "lion",
-  },
-  {
-    label: "Tiger",
-    value: "tiger",
-  },
-  {
-    label: "Giraffe",
-    value: "giraffe",
-  },
-  {
-    label: "Dolphin",
-    value: "dolphin",
-  },
-  {
-    label: "Penguin",
-    value: "penguin",
-  },
-  {
-    label: "Zebra",
-    value: "zebra",
-  },
-  {
-    label: "Shark",
-    value: "shark",
-  },
-  {
-    label: "Whale",
-    value: "whale",
-  },
-  {
-    label: "Otter",
-    value: "otter",
-  },
-  {
-    label: "Crocodile",
-    value: "crocodile",
-  },
+const tags = [
+  { id: "t1", value: "feature" },
+  { id: "t2", value: "fix" },
+  { id: "t3", value: "bug" },
+  { id: "t4", value: "docs" },
+  { id: "t5", value: "internal" },
+  { id: "t6", value: "mobile" },
+  { id: "t7", value: "performance" },
+  { id: "t8", value: "accessibility" },
+  { id: "t9", value: "security" },
+  { id: "t10", value: "design" },
+  { id: "t11", value: "testing" },
+  { id: "t12", value: "refactor" },
 ];
+
+type Tag = (typeof tags)[number];
 
 export const AutocompleteUsage = () => {
   return (
-    <div>
-      <Autocomplete label="Animal">
-        {animals.map((animal) => (
-          <Autocomplete.Item
-            key={animal.value}
-            value={animal.value}
-            textValue={animal.label}
-          >
-            {animal.label}
-          </Autocomplete.Item>
-        ))}
+    <div className="w-full max-w-xs">
+      <Autocomplete items={tags}>
+        <label className="mb-1.5 block text-sm font-medium">
+          Search tags
+          <Autocomplete.Input placeholder="e.g. feature" />
+        </label>
+        <Autocomplete.Content>
+          <Autocomplete.Empty>No tags found.</Autocomplete.Empty>
+          <Autocomplete.List>
+            {(tag: Tag) => (
+              <Autocomplete.Item key={tag.id} value={tag}>
+                {tag.value}
+              </Autocomplete.Item>
+            )}
+          </Autocomplete.List>
+        </Autocomplete.Content>
       </Autocomplete>
     </div>
   );

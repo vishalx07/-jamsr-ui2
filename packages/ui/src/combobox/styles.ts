@@ -2,21 +2,23 @@ import { tv } from "tailwind-variants";
 
 import type { VariantProps } from "tailwind-variants";
 
-export const autocompleteStyles = tv({
+export const comboboxStyles = tv({
   slots: {
-    input: [
-      "w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none",
-      "placeholder:text-foreground-tertiary",
-      "focus:ring-2 focus:ring-ring focus:ring-offset-2 ring-offset-background",
-      "disabled:status-disabled",
-    ],
+    label: "text-sm font-medium text-foreground mb-1.5",
     inputGroup: [
       "flex items-center rounded-md border border-border bg-surface",
       "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 ring-offset-background",
+      "transition-colors",
+    ],
+    input: [
+      "flex-1 bg-transparent px-3 py-2 text-sm outline-none",
+      "placeholder:text-foreground-tertiary",
+      "disabled:cursor-not-allowed",
     ],
     trigger: [
       "inline-flex items-center justify-center px-2 text-foreground-secondary",
       "hover:text-foreground transition-colors",
+      "disabled:status-disabled",
     ],
     clear: [
       "inline-flex items-center justify-center px-1 text-foreground-tertiary",
@@ -33,11 +35,20 @@ export const autocompleteStyles = tv({
       "data-highlighted:bg-surface-secondary",
       "data-disabled:status-disabled",
     ],
+    itemIndicator: "grid size-4 shrink-0 place-content-center",
     empty: "py-6 text-center text-sm text-foreground-secondary empty:hidden",
     group: "",
     groupLabel: "px-2 py-1.5 text-xs font-medium text-foreground-secondary",
     separator: "mx-1 my-1 h-px bg-border",
+    chip: [
+      "inline-flex items-center gap-1 rounded-md border border-border bg-surface-secondary px-1.5 py-0.5 text-xs",
+    ],
+    chipRemove: [
+      "inline-flex items-center justify-center rounded-full p-0.5 text-foreground-secondary",
+      "hover:bg-surface-tertiary hover:text-foreground transition-colors",
+    ],
+    chips: "flex flex-wrap gap-1 px-2 py-1",
   },
 });
 
-export type AutocompleteVariants = VariantProps<typeof autocompleteStyles>;
+export type ComboboxVariants = VariantProps<typeof comboboxStyles>;
