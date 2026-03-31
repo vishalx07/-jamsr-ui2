@@ -10,12 +10,14 @@ export const DataGridColumnVisibility = () => {
   const { table } = useDataGridContext();
   return (
     <Menu>
-      <Menu.Trigger>
-        <Button size="sm" variant="soft">
-          <Settings2Icon />
-          Column Visibility
-        </Button>
-      </Menu.Trigger>
+      <Menu.Trigger
+        render={
+          <Button size="sm" variant="soft">
+            <Settings2Icon />
+            Column Visibility
+          </Button>
+        }
+      />
       <Menu.Content>
         {table
           .getAllLeafColumns()
@@ -25,11 +27,9 @@ export const DataGridColumnVisibility = () => {
             return (
               <Menu.Item
                 key={column.id}
-                preventCloseOnClick
                 className="capitalize"
                 disabled={!column.getCanHide()}
                 onClick={column.getToggleVisibilityHandler()}
-                textValue={headerTitle}
               >
                 <AnimatedTickIcon
                   className="text-primary"

@@ -1,14 +1,18 @@
 "use client";
 
+import { toastManager } from "@/app/provider/toast";
 import { OtpInput } from "jamsrui/otp-input";
-import { toast } from "jamsrui/toast";
 
 export const OtpInputOnComplete = () => {
   return (
     <OtpInput
       maxLength={4}
       onComplete={(value) => {
-        toast.success(`OTP Completed. You entered: ${value}`);
+        toastManager.add({
+          title: "OTP Completed",
+          description: `You entered: ${value}`,
+          type: "success",
+        });
       }}
     >
       <OtpInput.Group>

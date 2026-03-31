@@ -144,7 +144,7 @@ export const AlertDialogAction = (props: AlertDialogAction.Props) => {
       color="danger"
       variant="solid"
       {...props}
-      className={styles.action({ className: props.className })}
+      className={styles.action({ className: cn(props.className) })}
     />
   );
 };

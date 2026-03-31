@@ -20,5 +20,3 @@ export namespace Alert {
   export interface Title extends AlertTitle.Props {}
   export interface Description extends AlertDescription.Props {}
 }
-
-export { AlertContent, AlertDescription, AlertIcon, AlertTitle };

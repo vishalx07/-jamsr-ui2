@@ -22,8 +22,8 @@ const useSelectContext = () => {
   return ctx;
 };
 
-export const Select = <Value, Multiple extends boolean | undefined = false>(
-  props: Select.Props<Value, Multiple>,
+export const SelectRoot = <Value, Multiple extends boolean | undefined = false>(
+  props: SelectRoot.Props<Value, Multiple>,
 ) => {
   const { color, radius, size, isInvalid, className, ...restProps } = props;
   const styles = selectStyles({ color, radius, size, isInvalid, className });
@@ -37,7 +37,7 @@ export const Select = <Value, Multiple extends boolean | undefined = false>(
   );
 };
 
-export namespace Select {
+export namespace SelectRoot {
   export type Props<
     Value,
     Multiple extends boolean | undefined = false,

@@ -17,11 +17,13 @@ export const TooltipWithGroup = () => {
           <Tooltip.Content>This is a tooltip within group</Tooltip.Content>
         </Tooltip>
         <Tooltip>
-          <Tooltip.Trigger>
-            <IconButton label="Click Me!">
-              <EmailIcon width={24} height={24} />
-            </IconButton>
-          </Tooltip.Trigger>
+          <Tooltip.Trigger
+            render={
+              <IconButton label="Click Me!">
+                <EmailIcon width={24} height={24} />
+              </IconButton>
+            }
+          />
           <Tooltip.Content>This is a tooltip within group</Tooltip.Content>
         </Tooltip>
       </Tooltip.Group>

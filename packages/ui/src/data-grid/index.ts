@@ -32,7 +32,5 @@ export namespace DataGrid {
   export interface HeaderColumn extends DataGridHeaderColumn.Props {}
   export interface Header extends DataGridHeader.Props {}
   export interface Pagination extends DataGridPagination.Props {}
-  export interface PaginationSelector
-    extends DataGridPaginationSelector.Props {}
   export interface Table extends DataGridTable.Props {}
 }
