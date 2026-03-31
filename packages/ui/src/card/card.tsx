@@ -37,7 +37,7 @@ export namespace Card {
   export interface Props extends CardUI.Props, CardVariants {}
 }
 
-export const CardHeader = (props: CardHeader.Props) => {
+export const CardHeader = (props: CardUI.Header) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Header
@@ -47,7 +47,7 @@ export const CardHeader = (props: CardHeader.Props) => {
   );
 };
 
-export const CardTitle = (props: CardTitle.Props) => {
+export const CardTitle = (props: CardUI.Title) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Title
@@ -57,7 +57,7 @@ export const CardTitle = (props: CardTitle.Props) => {
   );
 };
 
-export const CardDescription = (props: CardDescription.Props) => {
+export const CardDescription = (props: CardUI.Description) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Description
@@ -67,7 +67,7 @@ export const CardDescription = (props: CardDescription.Props) => {
   );
 };
 
-export const CardContent = (props: CardContent.Props) => {
+export const CardContent = (props: CardUI.Content) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Content
@@ -77,7 +77,7 @@ export const CardContent = (props: CardContent.Props) => {
   );
 };
 
-export const CardFooter = (props: CardFooter.Props) => {
+export const CardFooter = (props: CardUI.Footer) => {
   const { styles } = useCardContext();
   return (
     <CardUI.Footer
@@ -86,23 +86,3 @@ export const CardFooter = (props: CardFooter.Props) => {
     />
   );
 };
-
-export namespace CardHeader {
-  export interface Props extends CardUI.Header {}
-}
-
-export namespace CardTitle {
-  export interface Props extends CardUI.Title {}
-}
-
-export namespace CardDescription {
-  export interface Props extends CardUI.Description {}
-}
-
-export namespace CardContent {
-  export interface Props extends CardUI.Content {}
-}
-
-export namespace CardFooter {
-  export interface Props extends CardUI.Footer {}
-}

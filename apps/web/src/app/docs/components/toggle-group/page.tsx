@@ -2,11 +2,11 @@ import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
-import { ToggleOutlined } from "./examples/outlined";
-import { ToggleUsage } from "./examples/usage";
+import { ToggleGroupMultiple } from "./examples/multiple";
+import { ToggleGroupUsage } from "./examples/usage";
 
-const title = "Toggle";
-const description = "Toggle";
+const title = "Toggle Group";
+const description = "Provides a shared state to a series of toggle buttons.";
 
 export const metadata: Metadata = {
   title,
@@ -18,14 +18,14 @@ const Toggle = () => {
   return (
     <DocsPage title={title} description={description}>
       <CodeExample isCentered title="Usage" url={resolvePath("usage.tsx")}>
-        <ToggleUsage />
+        <ToggleGroupUsage />
       </CodeExample>
       <CodeExample
         isCentered
-        title="Outlined"
-        url={resolvePath("outlined.tsx")}
+        title="Multiple"
+        url={resolvePath("multiple.tsx")}
       >
-        <ToggleOutlined />
+        <ToggleGroupMultiple />
       </CodeExample>
     </DocsPage>
   );

@@ -77,6 +77,7 @@ const data: { title: string; items: { title: string; url: Route }[] }[] = [
       { title: "Textarea", url: "/docs/components/textarea" },
       { title: "Toast", url: "/docs/components/toast" },
       { title: "Toggle", url: "/docs/components/toggle" },
+      { title: "Toggle Group", url: "/docs/components/toggle-group" },
       { title: "Tooltip", url: "/docs/components/tooltip" },
     ],
   },

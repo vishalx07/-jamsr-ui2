@@ -1,21 +1,22 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const toggleStyles = tv({
   base: [
     "inline-flex items-center justify-center rounded-md text-sm font-medium",
     "ring-offset-background transition-colors",
-    "hover:bg-surface-secondary hover:text-foreground-secondary",
+    "hover:bg-surface-secondary",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
     "disabled:status-disabled",
-    "data-[state=on]:bg-primary data-[state=on]:text-primary-foreground",
+    "data-pressed:bg-surface-secondary",
+    "aspect-square",
   ],
   variants: {
     size: {
-      sm: "h-9 px-2.5",
-      md: "h-10 px-3",
-      lg: "h-11 px-5",
+      sm: "h-6",
+      md: "h-7",
+      lg: "h-8",
     },
     variant: {
       default: "bg-transparent",

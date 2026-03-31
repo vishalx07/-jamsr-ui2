@@ -22,6 +22,7 @@
     "@tanstack/react-table": "catalog:",
     "date-fns": "^4.1.0",
     "jamsrui": "workspace:^",
+    "lucide-react": "^1.7.0",
     "motion": "catalog:",
     "next": "catalog:",
     "react": "catalog:",
