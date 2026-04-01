@@ -40,18 +40,11 @@ export namespace AlertDialog {
     extends AlertDialogPrimitive.Root.Props, AlertDialogVariants {}
 }
 
-export const AlertDialogTrigger = (props: AlertDialogTrigger.Props) => {
-  const { children } = props;
-  return <AlertDialogPrimitive.Trigger render={children} {...props} />;
+export const AlertDialogTrigger = (
+  props: AlertDialogPrimitive.Trigger.Props,
+) => {
+  return <AlertDialogPrimitive.Trigger {...props} />;
 };
-export namespace AlertDialogTrigger {
-  export interface Props extends Omit<
-    AlertDialogPrimitive.Trigger.Props,
-    "children"
-  > {
-    children: React.ReactElement;
-  }
-}
 
 export const AlertDialogContent = (props: AlertDialogContent.Props) => {
   const { styles } = useAlertDialogContext();

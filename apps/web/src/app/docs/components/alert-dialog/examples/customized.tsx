@@ -5,9 +5,7 @@ import { Separator } from "jamsrui/separator";
 export const AlertDialogCustomized = () => {
   return (
     <AlertDialog>
-      <AlertDialog.Trigger>
-        <Button>Click to delete!</Button>
-      </AlertDialog.Trigger>
+      <AlertDialog.Trigger render={<Button>Click to delete!</Button>} />
       <AlertDialog.Content className="max-w-xs items-center p-0 text-center">
         <div className="p-4 gap-4 flex flex-col">
           <AlertDialog.Title>Warning!</AlertDialog.Title>

@@ -4,9 +4,7 @@ import { Button } from "jamsrui/button";
 export const AlertDialogUsage = () => {
   return (
     <AlertDialog>
-      <AlertDialog.Trigger>
-        <Button>Click to delete!</Button>
-      </AlertDialog.Trigger>
+      <AlertDialog.Trigger render={<Button>Click to delete!</Button>} />
       <AlertDialog.Content>
         <AlertDialog.Title>Are you sure?</AlertDialog.Title>
         <AlertDialog.Description>
