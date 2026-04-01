@@ -1,20 +1,20 @@
 import { Label } from "jamsrui/label";
 import { Textarea } from "jamsrui/textarea";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 
 export const TextareaSizes = () => {
   return (
     <div className="flex flex-col gap-4">
       <Field>
-        <Label>Small</Label>
+        <Field.Label>Small</Field.Label>
         <Textarea size="sm" />
       </Field>
       <Field>
-        <Label>Medium</Label>
+        <Field.Label>Medium</Field.Label>
         <Textarea size="md" />
       </Field>
       <Field>
-        <Label>Large</Label>
+        <Field.Label>Large</Field.Label>
         <Textarea size="lg" />
       </Field>
     </div>

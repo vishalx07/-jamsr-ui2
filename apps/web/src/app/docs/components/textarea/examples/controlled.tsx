@@ -4,9 +4,8 @@ import { CloseIcon } from "@jamsrui/icons";
 import { Description } from "jamsrui/description";
 import { IconButton } from "jamsrui/icon-button";
 import { InputGroup } from "jamsrui/input-group";
-import { Label } from "jamsrui/label";
 import { Textarea } from "jamsrui/textarea";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 import { useState } from "react";
 
 export const TextareaControlled = () => {
@@ -15,7 +14,7 @@ export const TextareaControlled = () => {
   const hasValue = value.length > 0;
   return (
     <Field className="max-w-62 w-full">
-      <Label>Name</Label>
+      <Field.Label>Name</Field.Label>
       <InputGroup>
         <Textarea value={value} onValueChange={setValue} />
         {hasValue && (

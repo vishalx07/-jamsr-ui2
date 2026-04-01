@@ -65,7 +65,6 @@
     "./tags-input": "./src/tags-input/index.ts",
     "./text": "./src/text/index.ts",
     "./textarea": "./src/textarea/index.ts",
-    "./textfield": "./src/textfield/index.ts",
     "./time-field": "./src/time-field/index.ts",
     "./toast": "./src/toast/index.ts",
     "./toggle": "./src/toggle/index.ts",

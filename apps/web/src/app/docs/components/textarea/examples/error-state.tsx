@@ -1,10 +1,9 @@
 "use client";
 
 import { Description } from "jamsrui/description";
-import { FieldError } from "jamsrui/field-error";
+import { Field } from "jamsrui/field";
 import { Label } from "jamsrui/label";
 import { Textarea } from "jamsrui/textarea";
-import { Field } from "jamsrui/textfield";
 import { useState } from "react";
 
 export const TextareaErrorState = () => {
@@ -17,10 +16,10 @@ export const TextareaErrorState = () => {
         placeholder="Enter your username"
         value={value}
         onValueChange={setValue}
-        isInvalid={isInvalid}
+        // isInvalid={isInvalid}
       />
       <Description>Please use a unique username</Description>
-      {isInvalid && <FieldError>Username is required</FieldError>}
+      {isInvalid && <Field.Error match>Username is required</Field.Error>}
     </Field>
   );
 };

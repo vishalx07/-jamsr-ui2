@@ -1,13 +1,12 @@
 import { EmailIcon } from "@jamsrui/icons";
 import { InputGroup } from "jamsrui/input-group";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Textarea } from "jamsrui/textarea";
-import { Field } from "jamsrui/textfield";
 
 export const TextareaWithIcon = () => {
   return (
     <Field>
-      <Label>Email</Label>
+      <Field.Label>Email</Field.Label>
       <InputGroup>
         <InputGroup.Prefix>
           <EmailIcon />

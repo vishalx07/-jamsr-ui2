@@ -1,11 +1,10 @@
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Textarea } from "jamsrui/textarea";
-import { Field } from "jamsrui/textfield";
 
 export const TextareaDisabled = () => {
   return (
     <Field>
-      <Label>Enter your name</Label>
+      <Field.Label>Enter your name</Field.Label>
       <Textarea disabled />
     </Field>
   );

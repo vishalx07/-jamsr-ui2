@@ -1,12 +1,11 @@
 import { Description } from "jamsrui/description";
 import { Input } from "jamsrui/input";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 
 export const InputWithDescription = () => {
   return (
     <Field>
-      <Label>Username</Label>
+      <Field.Label>Username</Field.Label>
       <Input placeholder="Enter your username" />
       <Description>Please use a unique username</Description>
     </Field>

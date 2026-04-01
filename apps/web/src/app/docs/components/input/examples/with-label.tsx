@@ -1,11 +1,10 @@
 import { Input } from "jamsrui/input";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 
 export const InputWithLabel = () => {
   return (
     <Field>
-      <Label>Username</Label>
+      <Field.Label>Username</Field.Label>
       <Input placeholder="Enter your username" />
     </Field>
   );

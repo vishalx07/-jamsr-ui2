@@ -1,5 +1,4 @@
-import { FieldError } from "jamsrui/field-error";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Select } from "jamsrui/select";
 
 const apples = [
@@ -12,18 +11,20 @@ const apples = [
 
 export const SelectWithErrorMessage = () => {
   return (
-    <Select items={apples} isInvalid>
-      <Label>Fruit</Label>
-      <Select.Trigger className="min-w-40" />
-      <Select.Content>
-        {apples.map(({ label, value }) => (
-          <Select.Item key={label} value={value}>
-            <Select.ItemIndicator />
-            <Select.ItemText>{label}</Select.ItemText>
-          </Select.Item>
-        ))}
-      </Select.Content>
-      <FieldError>Please select a fruit</FieldError>
-    </Select>
+    <Field>
+      <Select items={apples} isInvalid>
+        <Field.Label>Fruit</Field.Label>
+        <Select.Trigger className="min-w-40" />
+        <Select.Content>
+          {apples.map(({ label, value }) => (
+            <Select.Item key={label} value={value}>
+              <Select.ItemIndicator />
+              <Select.ItemText>{label}</Select.ItemText>
+            </Select.Item>
+          ))}
+        </Select.Content>
+        <Field.Error match>Please select a fruit</Field.Error>
+      </Select>
+    </Field>
   );
 };

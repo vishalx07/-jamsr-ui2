@@ -1,27 +1,26 @@
 import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 
 export const InputPrefixSuffix = () => {
   return (
     <div className="space-y-4">
       <Field>
-        <Label>Amount</Label>
+        <Field.Label>Amount</Field.Label>
         <InputGroup variant="solid">
           <InputGroup.Prefix>$</InputGroup.Prefix>
           <Input />
         </InputGroup>
       </Field>
       <Field>
-        <Label>Discount</Label>
+        <Field.Label>Discount</Field.Label>
         <InputGroup variant="solid">
           <Input />
           <InputGroup.Suffix>%</InputGroup.Suffix>
         </InputGroup>
       </Field>
       <Field>
-        <Label>Website</Label>
+        <Field.Label>Website</Field.Label>
         <InputGroup variant="solid">
           <InputGroup.Prefix>https://</InputGroup.Prefix>
           <Input />

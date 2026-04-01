@@ -5,8 +5,7 @@ import { Description } from "jamsrui/description";
 import { IconButton } from "jamsrui/icon-button";
 import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 import { useState } from "react";
 
 export const InputControlled = () => {
@@ -15,7 +14,7 @@ export const InputControlled = () => {
   const hasValue = value.length > 0;
   return (
     <Field className="max-w-62 w-full">
-      <Label>Name</Label>
+      <Field.Label>Name</Field.Label>
       <InputGroup>
         <Input value={value} onValueChange={setValue} />
         {hasValue && (

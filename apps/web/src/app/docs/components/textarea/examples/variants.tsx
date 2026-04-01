@@ -1,16 +1,15 @@
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Textarea } from "jamsrui/textarea";
-import { Field } from "jamsrui/textfield";
 
 export const TextareaVariants = () => {
   return (
     <div className="flex flex-col gap-4">
       <Field>
-        <Label>Bordered</Label>
+        <Field.Label>Bordered</Field.Label>
         <Textarea size="sm" variant="bordered" />
       </Field>
       <Field>
-        <Label>Solid</Label>
+        <Field.Label>Solid</Field.Label>
         <Textarea size="md" variant="solid" />
       </Field>
     </div>

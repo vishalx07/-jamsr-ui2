@@ -4,8 +4,7 @@ import { EyeClosedIcon, EyeOpenIcon } from "@jamsrui/icons";
 import { IconButton } from "jamsrui/icon-button";
 import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
-import { Label } from "jamsrui/label";
-import { Field } from "jamsrui/textfield";
+import { Field } from "jamsrui/field";
 import { useState } from "react";
 
 export const InputPasswordToggle = () => {
@@ -15,7 +14,7 @@ export const InputPasswordToggle = () => {
   };
   return (
     <Field>
-      <Label>Password</Label>
+      <Field.Label>Password</Field.Label>
       <InputGroup>
         <Input
           type={showPassword ? "text" : "password"}
