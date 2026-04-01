@@ -28,4 +28,10 @@ export {
 
 export namespace Table {
   export interface Props extends TableRoot.Props {}
+  export interface Header extends TableHeader.Props {}
+  export interface Column extends TableColumn.Props {}
+  export interface Body extends TableBody.Props {}
+  export interface Row extends TableRow.Props {}
+  export interface Cell extends TableCell.Props {}
+  export interface Footer extends TableFooter.Props {}
 }

@@ -3,10 +3,8 @@ import { Popover } from "jamsrui/popover";
 
 export const PopoverUsage = () => {
   return (
-    <Popover placement="bottom">
-      <Popover.Trigger>
-        <Button>Click Me!</Button>
-      </Popover.Trigger>
+    <Popover>
+      <Popover.Trigger render={<Button>Click Me!</Button>} />
       <Popover.Content>
         Popover is a non-modal dialog that floats around its disclosure. It's
         commonly used for displaying additional rich content on top of

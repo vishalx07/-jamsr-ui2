@@ -2,13 +2,12 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { CloseIcon } from "@jamsrui/icons";
-import { Drawer as DrawerUI } from "@jamsrui/react";
+import { Drawer as DrawerPrimitive } from "@base-ui/react/drawer";
+import { cn } from "tailwind-variants";
 
-
-import { IconButton } from "../icon-button";
 import { drawerStyles } from "./styles";
 
+import type { ComponentProps } from "react";
 import type { VariantProps } from "tailwind-variants";
 
 type DrawerVariants = VariantProps<typeof drawerStyles>;
@@ -27,98 +26,131 @@ const useDrawerContext = () => {
 
 export const Drawer = (props: Drawer.Props) => {
   const {
-    anchor,
     size,
-    isBordered,
-    scrollBehavior,
     backdrop,
     radius,
+    swipeDirection = "down",
     ...restProps
   } = props;
   const styles = drawerStyles({
-    anchor,
     size,
-    isBordered,
-    scrollBehavior,
     backdrop,
     radius,
+    anchor: swipeDirection,
   });
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <DrawerContext value={value}>
-      <DrawerUI {...restProps} anchor={anchor} />
+      <DrawerPrimitive.Root swipeDirection={swipeDirection} {...restProps} />
     </DrawerContext>
   );
 };
 
 export namespace Drawer {
-  export interface Props extends DrawerUI.Props, DrawerVariants {}
+  export interface Props extends DrawerPrimitive.Root.Props, DrawerVariants {}
 }
 
-export const DrawerTrigger = (props: DrawerUI.Trigger) => {
-  return <DrawerUI.Trigger {...props} />;
+export const DrawerTrigger = (props: DrawerPrimitive.Trigger.Props) => {
+  return <DrawerPrimitive.Trigger {...props} />;
 };
 
-export const DrawerContent = (props: DrawerUI.Content) => {
+export const DrawerContent = (props: DrawerContent.Props) => {
   const { styles } = useDrawerContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <DrawerUI.Portal>
-      <DrawerUI.Backdrop className={styles.backdrop()}>
-        <DrawerUI.Popover className={styles.popover()}>
-          <DrawerUI.Content
-            {...props}
-            className={styles.content({ className: props.className })}
-          />
-        </DrawerUI.Popover>
-      </DrawerUI.Backdrop>
-    </DrawerUI.Portal>
-  );
-};
-
-export const DrawerHeader = (props: DrawerUI.Header) => {
-  const { styles } = useDrawerContext();
-  return (
-    <DrawerUI.Header
-      {...props}
-      className={styles.header({ className: props.className })}
-    />
-  );
-};
-
-export const DrawerBody = (props: DrawerUI.Body) => {
-  const { styles } = useDrawerContext();
-  return (
-    <DrawerUI.Body
-      {...props}
-      className={styles.body({ className: props.className })}
-    />
-  );
-};
-
-export const DrawerFooter = (props: DrawerUI.Footer) => {
-  const { styles } = useDrawerContext();
-  return (
-    <DrawerUI.Footer
-      {...props}
-      className={styles.footer({ className: props.className })}
-    />
-  );
-};
-
-export const DrawerCloseButton = (props: IconButton.Props) => {
-  const { styles } = useDrawerContext();
-  return (
-    <DrawerUI.CloseTrigger>
-      <IconButton
-        {...props}
-        className={styles.closeButton({ className: props.className })}
+    <DrawerPrimitive.Portal {...slotProps?.portal}>
+      <DrawerPrimitive.Backdrop
+        {...slotProps?.backdrop}
+        className={styles.backdrop({
+          className: cn(slotProps?.backdrop?.className),
+        })}
+      />
+      <DrawerPrimitive.Viewport
+        {...slotProps?.viewport}
+        className={styles.viewport({
+          className: cn(slotProps?.viewport?.className),
+        })}
       >
-        <CloseIcon />
-      </IconButton>
-    </DrawerUI.CloseTrigger>
+        <DrawerPrimitive.Popup
+          {...slotProps?.popup}
+          className={styles.popup({
+            className: cn(slotProps?.popup?.className),
+          })}
+        >
+          <DrawerPrimitive.Content
+            {...restProps}
+            className={styles.content({ className: cn(restProps.className) })}
+          />
+        </DrawerPrimitive.Popup>
+      </DrawerPrimitive.Viewport>
+    </DrawerPrimitive.Portal>
+  );
+};
+export namespace DrawerContent {
+  export interface Props extends DrawerPrimitive.Content.Props {
+    slotProps?: {
+      portal?: DrawerPrimitive.Portal.Props;
+      backdrop?: DrawerPrimitive.Backdrop.Props;
+      viewport?: DrawerPrimitive.Viewport.Props;
+      popup?: DrawerPrimitive.Popup.Props;
+    };
+  }
+}
+
+export const DrawerClose = DrawerPrimitive.Close;
+
+export const DrawerTitle = (props: DrawerPrimitive.Title.Props) => {
+  const { styles } = useDrawerContext();
+  return (
+    <DrawerPrimitive.Title
+      {...props}
+      className={styles.title({ className: cn(props.className) })}
+    />
   );
 };
 
-export const DrawerCloseTrigger = (props: DrawerUI.CloseTrigger) => {
-  return <DrawerUI.CloseTrigger {...props} />;
+export const DrawerDescription = (props: DrawerPrimitive.Description.Props) => {
+  const { styles } = useDrawerContext();
+  return (
+    <DrawerPrimitive.Description
+      {...props}
+      className={styles.description({ className: cn(props.className) })}
+    />
+  );
 };
+
+export const DrawerIndent = (props: DrawerPrimitive.Indent.Props) => {
+  return <DrawerPrimitive.Indent {...props} />;
+};
+
+export const DrawerIndentBackground = (
+  props: DrawerPrimitive.IndentBackground.Props,
+) => {
+  return <DrawerPrimitive.IndentBackground {...props} />;
+};
+
+export const DrawerFooter = (props: DrawerFooter.Props) => {
+  const { styles } = useDrawerContext();
+  return (
+    <div
+      {...props}
+      className={styles.footer({ className: cn(props.className) })}
+    />
+  );
+};
+export namespace DrawerFooter {
+  export interface Props extends ComponentProps<"div"> {}
+}
+
+export const DrawerBar = (props: DrawerBar.Props) => {
+  const { styles } = useDrawerContext();
+  return (
+    <div
+      {...props}
+      className={styles.bar({ className: cn(props.className) })}
+    />
+  );
+};
+export namespace DrawerBar {
+  export interface Props extends ComponentProps<"div"> {}
+}

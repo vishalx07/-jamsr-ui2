@@ -19,11 +19,3 @@ export const Slider = Object.assign(SliderRoot, {
 export namespace Slider {
   export interface Props extends SliderRoot.Props {}
 }
-
-export {
-  SliderControl,
-  SliderIndicator,
-  SliderThumb,
-  SliderTrack,
-  SliderValue,
-};

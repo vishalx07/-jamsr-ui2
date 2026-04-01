@@ -8,7 +8,6 @@ import { tableStyles } from "./styles";
 
 import type { TableVariants } from "./styles";
 
-
 const TableContext = createContext<{
   styles: ReturnType<typeof tableStyles>;
 } | null>(null);
@@ -52,7 +51,7 @@ export namespace Table {
   export interface Props extends TableUI.Props, TableVariants {}
 }
 
-export const TableHeader = (props: TableUI.Header) => {
+export const TableHeader = (props: TableHeader.Props) => {
   const { styles } = useTableContext();
   return (
     <TableUI.Header
@@ -62,7 +61,7 @@ export const TableHeader = (props: TableUI.Header) => {
   );
 };
 
-export const TableColumn = (props: TableUI.Column) => {
+export const TableColumn = (props: TableColumn.Props) => {
   const { styles } = useTableContext();
   return (
     <TableUI.Column
@@ -72,7 +71,7 @@ export const TableColumn = (props: TableUI.Column) => {
   );
 };
 
-export const TableBody = (props: TableUI.Body) => {
+export const TableBody = (props: TableBody.Props) => {
   const { styles } = useTableContext();
   return (
     <TableUI.Body
@@ -82,7 +81,7 @@ export const TableBody = (props: TableUI.Body) => {
   );
 };
 
-export const TableRow = (props: TableUI.Row) => {
+export const TableRow = (props: TableRow.Props) => {
   const { styles } = useTableContext();
   return (
     <TableUI.Row
@@ -92,7 +91,7 @@ export const TableRow = (props: TableUI.Row) => {
   );
 };
 
-export const TableCell = (props: TableUI.Cell) => {
+export const TableCell = (props: TableCell.Props) => {
   const { styles } = useTableContext();
   return (
     <TableUI.Cell
@@ -102,7 +101,7 @@ export const TableCell = (props: TableUI.Cell) => {
   );
 };
 
-export const TableFooter = (props: TableUI.Footer) => {
+export const TableFooter = (props: TableFooter.Props) => {
   const { styles } = useTableContext();
   return (
     <TableUI.Footer
@@ -111,3 +110,27 @@ export const TableFooter = (props: TableUI.Footer) => {
     />
   );
 };
+
+export namespace TableHeader {
+  export interface Props extends TableUI.Header {}
+}
+
+export namespace TableColumn {
+  export interface Props extends TableUI.Column {}
+}
+
+export namespace TableBody {
+  export interface Props extends TableUI.Body {}
+}
+
+export namespace TableRow {
+  export interface Props extends TableUI.Row {}
+}
+
+export namespace TableCell {
+  export interface Props extends TableUI.Cell {}
+}
+
+export namespace TableFooter {
+  export interface Props extends TableUI.Footer {}
+}

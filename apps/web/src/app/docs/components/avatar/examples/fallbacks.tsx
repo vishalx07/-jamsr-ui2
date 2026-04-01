@@ -8,10 +8,10 @@ export const AvatarFallbacks = () => {
         <Avatar.Fallback>JD</Avatar.Fallback>
       </Avatar>
       <Avatar>
-        <Avatar.Fallback delayMs={1000}>A</Avatar.Fallback>
+        <Avatar.Fallback>A</Avatar.Fallback>
       </Avatar>
       <Avatar>
-        <Avatar.Fallback delayMs={600}>
+        <Avatar.Fallback>
           <AvatarIcon />
         </Avatar.Fallback>
       </Avatar>

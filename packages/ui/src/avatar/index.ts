@@ -14,5 +14,3 @@ export const Avatar = Object.assign(AvatarRoot, {
 export namespace Avatar {
   export interface Props extends AvatarRoot.Props {}
 }
-
-export { AvatarFallback, AvatarImage, AvatarIndicator };

@@ -6,58 +6,60 @@ import { Menu } from "jamsrui/menu";
 export const MenuStartEndContent = () => {
   return (
     <Menu>
-      <Menu.Trigger>
-        <Button>
-          <ChevronUpIcon />
-          Open Me
-        </Button>
-      </Menu.Trigger>
+      <Menu.Trigger
+        render={
+          <Button>
+            <ChevronUpIcon />
+            Open Me
+          </Button>
+        }
+      />
       <Menu.Content>
-        <Menu.Item textValue="Undo">
+        <Menu.Item>
           <SearchIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Undo
+          Add to Library
           <Kbd className="ml-auto" keys={["command"]}>
-            U
+            L
           </Kbd>
         </Menu.Item>
-        <Menu.Item textValue="Info">
+        <Menu.Item>
           <InfoIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Info
+          Add to Playlist
           <Kbd className="ml-auto" keys={["command"]}>
-            I
+            P
           </Kbd>
         </Menu.Item>
-        <Menu.Item textValue="Search">
+        <Menu.Item>
           <SearchIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Search
+          Share
           <Kbd className="ml-auto" keys={["command"]}>
-            K
+            S
           </Kbd>
         </Menu.Item>
-        <Menu.Item textValue="Cut">
+        <Menu.Item>
           <SearchIcon
             width={20}
             height={20}
             className="text-foreground-secondary"
           />
-          Cut
+          Favorite
           <Kbd className="ml-auto" keys={["command"]}>
-            C
+            F
           </Kbd>
         </Menu.Item>
-        <Menu.Item textValue="Delete" className="hover:bg-danger">
+        <Menu.Item color="danger" className="hover:bg-danger">
           <TrashIcon
             width={20}
             height={20}

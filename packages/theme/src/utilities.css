@@ -44,3 +44,7 @@
 
 @custom-variant data-hovered (&[data-hovered]:not([data-invalid]):not(.group[data-invalid] &):not([data-opened]):not([data-pressed]):not([data-selected]));
 @custom-variant focus-within (&:where(:focus-within));
+
+@utility focus-visible {
+  @apply outline-solid z-10 outline-2 outline-focus outline-offset-2;
+}

@@ -1,4 +1,4 @@
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Switch } from "jamsrui/switch";
 
 export const SwitchSizes = () => {
@@ -11,12 +11,10 @@ export const SwitchSizes = () => {
   return (
     <div className="flex flex-col gap-4">
       {examples.map((example) => (
-        <Switch key={example.size} size={example.size}>
-          <Switch.Control>
-            <Switch.Thumb />
-          </Switch.Control>
-          <Label>{example.label}</Label>
-        </Switch>
+        <Field key={example.size} orientation="horizontal">
+          <Switch size={example.size} />
+          <Field.Label>{example.label}</Field.Label>
+        </Field>
       ))}
     </div>
   );

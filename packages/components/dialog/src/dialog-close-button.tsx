@@ -1,7 +1,10 @@
 "use client";
 
-import { ComponentProps, cloneElement, isValidElement } from "react";
+import { cloneElement, isValidElement } from "react";
+
 import { useDialogContext } from "./dialog-context";
+
+import type { ComponentProps } from "react";
 
 export const DialogCloseButton = (props: DialogCloseButton.Props) => {
   const { children } = props;

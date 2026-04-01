@@ -5,8 +5,6 @@ import { useRenderElement } from "@jamsrui/hooks";
 import { AlertContextProvider } from "./alert-context";
 import { useAlert } from "./use-alert";
 
-import type { UIProps } from "@jamsrui/utils";
-
 export const Alert = (props: Alert.Props) => {
   const ctx = useAlert(props);
   const { getRootProps } = ctx;

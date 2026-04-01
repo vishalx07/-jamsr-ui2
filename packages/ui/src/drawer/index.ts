@@ -1,34 +1,28 @@
 import {
   Drawer as DrawerRoot,
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerCloseTrigger,
+  DrawerBar,
+  DrawerClose,
   DrawerContent,
+  DrawerDescription,
   DrawerFooter,
-  DrawerHeader,
+  DrawerIndent,
+  DrawerIndentBackground,
+  DrawerTitle,
   DrawerTrigger,
 } from "./drawer";
 
 export const Drawer = Object.assign(DrawerRoot, {
   Trigger: DrawerTrigger,
   Content: DrawerContent,
-  Header: DrawerHeader,
-  Body: DrawerBody,
+  Title: DrawerTitle,
+  Description: DrawerDescription,
+  Close: DrawerClose,
+  Indent: DrawerIndent,
+  IndentBackground: DrawerIndentBackground,
   Footer: DrawerFooter,
-  CloseButton: DrawerCloseButton,
-  CloseTrigger: DrawerCloseTrigger,
+  Bar: DrawerBar,
 });
 
 export namespace Drawer {
   export interface Props extends DrawerRoot.Props {}
 }
-
-export {
-  DrawerBody,
-  DrawerCloseButton,
-  DrawerCloseTrigger,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTrigger,
-};

@@ -13,9 +13,9 @@ import { flexRender } from "@tanstack/react-table";
 
 import { IconButton } from "../icon-button";
 import { Menu } from "../menu";
+import { Table } from "../table";
 import { useDataGridContext } from "./data-grid-context";
 import { getPinningStyles } from "./utils";
-import { Table } from "../table";
 
 import type { Column, Header } from "@tanstack/react-table";
 
@@ -66,23 +66,23 @@ const DataGridColumnHeaderDropdown = ({
 }) => {
   return (
     <Menu>
-      <Menu.Trigger>
-        <IconButton
-          className="invisible group-hover/th:visible"
-          label="More"
-          size="sm"
-          variant="light"
-        >
-          <EllipsisVerticalIcon className="size-4" />
-        </IconButton>
-      </Menu.Trigger>
+      <Menu.Trigger
+        render={
+          <IconButton
+            className="invisible group-hover/th:visible"
+            label="More"
+            size="sm"
+            variant="light"
+          >
+            <EllipsisVerticalIcon className="size-4" />
+          </IconButton>
+        }
+      />
       <Menu.Content>
         <Menu.Group>
           <Menu.RadioGroup value={column.getIsSorted() || ""}>
             <Menu.RadioItem
               disabled={!column.getCanSort()}
-              preventCloseOnClick={false}
-              textValue="Asc"
               value="asc"
               onClick={() => {
                 if (column.getIsSorted() === "asc") {
@@ -94,12 +94,10 @@ const DataGridColumnHeaderDropdown = ({
             >
               <ArrowUpIcon />
               Asc
-              <Menu.ItemIndicator className="ml-auto" />
+              <Menu.RadioItemIndicator className="ml-auto" />
             </Menu.RadioItem>
             <Menu.RadioItem
               disabled={!column.getCanSort()}
-              preventCloseOnClick={false}
-              textValue="Desc"
               value="desc"
               onClick={() => {
                 if (column.getIsSorted() === "desc") {
@@ -111,7 +109,7 @@ const DataGridColumnHeaderDropdown = ({
             >
               <ArrowDownIcon />
               Desc
-              <Menu.ItemIndicator className="ml-auto" />
+              <Menu.RadioItemIndicator className="ml-auto" />
             </Menu.RadioItem>
           </Menu.RadioGroup>
         </Menu.Group>
@@ -119,7 +117,6 @@ const DataGridColumnHeaderDropdown = ({
         <Menu.Item
           disabled={!column.getCanHide()}
           onClick={column.getToggleVisibilityHandler()}
-          textValue="Hide Column"
         >
           <EyeClosedIcon />
           Hide Column
@@ -128,8 +125,6 @@ const DataGridColumnHeaderDropdown = ({
         <Menu.Group>
           <Menu.RadioGroup value={column.getIsPinned() || ""}>
             <Menu.RadioItem
-              preventCloseOnClick={false}
-              textValue="Pin To Left"
               value="left"
               onClick={() => {
                 column.pin(column.getIsPinned() === "left" ? false : "left");
@@ -137,11 +132,9 @@ const DataGridColumnHeaderDropdown = ({
             >
               <ArrowLeftToLineIcon />
               Pin To Left
-              <Menu.ItemIndicator className="ml-auto" />
+              <Menu.RadioItemIndicator className="ml-auto" />
             </Menu.RadioItem>
             <Menu.RadioItem
-              preventCloseOnClick={false}
-              textValue="Pin To Right"
               value="right"
               onClick={() =>
                 column.pin(column.getIsPinned() === "right" ? false : "right")
@@ -149,7 +142,7 @@ const DataGridColumnHeaderDropdown = ({
             >
               <ArrowRightToLineIcon />
               Pin To Right
-              <Menu.ItemIndicator className="ml-auto" />
+              <Menu.RadioItemIndicator className="ml-auto" />
             </Menu.RadioItem>
           </Menu.RadioGroup>
         </Menu.Group>
@@ -182,12 +175,7 @@ const DataGridHeaderResizer = ({
   );
 };
 
-export const DataGridHeaderColumn = (props: {
-  header: Header<any, unknown>;
-  children: React.ReactNode;
-  hideResizer?: boolean;
-  hideDropdown?: boolean;
-}) => {
+export const DataGridHeaderColumn = (props: DataGridHeaderColumn.Props) => {
   const { header, children, hideResizer = false, hideDropdown = false } = props;
   return (
     <div
@@ -221,3 +209,12 @@ export const DataGridHeaderColumn = (props: {
     </div>
   );
 };
+
+export namespace DataGridHeaderColumn {
+  export interface Props {
+    header: Header<any, unknown>;
+    children: React.ReactNode;
+    hideResizer?: boolean;
+    hideDropdown?: boolean;
+  }
+}

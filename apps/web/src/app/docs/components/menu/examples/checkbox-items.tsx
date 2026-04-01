@@ -5,20 +5,18 @@ import { Menu } from "jamsrui/menu";
 export const MenuCheckboxItemsExample = () => {
   return (
     <Menu>
-      <Menu.Trigger>
-        <Button>Sort</Button>
-      </Menu.Trigger>
+      <Menu.Trigger render={<Button>Sort</Button>} />
       <Menu.Content>
-        <Menu.CheckboxItem textValue="Date">
-          <Menu.ItemIndicator />
+        <Menu.CheckboxItem>
+          <Menu.CheckboxItemIndicator />
           Date
         </Menu.CheckboxItem>
-        <Menu.CheckboxItem textValue="Name">
-          <Menu.ItemIndicator />
+        <Menu.CheckboxItem>
+          <Menu.CheckboxItemIndicator />
           Name
         </Menu.CheckboxItem>
-        <Menu.CheckboxItem textValue="Type">
-          <Menu.ItemIndicator />
+        <Menu.CheckboxItem>
+          <Menu.CheckboxItemIndicator />
           Type
         </Menu.CheckboxItem>
       </Menu.Content>

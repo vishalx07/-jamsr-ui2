@@ -1,12 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { useRenderElement } from "@jamsrui/hooks";
 import { AvatarIcon } from "@jamsrui/icons";
 
 import { useAvatarContext } from "./avatar-context";
 
 import type { UIProps } from "@jamsrui/utils";
-import { useEffect, useState } from "react";
 
 export const AvatarFallback = (props: AvatarFallback.Props) => {
   const { delayMs = 0, children = <AvatarIcon />, ...restProps } = props;

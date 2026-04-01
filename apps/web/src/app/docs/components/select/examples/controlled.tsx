@@ -1,39 +1,35 @@
 "use client";
 
+import { Description } from "jamsrui/description";
 import { Label } from "jamsrui/label";
 import { Select } from "jamsrui/select";
 import { useState } from "react";
 
+const apples = [
+  { label: "Gala", value: "gala" },
+  { label: "Fuji", value: "fuji" },
+  { label: "Honeycrisp", value: "honeycrisp" },
+  { label: "Granny Smith", value: "granny-smith" },
+  { label: "Pink Lady", value: "pink-lady" },
+];
+
 export const SelectControlled = () => {
   const [value, setValue] = useState<string>("apple");
   return (
-    <Select className="max-w-xs w-full" value={value} onValueChange={setValue}>
-      <Label>Fruit</Label>
-      <Select.Trigger />
-      <Select.Popover>
+    <div className="flex flex-col gap-2">
+      <Select items={apples} value={value} onValueChange={setValue}>
+        <Label>Fruit</Label>
+        <Select.Trigger className="min-w-40" />
         <Select.Content>
-          <Select.Item value="apple" textValue="Apple">
-            Apple
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value="blueberry" textValue="Blueberry">
-            Blueberry
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value="watermelon" textValue="Watermelon">
-            Watermelon
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value="banana" textValue="Banana">
-            Banana
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value="orange" textValue="Orange">
-            Orange
-            <Select.ItemIndicator />
-          </Select.Item>
+          {apples.map(({ label, value }) => (
+            <Select.Item key={label} value={value}>
+              <Select.ItemIndicator />
+              <Select.ItemText>{label}</Select.ItemText>
+            </Select.Item>
+          ))}
         </Select.Content>
-      </Select.Popover>
-    </Select>
+      </Select>
+      <Description>Selected value: {value}</Description>
+    </div>
   );
 };

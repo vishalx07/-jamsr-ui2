@@ -1,8 +1,10 @@
-import { IconButton as IconButtonUI } from "@jamsrui/react";
+import { useId } from "react";
 
+import { Button as ButtonPrimitive } from "@base-ui/react/button";
+import { cn } from "tailwind-variants";
 
-import { iconButtonStyles } from "./styles";
 import { CircularProgress } from "../circular-progress";
+import { iconButtonStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
@@ -17,19 +19,34 @@ export const IconButton = (props: IconButton.Props) => {
     isLoading,
     className,
     children,
+    label,
     ...restProps
   } = props;
+  const labelId = useId();
   return (
-    <IconButtonUI
+    <ButtonPrimitive
+      aria-labelledby={labelId}
       {...restProps}
-      className={iconButtonStyles({ color, size, variant, radius, className })}
+      className={iconButtonStyles({
+        color,
+        size,
+        variant,
+        radius,
+        className: cn(className),
+      })}
     >
+      <span className="sr-only" id={labelId}>
+        {label}
+      </span>
       {isLoading ? <CircularProgress /> : null}
       {!isLoading && children}
-    </IconButtonUI>
+    </ButtonPrimitive>
   );
 };
 
 export namespace IconButton {
-  export interface Props extends IconButtonUI.Props, IconButtonVariantProps {}
+  export interface Props extends ButtonPrimitive.Props, IconButtonVariantProps {
+    isLoading?: boolean;
+    label: string;
+  }
 }

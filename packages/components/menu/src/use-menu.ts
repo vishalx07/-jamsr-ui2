@@ -38,15 +38,15 @@ import type {
   Side,
 } from "@floating-ui/react";
 import type { PropGetter, UIProps } from "@jamsrui/utils";
-import type { ComponentProps, Ref } from "react";
+import type { ComponentProps } from "react";
 
-import type { MenuContainer } from "./menu-container";
 import type { MenuContent } from "./menu-content";
 import type { MenuFloatingContext } from "./menu-floating-context.tsx";
 import type { MenuGroup } from "./menu-group";
 import type { MenuGroupLabel } from "./menu-group-label";
 import type { MenuItem } from "./menu-item";
 import type { MenuItemIndicator } from "./menu-item-indicator";
+import type { MenuPositioner } from "./menu-positioner";
 import type { SubmenuIndicator } from "./menu-submenu-indicator";
 
 export function getTransformOrigin(placement: Placement): string {
@@ -131,7 +131,7 @@ export const useMenu = (props: useMenu.Props) => {
         alignmentAxis: isNested ? -4 : 0,
       }),
       flip(),
-      shift({ padding: 5 }),
+      shift(),
       arrow({
         element: arrowEl,
       }),
@@ -183,9 +183,9 @@ export const useMenu = (props: useMenu.Props) => {
     onNavigate: setActiveIndex,
   });
   const typeahead = useTypeahead(context, {
-    enabled: isOpen,
+    // enabled: isOpen,
     listRef: labelsRef,
-    onMatch: setActiveIndex,
+    onMatch: isOpen ? setActiveIndex : undefined,
     activeIndex,
   });
 
@@ -236,9 +236,11 @@ export const useMenu = (props: useMenu.Props) => {
       "data-active": isActive,
       "data-nested": isNested,
       "data-opened": isOpen,
+      // Prevent nested triggers from emitting tree "click" which closes the whole menu
+      ...(isNested ? { preventCloseOnClick: true } : {}),
       ...getReferenceProps({
         ...parentCtx.getItemProps({
-          onMouseEnter() {
+          onFocus() {
             setHasFocusInside(false);
             parentCtx.setHasFocusInside(true);
           },
@@ -268,19 +270,18 @@ export const useMenu = (props: useMenu.Props) => {
   const getFocusManagerProps = useCallback(
     (): Omit<FloatingFocusManagerProps, "children"> => ({
       context,
-      modal: true,
-      initialFocus: 1,
+      modal: false,
+      initialFocus: isNested ? -1 : 0,
       returnFocus: !isNested,
       disabled: false,
     }),
     [context, isNested],
   );
 
-  const getContainerProps: PropGetter<MenuContainer.Props> = useCallback(
-    (props: MenuContainer.Props) => ({
+  const getPositionerProps: PropGetter<MenuPositioner.Props> = useCallback(
+    (props: MenuPositioner.Props) => ({
       ...props,
-      "data-component": "menu",
-      "data-slot": "menu-container",
+      "data-slot": "menu-positioner",
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
@@ -384,7 +385,7 @@ export const useMenu = (props: useMenu.Props) => {
       getTriggerProps,
       getFloatingListProps,
       floatingCtx,
-      getContainerProps,
+      getPositionerProps,
       getMenuItemProps,
       isNested,
       getSubmenuIndicatorProps,
@@ -404,7 +405,7 @@ export const useMenu = (props: useMenu.Props) => {
       getTriggerProps,
       getFloatingListProps,
       floatingCtx,
-      getContainerProps,
+      getPositionerProps,
       getMenuItemProps,
       isNested,
       getSubmenuIndicatorProps,

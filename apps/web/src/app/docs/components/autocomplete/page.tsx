@@ -6,14 +6,14 @@ import { AutocompleteUsage } from "./examples/usage";
 
 const title = "Autocomplete";
 const description =
-  "The autocomplete is a normal text input enhanced by a panel of suggested options.";
+  "An input that suggests options as you type for search-like behavior.";
 
 export const metadata: Metadata = {
   title,
   description,
 };
 
-const Autocomplete = () => {
+const AutocompletePage = () => {
   const resolvePath = readMetaUrl(import.meta.url, "/examples/");
   return (
     <DocsPage title={title} description={description}>
@@ -24,4 +24,4 @@ const Autocomplete = () => {
   );
 };
 
-export default Autocomplete;
+export default AutocompletePage;

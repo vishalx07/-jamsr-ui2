@@ -7,21 +7,19 @@ export const MenuRadioItemsExample = () => {
   const [sortBy, setSortBy] = useState("date");
   return (
     <Menu>
-      <Menu.Trigger>
-        <Button>Sort</Button>
-      </Menu.Trigger>
+      <Menu.Trigger render={<Button>Sort</Button>} />
       <Menu.Content>
         <Menu.RadioGroup value={sortBy} onValueChange={setSortBy}>
-          <Menu.RadioItem textValue="date" value="date">
-            <Menu.ItemIndicator />
+          <Menu.RadioItem value="date">
+            <Menu.RadioItemIndicator />
             Date
           </Menu.RadioItem>
-          <Menu.RadioItem textValue="name" value="name">
-            <Menu.ItemIndicator />
+          <Menu.RadioItem value="name">
+            <Menu.RadioItemIndicator />
             Name
           </Menu.RadioItem>
-          <Menu.RadioItem textValue="rating" value="rating">
-            <Menu.ItemIndicator />
+          <Menu.RadioItem value="rating">
+            <Menu.RadioItemIndicator />
             Rating
           </Menu.RadioItem>
         </Menu.RadioGroup>

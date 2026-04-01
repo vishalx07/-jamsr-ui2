@@ -1,7 +1,12 @@
-import { TextField as TextFieldRoot } from "./textfield";
+import { Field as FieldRoot, FieldContent } from "./textfield";
 
-export const TextField = TextFieldRoot;
+export const Field = Object.assign(FieldRoot, {
+  Content: FieldContent,
+});
 
-export namespace TextField {
-  export interface Props extends TextFieldRoot.Props {}
+export { FieldContent };
+
+export namespace Field {
+  export interface Props extends FieldRoot.Props {}
+  export interface Content extends FieldContent.Props {}
 }

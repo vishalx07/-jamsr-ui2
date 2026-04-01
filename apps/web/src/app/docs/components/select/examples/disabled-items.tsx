@@ -1,35 +1,27 @@
 import { Label } from "jamsrui/label";
 import { Select } from "jamsrui/select";
 
+const apples = [
+  { label: "Gala", value: "gala", disabled: true },
+  { label: "Fuji", value: "fuji" },
+  { label: "Honeycrisp", value: "honeycrisp", disabled: true },
+  { label: "Granny Smith", value: "granny-smith", disabled: true },
+  { label: "Pink Lady", value: "pink-lady" },
+];
+
 export const SelectDisabledItems = () => {
   return (
-    <Select className="max-w-xs w-full" placeholder="Select Label">
+    <Select items={apples}>
       <Label>Fruit</Label>
-      <Select.Trigger />
-      <Select.Popover>
-        <Select.Content>
-          <Select.Item value="apple" textValue="Apple">
-            Apple
+      <Select.Trigger className="min-w-40" />
+      <Select.Content>
+        {apples.map(({ label, value, disabled }) => (
+          <Select.Item key={label} value={value} disabled={disabled}>
             <Select.ItemIndicator />
+            <Select.ItemText>{label}</Select.ItemText>
           </Select.Item>
-          <Select.Item disabled value="blueberry" textValue="Blueberry">
-            Blueberry
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value="watermelon" textValue="Watermelon">
-            Watermelon
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item disabled value="banana" textValue="Banana">
-            Banana
-            <Select.ItemIndicator />
-          </Select.Item>
-          <Select.Item value="orange" textValue="Orange">
-            Orange
-            <Select.ItemIndicator />
-          </Select.Item>
-        </Select.Content>
-      </Select.Popover>
+        ))}
+      </Select.Content>
     </Select>
   );
 };

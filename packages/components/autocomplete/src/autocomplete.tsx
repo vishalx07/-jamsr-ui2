@@ -4,7 +4,7 @@ import { Input } from "@jamsrui/input";
 
 import { AutocompleteContent } from "./autocomplete-content";
 import { AutocompleteContext } from "./autocomplete-context";
-import { AutocompletePopover } from "./autocomplete-popover";
+import { AutocompletePositioner } from "./autocomplete-positioner";
 import { useAutocomplete } from "./use-autocomplete";
 
 export const Autocomplete = (props: Autocomplete.Props) => {
@@ -15,9 +15,9 @@ export const Autocomplete = (props: Autocomplete.Props) => {
   const composedChildren = (
     <>
       <Input {...getInputProps({})} />
-      <AutocompletePopover>
+      <AutocompletePositioner>
         <AutocompleteContent>{children}</AutocompleteContent>
-      </AutocompletePopover>
+      </AutocompletePositioner>
     </>
   );
 

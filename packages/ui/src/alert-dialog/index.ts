@@ -1,7 +1,6 @@
 import {
   AlertDialog as AlertDialogRoot,
   AlertDialogAction,
-  AlertDialogBody,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -13,7 +12,6 @@ import {
 export const AlertDialog = Object.assign(AlertDialogRoot, {
   Trigger: AlertDialogTrigger,
   Content: AlertDialogContent,
-  Body: AlertDialogBody,
   Footer: AlertDialogFooter,
   Title: AlertDialogTitle,
   Description: AlertDialogDescription,
@@ -24,14 +22,3 @@ export const AlertDialog = Object.assign(AlertDialogRoot, {
 export namespace AlertDialog {
   export interface Props extends AlertDialogRoot.Props {}
 }
-
-export {
-  AlertDialogAction,
-  AlertDialogBody,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-};

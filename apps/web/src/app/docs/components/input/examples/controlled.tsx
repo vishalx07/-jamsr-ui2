@@ -6,7 +6,7 @@ import { IconButton } from "jamsrui/icon-button";
 import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
-import { TextField } from "jamsrui/textfield";
+import { Field } from "jamsrui/textfield";
 import { useState } from "react";
 
 export const InputControlled = () => {
@@ -14,7 +14,7 @@ export const InputControlled = () => {
   const onClear = () => setValue("");
   const hasValue = value.length > 0;
   return (
-    <TextField className="max-w-62 w-full">
+    <Field className="max-w-62 w-full">
       <Label>Name</Label>
       <InputGroup>
         <Input value={value} onValueChange={setValue} />
@@ -33,6 +33,6 @@ export const InputControlled = () => {
         )}
       </InputGroup>
       <Description>Your name is: {value}</Description>
-    </TextField>
+    </Field>
   );
 };

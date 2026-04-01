@@ -1,19 +1,10 @@
-import { Switch as SwitchRoot } from "./switch";
-import { SwitchContent } from "./switch-content";
-import { SwitchInput } from "./switch-input";
-import { SwitchThumb } from "./switch-thumb";
-import { SwitchControl } from "./switch-track";
+import { Switch as SwitchPrimitive } from "@base-ui/react/switch";
 
-export const Switch = Object.assign(SwitchRoot, {
-  Content: SwitchContent,
-  Control: SwitchControl,
-  Thumb: SwitchThumb,
-  Input: SwitchInput,
+export const Switch = Object.assign(SwitchPrimitive.Root, {
+  Thumb: SwitchPrimitive.Thumb,
 });
 
 export namespace Switch {
-  export interface Props extends SwitchRoot.Props {}
-  export interface Content extends SwitchContent.Props {}
-  export interface Track extends SwitchControl.Props {}
-  export interface Thumb extends SwitchThumb.Props {}
+  export interface Props extends SwitchPrimitive.Root.Props {}
+  export interface Thumb extends SwitchPrimitive.Thumb.Props {}
 }

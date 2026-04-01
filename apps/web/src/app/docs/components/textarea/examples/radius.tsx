@@ -1,30 +1,30 @@
 import { Label } from "jamsrui/label";
 import { Textarea } from "jamsrui/textarea";
-import { TextField } from "jamsrui/textfield";
+import { Field } from "jamsrui/textfield";
 
 export const TextareaRadius = () => {
   return (
     <div className="grid gap-4">
-      <TextField>
+      <Field>
         <Label>Radius none</Label>
         <Textarea radius="none" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Radius sm</Label>
         <Textarea radius="sm" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Radius md</Label>
         <Textarea radius="md" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Radius lg</Label>
         <Textarea radius="lg" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Radius full</Label>
         <Textarea radius="full" />
-      </TextField>
+      </Field>
     </div>
   );
 };

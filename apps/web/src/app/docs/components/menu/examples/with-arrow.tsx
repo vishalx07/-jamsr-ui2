@@ -4,26 +4,24 @@ import { Menu } from "jamsrui/menu";
 
 export const MenuWithArrow = () => {
   return (
-    <Menu>
-      <Menu.Trigger>
-        <Button>
-          <ChevronUpIcon />
-          Open Me
-        </Button>
-      </Menu.Trigger>
+    <Menu showArrow>
+      <Menu.Trigger
+        render={
+          <Button>
+            <ChevronUpIcon />
+            Open Me
+          </Button>
+        }
+      />
       <Menu.Content>
         <Menu.Arrow />
-        <Menu.Item textValue="Undo">Undo</Menu.Item>
-        <Menu.Item textValue="Info">Info</Menu.Item>
-        <Menu.Item textValue="Search">Search</Menu.Item>
-        <Menu.Item textValue="Redo" disabled>
-          Redo
-        </Menu.Item>
-        <Menu.Item textValue="Cut">Cut</Menu.Item>
-        <Menu.Item textValue="Edit" disabled>
-          Edit
-        </Menu.Item>
-        <Menu.Item textValue="Delete" color="danger">
+        <Menu.Item>Add to Library</Menu.Item>
+        <Menu.Item>Add to Playlist</Menu.Item>
+        <Menu.Item>Play Next</Menu.Item>
+        <Menu.Item>Play Last</Menu.Item>
+        <Menu.Item>Share</Menu.Item>
+        <Menu.Item>Favorite</Menu.Item>
+        <Menu.Item disabled color="danger">
           Delete
         </Menu.Item>
       </Menu.Content>

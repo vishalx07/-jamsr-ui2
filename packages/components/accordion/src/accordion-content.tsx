@@ -1,18 +1,17 @@
 "use client";
 
-import { UIProps } from "@jamsrui/utils";
-
-import { useRenderElement } from "@jamsrui/hooks";
-import { useAccordionItemContext } from "./accordion-item-context";
+import { useRender } from "@base-ui/react/use-render";
 
 export const AccordionContent = (props: AccordionContent.Props) => {
-  const { getContentProps } = useAccordionItemContext();
-  const renderElement = useRenderElement("div", {
-    props: [getContentProps(props)],
+  const { render, ...restProps } = props;
+  const element = useRender({
+    defaultTagName: "div",
+    render,
+    props: restProps,
   });
-  return renderElement;
+  return element;
 };
 
 export namespace AccordionContent {
-  export interface Props extends UIProps<"div"> {}
+  export interface Props extends useRender.ComponentProps<"div"> {}
 }

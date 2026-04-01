@@ -6,6 +6,5 @@ export const Chip = Object.assign(ChipRoot, {
 
 export namespace Chip {
   export interface Props extends ChipRoot.Props {}
+  export interface Dot extends ChipDot.Props {}
 }
-
-export { ChipDot };

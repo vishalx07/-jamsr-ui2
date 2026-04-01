@@ -4,17 +4,15 @@ import { DocsPage } from "@/components/docs-page";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeClosedIcon, EyeOpenIcon } from "@jamsrui/icons";
 import { Button } from "jamsrui/button";
-import { Checkbox } from "jamsrui/checkbox";
+import { Field } from "jamsrui/field";
 import { IconButton } from "jamsrui/icon-button";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
 import { NumberField } from "jamsrui/number-field";
 import { OtpInput } from "jamsrui/otp-input";
 import { Radio } from "jamsrui/radio-group";
-import { Select } from "jamsrui/select";
-import { Switch } from "jamsrui/switch";
-import { toast } from "jamsrui/toast";
 import { RHFField } from "jamsrui/rhf";
+import { Select } from "jamsrui/select";
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import z, { boolean, number, object, string } from "zod";
@@ -69,7 +67,7 @@ const Page = () => {
 
   const onSubmit = form.handleSubmit((values) => {
     console.log(values);
-    toast.success(<pre>{JSON.stringify(values, null, 2)}</pre>);
+    // toast.success(<pre>{JSON.stringify(values, null, 2)}</pre>);
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -83,16 +81,14 @@ const Page = () => {
         <form onSubmit={onSubmit} className="flex flex-col gap-8 max-w-md">
           {/* Username */}
           <RHFField<FormValues> name="username">
-            <RHFField.TextField>
-              <Label>Username</Label>
-              <RHFField.Input />
-              <RHFField.FieldError />
-            </RHFField.TextField>
+            <Field.Label>Username</Field.Label>
+            <RHFField.Input />
+            <RHFField.FieldError />
           </RHFField>
           {/* Password */}
           <RHFField<FormValues> name="password">
-            <RHFField.TextField>
-              <Label>Password</Label>
+            <Field>
+              <Field.Label>Password</Field.Label>
               <InputGroup>
                 <RHFField.Input
                   type={showPassword ? "text" : "password"}
@@ -111,15 +107,15 @@ const Page = () => {
                 </InputGroup.Suffix>
               </InputGroup>
               <RHFField.FieldError />
-            </RHFField.TextField>
+            </Field>
           </RHFField>
           {/* Bio */}
           <RHFField<FormValues> name="bio">
-            <RHFField.TextField>
-              <Label>Bio</Label>
+            <Field>
+              <Field.Label>Bio</Field.Label>
               <RHFField.Textarea />
               <RHFField.FieldError />
-            </RHFField.TextField>
+            </Field>
           </RHFField>
           {/* Age */}
           <RHFField<FormValues> name="age">
@@ -132,106 +128,94 @@ const Page = () => {
             </RHFField.NumberField>
           </RHFField>
           {/* Accepted Terms */}
-          <RHFField<FormValues> name="acceptedTerms">
-            <RHFField.Checkbox>
-              <Checkbox.Control />
-              <Checkbox.Content>
-                <Label>Accept Terms and Conditions</Label>
-              </Checkbox.Content>
-            </RHFField.Checkbox>
+          <RHFField<FormValues> name="acceptedTerms" orientation="horizontal">
+            <RHFField.Checkbox />
+            <Field.Label>Accept Terms and Conditions</Field.Label>
           </RHFField>
           {/* Dark Mode */}
-          <RHFField<FormValues> name="darkMode">
-            <RHFField.Switch>
-              <Switch.Content>
-                <Label>Dark Mode</Label>
-              </Switch.Content>
-              <Switch.Control />
-            </RHFField.Switch>
+          <RHFField<FormValues> name="darkMode" orientation="horizontal">
+            <Field.Label>Dark Mode</Field.Label>
+            <RHFField.Switch />
           </RHFField>
           {/* Gender */}
           <RHFField<FormValues> name="gender">
             <RHFField.RadioGroup>
               <Label>Gender</Label>
-              <Radio value="male">
-                <Radio.Control />
-                <Radio.Content>
-                  <Label>Male</Label>
-                </Radio.Content>
-              </Radio>
-              <Radio value="female">
-                <Radio.Control />
-                <Radio.Content>
-                  <Label>Female</Label>
-                </Radio.Content>
-              </Radio>
+              <Field orientation="horizontal">
+                <Radio value="male" />
+                <Field.Label>Male</Field.Label>
+              </Field>
+              <Field orientation="horizontal">
+                <Radio value="female" />
+                <Field.Label>Female</Field.Label>
+              </Field>
               <RHFField.FieldError />
             </RHFField.RadioGroup>
           </RHFField>
           {/* OTP */}
           <RHFField<FormValues> name="otp">
-            <div>
-              <RHFField.OtpInput maxLength={6}>
-                <OtpInput.Group>
-                  <OtpInput.Slot index={0} />
-                  <OtpInput.Slot index={1} />
-                  <OtpInput.Slot index={2} />
-                </OtpInput.Group>
-                <OtpInput.Separator />
-                <OtpInput.Group>
-                  <OtpInput.Slot index={3} />
-                  <OtpInput.Slot index={4} />
-                  <OtpInput.Slot index={5} />
-                </OtpInput.Group>
-              </RHFField.OtpInput>
-              <RHFField.FieldError />
-            </div>
+            <RHFField.OtpInput maxLength={6}>
+              <OtpInput.Group>
+                <OtpInput.Slot index={0} />
+                <OtpInput.Slot index={1} />
+                <OtpInput.Slot index={2} />
+              </OtpInput.Group>
+              <OtpInput.Separator />
+              <OtpInput.Group>
+                <OtpInput.Slot index={3} />
+                <OtpInput.Slot index={4} />
+                <OtpInput.Slot index={5} />
+              </OtpInput.Group>
+            </RHFField.OtpInput>
+            <RHFField.FieldError />
           </RHFField>
           {/* Country */}
           <RHFField<FormValues> name="country">
-            <RHFField.Select placeholder="Select a country...">
+            <RHFField.Select>
               <Label>Country</Label>
-              <Select.Trigger />
-              <Select.Popover>
-                <Select.Content>
-                  <Select.Item value="us" textValue="United States">
-                    United States
-                    <Select.ItemIndicator />
-                  </Select.Item>
-                  <Select.Item value="ca" textValue="Canada">
-                    Canada
-                    <Select.ItemIndicator />
-                  </Select.Item>
-                  <Select.Item value="mx" textValue="Mexico">
-                    Mexico
-                    <Select.ItemIndicator />
-                  </Select.Item>
-                </Select.Content>
-              </Select.Popover>
+              <Select.Trigger>
+                <Select.Value placeholder="Select a country..." />
+                <Select.Icon />
+              </Select.Trigger>
+              <Select.Content>
+                <Select.Item value="us">
+                  <Select.ItemIndicator />
+                  <Select.ItemText>United States</Select.ItemText>
+                </Select.Item>
+                <Select.Item value="ca">
+                  <Select.ItemIndicator />
+                  <Select.ItemText>Canada</Select.ItemText>
+                </Select.Item>
+                <Select.Item value="mx">
+                  <Select.ItemIndicator />
+                  <Select.ItemText>Mexico</Select.ItemText>
+                </Select.Item>
+              </Select.Content>
               <RHFField.FieldError />
             </RHFField.Select>
           </RHFField>
           {/* Hobbies */}
           <RHFField<FormValues> name="hobbies">
-            <RHFField.Select isMultiple>
+            <RHFField.Select multiple>
               <Label>Hobbies</Label>
-              <Select.Trigger />
-              <Select.Popover>
-                <Select.Content>
-                  <Select.Item value="sports" textValue="Sports">
-                    Sports
-                    <Select.ItemIndicator />
-                  </Select.Item>
-                  <Select.Item value="music" textValue="Music">
-                    Music
-                    <Select.ItemIndicator />
-                  </Select.Item>
-                  <Select.Item value="movies" textValue="Movies">
-                    Movies
-                    <Select.ItemIndicator />
-                  </Select.Item>
-                </Select.Content>
-              </Select.Popover>
+              <Select.Trigger>
+                <Select.Value placeholder="Select hobbies..." />
+                <Select.Icon />
+              </Select.Trigger>
+              <Select.Content>
+                <Select.Item value="sports">
+                  <Select.ItemIndicator />
+                  <Select.ItemText>Sports</Select.ItemText>
+                </Select.Item>
+                <Select.Item value="music">
+                  <Select.ItemIndicator />
+                  <Select.ItemText>Music</Select.ItemText>
+                </Select.Item>
+                <Select.Item value="movies">
+                  <Select.ItemIndicator />
+                  <Select.ItemText>Movies</Select.ItemText>
+                </Select.Item>
+              </Select.Content>
               <RHFField.FieldError />
             </RHFField.Select>
           </RHFField>

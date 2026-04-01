@@ -17,54 +17,37 @@ import { useDataGridContext } from "./data-grid-context";
 
 import type { UIProps } from "@jamsrui/utils";
 
-
-
-export const DataGridPaginationSelector = (
-  props: DataGridPaginationSelector.Props,
-) => {
-  const { className, ...restProps } = props;
+export const DataGridPaginationSelector = () => {
   const { table } = useDataGridContext();
   const [value, setValue] = useState<number>(
     table.getState().pagination.pageSize,
   );
 
-  const onValueChange = (value: string) => {
-    const valueAsNumber = Number(value);
-    table.setPageSize(valueAsNumber);
-    setValue(valueAsNumber);
+  const onValueChange = (value: number | null) => {
+    if (value === null) return;
+    table.setPageSize(value);
+    setValue(value);
   };
   return (
     <Select
-      className={cn("flex flex-row items-center gap-2", className)}
+      className="flex flex-row items-center gap-2"
       data-slot="pagination-selector"
       onValueChange={onValueChange}
-      returnFocus={false}
       size="sm"
       value={value}
-      {...restProps}
     >
       <Label>Rows Per Page:</Label>
       <Select.Trigger className="px-1" />
-      <Select.Popover>
-        <Select.Content>
-          {[10, 20, 50, 100, 500].map((pageSize) => (
-            <Select.Item
-              key={pageSize.toString()}
-              textValue={pageSize.toString()}
-              value={pageSize}
-            >
-              {pageSize.toString()}
-            </Select.Item>
-          ))}
-        </Select.Content>
-      </Select.Popover>
+      <Select.Content>
+        {[10, 20, 50, 100, 500].map((pageSize) => (
+          <Select.Item key={pageSize.toString()} value={pageSize}>
+            {pageSize.toString()}
+          </Select.Item>
+        ))}
+      </Select.Content>
     </Select>
   );
 };
-
-export namespace DataGridPaginationSelector {
-  export interface Props extends Select.Props {}
-}
 
 export const DataGridPaginationControls = (
   props: DataGridPaginationControls.Props,
@@ -150,7 +133,6 @@ export namespace DataGridPaginationControls {
 
 export const DataGridPagination = (props: DataGridPagination.Props) => {
   const { isEmpty } = useDataGridContext();
-  if (isEmpty) return null;
 
   const {
     children = (
@@ -173,6 +155,7 @@ export const DataGridPagination = (props: DataGridPagination.Props) => {
       restProps,
     ],
   });
+  if (isEmpty) return null;
   return <>{renderElement}</>;
 };
 

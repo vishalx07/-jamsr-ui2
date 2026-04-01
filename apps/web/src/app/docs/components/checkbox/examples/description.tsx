@@ -1,17 +1,16 @@
 import { Checkbox } from "jamsrui/checkbox";
-import { Description } from "jamsrui/description";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 
 export const CheckboxDescription = () => {
   return (
-    <Checkbox>
-      <Checkbox.Control />
-      <Checkbox.Content>
-        <Label>Enable email notifications</Label>
-        <Description>
+    <Field orientation="horizontal">
+      <Checkbox />
+      <Field.Content>
+        <Field.Label>Enable email notifications</Field.Label>
+        <Field.Description>
           Receive updates and promotional offers via email.
-        </Description>
-      </Checkbox.Content>
-    </Checkbox>
+        </Field.Description>
+      </Field.Content>
+    </Field>
   );
 };

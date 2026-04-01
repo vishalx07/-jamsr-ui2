@@ -8,7 +8,6 @@ import { alertStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type AlertVariants = VariantProps<typeof alertStyles>;
 
 const AlertContext = createContext<{

@@ -18,5 +18,3 @@ export const Card = Object.assign(CardRoot, {
 export namespace Card {
   export interface Props extends CardRoot.Props {}
 }
-
-export { CardContent, CardDescription, CardFooter, CardHeader, CardTitle };

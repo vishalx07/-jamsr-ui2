@@ -4,7 +4,7 @@ import { useRenderElement } from "@jamsrui/hooks";
 
 import { useTooltipContext } from "./tooltip-context";
 
-import { UIProps } from "@jamsrui/utils";
+import type { UIProps } from "@jamsrui/utils";
 
 export const TooltipContent = (props: TooltipContent.Props) => {
   const { getContentProps } = useTooltipContext();

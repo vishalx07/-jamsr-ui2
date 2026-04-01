@@ -18,12 +18,8 @@ export const IconButtonLoading = () => {
         >
           <EmailIcon />
         </IconButton>
-        <IconButton
-          label="Loading Icon Button"
-          isLoading={isLoading}
-          loadingIcon={<CircularProgress />}
-        >
-          <EmailIcon />
+        <IconButton label="Loading Icon Button" isLoading={isLoading}>
+          {isLoading ? <CircularProgress /> : <EmailIcon />}
         </IconButton>
       </div>
       <Button onClick={() => setIsLoading(!isLoading)}>Toggle Loading</Button>

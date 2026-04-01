@@ -2,7 +2,7 @@ import { AlertDialog as AlertDialogRoot } from "./alert-dialog";
 import { AlertDialogBackdrop } from "./alert-dialog-backdrop";
 import { AlertDialogBody } from "./alert-dialog-body";
 import { AlertDialogCancel } from "./alert-dialog-cancel";
-import { AlertDialogContainer } from "./alert-dialog-container";
+import { AlertDialogPositioner } from "./alert-dialog-positioner";
 import { AlertDialogContent } from "./alert-dialog-content";
 import { AlertDialogDescription } from "./alert-dialog-description";
 import { AlertDialogFooter } from "./alert-dialog-footer";
@@ -16,7 +16,7 @@ export const AlertDialog = Object.assign(AlertDialogRoot, {
   Footer: AlertDialogFooter,
   Title: AlertDialogTitle,
   Description: AlertDialogDescription,
-  Container: AlertDialogContainer,
+  Positioner: AlertDialogPositioner,
   Cancel: AlertDialogCancel,
   Backdrop: AlertDialogBackdrop,
 });
@@ -29,7 +29,7 @@ export namespace AlertDialog {
   export interface Footer extends AlertDialogFooter.Props {}
   export interface Title extends AlertDialogTitle.Props {}
   export interface Description extends AlertDialogDescription.Props {}
-  export interface Container extends AlertDialogContainer.Props {}
+  export interface Positioner extends AlertDialogPositioner.Props {}
   export interface ContentInner extends AlertDialogContent.Props {}
   export interface Cancel extends AlertDialogCancel.Props {}
   export interface Backdrop extends AlertDialogBackdrop.Props {}

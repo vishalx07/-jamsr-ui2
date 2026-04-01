@@ -11,6 +11,6 @@ export const Pagination = Object.assign(PaginationRoot, {
 
 export namespace Pagination {
   export interface Props extends PaginationRoot.Props {}
+  export interface Item extends PaginationItem.Props {}
+  export interface Ellipsis extends PaginationEllipsis.Props {}
 }
-
-export { PaginationEllipsis, PaginationItem };

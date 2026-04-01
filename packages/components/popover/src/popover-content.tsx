@@ -1,7 +1,10 @@
 "use client";
 
-import { HTMLMotionProps, motion } from "motion/react";
+import { motion } from "motion/react";
+
 import { usePopoverContext } from "./popover-context";
+
+import type { HTMLMotionProps } from "motion/react";
 
 export const PopoverContent = (props: PopoverContent.Props) => {
   const { children, ...restProps } = props;

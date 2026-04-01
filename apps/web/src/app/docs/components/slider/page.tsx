@@ -1,7 +1,6 @@
 import { CodeExample } from "@/components/code-example";
 import { DocsPage } from "@/components/docs-page";
 import { readMetaUrl } from "@/utils/code";
-import { Text } from "jamsrui/text";
 import { Metadata } from "next";
 import SliderUsage from "./examples/usage";
 

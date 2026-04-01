@@ -21,9 +21,9 @@ import type { ComponentProps } from "react";
 
 import type { AlertDialogBody } from "./alert-dialog-body";
 import type { AlertDialogCancel } from "./alert-dialog-cancel";
-import type { AlertDialogContainer } from "./alert-dialog-container";
 import type { AlertDialogContent } from "./alert-dialog-content";
 import type { AlertDialogFooter } from "./alert-dialog-footer";
+import type { AlertDialogPositioner } from "./alert-dialog-positioner";
 import type { AlertDialogTitle } from "./alert-dialog-title";
 
 export const useAlertDialog = (props: useAlertDialog.Props) => {
@@ -64,15 +64,16 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
     setIsOpen(false);
   }, [setIsOpen]);
 
-  const getContainerProps: PropGetter<AlertDialogContainer.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": "container",
-      ref: setFloating,
-      ...getFloatingProps(),
-    }),
-    [getFloatingProps, setFloating],
-  );
+  const getPositionerProps: PropGetter<AlertDialogPositioner.Props> =
+    useCallback(
+      (props) => ({
+        ...props,
+        "data-slot": "positioner",
+        ref: setFloating,
+        ...getFloatingProps(),
+      }),
+      [getFloatingProps, setFloating],
+    );
 
   const getContentProps: PropGetter<AlertDialogContent.Props> = useCallback(
     (props) => ({
@@ -152,7 +153,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
 
   return useMemo(
     () => ({
-      getContainerProps,
+      getPositionerProps,
       getContentProps,
       getBodyProps,
       getFooterProps,
@@ -165,7 +166,7 @@ export const useAlertDialog = (props: useAlertDialog.Props) => {
       isOpen,
     }),
     [
-      getContainerProps,
+      getPositionerProps,
       getBodyProps,
       getContentProps,
       getFooterProps,

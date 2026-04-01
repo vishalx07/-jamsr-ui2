@@ -3,34 +3,49 @@ import { tv } from "tailwind-variants";
 export const alertDialogStyles = tv({
   slots: {
     header: "p-4 text-base font-bold",
-    container: "z-dialog max-w-md w-full",
-    content:
-      "relative flex size-full flex-col overflow-y-auto bg-surface shadow-lg",
-    footer: "flex w-full items-center justify-end gap-2 p-4",
-    body: "w-full p-4",
+    backdrop: [
+      "fixed inset-0 min-h-dvh transition-all  duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0 z-backdrop",
+      "supports-[-webkit-touch-callout:none]:absolute",
+    ],
+    popup: [
+      "z-dialog fixed top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2  max-w-md w-full",
+      "transition-all duration-150 data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0",
+      "bg-surface shadow-lg p-4",
+    ],
+    footer: "flex w-full items-center justify-end gap-2 pt-4",
     trigger: "",
     title: "text-foreground",
     description: "text-foreground-secondary",
-    backdrop: "z-backdrop grid place-items-center",
     cancel: "",
     action: "",
   },
   variants: {
     radius: {
       none: {
-        content: "rounded-none",
+        popup: "rounded-none",
       },
       sm: {
-        content: "rounded-sm",
+        popup: "rounded-sm",
       },
       md: {
-        content: "rounded-md",
+        popup: "rounded-md",
       },
       lg: {
-        content: "rounded-lg",
+        popup: "rounded-lg",
       },
-      full: {
-        content: "rounded-full",
+    },
+    size: {
+      sm: {
+        popup: "max-w-sm",
+      },
+      md: {
+        popup: "max-w-md",
+      },
+      lg: {
+        popup: "max-w-lg",
+      },
+      xl: {
+        popup: "max-w-xl",
       },
     },
     backdrop: {
@@ -48,5 +63,6 @@ export const alertDialogStyles = tv({
   defaultVariants: {
     backdrop: "opaque",
     radius: "md",
+    size: "md",
   },
 });

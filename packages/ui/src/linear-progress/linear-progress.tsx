@@ -8,7 +8,6 @@ import { linearProgressStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type LinearProgressVariants = VariantProps<typeof linearProgressStyles>;
 
 const LinearProgressContext = createContext<{
@@ -50,10 +49,14 @@ export namespace LinearProgress {
     extends LinearProgressUI.Props, LinearProgressVariants {}
 }
 
-export const LinearProgressBar = (props: LinearProgressUI.Bar) => {
+export const LinearProgressBar = (props: LinearProgressBar.Props) => {
   const { styles } = useLinearProgressContext();
   const { className, ...rest } = props;
   return (
     <LinearProgressUI.Bar {...rest} className={styles.bar({ className })} />
   );
 };
+
+export namespace LinearProgressBar {
+  export interface Props extends LinearProgressUI.Bar {}
+}

@@ -2,15 +2,14 @@
 
 import { createContext, use, useMemo } from "react";
 
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import { CloseIcon } from "@jamsrui/icons";
-import { Dialog as DialogUI } from "@jamsrui/react";
+import { cn } from "tailwind-variants";
 
-
-import { dialogStyles } from "./styles";
 import { IconButton } from "../icon-button";
+import { dialogStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
-
 
 type DialogVariants = VariantProps<typeof dialogStyles>;
 
@@ -44,93 +43,101 @@ export const Dialog = (props: Dialog.Props) => {
   });
   const value = useMemo(() => ({ styles }), [styles]);
   return (
-    <DialogUI {...restProps}>
-      <DialogContext value={value}>{props.children}</DialogContext>
-    </DialogUI>
+    <DialogContext value={value}>
+      <DialogPrimitive.Root {...restProps}>
+        {props.children}
+      </DialogPrimitive.Root>
+    </DialogContext>
   );
 };
 
 export namespace Dialog {
-  export interface Props extends DialogUI.Props, DialogVariants {}
+  export interface Props extends DialogPrimitive.Root.Props, DialogVariants {}
 }
 
-export const DialogTrigger = (props: DialogUI.Trigger) => {
-  return <DialogUI.Trigger {...props} />;
+export const DialogTrigger = (props: DialogPrimitive.Trigger.Props) => {
+  return <DialogPrimitive.Trigger {...props} />;
 };
 
-export const DialogContent = (props: DialogUI.Content) => {
+export const DialogContent = (props: DialogContent.Props) => {
   const { styles } = useDialogContext();
+  const { slotProps, className, ...restProps } = props;
   return (
-    <DialogUI.Portal>
-      <DialogUI.Backdrop className={styles.backdrop()}>
-        <DialogUI.Container className={styles.container()}>
-          <DialogUI.Content
-            {...props}
-            className={styles.content({ className: props.className })}
-          />
-        </DialogUI.Container>
-      </DialogUI.Backdrop>
-    </DialogUI.Portal>
-  );
-};
-
-export const DialogHeader = (props: DialogUI.Header) => {
-  const { styles } = useDialogContext();
-  return (
-    <DialogUI.Header
-      {...props}
-      className={styles.header({ className: props.className })}
-    />
-  );
-};
-
-export const DialogBody = (props: DialogUI.Body) => {
-  const { styles } = useDialogContext();
-  return (
-    <DialogUI.Body
-      {...props}
-      className={styles.body({ className: props.className })}
-    />
-  );
-};
-
-export const DialogFooter = (props: DialogUI.Footer) => {
-  const { styles } = useDialogContext();
-  return (
-    <DialogUI.Footer
-      {...props}
-      className={styles.footer({ className: props.className })}
-    />
-  );
-};
-
-export const DialogCloseButton = (props: Partial<IconButton.Props>) => {
-  const { styles } = useDialogContext();
-  return (
-    <DialogUI.CloseButton>
-      <IconButton
-        label="Close Dialog"
-        radius="full"
-        size="sm"
-        {...props}
-        className={styles.closeButton({ className: props.className })}
+    <DialogPrimitive.Portal {...slotProps?.portal}>
+      <DialogPrimitive.Backdrop
+        {...slotProps?.backdrop}
+        className={styles.backdrop({
+          className: cn(slotProps?.backdrop?.className),
+        })}
       >
-        <CloseIcon className="size-4" />
-      </IconButton>
-    </DialogUI.CloseButton>
+        <DialogPrimitive.Popup
+          {...restProps}
+          className={styles.popup({
+            className: cn(className),
+          })}
+        />
+      </DialogPrimitive.Backdrop>
+    </DialogPrimitive.Portal>
   );
 };
+export namespace DialogContent {
+  export interface Props extends DialogPrimitive.Popup.Props {
+    slotProps?: {
+      portal?: DialogPrimitive.Portal.Props;
+      backdrop?: DialogPrimitive.Backdrop.Props;
+    };
+  }
+}
 
-export const DialogCloseTrigger = (props: DialogUI.CloseTrigger) => {
-  return <DialogUI.CloseTrigger {...props} />;
-};
-
-export const DialogContainer = (props: DialogUI.Container) => {
+export const DialogHeader = (props: DialogHeader.Props) => {
   const { styles } = useDialogContext();
   return (
-    <DialogUI.Container
-      {...props}
-      className={styles.container({ className: props.className })}
+    <div {...props} className={styles.header({ className: props.className })} />
+  );
+};
+export namespace DialogHeader {
+  export interface Props extends React.ComponentProps<"div"> {}
+}
+
+export const DialogBody = (props: DialogBody.Props) => {
+  const { styles } = useDialogContext();
+  return (
+    <div {...props} className={styles.body({ className: props.className })} />
+  );
+};
+export namespace DialogBody {
+  export interface Props extends React.ComponentProps<"div"> {}
+}
+
+export const DialogFooter = (props: DialogFooter.Props) => {
+  const { styles } = useDialogContext();
+  return (
+    <div {...props} className={styles.footer({ className: props.className })} />
+  );
+};
+export namespace DialogFooter {
+  export interface Props extends React.ComponentProps<"div"> {}
+}
+
+export const DialogClose = (props: Partial<IconButton.Props>) => {
+  const { styles } = useDialogContext();
+  return (
+    <DialogPrimitive.Close
+      render={
+        <IconButton
+          label="Close Dialog"
+          radius="full"
+          size="sm"
+          {...props}
+          className={styles.closeButton({ className: cn(props.className) })}
+        >
+          <CloseIcon className="size-4" />
+        </IconButton>
+      }
     />
   );
+};
+
+export const DialogCancel = (props: DialogPrimitive.Close.Props) => {
+  return <DialogPrimitive.Close {...props} />;
 };

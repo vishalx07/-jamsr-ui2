@@ -29,8 +29,9 @@ import type {
 import type { PropGetter } from "@jamsrui/utils";
 import type { AnimatePresenceProps } from "motion/react";
 import type { ComponentProps } from "react";
-import { PopoverContainer } from "./popover-container";
-import { PopoverContent } from "./popover-content";
+
+import type { PopoverContent } from "./popover-content";
+import type { PopoverPositioner } from "./popover-positioner";
 
 export function getTransformOrigin(placement: Placement): string {
   const [side, align] = placement.split("-") as [Side, Alignment | undefined];
@@ -143,14 +144,13 @@ export const usePopover = (props: usePopover.Props) => {
     hover,
   ]);
 
-  const getContainerProps: PropGetter<PopoverContainer.Props> = useCallback(
+  const getPositionerProps: PropGetter<PopoverPositioner.Props> = useCallback(
     (props) => ({
       ...props,
       ref: refs.setFloating,
       style: floatingStyles,
       ...getFloatingProps(),
-      "data-slot": "root",
-      "data-component": "popover",
+      "data-slot": "positioner",
     }),
     [floatingStyles, getFloatingProps, refs.setFloating],
   );
@@ -225,7 +225,7 @@ export const usePopover = (props: usePopover.Props) => {
       getContentProps,
       getOverlayProps,
       getAnimatePresenceProps,
-      getContainerProps,
+      getPositionerProps,
       isDisabled,
       isAnimating,
     }),
@@ -238,7 +238,7 @@ export const usePopover = (props: usePopover.Props) => {
       showArrow,
       getOverlayProps,
       getAnimatePresenceProps,
-      getContainerProps,
+      getPositionerProps,
       isDisabled,
       isAnimating,
     ],

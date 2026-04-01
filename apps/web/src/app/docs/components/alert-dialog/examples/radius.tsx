@@ -2,13 +2,7 @@ import { AlertDialog } from "jamsrui/alert-dialog";
 import { Button } from "jamsrui/button";
 
 export const AlertDialogRadius = () => {
-  const radii: AlertDialog.Props["radius"][] = [
-    "none",
-    "sm",
-    "md",
-    "lg",
-    "full",
-  ];
+  const radii: AlertDialog.Props["radius"][] = ["none", "sm", "md", "lg"];
   return (
     <div className="flex gap-2 flex-wrap">
       {radii.map((radius) => (
@@ -17,12 +11,10 @@ export const AlertDialogRadius = () => {
             <Button>Radius {radius}</Button>
           </AlertDialog.Trigger>
           <AlertDialog.Content>
-            <AlertDialog.Body>
-              <AlertDialog.Title>Are you sure?</AlertDialog.Title>
-              <AlertDialog.Description>
-                You won't be able to revert this!
-              </AlertDialog.Description>
-            </AlertDialog.Body>
+            <AlertDialog.Title>Are you sure?</AlertDialog.Title>
+            <AlertDialog.Description>
+              You won't be able to revert this!
+            </AlertDialog.Description>
             <AlertDialog.Footer>
               <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
               <AlertDialog.Action>Confirm</AlertDialog.Action>

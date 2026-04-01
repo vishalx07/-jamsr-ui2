@@ -1,6 +1,5 @@
-import { CheckboxProps } from "@jamsrui/checkbox";
 import { Checkbox } from "jamsrui/checkbox";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 
 export const CheckboxRadius = () => {
   const radiusExamples = [
@@ -9,17 +8,15 @@ export const CheckboxRadius = () => {
     { value: "md", label: "Medium" },
     { value: "lg", label: "Large" },
     { value: "full", label: "Full" },
-  ] as { value: CheckboxProps["radius"]; label: string }[];
+  ] as { value: Checkbox.Props["radius"]; label: string }[];
 
   return (
     <div className="grid gap-4">
       {radiusExamples.map((item) => (
-        <Checkbox key={item.value} radius={item.value}>
-          <Checkbox.Control />
-          <Checkbox.Content>
-            <Label>{item.label}</Label>
-          </Checkbox.Content>
-        </Checkbox>
+        <Field key={item.value} orientation="horizontal">
+          <Checkbox radius={item.value} />
+          <Field.Label>{item.label}</Field.Label>
+        </Field>
       ))}
     </div>
   );

@@ -5,31 +5,21 @@ import { Menu } from "jamsrui/menu";
 export const MenuColors = () => {
   return (
     <Menu>
-      <Menu.Trigger>
-        <Button>
-          <ChevronUpIcon />
-          Open Me
-        </Button>
-      </Menu.Trigger>
+      <Menu.Trigger
+        render={
+          <Button>
+            <ChevronUpIcon />
+            Open Me
+          </Button>
+        }
+      />
       <Menu.Content>
-        <Menu.Item textValue="Default" color="default">
-          Default
-        </Menu.Item>
-        <Menu.Item textValue="Primary" color="primary">
-          Primary
-        </Menu.Item>
-        <Menu.Item textValue="Secondary" color="secondary">
-          Secondary
-        </Menu.Item>
-        <Menu.Item textValue="Success" color="success">
-          Success
-        </Menu.Item>
-        <Menu.Item textValue="Warning" color="warning">
-          Warning
-        </Menu.Item>
-        <Menu.Item textValue="Danger" color="danger">
-          Danger
-        </Menu.Item>
+        <Menu.Item color="default">Add to Library</Menu.Item>
+        <Menu.Item color="primary">Add to Playlist</Menu.Item>
+        <Menu.Item color="secondary">Play Next</Menu.Item>
+        <Menu.Item color="success">Play Last</Menu.Item>
+        <Menu.Item color="warning">Share</Menu.Item>
+        <Menu.Item color="danger">Delete</Menu.Item>
       </Menu.Content>
     </Menu>
   );

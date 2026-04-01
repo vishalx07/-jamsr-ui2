@@ -4,10 +4,8 @@ import { Text } from "jamsrui/text";
 
 export const DialogNonDismissible = () => {
   return (
-    <Dialog isDismissible={false} isKeyboardDismissible={false}>
-      <Dialog.Trigger>
-        <Button>Click Me!</Button>
-      </Dialog.Trigger>
+    <Dialog disablePointerDismissal>
+      <Dialog.Trigger render={<Button>Click Me!</Button>} />
       <Dialog.Content>
         <Dialog.Header>Heading</Dialog.Header>
         <Dialog.Body className="flex flex-col gap-4">
@@ -19,14 +17,10 @@ export const DialogNonDismissible = () => {
           </Text>
         </Dialog.Body>
         <Dialog.Footer>
-          <Dialog.CloseTrigger>
-            <Button variant="light" color="secondary">
-              Cancel
-            </Button>
-          </Dialog.CloseTrigger>
-          <Dialog.CloseTrigger>
-            <Button color="primary">Submit</Button>
-          </Dialog.CloseTrigger>
+          <Dialog.Cancel render={<Button>Cancel</Button>} />
+          <Button color="primary" variant="solid">
+            Submit
+          </Button>
         </Dialog.Footer>
       </Dialog.Content>
     </Dialog>

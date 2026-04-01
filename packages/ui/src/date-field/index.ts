@@ -13,6 +13,7 @@ export const DateField = Object.assign(DateFieldRoot, {
 
 export namespace DateField {
   export interface Props extends DateFieldRoot.Props {}
+  export interface Input extends DateInput.Props {}
+  export interface Segment extends DateSegment.Props {}
+  export interface Separator extends DateFieldSeparator.Props {}
 }
-
-export { DateFieldSeparator, DateInput, DateSegment };

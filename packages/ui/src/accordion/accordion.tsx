@@ -2,10 +2,12 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { Accordion as AccordionUI } from "@jamsrui/react";
+import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
+import { cn } from "tailwind-variants";
 
 import { accordionStyles } from "./styles";
 
+import type { ComponentPropsWithRef } from "react";
 import type { VariantProps } from "tailwind-variants";
 
 type AccordionVariants = VariantProps<typeof accordionStyles>;
@@ -28,56 +30,96 @@ export const Accordion = (props: Accordion.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <AccordionContext value={value}>
-      <AccordionUI {...restProps} className={styles.root({ className })} />
+      <AccordionPrimitive.Root
+        {...restProps}
+        className={styles.root({ className: cn(className) })}
+      />
     </AccordionContext>
   );
 };
 export namespace Accordion {
-  export interface Props extends AccordionUI.Props, AccordionVariants {}
+  export interface Props
+    extends AccordionPrimitive.Root.Props, AccordionVariants {}
 }
 
-export const AccordionItem = (props: AccordionUI.Item) => {
+export const AccordionItem = (props: AccordionPrimitive.Item.Props) => {
   const { styles } = useAccordionContext();
   return (
-    <AccordionUI.Item
+    <AccordionPrimitive.Item
       {...props}
-      className={styles.item({ className: props.className })}
+      className={styles.item({ className: cn(props.className) })}
     />
   );
 };
 
-export const AccordionTrigger = (props: AccordionUI.Trigger) => {
+export const AccordionTrigger = (props: AccordionTrigger.Props) => {
   const { styles } = useAccordionContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <AccordionUI.Heading
-      className={styles.heading({ className: props.className })}
+    <AccordionPrimitive.Header
+      {...slotProps?.header}
+      className={styles.heading({
+        className: cn(slotProps?.header?.className),
+      })}
     >
-      <AccordionUI.Trigger
-        {...props}
-        className={styles.trigger({ className: props.className })}
+      <AccordionPrimitive.Trigger
+        {...restProps}
+        className={styles.trigger({ className: cn(restProps.className) })}
       />
-    </AccordionUI.Heading>
+    </AccordionPrimitive.Header>
   );
 };
+export namespace AccordionTrigger {
+  export interface Props extends AccordionPrimitive.Trigger.Props {
+    slotProps?: {
+      header?: AccordionPrimitive.Header.Props;
+    };
+  }
+}
 
-export const AccordionContent = (props: AccordionUI.Content) => {
+export const AccordionContent = (props: AccordionContent.Props) => {
   const { styles } = useAccordionContext();
+  const { slotProps, ...restProps } = props;
   return (
-    <AccordionUI.Panel className={styles.panel({ className: props.className })}>
-      <AccordionUI.Content
-        {...props}
-        className={styles.content({ className: props.className })}
+    <AccordionPrimitive.Panel
+      {...slotProps?.panel}
+      className={styles.panel({ className: cn(slotProps?.panel?.className) })}
+    >
+      <div
+        {...restProps}
+        className={styles.content({ className: restProps.className })}
       />
-    </AccordionUI.Panel>
+    </AccordionPrimitive.Panel>
   );
 };
+export namespace AccordionContent {
+  export interface Props extends ComponentPropsWithRef<"div"> {
+    slotProps?: {
+      panel?: AccordionPrimitive.Panel.Props;
+    };
+  }
+}
 
-export const AccordionIndicator = (props: AccordionUI.Indicator) => {
+export const AccordionIndicator = (props: AccordionIndicator.Props) => {
   const { styles } = useAccordionContext();
+  const { children = <PlusIcon />, className, ...restProps } = props;
   return (
-    <AccordionUI.Indicator
-      {...props}
-      className={styles.indicator({ className: props.className })}
-    />
+    <div
+      {...restProps}
+      className={styles.indicator({ className: cn(className) })}
+    >
+      {children}
+    </div>
+  );
+};
+export namespace AccordionIndicator {
+  export interface Props extends ComponentPropsWithRef<"div"> {}
+}
+
+const PlusIcon = (props: React.ComponentProps<"svg">) => {
+  return (
+    <svg fill="currentcolor" viewBox="0 0 12 12" {...props}>
+      <path d="M6.75 0H5.25V5.25H0V6.75L5.25 6.75V12H6.75V6.75L12 6.75V5.25H6.75V0Z" />{" "}
+    </svg>
   );
 };

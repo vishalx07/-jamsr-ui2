@@ -4,37 +4,33 @@ import { Menu } from "jamsrui/menu";
 export const MenuNested = () => {
   return (
     <Menu>
-      <Menu.Trigger>
-        <Button>Open Me</Button>
-      </Menu.Trigger>
+      <Menu.Trigger render={<Button>Open Me</Button>} />
       <Menu.Content>
-        <Menu.Item textValue="Undo">Undo</Menu.Item>
-        <Menu.Item textValue="Info">Info</Menu.Item>
-        <Menu.Item textValue="Search">Search</Menu.Item>
-        <Menu>
-          <Menu.Trigger>
-            <Menu.Item textValue="Search">
-              Search <Menu.SubmenuIndicator />
-            </Menu.Item>
-          </Menu.Trigger>
-          <Menu.Content>
-            <Menu.Item textValue="Undo">Undo</Menu.Item>
-            <Menu.Item textValue="Info">Info</Menu.Item>
-            <Menu.Item textValue="Search">Search</Menu.Item>
-            <Menu>
-              <Menu.Trigger>
-                <Menu.Item textValue="Search">
-                  Search <Menu.SubmenuIndicator />
-                </Menu.Item>
-              </Menu.Trigger>
-              <Menu.Content>
-                <Menu.Item textValue="Undo">Undo</Menu.Item>
-                <Menu.Item textValue="Info">Info</Menu.Item>
-                <Menu.Item textValue="Search">Search</Menu.Item>
-              </Menu.Content>
-            </Menu>
-          </Menu.Content>
-        </Menu>
+        <Menu.Item>Add to Library</Menu.Item>
+        <Menu.Item>Add to Playlist</Menu.Item>
+        <Menu.Item>Play Next</Menu.Item>
+        <Menu.SubmenuRoot>
+          <Menu.SubmenuTrigger>
+            Share <Menu.SubmenuIndicator />
+          </Menu.SubmenuTrigger>
+          <Menu.SubmenuContent>
+            <Menu.Item>Facebook</Menu.Item>
+            <Menu.Item>Twitter</Menu.Item>
+            <Menu.Item>Instagram</Menu.Item>
+            <Menu.SubmenuRoot>
+              <Menu.SubmenuTrigger>
+                More <Menu.SubmenuIndicator />
+              </Menu.SubmenuTrigger>
+              <Menu.SubmenuContent>
+                <Menu.Item>Email</Menu.Item>
+                <Menu.Item>Copy Link</Menu.Item>
+              </Menu.SubmenuContent>
+            </Menu.SubmenuRoot>
+          </Menu.SubmenuContent>
+        </Menu.SubmenuRoot>
+        <Menu.Item disabled color="danger">
+          Delete
+        </Menu.Item>
       </Menu.Content>
     </Menu>
   );

@@ -1,10 +1,16 @@
 "use client";
 
+import { toastManager } from "@/app/provider/toast";
 import { Button } from "jamsrui/button";
-import { toast } from "jamsrui/toast";
 
 const ToastUsage = () => {
-  return <Button onClick={() => toast("Hello, world!")}>Press Me</Button>;
+  const handleClick = () => {
+    toastManager.add({
+      title: "Hello, world!",
+      description: "This is a toast",
+    });
+  };
+  return <Button onClick={handleClick}>Press Me</Button>;
 };
 
 export default ToastUsage;

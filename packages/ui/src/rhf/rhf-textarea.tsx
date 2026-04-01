@@ -14,7 +14,7 @@ export const RHFTextarea = (props: RHFTextarea.Props) => {
       ref={ref}
       data-invalid={dataAttr(invalid)}
       disabled={disabled}
-      isInvalid={invalid}
+      // isInvalid={invalid}
       name={name}
       onBlur={onBlur}
       onValueChange={onChange}

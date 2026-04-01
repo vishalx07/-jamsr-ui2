@@ -2,21 +2,23 @@
 
 import { dataAttr } from "@jamsrui/utils";
 
-import { useRHFContext } from "./rhf-context";
 import { Select } from "../select";
+import { useRHFContext } from "./rhf-context";
 
-export const RHFSelect = (props: RHFSelect.Props) => {
+export const RHFSelect = <Value, Multiple extends boolean | undefined = false>(
+  props: RHFSelect.Props<Value, Multiple>,
+) => {
   const { field, fieldState } = useRHFContext();
   const { value, onChange, onBlur, name, ref, disabled } = field;
   const { invalid } = fieldState;
   return (
     <Select
-      ref={ref}
+      inputRef={ref}
       data-invalid={dataAttr(invalid)}
       disabled={disabled}
       isInvalid={invalid}
       name={name}
-      onBlur={onBlur}
+      // onBlur={onBlur}
       onValueChange={onChange}
       value={value}
       {...props}
@@ -25,5 +27,8 @@ export const RHFSelect = (props: RHFSelect.Props) => {
 };
 
 export namespace RHFSelect {
-  export interface Props extends Select.Props {}
+  export type Props<
+    Value,
+    Multiple extends boolean | undefined = false,
+  > = Select.Props<Value, Multiple>;
 }

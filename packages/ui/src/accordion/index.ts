@@ -16,10 +16,3 @@ export const Accordion = Object.assign(AccordionRoot, {
 export namespace Accordion {
   export interface Props extends AccordionRoot.Props {}
 }
-
-export {
-  AccordionContent,
-  AccordionIndicator,
-  AccordionItem,
-  AccordionTrigger,
-};

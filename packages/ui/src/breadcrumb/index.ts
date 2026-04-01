@@ -12,5 +12,3 @@ export const Breadcrumb = Object.assign(BreadcrumbRoot, {
 export namespace Breadcrumb {
   export interface Props extends BreadcrumbRoot.Props {}
 }
-
-export { BreadcrumbItem, BreadcrumbSeparator };

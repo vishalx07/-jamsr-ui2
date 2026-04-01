@@ -10,7 +10,7 @@ export const sidebarStyles = tv({
       "duration-300 ease-out transition-[width]",
     ],
     container: [
-      "group fixed flex z-20 h-dvh max-h-dvh flex-col",
+      "group fixed flex z-10 h-dvh max-h-dvh flex-col",
       "transition-[left] duration-300 ease-out",
       "w-(--width) left-0",
       "group-data-[state=collapsed]:left-[calc((var(--width))*-1)]",

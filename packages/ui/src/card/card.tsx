@@ -8,7 +8,6 @@ import { cardStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type CardVariants = VariantProps<typeof cardStyles>;
 
 const CardContext = createContext<{

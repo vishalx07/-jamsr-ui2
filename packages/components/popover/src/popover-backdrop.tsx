@@ -2,8 +2,9 @@
 
 import { FloatingOverlay } from "@floating-ui/react";
 
-import { ComponentProps } from "react";
 import { usePopoverContext } from "./popover-context";
+
+import type { ComponentProps } from "react";
 
 export const PopoverBackdrop = (props: PopoverBackdrop.Props) => {
   const { getOverlayProps } = usePopoverContext();

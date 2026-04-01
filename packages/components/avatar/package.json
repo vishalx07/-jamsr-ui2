@@ -21,6 +21,7 @@
     "react": "catalog:"
   },
   "dependencies": {
+    "@base-ui/react": "catalog:",
     "@jamsrui/core": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/icons": "workspace:^",

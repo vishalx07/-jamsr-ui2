@@ -12,9 +12,7 @@ import { dataAttr, mergeProps } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import type { CheckboxContent } from "./checkbox-content";
-import type { CheckboxControl } from "./checkbox-control";
-import { CheckboxIndicator } from "./checkbox-indicator";
+import type { CheckboxIndicator } from "./checkbox-indicator";
 import type { CheckboxInput } from "./checkbox-input";
 import type { CheckboxRoot } from "./checkbox-root";
 
@@ -99,22 +97,6 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     [handleInputOnChange, isDisabled, inputRef, inputProps],
   );
 
-  const getContentProps: PropGetter<CheckboxContent.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": "content",
-    }),
-    [],
-  );
-
-  const getControlProps: PropGetter<CheckboxControl.Props> = useCallback(
-    (props) => ({
-      ...props,
-      "data-slot": "control",
-    }),
-    [],
-  );
-
   const getIndicatorProps: PropGetter<CheckboxIndicator.Props> = useCallback(
     (props) => ({
       ...props,
@@ -127,8 +109,6 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     () => ({
       getRootProps,
       getInputProps,
-      getContentProps,
-      getControlProps,
       getIndicatorProps,
       onCheckedChange,
       defaultChecked,
@@ -137,10 +117,8 @@ export const useCheckbox = (props: useCheckbox.Props) => {
     }),
     [
       defaultChecked,
-      getContentProps,
       getInputProps,
       getRootProps,
-      getControlProps,
       getIndicatorProps,
       isChecked,
       isIntermediate,

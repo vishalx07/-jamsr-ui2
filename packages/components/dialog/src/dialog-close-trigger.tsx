@@ -17,6 +17,7 @@ export const DialogCloseTrigger = (props: DialogCloseTrigger.Props) => {
   console.warn("Invalid children passed to DialogCloseTrigger");
   return null;
 };
+
 export namespace DialogCloseTrigger {
   export interface Props {
     children: React.ReactElement;

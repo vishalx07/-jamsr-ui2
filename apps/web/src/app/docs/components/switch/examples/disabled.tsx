@@ -1,13 +1,11 @@
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Switch } from "jamsrui/switch";
 
 export const SwitchDisabled = () => {
   return (
-    <Switch disabled>
-      <Switch.Control />
-      <Switch.Content>
-        <Label>Enable Notifications</Label>
-      </Switch.Content>
-    </Switch>
+    <Field orientation="horizontal">
+      <Switch disabled />
+      <Field.Label>Enable Notifications</Field.Label>
+    </Field>
   );
 };

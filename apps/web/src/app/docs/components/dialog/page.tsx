@@ -5,13 +5,11 @@ import { Metadata } from "next";
 import { DialogBackdrop } from "./examples/backdrop";
 import { DialogBordered } from "./examples/bordered";
 import { DialogCustomCloseButton } from "./examples/custom-close-button";
-import { DialogCustomized } from "./examples/customized";
 import { DialogNonDismissible } from "./examples/non-dismissible";
 import { DialogRadius } from "./examples/radius";
 import { DialogScrollBehavior } from "./examples/scroll-behavior";
 import { DialogUsage } from "./examples/usage";
-import { DialogWithoutAnimation } from "./examples/without-animation";
-import { DialogWithoutCloseButton } from "./examples/without-close-button";
+import { DialogWithClose } from "./examples/with-close";
 
 const title = "Dialog";
 const description =
@@ -34,17 +32,10 @@ const Dialog = () => {
       </CodeExample>
       <CodeExample
         isCentered
-        title="Without Animation"
-        url={resolvePath("without-animation.tsx")}
+        title="With Close"
+        url={resolvePath("with-close.tsx")}
       >
-        <DialogWithoutAnimation />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Without Close Button"
-        url={resolvePath("without-close-button.tsx")}
-      >
-        <DialogWithoutCloseButton />
+        <DialogWithClose />
       </CodeExample>
       <CodeExample
         isCentered
@@ -80,13 +71,6 @@ const Dialog = () => {
         url={resolvePath("custom-close-button.tsx")}
       >
         <DialogCustomCloseButton />
-      </CodeExample>
-      <CodeExample
-        isCentered
-        title="Customized"
-        url={resolvePath("customized.tsx")}
-      >
-        <DialogCustomized />
       </CodeExample>
     </DocsPage>
   );

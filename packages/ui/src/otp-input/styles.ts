@@ -1,10 +1,10 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const otpInputStyles = tv({
   slots: {
-    root: "relative flex gap-2 items-center group data-disabled:status-disabled",
+    root: "relative flex items-center gap-2 group data-disabled:status-disabled",
     group: "flex",
     slot: [
       "border-border relative flex items-center justify-center",
@@ -13,12 +13,7 @@ export const otpInputStyles = tv({
       "group-data-hovered:border-border-dark data-active:border-transparent data-active:outline-focus data-active:outline-2",
       "group-data-invalid:border-danger group-data-invalid:data-active:outline-danger",
     ],
-    separator: "w-4 h-1 bg-divider",
-    input: [
-      "absolute bg-transparent inset-0 size-full outline-none outline-0 border-none border-0",
-      "z-10 text-transparent selection:text-transparent selection:bg-transparent",
-      "disabled:cursor-disabled",
-    ],
+    separator: "w-4 h-1 bg-border",
     caret:
       "absolute pointer-events-none flex w-[1.5px] bg-foreground animate-caret-blink z-1",
   },

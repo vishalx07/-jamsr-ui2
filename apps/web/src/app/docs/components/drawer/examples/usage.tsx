@@ -3,27 +3,20 @@ import { Drawer } from "jamsrui/drawer";
 
 export const DrawerUsage = () => {
   return (
-    <Drawer>
-      <Drawer.Trigger>
-        <Button>Press Me!</Button>
-      </Drawer.Trigger>
+    <Drawer swipeDirection="down">
+      <Drawer.Trigger render={<Button>Press Me!</Button>} />
       <Drawer.Content>
-        <Drawer.Header>Product Filter</Drawer.Header>
-        <Drawer.Body>
-          <p className="mb-4">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque
-            laborum optio quo reiciendis odio facilis quos adipisci unde eum
-            vero perspiciatis, minima iste doloribus voluptatibus officia dicta,
-            maxime, placeat qui.
-          </p>
-        </Drawer.Body>
+        <Drawer.Bar />
+        <Drawer.Title>Product Filter</Drawer.Title>
+        <Drawer.Description>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque
+          laborum optio quo reiciendis odio facilis quos adipisci unde eum vero
+          perspiciatis, minima iste doloribus voluptatibus officia dicta,
+          maxime, placeat qui.
+        </Drawer.Description>
         <Drawer.Footer>
-          <Drawer.CloseTrigger>
-            <Button variant="light">Cancel</Button>
-          </Drawer.CloseTrigger>
-          <Drawer.CloseTrigger>
-            <Button color="success">Apply</Button>
-          </Drawer.CloseTrigger>
+          <Drawer.Close render={<Button variant="light">Cancel</Button>} />
+          <Drawer.Close render={<Button color="success">Apply</Button>} />
         </Drawer.Footer>
       </Drawer.Content>
     </Drawer>

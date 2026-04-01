@@ -7,7 +7,6 @@ import { RHFOtpInput } from "./rhf-otp-input";
 import { RHFRadioGroup } from "./rhf-radio-group";
 import { RHFSelect } from "./rhf-select";
 import { RHFSwitch } from "./rhf-switch";
-import { RHFTextField } from "./rhf-text-field";
 import { RHFTextarea } from "./rhf-textarea";
 
 export const RHFField = Object.assign(RHFFieldRoot, {
@@ -21,5 +20,8 @@ export const RHFField = Object.assign(RHFFieldRoot, {
   RadioGroup: RHFRadioGroup,
   Select: RHFSelect,
   OtpInput: RHFOtpInput,
-  TextField: RHFTextField,
 });
+
+export namespace RHFField {
+  export interface FieldError extends RHFFieldError.Props {}
+}

@@ -22,7 +22,7 @@
     "react": "catalog:"
   },
   "dependencies": {
-    "@jamsrui/context": "workspace:^",
+    "@base-ui/react": "catalog:",
     "@jamsrui/core": "workspace:^",
     "@jamsrui/hooks": "workspace:^",
     "@jamsrui/utils": "workspace:^"

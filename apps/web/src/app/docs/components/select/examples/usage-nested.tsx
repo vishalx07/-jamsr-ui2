@@ -4,25 +4,25 @@ import { Select } from "jamsrui/select";
 const SelectContent = () => {
   return (
     <Select.Content>
-      <Select.Item value="apple" textValue="Apple">
-        Apple
+      <Select.Item value="apple">
         <Select.ItemIndicator />
+        <Select.ItemText>Apple</Select.ItemText>
       </Select.Item>
-      <Select.Item value="blueberry" textValue="Blueberry">
-        Blueberry
+      <Select.Item value="blueberry">
         <Select.ItemIndicator />
+        <Select.ItemText>Blueberry</Select.ItemText>
       </Select.Item>
-      <Select.Item value="watermelon" textValue="Watermelon">
-        Watermelon
+      <Select.Item value="watermelon">
         <Select.ItemIndicator />
+        <Select.ItemText>Watermelon</Select.ItemText>
       </Select.Item>
-      <Select.Item value="banana" textValue="Banana">
-        Banana
+      <Select.Item value="banana">
         <Select.ItemIndicator />
+        <Select.ItemText>Banana</Select.ItemText>
       </Select.Item>
-      <Select.Item value="orange" textValue="Orange">
-        Orange
+      <Select.Item value="orange">
         <Select.ItemIndicator />
+        <Select.ItemText>Orange</Select.ItemText>
       </Select.Item>
     </Select.Content>
   );
@@ -30,16 +30,10 @@ const SelectContent = () => {
 
 export const SelectUsage = () => {
   return (
-    <Select
-      defaultValue="apple"
-      className="max-w-xs w-full"
-      placeholder="Select one fruit"
-    >
+    <Select defaultValue="apple">
       <Label>Fruit</Label>
-      <Select.Trigger />
-      <Select.Popover>
-        <SelectContent />
-      </Select.Popover>
+      <Select.Trigger className="min-w-40" />
+      <SelectContent />
     </Select>
   );
 };

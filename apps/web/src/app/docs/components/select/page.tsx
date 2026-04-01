@@ -4,6 +4,7 @@ import { readMetaUrl } from "@/utils/code";
 import { Metadata } from "next";
 import { SelectControlled } from "./examples/controlled";
 import { SelectControlledNumber } from "./examples/controlled-number";
+import { SelectCustomRenderMultiple } from "./examples/custom-render-multiple";
 import { SelectCustomRenderValue } from "./examples/custom-render-value";
 import { SelectDisabled } from "./examples/disabled";
 import { SelectDisabledItems } from "./examples/disabled-items";
@@ -123,6 +124,13 @@ const Select = () => {
         url={resolvePath("multiple-controlled.tsx")}
       >
         <SelectMultipleControlled />
+      </CodeExample>
+      <CodeExample
+        isCentered
+        title="Custom Render Multiple"
+        url={resolvePath("custom-render-multiple.tsx")}
+      >
+        <SelectCustomRenderMultiple />
       </CodeExample>
     </DocsPage>
   );

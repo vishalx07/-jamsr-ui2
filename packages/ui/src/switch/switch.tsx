@@ -2,7 +2,8 @@
 
 import { createContext, use } from "react";
 
-import { Switch as SwitchUI } from "@jamsrui/react";
+import { Switch as SwitchPrimitive } from "@base-ui/react/switch";
+import { cn } from "tailwind-variants";
 
 import { switchStyles } from "./styles";
 
@@ -26,50 +27,32 @@ export const Switch = (props: Switch.Props) => {
     size,
     isInvalid,
     className,
-    children = <SwitchControl />,
+    children = <SwitchThumb />,
     ...restProps
   } = props;
   const styles = switchStyles({ color, size, isInvalid });
   return (
     <SwitchContext value={{ styles }}>
-      <SwitchUI {...restProps} className={styles.root({ className })}>
+      <SwitchPrimitive.Root
+        {...restProps}
+        className={styles.root({ className: cn(className) })}
+      >
         {children}
-      </SwitchUI>
+      </SwitchPrimitive.Root>
     </SwitchContext>
   );
 };
 
 export namespace Switch {
-  export interface Props extends SwitchUI.Props, SwitchVariants {}
+  export interface Props extends SwitchPrimitive.Root.Props, SwitchVariants {}
 }
 
-export const SwitchControl = (props: SwitchUI.Track) => {
-  const { styles } = useSwitchContext();
-  const { className, children = <SwitchThumb />, ...restProps } = props;
-  return (
-    <SwitchUI.Control {...restProps} className={styles.control({ className })}>
-      <SwitchUI.Input className={styles.input()} />
-      {children}
-    </SwitchUI.Control>
-  );
-};
-
-export const SwitchThumb = (props: SwitchUI.Thumb) => {
+export const SwitchThumb = (props: SwitchPrimitive.Thumb.Props) => {
   const { styles } = useSwitchContext();
   return (
-    <SwitchUI.Thumb
+    <SwitchPrimitive.Thumb
       {...props}
-      className={styles.thumb({ className: props.className })}
-    />
-  );
-};
-
-export const SwitchContent = (props: SwitchUI.Content) => {
-  const { styles } = useSwitchContext();
-  return (
-    <SwitchUI.Content
-      {...props}
-      className={styles.content({ className: props.className })}
+      className={styles.thumb({ className: cn(props.className) })}
     />
   );
 };

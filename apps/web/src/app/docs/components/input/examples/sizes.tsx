@@ -1,22 +1,22 @@
 import { Input } from "jamsrui/input";
 import { Label } from "jamsrui/label";
-import { TextField } from "jamsrui/textfield";
+import { Field } from "jamsrui/textfield";
 
 export const InputSizes = () => {
   return (
     <div className="flex flex-col gap-4">
-      <TextField>
+      <Field>
         <Label>Small</Label>
         <Input size="sm" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Medium</Label>
         <Input size="md" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Large</Label>
         <Input size="lg" />
-      </TextField>
+      </Field>
     </div>
   );
 };

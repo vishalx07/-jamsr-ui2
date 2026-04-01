@@ -2,12 +2,12 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { Slider as SliderUI } from "@jamsrui/react";
+import { Slider as SliderPrimitive } from "@base-ui/react/slider";
+import { cn } from "tailwind-variants";
 
 import { sliderStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
-
 
 type SliderVariants = VariantProps<typeof sliderStyles>;
 
@@ -29,9 +29,9 @@ export const Slider = (props: Slider.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <SliderContext value={value}>
-      <SliderUI
+      <SliderPrimitive.Root
         {...rest}
-        className={styles.root({ className })}
+        className={styles.root({ className: cn(className) })}
         orientation={orientation}
       />
     </SliderContext>
@@ -39,55 +39,55 @@ export const Slider = (props: Slider.Props) => {
 };
 
 export namespace Slider {
-  export interface Props extends SliderUI.Props, SliderVariants {}
+  export interface Props extends SliderPrimitive.Root.Props, SliderVariants {}
 }
 
-export const SliderControl = (props: SliderUI.Control) => {
+export const SliderControl = (props: SliderPrimitive.Control.Props) => {
   const { styles } = useSliderContext();
   return (
-    <SliderUI.Control
+    <SliderPrimitive.Control
       {...props}
-      className={styles.control({ className: props.className })}
+      className={styles.control({ className: cn(props.className) })}
     />
   );
 };
 
-export const SliderTrack = (props: SliderUI.Track) => {
+export const SliderTrack = (props: SliderPrimitive.Track.Props) => {
   const { styles } = useSliderContext();
   return (
-    <SliderUI.Track
+    <SliderPrimitive.Track
       {...props}
-      className={styles.track({ className: props.className })}
+      className={styles.track({ className: cn(props.className) })}
     />
   );
 };
 
-export const SliderIndicator = (props: SliderUI.Indicator) => {
+export const SliderIndicator = (props: SliderPrimitive.Indicator.Props) => {
   const { styles } = useSliderContext();
   return (
-    <SliderUI.Indicator
+    <SliderPrimitive.Indicator
       {...props}
-      className={styles.indicator({ className: props.className })}
+      className={styles.indicator({ className: cn(props.className) })}
     />
   );
 };
 
-export const SliderThumb = (props: SliderUI.Thumb) => {
+export const SliderThumb = (props: SliderPrimitive.Thumb.Props) => {
   const { styles } = useSliderContext();
   return (
-    <SliderUI.Thumb
+    <SliderPrimitive.Thumb
       {...props}
-      className={styles.thumb({ className: props.className })}
+      className={styles.thumb({ className: cn(props.className) })}
     />
   );
 };
 
-export const SliderValue = (props: SliderUI.Value) => {
+export const SliderValue = (props: SliderPrimitive.Value.Props) => {
   const { styles } = useSliderContext();
   return (
-    <SliderUI.Value
+    <SliderPrimitive.Value
       {...props}
-      className={styles.value({ className: props.className })}
+      className={styles.value({ className: cn(props.className) })}
     />
   );
 };

@@ -1,34 +1,27 @@
 import {
-  Select as SelectRoot,
   SelectContent,
-  SelectIndicator,
+  SelectIcon,
   SelectItem,
   SelectItemIndicator,
-  SelectPopover,
+  SelectItemText,
+  SelectRoot,
   SelectTrigger,
   SelectValue,
 } from "./select";
 
 export const Select = Object.assign(SelectRoot, {
   Content: SelectContent,
-  Indicator: SelectIndicator,
+  Icon: SelectIcon,
   Item: SelectItem,
   ItemIndicator: SelectItemIndicator,
-  Popover: SelectPopover,
   Trigger: SelectTrigger,
   Value: SelectValue,
+  ItemText: SelectItemText,
 });
 
 export namespace Select {
-  export interface Props extends SelectRoot.Props {}
+  export type Props<
+    Value,
+    Multiple extends boolean | undefined = false,
+  > = SelectRoot.Props<Value, Multiple>;
 }
-
-export {
-  SelectContent,
-  SelectIndicator,
-  SelectItem,
-  SelectItemIndicator,
-  SelectPopover,
-  SelectTrigger,
-  SelectValue,
-};

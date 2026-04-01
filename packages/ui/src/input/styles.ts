@@ -1,13 +1,10 @@
 import { tv } from "tailwind-variants";
 
-import { dataFocusVisibleClasses } from "../utils/variants";
-
 import type { VariantProps } from "tailwind-variants";
 
 export const inputStyles = tv({
   base: [
     "focus:outline-none disabled:status-disabled placeholder:text-foreground-secondary bg-transparent font-normal",
-    ...dataFocusVisibleClasses,
   ],
   variants: {
     variant: {

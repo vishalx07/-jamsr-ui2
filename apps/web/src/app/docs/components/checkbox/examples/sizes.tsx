@@ -1,6 +1,5 @@
 import { Checkbox } from "jamsrui/checkbox";
-import { Description } from "jamsrui/description";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 
 export const CheckboxSizes = () => {
   const checkboxExamples = [
@@ -23,13 +22,13 @@ export const CheckboxSizes = () => {
   return (
     <div className="flex flex-col gap-4">
       {checkboxExamples.map((item) => (
-        <Checkbox key={item.size} size={item.size}>
-          <Checkbox.Control />
-          <Checkbox.Content>
-            <Label>{item.label}</Label>
-            <Description>{item.description}</Description>
-          </Checkbox.Content>
-        </Checkbox>
+        <Field key={item.size} orientation="horizontal">
+          <Checkbox size={item.size} />
+          <Field.Content>
+            <Field.Label>{item.label}</Field.Label>
+            <Field.Description>{item.description}</Field.Description>
+          </Field.Content>
+        </Field>
       ))}
     </div>
   );

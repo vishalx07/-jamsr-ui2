@@ -1,13 +1,11 @@
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Switch } from "jamsrui/switch";
 
 export const SwitchWithLabel = () => {
   return (
-    <Switch>
-      <Switch.Content>
-        <Label>This is label</Label>
-      </Switch.Content>
-      <Switch.Control />
-    </Switch>
+    <Field orientation="horizontal">
+      <Switch />
+      <Field.Label>This is label</Field.Label>
+    </Field>
   );
 };

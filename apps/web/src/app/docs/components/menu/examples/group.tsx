@@ -11,23 +11,21 @@ export const MenuGroupExample = () => {
 
   return (
     <Menu>
-      <Menu.Trigger>
-        <Button>View</Button>
-      </Menu.Trigger>
+      <Menu.Trigger render={<Button>View</Button>} />
       <Menu.Content>
         <Menu.Group>
           <Menu.GroupLabel>Sort</Menu.GroupLabel>
           <Menu.RadioGroup value={sortBy} onValueChange={setSortBy}>
-            <Menu.RadioItem textValue="date" value="date">
-              <Menu.ItemIndicator />
+            <Menu.RadioItem value="date">
+              <Menu.RadioItemIndicator />
               Date
             </Menu.RadioItem>
-            <Menu.RadioItem textValue="name" value="name">
-              <Menu.ItemIndicator />
+            <Menu.RadioItem value="name">
+              <Menu.RadioItemIndicator />
               Name
             </Menu.RadioItem>
-            <Menu.RadioItem textValue="type" value="type">
-              <Menu.ItemIndicator />
+            <Menu.RadioItem value="type">
+              <Menu.RadioItemIndicator />
               Type
             </Menu.RadioItem>
           </Menu.RadioGroup>
@@ -36,27 +34,24 @@ export const MenuGroupExample = () => {
         <Menu.Group>
           <Menu.GroupLabel>Workspace</Menu.GroupLabel>
           <Menu.CheckboxItem
-            textValue="minimap"
-            isChecked={showMinimap}
+            checked={showMinimap}
             onCheckedChange={setShowMinimap}
           >
-            <Menu.ItemIndicator />
+            <Menu.CheckboxItemIndicator />
             Minimap
           </Menu.CheckboxItem>
           <Menu.CheckboxItem
-            textValue="search"
-            isChecked={showSearch}
+            checked={showSearch}
             onCheckedChange={setShowSearch}
           >
-            <Menu.ItemIndicator />
+            <Menu.CheckboxItemIndicator />
             Search
           </Menu.CheckboxItem>
           <Menu.CheckboxItem
-            textValue="sidebar"
-            isChecked={showSidebar}
+            checked={showSidebar}
             onCheckedChange={setShowSidebar}
           >
-            <Menu.ItemIndicator />
+            <Menu.CheckboxItemIndicator />
             Sidebar
           </Menu.CheckboxItem>
         </Menu.Group>

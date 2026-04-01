@@ -16,5 +16,3 @@ export const Alert = Object.assign(AlertRoot, {
 export namespace Alert {
   export interface Props extends AlertRoot.Props {}
 }
-
-export { AlertContent, AlertDescription, AlertIcon, AlertTitle };

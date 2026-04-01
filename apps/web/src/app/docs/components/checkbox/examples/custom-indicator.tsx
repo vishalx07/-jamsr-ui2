@@ -2,21 +2,19 @@
 
 import { PlusIcon } from "@jamsrui/icons";
 import { Checkbox } from "jamsrui/checkbox";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
+import { useState } from "react";
 
 export const CheckboxCustomIndicator = () => {
+  const [checked, setChecked] = useState(false);
   return (
-    <Checkbox>
-      <Checkbox.Control>
-        <Checkbox.Indicator>
-          {({ isChecked }) =>
-            isChecked ? <PlusIcon className="size-3" /> : null
-          }
-        </Checkbox.Indicator>
-      </Checkbox.Control>
-      <Checkbox.Content>
-        <Label>Enable email notifications</Label>
-      </Checkbox.Content>
-    </Checkbox>
+    <Field orientation="horizontal">
+      <Checkbox checked={checked} onCheckedChange={setChecked}>
+        <Checkbox.Indicator>{checked ? <PlusIcon /> : null}</Checkbox.Indicator>
+      </Checkbox>
+      <Field.Content>
+        <Field.Label>Enable email notifications</Field.Label>
+      </Field.Content>
+    </Field>
   );
 };

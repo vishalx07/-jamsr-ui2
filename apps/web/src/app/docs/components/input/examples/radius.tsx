@@ -1,30 +1,30 @@
 import { Input } from "jamsrui/input";
 import { Label } from "jamsrui/label";
-import { TextField } from "jamsrui/textfield";
+import { Field } from "jamsrui/textfield";
 
 export const InputRadius = () => {
   return (
     <div className="grid gap-4">
-      <TextField>
+      <Field>
         <Label>Radius none</Label>
         <Input radius="none" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Radius sm</Label>
         <Input radius="sm" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Radius md</Label>
         <Input radius="md" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Radius lg</Label>
         <Input radius="lg" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Radius full</Label>
         <Input radius="full" />
-      </TextField>
+      </Field>
     </div>
   );
 };

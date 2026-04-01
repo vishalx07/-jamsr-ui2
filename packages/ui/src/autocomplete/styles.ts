@@ -1,35 +1,42 @@
-import { tv  } from "tailwind-variants";
+import { tv } from "tailwind-variants";
 
-import type {VariantProps} from "tailwind-variants";
+import type { VariantProps } from "tailwind-variants";
 
 export const autocompleteStyles = tv({
   slots: {
-    root: "relative w-full",
-    trigger: [
-      "flex items-center justify-between w-full",
-      "rounded-md border border-border bg-surface",
-      "px-3 py-2 text-sm",
-      "ring-offset-background",
-      "focus-within:outline-none focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2",
+    input: [
+      "w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none",
+      "placeholder:text-foreground-tertiary",
+      "focus:ring-2 focus:ring-ring focus:ring-offset-2 ring-offset-background",
       "disabled:status-disabled",
     ],
-    input: [
-      "flex-1 bg-transparent text-sm outline-none",
-      "placeholder:text-foreground-tertiary",
-      "disabled:cursor-disabled",
+    inputGroup: [
+      "flex items-center rounded-md border border-border bg-surface",
+      "focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 ring-offset-background",
     ],
-    content: [
-      "absolute z-50 mt-1 w-full overflow-hidden rounded-md border border-border bg-surface shadow-lg",
-      "max-h-60 overflow-auto",
+    trigger: [
+      "inline-flex items-center justify-center px-2 text-foreground-secondary",
+      "hover:text-foreground transition-colors",
     ],
+    clear: [
+      "inline-flex items-center justify-center px-1 text-foreground-tertiary",
+      "hover:text-foreground transition-colors",
+    ],
+    positioner: "z-popover outline-hidden",
+    popup: [
+      "relative z-popover box-border w-(--anchor-width) overflow-hidden rounded-md border border-border bg-surface shadow-lg",
+      "origin-(--transform-origin) transition-[transform,scale,opacity] data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
+    ],
+    list: "max-h-60 overflow-auto p-1",
     item: [
-      "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm",
-      "outline-none",
-      "hover:bg-surface-secondary",
+      "relative flex cursor-pointer select-none items-center gap-2 rounded-md px-2 py-1.5 text-sm outline-none",
       "data-highlighted:bg-surface-secondary",
-      "data-selected:bg-primary data-selected:text-primary-foreground",
+      "data-disabled:status-disabled",
     ],
-    empty: "py-6 text-center text-sm text-foreground-secondary",
+    empty: "py-6 text-center text-sm text-foreground-secondary empty:hidden",
+    group: "",
+    groupLabel: "px-2 py-1.5 text-xs font-medium text-foreground-secondary",
+    separator: "mx-1 my-1 h-px bg-border",
   },
 });
 

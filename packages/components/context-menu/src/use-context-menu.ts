@@ -34,10 +34,10 @@ import type {
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
-import { ContextMenuContainer } from "./context-menu-container";
 import type { ContextMenuContent } from "./context-menu-content";
 import type { ContextMenuFloatingContext } from "./context-menu-floating-context";
 import type { ContextMenuItem } from "./context-menu-item";
+import type { ContextMenuPositioner } from "./context-menu-positioner";
 
 export const useContextMenu = (props: useContextMenu.Props) => {
   const parentId = useFloatingParentNodeId();
@@ -55,7 +55,6 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     openDelay = 75,
     placement = "right-start",
     className,
-    ...restProps
   } = props;
 
   const tree = useFloatingTree();
@@ -192,6 +191,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       "data-nested": isNested,
       "data-opened": isOpen,
       onContextMenu: isNested ? undefined : handleContextMenu,
+      ...(isNested ? { preventCloseOnClick: true } : {}),
       ...getReferenceProps({
         ...parentCtx.getItemProps({
           onMouseEnter() {
@@ -232,17 +232,18 @@ export const useContextMenu = (props: useContextMenu.Props) => {
     [context, isNested],
   );
 
-  const getContainerProps: PropGetter<ContextMenuContainer.Props> = useCallback(
-    (props) => ({
-      "data-component": "menu",
-      "data-slot": "root",
-      ref: refs.setFloating,
-      style: floatingStyles,
-      ...getFloatingProps(),
-      ...props,
-    }),
-    [floatingStyles, getFloatingProps, refs.setFloating],
-  );
+  const getPositionerProps: PropGetter<ContextMenuPositioner.Props> =
+    useCallback(
+      (props) => ({
+        "data-component": "menu",
+        "data-slot": "root",
+        ref: refs.setFloating,
+        style: floatingStyles,
+        ...getFloatingProps(),
+        ...props,
+      }),
+      [floatingStyles, getFloatingProps, refs.setFloating],
+    );
 
   const getContentProps: PropGetter<ContextMenuContent.Props> = useCallback(
     (props) => props,
@@ -293,7 +294,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       getTriggerProps,
       getFloatingListProps,
       floatingCtx,
-      getContainerProps,
+      getPositionerProps,
       getMenuItemProps,
       isNested,
     }),
@@ -305,7 +306,7 @@ export const useContextMenu = (props: useContextMenu.Props) => {
       getMenuItemProps,
       getNodeProps,
       getOverlayProps,
-      getContainerProps,
+      getPositionerProps,
       getTriggerProps,
       isNested,
       isOpen,

@@ -19,7 +19,7 @@ import type { PropGetter } from "@jamsrui/utils";
 import type { ComponentProps } from "react";
 
 import type { DialogBody } from "./dialog-body";
-import type { DialogContainer } from "./dialog-container";
+import type { DialogPositioner } from "./dialog-positioner";
 import type { DialogContent } from "./dialog-content";
 import type { DialogFooter } from "./dialog-footer";
 import type { DialogHeader } from "./dialog-header";
@@ -81,10 +81,10 @@ export const useDialog = (props: useDialog.Props) => {
     [],
   );
 
-  const getContainerProps: PropGetter<DialogContainer.Props> = useCallback(
+  const getPositionerProps: PropGetter<DialogPositioner.Props> = useCallback(
     (props) => ({
       ...props,
-      "data-slot": "container",
+      "data-slot": "positioner",
       ref: setFloating,
       ...getFloatingProps(),
     }),
@@ -169,7 +169,7 @@ export const useDialog = (props: useDialog.Props) => {
       getFocusManagerProps,
       isOpen,
       hideCloseButton,
-      getContainerProps,
+      getPositionerProps,
       getCloseButtonProps,
     }),
     [
@@ -184,7 +184,7 @@ export const useDialog = (props: useDialog.Props) => {
       getFocusManagerProps,
       isOpen,
       hideCloseButton,
-      getContainerProps,
+      getPositionerProps,
       getCloseButtonProps,
     ],
   );

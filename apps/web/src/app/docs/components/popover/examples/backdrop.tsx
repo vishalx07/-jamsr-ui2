@@ -12,9 +12,7 @@ export const PopoverBackdrop = () => {
     <div className="flex flex-wrap gap-4">
       {backdrops.map((backdrop) => (
         <Popover key={backdrop} backdrop={backdrop}>
-          <Popover.Trigger>
-            <Button>{backdrop}</Button>
-          </Popover.Trigger>
+          <Popover.Trigger render={<Button>{backdrop}</Button>} />
           <Popover.Content>
             <Text>
               Popover is a non-modal dialog that floats around its disclosure.

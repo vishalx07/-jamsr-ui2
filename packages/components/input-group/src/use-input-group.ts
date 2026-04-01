@@ -12,14 +12,14 @@ import { dataAttr } from "@jamsrui/utils";
 
 import type { PropGetter, UIProps } from "@jamsrui/utils";
 
-import { useTextFieldContext } from "@jamsrui/textfield";
+import { useFieldContext } from "@jamsrui/textfield";
 import type { InputGroupPrefix } from "./input-group-prefix";
 import type { InputGroupRoot } from "./input-group-root";
 import type { InputGroupSuffix } from "./input-group-suffix";
 
 export const useInputGroup = (props: useInputGroup.Props) => {
   const { ref, ...elementProps } = props;
-  const ctx = useTextFieldContext();
+  const ctx = useFieldContext();
   const isDisabled = ctx?.isDisabled ?? false;
   const isInvalid = ctx?.isInvalid ?? false;
 

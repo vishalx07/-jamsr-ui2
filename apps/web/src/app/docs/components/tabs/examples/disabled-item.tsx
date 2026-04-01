@@ -5,18 +5,12 @@ export const TabDisabledItem = () => {
     <div className="flex flex-wrap gap-4">
       <Tabs defaultValue="photos" aria-label="Tabs variants">
         <Tabs.List>
-          <Tabs.Tab value="photos">
-            Photos
-            <Tabs.Indicator />
-          </Tabs.Tab>
+          <Tabs.Tab value="photos">Photos</Tabs.Tab>
           <Tabs.Tab value="music" disabled>
             Music
-            <Tabs.Indicator />
           </Tabs.Tab>
-          <Tabs.Tab value="videos">
-            Videos
-            <Tabs.Indicator />
-          </Tabs.Tab>
+          <Tabs.Tab value="videos">Videos</Tabs.Tab>
+          <Tabs.Indicator />
         </Tabs.List>
       </Tabs>
     </div>

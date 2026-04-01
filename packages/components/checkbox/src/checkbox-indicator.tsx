@@ -1,22 +1,38 @@
 "use client";
 
-import { useCheckboxContext } from "./checkbox-context";
+import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox";
+
 import { CheckboxIcon } from "./checkbox-icon";
 
-import type { UIProps } from "@jamsrui/utils";
+import type { CheckboxIndicatorState } from "@base-ui/react/checkbox";
 
 export const CheckboxIndicator = (props: CheckboxIndicator.Props) => {
-  const { getIndicatorProps, isChecked } = useCheckboxContext();
-  const { children = <CheckboxIcon />, ...restProps } = props;
-  const indicator =
-    typeof children === "function" ? children({ isChecked }) : children;
-  return <div {...getIndicatorProps(restProps)}>{indicator}</div>;
+  const {
+    children = (props: CheckboxIndicatorState) => <CheckboxIcon {...props} />,
+    ...restProps
+  } = props;
+  return (
+    <CheckboxPrimitive.Indicator
+      keepMounted
+      render={(props, state) => {
+        return (
+          <CheckboxPrimitive.Indicator keepMounted {...props}>
+            {typeof children === "function" ? children(state) : children}
+          </CheckboxPrimitive.Indicator>
+        );
+      }}
+      {...restProps}
+    />
+  );
 };
 
 export namespace CheckboxIndicator {
-  export interface Props extends Omit<UIProps<"div">, "children"> {
+  export interface Props extends Omit<
+    CheckboxPrimitive.Indicator.Props,
+    "children"
+  > {
     children?:
       | React.ReactNode
-      | ((state: { isChecked: boolean }) => React.ReactNode);
+      | ((state: CheckboxIndicatorState) => React.ReactNode);
   }
 }

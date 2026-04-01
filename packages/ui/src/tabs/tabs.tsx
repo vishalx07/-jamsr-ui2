@@ -2,12 +2,12 @@
 
 import { createContext, use, useMemo } from "react";
 
-import { Tabs as TabsUI } from "@jamsrui/react";
+import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
+import { cn } from "tailwind-variants";
 
 import { tabsStyles } from "./styles";
 
 import type { TabsVariants } from "./styles";
-
 
 const TabsContext = createContext<{
   styles: ReturnType<typeof tabsStyles>;
@@ -44,51 +44,53 @@ export const Tabs = (props: Tabs.Props) => {
   const value = useMemo(() => ({ styles }), [styles]);
   return (
     <TabsContext.Provider value={value}>
-      <TabsUI {...restProps} className={styles.root({ className })} />
+      <TabsPrimitive.Root
+        {...restProps}
+        className={styles.root({ className: cn(className) })}
+      />
     </TabsContext.Provider>
   );
 };
-
 export namespace Tabs {
-  export interface Props extends TabsUI.Props, TabsVariants {}
+  export interface Props extends TabsPrimitive.Root.Props, TabsVariants {}
 }
 
-export const TabList = (props: TabsUI.List) => {
+export const TabList = (props: TabsPrimitive.List.Props) => {
   const { styles } = useTabsContext();
   return (
-    <TabsUI.List
+    <TabsPrimitive.List
       {...props}
-      className={styles.list({ className: props.className })}
+      className={styles.list({ className: cn(props.className) })}
     />
   );
 };
 
-export const Tab = (props: TabsUI.Tab) => {
+export const Tab = (props: TabsPrimitive.Tab.Props) => {
   const { styles } = useTabsContext();
   return (
-    <TabsUI.Tab
+    <TabsPrimitive.Tab
       {...props}
-      className={styles.tab({ className: props.className })}
+      className={styles.tab({ className: cn(props.className) })}
     />
   );
 };
 
-export const TabIndicator = (props: TabsUI.Indicator) => {
+export const TabIndicator = (props: TabsPrimitive.Indicator.Props) => {
   const { styles } = useTabsContext();
   return (
-    <TabsUI.Indicator
+    <TabsPrimitive.Indicator
       {...props}
-      className={styles.indicator({ className: props.className })}
+      className={styles.indicator({ className: cn(props.className) })}
     />
   );
 };
 
-export const TabPanel = (props: TabsUI.Panel) => {
+export const TabPanel = (props: TabsPrimitive.Panel.Props) => {
   const { styles } = useTabsContext();
   return (
-    <TabsUI.Panel
+    <TabsPrimitive.Panel
       {...props}
-      className={styles.panel({ className: props.className })}
+      className={styles.panel({ className: cn(props.className) })}
     />
   );
 };

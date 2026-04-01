@@ -1,18 +1,18 @@
 import { Input } from "jamsrui/input";
 import { Label } from "jamsrui/label";
-import { TextField } from "jamsrui/textfield";
+import { Field } from "jamsrui/textfield";
 
 export const InputVariants = () => {
   return (
     <div className="flex flex-col gap-4">
-      <TextField>
+      <Field>
         <Label>Bordered</Label>
         <Input size="sm" variant="bordered" />
-      </TextField>
-      <TextField>
+      </Field>
+      <Field>
         <Label>Solid</Label>
         <Input size="md" variant="solid" />
-      </TextField>
+      </Field>
     </div>
   );
 };

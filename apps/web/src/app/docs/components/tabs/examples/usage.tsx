@@ -1,49 +1,40 @@
 import { Card } from "jamsrui/card";
 import { Tabs } from "jamsrui/tabs";
-import { CardContent } from "jamsrui/card";
 
 export const TabsUsage = () => {
   return (
     <Tabs defaultValue="photos">
       <Tabs.List>
-        <Tabs.Tab value="photos">
-          Photos
-          <Tabs.Indicator />
-        </Tabs.Tab>
-        <Tabs.Tab value="music">
-          Music
-          <Tabs.Indicator />
-        </Tabs.Tab>
-        <Tabs.Tab value="videos">
-          Videos
-          <Tabs.Indicator />
-        </Tabs.Tab>
+        <Tabs.Tab value="photos">Photos</Tabs.Tab>
+        <Tabs.Tab value="music">Music</Tabs.Tab>
+        <Tabs.Tab value="videos">Videos</Tabs.Tab>
+        <Tabs.Indicator />
       </Tabs.List>
       <Tabs.Panel value="photos">
         <Card>
-          <CardContent>
+          <Card.Content>
             📸 <strong>12 new photos</strong> from your weekend trip to Yosemite
             have been uploaded. Don't forget to tag your friends and add them to
             the shared album!
-          </CardContent>
+          </Card.Content>
         </Card>
       </Tabs.Panel>
       <Tabs.Panel value="music">
         <Card>
-          <CardContent>
+          <Card.Content>
             🎵 You’ve got a new playlist: <em>“Lo-Fi Evenings”</em>. Featuring
             artists like Jinsang, Eevee, and Idealism. Perfect for focusing or
             unwinding.
-          </CardContent>
+          </Card.Content>
         </Card>
       </Tabs.Panel>
       <Tabs.Panel value="videos">
         <Card>
-          <CardContent>
+          <Card.Content>
             🎬 Your recent video, <em>“How I Built a Web App in 7 Days”</em>,
             just hit <strong>10k views</strong> on YouTube! Check your channel
             insights for more stats.
-          </CardContent>
+          </Card.Content>
         </Card>
       </Tabs.Panel>
     </Tabs>

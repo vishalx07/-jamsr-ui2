@@ -6,7 +6,7 @@ import { IconButton } from "jamsrui/icon-button";
 import { InputGroup } from "jamsrui/input-group";
 import { Label } from "jamsrui/label";
 import { Textarea } from "jamsrui/textarea";
-import { TextField } from "jamsrui/textfield";
+import { Field } from "jamsrui/textfield";
 import { useState } from "react";
 
 export const TextareaControlled = () => {
@@ -14,7 +14,7 @@ export const TextareaControlled = () => {
   const onClear = () => setValue("");
   const hasValue = value.length > 0;
   return (
-    <TextField className="max-w-62 w-full">
+    <Field className="max-w-62 w-full">
       <Label>Name</Label>
       <InputGroup>
         <Textarea value={value} onValueChange={setValue} />
@@ -31,6 +31,6 @@ export const TextareaControlled = () => {
         )}
       </InputGroup>
       <Description>Your name is: {value}</Description>
-    </TextField>
+    </Field>
   );
 };

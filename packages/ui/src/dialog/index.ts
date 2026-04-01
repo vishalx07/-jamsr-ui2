@@ -1,9 +1,8 @@
 import {
   Dialog as DialogRoot,
   DialogBody,
-  DialogCloseButton,
-  DialogCloseTrigger,
-  DialogContainer,
+  DialogCancel,
+  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
@@ -16,22 +15,10 @@ export const Dialog = Object.assign(DialogRoot, {
   Header: DialogHeader,
   Body: DialogBody,
   Footer: DialogFooter,
-  CloseButton: DialogCloseButton,
-  CloseTrigger: DialogCloseTrigger,
-  Container: DialogContainer,
+  Close: DialogClose,
+  Cancel: DialogCancel,
 });
 
 export namespace Dialog {
   export interface Props extends DialogRoot.Props {}
 }
-
-export {
-  DialogBody,
-  DialogCloseButton,
-  DialogCloseTrigger,
-  DialogContainer,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTrigger,
-};

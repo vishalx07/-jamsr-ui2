@@ -5,11 +5,13 @@ import { Tooltip } from "jamsrui/tooltip";
 export const TooltipWithArrow = () => {
   return (
     <Tooltip>
-      <Tooltip.Trigger>
-        <IconButton label="Click Me!">
-          <InfoIcon width={24} height={24} />
-        </IconButton>
-      </Tooltip.Trigger>
+      <Tooltip.Trigger
+        render={
+          <IconButton label="Click Me!">
+            <InfoIcon width={24} height={24} />
+          </IconButton>
+        }
+      />
       <Tooltip.Content>
         <Tooltip.Arrow />I am tooltip
       </Tooltip.Content>

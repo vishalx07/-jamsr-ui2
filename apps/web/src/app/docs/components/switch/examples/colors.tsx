@@ -1,5 +1,4 @@
-import { Description } from "jamsrui/description";
-import { Label } from "jamsrui/label";
+import { Field } from "jamsrui/field";
 import { Switch } from "jamsrui/switch";
 
 export const SwitchColors = () => {
@@ -33,13 +32,13 @@ export const SwitchColors = () => {
   return (
     <div className="flex flex-col gap-4">
       {data.map((item) => (
-        <Switch key={item.color} color={item.color}>
-          <Switch.Control />
-          <Switch.Content>
-            <Label className="capitalize">{item.color}</Label>
-            <Description>{item.description}</Description>
-          </Switch.Content>
-        </Switch>
+        <Field key={item.color} orientation="horizontal">
+          <Switch color={item.color} />
+          <Field.Content>
+            <Field.Label className="capitalize">{item.color}</Field.Label>
+            <Field.Description>{item.description}</Field.Description>
+          </Field.Content>
+        </Field>
       ))}
     </div>
   );

@@ -1,23 +1,22 @@
+import { Field } from "jamsrui/field";
 import { Input } from "jamsrui/input";
 import { InputGroup } from "jamsrui/input-group";
-import { Label } from "jamsrui/label";
-import { TextField } from "jamsrui/textfield";
 
 export const InputDisabled = () => {
   return (
     <div className="flex flex-col gap-4">
-      <TextField disabled>
-        <Label>Enter your name</Label>
+      <Field disabled>
+        <Field.Label>Enter your name</Field.Label>
         <Input />
-      </TextField>
-      <TextField disabled>
-        <Label>Enter your name</Label>
+      </Field>
+      <Field disabled>
+        <Field.Label>Enter your name</Field.Label>
         <InputGroup>
           <InputGroup.Prefix>https://</InputGroup.Prefix>
           <Input />
           <InputGroup.Suffix>.com</InputGroup.Suffix>
         </InputGroup>
-      </TextField>
+      </Field>
     </div>
   );
 };

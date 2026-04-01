@@ -8,7 +8,6 @@ import { circularProgressStyles } from "./styles";
 
 import type { VariantProps } from "tailwind-variants";
 
-
 type CircularProgressVariants = VariantProps<typeof circularProgressStyles>;
 
 const CircularProgressContext = createContext<{
@@ -54,7 +53,7 @@ export namespace CircularProgress {
     extends Omit<CircularProgressUI.Props, "color">, CircularProgressVariants {}
 }
 
-export const CircularProgressTrack = (props: CircularProgressUI.Track) => {
+export const CircularProgressTrack = (props: CircularProgressTrack.Props) => {
   const { styles } = useCircularProgressContext();
   return (
     <CircularProgressUI.Track
@@ -65,7 +64,7 @@ export const CircularProgressTrack = (props: CircularProgressUI.Track) => {
 };
 
 export const CircularProgressProgress = (
-  props: CircularProgressUI.Progress,
+  props: CircularProgressProgress.Props,
 ) => {
   const { styles } = useCircularProgressContext();
   return (
@@ -76,7 +75,7 @@ export const CircularProgressProgress = (
   );
 };
 
-export const CircularProgressLabel = (props: CircularProgressUI.Label) => {
+export const CircularProgressLabel = (props: CircularProgressLabel.Props) => {
   const { styles } = useCircularProgressContext();
   return (
     <CircularProgressUI.Label
@@ -85,3 +84,15 @@ export const CircularProgressLabel = (props: CircularProgressUI.Label) => {
     />
   );
 };
+
+export namespace CircularProgressTrack {
+  export interface Props extends CircularProgressUI.Track {}
+}
+
+export namespace CircularProgressProgress {
+  export interface Props extends CircularProgressUI.Progress {}
+}
+
+export namespace CircularProgressLabel {
+  export interface Props extends CircularProgressUI.Label {}
+}

@@ -21,7 +21,7 @@ import type { DrawerBody } from "./drawer-body";
 import type { DrawerContent } from "./drawer-content";
 import type { DrawerFooter } from "./drawer-footer";
 import type { DrawerHeader } from "./drawer-header";
-import type { DrawerPopover } from "./drawer-popover";
+import type { DrawerPositioner } from "./drawer-positioner";
 
 type Anchor = "left" | "right" | "top" | "bottom";
 
@@ -90,7 +90,7 @@ export const useDrawer = (props: useDrawer.Props) => {
     [],
   );
 
-  const getPopoverProps: PropGetter<DrawerPopover.Props> = useCallback(
+  const getPositionerProps: PropGetter<DrawerPositioner.Props> = useCallback(
     (props) => ({
       ...props,
       "data-slot": "popover",
@@ -184,7 +184,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       getTriggerProps,
       getTriggerCloseProps,
       isOpen,
-      getPopoverProps,
+      getPositionerProps,
       hideCloseButton,
       anchor,
     }),
@@ -198,7 +198,7 @@ export const useDrawer = (props: useDrawer.Props) => {
       getTriggerProps,
       getTriggerCloseProps,
       isOpen,
-      getPopoverProps,
+      getPositionerProps,
       hideCloseButton,
       anchor,
     ],
