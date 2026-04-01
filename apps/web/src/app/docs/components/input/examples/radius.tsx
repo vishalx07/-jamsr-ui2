@@ -13,18 +13,18 @@ export const InputRadius = () => {
         <Field.Label>Radius sm</Field.Label>
         <Input radius="sm" />
       </Field>
-      <Field.Label>
-        <Label>Radius md</Label>
+      <Field>
+        <Field.Label>Radius md</Field.Label>
         <Input radius="md" />
-      </Field.Label>
-      <Field.Label>
-        <Label>Radius lg</Label>
+      </Field>
+      <Field>
+        <Field.Label>Radius lg</Field.Label>
         <Input radius="lg" />
-      </Field.Label>
-      <Field.Label>
-        <Label>Radius full</Label>
+      </Field>
+      <Field>
+        <Field.Label>Radius full</Field.Label>
         <Input radius="full" />
-      </Field.Label>
+      </Field>
     </div>
   );
 };
