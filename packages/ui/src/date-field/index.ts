@@ -17,5 +17,3 @@ export namespace DateField {
   export interface Segment extends DateSegment.Props {}
   export interface Separator extends DateFieldSeparator.Props {}
 }
-
-export { DateFieldSeparator, DateInput, DateSegment };

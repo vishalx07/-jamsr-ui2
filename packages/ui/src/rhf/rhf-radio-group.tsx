@@ -11,7 +11,7 @@ export const RHFRadioGroup = (props: RHFRadioGroup.Props) => {
     <RadioGroup
       ref={ref}
       disabled={disabled}
-      isInvalid={invalid}
+      // isInvalid={invalid}
       name={name}
       onBlur={onBlur}
       onValueChange={onChange}

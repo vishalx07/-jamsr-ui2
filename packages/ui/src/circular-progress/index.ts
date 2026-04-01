@@ -11,12 +11,6 @@ export const CircularProgress = Object.assign(CircularProgressRoot, {
   Progress: CircularProgressProgress,
 });
 
-export {
-  CircularProgressLabel,
-  CircularProgressProgress,
-  CircularProgressTrack,
-};
-
 export namespace CircularProgress {
   export interface Props extends CircularProgressRoot.Props {}
   export interface Label extends CircularProgressLabel.Props {}

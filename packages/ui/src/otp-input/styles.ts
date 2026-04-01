@@ -13,7 +13,7 @@ export const otpInputStyles = tv({
       "group-data-hovered:border-border-dark data-active:border-transparent data-active:outline-focus data-active:outline-2",
       "group-data-invalid:border-danger group-data-invalid:data-active:outline-danger",
     ],
-    separator: "w-4 h-1 bg-divider",
+    separator: "w-4 h-1 bg-border",
     caret:
       "absolute pointer-events-none flex w-[1.5px] bg-foreground animate-caret-blink z-1",
   },

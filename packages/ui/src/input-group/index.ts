@@ -14,5 +14,3 @@ export namespace InputGroup {
   export interface Prefix extends InputGroupPrefix.Props {}
   export interface Suffix extends InputGroupSuffix.Props {}
 }
-
-export { InputGroupPrefix, InputGroupSuffix };

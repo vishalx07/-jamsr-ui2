@@ -14,5 +14,3 @@ export namespace Pagination {
   export interface Item extends PaginationItem.Props {}
   export interface Ellipsis extends PaginationEllipsis.Props {}
 }
-
-export { PaginationEllipsis, PaginationItem };

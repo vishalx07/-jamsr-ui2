@@ -17,5 +17,3 @@ export const RadioGroup = RadioGroupRoot;
 export namespace RadioGroup {
   export interface Props extends RadioGroupRoot.Props {}
 }
-
-export { RadioIndicator };

@@ -41,7 +41,7 @@ export namespace Alert {
   export interface Props extends AlertUI.Props, AlertVariants {}
 }
 
-export const AlertContent = (props: AlertContent.Props) => {
+export const AlertContent = (props: AlertUI.Content) => {
   const { styles } = useAlertContext();
   return (
     <AlertUI.Content
@@ -51,7 +51,7 @@ export const AlertContent = (props: AlertContent.Props) => {
   );
 };
 
-export const AlertIcon = (props: AlertIcon.Props) => {
+export const AlertIcon = (props: AlertUI.Icon) => {
   const { styles } = useAlertContext();
   return (
     <AlertUI.Icon
@@ -61,7 +61,7 @@ export const AlertIcon = (props: AlertIcon.Props) => {
   );
 };
 
-export const AlertTitle = (props: AlertTitle.Props) => {
+export const AlertTitle = (props: AlertUI.Title) => {
   const { styles } = useAlertContext();
   return (
     <AlertUI.Title
@@ -71,7 +71,7 @@ export const AlertTitle = (props: AlertTitle.Props) => {
   );
 };
 
-export const AlertDescription = (props: AlertDescription.Props) => {
+export const AlertDescription = (props: AlertUI.Description) => {
   const { styles } = useAlertContext();
   return (
     <AlertUI.Description
@@ -80,19 +80,3 @@ export const AlertDescription = (props: AlertDescription.Props) => {
     />
   );
 };
-
-export namespace AlertContent {
-  export interface Props extends AlertUI.Content {}
-}
-
-export namespace AlertIcon {
-  export interface Props extends AlertUI.Icon {}
-}
-
-export namespace AlertTitle {
-  export interface Props extends AlertUI.Title {}
-}
-
-export namespace AlertDescription {
-  export interface Props extends AlertUI.Description {}
-}

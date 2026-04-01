@@ -21,11 +21,4 @@ export namespace OtpInput {
   export interface Separator extends OtpInputSeparator.Props {}
 }
 
-export {
-  OtpInputGroup,
-  OtpInputSeparator,
-  OtpInputSlot,
-  REGEXP_ONLY_CHARS,
-  REGEXP_ONLY_DIGITS,
-  REGEXP_ONLY_DIGITS_AND_CHARS,
-};
+export { REGEXP_ONLY_CHARS, REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS };

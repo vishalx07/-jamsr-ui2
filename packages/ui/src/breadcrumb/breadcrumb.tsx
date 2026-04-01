@@ -36,7 +36,9 @@ export namespace Breadcrumb {
 }
 
 export namespace BreadcrumbItem {
-  export interface Props extends BreadcrumbUI.Item & { isCurrent?: boolean } {}
+  export interface Props extends BreadcrumbUI.Item {
+    isCurrent?: boolean;
+  }
 }
 
 export namespace BreadcrumbSeparator {

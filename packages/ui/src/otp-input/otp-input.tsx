@@ -65,25 +65,18 @@ export const OtpInput = (props: OtpInputRootProps) => {
 
   return (
     <OtpInputStyleContext value={ctxValue}>
-      <div
-        className="group contents"
-        data-disabled={disabled || undefined}
-        data-hovered=""
-        data-invalid={isInvalid || undefined}
+      <OTPInput
+        {...rest}
+        ref={ref}
+        containerClassName={rootClassName}
+        disabled={disabled}
+        onChange={(newValue) => {
+          onChange?.(newValue);
+          onValueChange?.(newValue);
+        }}
       >
-        <OTPInput
-          {...rest}
-          ref={ref}
-          containerClassName={rootClassName}
-          disabled={disabled}
-          onChange={(newValue) => {
-            onChange?.(newValue);
-            onValueChange?.(newValue);
-          }}
-        >
-          <button> {children}</button>
-        </OTPInput>
-      </div>
+        {children}
+      </OTPInput>
     </OtpInputStyleContext>
   );
 };

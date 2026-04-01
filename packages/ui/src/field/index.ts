@@ -14,3 +14,7 @@ export const Field = Object.assign(FieldRoot, {
   Label: FieldLabel,
   Content: FieldContent,
 });
+
+export namespace Field {
+  export type Props = FieldRoot.Props;
+}
