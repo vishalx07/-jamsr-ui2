@@ -113,6 +113,10 @@ export { useSidebarContext, useSidebarState };
 export const SidebarStateProvider: typeof SidebarUI.StateProvider =
   SidebarUI.StateProvider;
 
+export namespace Sidebar {
+  export interface Props extends SidebarUI.Props {}
+}
+
 export namespace SidebarWrapper {
   export interface Props extends SidebarUI.Wrapper {}
 }

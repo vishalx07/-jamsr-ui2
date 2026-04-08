@@ -52,7 +52,13 @@ export namespace Menu {
 }
 
 export const MenuTrigger = (props: MenuPrimitive.Trigger.Props) => {
-  return <MenuPrimitive.Trigger {...props} />;
+  const { styles } = useMenuContext();
+  return (
+    <MenuPrimitive.Trigger
+      {...props}
+      className={styles.menuTrigger({ className: cn(props.className) })}
+    />
+  );
 };
 
 export const MenuContent = (props: MenuContent.Props) => {
@@ -130,7 +136,13 @@ export const MenuGroupLabel = (props: MenuPrimitive.GroupLabel.Props) => {
 };
 
 export const MenuSeparator = (props: MenuPrimitive.Separator.Props) => {
-  return <MenuPrimitive.Separator {...props} />;
+  const { styles } = useMenuContext();
+  return (
+    <MenuPrimitive.Separator
+      {...props}
+      className={styles.menuSeparator({ className: cn(props.className) })}
+    />
+  );
 };
 
 export const MenuCheckboxItem = (props: MenuPrimitive.CheckboxItem.Props) => {

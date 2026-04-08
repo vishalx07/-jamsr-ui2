@@ -2,6 +2,7 @@ import { tv } from "tailwind-variants";
 
 export const menuStyles = tv({
   slots: {
+    menuTrigger: "flex",
     arrow: [
       "text-surface",
       "data-[side=bottom]:-top-2 data-[side=left]:-right-3.25 data-[side=left]:rotate-90 data-[side=right]:-left-3.25 data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180",
@@ -12,7 +13,7 @@ export const menuStyles = tv({
     ],
     positioner: "z-popover outline-hidden",
     popup: [
-      "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md",
+      "relative z-popover box-border inline-flex w-full flex-col justify-center bg-surface p-1 text-sm shadow-md outline-none",
       "shadow-lg",
       "origin-(--transform-origin) transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0",
     ],
@@ -20,6 +21,7 @@ export const menuStyles = tv({
       "relative box-border flex size-full select-none items-center gap-2 px-2 py-1.5 text-left outline-none data-disabled:status-disabled",
       "data-active:bg-surface-secondary",
     ],
+    menuSeparator: "border-t border-border",
     menuGroup: [""],
     menuGroupLabel: "pl-2 text-foreground-secondary py-1",
     submenuIndicator: "ml-auto size-4",
