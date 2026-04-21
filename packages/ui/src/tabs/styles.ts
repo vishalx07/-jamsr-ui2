@@ -24,7 +24,7 @@ export const tabsStyles = tv({
     ],
     tab: [
       "z-0 text-foreground-secondary",
-      "w-full",
+      "w-full text-nowrap",
       "px-3",
       "py-1",
       "flex flex-row items-center justify-center gap-2",
